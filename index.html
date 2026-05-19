@@ -2021,7 +2021,7 @@ if (filterCategories.length > 0) {
                 updateFilterBarUI();
             }
 
-            function updateTypeButtonCounts() {
+           function updateTypeButtonCounts() {
     document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
         const type = btn.dataset.type;
         const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
@@ -2042,43 +2042,52 @@ if (filterCategories.length > 0) {
             }
             return item.types.includes(type);
         }).length;
-        btn.innerHTML = `${type} <span class="item-count">(${count})</span>`;
+        const countSpan = btn.querySelector('.item-count');
+        if (countSpan) {
+            countSpan.textContent = `(${count})`;
+        } else {
+            btn.innerHTML = `${type} <span class="item-count">(${count})</span>`;
+        }
     });
 }
+function updateFilterBarUI() {
+    document.querySelectorAll('.category-btn').forEach(b => {
+        b.classList.toggle('active', filterCategories.includes(b.dataset.category));
+    });
+    const categoryCount = document.getElementById('category-count');
+    categoryCount.textContent = filterCategories.length;
+    categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
 
-            function updateFilterBarUI() {
-                document.querySelectorAll('.category-btn').forEach(b => {
-    b.classList.toggle('active', filterCategories.includes(b.dataset.category));
-});
-const categoryCount = document.getElementById('category-count');
-categoryCount.textContent = filterCategories.length;
-categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
-                document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active',
-                    filterClasses.includes(b.dataset.class)));
-                document.querySelectorAll('#type-dropdown .type-btn').forEach(b => b.classList.toggle('active',
-                    filterTypes.includes(b.dataset.type)));
-                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active',
-                    filterStats.includes(b.dataset.stat)));
-                const classCount = document.getElementById('class-count');
-                classCount.textContent = filterClasses.length;
-                classCount.style.display = filterClasses.length ? 'inline' : 'none';
-                const typeCount = document.getElementById('type-count');
-                typeCount.textContent = filterTypes.length;
-                typeCount.style.display = filterTypes.length ? 'inline' : 'none';
-                const statCount = document.getElementById('stat-count');
-                statCount.textContent = filterStats.length;
-                statCount.style.display = filterStats.length ? 'inline' : 'none';
-                updateTypeButtonCounts();
-                const clearBtn = document.getElementById('clear-all-btn');
-if (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) {
-    clearBtn.style.display = 'none';
-} else {
-    clearBtn.style.display = '';
+    updateTypeButtonCounts();
+
+    document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active',
+        filterClasses.includes(b.dataset.class)));
+    document.querySelectorAll('#type-dropdown .type-btn').forEach(b => b.classList.toggle('active',
+        filterTypes.includes(b.dataset.type)));
+    document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active',
+        filterStats.includes(b.dataset.stat)));
+
+    const classCount = document.getElementById('class-count');
+    classCount.textContent = filterClasses.length;
+    classCount.style.display = filterClasses.length ? 'inline' : 'none';
+    const typeCount = document.getElementById('type-count');
+    typeCount.textContent = filterTypes.length;
+    typeCount.style.display = filterTypes.length ? 'inline' : 'none';
+    const statCount = document.getElementById('stat-count');
+    statCount.textContent = filterStats.length;
+    statCount.style.display = filterStats.length ? 'inline' : 'none';
+
+    const clearBtn = document.getElementById('clear-all-btn');
+    if (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) {
+        clearBtn.style.display = 'none';
+    } else {
+        clearBtn.style.display = '';
+    }
+
+    const toggleBtn = document.getElementById('stat-match-toggle');
+    toggleBtn.textContent = statMatchMode === 'all' ? 'Match: ALL' : 'Match: ANY';
+    toggleBtn.setAttribute('data-mode', statMatchMode);
 }
-                const toggleBtn = document.getElementById('stat-match-toggle');
-                toggleBtn.textContent = statMatchMode === 'all' ? 'Match: ALL' : 'Match: ANY';
-                toggleBtn.setAttribute('data-mode', statMatchMode);
-            }
 
             function toggleFilter(type, value) {
                 if (type === 'class') { const idx = filterClasses.indexOf(value);
