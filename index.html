@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+	<link rel="icon" href="images/Ah.png">
+	
     <style>
         :root {
     --bg: #0d0f13;
@@ -142,6 +144,10 @@ body {
     cursor:pointer; transition:all var(--transition); font-family:var(--font); white-space:nowrap;
 }
 .stat-match-toggle:hover { background:var(--surface2); color:var(--text); border-color:#555; }
+.container {
+    padding-left: 1%;
+    padding-right: 1%;
+}
 .class-btn[data-class="warrior"].active { background: rgba(201, 66, 66, 0.35); border-color: #ff4040; color: #ff8080; box-shadow: 0 0 12px rgba(201, 66, 66, 0.4); }
 .class-btn[data-class="rogue"].active { background: rgba(201, 164, 75, 0.35); border-color: #e0b840; color: #fddd80; box-shadow: 0 0 12px rgba(201, 164, 75, 0.4); }
 .class-btn[data-class="mage"].active { background: rgba(123, 94, 204, 0.35); border-color: #9060f0; color: #c0a0ff; box-shadow: 0 0 12px rgba(123, 94, 204, 0.4); }
@@ -260,7 +266,7 @@ body {
     letter-spacing:0.07em; color:var(--text-dim); border-bottom:1px solid var(--border); font-weight:600;
 }
 .loot-table tbody td {
-    padding:10px 8px; border-bottom:1px solid rgba(255,255,255,0.08); vertical-align:top;
+    padding:14px 10px; border-bottom:1px solid rgba(255,255,255,0.08); vertical-align:top;
 }
 .loot-table tbody tr.item-main-row.striped { background:rgba(255,255,255,0.02); }
 .loot-table tbody tr { transition:background var(--transition); }
