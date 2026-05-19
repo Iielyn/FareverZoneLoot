@@ -448,6 +448,37 @@
             color: #f9a8d4;
             box-shadow: 0 0 10px rgba(244, 114, 182, 0.35);
         }
+        .category-btn[data-category="weapons"].active {
+    background: rgba(201, 164, 75, 0.25);
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: 0 0 10px rgba(201, 164, 75, 0.35);
+}
+.category-btn[data-category="armor"].active {
+    background: rgba(59, 130, 246, 0.20);
+    border-color: var(--rarity-blue);
+    color: #93c5fd;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
+}
+.category-btn {
+    cursor: pointer;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 20px;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-dim);
+    transition: all var(--transition);
+    font-family: var(--font);
+}
+.category-btn:hover {
+    background: var(--surface2);
+    color: var(--text);
+    border-color: #555;
+}
         .stat-btn[data-stat="Armor"].active {
             background: rgba(156, 163, 175, 0.20);
             border-color: #9ca3af;
@@ -1586,6 +1617,17 @@
                 <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
                 <div class="filter-dropdown" id="type-dropdown"></div>
             </div>
+            <div class="filter-group-wrapper" id="category-wrapper">
+    <div class="filter-group-header">
+        <span class="arrow">▼</span>
+        <span class="label">Category</span>
+        <span class="active-count" id="category-count" style="display:none">0</span>
+    </div>
+    <div class="filter-dropdown" id="category-dropdown">
+        <button class="filter-btn category-btn" data-category="weapons">Weapons</button>
+        <button class="filter-btn category-btn" data-category="armor">Armor</button>
+    </div>
+</div>
             <button class="stat-match-toggle" id="stat-match-toggle" data-mode="all">Match: ALL</button>
             <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear</button>
         </div>
@@ -1648,6 +1690,7 @@
             let filterStats = [];
             let statMatchMode = 'all';
             let searchQuery = '';
+            let filterCategory = null;
             const allItemsMap = new Map();
             const escapeHtml = str => str ? str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
                 .replace(/"/g, '&quot;').replace(/'/g, '&#39;') : '';
@@ -1668,16 +1711,28 @@
             const hasAbilities = item => item.skill1 || item.skill2 || item.skill3 || item.passive;
             const hasTrinketPassive = item => item.trinketPassive && item.trinketPassive.trim() !== '';
             const getTypeColorClass = type => type ? 'type-color-' + toSlug(type) : '';
-            const itemPassesFilter = item => {
-                if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
-                if (filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
-                if (filterStats.length) {
-                    if (statMatchMode === 'all') { if (!filterStats.every(s => item.stats.includes(s)))
-                    return false; } else { if (!filterStats.some(s => item.stats.includes(s))) return false; }
-                }
-                if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-                return true;
-            };
+const itemPassesFilter = item => {
+    // New category check
+    if (filterCategory) {
+        if (filterCategory === 'weapons') {
+            if (!item.types.some(t => WEAPON_TYPES.includes(t))) return false;
+        } else if (filterCategory === 'armor') {
+            if (!item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket')) return false;
+        }
+    }
+
+    if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
+    if (filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
+    if (filterStats.length) {
+        if (statMatchMode === 'all') {
+            if (!filterStats.every(s => item.stats.includes(s))) return false;
+        } else {
+            if (!filterStats.some(s => item.stats.includes(s))) return false;
+        }
+    }
+    if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+    return true;
+};
 
             function addDefaultsAndIds(serverData) {
                 const zones = serverData.zones.map(zone => {
@@ -1988,6 +2043,12 @@
             }
 
             function updateFilterBarUI() {
+                document.querySelectorAll('.category-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.category === filterCategory);
+});
+const categoryCount = document.getElementById('category-count');
+categoryCount.textContent = filterCategory ? 1 : 0;
+categoryCount.style.display = filterCategory ? 'inline' : 'none';
                 document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active',
                     filterClasses.includes(b.dataset.class)));
                 document.querySelectorAll('#type-dropdown .type-btn').forEach(b => b.classList.toggle('active',
@@ -2005,8 +2066,11 @@
                 statCount.style.display = filterStats.length ? 'inline' : 'none';
                 updateTypeButtonCounts();
                 const clearBtn = document.getElementById('clear-all-btn');
-                if (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !
-                    searchQuery) { clearBtn.style.display = 'none'; } else { clearBtn.style.display = ''; }
+if (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && !filterCategory) {
+    clearBtn.style.display = 'none';
+} else {
+    clearBtn.style.display = '';
+}
                 const toggleBtn = document.getElementById('stat-match-toggle');
                 toggleBtn.textContent = statMatchMode === 'all' ? 'Match: ALL' : 'Match: ANY';
                 toggleBtn.setAttribute('data-mode', statMatchMode);
@@ -2021,10 +2085,15 @@
                     idx === -1 ? filterStats.push(value) : filterStats.splice(idx, 1); }
                 renderAll();
             }
+            function toggleCategory(category) {
+    filterCategory = (filterCategory === category) ? null : category;
+    renderAll();
+}
             window.clearAllFilters = function() { filterClasses = [];
                 filterTypes = [];
                 filterStats = [];
                 searchQuery = '';
+                filterCategory = null;                                 
                 document.getElementById('search-input').value = '';
                 renderAll();
                 showToast('All filters cleared'); };
@@ -2165,6 +2234,12 @@
                     btn.textContent = stat;
                     btn.addEventListener('click', () => toggleFilter('stat', stat));
                     statContainer.appendChild(btn); });
+                document.querySelectorAll('.category-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const category = btn.dataset.category;
+        toggleCategory(category);
+    });
+});
             }
 
             function setupFilterDropdowns() {
