@@ -1,5 +1,5 @@
 {
-"version": "v91",
+"version": "v92",
   "zones": [
     {
       "name": "Meridion",
@@ -402,6 +402,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Nep.r.head20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 6,
@@ -559,6 +560,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Nep.r.hands20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -584,6 +586,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Nep.r.m.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -738,6 +741,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Nep.r.feet20.png",
               "statValues": {
                 "Armor": 128,
                 "Vitality": 5,
@@ -854,6 +858,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -878,6 +883,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -955,6 +961,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.m.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -979,6 +986,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.back20.png",
               "statValues": {
                 "Armor": 53,
                 "Vitality": 3,
@@ -1001,6 +1009,7 @@
                 "Faith"
               ],
               "rare": false,
+              "image": "images/Rats.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -1025,6 +1034,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.p.waist20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -1048,6 +1058,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.belt20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -1073,6 +1084,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.p.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -1100,6 +1112,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.w.r.feet20.png",
               "statValues": {
                 "Armor": 161,
                 "Vitality": 5,
@@ -1126,6 +1139,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Kobold.w.p.head.png",
               "statValues": {
                 "Armor": 168,
                 "Vitality": 8,
@@ -1152,6 +1166,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/H-Gorgon.m.p.head.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -1179,6 +1194,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -1203,6 +1219,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.shoulders20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 6,
@@ -1225,6 +1242,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -1247,6 +1265,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -1272,6 +1291,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.w.m.cape20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -1296,6 +1316,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -1321,6 +1342,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.m.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -1348,6 +1370,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -1375,6 +1398,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Kob.r.p.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -1402,6 +1426,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.m.legs20.png",
               "statValues": {
                 "Armor": 151,
                 "Vitality": 7,
@@ -1426,6 +1451,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.legs20.png",
               "statValues": {
                 "Armor": 265,
                 "Vitality": 8,
@@ -1448,6 +1474,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -1919,6 +1946,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Nep.r.m.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -1943,6 +1971,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Nep.r.hands20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -1965,6 +1994,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Nep.r.feet20.png",
               "statValues": {
                 "Armor": 128,
                 "Vitality": 5,
@@ -2086,6 +2116,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Nep.r.head20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 6,
@@ -2272,6 +2303,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.p.waist20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -2295,6 +2327,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.legs20.png",
               "statValues": {
                 "Armor": 265,
                 "Vitality": 8,
@@ -2364,6 +2397,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.m.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -2391,6 +2425,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.w.m.cape20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -2415,6 +2450,7 @@
                 "Faith"
               ],
               "rare": false,
+              "image": "images/Rats.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -2440,6 +2476,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.p.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -2464,6 +2501,7 @@
                 "Faith"
               ],
               "rare": false,
+              "image": "images/Rats.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -2486,6 +2524,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.shoulders20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 6,
@@ -2511,6 +2550,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.w.r.feet20.png",
               "statValues": {
                 "Armor": 161,
                 "Vitality": 5,
@@ -2538,6 +2578,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.m.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -2562,6 +2603,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -2587,6 +2629,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -2614,6 +2657,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -2638,6 +2682,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.back20.png",
               "statValues": {
                 "Armor": 53,
                 "Vitality": 3,
@@ -2663,6 +2708,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Kob.r.p.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -2687,6 +2733,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -2708,7 +2755,8 @@
                 "Dexterity",
                 "Armor Penetration"
               ],
-              "rare": false
+              "rare": false,
+              "image": "images/Kob.r.belt20.png"
             },
             {
               "name": "Armored Docker Cap",
@@ -2727,6 +2775,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Kobold.w.p.head.png",
               "statValues": {
                 "Armor": 168,
                 "Vitality": 8,
@@ -2753,6 +2802,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/H-Gorgon.m.p.head.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -2777,6 +2827,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -2802,6 +2853,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.m.legs20.png",
               "statValues": {
                 "Armor": 151,
                 "Vitality": 7,
@@ -2826,6 +2878,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -2851,6 +2904,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -3031,6 +3085,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.p.legs.png",
               "statValues": {
                 "Armor": 191,
                 "Vitality": 8,
@@ -3058,6 +3113,7 @@
                 "Armor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -3082,6 +3138,7 @@
                 "Vitality"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -3104,6 +3161,7 @@
                 "Armor"
               ],
               "rare": false,
+              "image": "images/Ladybee.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -3129,6 +3187,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.p.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -3155,6 +3214,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.m.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -3181,6 +3241,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.m.head.png",
               "statValues": {
                 "Armor": 168,
                 "Vitality": 8,
@@ -3207,6 +3268,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -3233,6 +3295,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.p.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -3257,6 +3320,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Bee.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -3279,6 +3343,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -3304,6 +3369,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.p.shoulders.png",
               "statValues": {
                 "Armor": 156,
                 "Vitality": 6,
@@ -3331,6 +3397,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -3355,6 +3422,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.chest.png",
               "statValues": {
                 "Armor": 298,
                 "Vitality": 8,
@@ -3380,6 +3448,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.r.back.png",
               "statValues": {
                 "Armor": 67,
                 "Vitality": 4,
@@ -3404,6 +3473,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -3426,6 +3496,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Ladybee.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -3478,6 +3549,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.p.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -3502,6 +3574,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Bee.r.legs20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 6,
@@ -3527,6 +3600,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.p.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -3553,6 +3627,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.m.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -3576,6 +3651,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.feets.png",
               "statValues": {
                 "Armor": 199,
                 "Vitality": 6,
@@ -3606,6 +3682,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.p.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -3686,6 +3763,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.chest.png",
               "statValues": {
                 "Armor": 298,
                 "Vitality": 8,
@@ -3771,6 +3849,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.p.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -3819,6 +3898,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -3845,6 +3925,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.m.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -3871,6 +3952,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.r.back.png",
               "statValues": {
                 "Armor": 67,
                 "Vitality": 4,
@@ -3922,6 +4004,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Bee.r.legs20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 6,
@@ -3944,6 +4027,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Bee.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -3969,6 +4053,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.m.head.png",
               "statValues": {
                 "Armor": 168,
                 "Vitality": 8,
@@ -3996,6 +4081,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.p.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -4022,6 +4108,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -4048,6 +4135,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.p.shoulders.png",
               "statValues": {
                 "Armor": 156,
                 "Vitality": 6,
@@ -4072,6 +4160,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -4097,6 +4186,7 @@
                 "Armor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -4121,6 +4211,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -4145,6 +4236,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.m.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -4168,6 +4260,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Ladybee.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -4190,6 +4283,7 @@
                 "Vitality"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -4215,6 +4309,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.p.legs.png",
               "statValues": {
                 "Armor": 191,
                 "Vitality": 8,
@@ -4242,6 +4337,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.p.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -4266,6 +4362,7 @@
                 "Armor"
               ],
               "rare": false,
+              "image": "images/Ladybee.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -4288,6 +4385,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.feets.png",
               "statValues": {
                 "Armor": 199,
                 "Vitality": 6,
@@ -4365,6 +4463,7 @@
                 "Strength"
               ],
               "rare": false,
+              "image": "images/Rats.w.p.waist20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -4391,6 +4490,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.p.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -4415,6 +4515,7 @@
                 "Faith"
               ],
               "rare": false,
+              "image": "images/Rats.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -4486,6 +4587,7 @@
                 "Intelligence"
               ],
               "rare": false,
+              "image": "images/Rats.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -4511,6 +4613,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.m.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -4538,6 +4641,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.w.m.cape20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -4562,6 +4666,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -4587,6 +4692,7 @@
                 "Intelligence"
               ],
               "rare": false,
+              "image": "images/Kob.r.m.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -4632,6 +4738,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.belt20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -4656,6 +4763,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Kobold.w.p.head.png",
               "statValues": {
                 "Armor": 168,
                 "Vitality": 8,
@@ -4682,6 +4790,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/H-Gorgon.m.p.head.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -4709,6 +4818,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -4733,6 +4843,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.shoulders20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 6,
@@ -4755,6 +4866,7 @@
                 "Faith"
               ],
               "rare": false,
+              "image": "images/Rats.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -4777,6 +4889,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.back20.png",
               "statValues": {
                 "Armor": 53,
                 "Vitality": 3,
@@ -4799,6 +4912,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -4824,6 +4938,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Kob.r.p.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -4851,6 +4966,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -4878,6 +4994,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.m.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -4905,6 +5022,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.w.r.feet20.png",
               "statValues": {
                 "Armor": 161,
                 "Vitality": 5,
@@ -5095,6 +5213,7 @@
                 "Dexterity"
               ],
               "rare": false,
+              "image": "images/Nep.r.hands20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -5224,6 +5343,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Nep.r.head20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 6,
@@ -5519,6 +5639,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Nep.r.m.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -5645,6 +5766,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Nep.r.feet20.png",
               "statValues": {
                 "Armor": 128,
                 "Vitality": 5,
@@ -5680,6 +5802,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.p.shoulders.png",
               "statValues": {
                 "Armor": 156,
                 "Vitality": 6,
@@ -5823,6 +5946,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.p.legs.png",
               "statValues": {
                 "Armor": 191,
                 "Vitality": 8,
@@ -5904,6 +6028,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -5929,6 +6054,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.r.back.png",
               "statValues": {
                 "Armor": 67,
                 "Vitality": 4,
@@ -5956,6 +6082,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.m.head.png",
               "statValues": {
                 "Armor": 168,
                 "Vitality": 8,
@@ -6007,6 +6134,7 @@
                 "Strength"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.chest.png",
               "statValues": {
                 "Armor": 298,
                 "Vitality": 8,
@@ -6029,6 +6157,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Bee.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -6053,6 +6182,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -6079,6 +6209,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.p.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -6106,6 +6237,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -6133,6 +6265,7 @@
                 "Armor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -6160,6 +6293,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.p.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -6184,6 +6318,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -6206,6 +6341,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Ladybee.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -6230,6 +6366,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.m.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -6253,6 +6390,7 @@
                 "Vitality"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -6278,6 +6416,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.p.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -6305,6 +6444,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.m.p.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -6329,6 +6469,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Bee.r.legs20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 6,
@@ -6351,6 +6492,7 @@
                 "Armor"
               ],
               "rare": false,
+              "image": "images/Ladybee.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -6375,6 +6517,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Ladybee.r.m.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -6398,6 +6541,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Bee_HM.w.feets.png",
               "statValues": {
                 "Armor": 199,
                 "Vitality": 6,
@@ -6509,6 +6653,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Kobold.w.p.head.png",
               "statValues": {
                 "Armor": 168,
                 "Vitality": 8,
@@ -6535,6 +6680,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -6562,6 +6708,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/H-Gorgon.m.p.head.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -6589,6 +6736,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.w.r.feet20.png",
               "statValues": {
                 "Armor": 161,
                 "Vitality": 5,
@@ -6674,6 +6822,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.shoulders20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 6,
@@ -6696,6 +6845,7 @@
                 "Intelligence"
               ],
               "rare": false,
+              "image": "images/Rats.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -6718,6 +6868,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -6743,6 +6894,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.w.m.cape20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -6767,6 +6919,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.back20.png",
               "statValues": {
                 "Armor": 53,
                 "Vitality": 3,
@@ -6789,6 +6942,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -6814,6 +6968,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -6841,6 +6996,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Kob.r.p.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -6868,6 +7024,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.m.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -6894,6 +7051,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.p.waist20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -6916,7 +7074,8 @@
                 "Dexterity",
                 "Armor Penetration"
               ],
-              "rare": false
+              "rare": false,
+              "image": "images/Kob.r.belt20.png"
             },
             {
               "name": "Knotr'Edam",
@@ -6933,6 +7092,7 @@
                 "Faith"
               ],
               "rare": false,
+              "image": "images/Rats.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -6958,6 +7118,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.m.legs20.png",
               "statValues": {
                 "Armor": 151,
                 "Vitality": 7,
@@ -6982,6 +7143,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -7004,6 +7166,7 @@
                 "Critical"
               ],
               "rare": false,
+              "image": "images/Rats.w.legs20.png",
               "statValues": {
                 "Armor": 265,
                 "Vitality": 8,
@@ -7029,6 +7192,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Rats.m.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -7056,6 +7220,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Kob.r.p.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
