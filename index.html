@@ -449,36 +449,36 @@
             box-shadow: 0 0 10px rgba(244, 114, 182, 0.35);
         }
         .category-btn[data-category="weapons"].active {
-    background: rgba(201, 164, 75, 0.25);
-    border-color: var(--gold);
-    color: var(--gold);
-    box-shadow: 0 0 10px rgba(201, 164, 75, 0.35);
-}
-.category-btn[data-category="armor"].active {
-    background: rgba(59, 130, 246, 0.20);
-    border-color: var(--rarity-blue);
-    color: #93c5fd;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
-}
-.category-btn {
-    cursor: pointer;
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    border-radius: 20px;
-    padding: 5px 12px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-dim);
-    transition: all var(--transition);
-    font-family: var(--font);
-}
-.category-btn:hover {
-    background: var(--surface2);
-    color: var(--text);
-    border-color: #555;
-}
+            background: rgba(201, 164, 75, 0.25);
+            border-color: var(--gold);
+            color: var(--gold);
+            box-shadow: 0 0 10px rgba(201, 164, 75, 0.35);
+        }
+        .category-btn[data-category="armor"].active {
+            background: rgba(59, 130, 246, 0.20);
+            border-color: var(--rarity-blue);
+            color: #93c5fd;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
+        }
+        .category-btn {
+            cursor: pointer;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 20px;
+            padding: 5px 12px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            transition: all var(--transition);
+            font-family: var(--font);
+        }
+        .category-btn:hover {
+            background: var(--surface2);
+            color: var(--text);
+            border-color: #555;
+        }
         .stat-btn[data-stat="Armor"].active {
             background: rgba(156, 163, 175, 0.20);
             border-color: #9ca3af;
@@ -1545,41 +1545,38 @@
             border-color: var(--item-green);
             color: var(--item-green);
         }
-#image-tooltip {
-    position: fixed;
-    z-index: 10000;
-    pointer-events: none;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-
-    display: inline-block;
-    max-width: 900px;
-    max-height: 600px;
-    overflow: hidden;
-}
-
-#image-tooltip img {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-}
-
-#image-tooltip .broken-placeholder {
-    display: none;
-    position: absolute;
-    inset: 0;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-dim);
-    font-size: 0.85rem;
-    background: inherit;   
-    border-radius: inherit;
-}
-          .filter-btn.active {
+        #image-tooltip {
+            position: fixed;
+            z-index: 10000;
+            pointer-events: none;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            display: inline-block;
+            max-width: 900px;
+            max-height: 600px;
+            overflow: hidden;
+        }
+        #image-tooltip img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+        }
+        #image-tooltip .broken-placeholder {
+            display: none;
+            position: absolute;
+            inset: 0;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            background: inherit;
+            border-radius: inherit;
+        }
+        .filter-btn.active {
             transition: none !important;
         }
     </style>
@@ -1608,45 +1605,42 @@
             </div>
         </header>
         <div class="filter-bar" id="filter-bar">
-    <div class="filter-group-wrapper" id="class-wrapper">
-        <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
-        <div class="filter-dropdown" id="class-dropdown"></div>
-    </div>
-    <div class="filter-group-wrapper" id="stat-wrapper">
-        <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
-        <div class="filter-dropdown" id="stat-dropdown"></div>
-    </div>
-    <div class="filter-group-wrapper" id="category-wrapper">
-        <div class="filter-group-header">
-            <span class="arrow">▼</span>
-            <span class="label">Category</span>
-            <span class="active-count" id="category-count" style="display:none">0</span>
+            <div class="filter-group-wrapper" id="class-wrapper">
+                <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
+                <div class="filter-dropdown" id="class-dropdown"></div>
+            </div>
+            <div class="filter-group-wrapper" id="stat-wrapper">
+                <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
+                <div class="filter-dropdown" id="stat-dropdown"></div>
+            </div>
+            <div class="filter-group-wrapper" id="category-wrapper">
+                <div class="filter-group-header">
+                    <span class="arrow">▼</span>
+                    <span class="label">Category</span>
+                    <span class="active-count" id="category-count" style="display:none">0</span>
+                </div>
+                <div class="filter-dropdown" id="category-dropdown">
+                    <button class="filter-btn category-btn" data-category="weapons">Weapons</button>
+                    <button class="filter-btn category-btn" data-category="armor">Armor</button>
+                </div>
+            </div>
+            <div class="filter-group-wrapper" id="type-wrapper">
+                <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
+                <div class="filter-dropdown" id="type-dropdown"></div>
+            </div>
+            <button class="stat-match-toggle" id="stat-match-toggle" data-mode="all">Match: ALL</button>
+            <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear</button>
         </div>
-        <div class="filter-dropdown" id="category-dropdown">
-            <button class="filter-btn category-btn" data-category="weapons">Weapons</button>
-            <button class="filter-btn category-btn" data-category="armor">Armor</button>
-        </div>
-    </div>
-
-    <div class="filter-group-wrapper" id="type-wrapper">
-        <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
-        <div class="filter-dropdown" id="type-dropdown"></div>
-    </div>
-
-    <button class="stat-match-toggle" id="stat-match-toggle" data-mode="all">Match: ALL</button>
-    <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear</button>
-</div>
     </div>
     <div class="main-content">
         <main class="container" id="zones-container"></main>
     </div>
     <footer class="site-footer">
-    <span class="copyright-symbol">&copy;</span> 2026 Farever — Created by <span class="creator-name">Iielyn</span>. All rights reserved. 
-    Images and certain data sourced from the <a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>, 
-    licensed under <a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. 
-    Game assets are property of the game's creators.
-</footer>
-
+        <span class="copyright-symbol">&copy;</span> 2026 Farever — Created by <span class="creator-name">Iielyn</span>. All rights reserved. 
+        Images and certain data sourced from the <a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>, 
+        licensed under <a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. 
+        Game assets are property of the game's creators.
+    </footer>
     <div class="modal-overlay" id="suggestion-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1664,10 +1658,10 @@
         </div>
     </div>
     <div class="toast-container" id="toast-container"></div>
-   <div id="image-tooltip">
-    <img src="" alt="Item image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-    <div class="broken-placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">🖼️ Image not available</div>
-</div>
+    <div id="image-tooltip">
+        <img src="" alt="Item image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="broken-placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">🖼️ Image not available</div>
+    </div>
     <script>
         (function() {
             'use strict';
@@ -1695,7 +1689,7 @@
             let filterStats = [];
             let statMatchMode = 'all';
             let searchQuery = '';
-            let filterCategories = []; 
+            let filterCategories = [];
             const allItemsMap = new Map();
             const escapeHtml = str => str ? str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
                 .replace(/"/g, '&quot;').replace(/'/g, '&#39;') : '';
@@ -1716,25 +1710,25 @@
             const hasAbilities = item => item.skill1 || item.skill2 || item.skill3 || item.passive;
             const hasTrinketPassive = item => item.trinketPassive && item.trinketPassive.trim() !== '';
             const getTypeColorClass = type => type ? 'type-color-' + toSlug(type) : '';
-const itemPassesFilter = item => {
-if (filterCategories.length > 0) {
-    const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
-    const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
-    if (!passesWeapons && !passesArmor) return false;
-}
 
-    if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
-    if (filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
-    if (filterStats.length) {
-        if (statMatchMode === 'all') {
-            if (!filterStats.every(s => item.stats.includes(s))) return false;
-        } else {
-            if (!filterStats.some(s => item.stats.includes(s))) return false;
-        }
-    }
-    if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-    return true;
-};
+            const itemPassesFilter = item => {
+                if (filterCategories.length > 0) {
+                    const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
+                    const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
+                    if (!passesWeapons && !passesArmor) return false;
+                }
+                if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
+                if (filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
+                if (filterStats.length) {
+                    if (statMatchMode === 'all') {
+                        if (!filterStats.every(s => item.stats.includes(s))) return false;
+                    } else {
+                        if (!filterStats.some(s => item.stats.includes(s))) return false;
+                    }
+                }
+                if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+                return true;
+            };
 
             function addDefaultsAndIds(serverData) {
                 const zones = serverData.zones.map(zone => {
@@ -1783,8 +1777,10 @@ if (filterCategories.length > 0) {
                 });
                 return { zones };
             }
+
             async function fetchData(url) { const resp = await fetch(url, { cache: 'no-cache' }); if (!resp.ok)
                     throw new Error('Fetch failed'); return await resp.json(); }
+
             async function loadData() {
                 let serverData = null,
                     serverVersion = '0';
@@ -1851,6 +1847,7 @@ if (filterCategories.length > 0) {
                 };
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(clean));
             }
+
             async function checkForUpdate() {
                 try {
                     const serverData = await fetchData(DATA_URL);
@@ -2024,102 +2021,79 @@ if (filterCategories.length > 0) {
                 updateFilterBarUI();
             }
 
-           function updateTypeButtonCounts() {
-    document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
-        const type = btn.dataset.type;
-        const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
-        const count = allItems.filter(item => {
-            if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
-            if (filterStats.length) {
-                if (statMatchMode === 'all') {
-                    if (!filterStats.every(s => item.stats.includes(s))) return false;
+            function updateTypeButtonCounts() {
+                const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
+                document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
+                    const type = btn.dataset.type;
+                    const count = allItems.filter(item => {
+                        if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
+                        if (filterStats.length) {
+                            if (statMatchMode === 'all') {
+                                if (!filterStats.every(s => item.stats.includes(s))) return false;
+                            } else {
+                                if (!filterStats.some(s => item.stats.includes(s))) return false;
+                            }
+                        }
+                        if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+                        if (filterCategories.length > 0) {
+                            const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
+                            const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
+                            if (!passesWeapons && !passesArmor) return false;
+                        }
+                        return item.types.includes(type);
+                    }).length;
+                    let countSpan = btn.querySelector('.item-count');
+                    if (!countSpan) {
+                        countSpan = document.createElement('span');
+                        countSpan.className = 'item-count';
+                        btn.appendChild(document.createTextNode(' '));
+                        btn.appendChild(countSpan);
+                    }
+                    countSpan.textContent = `(${count})`;
+                });
+            }
+
+            function updateFilterBarUI() {
+                document.querySelectorAll('.category-btn').forEach(b => {
+                    b.classList.toggle('active', filterCategories.includes(b.dataset.category));
+                });
+                const categoryCount = document.getElementById('category-count');
+                categoryCount.textContent = filterCategories.length;
+                categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
+
+                updateTypeButtonCounts();
+
+                document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active',
+                    filterClasses.includes(b.dataset.class)));
+                document.querySelectorAll('#type-dropdown .type-btn').forEach(b => {
+                    const shouldBeActive = filterTypes.includes(b.dataset.type);
+                    b.classList.toggle('active', shouldBeActive);
+                    void b.offsetHeight;
+                });
+                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active',
+                    filterStats.includes(b.dataset.stat)));
+
+                const classCount = document.getElementById('class-count');
+                classCount.textContent = filterClasses.length;
+                classCount.style.display = filterClasses.length ? 'inline' : 'none';
+                const typeCount = document.getElementById('type-count');
+                typeCount.textContent = filterTypes.length;
+                typeCount.style.display = filterTypes.length ? 'inline' : 'none';
+                const statCount = document.getElementById('stat-count');
+                statCount.textContent = filterStats.length;
+                statCount.style.display = filterStats.length ? 'inline' : 'none';
+
+                const clearBtn = document.getElementById('clear-all-btn');
+                if (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) {
+                    clearBtn.style.display = 'none';
                 } else {
-                    if (!filterStats.some(s => item.stats.includes(s))) return false;
+                    clearBtn.style.display = '';
                 }
+
+                const toggleBtn = document.getElementById('stat-match-toggle');
+                toggleBtn.textContent = statMatchMode === 'all' ? 'Match: ALL' : 'Match: ANY';
+                toggleBtn.setAttribute('data-mode', statMatchMode);
             }
-            if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-            if (filterCategories.length > 0) {
-                const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
-                const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
-                if (!passesWeapons && !passesArmor) return false;
-            }
-            return item.types.includes(type);
-        }).length;
-        const countSpan = btn.querySelector('.item-count');
-        if (countSpan) {
-            countSpan.textContent = `(${count})`;
-        } else {
-            btn.innerHTML = `${type} <span class="item-count">(${count})</span>`;
-        }
-    });
-}
-function updateFilterBarUI() {
-    document.querySelectorAll('.category-btn').forEach(b => {
-        b.classList.toggle('active', filterCategories.includes(b.dataset.category));
-    });
-    const categoryCount = document.getElementById('category-count');
-    categoryCount.textContent = filterCategories.length;
-    categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
-
-    updateTypeButtonCounts();
-
-    document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active',
-        filterClasses.includes(b.dataset.class)));
-    document.querySelectorAll('#type-dropdown .type-btn').forEach(b => {
-    const shouldBeActive = filterTypes.includes(b.dataset.type);
-    const type = b.dataset.type;
-
-    if (shouldBeActive) {
-        if (['Sword','Dual Sword','Axe','Dual Axes','Daggers','Mace','Dual Maces','Spear',
-             'Fists','Two-Handed Axe','Two-Handed Mace','Bow','Thrown','Scepter','Crescent',
-             'Halos','Spellbook','Shield'].includes(type)) {
-            b.style.background = 'rgba(125, 211, 252, 0.20)';
-            b.style.borderColor = '#7dd3fc';
-            b.style.color = '#bae6fd';
-            b.style.boxShadow = '0 0 10px rgba(125, 211, 252, 0.38)';
-        } else if (['Head','Shoulders','Chest','Back','Hands','Waist','Legs','Feet','Trinket'].includes(type)) {
-            b.style.background = 'rgba(192, 132, 252, 0.20)';
-            b.style.borderColor = '#c084fc';
-            b.style.color = '#e0b4ff';
-            b.style.boxShadow = '0 0 10px rgba(192, 132, 252, 0.35)';
-        } else {
-            b.style.background = 'var(--surface2)';
-            b.style.borderColor = 'var(--accent)';
-            b.style.color = 'var(--text)';
-            b.style.boxShadow = 'none';
-        }
-    } else {
-        b.style.background = '';
-        b.style.borderColor = '';
-        b.style.color = '';
-        b.style.boxShadow = '';
-    }
-    b.classList.remove('active');
-});
-    document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active',
-        filterStats.includes(b.dataset.stat)));
-
-    const classCount = document.getElementById('class-count');
-    classCount.textContent = filterClasses.length;
-    classCount.style.display = filterClasses.length ? 'inline' : 'none';
-    const typeCount = document.getElementById('type-count');
-    typeCount.textContent = filterTypes.length;
-    typeCount.style.display = filterTypes.length ? 'inline' : 'none';
-    const statCount = document.getElementById('stat-count');
-    statCount.textContent = filterStats.length;
-    statCount.style.display = filterStats.length ? 'inline' : 'none';
-
-    const clearBtn = document.getElementById('clear-all-btn');
-    if (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) {
-        clearBtn.style.display = 'none';
-    } else {
-        clearBtn.style.display = '';
-    }
-
-    const toggleBtn = document.getElementById('stat-match-toggle');
-    toggleBtn.textContent = statMatchMode === 'all' ? 'Match: ALL' : 'Match: ANY';
-    toggleBtn.setAttribute('data-mode', statMatchMode);
-}
 
             function toggleFilter(type, value) {
                 if (type === 'class') { const idx = filterClasses.indexOf(value);
@@ -2130,20 +2104,22 @@ function updateFilterBarUI() {
                     idx === -1 ? filterStats.push(value) : filterStats.splice(idx, 1); }
                 renderAll();
             }
-function toggleCategory(category) {
-    const idx = filterCategories.indexOf(category);
-    if (idx === -1) {
-        filterCategories.push(category);
-    } else {
-        filterCategories.splice(idx, 1);
-    }
-    renderAll();
-}
+
+            function toggleCategory(category) {
+                const idx = filterCategories.indexOf(category);
+                if (idx === -1) {
+                    filterCategories.push(category);
+                } else {
+                    filterCategories.splice(idx, 1);
+                }
+                renderAll();
+            }
+
             window.clearAllFilters = function() { filterClasses = [];
                 filterTypes = [];
                 filterStats = [];
                 searchQuery = '';
-                filterCategories = [];                               
+                filterCategories = [];
                 document.getElementById('search-input').value = '';
                 renderAll();
                 showToast('All filters cleared'); };
@@ -2285,11 +2261,11 @@ function toggleCategory(category) {
                     btn.addEventListener('click', () => toggleFilter('stat', stat));
                     statContainer.appendChild(btn); });
                 document.querySelectorAll('.category-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const category = btn.dataset.category;
-        toggleCategory(category);
-    });
-});
+                    btn.addEventListener('click', () => {
+                        const category = btn.dataset.category;
+                        toggleCategory(category);
+                    });
+                });
             }
 
             function setupFilterDropdowns() {
@@ -2326,6 +2302,7 @@ function toggleCategory(category) {
                     renderAll();
                 });
             }
+
             function setupImageTooltip() {
                 const tooltipEl = document.getElementById('image-tooltip');
                 const imgEl = tooltipEl.querySelector('img');
@@ -2399,6 +2376,7 @@ function toggleCategory(category) {
                     }
                 });
             }
+
             async function init() {
                 const loaded = await loadData();
                 appData = { zones: loaded.zones };
