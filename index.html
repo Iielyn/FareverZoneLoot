@@ -1514,35 +1514,35 @@
             border-color: var(--item-green);
             color: var(--item-green);
         }
-        #image-tooltip {
-            position: fixed;
-            z-index: 10000;
-            pointer-events: none;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
-            padding: 12px;
-            max-width: 400px;
-            max-height: 500px;
-            display: none;
-            overflow: hidden;
-        }
-        #image-tooltip img {
-            display: block;
-            max-width: 100%;
-            max-height: 480px;
-            object-fit: contain;
-            border-radius: 4px;
-        }
-        #image-tooltip .broken-placeholder {
-            display: none;
-            padding: 20px 16px;
-            text-align: center;
-            color: var(--text-dim);
-            font-size: 0.75rem;
-            white-space: nowrap;
-        }
+#image-tooltip {
+    position: fixed;
+    z-index: 10000;
+    pointer-events: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+    padding: 12px;
+    max-width: 600px;       
+    max-height: 600px;       
+    display: none;
+    overflow: hidden;
+}
+#image-tooltip img {
+    display: block;
+    max-width: 100%;
+    max-height: 580px;      
+    object-fit: contain;
+    border-radius: 4px;
+}
+#image-tooltip .broken-placeholder {
+    display: none;
+    padding: 20px 16px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
     </style>
 </head>
 <body class="loading">
