@@ -2022,24 +2022,29 @@ if (filterCategories.length > 0) {
             }
 
             function updateTypeButtonCounts() {
-                document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
-                    const type = btn.dataset.type;
-                    const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
-                    const count = allItems.filter(item => {
-                        if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(
-                                cls))) return false;
-                        if (filterStats.length) {
-                            if (statMatchMode === 'all') { if (!filterStats.every(s => item.stats
-                                    .includes(s))) return false; } else { if (!filterStats.some(s =>
-                                    item.stats.includes(s))) return false; }
-                        }
-                        if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase()))
-                            return false;
-                        return item.types.includes(type);
-                    }).length;
-                    btn.innerHTML = `${type} <span class="item-count">(${count})</span>`;
-                });
+    document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
+        const type = btn.dataset.type;
+        const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
+        const count = allItems.filter(item => {
+            if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
+            if (filterStats.length) {
+                if (statMatchMode === 'all') {
+                    if (!filterStats.every(s => item.stats.includes(s))) return false;
+                } else {
+                    if (!filterStats.some(s => item.stats.includes(s))) return false;
+                }
             }
+            if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+            if (filterCategories.length > 0) {
+                const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
+                const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
+                if (!passesWeapons && !passesArmor) return false;
+            }
+            return item.types.includes(type);
+        }).length;
+        btn.innerHTML = `${type} <span class="item-count">(${count})</span>`;
+    });
+}
 
             function updateFilterBarUI() {
                 document.querySelectorAll('.category-btn').forEach(b => {
