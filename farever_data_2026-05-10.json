@@ -1,5 +1,5 @@
 {
-"version": "v89",
+"version": "v90",
   "zones": [
     {
       "name": "Meridion",
@@ -28,6 +28,7 @@
               "skill3": "\nGroundswell Strike\ncd 10s · 0.4s\n47.5% Strength + 47.5% Dexterity · Physical\nDeals 47.5% Strength + 47.5% Dexterity Physical to nearby enemies. All your [Attack]s reduce the cooldown by 1.5.",
               "passive": "\nTide Warlord\nYour [PhysicalMastery] is increased by 15% while fighting under 50% [Health].",
               "rare": false,
+              "image": "images/IronFins20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -142,6 +143,7 @@
               "skill3": "\nRiptide\ncd 18s\n90% Intellect + 90% Faith · Water\nSplashes a huge water burst in a frontal cone, dealing 90% Intellect + 90% Faith Water to enemies.",
               "passive": "\nPower of the Tides\nUsing a [Skill] causes all your active [Totem]s to erupt, dealing 18.75% Intellect + 18.75% Faith Magic to nearby enemies.",
               "rare": false,
+              "image": "images/GhostClams20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -219,6 +221,7 @@
               ],
               "trinketPassive": "Taking damage has a chance to grant you the power of the tides, healing you for 12 over 6.",
               "rare": false,
+              "image": "images/Nepsid.trinket20.png",
               "statValues": {
                 "Fervor": 26
               }
@@ -312,6 +315,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.m.cheast20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 8,
@@ -339,6 +343,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.r.shoulders20.png",
               "statValues": {
                 "Armor": 174,
                 "Vitality": 5,
@@ -492,6 +497,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.p.back20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -519,6 +525,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.p.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -622,6 +629,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Crabg.w.r.legs20.png",
               "statValues": {
                 "Armor": 214,
                 "Vitality": 7,
@@ -671,6 +679,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.m.feet20.png",
               "statValues": {
                 "Armor": 144,
                 "Vitality": 6,
@@ -754,6 +763,7 @@
               "skill2": "\nBonethrow\ncd 15s · 0.4s\n65% Strength + 65% Dexterity · Physical\nThrows a sharpen bone at an enemy, dealing 65% Strength + 65% Dexterity Physical and causing them to bleed for 40% of the damage dealt over 8. The bone then jumps to 2 enemies.",
               "passive": "\nBloodrage Aura\ncd 3s\nIncreases the [CritChance] of all allies within 40 by 3% to 5%.",
               "rare": false,
+              "image": "images/CheeseMoon20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -809,6 +819,7 @@
               ],
               "trinketPassive": "our [Attack]s grant you 4 [CritChanceRating] for 10, stacking up to 20 times.",
               "rare": false,
+              "image": "images/Rats.trinket20.png",
               "statValues": {
                 "Armor Penetration": 26
               }
@@ -880,6 +891,7 @@
               "skill3": "\nHot, hot, hot!\ncd 20s · 0.1s\nConjures a heat zone in the targeted area for 4. Allies within the zone receive a temporary Flamie for 8.",
               "passive": "\nFlamie\nYou are permanently followed by a Flamie, healing 10% Faith every 2.",
               "rare": false,
+              "image": "images/FlameOfArgol20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -1454,6 +1466,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Crabg.w.r.legs20.png",
               "statValues": {
                 "Armor": 214,
                 "Vitality": 7,
@@ -1481,6 +1494,7 @@
                 "Armor"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.p.back20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -1505,6 +1519,7 @@
               "skill1": "\nDepth Shield\ncd 15s\nSpawns a bubble with 3 charges. When an enemy is nearby, the bubble consumes a charge to pulse, dealing 55% Faith Magic to enemies and healing allies for 30% Faith Magic.",
               "passive": "\nShell of the Devourer\nYour [ComboAttack]s and [AttackBlock]s grant you a stack of Water Infusion. At 4 stacks, your next [AttackBlock] is empowered, dealing 250% Faith Magic to nearby enemies.\n\n",
               "rare": false,
+              "image": "images/CrabKneecap20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -1550,6 +1565,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.m.feet20.png",
               "statValues": {
                 "Armor": 144,
                 "Vitality": 6,
@@ -1602,6 +1618,7 @@
               "skill3": "\nTwin Claws\ncd 6s · 0.4s\n70% Dexterity · Physical · 70% Intellect · Magic\nQuickly strikes with both hands, dealing 70% Dexterity Physical + 70% Intellect Magic to an enemy.",
               "passive": "\nGoing With the Flow\n20% Intellect + 26% Intellect · Magic\nErupts water, dealing 20% Intellect + 26% Intellect Magic to nearby enemies when using a [ComboAttack] or [WeaponSkill] different from the last action.",
               "rare": false,
+              "image": "images/Clawdius20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -1708,6 +1725,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.m.cheast20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 8,
@@ -1760,6 +1778,7 @@
               ],
               "trinketPassive": "Taking damage has a chance to grant you the power of the tides, healing you for 12 over 6.",
               "rare": false,
+              "image": "images/Nepsid.trinket20.png",
               "statValues": {
                 "Fervor": 26
               }
@@ -1804,6 +1823,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.p.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -1979,6 +1999,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.r.shoulders20.png",
               "statValues": {
                 "Armor": 174,
                 "Vitality": 5,
@@ -2153,6 +2174,7 @@
               ],
               "trinketPassive": "our [Attack]s grant you 4 [CritChanceRating] for 10, stacking up to 20 times.",
               "rare": false,
+              "image": "images/Rats.trinket20.png",
               "statValues": {
                 "Armor Penetration": 26
               }
@@ -2175,6 +2197,7 @@
               "skill3": "\nShockwave\ncd 25s · 1s\n180% Strength · Physical\nHeavily slams in a frontal cone, dealing 180% Strength Physical and stunning enemies for 3.",
               "passive": "\nDomination\nYou deal 15% increased damage to enemies affected by crowd control effects.",
               "rare": false,
+              "image": "images/Judgement20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -2273,6 +2296,7 @@
               "skill3": "\nShiv\ncd 4s · 0.4s\n60% Dexterity · Physical\nStabs and deals 60% Dexterity Physical to an enemy, triggering the effects of Sharpen Fangs.",
               "passive": "\nSharpen Fangs\nYour Attacks and Weapon skills have a 0.2 to cause the enemies to bleed for 25% Dexterity Physical over 9, stacking up to 5 times.",
               "rare": false,
+              "image": "images/TwinFangs20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -2838,6 +2862,7 @@
               ],
               "trinketPassive": "Your [WeaponSkill]s have a chance to summon a bee that will attack enemies for 10.",
               "rare": false,
+              "image": "images/Bee_HM.trinket.png",
               "statValues": {
                 "Magic Penetration": 26
               }
@@ -2863,6 +2888,7 @@
               "skill3": "Apix Dash\ncd 12s\n45% Strength + 45% Intellect · Magic\nDashes forward and releases a burst of honey dealing 45% Strength + 45% Intellect Magic to nearby enemies.",
               "passive": "Unstable Goo\nMagic critical strikes coat enemies in goo for 8, slowing them by -30%. Physical critical strikes ignite Goo to deal 140% Intellect Magic over.",
               "rare": false,
+              "image": "images/CeremonialStinger20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -2923,6 +2949,7 @@
               "skill3": "\nBloom\ncd 16s · 0.4s\nFor 4, all damage you deal heals allies within 15 for 25% of the damage dealt.",
               "passive": "\nNectar-infused Blade\n12% Faith · Magic\nYour [Attack]s deal an additional 12% Faith Magic and slow enemies by 70% for 3.",
               "rare": false,
+              "image": "images/Thornlace20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -3662,6 +3689,7 @@
               "skill2": "\nHive's Sunder\ncd 18s · 0.7s\n100% Strength + 100% Faith · Physical\nPerforms a strong cleave dealing 100% Strength + 100% Faith Physical to nearby enemies and reducing their [MagicArmor] by -30% to -40% for 10.",
               "passive": "\nSwarm Lord\nYour Weapon Skills surround you with an Hive Swarm for 10. Hive Swarm deals 30% Faith Magic to nearby enemies and heals you for that amount every 2.",
               "rare": false,
+              "image": "images/Beefury20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -3744,6 +3772,7 @@
               ],
               "trinketPassive": "Your [WeaponSkill]s have a chance to summon a bee that will attack enemies for 10.",
               "rare": false,
+              "image": "images/Bee_HM.trinket.png",
               "statValues": {
                 "Magic Penetration": 26
               }
@@ -4267,6 +4296,7 @@
               "skill1": "Furnace Roar\ncd 18s\n45% Intellect · Magic\nChannels a fire breath dealing up to 45% Intellect Magic over 3 to enemies in front of you.",
               "passive": "Cinder Coat\n15% Armor · Physical\nBlocking an attack engulfs you in flames for 4, dealing 30% Intellect Magic to nearby enemies every 1.",
               "rare": false,
+              "image": "images/MagmaMia20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -4389,6 +4419,7 @@
               "skill3": "\nEruption\ncd 20s · 1.3s\n15% Dexterity + 15% Faith + 150% Dexterity + 150% Faith · Magic\nPulls nearby enemies towards you, dealing 15% Dexterity + 15% Faith Magic. Then, releases a lava explosion dealing 150% Dexterity + 150% Faith Magic.",
               "passive": "\nHeart of the Furnace\nYour [Skill]s and [Attack]s increase your [Armor] by 2%, stacking up to 15 times.",
               "rare": false,
+              "image": "images/GorgonToothpick20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -4557,6 +4588,7 @@
               ],
               "trinketPassive": "our [Attack]s grant you 4 [CritChanceRating] for 10, stacking up to 20 times.",
               "rare": false,
+              "image": "images/Rats.trinket20.png",
               "statValues": {
                 "Armor Penetration": 26
               }
@@ -4886,6 +4918,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Crabg.w.r.legs20.png",
               "statValues": {
                 "Armor": 214,
                 "Vitality": 7,
@@ -4932,6 +4965,7 @@
               ],
               "trinketPassive": "Taking damage has a chance to grant you the power of the tides, healing you for 12 over 6.",
               "rare": false,
+              "image": "images/Nepsid.trinket20.png",
               "statValues": {
                 "Fervor": 26
               }
@@ -4956,6 +4990,7 @@
               "skill3": "\nRam Trap\ncd 12s\n100% Dexterity · Physical\nDrops a spark trap on the targeted area. If an enemy steps on it, they are dealt 100% Dexterity Physical, are immobilized for 4 and you gain Big Game Hunter.",
               "passive": "\nThrill of the Hunter\nYour [WeaponSkill]s' damage mark the enemies for 10. Your next [Attack] against them consumes the mark and deal 50% increased damage.",
               "rare": false,
+              "image": "images/HornsOfTheWind20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -5062,6 +5097,7 @@
               "skill3": "\nExpulse\n0.35s\n40% Intellect + 40% Faith · Magic\nThrow orbs in the targeted direction, each dealing 40% Intellect + 40% Faith Magic to the first enemy encountered.",
               "passive": "\nWater Veil\nApplying [Shield]s has a 0.35 chance to heal 30% Faith over 6.",
               "rare": false,
+              "image": "images/BookMiMizan20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -5186,6 +5222,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.r.shoulders20.png",
               "statValues": {
                 "Armor": 174,
                 "Vitality": 5,
@@ -5289,6 +5326,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.m.cheast20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 8,
@@ -5316,6 +5354,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.p.back20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -5370,6 +5409,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.p.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -5522,6 +5562,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.m.feet20.png",
               "statValues": {
                 "Armor": 144,
                 "Vitality": 6,
@@ -5633,6 +5674,7 @@
               "skill3": "\nBrood Leap\ncd 24s · 0.1s\n125% Strength + 125% Faith + 156.3% Strength + 156.3% Faith + 100% Faith + 125% Faith + 40% Faith · Physical\nLeaps through the air towards the targeted area, dealing 125% Strength + 125% Faith + 156.25% Strength + 156.25% Faith Physical and leaving an area upon arrival dealing 100% Faith + 125% Faith Physical over 12.",
               "passive": "\nMad Buzz\nDealing and taking damage has a 0.2 chance to generate a stack of Buzzing, stacking up to 10 times. At 10 stacks, summons an angry bee that starts attacking enemies for 15, dealing 80% Faith Magic every 3.",
               "rare": false,
+              "image": "images/PocketHive20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -5687,6 +5729,7 @@
               "skill3": "\nSwarmstrike Accord\ncd 45s · 0.65s\nGrants a blessing to all allies within 40, causing all their [Attack]s to deal an additional 30% Intellect Magic for 8.",
               "passive": "\nQueen's Decree\ncd 30s\n20% Intellect · Magic\nThe next time one of your skills deals [Magic] damage, it is increased by 100% (30 cooldown).",
               "rare": false,
+              "image": "images/Honeyzabeth.w.m.Wingsabers20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -5773,6 +5816,7 @@
               "skill3": "\nVerdant Impetus\ncd 24s · 0.5s\nYour Ranged [Attack]s become bouncing for 6, dealing 15% increased damage and planting a stack of Ravenous Sprout.",
               "passive": "\nNatural Ascendancy\nYour damage and healing done to a target increase by 2% for each different periodic effect on them, up to 6%.",
               "rare": false,
+              "image": "images/IpheionStar20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -6341,6 +6385,7 @@
               ],
               "trinketPassive": "Your [WeaponSkill]s have a chance to summon a bee that will attack enemies for 10.",
               "rare": false,
+              "image": "images/Bee_HM.trinket.png",
               "statValues": {
                 "Magic Penetration": 26
               }
@@ -6374,6 +6419,7 @@
               "skill2": "\nRam Veil\ncd 8s · 0.5s\n80% Faith · Magic\nEmits bright light around you, dealing 80% Faith Magic to nearby enemies and consuming all Benediction stacks. If 5 stacks are consumed, this increases your [CritChance] and [Fervor] by 10% for 15.",
               "passive": "\nBlessing\nYour [WeaponSkill] empower your next 2 [Attack]s that will deal an additional ::dmg:: and generate a Benediction stack, stacking up to 5 times.",
               "rare": false,
+              "image": "images/AmonRam20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -6537,6 +6583,7 @@
               "skill3": "\nIron Cyclone\ncd 10s · 0.55s\n35% Strength + 35% Dexterity + 35% Strength + 35% Dexterity + 35% Strength + 35% Dexterity + 35% Strength + 35% Dexterity · Physical\nCharges straight ahead, dealing four times 35% Strength + 35% Dexterity Physical to enemies and stunning them for 1.",
               "passive": "\nZeal\nYour [Attack]s and [WeaponSkill]s generate a stack of Zeal, stacking up to 10 times. At 10 stacks, your next [ComboAttack] consums all stacks to reset the cooldown of Zealous Spins and increase its damage by 50%.",
               "rare": false,
+              "image": "images/TwinPillars20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -6998,6 +7045,7 @@
               ],
               "trinketPassive": "our [Attack]s grant you 4 [CritChanceRating] for 10, stacking up to 20 times.",
               "rare": false,
+              "image": "images/Rats.trinket20.png",
               "statValues": {
                 "Armor Penetration": 26
               }
