@@ -2067,10 +2067,35 @@ function updateFilterBarUI() {
         filterClasses.includes(b.dataset.class)));
     document.querySelectorAll('#type-dropdown .type-btn').forEach(b => {
     const shouldBeActive = filterTypes.includes(b.dataset.type);
-    b.classList.toggle('active', shouldBeActive);
-    void b.offsetHeight;
+    const type = b.dataset.type;
+
+    if (shouldBeActive) {
+        if (['Sword','Dual Sword','Axe','Dual Axes','Daggers','Mace','Dual Maces','Spear',
+             'Fists','Two-Handed Axe','Two-Handed Mace','Bow','Thrown','Scepter','Crescent',
+             'Halos','Spellbook','Shield'].includes(type)) {
+            b.style.background = 'rgba(125, 211, 252, 0.20)';
+            b.style.borderColor = '#7dd3fc';
+            b.style.color = '#bae6fd';
+            b.style.boxShadow = '0 0 10px rgba(125, 211, 252, 0.38)';
+        } else if (['Head','Shoulders','Chest','Back','Hands','Waist','Legs','Feet','Trinket'].includes(type)) {
+            b.style.background = 'rgba(192, 132, 252, 0.20)';
+            b.style.borderColor = '#c084fc';
+            b.style.color = '#e0b4ff';
+            b.style.boxShadow = '0 0 10px rgba(192, 132, 252, 0.35)';
+        } else {
+            b.style.background = 'var(--surface2)';
+            b.style.borderColor = 'var(--accent)';
+            b.style.color = 'var(--text)';
+            b.style.boxShadow = 'none';
+        }
+    } else {
+        b.style.background = '';
+        b.style.borderColor = '';
+        b.style.color = '';
+        b.style.boxShadow = '';
+    }
+    b.classList.remove('active');
 });
-    void document.querySelector('#type-dropdown .type-btn')?.offsetHeight;
     document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active',
         filterStats.includes(b.dataset.stat)));
 
