@@ -2022,36 +2022,39 @@
             }
 
             function updateTypeButtonCounts() {
-                const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
-                document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
-                    const type = btn.dataset.type;
-                    const count = allItems.filter(item => {
-                        if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
-                        if (filterStats.length) {
-                            if (statMatchMode === 'all') {
-                                if (!filterStats.every(s => item.stats.includes(s))) return false;
-                            } else {
-                                if (!filterStats.some(s => item.stats.includes(s))) return false;
-                            }
-                        }
-                        if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-                        if (filterCategories.length > 0) {
-                            const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
-                            const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
-                            if (!passesWeapons && !passesArmor) return false;
-                        }
-                        return item.types.includes(type);
-                    }).length;
-                    let countSpan = btn.querySelector('.item-count');
-                    if (!countSpan) {
-                        countSpan = document.createElement('span');
-                        countSpan.className = 'item-count';
-                        btn.appendChild(document.createTextNode(' '));
-                        btn.appendChild(countSpan);
-                    }
-                    countSpan.textContent = `(${count})`;
-                });
+    const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
+    document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
+        const type = btn.dataset.type;
+        const count = allItems.filter(item => {
+            if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
+            if (filterStats.length) {
+                if (statMatchMode === 'all') {
+                    if (!filterStats.every(s => item.stats.includes(s))) return false;
+                } else {
+                    if (!filterStats.some(s => item.stats.includes(s))) return false;
+                }
             }
+            if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+            if (filterCategories.length > 0) {
+                const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
+                const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
+                if (!passesWeapons && !passesArmor) return false;
+            }
+            return item.types.includes(type);
+        }).length;
+        
+        let countSpan = btn.querySelector('.item-count');
+        if (!countSpan) {
+            countSpan = document.createElement('span');
+            countSpan.className = 'item-count';
+            btn.appendChild(document.createTextNode(' ')); 
+            btn.appendChild(countSpan);
+        }
+        countSpan.textContent = `(${count})`;
+        
+        btn.classList.toggle('active', filterTypes.includes(type));
+    });
+}
 
             function updateFilterBarUI() {
                 document.querySelectorAll('.category-btn').forEach(b => {
@@ -2065,11 +2068,6 @@
 
                 document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active',
                     filterClasses.includes(b.dataset.class)));
-                document.querySelectorAll('#type-dropdown .type-btn').forEach(b => {
-                    const shouldBeActive = filterTypes.includes(b.dataset.type);
-                    b.classList.toggle('active', shouldBeActive);
-                    void b.offsetHeight;
-                });
                 document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active',
                     filterStats.includes(b.dataset.stat)));
 
