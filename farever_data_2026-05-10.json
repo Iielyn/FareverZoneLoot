@@ -1,5 +1,5 @@
 {
-"version": "v88",
+"version": "v89",
   "zones": [
     {
       "name": "Meridion",
@@ -412,6 +412,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.head20.png",
               "statValues": {
                 "Armor": 232,
                 "Vitality": 8,
@@ -1827,6 +1828,7 @@
                 "Strength"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.head20.png",
               "statValues": {
                 "Armor": 232,
                 "Vitality": 8,
@@ -5114,6 +5116,7 @@
                 "Armor Penetration"
               ],
               "rare": false,
+              "image": "images/Nepsid.w.head20.png",
               "statValues": {
                 "Armor": 232,
                 "Vitality": 8,
