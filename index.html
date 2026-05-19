@@ -1518,27 +1518,27 @@
     position: fixed;
     z-index: 10000;
     pointer-events: none;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
-    padding: 12px;
     
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+
     width: 900px;
     height: 600px;
     max-width: 90vw;
     max-height: 80vh;
-    
+
     overflow: hidden;
-    display: none;   
+    display: none;
 }
 
 #image-tooltip img {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;   
-    border-radius: 4px;
+    object-fit: contain;
+    border-radius: 4px;      
 }
 
 #image-tooltip .broken-placeholder {
