@@ -1,5 +1,5 @@
 {
-"version": "v90",
+"version": "v91",
   "zones": [
     {
       "name": "Meridion",
@@ -86,6 +86,7 @@
                 "Intelligence"
               ],
               "rare": false,
+              "image": "images/Crab.m.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -113,6 +114,7 @@
                 "Armor"
               ],
               "rare": false,
+              "image": "images/H-Crabg.r.p.legs.png",
               "statValues": {
                 "Armor": 151,
                 "Vitality": 7,
@@ -198,6 +200,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/H-Crabg.p.chest.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -219,7 +222,7 @@
               "stats": [
                 "Fervor"
               ],
-              "trinketPassive": "Taking damage has a chance to grant you the power of the tides, healing you for 12 over 6.",
+              "trinketPassive": "Taking damage has a chance to grant you the power of the tides, healing you for 10% of your Maximum Health over 6s.",
               "rare": false,
               "image": "images/Nepsid.trinket20.png",
               "statValues": {
@@ -241,6 +244,7 @@
                 "Intelligence"
               ],
               "rare": false,
+              "image": "images/Crab.m.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -263,6 +267,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crab.m.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -288,6 +293,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crabg.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -371,6 +377,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crab.r.m.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -443,6 +450,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crab.r.m.shoulders20.png",
               "statValues": {
                 "Armor": 123,
                 "Vitality": 5,
@@ -470,6 +478,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crab.m.p.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -602,6 +611,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crabg.m.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -654,6 +664,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/H-Nepside.p.legs.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -704,6 +715,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crabg.m.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -1590,6 +1602,7 @@
                 "Armor"
               ],
               "rare": false,
+              "image": "images/H-Crabg.p.chest.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -1676,6 +1689,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crab.m.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -1700,6 +1714,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/H-Nepside.p.legs.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -1753,6 +1768,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crabg.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -1776,7 +1792,7 @@
               "stats": [
                 "Fervor"
               ],
-              "trinketPassive": "Taking damage has a chance to grant you the power of the tides, healing you for 12 over 6.",
+              "trinketPassive": "Taking damage has a chance to grant you the power of the tides, healing you for 10% of your Maximum Health over 6s.",
               "rare": false,
               "image": "images/Nepsid.trinket20.png",
               "statValues": {
@@ -1798,6 +1814,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crabg.m.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -1874,6 +1891,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crab.r.m.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -1972,6 +1990,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crab.r.m.shoulders20.png",
               "statValues": {
                 "Armor": 123,
                 "Vitality": 5,
@@ -2026,7 +2045,8 @@
                 "Critical",
                 "Fervor"
               ],
-              "rare": false
+              "rare": false,
+              "image": "images/H-Crabg.r.p.legs.png"
             },
             {
               "name": "Tides Hood",
@@ -2043,6 +2063,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crab.m.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -2090,6 +2111,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crab.m.p.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -2114,6 +2136,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crab.m.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -2139,6 +2162,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crabg.m.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -4946,6 +4970,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crab.m.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -4963,7 +4988,7 @@
               "stats": [
                 "Fervor"
               ],
-              "trinketPassive": "Taking damage has a chance to grant you the power of the tides, healing you for 12 over 6.",
+              "trinketPassive": "Taking damage has a chance to grant you the power of the tides, healing you for 10% of your Maximum Health over 6s.",
               "rare": false,
               "image": "images/Nepsid.trinket20.png",
               "statValues": {
@@ -5045,6 +5070,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crabg.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -5175,6 +5201,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crab.m.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -5250,6 +5277,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crab.r.m.shoulders20.png",
               "statValues": {
                 "Armor": 123,
                 "Vitality": 5,
@@ -5277,6 +5305,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crab.m.p.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -5301,6 +5330,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/H-Crabg.p.chest.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -5382,6 +5412,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crab.r.m.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -5434,6 +5465,7 @@
                 "Intelligence"
               ],
               "rare": false,
+              "image": "images/Crab.m.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -5459,6 +5491,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/Crabg.m.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -5513,6 +5546,7 @@
                 "Armor"
               ],
               "rare": false,
+              "image": "images/H-Crabg.r.p.legs.png",
               "statValues": {
                 "Armor": 151,
                 "Vitality": 7,
@@ -5537,6 +5571,7 @@
                 "Fervor"
               ],
               "rare": false,
+              "image": "images/H-Nepside.p.legs.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -5587,6 +5622,7 @@
                 "Magic Penetration"
               ],
               "rare": false,
+              "image": "images/Crabg.m.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
