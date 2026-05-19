@@ -326,19 +326,70 @@ body {
 .tag.stat-magic-penetration { color: #e0b4ff; border-color: rgba(192,132,252,0.4); background: rgba(192,132,252,0.1); }
 .tag.stat-fervor { color: #fdb980; border-color: rgba(251,146,60,0.4); background: rgba(251,146,60,0.1); }
 .rarity-switcher { display:flex; gap:4px; margin-bottom:6px; }
-.rarity-btn {
-    padding:2px 6px; font-size:0.58rem; font-weight:700; letter-spacing:0.05em;
-    border-radius:8px; border:1px solid transparent; background:transparent;
-    color:var(--text-dim); cursor:pointer; transition:all var(--transition);
-    font-family:var(--font); text-transform:uppercase;
+.rarity-btn[data-rarity="legendary"].active { … }
+.rarity-label {
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-right: 4px;
+    opacity: 0.9;
 }
-.rarity-btn:hover { background:var(--surface2); color:var(--text); }
-.rarity-btn[data-rarity="blue"] { border-color:rgba(59,130,246,0.5); color:var(--rarity-blue); }
-.rarity-btn[data-rarity="blue"].active { background:rgba(59,130,246,0.25); border-color:var(--rarity-blue); box-shadow:0 0 8px rgba(59,130,246,0.4); color:#60a5fa; }
-.rarity-btn[data-rarity="purple"] { border-color:rgba(168,85,247,0.5); color:var(--rarity-purple); }
-.rarity-btn[data-rarity="purple"].active { background:rgba(168,85,247,0.25); border-color:var(--rarity-purple); box-shadow:0 0 8px rgba(168,85,247,0.4); color:#c084fc; }
-.rarity-btn[data-rarity="legendary"] { border-color:rgba(245,158,11,0.5); color:var(--rarity-legendary); }
-.rarity-btn[data-rarity="legendary"].active { background:rgba(245,158,11,0.25); border-color:var(--rarity-legendary); box-shadow:0 0 10px rgba(245,158,11,0.5); color:#fbbf24; text-shadow:0 0 6px rgba(245,158,11,0.5); }
+
+.type-color-sword { color: #bae6fd; … }
+.rarity-btn {
+    padding: 4px 10px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.05);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font);
+    text-transform: capitalize;
+    min-width: 46px;
+}
+.rarity-btn:hover {
+    background: rgba(255,255,255,0.12);
+    color: #ffffff;
+    border-color: #666;
+    box-shadow: 0 0 8px rgba(255,255,255,0.15);
+    transform: translateY(-1px);
+}
+.rarity-btn[data-rarity="blue"] {
+    border-color: rgba(59,130,246,0.6);
+    color: #60a5fa;
+}
+.rarity-btn[data-rarity="blue"].active {
+    background: rgba(59,130,246,0.3);
+    border-color: #60a5fa;
+    box-shadow: 0 0 12px rgba(59,130,246,0.5);
+    color: #93c5fd;
+}
+.rarity-btn[data-rarity="purple"] {
+    border-color: rgba(168,85,247,0.6);
+    color: #c084fc;
+}
+.rarity-btn[data-rarity="purple"].active {
+    background: rgba(168,85,247,0.3);
+    border-color: #c084fc;
+    box-shadow: 0 0 12px rgba(168,85,247,0.5);
+    color: #e0b4ff;
+}
+.rarity-btn[data-rarity="legendary"] {
+    border-color: rgba(245,158,11,0.6);
+    color: #fbbf24;
+}
+.rarity-btn[data-rarity="legendary"].active {
+    background: rgba(245,158,11,0.3);
+    border-color: #fbbf24;
+    box-shadow: 0 0 14px rgba(245,158,11,0.6);
+    color: #fde68a;
+    text-shadow: 0 0 6px rgba(245,158,11,0.6);
+}
 .type-color-sword { color: #bae6fd; text-shadow: 0 0 8px rgba(125,211,252,0.35); }
 .type-color-dual-sword { color: #7dd3fc; text-shadow: 0 0 8px rgba(56,189,248,0.35); }
 .type-color-axe { color: #f87171; text-shadow: 0 0 8px rgba(220,38,38,0.35); }
@@ -773,11 +824,11 @@ body {
                 const defaultRarity = sortedVariants.find(v => v.rarity==='blue') || sortedVariants[0];
                 const defaultIndex = sortedVariants.indexOf(defaultRarity);
                 let buttons = sortedVariants.map((v,idx) => {
-                    const label = v.rarity==='blue'?'BLU':(v.rarity==='purple'?'PUR':'LEG');
+                    const label = v.rarity==='blue'?'Blue':(v.rarity==='purple'?'Purple':'Legendary');
                     const activeClass = idx===defaultIndex?' active':'';
                     return `<button class="rarity-btn${activeClass}" data-rarity="${v.rarity}" data-rarity-index="${idx}">${label}</button>`;
                 }).join('');
-                return `<div class="rarity-switcher" data-default-index="${defaultIndex}">${buttons}</div>`;
+                return `<div class="rarity-switcher" data-default-index="${defaultIndex}"><span class="rarity-label">Rarity:</span>${buttons}</div>`;
             }
 
             function renderItemRow(item, index) {
