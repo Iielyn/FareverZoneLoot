@@ -1605,32 +1605,34 @@
             </div>
         </header>
         <div class="filter-bar" id="filter-bar">
-            <div class="filter-group-wrapper" id="class-wrapper">
-                <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
-                <div class="filter-dropdown" id="class-dropdown"></div>
-            </div>
-            <div class="filter-group-wrapper" id="stat-wrapper">
-                <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
-                <div class="filter-dropdown" id="stat-dropdown"></div>
-            </div>
-            <div class="filter-group-wrapper" id="type-wrapper">
-                <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
-                <div class="filter-dropdown" id="type-dropdown"></div>
-            </div>
-            <div class="filter-group-wrapper" id="category-wrapper">
-    <div class="filter-group-header">
-        <span class="arrow">▼</span>
-        <span class="label">Category</span>
-        <span class="active-count" id="category-count" style="display:none">0</span>
+    <div class="filter-group-wrapper" id="class-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="class-dropdown"></div>
     </div>
-    <div class="filter-dropdown" id="category-dropdown">
-        <button class="filter-btn category-btn" data-category="weapons">Weapons</button>
-        <button class="filter-btn category-btn" data-category="armor">Armor</button>
+    <div class="filter-group-wrapper" id="stat-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="stat-dropdown"></div>
     </div>
-</div>
-            <button class="stat-match-toggle" id="stat-match-toggle" data-mode="all">Match: ALL</button>
-            <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear</button>
+    <div class="filter-group-wrapper" id="category-wrapper">
+        <div class="filter-group-header">
+            <span class="arrow">▼</span>
+            <span class="label">Category</span>
+            <span class="active-count" id="category-count" style="display:none">0</span>
         </div>
+        <div class="filter-dropdown" id="category-dropdown">
+            <button class="filter-btn category-btn" data-category="weapons">Weapons</button>
+            <button class="filter-btn category-btn" data-category="armor">Armor</button>
+        </div>
+    </div>
+
+    <div class="filter-group-wrapper" id="type-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="type-dropdown"></div>
+    </div>
+
+    <button class="stat-match-toggle" id="stat-match-toggle" data-mode="all">Match: ALL</button>
+    <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear</button>
+</div>
     </div>
     <div class="main-content">
         <main class="container" id="zones-container"></main>
@@ -1690,7 +1692,7 @@
             let filterStats = [];
             let statMatchMode = 'all';
             let searchQuery = '';
-            let filterCategory = null;
+            let filterCategories = []; 
             const allItemsMap = new Map();
             const escapeHtml = str => str ? str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
                 .replace(/"/g, '&quot;').replace(/'/g, '&#39;') : '';
@@ -1712,14 +1714,11 @@
             const hasTrinketPassive = item => item.trinketPassive && item.trinketPassive.trim() !== '';
             const getTypeColorClass = type => type ? 'type-color-' + toSlug(type) : '';
 const itemPassesFilter = item => {
-    // New category check
-    if (filterCategory) {
-        if (filterCategory === 'weapons') {
-            if (!item.types.some(t => WEAPON_TYPES.includes(t))) return false;
-        } else if (filterCategory === 'armor') {
-            if (!item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket')) return false;
-        }
-    }
+if (filterCategories.length > 0) {
+    const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
+    const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
+    if (!passesWeapons && !passesArmor) return false;
+}
 
     if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
     if (filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
@@ -2044,11 +2043,11 @@ const itemPassesFilter = item => {
 
             function updateFilterBarUI() {
                 document.querySelectorAll('.category-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.category === filterCategory);
+    b.classList.toggle('active', filterCategories.includes(b.dataset.category));
 });
 const categoryCount = document.getElementById('category-count');
-categoryCount.textContent = filterCategory ? 1 : 0;
-categoryCount.style.display = filterCategory ? 'inline' : 'none';
+categoryCount.textContent = filterCategories.length;
+categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
                 document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active',
                     filterClasses.includes(b.dataset.class)));
                 document.querySelectorAll('#type-dropdown .type-btn').forEach(b => b.classList.toggle('active',
@@ -2066,7 +2065,7 @@ categoryCount.style.display = filterCategory ? 'inline' : 'none';
                 statCount.style.display = filterStats.length ? 'inline' : 'none';
                 updateTypeButtonCounts();
                 const clearBtn = document.getElementById('clear-all-btn');
-if (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && !filterCategory) {
+if (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) {
     clearBtn.style.display = 'none';
 } else {
     clearBtn.style.display = '';
@@ -2085,15 +2084,20 @@ if (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length
                     idx === -1 ? filterStats.push(value) : filterStats.splice(idx, 1); }
                 renderAll();
             }
-            function toggleCategory(category) {
-    filterCategory = (filterCategory === category) ? null : category;
+function toggleCategory(category) {
+    const idx = filterCategories.indexOf(category);
+    if (idx === -1) {
+        filterCategories.push(category);
+    } else {
+        filterCategories.splice(idx, 1);
+    }
     renderAll();
 }
             window.clearAllFilters = function() { filterClasses = [];
                 filterTypes = [];
                 filterStats = [];
                 searchQuery = '';
-                filterCategory = null;                                 
+                filterCategories = [];                               
                 document.getElementById('search-input').value = '';
                 renderAll();
                 showToast('All filters cleared'); };
