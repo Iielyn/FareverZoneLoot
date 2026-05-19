@@ -2062,8 +2062,11 @@ function updateFilterBarUI() {
 
     document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active',
         filterClasses.includes(b.dataset.class)));
-    document.querySelectorAll('#type-dropdown .type-btn').forEach(b => b.classList.toggle('active',
-        filterTypes.includes(b.dataset.type)));
+    document.querySelectorAll('#type-dropdown .type-btn').forEach(b => {
+    const shouldBeActive = filterTypes.includes(b.dataset.type);
+    b.classList.toggle('active', shouldBeActive);
+    void b.offsetHeight;
+});
     void document.querySelector('#type-dropdown .type-btn')?.offsetHeight;
     document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active',
         filterStats.includes(b.dataset.stat)));
