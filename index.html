@@ -1523,16 +1523,22 @@
     border-radius: var(--radius-sm);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
     padding: 12px;
-    max-width: 900px;        
-    max-height: 600px;      
-    display: none;
+    width: max-content;
+    max-width: 900px;
+    height: max-content;
+    max-height: 600px;
     overflow: hidden;
+    display: flex;                
+    align-items: center;
+    justify-content: center;
 }
 #image-tooltip img {
     display: block;
     max-width: 100%;
-    max-height: 580px;       
-    object-fit: contain;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;           
     border-radius: 4px;
 }
 #image-tooltip .broken-placeholder {
