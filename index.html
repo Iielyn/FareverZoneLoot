@@ -178,8 +178,9 @@
         .type-btn[data-type="Mount"].active { background: rgba(245, 158, 11, 0.24); border-color: #f59e0b; color: #fcd34d; box-shadow: 0 0 12px rgba(245, 158, 11, 0.40); }
         .type-btn[data-type="Glider"].active { background: rgba(6, 182, 212, 0.24); border-color: #06b6d4; color: #67e8f9; box-shadow: 0 0 12px rgba(6, 182, 212, 0.40); }
         .category-btn[data-category="weapons"].active { background: rgba(201, 164, 75, 0.25); border-color: var(--gold); color: var(--gold); box-shadow: 0 0 10px rgba(201, 164, 75, 0.35); }
+		.category-btn[data-category="mount"].active { background: rgba(245, 158, 11, 0.22); border-color: #f59e0b; color: #fcd34d; box-shadow: 0 0 12px rgba(245, 158, 11, 0.40); }
+		.category-btn[data-category="glider"].active { background: rgba(6, 182, 212, 0.22); border-color: #06b6d4; color: #67e8f9; box-shadow: 0 0 12px rgba(6, 182, 212, 0.40); }
         .category-btn[data-category="armor"].active { background: rgba(59, 130, 246, 0.20); border-color: var(--rarity-blue); color: #93c5fd; box-shadow: 0 0 10px rgba(59, 130, 246, 0.35); }
-        .category-btn[data-category="mounts"].active { background: rgba(168, 85, 247, 0.22); border-color: #a855f7; color: #c084fc; box-shadow: 0 0 12px rgba(168, 85, 247, 0.40); }
         .stat-btn[data-stat="Armor"].active { background: rgba(156, 163, 175, 0.20); border-color: #9ca3af; color: #d1d5db; box-shadow: 0 0 8px rgba(156, 163, 175, 0.32); }
         .stat-btn[data-stat="Vitality"].active { background: rgba(52, 211, 153, 0.20); border-color: #34d399; color: #6ee7b7; box-shadow: 0 0 10px rgba(52, 211, 153, 0.38); }
         .stat-btn[data-stat="Strength"].active { background: rgba(248, 113, 113, 0.22); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 10px rgba(248, 113, 113, 0.38); }
@@ -496,7 +497,8 @@
                 <div class="filter-dropdown" id="category-dropdown">
                     <button class="filter-btn category-btn" data-category="weapons">Weapons</button>
                     <button class="filter-btn category-btn" data-category="armor">Armor</button>
-                    <button class="filter-btn category-btn" data-category="mounts">Mount/Glider</button>
+                    <button class="filter-btn category-btn" data-category="mount">Mount</button>
+					<button class="filter-btn category-btn" data-category="glider">Glider</button>
                 </div>
             </div>
             <div class="filter-group-wrapper" id="type-wrapper">
@@ -581,7 +583,9 @@
                 if(filterCategories.length > 0) {
                     const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
                     const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
-                    const passesMounts = filterCategories.includes('mounts') && item.types.some(t => MOUNT_GLIDER_TYPES.includes(t));
+                    const passesMount = filterCategories.includes('mount') && item.types.includes('Mount');
+					const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
+					const passesMounts = passesMount || passesGlider;
                     if(!passesWeapons && !passesArmor && !passesMounts) return false;
                 }
                 if(filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
@@ -855,7 +859,9 @@
                         if(filterCategories.length > 0) {
                             const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
                             const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
-                            const passesMounts = filterCategories.includes('mounts') && item.types.some(t => MOUNT_GLIDER_TYPES.includes(t));
+                            const passesMount = filterCategories.includes('mount') && item.types.includes('Mount');
+							const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
+							const passesMounts = passesMount || passesGlider;
                             if(!passesWeapons && !passesArmor && !passesMounts) return false;
                         }
                         return item.types.includes(type);
