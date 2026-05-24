@@ -748,6 +748,14 @@
                 "Dexterity": 6,
                 "Critical": 18
               }
+            },
+            {
+              "name": "Antelimbian Wingfish",
+              "types": [
+                "Glider"
+              ],
+              "stats": [],
+              "rare": false
             }
           ]
         }
@@ -1481,6 +1489,14 @@
                 "Intelligence": 8,
                 "Magic Penetration": 24
               }
+            },
+            {
+              "name": "Navelian Bat",
+              "types": [
+                "Glider"
+              ],
+              "stats": [],
+              "rare": false
             }
           ]
         },
@@ -2202,6 +2218,14 @@
                 "Magic Penetration": 9,
                 "Fervor": 9
               }
+            },
+            {
+              "name": "Meropsian Crab",
+              "types": [
+                "Mount"
+              ],
+              "stats": [],
+              "rare": false
             }
           ]
         }
@@ -2913,6 +2937,14 @@
                 "Critical": 9,
                 "Magic Penetration": 9
               }
+            },
+            {
+              "name": "Krisomalese Bat",
+              "types": [
+                "Glider"
+              ],
+              "stats": [],
+              "rare": false
             }
           ]
         }
@@ -3658,6 +3690,22 @@
                 "Strength": 5,
                 "Armor Penetration": 18
               }
+            },
+            {
+              "name": "Semeruian Moth",
+              "types": [
+                "Glider"
+              ],
+              "stats": [],
+              "rare": false
+            },
+            {
+              "name": "Ponogian Leggybug",
+              "types": [
+                "Mount"
+              ],
+              "stats": [],
+              "rare": false
             }
           ]
         },
@@ -4392,6 +4440,14 @@
                 "Strength": 5,
                 "Armor Penetration": 18
               }
+            },
+            {
+              "name": "Nescentine Leggybug",
+              "types": [
+                "Mount"
+              ],
+              "stats": [],
+              "rare": false
             }
           ]
         }
@@ -5031,6 +5087,14 @@
                 "Critical": 9,
                 "Armor Penetration": 9
               }
+            },
+            {
+              "name": "Ebral Dragoon",
+              "types": [
+                "Glider"
+              ],
+              "stats": [],
+              "rare": false
             }
           ]
         }
@@ -5773,6 +5837,14 @@
                 "Dexterity": 6,
                 "Critical": 18
               }
+            },
+            {
+              "name": "Acidic Wingfish",
+              "types": [
+                "Glider"
+              ],
+              "stats": [],
+              "rare": false
             }
           ]
         }
@@ -7250,6 +7322,14 @@
               "statValues": {
                 "Armor Penetration": 26
               }
+            },
+            {
+              "name": "Rinuhrian Skunk",
+              "types": [
+                "Mount"
+              ],
+              "stats": [],
+              "rare": false
             }
           ]
         }
