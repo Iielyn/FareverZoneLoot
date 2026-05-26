@@ -239,6 +239,58 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 #image-tooltip{position:fixed;z-index:10000;pointer-events:none;background:transparent;border:none;box-shadow:none;padding:0;display:none;max-width:900px;max-height:600px;overflow:hidden}
 #image-tooltip img{display:block;max-width:100%;max-height:100%;width:auto;height:auto}
         .site-footer{background:var(--surface);border-top:1px solid var(--border);padding:16px 32px;text-align:center;font-size:0.7rem;color:var(--text-dim);letter-spacing:0.05em;margin-top:auto;width:100%;box-sizing:border-box}
+.class-btn[data-class="warrior"].active{background:rgba(201,66,66,0.35);border-color:#ff4040;color:#ff8080;box-shadow:0 0 12px rgba(201,66,66,0.4)}
+.class-btn[data-class="rogue"].active{background:rgba(201,164,75,0.35);border-color:#e0b840;color:#fddd80;box-shadow:0 0 12px rgba(201,164,75,0.4)}
+.class-btn[data-class="mage"].active{background:rgba(123,94,204,0.35);border-color:#9060f0;color:#c0a0ff;box-shadow:0 0 12px rgba(123,94,204,0.4)}
+.class-btn[data-class="priest"].active{background:rgba(232,232,232,0.25);border-color:#ffffff;color:#ffffff;box-shadow:0 0 12px rgba(232,232,232,0.35)}
+
+.type-btn[data-type="Sword"].active{background:rgba(125,211,252,0.20);border-color:#7dd3fc;color:#bae6fd;box-shadow:0 0 10px rgba(125,211,252,0.38)}
+.type-btn[data-type="Dual Sword"].active{background:rgba(56,189,248,0.20);border-color:#38bdf8;color:#7dd3fc;box-shadow:0 0 10px rgba(56,189,248,0.38)}
+.type-btn[data-type="Axe"].active{background:rgba(220,38,38,0.22);border-color:#dc2626;color:#f87171;box-shadow:0 0 10px rgba(220,38,38,0.38)}
+.type-btn[data-type="Dual Axes"].active{background:rgba(225,29,72,0.22);border-color:#e11d48;color:#f87171;box-shadow:0 0 10px rgba(225,29,72,0.38)}
+.type-btn[data-type="Daggers"].active{background:rgba(148,163,184,0.22);border-color:#94a3b8;color:#cbd5e1;box-shadow:0 0 10px rgba(148,163,184,0.35)}
+.type-btn[data-type="Two-Handed Axe"].active{background:rgba(185,28,28,0.24);border-color:#b91c1c;color:#ef4444;box-shadow:0 0 10px rgba(185,28,28,0.40)}
+.type-btn[data-type="Mace"].active{background:rgba(251,191,36,0.22);border-color:#fbbf24;color:#fbbf24;box-shadow:0 0 10px rgba(251,191,36,0.35)}
+.type-btn[data-type="Two-Handed Mace"].active{background:rgba(100,116,139,0.22);border-color:#64748b;color:#94a3b8;box-shadow:0 0 10px rgba(100,116,139,0.35)}
+.type-btn[data-type="Dual Maces"].active{background:rgba(148,163,184,0.22);border-color:#94a3b8;color:#94a3b8;box-shadow:0 0 10px rgba(148,163,184,0.35)}
+.type-btn[data-type="Spear"].active{background:rgba(253,230,138,0.18);border-color:#fde68a;color:#fef3c7;box-shadow:0 0 10px rgba(253,230,138,0.35)}
+.type-btn[data-type="Bow"].active{background:rgba(74,222,128,0.20);border-color:#4ade80;color:#86efac;box-shadow:0 0 10px rgba(74,222,128,0.35)}
+.type-btn[data-type="Fists"].active{background:rgba(239,68,68,0.24);border-color:#ef4444;color:#f87171;box-shadow:0 0 12px rgba(239,68,68,0.42)}
+.type-btn[data-type="Thrown"].active{background:rgba(251,146,60,0.20);border-color:#fb923c;color:#fdb980;box-shadow:0 0 10px rgba(251,146,60,0.35)}
+.type-btn[data-type="Scepter"].active{background:rgba(168,85,247,0.20);border-color:#a855f7;color:#c084fc;box-shadow:0 0 10px rgba(168,85,247,0.38)}
+.type-btn[data-type="Crescent"].active{background:rgba(203,213,225,0.18);border-color:#cbd5e1;color:#e2e8f0;box-shadow:0 0 10px rgba(203,213,225,0.32)}
+.type-btn[data-type="Halos"].active{background:rgba(251,191,36,0.22);border-color:#fbbf24;color:#fde68a;box-shadow:0 0 12px rgba(251,191,36,0.40)}
+.type-btn[data-type="Spellbook"].active{background:rgba(34,211,238,0.20);border-color:#22d3ee;color:#67e8f9;box-shadow:0 0 10px rgba(34,211,238,0.38)}
+.type-btn[data-type="Shield"].active{background:rgba(96,165,250,0.20);border-color:#60a5fa;color:#93c5fd;box-shadow:0 0 10px rgba(96,165,250,0.35)}
+.type-btn[data-type="Head"].active{background:rgba(192,132,252,0.20);border-color:#c084fc;color:#e0b4ff;box-shadow:0 0 10px rgba(192,132,252,0.35)}
+.type-btn[data-type="Shoulders"].active{background:rgba(148,163,184,0.20);border-color:#94a3b8;color:#cbd5e1;box-shadow:0 0 8px rgba(148,163,184,0.30)}
+.type-btn[data-type="Chest"].active{background:rgba(248,113,113,0.20);border-color:#f87171;color:#fca5a5;box-shadow:0 0 10px rgba(248,113,113,0.35)}
+.type-btn[data-type="Back"].active{background:rgba(129,140,248,0.20);border-color:#818cf8;color:#b4bcfc;box-shadow:0 0 10px rgba(129,140,248,0.35)}
+.type-btn[data-type="Hands"].active{background:rgba(212,165,116,0.20);border-color:#d4a574;color:#e8c9a0;box-shadow:0 0 8px rgba(212,165,116,0.30)}
+.type-btn[data-type="Legs"].active{background:rgba(167,139,113,0.20);border-color:#a78b71;color:#c4a882;box-shadow:0 0 8px rgba(167,139,113,0.30)}
+.type-btn[data-type="Feet"].active{background:rgba(201,151,107,0.20);border-color:#c9976b;color:#e0b48a;box-shadow:0 0 8px rgba(201,151,107,0.30)}
+.type-btn[data-type="Waist"].active{background:rgba(184,132,92,0.20);border-color:#b8845c;color:#d4a074;box-shadow:0 0 8px rgba(184,132,92,0.30)}
+.type-btn[data-type="Trinket"].active{background:rgba(244,114,182,0.20);border-color:#f472b6;color:#f9a8d4;box-shadow:0 0 10px rgba(244,114,182,0.35)}
+.type-btn[data-type="Mount"].active{background:rgba(245,158,11,0.24);border-color:#f59e0b;color:#fcd34d;box-shadow:0 0 12px rgba(245,158,11,0.40)}
+.type-btn[data-type="Glider"].active{background:rgba(6,182,212,0.24);border-color:#06b6d4;color:#67e8f9;box-shadow:0 0 12px rgba(6,182,212,0.40)}
+
+.category-btn[data-category="weapons"].active{background:rgba(201,164,75,0.25);border-color:var(--gold);color:var(--gold);box-shadow:0 0 10px rgba(201,164,75,0.35)}
+.category-btn[data-category="mount"].active{background:rgba(245,158,11,0.22);border-color:#f59e0b;color:#fcd34d;box-shadow:0 0 12px rgba(245,158,11,0.40)}
+.category-btn[data-category="glider"].active{background:rgba(6,182,212,0.22);border-color:#06b6d4;color:#67e8f9;box-shadow:0 0 12px rgba(6,182,212,0.40)}
+.category-btn[data-category="armor"].active{background:rgba(59,130,246,0.20);border-color:var(--rarity-blue);color:#93c5fd;box-shadow:0 0 10px rgba(59,130,246,0.35)}
+
+.stat-btn[data-stat="Armor"].active{background:rgba(156,163,175,0.20);border-color:#9ca3af;color:#d1d5db;box-shadow:0 0 8px rgba(156,163,175,0.32)}
+.stat-btn[data-stat="Vitality"].active{background:rgba(52,211,153,0.20);border-color:#34d399;color:#6ee7b7;box-shadow:0 0 10px rgba(52,211,153,0.38)}
+.stat-btn[data-stat="Strength"].active{background:rgba(248,113,113,0.22);border-color:#f87171;color:#fca5a5;box-shadow:0 0 10px rgba(248,113,113,0.38)}
+.stat-btn[data-stat="Dexterity"].active{background:rgba(251,191,36,0.20);border-color:#fbbf24;color:#fde68a;box-shadow:0 0 10px rgba(251,191,36,0.38)}
+.stat-btn[data-stat="Faith"].active{background:rgba(252,211,77,0.22);border-color:#fcd34d;color:#fef3c7;box-shadow:0 0 12px rgba(252,211,77,0.42)}
+.stat-btn[data-stat="Intelligence"].active{background:rgba(129,140,248,0.20);border-color:#818cf8;color:#b4bcfc;box-shadow:0 0 10px rgba(129,140,248,0.38)}
+.stat-btn[data-stat="Critical"].active{background:rgba(244,114,182,0.22);border-color:#f472b6;color:#f9a8d4;box-shadow:0 0 12px rgba(244,114,182,0.40)}
+.stat-btn[data-stat="Armor Penetration"].active{background:rgba(232,121,94,0.22);border-color:#e8795e;color:#f4a28e;box-shadow:0 0 10px rgba(232,121,94,0.38)}
+.stat-btn[data-stat="Magic Penetration"].active{background:rgba(192,132,252,0.20);border-color:#c084fc;color:#e0b4ff;box-shadow:0 0 10px rgba(192,132,252,0.38)}
+.stat-btn[data-stat="Fervor"].active{background:rgba(251,146,60,0.22);border-color:#fb923c;color:#fdb980;box-shadow:0 0 12px rgba(251,146,60,0.40)}
+#class-dropdown { flex-wrap: nowrap; min-width: 360px; }
+#stat-dropdown  { flex-wrap: wrap; }
     </style>
 </head>
 <body class="loading">
