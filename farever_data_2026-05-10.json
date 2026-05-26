@@ -1,5 +1,5 @@
 {
-  "version": "v94",
+  "version": "v95",
   "zones": [
     {
       "name": {
@@ -11,15 +11,15 @@
         {
           "name": {
             "en": "Lost City of Mayda · Lv5 · Full Dungeon",
-            "fr": "Cité perdue de Mayda · Lv5 · Donjon complet",
-            "es": "Ciudad Perdida de Mayda · Lv5 · Mazmorra completa"
+            "fr": "Cité Perdue De Mayda · Lv5 · Donjon Complet",
+            "es": "Ciudad Perdida De Mayda · Lv5 · Mazmorra Completa"
           },
           "loot": [
             {
               "name": {
                 "en": "Iron Fins of the Leviathan ",
-                "fr": "Ailerons de fer du Léviathan",
-                "es": "Aletas de hierro del Leviatán"
+                "fr": "Ailerons De Fer Du Léviathan",
+                "es": "Aletas De Hierro Del Leviatán"
               },
               "types": [
                 "Dual Axes"
@@ -99,8 +99,8 @@
             {
               "name": {
                 "en": "Wings of the Prophet",
-                "fr": "Ailes du Prophète",
-                "es": "Alas del profeta"
+                "fr": "Ailes Du Prophète",
+                "es": "Alas Del Profeta"
               },
               "types": [
                 "Back"
@@ -131,8 +131,8 @@
             {
               "name": {
                 "en": "Nepicur's Vacation Shorts",
-                "fr": "Short de vacances de Nepicur",
-                "es": "Pantalones cortos de vacaciones de Nepicur"
+                "fr": "Short De Vacances De Nepicur",
+                "es": "Pantalones Cortos De Vacaciones De Nepicur"
               },
               "types": [
                 "Legs"
@@ -163,8 +163,8 @@
             {
               "name": {
                 "en": "Ghost Clams of the Low Tide",
-                "fr": "Palourdes fantômes de la marée basse",
-                "es": "Almejas fantasma de la marea baja"
+                "fr": "Palourdes Fantômes De La Marée Basse",
+                "es": "Almejas Fantasma De La Marea Baja"
               },
               "types": [
                 "Halos"
@@ -244,8 +244,8 @@
             {
               "name": {
                 "en": "Charm of the Fisher King",
-                "fr": "Charme du roi pêcheur",
-                "es": "Encanto del Rey Pescador"
+                "fr": "Charme Du Roi Pêcheur",
+                "es": "Encanto Del Rey Pescador"
               },
               "types": [
                 "Chest"
@@ -272,7 +272,7 @@
               "name": {
                 "en": "Poetrident",
                 "fr": "Poétridident",
-                "es": "poetaridente"
+                "es": "Poetaridente"
               },
               "types": [
                 "Trinket"
@@ -300,8 +300,8 @@
             {
               "name": {
                 "en": "Ceremonial Siren Gloves",
-                "fr": "Gants de sirène de cérémonie",
-                "es": "Guantes de sirena ceremoniales"
+                "fr": "Gants De Sirène De Cérémonie",
+                "es": "Guantes De Sirena Ceremoniales"
               },
               "types": [
                 "Hands"
@@ -327,8 +327,8 @@
             {
               "name": {
                 "en": "Tides Hood",
-                "fr": "Capot des marées",
-                "es": "Capucha de mareas"
+                "fr": "Capot Des Marées",
+                "es": "Capucha De Mareas"
               },
               "types": [
                 "Head"
@@ -354,8 +354,8 @@
             {
               "name": {
                 "en": "Jacket of the Last Pirate",
-                "fr": "Veste du dernier pirate",
-                "es": "Chaqueta del último pirata"
+                "fr": "Veste Du Dernier Pirate",
+                "es": "Chaqueta Del Último Pirata"
               },
               "types": [
                 "Chest"
@@ -386,8 +386,8 @@
             {
               "name": {
                 "en": "Fin Armor",
-                "fr": "Armure d'aileron",
-                "es": "Armadura de aleta"
+                "fr": "Armure D'Aileron",
+                "es": "Armadura De Aleta"
               },
               "types": [
                 "Chest"
@@ -418,8 +418,8 @@
             {
               "name": {
                 "en": "Abyssal Shoulderplates",
-                "fr": "Plaques d'épaule abyssales",
-                "es": "Hombreras de placas abisales"
+                "fr": "Plaques D'Épaule Abyssales",
+                "es": "Hombreras De Placas Abisales"
               },
               "types": [
                 "Shoulders"
@@ -450,8 +450,8 @@
             {
               "name": {
                 "en": "Cloak of the Third Wave Apostle",
-                "fr": "Cape de l'apôtre de la troisième vague",
-                "es": "Capa del Apóstol de la Tercera Ola"
+                "fr": "Cape De L'Apôtre De La Troisième Vague",
+                "es": "Capa Del Apóstol De La Tercera Ola"
               },
               "types": [
                 "Back"
@@ -482,8 +482,8 @@
             {
               "name": {
                 "en": "Submarine Torpedo Helmet",
-                "fr": "Casque torpille sous-marin",
-                "es": "Casco de torpedo submarino"
+                "fr": "Casque Torpille Sous-Marin",
+                "es": "Casco De Torpedo Submarino"
               },
               "types": [
                 "Head"
@@ -509,8 +509,8 @@
             {
               "name": {
                 "en": "Crown of the Sea",
-                "fr": "Couronne de la mer",
-                "es": "corona del mar"
+                "fr": "Couronne De La Mer",
+                "es": "Corona Del Mar"
               },
               "types": [
                 "Head"
@@ -536,8 +536,8 @@
             {
               "name": {
                 "en": "Fins of the First Fish",
-                "fr": "Nageoires du premier poisson",
-                "es": "Aletas del primer pez"
+                "fr": "Nageoires Du Premier Poisson",
+                "es": "Aletas Del Primer Pez"
               },
               "types": [
                 "Shoulders"
@@ -568,8 +568,8 @@
             {
               "name": {
                 "en": "Delicate Marine Aiglets",
-                "fr": "Aiglets marins délicats",
-                "es": "Delicados aiglets marinos"
+                "fr": "Aiglets Marins Délicats",
+                "es": "Delicados Aiglets Marinos"
               },
               "types": [
                 "Shoulders"
@@ -600,8 +600,8 @@
             {
               "name": {
                 "en": "Jenny Hanibal's Armored Cape",
-                "fr": "Cape blindée de Jenny Hanibal",
-                "es": "Capa blindada de Jenny Hanibal"
+                "fr": "Cape Blindée De Jenny Hanibal",
+                "es": "Capa Blindada De Jenny Hanibal"
               },
               "types": [
                 "Back"
@@ -632,8 +632,8 @@
             {
               "name": {
                 "en": "Palm of the Lagoon",
-                "fr": "Palme du Lagon",
-                "es": "Palma de la Laguna"
+                "fr": "Palme Du Lagon",
+                "es": "Palma De La Laguna"
               },
               "types": [
                 "Hands"
@@ -664,8 +664,8 @@
             {
               "name": {
                 "en": "Burden of the Abyss",
-                "fr": "Le fardeau des abysses",
-                "es": "Carga del abismo"
+                "fr": "Le Fardeau Des Abysses",
+                "es": "Carga Del Abismo"
               },
               "types": [
                 "Hands"
@@ -691,8 +691,8 @@
             {
               "name": {
                 "en": "Emblem of the Third Wave",
-                "fr": "Emblème de la troisième vague",
-                "es": "Emblema de la tercera ola"
+                "fr": "Emblème De La Troisième Vague",
+                "es": "Emblema De La Tercera Ola"
               },
               "types": [
                 "Waist"
@@ -723,8 +723,8 @@
             {
               "name": {
                 "en": "Ceremonial Nepsid Belt",
-                "fr": "Ceinture cérémoniale des Nepsids",
-                "es": "Cinturón népsido ceremonial"
+                "fr": "Ceinture Cérémoniale Des Nepsids",
+                "es": "Cinturón Népsido Ceremonial"
               },
               "types": [
                 "Waist"
@@ -755,8 +755,8 @@
             {
               "name": {
                 "en": "Vesture of the Mussel Hunter",
-                "fr": "Tenue du chasseur de moules",
-                "es": "Vestimenta del cazador de mejillones"
+                "fr": "Tenue Du Chasseur De Moules",
+                "es": "Vestimenta Del Cazador De Mejillones"
               },
               "types": [
                 "Legs"
@@ -787,8 +787,8 @@
             {
               "name": {
                 "en": "High-speed Clamdiggers",
-                "fr": "Clamdiggers à grande vitesse",
-                "es": "Excavadoras de almejas de alta velocidad"
+                "fr": "Clamdiggers À Grande Vitesse",
+                "es": "Excavadoras De Almejas De Alta Velocidad"
               },
               "types": [
                 "Legs"
@@ -814,8 +814,8 @@
             {
               "name": {
                 "en": "Boots of Abyssal Essence",
-                "fr": "Bottes d'essence abyssale",
-                "es": "Botas de esencia abisal"
+                "fr": "Bottes D'Essence Abyssale",
+                "es": "Botas De Esencia Abisal"
               },
               "types": [
                 "Feet"
@@ -846,8 +846,8 @@
             {
               "name": {
                 "en": "Spare Sandals of Young Nephisto ",
-                "fr": "Sandales de rechange du jeune Nephisto",
-                "es": "Sandalias de repuesto del joven Nephisto"
+                "fr": "Sandales De Rechange Du Jeune Nephisto",
+                "es": "Sandalias De Repuesto Del Joven Nephisto"
               },
               "types": [
                 "Feet"
@@ -873,8 +873,8 @@
             {
               "name": {
                 "en": "Bleak Shell's Knee Pads",
-                "fr": "Genouillères de Bleak Shell",
-                "es": "Rodilleras de Concha Desolada"
+                "fr": "Genouillères De Bleak Shell",
+                "es": "Rodilleras De Concha Desolada"
               },
               "types": [
                 "Feet"
@@ -900,8 +900,8 @@
             {
               "name": {
                 "en": "Antelimbian Wingfish",
-                "fr": "Poisson-aile antélimbien",
-                "es": "Pez ala antelimbiano"
+                "fr": "Poisson-Aile Antélimbien",
+                "es": "Pez Ala Antelimbiano"
               },
               "types": [
                 "Glider"
@@ -917,21 +917,21 @@
       "name": {
         "en": "Primevalley",
         "fr": "Vallée Primaire",
-        "es": "valle primitivo"
+        "es": "Valle Primitivo"
       },
       "dungeons": [
         {
           "name": {
             "en": "Mine Estrone · Lv7 · Full Dungeon",
-            "fr": "Mine Estrone · Lv7 · Donjon complet",
-            "es": "Mina Estrona · Lv7 · Mazmorra completa"
+            "fr": "Mine Estrone · Lv7 · Donjon Complet",
+            "es": "Mina Estrona · Lv7 · Mazmorra Completa"
           },
           "loot": [
             {
               "name": {
                 "en": "Cheese Moon",
-                "fr": "Lune au fromage",
-                "es": "Luna de queso"
+                "fr": "Lune Au Fromage",
+                "es": "Luna De Queso"
               },
               "types": [
                 "Axe"
@@ -1006,8 +1006,8 @@
             {
               "name": {
                 "en": "Raclette Pan",
-                "fr": "Poêle à raclette",
-                "es": "Sartén para raclette"
+                "fr": "Poêle À Raclette",
+                "es": "Sartén Para Raclette"
               },
               "types": [
                 "Trinket"
@@ -1035,8 +1035,8 @@
             {
               "name": {
                 "en": "Gold Pouches",
-                "fr": "Pochettes en or",
-                "es": "Bolsas de oro"
+                "fr": "Pochettes En Or",
+                "es": "Bolsas De Oro"
               },
               "types": [
                 "Feet"
@@ -1067,8 +1067,8 @@
             {
               "name": {
                 "en": "Goldilock's Thrice Latched Jacket",
-                "fr": "Veste trois fois verrouillée de Boucle d'or",
-                "es": "Chaqueta tres veces cerrada de Ricitos de Oro"
+                "fr": "Veste Trois Fois Verrouillée De Boucle D'Or",
+                "es": "Chaqueta Tres Veces Cerrada De Ricitos De Oro"
               },
               "types": [
                 "Chest"
@@ -1094,8 +1094,8 @@
             {
               "name": {
                 "en": "Flame of Argol ",
-                "fr": "Flamme d'Argol",
-                "es": "Llama de Argol"
+                "fr": "Flamme D'Argol",
+                "es": "Llama De Argol"
               },
               "types": [
                 "Scepter"
@@ -1166,8 +1166,8 @@
             {
               "name": {
                 "en": "Spirit of the Spelunker",
-                "fr": "Esprit du spéléologue",
-                "es": "Espíritu del espeleólogo"
+                "fr": "Esprit Du Spéléologue",
+                "es": "Espíritu Del Espeleólogo"
               },
               "types": [
                 "Chest"
@@ -1198,8 +1198,8 @@
             {
               "name": {
                 "en": "Reversible Bib of the Cheese Taster",
-                "fr": "Bavoir Réversible du Dégustateur de Fromage",
-                "es": "Babero Reversible del Catador de Quesos"
+                "fr": "Bavoir Réversible Du Dégustateur De Fromage",
+                "es": "Babero Reversible Del Catador De Quesos"
               },
               "types": [
                 "Back"
@@ -1252,8 +1252,8 @@
             {
               "name": {
                 "en": "Unity of the Thirty Kingdoms ",
-                "fr": "Unité des Trente Royaumes",
-                "es": "Unidad de los Treinta Reinos"
+                "fr": "Unité Des Trente Royaumes",
+                "es": "Unidad De Los Treinta Reinos"
               },
               "types": [
                 "Waist"
@@ -1282,8 +1282,8 @@
             {
               "name": {
                 "en": "Relic of the Four Hundred",
-                "fr": "Relique des Quatre Cents",
-                "es": "Reliquia de los cuatrocientos"
+                "fr": "Relique Des Quatre Cents",
+                "es": "Reliquia De Los Cuatrocientos"
               },
               "types": [
                 "Waist"
@@ -1309,8 +1309,8 @@
             {
               "name": {
                 "en": "Spelunking Shoes of Emmen Tunnel",
-                "fr": "Chaussures de spéléologie du tunnel d'Emmen",
-                "es": "Zapatos de espeleología del túnel de Emmen"
+                "fr": "Chaussures De Spéléologie Du Tunnel D'Emmen",
+                "es": "Zapatos De Espeleología Del Túnel De Emmen"
               },
               "types": [
                 "Feet"
@@ -1341,8 +1341,8 @@
             {
               "name": {
                 "en": "Buskins of Essential Emptiness ",
-                "fr": "Cothurnes du vide essentiel",
-                "es": "Buskins del vacío esencial"
+                "fr": "Cothurnes Du Vide Essentiel",
+                "es": "Buskins Del Vacío Esencial"
               },
               "types": [
                 "Feet"
@@ -1374,7 +1374,7 @@
               "name": {
                 "en": "Armored Docker Cap",
                 "fr": "Casquette Docker Blindée",
-                "es": "Gorra Docker blindada"
+                "es": "Gorra Docker Blindada"
               },
               "types": [
                 "Head"
@@ -1403,8 +1403,8 @@
             {
               "name": {
                 "en": "Dust Scarf",
-                "fr": "Foulard anti-poussière",
-                "es": "Bufanda antipolvo"
+                "fr": "Foulard Anti-Poussière",
+                "es": "Bufanda Antipolvo"
               },
               "types": [
                 "Head"
@@ -1435,8 +1435,8 @@
             {
               "name": {
                 "en": "Vision of the Cheeseslicer ",
-                "fr": "Vision du coupe-fromage",
-                "es": "Visión del rebanador de queso"
+                "fr": "Vision Du Coupe-Fromage",
+                "es": "Visión Del Rebanador De Queso"
               },
               "types": [
                 "Head"
@@ -1467,8 +1467,8 @@
             {
               "name": {
                 "en": "Miner Ramparts",
-                "fr": "Remparts de mineurs",
-                "es": "Murallas mineras"
+                "fr": "Remparts De Mineurs",
+                "es": "Murallas Mineras"
               },
               "types": [
                 "Shoulders"
@@ -1494,8 +1494,8 @@
             {
               "name": {
                 "en": "Treasure Hunter's Straps",
-                "fr": "Sangles de chasseur de trésor",
-                "es": "Correas de cazador de tesoros"
+                "fr": "Sangles De Chasseur De Trésor",
+                "es": "Correas De Cazador De Tesoros"
               },
               "types": [
                 "Shoulders"
@@ -1521,8 +1521,8 @@
             {
               "name": {
                 "en": "Cheese-Covered Shoulderpads",
-                "fr": "Épaulettes recouvertes de fromage",
-                "es": "Hombreras cubiertas de queso"
+                "fr": "Épaulettes Recouvertes De Fromage",
+                "es": "Hombreras Cubiertas De Queso"
               },
               "types": [
                 "Shoulders"
@@ -1548,8 +1548,8 @@
             {
               "name": {
                 "en": "Brie von de Cape",
-                "fr": "Brie de Cape",
-                "es": "Brie von de Cape"
+                "fr": "Brie De Cape",
+                "es": "Brie Von De Cape"
               },
               "types": [
                 "Back"
@@ -1580,8 +1580,8 @@
             {
               "name": {
                 "en": "Mystical Placemat of the Gourmet",
-                "fr": "Set de Table Mystique du Gourmand",
-                "es": "Mantel Místico del Gourmet"
+                "fr": "Set De Table Mystique Du Gourmand",
+                "es": "Mantel Místico Del Gourmet"
               },
               "types": [
                 "Back"
@@ -1607,8 +1607,8 @@
             {
               "name": {
                 "en": "Diskobold's Discus Throw Gloves",
-                "fr": "Gants de lancer de disque de Diskobold",
-                "es": "Guantes de lanzamiento de disco de Diskobold"
+                "fr": "Gants De Lancer De Disque De Diskobold",
+                "es": "Guantes De Lanzamiento De Disco De Diskobold"
               },
               "types": [
                 "Hands"
@@ -1639,8 +1639,8 @@
             {
               "name": {
                 "en": "Vows of Prosperity",
-                "fr": "Vœux de prospérité",
-                "es": "Votos de prosperidad"
+                "fr": "Vœux De Prospérité",
+                "es": "Votos De Prosperidad"
               },
               "types": [
                 "Hands"
@@ -1671,8 +1671,8 @@
             {
               "name": {
                 "en": "Gloves of Ninkilim the Envoy ",
-                "fr": "Gants de Ninkilim l'Envoyé",
-                "es": "Guantes de Ninkilim el Enviado"
+                "fr": "Gants De Ninkilim L'Envoyé",
+                "es": "Guantes De Ninkilim El Enviado"
               },
               "types": [
                 "Hands"
@@ -1703,8 +1703,8 @@
             {
               "name": {
                 "en": "Garment of the Aurock Master",
-                "fr": "Vêtement du Maître Aurock",
-                "es": "Prenda del Maestro Aurock"
+                "fr": "Vêtement Du Maître Aurock",
+                "es": "Prenda Del Maestro Aurock"
               },
               "types": [
                 "Legs"
@@ -1735,8 +1735,8 @@
             {
               "name": {
                 "en": "Wrong Trousers",
-                "fr": "Mauvais pantalon",
-                "es": "Pantalones equivocados"
+                "fr": "Mauvais Pantalon",
+                "es": "Pantalones Equivocados"
               },
               "types": [
                 "Legs"
@@ -1762,8 +1762,8 @@
             {
               "name": {
                 "en": "Rat-Vachol's Patched Up Pants",
-                "fr": "Pantalon rapiécé de Rat-Vachol",
-                "es": "Pantalones remendados de Rat-Vachol"
+                "fr": "Pantalon Rapiécé De Rat-Vachol",
+                "es": "Pantalones Remendados De Rat-Vachol"
               },
               "types": [
                 "Legs"
@@ -1789,8 +1789,8 @@
             {
               "name": {
                 "en": "Navelian Bat",
-                "fr": "Chauve-souris navelienne",
-                "es": "Murciélago naveliano"
+                "fr": "Chauve-Souris Navelienne",
+                "es": "Murciélago Naveliano"
               },
               "types": [
                 "Glider"
@@ -1803,15 +1803,15 @@
         {
           "name": {
             "en": "Crabgantua's Gorge · Lv8 · Boss Only",
-            "fr": "Gorge de Crabgantua · Lv8 · Boss uniquement",
-            "es": "Garganta de Crabgantua · Lv8 · Solo jefe"
+            "fr": "Gorge De Crabgantua · Lv8 · Boss Uniquement",
+            "es": "Garganta De Crabgantua · Lv8 · Solo Jefe"
           },
           "loot": [
             {
               "name": {
                 "en": "Vesture of the Mussel Hunter",
-                "fr": "Tenue du chasseur de moules",
-                "es": "Vestimenta del cazador de mejillones"
+                "fr": "Tenue Du Chasseur De Moules",
+                "es": "Vestimenta Del Cazador De Mejillones"
               },
               "types": [
                 "Legs"
@@ -1842,8 +1842,8 @@
             {
               "name": {
                 "en": "Jenny Hanibal's Armored Cape",
-                "fr": "Cape blindée de Jenny Hanibal",
-                "es": "Capa blindada de Jenny Hanibal"
+                "fr": "Cape Blindée De Jenny Hanibal",
+                "es": "Capa Blindada De Jenny Hanibal"
               },
               "types": [
                 "Back"
@@ -1874,8 +1874,8 @@
             {
               "name": {
                 "en": "Crabgantua's Kneecap",
-                "fr": "Rotule de Crabgantua",
-                "es": "Rótula de Crabgantua"
+                "fr": "Rotule De Crabgantua",
+                "es": "Rótula De Crabgantua"
               },
               "types": [
                 "Shield"
@@ -1929,8 +1929,8 @@
             {
               "name": {
                 "en": "Boots of Abyssal Essence",
-                "fr": "Bottes d'essence abyssale",
-                "es": "Botas de esencia abisal"
+                "fr": "Bottes D'Essence Abyssale",
+                "es": "Botas De Esencia Abisal"
               },
               "types": [
                 "Feet"
@@ -1961,8 +1961,8 @@
             {
               "name": {
                 "en": "Charm of the Fisher King",
-                "fr": "Charme du roi pêcheur",
-                "es": "Encanto del Rey Pescador"
+                "fr": "Charme Du Roi Pêcheur",
+                "es": "Encanto Del Rey Pescador"
               },
               "types": [
                 "Chest"
@@ -2069,8 +2069,8 @@
             {
               "name": {
                 "en": "Wings of the Phophet",
-                "fr": "Ailes du Phophet",
-                "es": "Alas del Phophet"
+                "fr": "Ailes Du Phophet",
+                "es": "Alas Del Phophet"
               },
               "types": [
                 "Back"
@@ -2101,8 +2101,8 @@
             {
               "name": {
                 "en": "High-speed Clamdiggers",
-                "fr": "Clamdiggers à grande vitesse",
-                "es": "Excavadoras de almejas de alta velocidad"
+                "fr": "Clamdiggers À Grande Vitesse",
+                "es": "Excavadoras De Almejas De Alta Velocidad"
               },
               "types": [
                 "Legs"
@@ -2128,8 +2128,8 @@
             {
               "name": {
                 "en": "Fin Armor",
-                "fr": "Armure d'aileron",
-                "es": "Armadura de aleta"
+                "fr": "Armure D'Aileron",
+                "es": "Armadura De Aleta"
               },
               "types": [
                 "Chest"
@@ -2160,8 +2160,8 @@
             {
               "name": {
                 "en": "Jacket of the Last Pirate",
-                "fr": "Veste du dernier pirate",
-                "es": "Chaqueta del último pirata"
+                "fr": "Veste Du Dernier Pirate",
+                "es": "Chaqueta Del Último Pirata"
               },
               "types": [
                 "Chest"
@@ -2193,7 +2193,7 @@
               "name": {
                 "en": "Poetrident",
                 "fr": "Poétridident",
-                "es": "poetaridente"
+                "es": "Poetaridente"
               },
               "types": [
                 "Trinket"
@@ -2221,8 +2221,8 @@
             {
               "name": {
                 "en": "Spare Sandals of Young Nephisto",
-                "fr": "Sandales de rechange du jeune Nephisto",
-                "es": "Sandalias de repuesto del joven Nephisto"
+                "fr": "Sandales De Rechange Du Jeune Nephisto",
+                "es": "Sandalias De Repuesto Del Joven Nephisto"
               },
               "types": [
                 "Feet"
@@ -2248,8 +2248,8 @@
             {
               "name": {
                 "en": "Palm of the Lagoon",
-                "fr": "Palme du Lagon",
-                "es": "Palma de la Laguna"
+                "fr": "Palme Du Lagon",
+                "es": "Palma De La Laguna"
               },
               "types": [
                 "Hands"
@@ -2280,8 +2280,8 @@
             {
               "name": {
                 "en": "Crown of the Sea",
-                "fr": "Couronne de la mer",
-                "es": "corona del mar"
+                "fr": "Couronne De La Mer",
+                "es": "Corona Del Mar"
               },
               "types": [
                 "Head"
@@ -2307,8 +2307,8 @@
             {
               "name": {
                 "en": "Cloak of the Third Wave Apostle",
-                "fr": "Cape de l'apôtre de la troisième vague",
-                "es": "Capa del Apóstol de la Tercera Ola"
+                "fr": "Cape De L'Apôtre De La Troisième Vague",
+                "es": "Capa Del Apóstol De La Tercera Ola"
               },
               "types": [
                 "Back"
@@ -2339,8 +2339,8 @@
             {
               "name": {
                 "en": "Emblem of the Third Wave",
-                "fr": "Emblème de la troisième vague",
-                "es": "Emblema de la tercera ola"
+                "fr": "Emblème De La Troisième Vague",
+                "es": "Emblema De La Tercera Ola"
               },
               "types": [
                 "Waist"
@@ -2371,8 +2371,8 @@
             {
               "name": {
                 "en": "Burden of the Abyss",
-                "fr": "Le fardeau des abysses",
-                "es": "Carga del abismo"
+                "fr": "Le Fardeau Des Abysses",
+                "es": "Carga Del Abismo"
               },
               "types": [
                 "Hands"
@@ -2398,8 +2398,8 @@
             {
               "name": {
                 "en": "Bleak Shell's Knee Pads",
-                "fr": "Genouillères de Bleak Shell",
-                "es": "Rodilleras de Concha Desolada"
+                "fr": "Genouillères De Bleak Shell",
+                "es": "Rodilleras De Concha Desolada"
               },
               "types": [
                 "Feet"
@@ -2425,8 +2425,8 @@
             {
               "name": {
                 "en": "Fins of the First Fish",
-                "fr": "Nageoires du premier poisson",
-                "es": "Aletas del primer pez"
+                "fr": "Nageoires Du Premier Poisson",
+                "es": "Aletas Del Primer Pez"
               },
               "types": [
                 "Shoulders"
@@ -2457,8 +2457,8 @@
             {
               "name": {
                 "en": "Abyssal Shoulderplates",
-                "fr": "Plaques d'épaule abyssales",
-                "es": "Hombreras de placas abisales"
+                "fr": "Plaques D'Épaule Abyssales",
+                "es": "Hombreras De Placas Abisales"
               },
               "types": [
                 "Shoulders"
@@ -2489,8 +2489,8 @@
             {
               "name": {
                 "en": "Nepicur's Vacation Shorts",
-                "fr": "Short de vacances de Nepicur",
-                "es": "Pantalones cortos de vacaciones de Nepicur"
+                "fr": "Short De Vacances De Nepicur",
+                "es": "Pantalones Cortos De Vacaciones De Nepicur"
               },
               "types": [
                 "Legs"
@@ -2513,8 +2513,8 @@
             {
               "name": {
                 "en": "Tides Hood",
-                "fr": "Capot des marées",
-                "es": "Capucha de mareas"
+                "fr": "Capot Des Marées",
+                "es": "Capucha De Mareas"
               },
               "types": [
                 "Head"
@@ -2540,8 +2540,8 @@
             {
               "name": {
                 "en": "Submarine Torpedo Helmet",
-                "fr": "Casque torpille sous-marin",
-                "es": "Casco de torpedo submarino"
+                "fr": "Casque Torpille Sous-Marin",
+                "es": "Casco De Torpedo Submarino"
               },
               "types": [
                 "Head"
@@ -2567,8 +2567,8 @@
             {
               "name": {
                 "en": "Delicate Marine Aiglets",
-                "fr": "Aiglets marins délicats",
-                "es": "Delicados aiglets marinos"
+                "fr": "Aiglets Marins Délicats",
+                "es": "Delicados Aiglets Marinos"
               },
               "types": [
                 "Shoulders"
@@ -2599,8 +2599,8 @@
             {
               "name": {
                 "en": "Ceremonial Siren Gloves",
-                "fr": "Gants de sirène de cérémonie",
-                "es": "Guantes de sirena ceremoniales"
+                "fr": "Gants De Sirène De Cérémonie",
+                "es": "Guantes De Sirena Ceremoniales"
               },
               "types": [
                 "Hands"
@@ -2626,8 +2626,8 @@
             {
               "name": {
                 "en": "Ceremonial Nepsid Belt",
-                "fr": "Ceinture cérémoniale des Nepsids",
-                "es": "Cinturón népsido ceremonial"
+                "fr": "Ceinture Cérémoniale Des Nepsids",
+                "es": "Cinturón Népsido Ceremonial"
               },
               "types": [
                 "Waist"
@@ -2658,7 +2658,7 @@
             {
               "name": {
                 "en": "Meropsian Crab",
-                "fr": "Crabe méropsien",
+                "fr": "Crabe Méropsien",
                 "es": "Cangrejo Meropsiano"
               },
               "types": [
@@ -2681,15 +2681,15 @@
         {
           "name": {
             "en": "Ratsar's Lair · Lv10 · Boss Only",
-            "fr": "Repaire de Ratsar · Lv10 · Boss uniquement",
-            "es": "Guarida de Ratsar · Lv10 · Sólo jefe"
+            "fr": "Repaire De Ratsar · Lv10 · Boss Uniquement",
+            "es": "Guarida De Ratsar · Lv10 · Sólo Jefe"
           },
           "loot": [
             {
               "name": {
                 "en": "Raclette Pan",
-                "fr": "Poêle à raclette",
-                "es": "Sartén para raclette"
+                "fr": "Poêle À Raclette",
+                "es": "Sartén Para Raclette"
               },
               "types": [
                 "Trinket"
@@ -2789,8 +2789,8 @@
             {
               "name": {
                 "en": "Unity of the Thirty Kingdoms",
-                "fr": "Unité des Trente Royaumes",
-                "es": "Unidad de los Treinta Reinos"
+                "fr": "Unité Des Trente Royaumes",
+                "es": "Unidad De Los Treinta Reinos"
               },
               "types": [
                 "Waist"
@@ -2819,8 +2819,8 @@
             {
               "name": {
                 "en": "Wrong Trousers",
-                "fr": "Mauvais pantalon",
-                "es": "Pantalones equivocados"
+                "fr": "Mauvais Pantalon",
+                "es": "Pantalones Equivocados"
               },
               "types": [
                 "Legs"
@@ -2846,8 +2846,8 @@
             {
               "name": {
                 "en": "Twin Fangs of Ratsar",
-                "fr": "Crocs jumeaux de Ratsar",
-                "es": "Colmillos gemelos de Ratsar"
+                "fr": "Crocs Jumeaux De Ratsar",
+                "es": "Colmillos Gemelos De Ratsar"
               },
               "types": [
                 "Daggers"
@@ -2910,8 +2910,8 @@
             {
               "name": {
                 "en": "Diskobold's Discus Throw Gloves",
-                "fr": "Gants de lancer de disque de Diskobold",
-                "es": "Guantes de lanzamiento de disco de Diskobold"
+                "fr": "Gants De Lancer De Disque De Diskobold",
+                "es": "Guantes De Lanzamiento De Disco De Diskobold"
               },
               "types": [
                 "Hands"
@@ -2942,8 +2942,8 @@
             {
               "name": {
                 "en": "Brie von de Cape",
-                "fr": "Brie de Cape",
-                "es": "Brie von de Cape"
+                "fr": "Brie De Cape",
+                "es": "Brie Von De Cape"
               },
               "types": [
                 "Back"
@@ -2974,8 +2974,8 @@
             {
               "name": {
                 "en": "Goldilock's Thrice Latched Jacket",
-                "fr": "Veste trois fois verrouillée de Boucle d'or",
-                "es": "Chaqueta tres veces cerrada de Ricitos de Oro"
+                "fr": "Veste Trois Fois Verrouillée De Boucle D'Or",
+                "es": "Chaqueta Tres Veces Cerrada De Ricitos De Oro"
               },
               "types": [
                 "Chest"
@@ -3001,8 +3001,8 @@
             {
               "name": {
                 "en": "Spelunking Shoes of Emmen Tunnel",
-                "fr": "Chaussures de spéléologie du tunnel d'Emmen",
-                "es": "Zapatos de espeleología del túnel de Emmen"
+                "fr": "Chaussures De Spéléologie Du Tunnel D'Emmen",
+                "es": "Zapatos De Espeleología Del Túnel De Emmen"
               },
               "types": [
                 "Feet"
@@ -3060,8 +3060,8 @@
             {
               "name": {
                 "en": "Miner Ramparts",
-                "fr": "Remparts de mineurs",
-                "es": "Murallas mineras"
+                "fr": "Remparts De Mineurs",
+                "es": "Murallas Mineras"
               },
               "types": [
                 "Shoulders"
@@ -3087,8 +3087,8 @@
             {
               "name": {
                 "en": "Buskins of Essential Emptiness",
-                "fr": "Cothurnes du vide essentiel",
-                "es": "Buskins del vacío esencial"
+                "fr": "Cothurnes Du Vide Essentiel",
+                "es": "Buskins Del Vacío Esencial"
               },
               "types": [
                 "Feet"
@@ -3119,8 +3119,8 @@
             {
               "name": {
                 "en": "Spirit of the Spelunker",
-                "fr": "Esprit du spéléologue",
-                "es": "Espíritu del espeleólogo"
+                "fr": "Esprit Du Spéléologue",
+                "es": "Espíritu Del Espeleólogo"
               },
               "types": [
                 "Chest"
@@ -3151,8 +3151,8 @@
             {
               "name": {
                 "en": "Treasure Hunter's Straps",
-                "fr": "Sangles de chasseur de trésor",
-                "es": "Correas de cazador de tesoros"
+                "fr": "Sangles De Chasseur De Trésor",
+                "es": "Correas De Cazador De Tesoros"
               },
               "types": [
                 "Shoulders"
@@ -3178,8 +3178,8 @@
             {
               "name": {
                 "en": "Vision of the Cheeseslicer ",
-                "fr": "Vision du coupe-fromage",
-                "es": "Visión del rebanador de queso"
+                "fr": "Vision Du Coupe-Fromage",
+                "es": "Visión Del Rebanador De Queso"
               },
               "types": [
                 "Head"
@@ -3210,8 +3210,8 @@
             {
               "name": {
                 "en": "Vows of Prosperity",
-                "fr": "Vœux de prospérité",
-                "es": "Votos de prosperidad"
+                "fr": "Vœux De Prospérité",
+                "es": "Votos De Prosperidad"
               },
               "types": [
                 "Hands"
@@ -3242,8 +3242,8 @@
             {
               "name": {
                 "en": "Reversible Bib of the Cheese Taster",
-                "fr": "Bavoir Réversible du Dégustateur de Fromage",
-                "es": "Babero Reversible del Catador de Quesos"
+                "fr": "Bavoir Réversible Du Dégustateur De Fromage",
+                "es": "Babero Reversible Del Catador De Quesos"
               },
               "types": [
                 "Back"
@@ -3269,8 +3269,8 @@
             {
               "name": {
                 "en": "Gloves of Ninkilim the Envoy ",
-                "fr": "Gants de Ninkilim l'Envoyé",
-                "es": "Guantes de Ninkilim el Enviado"
+                "fr": "Gants De Ninkilim L'Envoyé",
+                "es": "Guantes De Ninkilim El Enviado"
               },
               "types": [
                 "Hands"
@@ -3301,8 +3301,8 @@
             {
               "name": {
                 "en": "Cheese-Covered Shoulderpads",
-                "fr": "Épaulettes recouvertes de fromage",
-                "es": "Hombreras cubiertas de queso"
+                "fr": "Épaulettes Recouvertes De Fromage",
+                "es": "Hombreras Cubiertas De Queso"
               },
               "types": [
                 "Shoulders"
@@ -3328,8 +3328,8 @@
             {
               "name": {
                 "en": "Relic of the Four Hundred",
-                "fr": "Relique des Quatre Cents",
-                "es": "Reliquia de los cuatrocientos"
+                "fr": "Relique Des Quatre Cents",
+                "es": "Reliquia De Los Cuatrocientos"
               },
               "types": [
                 "Waist"
@@ -3350,7 +3350,7 @@
               "name": {
                 "en": "Armored Docker Cap",
                 "fr": "Casquette Docker Blindée",
-                "es": "Gorra Docker blindada"
+                "es": "Gorra Docker Blindada"
               },
               "types": [
                 "Head"
@@ -3379,8 +3379,8 @@
             {
               "name": {
                 "en": "Dust Scarf",
-                "fr": "Foulard anti-poussière",
-                "es": "Bufanda antipolvo"
+                "fr": "Foulard Anti-Poussière",
+                "es": "Bufanda Antipolvo"
               },
               "types": [
                 "Head"
@@ -3411,8 +3411,8 @@
             {
               "name": {
                 "en": "Mystical Placemat of the Gourmet",
-                "fr": "Set de Table Mystique du Gourmand",
-                "es": "Mantel Místico del Gourmet"
+                "fr": "Set De Table Mystique Du Gourmand",
+                "es": "Mantel Místico Del Gourmet"
               },
               "types": [
                 "Back"
@@ -3438,8 +3438,8 @@
             {
               "name": {
                 "en": "Garment of the Aurock Master",
-                "fr": "Vêtement du Maître Aurock",
-                "es": "Prenda del Maestro Aurock"
+                "fr": "Vêtement Du Maître Aurock",
+                "es": "Prenda Del Maestro Aurock"
               },
               "types": [
                 "Legs"
@@ -3470,8 +3470,8 @@
             {
               "name": {
                 "en": "Rat-Vachol's Patched Up Pants",
-                "fr": "Pantalon rapiécé de Rat-Vachol",
-                "es": "Pantalones remendados de Rat-Vachol"
+                "fr": "Pantalon Rapiécé De Rat-Vachol",
+                "es": "Pantalones Remendados De Rat-Vachol"
               },
               "types": [
                 "Legs"
@@ -3497,8 +3497,8 @@
             {
               "name": {
                 "en": "Gold Pouches",
-                "fr": "Pochettes en or",
-                "es": "Bolsas de oro"
+                "fr": "Pochettes En Or",
+                "es": "Bolsas De Oro"
               },
               "types": [
                 "Feet"
@@ -3529,8 +3529,8 @@
             {
               "name": {
                 "en": "Krisomalese Bat",
-                "fr": "Chauve-souris Krisomalese",
-                "es": "Murciélago krisomalés"
+                "fr": "Chauve-Souris Krisomalese",
+                "es": "Murciélago Krisomalés"
               },
               "types": [
                 "Glider"
@@ -3545,22 +3545,22 @@
     {
       "name": {
         "en": "Honeywoods",
-        "fr": "Bois de miel",
-        "es": "Maderas de miel"
+        "fr": "Bois De Miel",
+        "es": "Maderas De Miel"
       },
       "dungeons": [
         {
           "name": {
             "en": "Trunk of the Hivetree · Lv12 · Full Dungeon",
-            "fr": "Tronc de l'Arbre-Ruche · Lv12 · Donjon complet",
-            "es": "Tronco del Árbol Colmena · Lv12 · Mazmorra completa"
+            "fr": "Tronc De L'Arbre-Ruche · Lv12 · Donjon Complet",
+            "es": "Tronco Del Árbol Colmena · Lv12 · Mazmorra Completa"
           },
           "loot": [
             {
               "name": {
                 "en": "Eternal Flower Heart",
-                "fr": "Coeur de fleur éternelle",
-                "es": "Corazón de flor eterna"
+                "fr": "Coeur De Fleur Éternelle",
+                "es": "Corazón De Flor Eterna"
               },
               "types": [
                 "Trinket"
@@ -3588,8 +3588,8 @@
             {
               "name": {
                 "en": "Lady Bee's Ceremonial Stinger",
-                "fr": "Dard de cérémonie de Lady Bee",
-                "es": "Aguijón ceremonial de Lady Bee"
+                "fr": "Dard De Cérémonie De Lady Bee",
+                "es": "Aguijón Ceremonial De Lady Bee"
               },
               "types": [
                 "Spear"
@@ -3669,8 +3669,8 @@
             {
               "name": {
                 "en": "Thornlace",
-                "fr": "Lacet d'épine",
-                "es": "encaje de espinas"
+                "fr": "Lacet D'Épine",
+                "es": "Encaje De Espinas"
               },
               "types": [
                 "Crescent"
@@ -3750,8 +3750,8 @@
             {
               "name": {
                 "en": "Flying Trousers Prototype",
-                "fr": "Prototype de pantalon volant",
-                "es": "Prototipo de pantalón volador"
+                "fr": "Prototype De Pantalon Volant",
+                "es": "Prototipo De Pantalón Volador"
               },
               "types": [
                 "Legs"
@@ -3782,8 +3782,8 @@
             {
               "name": {
                 "en": "Casual Clothes of the Pollincess",
-                "fr": "Vêtements décontractés du Pollincess",
-                "es": "Ropa casual de la polincesa"
+                "fr": "Vêtements Décontractés Du Pollincess",
+                "es": "Ropa Casual De La Polincesa"
               },
               "types": [
                 "Chest"
@@ -3814,8 +3814,8 @@
             {
               "name": {
                 "en": "Dancing Hivetree Belt",
-                "fr": "Ceinture de ruche dansante",
-                "es": "Cinturón de árbol de colmena danzante"
+                "fr": "Ceinture De Ruche Dansante",
+                "es": "Cinturón De Árbol De Colmena Danzante"
               },
               "types": [
                 "Waist"
@@ -3841,8 +3841,8 @@
             {
               "name": {
                 "en": "Cleo's Ethereal Blossoms",
-                "fr": "Les fleurs éthérées de Cléo",
-                "es": "Las flores etéreas de Cleo"
+                "fr": "Les Fleurs Éthérées De Cléo",
+                "es": "Las Flores Etéreas De Cleo"
               },
               "types": [
                 "Feet"
@@ -3868,8 +3868,8 @@
             {
               "name": {
                 "en": "Flight of the Rumblebee",
-                "fr": "Le vol du Rumblebee",
-                "es": "El vuelo del abejorro"
+                "fr": "Le Vol Du Rumblebee",
+                "es": "El Vuelo Del Abejorro"
               },
               "types": [
                 "Back"
@@ -3900,8 +3900,8 @@
             {
               "name": {
                 "en": "Vambraces of the Swarm ",
-                "fr": "Avant-bras de l'Essaim",
-                "es": "Brazaletes del enjambre"
+                "fr": "Avant-Bras De L'Essaim",
+                "es": "Brazaletes Del Enjambre"
               },
               "types": [
                 "Hands"
@@ -3930,8 +3930,8 @@
             {
               "name": {
                 "en": "Royal Chamber Helmet",
-                "fr": "Casque de la Chambre Royale",
-                "es": "Casco de la Cámara Real"
+                "fr": "Casque De La Chambre Royale",
+                "es": "Casco De La Cámara Real"
               },
               "types": [
                 "Head"
@@ -3962,8 +3962,8 @@
             {
               "name": {
                 "en": "Scout Antennae",
-                "fr": "Antennes d'éclaireur",
-                "es": "Antenas exploradoras"
+                "fr": "Antennes D'Éclaireur",
+                "es": "Antenas Exploradoras"
               },
               "types": [
                 "Head"
@@ -3992,8 +3992,8 @@
             {
               "name": {
                 "en": "Vision of the Beekeeper",
-                "fr": "Vision de l'apiculteur",
-                "es": "Visión del apicultor"
+                "fr": "Vision De L'Apiculteur",
+                "es": "Visión Del Apicultor"
               },
               "types": [
                 "Head"
@@ -4025,7 +4025,7 @@
               "name": {
                 "en": "Beewings",
                 "fr": "Beewings",
-                "es": "avispas"
+                "es": "Avispas"
               },
               "types": [
                 "Shoulders"
@@ -4051,7 +4051,7 @@
             {
               "name": {
                 "en": "Hive Sprouts",
-                "fr": "Pousses de ruche",
+                "fr": "Pousses De Ruche",
                 "es": "Brotes De Colmena"
               },
               "types": [
@@ -4078,8 +4078,8 @@
             {
               "name": {
                 "en": "Queen Spikes",
-                "fr": "Reine pointes",
-                "es": "Picos de reina"
+                "fr": "Reine Pointes",
+                "es": "Picos De Reina"
               },
               "types": [
                 "Shoulders"
@@ -4110,8 +4110,8 @@
             {
               "name": {
                 "en": "Emblem of Radiant Nectar",
-                "fr": "Emblème du nectar radieux",
-                "es": "Emblema de néctar radiante"
+                "fr": "Emblème Du Nectar Radieux",
+                "es": "Emblema De Néctar Radiante"
               },
               "types": [
                 "Chest"
@@ -4142,8 +4142,8 @@
             {
               "name": {
                 "en": "Whirring Gem of Apix",
-                "fr": "Gemme vrombissante d'Apix",
-                "es": "Gema zumbadora de Apix"
+                "fr": "Gemme Vrombissante D'Apix",
+                "es": "Gema Zumbadora De Apix"
               },
               "types": [
                 "Chest"
@@ -4169,8 +4169,8 @@
             {
               "name": {
                 "en": "Reflective Vest of the Hive Worker",
-                "fr": "Gilet réfléchissant de l'ouvrier de la ruche",
-                "es": "Chaleco reflectante del trabajador de la colmena"
+                "fr": "Gilet Réfléchissant De L'Ouvrier De La Ruche",
+                "es": "Chaleco Reflectante Del Trabajador De La Colmena"
               },
               "types": [
                 "Back"
@@ -4201,8 +4201,8 @@
             {
               "name": {
                 "en": "Veil of the Royal Nymph (Back_RBee_Wiz) Unsure if this exists!",
-                "fr": "Voile de la nymphe royale (Back_RBee_Wiz) Je ne sais pas si cela existe !",
-                "es": "Velo de la Ninfa Real (Back_RBee_Wiz) ¡No estoy seguro si esto existe!"
+                "fr": "Voile De La Nymphe Royale (Back_Rbee_Wiz) Je Ne Sais Pas Si Cela Existe !",
+                "es": "Velo De La Ninfa Real (Back_Rbee_Wiz) ¡No Estoy Seguro Si Esto Existe!"
               },
               "types": [
                 "Back"
@@ -4255,8 +4255,8 @@
             {
               "name": {
                 "en": "Gauntlets of the Royal Guard",
-                "fr": "Gantelets de la Garde Royale",
-                "es": "Guanteletes de la Guardia Real"
+                "fr": "Gantelets De La Garde Royale",
+                "es": "Guanteletes De La Guardia Real"
               },
               "types": [
                 "Hands"
@@ -4286,8 +4286,8 @@
             {
               "name": {
                 "en": "Propolis Heart of Apix",
-                "fr": "Propolis Cœur d'Apix",
-                "es": "Corazón de Propóleo de Apix"
+                "fr": "Propolis Cœur D'Apix",
+                "es": "Corazón De Propóleo De Apix"
               },
               "types": [
                 "Waist"
@@ -4318,8 +4318,8 @@
             {
               "name": {
                 "en": "Silhouette of Apix",
-                "fr": "Silhouette d'Apix",
-                "es": "Silueta de Apix"
+                "fr": "Silhouette D'Apix",
+                "es": "Silueta De Apix"
               },
               "types": [
                 "Legs"
@@ -4345,8 +4345,8 @@
             {
               "name": {
                 "en": "Zenobee's Breeches",
-                "fr": "Pantalons de Zénobée",
-                "es": "Calzones de Zenobee"
+                "fr": "Pantalons De Zénobée",
+                "es": "Calzones De Zenobee"
               },
               "types": [
                 "Legs"
@@ -4377,8 +4377,8 @@
             {
               "name": {
                 "en": "War Sabatons of Apix",
-                "fr": "Sabots de guerre d'Apix",
-                "es": "Escarpes de guerra de Apix"
+                "fr": "Sabots De Guerre D'Apix",
+                "es": "Escarpes De Guerra De Apix"
               },
               "types": [
                 "Feet"
@@ -4407,8 +4407,8 @@
             {
               "name": {
                 "en": "Melain's Golden Greaves",
-                "fr": "Grèves dorées de Melain",
-                "es": "Grebas doradas de Melain"
+                "fr": "Grèves Dorées De Melain",
+                "es": "Grebas Doradas De Melain"
               },
               "types": [
                 "Feet"
@@ -4434,8 +4434,8 @@
             {
               "name": {
                 "en": "Semeruian Moth",
-                "fr": "Papillon sémérien",
-                "es": "Polilla semeruiana"
+                "fr": "Papillon Sémérien",
+                "es": "Polilla Semeruiana"
               },
               "types": [
                 "Glider"
@@ -4447,7 +4447,7 @@
               "name": {
                 "en": "Ponogian Leggybug",
                 "fr": "Leggybug Ponogien",
-                "es": "Leggybug ponogiano"
+                "es": "Leggybug Ponogiano"
               },
               "types": [
                 "Mount"
@@ -4460,15 +4460,15 @@
         {
           "name": {
             "en": "Lady Bee's Palace · Lv13 · Boss Only",
-            "fr": "Palais de Lady Bee · Lv13 · Boss uniquement",
-            "es": "Palacio de Lady Bee · Lv13 · Solo jefe"
+            "fr": "Palais De Lady Bee · Lv13 · Boss Uniquement",
+            "es": "Palacio De Lady Bee · Lv13 · Solo Jefe"
           },
           "loot": [
             {
               "name": {
                 "en": "Propolis Heart of Apix",
-                "fr": "Propolis Cœur d'Apix",
-                "es": "Corazón de Propóleo de Apix"
+                "fr": "Propolis Cœur D'Apix",
+                "es": "Corazón De Propóleo De Apix"
               },
               "types": [
                 "Waist"
@@ -4499,8 +4499,8 @@
             {
               "name": {
                 "en": "Ipheion, Star Blossom",
-                "fr": "Ipheion, fleur d'étoile",
-                "es": "Ipheion, flor de estrella"
+                "fr": "Ipheion, Fleur D'Étoile",
+                "es": "Ipheion, Flor De Estrella"
               },
               "types": [
                 "Thrown"
@@ -4575,8 +4575,8 @@
             {
               "name": {
                 "en": "Whirring Gem of Apix",
-                "fr": "Gemme vrombissante d'Apix",
-                "es": "Gema zumbadora de Apix"
+                "fr": "Gemme Vrombissante D'Apix",
+                "es": "Gema Zumbadora De Apix"
               },
               "types": [
                 "Chest"
@@ -4602,8 +4602,8 @@
             {
               "name": {
                 "en": "Beefury, Blessed Blade of the Farseeker",
-                "fr": "Beefury, lame bénie du chercheur lointain",
-                "es": "Beefury, espada bendita del buscador lejano"
+                "fr": "Beefury, Lame Bénie Du Chercheur Lointain",
+                "es": "Beefury, Espada Bendita Del Buscador Lejano"
               },
               "types": [
                 "Sword"
@@ -4678,8 +4678,8 @@
             {
               "name": {
                 "en": "Flight of the Rumblebee",
-                "fr": "Le vol du Rumblebee",
-                "es": "El vuelo del abejorro"
+                "fr": "Le Vol Du Rumblebee",
+                "es": "El Vuelo Del Abejorro"
               },
               "types": [
                 "Back"
@@ -4710,8 +4710,8 @@
             {
               "name": {
                 "en": "Eternal Flower Heart",
-                "fr": "Coeur de fleur éternelle",
-                "es": "Corazón de flor eterna"
+                "fr": "Coeur De Fleur Éternelle",
+                "es": "Corazón De Flor Eterna"
               },
               "types": [
                 "Trinket"
@@ -4739,8 +4739,8 @@
             {
               "name": {
                 "en": "Emblem of Radiant Nectar",
-                "fr": "Emblème du nectar radieux",
-                "es": "Emblema de néctar radiante"
+                "fr": "Emblème Du Nectar Radieux",
+                "es": "Emblema De Néctar Radiante"
               },
               "types": [
                 "Chest"
@@ -4771,8 +4771,8 @@
             {
               "name": {
                 "en": "War Sabatons of Apix",
-                "fr": "Sabots de guerre d'Apix",
-                "es": "Escarpes de guerra de Apix"
+                "fr": "Sabots De Guerre D'Apix",
+                "es": "Escarpes De Guerra De Apix"
               },
               "types": [
                 "Feet"
@@ -4801,8 +4801,8 @@
             {
               "name": {
                 "en": "Reflective Vest of the Hive Worker",
-                "fr": "Gilet réfléchissant de l'ouvrier de la ruche",
-                "es": "Chaleco reflectante del trabajador de la colmena"
+                "fr": "Gilet Réfléchissant De L'Ouvrier De La Ruche",
+                "es": "Chaleco Reflectante Del Trabajador De La Colmena"
               },
               "types": [
                 "Back"
@@ -4833,8 +4833,8 @@
             {
               "name": {
                 "en": "Gauntlets of the Royal Guard",
-                "fr": "Gantelets de la Garde Royale",
-                "es": "Guanteletes de la Guardia Real"
+                "fr": "Gantelets De La Garde Royale",
+                "es": "Guanteletes De La Guardia Real"
               },
               "types": [
                 "Hands"
@@ -4864,8 +4864,8 @@
             {
               "name": {
                 "en": "Silhouette of Apix",
-                "fr": "Silhouette d'Apix",
-                "es": "Silueta de Apix"
+                "fr": "Silhouette D'Apix",
+                "es": "Silueta De Apix"
               },
               "types": [
                 "Legs"
@@ -4892,7 +4892,7 @@
               "name": {
                 "en": "Beewings",
                 "fr": "Beewings",
-                "es": "avispas"
+                "es": "Avispas"
               },
               "types": [
                 "Shoulders"
@@ -4918,8 +4918,8 @@
             {
               "name": {
                 "en": "Royal Chamber Helmet",
-                "fr": "Casque de la Chambre Royale",
-                "es": "Casco de la Cámara Real"
+                "fr": "Casque De La Chambre Royale",
+                "es": "Casco De La Cámara Real"
               },
               "types": [
                 "Head"
@@ -4950,8 +4950,8 @@
             {
               "name": {
                 "en": "Vision of the Beekeeper",
-                "fr": "Vision de l'apiculteur",
-                "es": "Visión del apicultor"
+                "fr": "Vision De L'Apiculteur",
+                "es": "Visión Del Apicultor"
               },
               "types": [
                 "Head"
@@ -4982,8 +4982,8 @@
             {
               "name": {
                 "en": "Scout Antennae",
-                "fr": "Antennes d'éclaireur",
-                "es": "Antenas exploradoras"
+                "fr": "Antennes D'Éclaireur",
+                "es": "Antenas Exploradoras"
               },
               "types": [
                 "Head"
@@ -5012,8 +5012,8 @@
             {
               "name": {
                 "en": "Queen Spikes",
-                "fr": "Reine pointes",
-                "es": "Picos de reina"
+                "fr": "Reine Pointes",
+                "es": "Picos De Reina"
               },
               "types": [
                 "Shoulders"
@@ -5044,7 +5044,7 @@
             {
               "name": {
                 "en": "Hive Sprouts",
-                "fr": "Pousses de ruche",
+                "fr": "Pousses De Ruche",
                 "es": "Brotes De Colmena"
               },
               "types": [
@@ -5071,8 +5071,8 @@
             {
               "name": {
                 "en": "Casual Clothes of the Pollincess",
-                "fr": "Vêtements décontractés du Pollincess",
-                "es": "Ropa casual de la polincesa"
+                "fr": "Vêtements Décontractés Du Pollincess",
+                "es": "Ropa Casual De La Polincesa"
               },
               "types": [
                 "Chest"
@@ -5103,8 +5103,8 @@
             {
               "name": {
                 "en": "Veil of the Royal Nymph (Back_RBee_Wiz) Unsure if this exists!",
-                "fr": "Voile de la nymphe royale (Back_RBee_Wiz) Je ne sais pas si cela existe !",
-                "es": "Velo de la Ninfa Real (Back_RBee_Wiz) ¡No estoy seguro si esto existe!"
+                "fr": "Voile De La Nymphe Royale (Back_Rbee_Wiz) Je Ne Sais Pas Si Cela Existe !",
+                "es": "Velo De La Ninfa Real (Back_Rbee_Wiz) ¡No Estoy Seguro Si Esto Existe!"
               },
               "types": [
                 "Back"
@@ -5130,8 +5130,8 @@
             {
               "name": {
                 "en": "Vambraces of the Swarm ",
-                "fr": "Avant-bras de l'Essaim",
-                "es": "Brazaletes del enjambre"
+                "fr": "Avant-Bras De L'Essaim",
+                "es": "Brazaletes Del Enjambre"
               },
               "types": [
                 "Hands"
@@ -5187,8 +5187,8 @@
             {
               "name": {
                 "en": "Dancing Hivetree Belt",
-                "fr": "Ceinture de ruche dansante",
-                "es": "Cinturón de árbol de colmena danzante"
+                "fr": "Ceinture De Ruche Dansante",
+                "es": "Cinturón De Árbol De Colmena Danzante"
               },
               "types": [
                 "Waist"
@@ -5214,8 +5214,8 @@
             {
               "name": {
                 "en": "Flying Trousers Prototype",
-                "fr": "Prototype de pantalon volant",
-                "es": "Prototipo de pantalón volador"
+                "fr": "Prototype De Pantalon Volant",
+                "es": "Prototipo De Pantalón Volador"
               },
               "types": [
                 "Legs"
@@ -5246,8 +5246,8 @@
             {
               "name": {
                 "en": "Zenobee's Breeches",
-                "fr": "Pantalons de Zénobée",
-                "es": "Calzones de Zenobee"
+                "fr": "Pantalons De Zénobée",
+                "es": "Calzones De Zenobee"
               },
               "types": [
                 "Legs"
@@ -5278,8 +5278,8 @@
             {
               "name": {
                 "en": "Cleo's Ethereal Blossoms",
-                "fr": "Les fleurs éthérées de Cléo",
-                "es": "Las flores etéreas de Cleo"
+                "fr": "Les Fleurs Éthérées De Cléo",
+                "es": "Las Flores Etéreas De Cleo"
               },
               "types": [
                 "Feet"
@@ -5305,8 +5305,8 @@
             {
               "name": {
                 "en": "Melain's Golden Greaves",
-                "fr": "Grèves dorées de Melain",
-                "es": "Grebas doradas de Melain"
+                "fr": "Grèves Dorées De Melain",
+                "es": "Grebas Doradas De Melain"
               },
               "types": [
                 "Feet"
@@ -5349,14 +5349,14 @@
       "name": {
         "en": "Azuram",
         "fr": "Azuram",
-        "es": "azuram"
+        "es": "Azuram"
       },
       "dungeons": [
         {
           "name": {
             "en": "Ruins of Gorgon's Hollow · Lv15 · Full Dungeon",
-            "fr": "Ruines de Gorgon's Hollow · Lv15 · Donjon complet",
-            "es": "Ruinas del Valle de Gorgona · Lv15 · Mazmorra completa"
+            "fr": "Ruines De Gorgon'S Hollow · Lv15 · Donjon Complet",
+            "es": "Ruinas Del Valle De Gorgona · Lv15 · Mazmorra Completa"
           },
           "loot": [
             {
@@ -5417,8 +5417,8 @@
             {
               "name": {
                 "en": "Unity of the Thirty Kingdoms ",
-                "fr": "Unité des Trente Royaumes",
-                "es": "Unidad de los Treinta Reinos"
+                "fr": "Unité Des Trente Royaumes",
+                "es": "Unidad De Los Treinta Reinos"
               },
               "types": [
                 "Waist"
@@ -5447,8 +5447,8 @@
             {
               "name": {
                 "en": "Spelunking Shoes of Emmen Tunnel",
-                "fr": "Chaussures de spéléologie du tunnel d'Emmen",
-                "es": "Zapatos de espeleología del túnel de Emmen"
+                "fr": "Chaussures De Spéléologie Du Tunnel D'Emmen",
+                "es": "Zapatos De Espeleología Del Túnel De Emmen"
               },
               "types": [
                 "Feet"
@@ -5506,8 +5506,8 @@
             {
               "name": {
                 "en": "Gorgon Ratsay's Toothpick",
-                "fr": "Cure-dents de Gorgon Ratsay",
-                "es": "Palillo de dientes de Gorgona Ratsay"
+                "fr": "Cure-Dents De Gorgon Ratsay",
+                "es": "Palillo De Dientes De Gorgona Ratsay"
               },
               "types": [
                 "Spear"
@@ -5575,8 +5575,8 @@
             {
               "name": {
                 "en": "Treasure Hunter's Straps",
-                "fr": "Sangles de chasseur de trésor",
-                "es": "Correas de cazador de tesoros"
+                "fr": "Sangles De Chasseur De Trésor",
+                "es": "Correas De Cazador De Tesoros"
               },
               "types": [
                 "Shoulders"
@@ -5602,8 +5602,8 @@
             {
               "name": {
                 "en": "Gold Pouches",
-                "fr": "Pochettes en or",
-                "es": "Bolsas de oro"
+                "fr": "Pochettes En Or",
+                "es": "Bolsas De Oro"
               },
               "types": [
                 "Feet"
@@ -5634,8 +5634,8 @@
             {
               "name": {
                 "en": "Brie von de Cape",
-                "fr": "Brie de Cape",
-                "es": "Brie von de Cape"
+                "fr": "Brie De Cape",
+                "es": "Brie Von De Cape"
               },
               "types": [
                 "Back"
@@ -5666,8 +5666,8 @@
             {
               "name": {
                 "en": "Cheese-Covered Shoulderpads",
-                "fr": "Épaulettes recouvertes de fromage",
-                "es": "Hombreras cubiertas de queso"
+                "fr": "Épaulettes Recouvertes De Fromage",
+                "es": "Hombreras Cubiertas De Queso"
               },
               "types": [
                 "Shoulders"
@@ -5693,8 +5693,8 @@
             {
               "name": {
                 "en": "Spirit of the Spelunker",
-                "fr": "Esprit du spéléologue",
-                "es": "Espíritu del espeleólogo"
+                "fr": "Esprit Du Spéléologue",
+                "es": "Espíritu Del Espeleólogo"
               },
               "types": [
                 "Chest"
@@ -5725,8 +5725,8 @@
             {
               "name": {
                 "en": "Raclette Pan",
-                "fr": "Poêle à raclette",
-                "es": "Sartén para raclette"
+                "fr": "Poêle À Raclette",
+                "es": "Sartén Para Raclette"
               },
               "types": [
                 "Trinket"
@@ -5754,8 +5754,8 @@
             {
               "name": {
                 "en": "Relic of the Four Hundred",
-                "fr": "Relique des Quatre Cents",
-                "es": "Reliquia de los cuatrocientos"
+                "fr": "Relique Des Quatre Cents",
+                "es": "Reliquia De Los Cuatrocientos"
               },
               "types": [
                 "Waist"
@@ -5782,7 +5782,7 @@
               "name": {
                 "en": "Armored Docker Cap",
                 "fr": "Casquette Docker Blindée",
-                "es": "Gorra Docker blindada"
+                "es": "Gorra Docker Blindada"
               },
               "types": [
                 "Head"
@@ -5811,8 +5811,8 @@
             {
               "name": {
                 "en": "Dust Scarf",
-                "fr": "Foulard anti-poussière",
-                "es": "Bufanda antipolvo"
+                "fr": "Foulard Anti-Poussière",
+                "es": "Bufanda Antipolvo"
               },
               "types": [
                 "Head"
@@ -5843,8 +5843,8 @@
             {
               "name": {
                 "en": "Vision of the Cheeseslicer",
-                "fr": "Vision du coupe-fromage",
-                "es": "Visión del rebanador de queso"
+                "fr": "Vision Du Coupe-Fromage",
+                "es": "Visión Del Rebanador De Queso"
               },
               "types": [
                 "Head"
@@ -5875,8 +5875,8 @@
             {
               "name": {
                 "en": "Miner Ramparts",
-                "fr": "Remparts de mineurs",
-                "es": "Murallas mineras"
+                "fr": "Remparts De Mineurs",
+                "es": "Murallas Mineras"
               },
               "types": [
                 "Shoulders"
@@ -5902,8 +5902,8 @@
             {
               "name": {
                 "en": "Goldilock's Thrice Latched Jacket",
-                "fr": "Veste trois fois verrouillée de Boucle d'or",
-                "es": "Chaqueta tres veces cerrada de Ricitos de Oro"
+                "fr": "Veste Trois Fois Verrouillée De Boucle D'Or",
+                "es": "Chaqueta Tres Veces Cerrada De Ricitos De Oro"
               },
               "types": [
                 "Chest"
@@ -5929,8 +5929,8 @@
             {
               "name": {
                 "en": "Reversible Bib of the Cheese Taster",
-                "fr": "Bavoir Réversible du Dégustateur de Fromage",
-                "es": "Babero Reversible del Catador de Quesos"
+                "fr": "Bavoir Réversible Du Dégustateur De Fromage",
+                "es": "Babero Reversible Del Catador De Quesos"
               },
               "types": [
                 "Back"
@@ -5956,8 +5956,8 @@
             {
               "name": {
                 "en": "Mystical Placemat of the Gourmet",
-                "fr": "Set de Table Mystique du Gourmand",
-                "es": "Mantel Místico del Gourmet"
+                "fr": "Set De Table Mystique Du Gourmand",
+                "es": "Mantel Místico Del Gourmet"
               },
               "types": [
                 "Back"
@@ -5983,8 +5983,8 @@
             {
               "name": {
                 "en": "Gloves of Ninkilim the Envoy ",
-                "fr": "Gants de Ninkilim l'Envoyé",
-                "es": "Guantes de Ninkilim el Enviado"
+                "fr": "Gants De Ninkilim L'Envoyé",
+                "es": "Guantes De Ninkilim El Enviado"
               },
               "types": [
                 "Hands"
@@ -6015,8 +6015,8 @@
             {
               "name": {
                 "en": "Vows of Prosperity",
-                "fr": "Vœux de prospérité",
-                "es": "Votos de prosperidad"
+                "fr": "Vœux De Prospérité",
+                "es": "Votos De Prosperidad"
               },
               "types": [
                 "Hands"
@@ -6047,8 +6047,8 @@
             {
               "name": {
                 "en": "Diskobold's Discus Throw Gloves",
-                "fr": "Gants de lancer de disque de Diskobold",
-                "es": "Guantes de lanzamiento de disco de Diskobold"
+                "fr": "Gants De Lancer De Disque De Diskobold",
+                "es": "Guantes De Lanzamiento De Disco De Diskobold"
               },
               "types": [
                 "Hands"
@@ -6079,8 +6079,8 @@
             {
               "name": {
                 "en": "Buskins of Essential Emptiness ",
-                "fr": "Cothurnes du vide essentiel",
-                "es": "Buskins del vacío esencial"
+                "fr": "Cothurnes Du Vide Essentiel",
+                "es": "Buskins Del Vacío Esencial"
               },
               "types": [
                 "Feet"
@@ -6128,21 +6128,21 @@
       "name": {
         "en": "Krisomal",
         "fr": "Krisomal",
-        "es": "krisoma"
+        "es": "Krisoma"
       },
       "dungeons": [
         {
           "name": {
             "en": "Abyss of New Atlaan · Lv16 · Full Dungeon",
-            "fr": "Abysse de Nouvel Atlaan · Lv16 · Donjon complet",
-            "es": "Abismo de Nuevo Atlaan · Lv16 · Mazmorra completa"
+            "fr": "Abysse De Nouvel Atlaan · Lv16 · Donjon Complet",
+            "es": "Abismo De Nuevo Atlaan · Lv16 · Mazmorra Completa"
           },
           "loot": [
             {
               "name": {
                 "en": "Vesture of the Mussel Hunter",
-                "fr": "Tenue du chasseur de moules",
-                "es": "Vestimenta del cazador de mejillones"
+                "fr": "Tenue Du Chasseur De Moules",
+                "es": "Vestimenta Del Cazador De Mejillones"
               },
               "types": [
                 "Legs"
@@ -6173,8 +6173,8 @@
             {
               "name": {
                 "en": "Wings of the Prophet ",
-                "fr": "Ailes du Prophète",
-                "es": "Alas del profeta"
+                "fr": "Ailes Du Prophète",
+                "es": "Alas Del Profeta"
               },
               "types": [
                 "Back"
@@ -6206,7 +6206,7 @@
               "name": {
                 "en": "Poetrident",
                 "fr": "Poétridident",
-                "es": "poetaridente"
+                "es": "Poetaridente"
               },
               "types": [
                 "Trinket"
@@ -6228,8 +6228,8 @@
             {
               "name": {
                 "en": "Horns of the Wind",
-                "fr": "Cornes du vent",
-                "es": "Cuernos del viento"
+                "fr": "Cornes Du Vent",
+                "es": "Cuernos Del Viento"
               },
               "types": [
                 "Bow"
@@ -6305,8 +6305,8 @@
             {
               "name": {
                 "en": "Jacket of the Last Pirate",
-                "fr": "Veste du dernier pirate",
-                "es": "Chaqueta del último pirata"
+                "fr": "Veste Du Dernier Pirate",
+                "es": "Chaqueta Del Último Pirata"
               },
               "types": [
                 "Chest"
@@ -6337,8 +6337,8 @@
             {
               "name": {
                 "en": "Burden of the Abyss",
-                "fr": "Le fardeau des abysses",
-                "es": "Carga del abismo"
+                "fr": "Le Fardeau Des Abysses",
+                "es": "Carga Del Abismo"
               },
               "types": [
                 "Hands"
@@ -6364,8 +6364,8 @@
             {
               "name": {
                 "en": "Book of Mi`Mizan",
-                "fr": "Livre de Mi`Mizan",
-                "es": "Libro de Mi`Mizan"
+                "fr": "Livre De Mi`Mizan",
+                "es": "Libro De Mi`Mizan"
               },
               "types": [
                 "Spellbook"
@@ -6445,8 +6445,8 @@
             {
               "name": {
                 "en": "Crown of the Sea",
-                "fr": "Couronne de la mer",
-                "es": "corona del mar"
+                "fr": "Couronne De La Mer",
+                "es": "Corona Del Mar"
               },
               "types": [
                 "Head"
@@ -6472,8 +6472,8 @@
             {
               "name": {
                 "en": "Tides Hood",
-                "fr": "Capot des marées",
-                "es": "Capucha de mareas"
+                "fr": "Capot Des Marées",
+                "es": "Capucha De Mareas"
               },
               "types": [
                 "Head"
@@ -6499,8 +6499,8 @@
             {
               "name": {
                 "en": "Submarine Torpedo Helmet",
-                "fr": "Casque torpille sous-marin",
-                "es": "Casco de torpedo submarino"
+                "fr": "Casque Torpille Sous-Marin",
+                "es": "Casco De Torpedo Submarino"
               },
               "types": [
                 "Head"
@@ -6526,8 +6526,8 @@
             {
               "name": {
                 "en": "Abyssal Shoulderplates",
-                "fr": "Plaques d'épaule abyssales",
-                "es": "Hombreras de placas abisales"
+                "fr": "Plaques D'Épaule Abyssales",
+                "es": "Hombreras De Placas Abisales"
               },
               "types": [
                 "Shoulders"
@@ -6558,8 +6558,8 @@
             {
               "name": {
                 "en": "Fins of the First Fish",
-                "fr": "Nageoires du premier poisson",
-                "es": "Aletas del primer pez"
+                "fr": "Nageoires Du Premier Poisson",
+                "es": "Aletas Del Primer Pez"
               },
               "types": [
                 "Shoulders"
@@ -6590,8 +6590,8 @@
             {
               "name": {
                 "en": "Delicate Marine Aiglets",
-                "fr": "Aiglets marins délicats",
-                "es": "Delicados aiglets marinos"
+                "fr": "Aiglets Marins Délicats",
+                "es": "Delicados Aiglets Marinos"
               },
               "types": [
                 "Shoulders"
@@ -6622,8 +6622,8 @@
             {
               "name": {
                 "en": "Charm of the Fisher King",
-                "fr": "Charme du roi pêcheur",
-                "es": "Encanto del Rey Pescador"
+                "fr": "Charme Du Roi Pêcheur",
+                "es": "Encanto Del Rey Pescador"
               },
               "types": [
                 "Chest"
@@ -6649,8 +6649,8 @@
             {
               "name": {
                 "en": "Fin Armor",
-                "fr": "Armure d'aileron",
-                "es": "Armadura de aleta"
+                "fr": "Armure D'Aileron",
+                "es": "Armadura De Aleta"
               },
               "types": [
                 "Chest"
@@ -6681,8 +6681,8 @@
             {
               "name": {
                 "en": "Jenny Hanibal's Armored Cape",
-                "fr": "Cape blindée de Jenny Hanibal",
-                "es": "Capa blindada de Jenny Hanibal"
+                "fr": "Cape Blindée De Jenny Hanibal",
+                "es": "Capa Blindada De Jenny Hanibal"
               },
               "types": [
                 "Back"
@@ -6713,8 +6713,8 @@
             {
               "name": {
                 "en": "Cloak of the Third Wave Apostle",
-                "fr": "Cape de l'apôtre de la troisième vague",
-                "es": "Capa del Apóstol de la Tercera Ola"
+                "fr": "Cape De L'Apôtre De La Troisième Vague",
+                "es": "Capa Del Apóstol De La Tercera Ola"
               },
               "types": [
                 "Back"
@@ -6745,8 +6745,8 @@
             {
               "name": {
                 "en": "Palm of the Lagoon",
-                "fr": "Palme du Lagon",
-                "es": "Palma de la Laguna"
+                "fr": "Palme Du Lagon",
+                "es": "Palma De La Laguna"
               },
               "types": [
                 "Hands"
@@ -6777,8 +6777,8 @@
             {
               "name": {
                 "en": "Ceremonial Siren Gloves",
-                "fr": "Gants de sirène de cérémonie",
-                "es": "Guantes de sirena ceremoniales"
+                "fr": "Gants De Sirène De Cérémonie",
+                "es": "Guantes De Sirena Ceremoniales"
               },
               "types": [
                 "Hands"
@@ -6804,8 +6804,8 @@
             {
               "name": {
                 "en": "Ceremonial Nepsid Belt",
-                "fr": "Ceinture cérémoniale des Nepsids",
-                "es": "Cinturón népsido ceremonial"
+                "fr": "Ceinture Cérémoniale Des Nepsids",
+                "es": "Cinturón Népsido Ceremonial"
               },
               "types": [
                 "Waist"
@@ -6836,8 +6836,8 @@
             {
               "name": {
                 "en": "Emblem of the Third Wave",
-                "fr": "Emblème de la troisième vague",
-                "es": "Emblema de la tercera ola"
+                "fr": "Emblème De La Troisième Vague",
+                "es": "Emblema De La Tercera Ola"
               },
               "types": [
                 "Waist"
@@ -6868,8 +6868,8 @@
             {
               "name": {
                 "en": "Nepicur's Vacation Shorts",
-                "fr": "Short de vacances de Nepicur",
-                "es": "Pantalones cortos de vacaciones de Nepicur"
+                "fr": "Short De Vacances De Nepicur",
+                "es": "Pantalones Cortos De Vacaciones De Nepicur"
               },
               "types": [
                 "Legs"
@@ -6900,8 +6900,8 @@
             {
               "name": {
                 "en": "High-speed Clamdiggers",
-                "fr": "Clamdiggers à grande vitesse",
-                "es": "Excavadoras de almejas de alta velocidad"
+                "fr": "Clamdiggers À Grande Vitesse",
+                "es": "Excavadoras De Almejas De Alta Velocidad"
               },
               "types": [
                 "Legs"
@@ -6927,8 +6927,8 @@
             {
               "name": {
                 "en": "Boots of Abyssal Essence",
-                "fr": "Bottes d'essence abyssale",
-                "es": "Botas de esencia abisal"
+                "fr": "Bottes D'Essence Abyssale",
+                "es": "Botas De Esencia Abisal"
               },
               "types": [
                 "Feet"
@@ -6959,8 +6959,8 @@
             {
               "name": {
                 "en": "Spare Sandals of Young Nephisto ",
-                "fr": "Sandales de rechange du jeune Nephisto",
-                "es": "Sandalias de repuesto del joven Nephisto"
+                "fr": "Sandales De Rechange Du Jeune Nephisto",
+                "es": "Sandalias De Repuesto Del Joven Nephisto"
               },
               "types": [
                 "Feet"
@@ -6986,8 +6986,8 @@
             {
               "name": {
                 "en": "Bleak Shell's Knee Pads",
-                "fr": "Genouillères de Bleak Shell",
-                "es": "Rodilleras de Concha Desolada"
+                "fr": "Genouillères De Bleak Shell",
+                "es": "Rodilleras De Concha Desolada"
               },
               "types": [
                 "Feet"
@@ -7013,8 +7013,8 @@
             {
               "name": {
                 "en": "Acidic Wingfish",
-                "fr": "Poisson-aile acide",
-                "es": "Pez ala ácido"
+                "fr": "Poisson-Aile Acide",
+                "es": "Pez Ala Ácido"
               },
               "types": [
                 "Glider"
@@ -7030,21 +7030,21 @@
       "name": {
         "en": "Nescent",
         "fr": "Nescent",
-        "es": "naciente"
+        "es": "Naciente"
       },
       "dungeons": [
         {
           "name": {
             "en": "Honeyzabeth's Hivetrunk · Lv19 · Boss Only",
-            "fr": "Hivetrunk de Honeyzabeth · Lv19 · Boss uniquement",
-            "es": "Hivetrunk de Honeyzabeth · Lv19 · Solo jefe"
+            "fr": "Hivetrunk De Honeyzabeth · Lv19 · Boss Uniquement",
+            "es": "Hivetrunk De Honeyzabeth · Lv19 · Solo Jefe"
           },
           "loot": [
             {
               "name": {
                 "en": "Queen Spikes",
-                "fr": "Reine pointes",
-                "es": "Picos de reina"
+                "fr": "Reine Pointes",
+                "es": "Picos De Reina"
               },
               "types": [
                 "Shoulders"
@@ -7075,8 +7075,8 @@
             {
               "name": {
                 "en": "Pocket Hive",
-                "fr": "Ruche de poche",
-                "es": "Colmena de bolsillo"
+                "fr": "Ruche De Poche",
+                "es": "Colmena De Bolsillo"
               },
               "types": [
                 "Two-Handed Mace"
@@ -7150,8 +7150,8 @@
             {
               "name": {
                 "en": "Wingsabers",
-                "fr": "Sabres à ailes",
-                "es": "Sables de alas"
+                "fr": "Sabres À Ailes",
+                "es": "Sables De Alas"
               },
               "types": [
                 "Dual Sword"
@@ -7231,8 +7231,8 @@
             {
               "name": {
                 "en": "Flying Trousers Prototype",
-                "fr": "Prototype de pantalon volant",
-                "es": "Prototipo de pantalón volador"
+                "fr": "Prototype De Pantalon Volant",
+                "es": "Prototipo De Pantalón Volador"
               },
               "types": [
                 "Legs"
@@ -7263,8 +7263,8 @@
             {
               "name": {
                 "en": "Ipheion, Star Blossom ",
-                "fr": "Ipheion, fleur d'étoile",
-                "es": "Ipheion, flor de estrella"
+                "fr": "Ipheion, Fleur D'Étoile",
+                "es": "Ipheion, Flor De Estrella"
               },
               "types": [
                 "Thrown"
@@ -7340,7 +7340,7 @@
             {
               "name": {
                 "en": "Hive Sprouts",
-                "fr": "Pousses de ruche",
+                "fr": "Pousses De Ruche",
                 "es": "Brotes De Colmena"
               },
               "types": [
@@ -7367,8 +7367,8 @@
             {
               "name": {
                 "en": "Reflective Vest of the Hive Worker",
-                "fr": "Gilet réfléchissant de l'ouvrier de la ruche",
-                "es": "Chaleco reflectante del trabajador de la colmena"
+                "fr": "Gilet Réfléchissant De L'Ouvrier De La Ruche",
+                "es": "Chaleco Reflectante Del Trabajador De La Colmena"
               },
               "types": [
                 "Back"
@@ -7399,8 +7399,8 @@
             {
               "name": {
                 "en": "Royal Chamber Helmet",
-                "fr": "Casque de la Chambre Royale",
-                "es": "Casco de la Cámara Real"
+                "fr": "Casque De La Chambre Royale",
+                "es": "Casco De La Cámara Real"
               },
               "types": [
                 "Head"
@@ -7431,8 +7431,8 @@
             {
               "name": {
                 "en": "Gauntlets of the Royal Guard",
-                "fr": "Gantelets de la Garde Royale",
-                "es": "Guanteletes de la Guardia Real"
+                "fr": "Gantelets De La Garde Royale",
+                "es": "Guanteletes De La Guardia Real"
               },
               "types": [
                 "Hands"
@@ -7462,8 +7462,8 @@
             {
               "name": {
                 "en": "Whirring Gem of Apix",
-                "fr": "Gemme vrombissante d'Apix",
-                "es": "Gema zumbadora de Apix"
+                "fr": "Gemme Vrombissante D'Apix",
+                "es": "Gema Zumbadora De Apix"
               },
               "types": [
                 "Chest"
@@ -7490,7 +7490,7 @@
               "name": {
                 "en": "Beewings",
                 "fr": "Beewings",
-                "es": "avispas"
+                "es": "Avispas"
               },
               "types": [
                 "Shoulders"
@@ -7516,8 +7516,8 @@
             {
               "name": {
                 "en": "Scout Antennae",
-                "fr": "Antennes d'éclaireur",
-                "es": "Antenas exploradoras"
+                "fr": "Antennes D'Éclaireur",
+                "es": "Antenas Exploradoras"
               },
               "types": [
                 "Head"
@@ -7546,8 +7546,8 @@
             {
               "name": {
                 "en": "Vision of the Beekeeper",
-                "fr": "Vision de l'apiculteur",
-                "es": "Visión del apicultor"
+                "fr": "Vision De L'Apiculteur",
+                "es": "Visión Del Apicultor"
               },
               "types": [
                 "Head"
@@ -7578,8 +7578,8 @@
             {
               "name": {
                 "en": "Emblem of Radiant Nectar",
-                "fr": "Emblème du nectar radieux",
-                "es": "Emblema de néctar radiante"
+                "fr": "Emblème Du Nectar Radieux",
+                "es": "Emblema De Néctar Radiante"
               },
               "types": [
                 "Chest"
@@ -7610,8 +7610,8 @@
             {
               "name": {
                 "en": "Casual Clothes of the Pollincess",
-                "fr": "Vêtements décontractés du Pollincess",
-                "es": "Ropa casual de la polincesa"
+                "fr": "Vêtements Décontractés Du Pollincess",
+                "es": "Ropa Casual De La Polincesa"
               },
               "types": [
                 "Chest"
@@ -7642,8 +7642,8 @@
             {
               "name": {
                 "en": "Flight of the Rumblebee",
-                "fr": "Le vol du Rumblebee",
-                "es": "El vuelo del abejorro"
+                "fr": "Le Vol Du Rumblebee",
+                "es": "El Vuelo Del Abejorro"
               },
               "types": [
                 "Back"
@@ -7674,8 +7674,8 @@
             {
               "name": {
                 "en": "Veil of the Royal Nymph (Back_RBee_Wiz) Unsure if this exists!",
-                "fr": "Voile de la nymphe royale (Back_RBee_Wiz) Je ne sais pas si cela existe !",
-                "es": "Velo de la Ninfa Real (Back_RBee_Wiz) ¡No estoy seguro si esto existe!"
+                "fr": "Voile De La Nymphe Royale (Back_Rbee_Wiz) Je Ne Sais Pas Si Cela Existe !",
+                "es": "Velo De La Ninfa Real (Back_Rbee_Wiz) ¡No Estoy Seguro Si Esto Existe!"
               },
               "types": [
                 "Back"
@@ -7728,8 +7728,8 @@
             {
               "name": {
                 "en": "Vambraces of the Swarm ",
-                "fr": "Avant-bras de l'Essaim",
-                "es": "Brazaletes del enjambre"
+                "fr": "Avant-Bras De L'Essaim",
+                "es": "Brazaletes Del Enjambre"
               },
               "types": [
                 "Hands"
@@ -7758,8 +7758,8 @@
             {
               "name": {
                 "en": "Dancing Hivetree Belt",
-                "fr": "Ceinture de ruche dansante",
-                "es": "Cinturón de árbol de colmena danzante"
+                "fr": "Ceinture De Ruche Dansante",
+                "es": "Cinturón De Árbol De Colmena Danzante"
               },
               "types": [
                 "Waist"
@@ -7785,8 +7785,8 @@
             {
               "name": {
                 "en": "Propolis Heart of Apix",
-                "fr": "Propolis Cœur d'Apix",
-                "es": "Corazón de Propóleo de Apix"
+                "fr": "Propolis Cœur D'Apix",
+                "es": "Corazón De Propóleo De Apix"
               },
               "types": [
                 "Waist"
@@ -7817,8 +7817,8 @@
             {
               "name": {
                 "en": "Zenobee's Breeches",
-                "fr": "Pantalons de Zénobée",
-                "es": "Calzones de Zenobee"
+                "fr": "Pantalons De Zénobée",
+                "es": "Calzones De Zenobee"
               },
               "types": [
                 "Legs"
@@ -7849,8 +7849,8 @@
             {
               "name": {
                 "en": "Silhouette of Apix",
-                "fr": "Silhouette d'Apix",
-                "es": "Silueta de Apix"
+                "fr": "Silhouette D'Apix",
+                "es": "Silueta De Apix"
               },
               "types": [
                 "Legs"
@@ -7876,8 +7876,8 @@
             {
               "name": {
                 "en": "Cleo's Ethereal Blossoms",
-                "fr": "Les fleurs éthérées de Cléo",
-                "es": "Las flores etéreas de Cleo"
+                "fr": "Les Fleurs Éthérées De Cléo",
+                "es": "Las Flores Etéreas De Cleo"
               },
               "types": [
                 "Feet"
@@ -7903,8 +7903,8 @@
             {
               "name": {
                 "en": "War Sabatons of Apix",
-                "fr": "Sabots de guerre d'Apix",
-                "es": "Escarpes de guerra de Apix"
+                "fr": "Sabots De Guerre D'Apix",
+                "es": "Escarpes De Guerra De Apix"
               },
               "types": [
                 "Feet"
@@ -7933,8 +7933,8 @@
             {
               "name": {
                 "en": "Melain's Golden Greaves",
-                "fr": "Grèves dorées de Melain",
-                "es": "Grebas doradas de Melain"
+                "fr": "Grèves Dorées De Melain",
+                "es": "Grebas Doradas De Melain"
               },
               "types": [
                 "Feet"
@@ -7960,8 +7960,8 @@
             {
               "name": {
                 "en": "Eternal Flower Heart",
-                "fr": "Coeur de fleur éternelle",
-                "es": "Corazón de flor eterna"
+                "fr": "Coeur De Fleur Éternelle",
+                "es": "Corazón De Flor Eterna"
               },
               "types": [
                 "Trinket"
@@ -8000,15 +8000,15 @@
         {
           "name": {
             "en": "Cheese Station · Lv19 · Full Dungeon",
-            "fr": "Station de Fromage · Lv19 · Donjon Complet",
-            "es": "Estación de queso · Lv19 · Mazmorra completa"
+            "fr": "Station De Fromage · Lv19 · Donjon Complet",
+            "es": "Estación De Queso · Lv19 · Mazmorra Completa"
           },
           "loot": [
             {
               "name": {
                 "en": "Amon Ram, the Creator",
-                "fr": "Amon Ram, le Créateur",
-                "es": "Amon Ram, el Creador"
+                "fr": "Amon Ram, Le Créateur",
+                "es": "Amon Ram, El Creador"
               },
               "types": [
                 "Mace"
@@ -8080,7 +8080,7 @@
               "name": {
                 "en": "Armored Docker Cap",
                 "fr": "Casquette Docker Blindée",
-                "es": "Gorra Docker blindada"
+                "es": "Gorra Docker Blindada"
               },
               "types": [
                 "Head"
@@ -8109,8 +8109,8 @@
             {
               "name": {
                 "en": "Vision of the Cheeseslicer",
-                "fr": "Vision du coupe-fromage",
-                "es": "Visión del rebanador de queso"
+                "fr": "Vision Du Coupe-Fromage",
+                "es": "Visión Del Rebanador De Queso"
               },
               "types": [
                 "Head"
@@ -8141,8 +8141,8 @@
             {
               "name": {
                 "en": "Dust Scarf",
-                "fr": "Foulard anti-poussière",
-                "es": "Bufanda antipolvo"
+                "fr": "Foulard Anti-Poussière",
+                "es": "Bufanda Antipolvo"
               },
               "types": [
                 "Head"
@@ -8173,8 +8173,8 @@
             {
               "name": {
                 "en": "Buskins of Essential Emptiness ",
-                "fr": "Cothurnes du vide essentiel",
-                "es": "Buskins del vacío esencial"
+                "fr": "Cothurnes Du Vide Essentiel",
+                "es": "Buskins Del Vacío Esencial"
               },
               "types": [
                 "Feet"
@@ -8205,8 +8205,8 @@
             {
               "name": {
                 "en": "Twin Pillars of Justice",
-                "fr": "Piliers jumeaux de la justice",
-                "es": "Pilares gemelos de la justicia"
+                "fr": "Piliers Jumeaux De La Justice",
+                "es": "Pilares Gemelos De La Justicia"
               },
               "types": [
                 "Dual Maces"
@@ -8286,8 +8286,8 @@
             {
               "name": {
                 "en": "Miner Ramparts",
-                "fr": "Remparts de mineurs",
-                "es": "Murallas mineras"
+                "fr": "Remparts De Mineurs",
+                "es": "Murallas Mineras"
               },
               "types": [
                 "Shoulders"
@@ -8313,8 +8313,8 @@
             {
               "name": {
                 "en": "Treasure Hunter's Straps",
-                "fr": "Sangles de chasseur de trésor",
-                "es": "Correas de cazador de tesoros"
+                "fr": "Sangles De Chasseur De Trésor",
+                "es": "Correas De Cazador De Tesoros"
               },
               "types": [
                 "Shoulders"
@@ -8340,8 +8340,8 @@
             {
               "name": {
                 "en": "Cheese-Covered Shoulderpads",
-                "fr": "Épaulettes recouvertes de fromage",
-                "es": "Hombreras cubiertas de queso"
+                "fr": "Épaulettes Recouvertes De Fromage",
+                "es": "Hombreras Cubiertas De Queso"
               },
               "types": [
                 "Shoulders"
@@ -8367,8 +8367,8 @@
             {
               "name": {
                 "en": "Brie von de Cape",
-                "fr": "Brie de Cape",
-                "es": "Brie von de Cape"
+                "fr": "Brie De Cape",
+                "es": "Brie Von De Cape"
               },
               "types": [
                 "Back"
@@ -8399,8 +8399,8 @@
             {
               "name": {
                 "en": "Reversible Bib of the Cheese Taster",
-                "fr": "Bavoir Réversible du Dégustateur de Fromage",
-                "es": "Babero Reversible del Catador de Quesos"
+                "fr": "Bavoir Réversible Du Dégustateur De Fromage",
+                "es": "Babero Reversible Del Catador De Quesos"
               },
               "types": [
                 "Back"
@@ -8426,8 +8426,8 @@
             {
               "name": {
                 "en": "Mystical Placemat of the Gourmet",
-                "fr": "Set de Table Mystique du Gourmand",
-                "es": "Mantel Místico del Gourmet"
+                "fr": "Set De Table Mystique Du Gourmand",
+                "es": "Mantel Místico Del Gourmet"
               },
               "types": [
                 "Back"
@@ -8453,8 +8453,8 @@
             {
               "name": {
                 "en": "Vows of Prosperity",
-                "fr": "Vœux de prospérité",
-                "es": "Votos de prosperidad"
+                "fr": "Vœux De Prospérité",
+                "es": "Votos De Prosperidad"
               },
               "types": [
                 "Hands"
@@ -8485,8 +8485,8 @@
             {
               "name": {
                 "en": "Gloves of Ninkilim the Envoy ",
-                "fr": "Gants de Ninkilim l'Envoyé",
-                "es": "Guantes de Ninkilim el Enviado"
+                "fr": "Gants De Ninkilim L'Envoyé",
+                "es": "Guantes De Ninkilim El Enviado"
               },
               "types": [
                 "Hands"
@@ -8517,8 +8517,8 @@
             {
               "name": {
                 "en": "Diskobold's Discus Throw Gloves",
-                "fr": "Gants de lancer de disque de Diskobold",
-                "es": "Guantes de lanzamiento de disco de Diskobold"
+                "fr": "Gants De Lancer De Disque De Diskobold",
+                "es": "Guantes De Lanzamiento De Disco De Diskobold"
               },
               "types": [
                 "Hands"
@@ -8549,8 +8549,8 @@
             {
               "name": {
                 "en": "Unity of the Thirty Kingdoms",
-                "fr": "Unité des Trente Royaumes",
-                "es": "Unidad de los Treinta Reinos"
+                "fr": "Unité Des Trente Royaumes",
+                "es": "Unidad De Los Treinta Reinos"
               },
               "types": [
                 "Waist"
@@ -8579,8 +8579,8 @@
             {
               "name": {
                 "en": "Relic of the Four Hundred",
-                "fr": "Relique des Quatre Cents",
-                "es": "Reliquia de los cuatrocientos"
+                "fr": "Relique Des Quatre Cents",
+                "es": "Reliquia De Los Cuatrocientos"
               },
               "types": [
                 "Waist"
@@ -8627,8 +8627,8 @@
             {
               "name": {
                 "en": "Garment of the Aurock Master",
-                "fr": "Vêtement du Maître Aurock",
-                "es": "Prenda del Maestro Aurock"
+                "fr": "Vêtement Du Maître Aurock",
+                "es": "Prenda Del Maestro Aurock"
               },
               "types": [
                 "Legs"
@@ -8659,8 +8659,8 @@
             {
               "name": {
                 "en": "Rat-Vachol's Patched Up Pants",
-                "fr": "Pantalon rapiécé de Rat-Vachol",
-                "es": "Pantalones remendados de Rat-Vachol"
+                "fr": "Pantalon Rapiécé De Rat-Vachol",
+                "es": "Pantalones Remendados De Rat-Vachol"
               },
               "types": [
                 "Legs"
@@ -8686,8 +8686,8 @@
             {
               "name": {
                 "en": "Wrong Trousers",
-                "fr": "Mauvais pantalon",
-                "es": "Pantalones equivocados"
+                "fr": "Mauvais Pantalon",
+                "es": "Pantalones Equivocados"
               },
               "types": [
                 "Legs"
@@ -8713,8 +8713,8 @@
             {
               "name": {
                 "en": "Gold Pouches",
-                "fr": "Pochettes en or",
-                "es": "Bolsas de oro"
+                "fr": "Pochettes En Or",
+                "es": "Bolsas De Oro"
               },
               "types": [
                 "Feet"
@@ -8745,8 +8745,8 @@
             {
               "name": {
                 "en": "Spelunking Shoes of Emmen Tunnel",
-                "fr": "Chaussures de spéléologie du tunnel d'Emmen",
-                "es": "Zapatos de espeleología del túnel de Emmen"
+                "fr": "Chaussures De Spéléologie Du Tunnel D'Emmen",
+                "es": "Zapatos De Espeleología Del Túnel De Emmen"
               },
               "types": [
                 "Feet"
@@ -8777,8 +8777,8 @@
             {
               "name": {
                 "en": "Raclette Pan",
-                "fr": "Poêle à raclette",
-                "es": "Sartén para raclette"
+                "fr": "Poêle À Raclette",
+                "es": "Sartén Para Raclette"
               },
               "types": [
                 "Trinket"
