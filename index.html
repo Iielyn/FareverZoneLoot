@@ -10,450 +10,235 @@
     <link rel="icon" href="images/Ah.png">
     <style>
         :root {
-            --bg: #0d0f13;
-            --surface: #171a21;
-            --surface2: #1e222b;
-            --border: #2a2f3a;
-            --gold: #c9a44b;
-            --gold-dim: #7a6235;
-            --text: #d5d0c8;
-            --text-dim: #8a857a;
-            --accent: #5b8cbd;
-            --accent-hover: #7aabda;
-            --shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
-            --radius: 10px;
-            --radius-sm: 6px;
-            --transition: 0.2s ease;
-            --font: 'Segoe UI', 'Helvetica Neue', system-ui, sans-serif;
-            --font-display: 'Cinzel', 'Georgia', serif;
-            --dungeon-red: #f87171;
-            --item-green: #4ade80;
-            --dungeon-lv: #f0c060;
-            --dungeon-full: #5baf6b;
-            --dungeon-boss: #c97a3a;
-            --rarity-blue: #3b82f6;
-            --rarity-purple: #a855f7;
-            --rarity-legendary: #f59e0b;
-            --tag-bg: rgba(255,255,255,0.04);
-            --tag-border: rgba(255,255,255,0.08);
-            --tag-text: #8a857a;
-        }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--font);
-            min-height:100vh;
-            background-image: radial-gradient(ellipse at 50% 0%, rgba(201,164,75,0.04) 0%, transparent 60%),
-                              radial-gradient(ellipse at 80% 100%, rgba(91,140,189,0.03) 0%, transparent 60%);
-            background-attachment: fixed;
-            display:flex; flex-direction:column;
-        }
-        .header {
-            background: var(--surface);
-            border-bottom:1px solid var(--border);
-            padding:24px 32px;
-            display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
-            box-shadow:0 2px 16px rgba(0,0,0,0.4);
-        }
-        .header-brand { display:flex; align-items:center; gap:12px; }
-        .header-icon {
-            width:44px; height:44px;
-            background: linear-gradient(135deg, #3a2f1f, #5a4025);
-            border:2px solid var(--gold-dim);
-            border-radius: var(--radius-sm);
-            display:flex; align-items:center; justify-content:center;
-            font-size:22px; color:var(--gold); flex-shrink:0;
-        }
-        .header h1 {
-            font-family: var(--font-display);
-            font-size:2rem; color:var(--gold); letter-spacing:0.06em; font-weight:600;
-            text-shadow:0 0 12px rgba(201,164,75,0.2);
-        }
-        .header-subtitle { font-size:0.75rem; color:var(--text-dim); letter-spacing:0.1em; text-transform:uppercase; }
-        .cap-badge {
-            display:inline-flex; align-items:center; padding:2px 10px; border-radius:12px;
-            font-size:0.68rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase;
-            background:rgba(201,164,75,0.12); border:1px solid var(--gold-dim); color:var(--gold); margin-left:8px; white-space:nowrap;
-        }
-        .header-right { display:flex; align-items:center; gap:12px; }
-        .search-wrapper { position:relative; }
-        .search-input {
-            background: var(--surface2); border:1px solid var(--border); border-radius:20px;
-            padding:8px 16px 8px 36px; font-size:0.8rem; color:var(--text); font-family:var(--font);
-            width:200px; transition:all var(--transition); outline:none;
-        }
-        .search-input::placeholder { color:var(--text-dim); }
-        .search-input:focus { border-color:var(--accent); box-shadow:0 0 10px rgba(91,140,189,0.2); width:240px; }
-        .search-icon { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--text-dim); font-size:0.9rem; pointer-events:none; }
-        .filter-bar {
-            background: var(--surface);
-            border-bottom:1px solid var(--border);
-            padding:16px 32px;
-            display:flex; flex-wrap:wrap; gap:16px; align-items:center;
-            box-shadow:0 2px 12px rgba(0,0,0,0.4);
-            border-radius:0 0 var(--radius) var(--radius);
-            margin-bottom:8px;
-        }
-        .filter-bar::before {
-            content:"Filters"; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em;
-            color:var(--text-dim); font-weight:600; margin-right:8px; opacity:0.7;
-        }
-        .filter-group-wrapper { position:relative; }
-        .filter-group-header {
-            display:flex; align-items:center; gap:6px; cursor:pointer; user-select:none;
-            padding:6px 14px; border-radius:20px; border:1px solid var(--border);
-            background:transparent; transition:all var(--transition); white-space:nowrap; font-size:0.72rem;
-        }
-        .filter-group-header:hover { background:var(--surface2); border-color:#555; }
-        .filter-group-header .arrow { font-size:0.55rem; transition:transform 0.25s ease; color:var(--text-dim); }
-        .filter-group-wrapper.open .filter-group-header .arrow { transform:rotate(180deg); }
-        .filter-group-header .label {
-            font-size:0.7rem; text-transform:uppercase; letter-spacing:0.07em;
-            color:var(--text-dim); font-weight:600;
-        }
-        .filter-group-header .active-count {
-            background:var(--accent); color:#fff; border-radius:10px; padding:1px 6px; font-size:0.58rem; font-weight:700;
-        }
-        .filter-dropdown {
-            display:none; position:absolute; top:100%; left:0; margin-top:6px;
-            background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius-sm);
-            padding:12px; box-shadow:var(--shadow); z-index:95; min-width:220px; max-height:500px; overflow-y:auto;
-        }
-        .filter-group-wrapper.open .filter-dropdown { display:flex; flex-wrap:wrap; gap:6px; }
-        .filter-btn {
-            padding:5px 12px; font-size:0.68rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
-            border-radius:20px; border:1px solid var(--border); background:var(--tag-bg); color:var(--tag-text);
-            cursor:pointer; transition:all var(--transition); font-family:var(--font); white-space:nowrap;
-        }
-        .filter-btn:hover { background:var(--surface2); color:var(--text); border-color:#555; }
-        .filter-btn .item-count { font-size:0.58rem; opacity:0.7; margin-left:2px; }
-        .clear-all-btn {
-            padding:6px 14px; font-size:0.7rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
-            border-radius:20px; border:1px solid rgba(212,90,90,0.6); background:rgba(176,74,74,0.1);
-            color:#e86060; cursor:pointer; transition:all var(--transition); font-family:var(--font); white-space:nowrap;
-            box-shadow:0 0 8px rgba(176,74,74,0.15);
-        }
-        .clear-all-btn:hover {
-            background:rgba(176,74,74,0.25); border-color:#e86060; color:#ff7070; box-shadow:0 0 14px rgba(176,74,74,0.35);
-        }
-        .stat-match-toggle {
-            padding:5px 14px; font-size:0.68rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
-            border-radius:20px; border:1px solid var(--border); background:var(--tag-bg); color:var(--tag-text);
-            cursor:pointer; transition:all var(--transition); font-family:var(--font); white-space:nowrap;
-        }
-        .stat-match-toggle:hover { background:var(--surface2); color:var(--text); border-color:#555; }
-        .container { padding-left: 1%; padding-right: 1%; }
-        .class-btn[data-class="warrior"].active { background: rgba(201, 66, 66, 0.35); border-color: #ff4040; color: #ff8080; box-shadow: 0 0 12px rgba(201, 66, 66, 0.4); }
-        .class-btn[data-class="rogue"].active { background: rgba(201, 164, 75, 0.35); border-color: #e0b840; color: #fddd80; box-shadow: 0 0 12px rgba(201, 164, 75, 0.4); }
-        .class-btn[data-class="mage"].active { background: rgba(123, 94, 204, 0.35); border-color: #9060f0; color: #c0a0ff; box-shadow: 0 0 12px rgba(123, 94, 204, 0.4); }
-        .class-btn[data-class="priest"].active { background: rgba(232, 232, 232, 0.25); border-color: #ffffff; color: #ffffff; box-shadow: 0 0 12px rgba(232, 232, 232, 0.35); }
-        .type-btn[data-type="Sword"].active { background: rgba(125, 211, 252, 0.20); border-color: #7dd3fc; color: #bae6fd; box-shadow: 0 0 10px rgba(125, 211, 252, 0.38); }
-        .type-btn[data-type="Dual Sword"].active { background: rgba(56, 189, 248, 0.20); border-color: #38bdf8; color: #7dd3fc; box-shadow: 0 0 10px rgba(56, 189, 248, 0.38); }
-        .type-btn[data-type="Axe"].active { background: rgba(220, 38, 38, 0.22); border-color: #dc2626; color: #f87171; box-shadow: 0 0 10px rgba(220, 38, 38, 0.38); }
-        .type-btn[data-type="Dual Axes"].active { background: rgba(225, 29, 72, 0.22); border-color: #e11d48; color: #f87171; box-shadow: 0 0 10px rgba(225, 29, 72, 0.38); }
-        .type-btn[data-type="Daggers"].active { background: rgba(148, 163, 184, 0.22); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 10px rgba(148, 163, 184, 0.35); }
-        .type-btn[data-type="Two-Handed Axe"].active { background: rgba(185, 28, 28, 0.24); border-color: #b91c1c; color: #ef4444; box-shadow: 0 0 10px rgba(185, 28, 28, 0.40); }
-        .type-btn[data-type="Mace"].active { background: rgba(251, 191, 36, 0.22); border-color: #fbbf24; color: #fbbf24; box-shadow: 0 0 10px rgba(251, 191, 36, 0.35); }
-        .type-btn[data-type="Two-Handed Mace"].active { background: rgba(100, 116, 139, 0.22); border-color: #64748b; color: #94a3b8; box-shadow: 0 0 10px rgba(100, 116, 139, 0.35); }
-        .type-btn[data-type="Dual Maces"].active { background: rgba(148, 163, 184, 0.22); border-color: #94a3b8; color: #94a3b8; box-shadow: 0 0 10px rgba(148, 163, 184, 0.35); }
-        .type-btn[data-type="Spear"].active { background: rgba(253, 230, 138, 0.18); border-color: #fde68a; color: #fef3c7; box-shadow: 0 0 10px rgba(253, 230, 138, 0.35); }
-        .type-btn[data-type="Bow"].active { background: rgba(74, 222, 128, 0.20); border-color: #4ade80; color: #86efac; box-shadow: 0 0 10px rgba(74, 222, 128, 0.35); }
-        .type-btn[data-type="Fists"].active { background: rgba(239, 68, 68, 0.24); border-color: #ef4444; color: #f87171; box-shadow: 0 0 12px rgba(239, 68, 68, 0.42); }
-        .type-btn[data-type="Thrown"].active { background: rgba(251, 146, 60, 0.20); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 10px rgba(251, 146, 60, 0.35); }
-        .type-btn[data-type="Scepter"].active { background: rgba(168, 85, 247, 0.20); border-color: #a855f7; color: #c084fc; box-shadow: 0 0 10px rgba(168, 85, 247, 0.38); }
-        .type-btn[data-type="Crescent"].active { background: rgba(203, 213, 225, 0.18); border-color: #cbd5e1; color: #e2e8f0; box-shadow: 0 0 10px rgba(203, 213, 225, 0.32); }
-        .type-btn[data-type="Halos"].active { background: rgba(251, 191, 36, 0.22); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 12px rgba(251, 191, 36, 0.40); }
-        .type-btn[data-type="Spellbook"].active { background: rgba(34, 211, 238, 0.20); border-color: #22d3ee; color: #67e8f9; box-shadow: 0 0 10px rgba(34, 211, 238, 0.38); }
-        .type-btn[data-type="Shield"].active { background: rgba(96, 165, 250, 0.20); border-color: #60a5fa; color: #93c5fd; box-shadow: 0 0 10px rgba(96, 165, 250, 0.35); }
-        .type-btn[data-type="Head"].active { background: rgba(192, 132, 252, 0.20); border-color: #c084fc; color: #e0b4ff; box-shadow: 0 0 10px rgba(192, 132, 252, 0.35); }
-        .type-btn[data-type="Shoulders"].active { background: rgba(148, 163, 184, 0.20); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 8px rgba(148, 163, 184, 0.30); }
-        .type-btn[data-type="Chest"].active { background: rgba(248, 113, 113, 0.20); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 10px rgba(248, 113, 113, 0.35); }
-        .type-btn[data-type="Back"].active { background: rgba(129, 140, 248, 0.20); border-color: #818cf8; color: #b4bcfc; box-shadow: 0 0 10px rgba(129, 140, 248, 0.35); }
-        .type-btn[data-type="Hands"].active { background: rgba(212, 165, 116, 0.20); border-color: #d4a574; color: #e8c9a0; box-shadow: 0 0 8px rgba(212, 165, 116, 0.30); }
-        .type-btn[data-type="Legs"].active { background: rgba(167, 139, 113, 0.20); border-color: #a78b71; color: #c4a882; box-shadow: 0 0 8px rgba(167, 139, 113, 0.30); }
-        .type-btn[data-type="Feet"].active { background: rgba(201, 151, 107, 0.20); border-color: #c9976b; color: #e0b48a; box-shadow: 0 0 8px rgba(201, 151, 107, 0.30); }
-        .type-btn[data-type="Waist"].active { background: rgba(184, 132, 92, 0.20); border-color: #b8845c; color: #d4a074; box-shadow: 0 0 8px rgba(184, 132, 92, 0.30); }
-        .type-btn[data-type="Trinket"].active { background: rgba(244, 114, 182, 0.20); border-color: #f472b6; color: #f9a8d4; box-shadow: 0 0 10px rgba(244, 114, 182, 0.35); }
-        .type-btn[data-type="Mount"].active { background: rgba(245, 158, 11, 0.24); border-color: #f59e0b; color: #fcd34d; box-shadow: 0 0 12px rgba(245, 158, 11, 0.40); }
-        .type-btn[data-type="Glider"].active { background: rgba(6, 182, 212, 0.24); border-color: #06b6d4; color: #67e8f9; box-shadow: 0 0 12px rgba(6, 182, 212, 0.40); }
-        .category-btn[data-category="weapons"].active { background: rgba(201, 164, 75, 0.25); border-color: var(--gold); color: var(--gold); box-shadow: 0 0 10px rgba(201, 164, 75, 0.35); }
-		.category-btn[data-category="mount"].active { background: rgba(245, 158, 11, 0.22); border-color: #f59e0b; color: #fcd34d; box-shadow: 0 0 12px rgba(245, 158, 11, 0.40); }
-		.category-btn[data-category="glider"].active { background: rgba(6, 182, 212, 0.22); border-color: #06b6d4; color: #67e8f9; box-shadow: 0 0 12px rgba(6, 182, 212, 0.40); }
-        .category-btn[data-category="armor"].active { background: rgba(59, 130, 246, 0.20); border-color: var(--rarity-blue); color: #93c5fd; box-shadow: 0 0 10px rgba(59, 130, 246, 0.35); }
-        .stat-btn[data-stat="Armor"].active { background: rgba(156, 163, 175, 0.20); border-color: #9ca3af; color: #d1d5db; box-shadow: 0 0 8px rgba(156, 163, 175, 0.32); }
-        .stat-btn[data-stat="Vitality"].active { background: rgba(52, 211, 153, 0.20); border-color: #34d399; color: #6ee7b7; box-shadow: 0 0 10px rgba(52, 211, 153, 0.38); }
-        .stat-btn[data-stat="Strength"].active { background: rgba(248, 113, 113, 0.22); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 10px rgba(248, 113, 113, 0.38); }
-        .stat-btn[data-stat="Dexterity"].active { background: rgba(251, 191, 36, 0.20); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 10px rgba(251, 191, 36, 0.38); }
-        .stat-btn[data-stat="Faith"].active { background: rgba(252, 211, 77, 0.22); border-color: #fcd34d; color: #fef3c7; box-shadow: 0 0 12px rgba(252, 211, 77, 0.42); }
-        .stat-btn[data-stat="Intelligence"].active { background: rgba(129, 140, 248, 0.20); border-color: #818cf8; color: #b4bcfc; box-shadow: 0 0 10px rgba(129, 140, 248, 0.38); }
-        .stat-btn[data-stat="Critical"].active { background: rgba(244, 114, 182, 0.22); border-color: #f472b6; color: #f9a8d4; box-shadow: 0 0 12px rgba(244, 114, 182, 0.40); }
-        .stat-btn[data-stat="Armor Penetration"].active { background: rgba(232, 121, 94, 0.22); border-color: #e8795e; color: #f4a28e; box-shadow: 0 0 10px rgba(232, 121, 94, 0.38); }
-        .stat-btn[data-stat="Magic Penetration"].active { background: rgba(192, 132, 252, 0.20); border-color: #c084fc; color: #e0b4ff; box-shadow: 0 0 10px rgba(192, 132, 252, 0.38); }
-        .stat-btn[data-stat="Fervor"].active { background: rgba(251, 146, 60, 0.22); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 12px rgba(251, 146, 60, 0.40); }
-        .zone-card {
-            background: var(--surface);
-            border:1px solid var(--border);
-            border-radius:var(--radius);
-            margin-bottom:20px;
-            box-shadow:var(--shadow);
-            overflow:hidden;
-            transition:all var(--transition);
-        }
-        .zone-card:hover { border-color:#444; }
-        .zone-header {
-            display:flex; align-items:center; gap:12px; padding:18px 24px;
-            cursor:pointer; user-select:none;
-            background:var(--surface2); border-bottom:1px solid var(--border);
-            transition:background var(--transition);
-        }
-        .zone-header:hover { background: #252a35; box-shadow: inset 4px 0 0 rgba(201,164,75,0.2); transition: background 0.25s ease, box-shadow 0.25s ease; }
-        .zone-chevron { font-size:0.7rem; color:var(--gold); transition:transform 0.25s ease; flex-shrink:0; width:18px; text-align:center; }
-        .zone-card.open .zone-chevron { transform:rotate(90deg); }
-        .zone-icon { font-size:1.4rem; flex-shrink:0; }
-        .zone-info { flex:1; min-width:0; }
-        .zone-name-display { color:var(--gold); font-size:1.15rem; font-weight:700; font-family:var(--font-display); letter-spacing:0.03em; }
-        .zone-meta { font-size:0.72rem; color:var(--text-dim); margin-top:2px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
-        .zone-body { display:none; padding:16px 24px 20px; background:var(--bg); }
-        .zone-card.open .zone-body { display:block; }
-        .badge {
-            display:inline-flex; align-items:center; gap:3px; padding:2px 8px; border-radius:10px;
-            font-size:0.65rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
-        }
-        .badge-dungeon { background:rgba(248,113,113,0.18); border:1px solid var(--dungeon-red); color:var(--dungeon-red); box-shadow:0 0 6px rgba(248,113,113,0.25); }
-        .badge-item { background:rgba(74,222,128,0.15); border:1px solid var(--item-green); color:var(--item-green); box-shadow:0 0 6px rgba(74,222,128,0.25); }
-        .dungeons-list { display:flex; flex-direction:column; gap:12px; }
-        .dungeon-card { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius-sm); overflow:hidden; transition:all var(--transition); }
-        .dungeon-card:hover { border-color:#444; }
-        .dungeon-header {
-            display:flex; align-items:center; gap:10px; padding:14px 18px; cursor:pointer; user-select:none;
-            background:rgba(0,0,0,0.2); border-bottom:1px solid transparent; transition:all var(--transition);
-        }
-        .dungeon-card.open .dungeon-header { border-bottom-color:var(--border); background:rgba(0,0,0,0.35); }
-        .dungeon-header:hover { background:rgba(255,255,255,0.02); }
-        .dungeon-chevron { font-size:0.6rem; color:var(--accent); transition:transform 0.25s ease; flex-shrink:0; width:14px; text-align:center; }
-        .dungeon-card.open .dungeon-chevron { transform:rotate(90deg); }
-        .dungeon-icon { font-size:1.1rem; flex-shrink:0; }
-        .dungeon-info { flex:1; min-width:0; display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
-        .dungeon-name-display { font-size:0.95rem; font-weight:600; }
-        .dungeon-lv { color:var(--dungeon-lv); font-weight:700; }
-        .dungeon-tag-full { color:var(--dungeon-full); font-weight:600; font-size:0.85rem; }
-        .dungeon-tag-boss { color:var(--dungeon-boss); font-weight:600; font-size:0.85rem; }
-        .dungeon-tag-full::before, .dungeon-tag-boss::before { content:' · '; color:var(--text-dim); font-weight:400; }
-        .dungeon-body { display:none; padding:8px 16px 14px; background:rgba(0,0,0,0.15); overflow-x:auto; }
-        .dungeon-card.open .dungeon-body { display:block; }
-        .loot-table { width:100%; border-collapse:collapse; font-size:0.82rem; min-width:900px; }
-        .loot-table thead th { text-align:left; padding:8px 8px; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-dim); border-bottom:1px solid var(--border); font-weight:600; }
-        .loot-table tbody td { padding:14px 10px; border-bottom:1px solid rgba(255,255,255,0.08); vertical-align:top; }
-        .loot-table tbody tr.item-main-row.striped { background:rgba(255,255,255,0.02); }
-        .loot-table tbody tr { transition:background var(--transition); }
-        .loot-table tbody tr:hover { background:rgba(255,255,255,0.05); }
-        .loot-table tbody tr:last-child td { border-bottom:none; }
-        .loot-table tbody tr.item-detail-row td { padding:10px 16px; background:rgba(0,0,0,0.25); border-bottom:1px solid rgba(255,255,255,0.06); }
-        .item-name { font-weight:700; display:inline-flex; align-items:center; gap:4px; cursor:pointer; }
-        .detail-indicator { display: inline-block; transition: transform 0.2s ease; font-size: 0.65em; margin-left: 4px; color: var(--text-dim); }
-        .item-main-row.expanded .detail-indicator { transform: rotate(90deg); }
-        .item-main-row.item-row-has-details { cursor:pointer; }
-        .tag-container { display:flex; flex-wrap:wrap; gap:3px; }
-        .tag {
-            display:inline-flex; align-items:center; gap:3px; padding:3px 9px; border-radius:12px;
-            font-size:0.63rem; font-weight:700; letter-spacing:0.03em; text-transform:uppercase;
-            border:1px solid var(--tag-border); background:var(--tag-bg); color:var(--tag-text);
-            transition:all var(--transition);
-        }
-        .tag.class-warrior { color:#ff9e9e; border-color:rgba(255,64,64,0.4); background:rgba(201,66,66,0.12); }
-        .tag.class-rogue { color:#fddd80; border-color:rgba(224,184,64,0.4); background:rgba(201,164,75,0.12); }
-        .tag.class-mage { color:#c0a0ff; border-color:rgba(144,96,240,0.4); background:rgba(123,94,204,0.12); }
-        .tag.class-priest { color:#ffffff; border-color:rgba(255,255,255,0.4); background:rgba(232,232,232,0.1); }
-        .tag.type-head { color:#e0b4ff; border-color:rgba(192,132,252,0.4); background:rgba(192,132,252,0.1); }
-        .tag.type-halos { color:#fde68a; border-color:rgba(251,191,36,0.4); background:rgba(251,191,36,0.1); }
-        .tag.type-shoulders { color:#cbd5e1; border-color:rgba(148,163,184,0.4); background:rgba(148,163,184,0.1); }
-        .tag.type-chest { color:#fca5a5; border-color:rgba(248,113,113,0.4); background:rgba(248,113,113,0.1); }
-        .tag.type-back { color:#b4bcfc; border-color:rgba(129,140,248,0.4); background:rgba(129,140,248,0.1); }
-        .tag.type-legs { color:#c4a882; border-color:rgba(167,139,113,0.4); background:rgba(167,139,113,0.1); }
-        .tag.type-feet { color:#e0b48a; border-color:rgba(201,151,107,0.4); background:rgba(201,151,107,0.1); }
-        .tag.type-waist { color:#d4a074; border-color:rgba(184,132,92,0.4); background:rgba(184,132,92,0.1); }
-        .tag.type-hands { color:#e8c9a0; border-color:rgba(212,165,116,0.4); background:rgba(212,165,116,0.1); }
-        .tag.type-shield { color:#93c5fd; border-color:rgba(96,165,250,0.4); background:rgba(96,165,250,0.1); }
-        .tag.type-sword { color:#bae6fd; border-color:rgba(125,211,252,0.4); background:rgba(125,211,252,0.1); }
-        .tag.type-dual-sword { color:#7dd3fc; border-color:rgba(56,189,248,0.4); background:rgba(56,189,248,0.1); }
-        .tag.type-axe { color:#f87171; border-color:rgba(220,38,38,0.4); background:rgba(220,38,38,0.1); }
-        .tag.type-dual-axes { color:#f87171; border-color:rgba(225,29,72,0.4); background:rgba(225,29,72,0.1); }
-        .tag.type-daggers { color:#cbd5e1; border-color:rgba(148,163,184,0.4); background:rgba(148,163,184,0.1); }
-        .tag.type-two-handed-axe { color:#ef4444; border-color:rgba(185,28,28,0.4); background:rgba(185,28,28,0.1); }
-        .tag.type-mace { color:#fbbf24; border-color:rgba(251,191,36,0.4); background:rgba(251,191,36,0.1); }
-        .tag.type-two-handed-mace { color:#94a3b8; border-color:rgba(100,116,139,0.4); background:rgba(100,116,139,0.1); }
-        .tag.type-dual-maces { color:#94a3b8; border-color:rgba(148,163,184,0.4); background:rgba(148,163,184,0.1); }
-        .tag.type-spear { color:#fef3c7; border-color:rgba(253,230,138,0.4); background:rgba(253,230,138,0.1); }
-        .tag.type-bow { color:#86efac; border-color:rgba(74,222,128,0.4); background:rgba(74,222,128,0.1); }
-        .tag.type-thrown { color:#fdb980; border-color:rgba(251,146,60,0.4); background:rgba(251,146,60,0.1); }
-        .tag.type-fists { color:#f87171; border-color:rgba(239,68,68,0.4); background:rgba(239,68,68,0.1); }
-        .tag.type-scepter { color:#c084fc; border-color:rgba(168,85,247,0.4); background:rgba(168,85,247,0.1); }
-        .tag.type-crescent { color:#e2e8f0; border-color:rgba(203,213,225,0.4); background:rgba(203,213,225,0.1); }
-        .tag.type-spellbook { color:#67e8f9; border-color:rgba(34,211,238,0.4); background:rgba(34,211,238,0.1); }
-        .tag.type-trinket { color:#f9a8d4; border-color:rgba(244,114,182,0.4); background:rgba(244,114,182,0.1); }
-        .tag.type-mount { color:#fcd34d; border-color:rgba(245,158,11,0.5); background:rgba(245,158,11,0.15); text-shadow: 0 0 6px rgba(245,158,11,0.4); }
-        .tag.type-glider { color:#67e8f9; border-color:rgba(6,182,212,0.5); background:rgba(6,182,212,0.15); text-shadow: 0 0 6px rgba(6,182,212,0.4); }
-        .tag.stat-armor { color: #d1d5db; border-color: rgba(156,163,175,0.4); background: rgba(156,163,175,0.1); }
-        .tag.stat-vitality { color: #6ee7b7; border-color: rgba(52,211,153,0.4); background: rgba(52,211,153,0.1); }
-        .tag.stat-strength { color: #fca5a5; border-color: rgba(248,113,113,0.4); background: rgba(248,113,113,0.1); }
-        .tag.stat-dexterity { color: #fde68a; border-color: rgba(251,191,36,0.4); background: rgba(251,191,36,0.1); }
-        .tag.stat-faith { color: #fef3c7; border-color: rgba(252,211,77,0.4); background: rgba(252,211,77,0.1); }
-        .tag.stat-intelligence { color: #b4bcfc; border-color: rgba(129,140,248,0.4); background: rgba(129,140,248,0.1); }
-        .tag.stat-critical { color: #f9a8d4; border-color: rgba(244,114,182,0.4); background: rgba(244,114,182,0.1); }
-        .tag.stat-armor-penetration { color: #f4a28e; border-color: rgba(232,121,94,0.4); background: rgba(232,121,94,0.1); }
-        .tag.stat-magic-penetration { color: #e0b4ff; border-color: rgba(192,132,252,0.4); background: rgba(192,132,252,0.1); }
-        .tag.stat-fervor { color: #fdb980; border-color: rgba(251,146,60,0.4); background: rgba(251,146,60,0.1); }
-        .rarity-switcher { display:flex; align-items:center; gap:4px; margin-bottom:6px; }
-        .rarity-label { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-right: 4px; opacity: 0.9; }
-        .rarity-btn { padding: 4px 10px; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; border-radius: 10px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); cursor: pointer; transition: all 0.2s ease; font-family: var(--font); text-transform: capitalize; min-width: 46px; }
-        .rarity-btn:hover { background: rgba(255,255,255,0.12); color: #ffffff; border-color: #666; box-shadow: 0 0 8px rgba(255,255,255,0.15); transform: translateY(-1px); }
-        .rarity-btn[data-rarity="blue"] { border-color: rgba(59,130,246,0.6); color: #60a5fa; }
-        .rarity-btn[data-rarity="blue"].active { background: rgba(59,130,246,0.3); border-color: #60a5fa; box-shadow: 0 0 12px rgba(59,130,246,0.5); color: #93c5fd; }
-        .rarity-btn[data-rarity="purple"] { border-color: rgba(168,85,247,0.6); color: #c084fc; }
-        .rarity-btn[data-rarity="purple"].active { background: rgba(168,85,247,0.3); border-color: #c084fc; box-shadow: 0 0 12px rgba(168,85,247,0.5); color: #e0b4ff; }
-        .rarity-btn[data-rarity="legendary"] { border-color: rgba(245,158,11,0.6); color: #fbbf24; }
-        .rarity-btn[data-rarity="legendary"].active { background: rgba(245,158,11,0.3); border-color: #fbbf24; box-shadow: 0 0 14px rgba(245,158,11,0.6); color: #fde68a; text-shadow: 0 0 6px rgba(245,158,11,0.6); }
-        .type-color-sword { color: #bae6fd; text-shadow: 0 0 8px rgba(125,211,252,0.35); }
-        .type-color-dual-sword { color: #7dd3fc; text-shadow: 0 0 8px rgba(56,189,248,0.35); }
-        .type-color-axe { color: #f87171; text-shadow: 0 0 8px rgba(220,38,38,0.35); }
-        .type-color-dual-axes { color: #f87171; text-shadow: 0 0 8px rgba(225,29,72,0.35); }
-        .type-color-daggers { color: #cbd5e1; text-shadow: 0 0 8px rgba(148,163,184,0.35); }
-        .type-color-two-handed-axe { color: #ef4444; text-shadow: 0 0 8px rgba(185,28,28,0.38); }
-        .type-color-mace { color: #fbbf24; text-shadow: 0 0 8px rgba(251,191,36,0.35); }
-        .type-color-two-handed-mace { color: #94a3b8; text-shadow: 0 0 8px rgba(100,116,139,0.32); }
-        .type-color-dual-maces { color: #94a3b8; text-shadow: 0 0 8px rgba(148,163,184,0.32); }
-        .type-color-spear { color: #fef3c7; text-shadow: 0 0 8px rgba(253,230,138,0.32); }
-        .type-color-bow { color: #86efac; text-shadow: 0 0 8px rgba(74,222,128,0.35); }
-        .type-color-fists { color: #f87171; text-shadow: 0 0 10px rgba(239,68,68,0.40); }
-        .type-color-thrown { color: #fdb980; text-shadow: 0 0 8px rgba(251,146,60,0.32); }
-        .type-color-scepter { color: #c084fc; text-shadow: 0 0 8px rgba(168,85,247,0.35); }
-        .type-color-crescent { color: #e2e8f0; text-shadow: 0 0 8px rgba(203,213,225,0.30); }
-        .type-color-halos { color: #fde68a; text-shadow: 0 0 10px rgba(251,191,36,0.38); }
-        .type-color-spellbook { color: #67e8f9; text-shadow: 0 0 8px rgba(34,211,238,0.35); }
-        .type-color-shield { color: #93c5fd; text-shadow: 0 0 8px rgba(96,165,250,0.32); }
-        .type-color-head { color: #e0b4ff; text-shadow: 0 0 8px rgba(192,132,252,0.32); }
-        .type-color-shoulders { color: #cbd5e1; text-shadow: 0 0 6px rgba(148,163,184,0.28); }
-        .type-color-chest { color: #fca5a5; text-shadow: 0 0 8px rgba(248,113,113,0.32); }
-        .type-color-back { color: #b4bcfc; text-shadow: 0 0 8px rgba(129,140,248,0.32); }
-        .type-color-hands { color: #e8c9a0; text-shadow: 0 0 8px rgba(212,165,116,0.28); }
-        .type-color-legs { color: #c4a882; text-shadow: 0 0 8px rgba(167,139,113,0.28); }
-        .type-color-feet { color: #e0b48a; text-shadow: 0 0 8px rgba(201,151,107,0.28); }
-        .type-color-waist { color: #d4a074; text-shadow: 0 0 8px rgba(184,132,92,0.28); }
-        .type-color-trinket { color: #f9a8d4; text-shadow: 0 0 8px rgba(244,114,182,0.32); }
-        .type-color-mount { color: #fcd34d; text-shadow: 0 0 10px rgba(245,158,11,0.45); }
-        .type-color-glider { color: #67e8f9; text-shadow: 0 0 10px rgba(6,182,212,0.45); }
-        .stat-value { font-size:0.8rem; font-weight:600; color:#ffffff; margin-left:2px; text-shadow:0 0 4px rgba(255,255,255,0.2); }
-        .item-damage-line { font-size:0.75rem; color:#ffffff; margin-bottom:4px; font-weight:600; }
-        .site-footer {
-            background:var(--surface); border-top:1px solid var(--border);
-            padding:16px 32px; text-align:center; font-size:0.7rem; color:var(--text-dim); letter-spacing:0.05em; margin-top:auto;
-        }
-        .site-footer .copyright-symbol { color:var(--gold-dim); }
-        .site-footer .creator-name { color:var(--gold); font-weight:600; }
-        .toast-container { position:fixed; bottom:24px; right:24px; z-index:999; display:flex; flex-direction:column; gap:8px; }
-        .toast {
-            background: rgba(30,34,43,0.85);
-            backdrop-filter: blur(8px);
-            border:1px solid var(--border); padding:10px 16px; border-radius:var(--radius-sm);
-            font-size:0.8rem; color:var(--text); box-shadow:var(--shadow);
-            animation:slideIn 0.3s ease, fadeOut 0.3s ease 1.8s forwards; max-width:340px;
-        }
-        @keyframes slideIn { from{opacity:0;transform:translateX(40px);} to{opacity:1;transform:translateX(0);} }
-        @keyframes fadeOut { from{opacity:1;} to{opacity:0;transform:translateY(-10px);} }
-        @media (max-width:800px) {
-            .loot-table, .loot-table thead, .loot-table tbody, .loot-table th, .loot-table td, .loot-table tr { display:block; }
-            .loot-table thead { display:none; }
-            .loot-table tbody tr.item-main-row { padding:10px; border-bottom:1px solid var(--border); margin-bottom:6px; background:rgba(255,255,255,0.01); border-radius:var(--radius-sm); }
-            .loot-table tbody td { display:block; padding:4px 0; border-bottom:none; text-align:left; }
-            .loot-table tbody td::before { content:attr(data-label); font-weight:600; color:var(--text-dim); font-size:0.65rem; display:inline-block; width:80px; }
-            .header { padding:16px 20px; }
-            .header h1 { font-size:1.4rem; }
-            .container { padding:16px 12px 36px; }
-            .zone-header { padding:14px 16px; gap:8px; }
-            .zone-body { padding:12px 16px 16px; }
-            .dungeon-header { padding:12px 16px; gap:6px; }
-            .dungeon-body { padding:8px 10px 12px; }
-            .zone-name-display { font-size:0.95rem; }
-            .dungeon-name-display { font-size:0.8rem; }
-            .filter-bar { padding:12px 16px; gap:10px; flex-wrap:wrap; border-radius:0; }
-            .filter-bar::before { width:100%; margin-right:0; margin-bottom:4px; }
-            .search-input { width:140px; }
-            .search-input:focus { width:170px; }
-            .site-footer { padding:12px 16px; font-size:0.65rem; }
-            .suggest-btn { font-size:0.75rem; padding:5px 10px; }
-            .stat-value { font-size:0.7rem; }
-        }
-        .suggest-btn {
-            background:none; border:1px solid var(--border); color:var(--text-dim); border-radius:20px;
-            padding:6px 14px; font-size:0.82rem; font-weight:600; cursor:pointer;
-            transition:all var(--transition); display:flex; align-items:center; gap:6px;
-            font-family:var(--font); white-space:nowrap;
-        }
-        .suggest-btn:hover { background:var(--surface2); color:var(--gold); border-color:var(--gold-dim); box-shadow:0 0 10px rgba(201,164,75,0.2); }
-        .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:10001; justify-content:center; align-items:center; }
-        .modal-overlay.active { display:flex; }
-        .modal-content {
-            background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
-            padding:24px; width:90%; max-width:420px; box-shadow:0 12px 40px rgba(0,0,0,0.8);
-        }
-        .modal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
-        .modal-header h2 { color:var(--gold); font-family:var(--font-display); font-size:1.3rem; margin:0; }
-        .modal-close { background:none; border:none; color:var(--text-dim); font-size:1.5rem; cursor:pointer; line-height:1; }
-        .modal-close:hover { color:var(--text); }
-        .modal-form input, .modal-form select, .modal-form textarea {
-            width:100%; background:var(--surface2); border:1px solid var(--border); color:var(--text);
-            padding:8px 12px; border-radius:var(--radius-sm); margin-bottom:10px; font-family:var(--font);
-        }
-        .modal-form textarea { resize:vertical; min-height:80px; }
-        .modal-form button { padding:10px; border:none; border-radius:var(--radius-sm); font-weight:700; cursor:pointer; font-family:var(--font); }
-        .modal-form .submit-btn { background:var(--accent); color:#fff; }
-        .modal-form .submit-btn:hover { background:var(--accent-hover); }
-        .modal-form .cancel-btn { background:var(--surface2); color:var(--text); border:1px solid var(--border); margin-left:10px; }
-        .modal-form .cancel-btn:hover { background:#2a2f3a; }
-        .modal-footer-text { font-size:0.7rem; color:var(--text-dim); margin-top:12px; text-align:center; }
-        .filter-group-wrapper.open #type-dropdown {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 6px;
-            max-height: none;
-            overflow-y: visible;
-            min-width: 360px;
-        }
-        #class-dropdown { min-width: 300px; }
-        #scroll-to-top-btn {
-            background: rgba(201,164,75,0.12);
-            border-color: var(--gold-dim);
-            color: var(--gold);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-        }
-        #scroll-to-top-btn:hover {
-            background: rgba(201,164,75,0.30);
-            color: #fddd80;
-            border-color: var(--gold);
-            box-shadow: 0 0 16px rgba(201,164,75,0.5);
-            transform: scale(1.08);
-        }
-        #image-tooltip {
-            position: fixed;
-            z-index: 10000;
-            pointer-events: none;
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            padding: 0;
-            display: none;
-            max-width: 900px;
-            max-height: 600px;
-            overflow: hidden;
-        }
-        #image-tooltip img {
-            display: block;
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-        }
+    --bg: #0d0f13; --surface: #171a21; --surface2: #1e222b; --border: #2a2f3a; --gold: #c9a44b;
+    --gold-dim: #7a6235; --text: #d5d0c8; --text-dim: #8a857a; --accent: #5b8cbd; --accent-hover: #7aabda;
+    --shadow: 0 4px 24px rgba(0,0,0,0.5); --radius: 10px; --radius-sm: 6px; --transition: 0.2s ease;
+    --font: 'Segoe UI', 'Helvetica Neue', system-ui, sans-serif; --font-display: 'Cinzel', 'Georgia', serif;
+    --dungeon-red: #f87171; --item-green: #4ade80; --dungeon-lv: #f0c060; --dungeon-full: #5baf6b;
+    --dungeon-boss: #c97a3a; --rarity-blue: #3b82f6; --rarity-purple: #a855f7; --rarity-legendary: #f59e0b;
+    --tag-bg: rgba(255,255,255,0.04); --tag-border: rgba(255,255,255,0.08); --tag-text: #8a857a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;background-image:radial-gradient(ellipse at 50% 0%,rgba(201,164,75,0.04) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(91,140,189,0.03) 0%,transparent 60%);background-attachment:fixed;display:flex;flex-direction:column}
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;box-shadow:0 2px 16px rgba(0,0,0,0.4)}
+.header-brand{display:flex;align-items:center;gap:12px}
+.header-icon{width:44px;height:44px;background:linear-gradient(135deg,#3a2f1f,#5a4025);border:2px solid var(--gold-dim);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--gold);flex-shrink:0}
+.header h1{font-family:var(--font-display);font-size:2rem;color:var(--gold);letter-spacing:0.06em;font-weight:600;text-shadow:0 0 12px rgba(201,164,75,0.2)}
+.header-subtitle{font-size:0.75rem;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase}
+.cap-badge{display:inline-flex;align-items:center;padding:2px 10px;border-radius:12px;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;background:rgba(201,164,75,0.12);border:1px solid var(--gold-dim);color:var(--gold);margin-left:8px;white-space:nowrap}
+.header-right{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.header-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.lang-switcher{display:flex;gap:6px}
+.lang-btn{background:none;border:1px solid var(--border);color:var(--text-dim);border-radius:20px;padding:6px 14px;font-size:0.75rem;font-weight:600;cursor:pointer;transition:all var(--transition);font-family:var(--font);white-space:nowrap;text-transform:capitalize;letter-spacing:0.04em}
+.lang-btn:hover{background:var(--surface2);color:var(--gold);border-color:var(--gold-dim);box-shadow:0 0 10px rgba(201,164,75,0.2)}
+.lang-btn.active{background:rgba(201,164,75,0.2);border-color:var(--gold);color:var(--gold)}
+.search-wrapper{position:relative}
+.search-input{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:8px 16px 8px 36px;font-size:0.8rem;color:var(--text);font-family:var(--font);width:200px;transition:all var(--transition);outline:none}
+.search-input::placeholder{color:var(--text-dim)}
+.search-input:focus{border-color:var(--accent);box-shadow:0 0 10px rgba(91,140,189,0.2);width:240px}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:0.9rem;pointer-events:none}
+.filter-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;box-shadow:0 2px 12px rgba(0,0,0,0.4);border-radius:0 0 var(--radius) var(--radius);margin-bottom:8px}
+.filter-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:600;margin-right:8px;opacity:0.7;white-space:nowrap}
+.filter-group-wrapper{position:relative}
+.filter-group-header{display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:transparent;transition:all var(--transition);white-space:nowrap;font-size:0.72rem}
+.filter-group-header:hover{background:var(--surface2);border-color:#555}
+.filter-group-header .arrow{font-size:0.55rem;transition:transform 0.25s ease;color:var(--text-dim)}
+.filter-group-wrapper.open .filter-group-header .arrow{transform:rotate(180deg)}
+.filter-group-header .label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-dim);font-weight:600}
+.filter-group-header .active-count{background:var(--accent);color:#fff;border-radius:10px;padding:1px 6px;font-size:0.58rem;font-weight:700}
+.filter-dropdown{display:none;position:absolute;top:100%;left:0;margin-top:6px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;box-shadow:var(--shadow);z-index:95;min-width:220px;max-height:500px;overflow-y:auto}
+.filter-group-wrapper.open .filter-dropdown{display:flex;flex-wrap:wrap;gap:6px}
+.filter-btn{padding:5px 12px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;border-radius:20px;border:1px solid var(--border);background:var(--tag-bg);color:var(--tag-text);cursor:pointer;transition:all var(--transition);font-family:var(--font);white-space:nowrap}
+.filter-btn:hover{background:var(--surface2);color:var(--text);border-color:#555}
+.filter-btn .item-count{font-size:0.58rem;opacity:0.7;margin-left:2px}
+.clear-all-btn{padding:6px 14px;font-size:0.7rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;border-radius:20px;border:1px solid rgba(212,90,90,0.6);background:rgba(176,74,74,0.1);color:#e86060;cursor:pointer;transition:all var(--transition);font-family:var(--font);white-space:nowrap;box-shadow:0 0 8px rgba(176,74,74,0.15)}
+.clear-all-btn:hover{background:rgba(176,74,74,0.25);border-color:#e86060;color:#ff7070;box-shadow:0 0 14px rgba(176,74,74,0.35)}
+.stat-match-toggle{padding:5px 14px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;border-radius:20px;border:1px solid var(--border);background:var(--tag-bg);color:var(--tag-text);cursor:pointer;transition:all var(--transition);font-family:var(--font);white-space:nowrap}
+.stat-match-toggle:hover{background:var(--surface2);color:var(--text);border-color:#555}
+.container{padding-left:1%;padding-right:1%}
+.main-content{flex:1 0 auto}
+.zone-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px;box-shadow:var(--shadow);overflow:hidden;transition:all var(--transition)}
+.zone-card:hover{border-color:#444}
+.zone-header{display:flex;align-items:center;gap:12px;padding:18px 24px;cursor:pointer;user-select:none;background:var(--surface2);border-bottom:1px solid var(--border);transition:background var(--transition)}
+.zone-header:hover{background:#252a35;box-shadow:inset 4px 0 0 rgba(201,164,75,0.2);transition:background 0.25s ease, box-shadow 0.25s ease}
+.zone-chevron{font-size:0.7rem;color:var(--gold);transition:transform 0.25s ease;flex-shrink:0;width:18px;text-align:center}
+.zone-card.open .zone-chevron{transform:rotate(90deg)}
+.zone-icon{font-size:1.4rem;flex-shrink:0}
+.zone-info{flex:1;min-width:0}
+.zone-name-display{color:var(--gold);font-size:1.15rem;font-weight:700;font-family:var(--font-display);letter-spacing:0.03em}
+.zone-meta{font-size:0.72rem;color:var(--text-dim);margin-top:2px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.zone-body{display:none;padding:16px 24px 20px;background:var(--bg)}
+.zone-card.open .zone-body{display:block}
+.badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:0.65rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+.badge-dungeon{background:rgba(248,113,113,0.18);border:1px solid var(--dungeon-red);color:var(--dungeon-red);box-shadow:0 0 6px rgba(248,113,113,0.25)}
+.badge-item{background:rgba(74,222,128,0.15);border:1px solid var(--item-green);color:var(--item-green);box-shadow:0 0 6px rgba(74,222,128,0.25)}
+.dungeons-list{display:flex;flex-direction:column;gap:12px}
+.dungeon-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;transition:all var(--transition)}
+.dungeon-card:hover{border-color:#444}
+.dungeon-header{display:flex;align-items:center;gap:10px;padding:14px 18px;cursor:pointer;user-select:none;background:rgba(0,0,0,0.2);border-bottom:1px solid transparent;transition:all var(--transition)}
+.dungeon-card.open .dungeon-header{border-bottom-color:var(--border);background:rgba(0,0,0,0.35)}
+.dungeon-header:hover{background:rgba(255,255,255,0.02)}
+.dungeon-chevron{font-size:0.6rem;color:var(--accent);transition:transform 0.25s ease;flex-shrink:0;width:14px;text-align:center}
+.dungeon-card.open .dungeon-chevron{transform:rotate(90deg)}
+.dungeon-icon{font-size:1.1rem;flex-shrink:0}
+.dungeon-info{flex:1;min-width:0;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.dungeon-name-display{font-size:0.95rem;font-weight:600}
+.dungeon-lv{color:var(--dungeon-lv);font-weight:700}
+.dungeon-tag-full{color:var(--dungeon-full);font-weight:600;font-size:0.85rem}
+.dungeon-tag-boss{color:var(--dungeon-boss);font-weight:600;font-size:0.85rem}
+.dungeon-tag-full::before,.dungeon-tag-boss::before{content:' · ';color:var(--text-dim);font-weight:400}
+.dungeon-body{display:none;padding:8px 16px 14px;background:rgba(0,0,0,0.15);overflow-x:auto}
+.dungeon-card.open .dungeon-body{display:block}
+.loot-table{width:100%;border-collapse:collapse;font-size:0.82rem;min-width:900px}
+.loot-table thead th{text-align:left;padding:8px 8px;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-dim);border-bottom:1px solid var(--border);font-weight:600}
+.loot-table tbody td{padding:14px 10px;border-bottom:1px solid rgba(255,255,255,0.08);vertical-align:top}
+.loot-table tbody tr.item-main-row.striped{background:rgba(255,255,255,0.02)}
+.loot-table tbody tr{transition:background var(--transition)}
+.loot-table tbody tr:hover{background:rgba(255,255,255,0.05)}
+.loot-table tbody tr:last-child td{border-bottom:none}
+.loot-table tbody tr.item-detail-row td{padding:10px 16px;background:rgba(0,0,0,0.25);border-bottom:1px solid rgba(255,255,255,0.06)}
+.item-name{font-weight:700;display:inline-flex;align-items:center;gap:4px;cursor:pointer}
+.detail-indicator{display:inline-block;transition:transform 0.2s ease;font-size:0.65em;margin-left:4px;color:var(--text-dim)}
+.item-main-row.expanded .detail-indicator{transform:rotate(90deg)}
+.item-main-row.item-row-has-details{cursor:pointer}
+.tag-container{display:flex;flex-wrap:wrap;gap:3px}
+.tag{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:12px;font-size:0.63rem;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;border:1px solid var(--tag-border);background:var(--tag-bg);color:var(--tag-text);transition:all var(--transition)}
+.tag.class-warrior{color:#ff9e9e;border-color:rgba(255,64,64,0.4);background:rgba(201,66,66,0.12)}
+.tag.class-rogue{color:#fddd80;border-color:rgba(224,184,64,0.4);background:rgba(201,164,75,0.12)}
+.tag.class-mage{color:#c0a0ff;border-color:rgba(144,96,240,0.4);background:rgba(123,94,204,0.12)}
+.tag.class-priest{color:#ffffff;border-color:rgba(255,255,255,0.4);background:rgba(232,232,232,0.1)}
+.tag.type-head{color:#e0b4ff;border-color:rgba(192,132,252,0.4);background:rgba(192,132,252,0.1)}
+.tag.type-halos{color:#fde68a;border-color:rgba(251,191,36,0.4);background:rgba(251,191,36,0.1)}
+.tag.type-shoulders{color:#cbd5e1;border-color:rgba(148,163,184,0.4);background:rgba(148,163,184,0.1)}
+.tag.type-chest{color:#fca5a5;border-color:rgba(248,113,113,0.4);background:rgba(248,113,113,0.1)}
+.tag.type-back{color:#b4bcfc;border-color:rgba(129,140,248,0.4);background:rgba(129,140,248,0.1)}
+.tag.type-legs{color:#c4a882;border-color:rgba(167,139,113,0.4);background:rgba(167,139,113,0.1)}
+.tag.type-feet{color:#e0b48a;border-color:rgba(201,151,107,0.4);background:rgba(201,151,107,0.1)}
+.tag.type-waist{color:#d4a074;border-color:rgba(184,132,92,0.4);background:rgba(184,132,92,0.1)}
+.tag.type-hands{color:#e8c9a0;border-color:rgba(212,165,116,0.4);background:rgba(212,165,116,0.1)}
+.tag.type-shield{color:#93c5fd;border-color:rgba(96,165,250,0.4);background:rgba(96,165,250,0.1)}
+.tag.type-sword{color:#bae6fd;border-color:rgba(125,211,252,0.4);background:rgba(125,211,252,0.1)}
+.tag.type-dual-sword{color:#7dd3fc;border-color:rgba(56,189,248,0.4);background:rgba(56,189,248,0.1)}
+.tag.type-axe{color:#f87171;border-color:rgba(220,38,38,0.4);background:rgba(220,38,38,0.1)}
+.tag.type-dual-axes{color:#f87171;border-color:rgba(225,29,72,0.4);background:rgba(225,29,72,0.1)}
+.tag.type-daggers{color:#cbd5e1;border-color:rgba(148,163,184,0.4);background:rgba(148,163,184,0.1)}
+.tag.type-two-handed-axe{color:#ef4444;border-color:rgba(185,28,28,0.4);background:rgba(185,28,28,0.1)}
+.tag.type-mace{color:#fbbf24;border-color:rgba(251,191,36,0.4);background:rgba(251,191,36,0.1)}
+.tag.type-two-handed-mace{color:#94a3b8;border-color:rgba(100,116,139,0.4);background:rgba(100,116,139,0.1)}
+.tag.type-dual-maces{color:#94a3b8;border-color:rgba(148,163,184,0.4);background:rgba(148,163,184,0.1)}
+.tag.type-spear{color:#fef3c7;border-color:rgba(253,230,138,0.4);background:rgba(253,230,138,0.1)}
+.tag.type-bow{color:#86efac;border-color:rgba(74,222,128,0.4);background:rgba(74,222,128,0.1)}
+.tag.type-thrown{color:#fdb980;border-color:rgba(251,146,60,0.4);background:rgba(251,146,60,0.1)}
+.tag.type-fists{color:#f87171;border-color:rgba(239,68,68,0.4);background:rgba(239,68,68,0.1)}
+.tag.type-scepter{color:#c084fc;border-color:rgba(168,85,247,0.4);background:rgba(168,85,247,0.1)}
+.tag.type-crescent{color:#e2e8f0;border-color:rgba(203,213,225,0.4);background:rgba(203,213,225,0.1)}
+.tag.type-spellbook{color:#67e8f9;border-color:rgba(34,211,238,0.4);background:rgba(34,211,238,0.1)}
+.tag.type-trinket{color:#f9a8d4;border-color:rgba(244,114,182,0.4);background:rgba(244,114,182,0.1)}
+.tag.type-mount{color:#fcd34d;border-color:rgba(245,158,11,0.5);background:rgba(245,158,11,0.15);text-shadow:0 0 6px rgba(245,158,11,0.4)}
+.tag.type-glider{color:#67e8f9;border-color:rgba(6,182,212,0.5);background:rgba(6,182,212,0.15);text-shadow:0 0 6px rgba(6,182,212,0.4)}
+.tag.stat-armor{color:#d1d5db;border-color:rgba(156,163,175,0.4);background:rgba(156,163,175,0.1)}
+.tag.stat-vitality{color:#6ee7b7;border-color:rgba(52,211,153,0.4);background:rgba(52,211,153,0.1)}
+.tag.stat-strength{color:#fca5a5;border-color:rgba(248,113,113,0.4);background:rgba(248,113,113,0.1)}
+.tag.stat-dexterity{color:#fde68a;border-color:rgba(251,191,36,0.4);background:rgba(251,191,36,0.1)}
+.tag.stat-faith{color:#fef3c7;border-color:rgba(252,211,77,0.4);background:rgba(252,211,77,0.1)}
+.tag.stat-intelligence{color:#b4bcfc;border-color:rgba(129,140,248,0.4);background:rgba(129,140,248,0.1)}
+.tag.stat-critical{color:#f9a8d4;border-color:rgba(244,114,182,0.4);background:rgba(244,114,182,0.1)}
+.tag.stat-armor-penetration{color:#f4a28e;border-color:rgba(232,121,94,0.4);background:rgba(232,121,94,0.1)}
+.tag.stat-magic-penetration{color:#e0b4ff;border-color:rgba(192,132,252,0.4);background:rgba(192,132,252,0.1)}
+.tag.stat-fervor{color:#fdb980;border-color:rgba(251,146,60,0.4);background:rgba(251,146,60,0.1)}
+.rarity-switcher{display:flex;align-items:center;gap:4px;margin-bottom:6px}
+.rarity-label{font-size:0.55rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);margin-right:4px;opacity:0.9}
+.rarity-btn{padding:4px 10px;font-size:0.62rem;font-weight:700;letter-spacing:0.06em;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.05);color:var(--text);cursor:pointer;transition:all 0.2s ease;font-family:var(--font);text-transform:capitalize;min-width:46px}
+.rarity-btn:hover{background:rgba(255,255,255,0.12);color:#ffffff;border-color:#666;box-shadow:0 0 8px rgba(255,255,255,0.15);transform:translateY(-1px)}
+.rarity-btn[data-rarity="blue"]{border-color:rgba(59,130,246,0.6);color:#60a5fa}
+.rarity-btn[data-rarity="blue"].active{background:rgba(59,130,246,0.3);border-color:#60a5fa;box-shadow:0 0 12px rgba(59,130,246,0.5);color:#93c5fd}
+.rarity-btn[data-rarity="purple"]{border-color:rgba(168,85,247,0.6);color:#c084fc}
+.rarity-btn[data-rarity="purple"].active{background:rgba(168,85,247,0.3);border-color:#c084fc;box-shadow:0 0 12px rgba(168,85,247,0.5);color:#e0b4ff}
+.rarity-btn[data-rarity="legendary"]{border-color:rgba(245,158,11,0.6);color:#fbbf24}
+.rarity-btn[data-rarity="legendary"].active{background:rgba(245,158,11,0.3);border-color:#fbbf24;box-shadow:0 0 14px rgba(245,158,11,0.6);color:#fde68a;text-shadow:0 0 6px rgba(245,158,11,0.6)}
+.type-color-sword{color:#bae6fd;text-shadow:0 0 8px rgba(125,211,252,0.35)}
+.type-color-dual-sword{color:#7dd3fc;text-shadow:0 0 8px rgba(56,189,248,0.35)}
+.type-color-axe{color:#f87171;text-shadow:0 0 8px rgba(220,38,38,0.35)}
+.type-color-dual-axes{color:#f87171;text-shadow:0 0 8px rgba(225,29,72,0.35)}
+.type-color-daggers{color:#cbd5e1;text-shadow:0 0 8px rgba(148,163,184,0.35)}
+.type-color-two-handed-axe{color:#ef4444;text-shadow:0 0 8px rgba(185,28,28,0.38)}
+.type-color-mace{color:#fbbf24;text-shadow:0 0 8px rgba(251,191,36,0.35)}
+.type-color-two-handed-mace{color:#94a3b8;text-shadow:0 0 8px rgba(100,116,139,0.32)}
+.type-color-dual-maces{color:#94a3b8;text-shadow:0 0 8px rgba(148,163,184,0.32)}
+.type-color-spear{color:#fef3c7;text-shadow:0 0 8px rgba(253,230,138,0.32)}
+.type-color-bow{color:#86efac;text-shadow:0 0 8px rgba(74,222,128,0.35)}
+.type-color-fists{color:#f87171;text-shadow:0 0 10px rgba(239,68,68,0.40)}
+.type-color-thrown{color:#fdb980;text-shadow:0 0 8px rgba(251,146,60,0.32)}
+.type-color-scepter{color:#c084fc;text-shadow:0 0 8px rgba(168,85,247,0.35)}
+.type-color-crescent{color:#e2e8f0;text-shadow:0 0 8px rgba(203,213,225,0.30)}
+.type-color-halos{color:#fde68a;text-shadow:0 0 10px rgba(251,191,36,0.38)}
+.type-color-spellbook{color:#67e8f9;text-shadow:0 0 8px rgba(34,211,238,0.35)}
+.type-color-shield{color:#93c5fd;text-shadow:0 0 8px rgba(96,165,250,0.32)}
+.type-color-head{color:#e0b4ff;text-shadow:0 0 8px rgba(192,132,252,0.32)}
+.type-color-shoulders{color:#cbd5e1;text-shadow:0 0 6px rgba(148,163,184,0.28)}
+.type-color-chest{color:#fca5a5;text-shadow:0 0 8px rgba(248,113,113,0.32)}
+.type-color-back{color:#b4bcfc;text-shadow:0 0 8px rgba(129,140,248,0.32)}
+.type-color-hands{color:#e8c9a0;text-shadow:0 0 8px rgba(212,165,116,0.28)}
+.type-color-legs{color:#c4a882;text-shadow:0 0 8px rgba(167,139,113,0.28)}
+.type-color-feet{color:#e0b48a;text-shadow:0 0 8px rgba(201,151,107,0.28)}
+.type-color-waist{color:#d4a074;text-shadow:0 0 8px rgba(184,132,92,0.28)}
+.type-color-trinket{color:#f9a8d4;text-shadow:0 0 8px rgba(244,114,182,0.32)}
+.type-color-mount{color:#fcd34d;text-shadow:0 0 10px rgba(245,158,11,0.45)}
+.type-color-glider{color:#67e8f9;text-shadow:0 0 10px rgba(6,182,212,0.45)}
+.stat-value{font-size:0.8rem;font-weight:600;color:#ffffff;margin-left:2px;text-shadow:0 0 4px rgba(255,255,255,0.2)}
+.item-damage-line{font-size:0.75rem;color:#ffffff;margin-bottom:4px;font-weight:600}
+.site-footer{background:var(--surface);border-top:1px solid var(--border);padding:16px 32px;text-align:center;font-size:0.7rem;color:var(--text-dim);letter-spacing:0.05em;margin-top:auto;width:100%;box-sizing:border-box}
+.toast-container{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;gap:8px}
+.toast{background:rgba(30,34,43,0.85);backdrop-filter:blur(8px);border:1px solid var(--border);padding:10px 16px;border-radius:var(--radius-sm);font-size:0.8rem;color:var(--text);box-shadow:var(--shadow);animation:slideIn 0.3s ease, fadeOut 0.3s ease 1.8s forwards;max-width:340px}
+@keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0;transform:translateY(-10px)}}
+@media (max-width:800px){
+.loot-table,.loot-table thead,.loot-table tbody,.loot-table th,.loot-table td,.loot-table tr{display:block}
+.loot-table thead{display:none}
+.loot-table tbody tr.item-main-row{padding:10px;border-bottom:1px solid var(--border);margin-bottom:6px;background:rgba(255,255,255,0.01);border-radius:var(--radius-sm)}
+.loot-table tbody td{display:block;padding:4px 0;border-bottom:none;text-align:left}
+.loot-table tbody td::before{content:attr(data-label);font-weight:600;color:var(--text-dim);font-size:0.65rem;display:inline-block;width:80px}
+.header{padding:16px 20px}
+.header h1{font-size:1.4rem}
+.container{padding:16px 12px 36px}
+.zone-header{padding:14px 16px;gap:8px}
+.zone-body{padding:12px 16px 16px}
+.dungeon-header{padding:12px 16px;gap:6px}
+.dungeon-body{padding:8px 10px 12px}
+.zone-name-display{font-size:0.95rem}
+.dungeon-name-display{font-size:0.8rem}
+.filter-bar{padding:12px 16px;gap:10px;flex-wrap:wrap;border-radius:0}
+.filter-label{width:100%;margin-bottom:4px}
+.search-input{width:140px}
+.search-input:focus{width:170px}
+.site-footer{padding:12px 16px;font-size:0.65rem}
+.suggest-btn,.lang-btn{font-size:0.75rem;padding:5px 10px}
+.stat-value{font-size:0.7rem}
+}
+.suggest-btn{background:none;border:1px solid var(--border);color:var(--text-dim);border-radius:20px;padding:6px 14px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all var(--transition);display:flex;align-items:center;gap:6px;font-family:var(--font);white-space:nowrap}
+.suggest-btn:hover{background:var(--surface2);color:var(--gold);border-color:var(--gold-dim);box-shadow:0 0 10px rgba(201,164,75,0.2)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:10001;justify-content:center;align-items:center}
+.modal-overlay.active{display:flex}
+.modal-content{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;width:90%;max-width:420px;box-shadow:0 12px 40px rgba(0,0,0,0.8)}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.modal-header h2{color:var(--gold);font-family:var(--font-display);font-size:1.3rem;margin:0}
+.modal-close{background:none;border:none;color:var(--text-dim);font-size:1.5rem;cursor:pointer;line-height:1}
+.modal-close:hover{color:var(--text)}
+.modal-form input,.modal-form select,.modal-form textarea{width:100%;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:var(--radius-sm);margin-bottom:10px;font-family:var(--font)}
+.modal-form textarea{resize:vertical;min-height:80px}
+.modal-form button{padding:10px;border:none;border-radius:var(--radius-sm);font-weight:700;cursor:pointer;font-family:var(--font)}
+.modal-form .submit-btn{background:var(--accent);color:#fff}
+.modal-form .submit-btn:hover{background:var(--accent-hover)}
+.modal-form .cancel-btn{background:var(--surface2);color:var(--text);border:1px solid var(--border);margin-left:10px}
+.modal-form .cancel-btn:hover{background:#2a2f3a}
+.modal-footer-text{font-size:0.7rem;color:var(--text-dim);margin-top:12px;text-align:center}
+.filter-group-wrapper.open #type-dropdown{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-height:none;overflow-y:visible;min-width:360px}
+#class-dropdown{min-width:300px}
+#scroll-to-top-btn{background:rgba(201,164,75,0.12);border-color:var(--gold-dim);color:var(--gold);box-shadow:0 2px 12px rgba(0,0,0,0.4)}
+#scroll-to-top-btn:hover{background:rgba(201,164,75,0.30);color:#fddd80;border-color:var(--gold);box-shadow:0 0 16px rgba(201,164,75,0.5);transform:scale(1.08)}
+#image-tooltip{position:fixed;z-index:10000;pointer-events:none;background:transparent;border:none;box-shadow:none;padding:0;display:none;max-width:900px;max-height:600px;overflow:hidden}
+#image-tooltip img{display:block;max-width:100%;max-height:100%;width:auto;height:auto}
+        .site-footer{background:var(--surface);border-top:1px solid var(--border);padding:16px 32px;text-align:center;font-size:0.7rem;color:var(--text-dim);letter-spacing:0.05em;margin-top:auto;width:100%;box-sizing:border-box}
     </style>
 </head>
 <body class="loading">
@@ -463,46 +248,54 @@
                 <div class="header-icon">⚔️</div>
                 <div>
                     <h1>Farever</h1>
-                    <div class="header-subtitle">
+                    <div class="header-subtitle" id="header-subtitle">
                         Just a personal dungeon drop database
-                        <span class="cap-badge">All stats at Lv20 cap</span>
+                        <span class="cap-badge" id="cap-badge-text">All stats at Lv20 cap</span>
                     </div>
                 </div>
             </div>
             <div class="header-right">
-                <div class="search-wrapper">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off">
+                <div class="lang-switcher" id="lang-switcher">
+                    <button class="lang-btn" data-lang="en">English</button>
+                    <button class="lang-btn" data-lang="es">Español</button>
+                    <button class="lang-btn" data-lang="fr">Français</button>
                 </div>
-                <button class="suggest-btn" id="open-suggestion-btn" title="Send a private suggestion">
-                    💡 <span class="suggest-text">Suggest</span>
-                </button>
+                <div class="header-actions">
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off">
+                    </div>
+                    <button class="suggest-btn" id="open-suggestion-btn" title="Send a private suggestion">
+                        💡 <span class="suggest-text">Suggest</span>
+                    </button>
+                </div>
             </div>
         </header>
         <div class="filter-bar" id="filter-bar">
+            <span class="filter-label" id="filter-label">Filters</span>
             <div class="filter-group-wrapper" id="class-wrapper">
-                <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
+                <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="class-label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
                 <div class="filter-dropdown" id="class-dropdown"></div>
             </div>
             <div class="filter-group-wrapper" id="stat-wrapper">
-                <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
+                <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="stats-label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
                 <div class="filter-dropdown" id="stat-dropdown"></div>
             </div>
             <div class="filter-group-wrapper" id="category-wrapper">
                 <div class="filter-group-header">
                     <span class="arrow">▼</span>
-                    <span class="label">Category</span>
+                    <span class="label" id="category-label">Category</span>
                     <span class="active-count" id="category-count" style="display:none">0</span>
                 </div>
                 <div class="filter-dropdown" id="category-dropdown">
                     <button class="filter-btn category-btn" data-category="weapons">Weapons</button>
                     <button class="filter-btn category-btn" data-category="armor">Armor</button>
                     <button class="filter-btn category-btn" data-category="mount">Mount</button>
-					<button class="filter-btn category-btn" data-category="glider">Glider</button>
+                    <button class="filter-btn category-btn" data-category="glider">Glider</button>
                 </div>
             </div>
             <div class="filter-group-wrapper" id="type-wrapper">
-                <div class="filter-group-header"><span class="arrow">▼</span><span class="label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
+                <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="type-label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
                 <div class="filter-dropdown" id="type-dropdown"></div>
             </div>
             <button class="stat-match-toggle" id="stat-match-toggle" data-mode="all">Match: ALL</button>
@@ -512,7 +305,7 @@
     <div class="main-content">
         <main class="container" id="zones-container"></main>
     </div>
-    <footer class="site-footer">
+    <footer class="site-footer" id="site-footer">
         <span class="copyright-symbol">&copy;</span> 2026 Farever — Created by <span class="creator-name">Iielyn</span>. All rights reserved. 
         Images and certain data sourced from the <a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>, 
         licensed under <a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. 
@@ -521,17 +314,17 @@
     <div class="modal-overlay" id="suggestion-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>💬 Send a Suggestion</h2>
+                <h2 id="modal-title">💬 Send a Suggestion</h2>
                 <button class="modal-close" id="close-suggestion-modal">×</button>
             </div>
             <form class="modal-form" id="suggestion-form">
-                <textarea name="message" placeholder="Type your suggestion, feedback, or missing item details..." required rows="5"></textarea>
+                <textarea name="message" id="suggestion-textarea" placeholder="Type your suggestion, feedback, or missing item details..." required rows="5"></textarea>
                 <div style="display:flex; gap:10px; margin-top:12px;">
-                    <button type="submit" class="submit-btn" style="flex:1;">Send Suggestion</button>
-                    <button type="button" class="cancel-btn" id="cancel-suggestion-modal" style="flex:1;">Cancel</button>
+                    <button type="submit" class="submit-btn" id="modal-submit-btn" style="flex:1;">Send Suggestion</button>
+                    <button type="button" class="cancel-btn" id="modal-cancel-btn" style="flex:1;">Cancel</button>
                 </div>
             </form>
-            <p class="modal-footer-text">Your suggestion is sent privately to the creator.</p>
+            <p class="modal-footer-text" id="modal-footer-text">Your suggestion is sent privately to the creator.</p>
         </div>
     </div>
     <button id="scroll-to-top-btn" title="Back to top" style="display:none; position:fixed; bottom:24px; right:24px; z-index:998; background:rgba(201,164,75,0.15); border:1px solid var(--gold-dim); color:var(--gold); border-radius:50%; width:44px; height:44px; cursor:pointer; font-size:1.3rem; font-weight:bold; transition:all var(--transition); box-shadow:0 2px 12px rgba(0,0,0,0.5);">↑</button>
@@ -543,19 +336,120 @@
     <script>
         (function() {
             'use strict';
-            const STORAGE_KEY = 'farever_data_v10';
-            const VERSION_KEY = 'farever_data_version_v1';
+            const STORAGE_KEY = 'farever_data_v11';
+            const VERSION_KEY = 'farever_data_version_v2';
             const DATA_URL = './farever_data_2026-05-10.json';
             const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScAUAFWgtKAOMNfr4hipZMp9l8JMeeISnT3PBmS7sLgF-EfYg/formResponse';
             const ENTRY_ID = 'entry.1596480602';
             const CLASS_OPTIONS = ['warrior', 'rogue', 'mage', 'priest'];
-            const CLASS_LABELS = { warrior: 'War', rogue: 'Rog', mage: 'Mage', priest: 'Pri' };
             const STAT_OPTIONS = ['Armor','Vitality','Strength','Dexterity','Faith','Intelligence','Critical','Armor Penetration','Magic Penetration','Fervor'];
             const WEAPON_TYPES = ['Sword','Dual Sword','Axe','Dual Axes','Daggers','Mace','Dual Maces','Spear','Fists','Two-Handed Axe','Two-Handed Mace','Bow','Thrown','Scepter','Crescent','Halos','Spellbook','Shield'];
             const ARMOR_TYPES = ['Head','Shoulders','Chest','Back','Hands','Waist','Legs','Feet'];
             const TRINKET_TYPES = ['Trinket'];
             const MOUNT_GLIDER_TYPES = ['Mount', 'Glider'];
             const TYPE_OPTIONS = [...WEAPON_TYPES, ...ARMOR_TYPES, ...TRINKET_TYPES, ...MOUNT_GLIDER_TYPES];
+
+            const translations = {
+                en: {
+                    filter_label: 'Filters', class_label: 'Class', stats_label: 'Stats', category_label: 'Category', type_label: 'Type',
+                    match_all: 'Match: ALL', match_any: 'Match: ANY', clear_filters: '✕ Clear',
+                    warrior: 'Warrior', rogue: 'Rogue', mage: 'Mage', priest: 'Priest',
+                    weapons: 'Weapons', armor: 'Armor', mount: 'Mount', glider: 'Glider',
+                    item_name: 'Item Name', item_type: 'Item Type', classes: 'Classes', stats_header: 'Stats',
+                    lv: 'Lv', full_dungeon: 'Full Dungeon', boss_only: 'Boss Only',
+                    rarity_label: 'Rarity:', blue: 'Blue', purple: 'Purple', legendary: 'Legendary',
+                    skill_final_combo: 'Final Combo Attack:', skill1: 'Skill 1:', skill2: 'Skill 2:', passive: 'Passive:',
+                    search_placeholder: 'Search items...', suggest_button: '💡 Suggest',
+                    modal_title: '💬 Send a Suggestion', modal_placeholder: 'Type your suggestion, feedback, or missing item details...',
+                    modal_cancel: 'Cancel', modal_submit: 'Send Suggestion', modal_footer: 'Your suggestion is sent privately to the creator.',
+                    toast_suggestion_sent: '✅ Suggestion sent! Thank you.', toast_filters_cleared: 'All filters cleared',
+                    scroll_top_title: 'Back to top',
+                    footer_text: '© 2026 Farever — Created by {creator}. All rights reserved. Images and certain data sourced from the {wiki_link}, licensed under {license_link}. Game assets are property of the game\'s creators.',
+                    empty_no_zones_title: 'No zones available.', empty_no_zones_desc: 'Load your JSON data to begin.',
+                    empty_no_match_title: 'No zones or dungeons match your filters.', empty_no_match_desc: 'Try adjusting the search or clearing some filters.',
+                    badge_item_singular: 'item', badge_item_plural: 'items',
+                    badge_dungeon_singular: 'dungeon', badge_dungeon_plural: 'dungeons',
+                    header_subtitle: 'Just a personal dungeon drop database', cap_badge_text: 'All stats at Lv20 cap',
+                    image_unavailable: 'Image not available', toast_data_updated: '🔄 Data updated to version ',
+                    stat_Armor: 'Armor', stat_Vitality: 'Vitality', stat_Strength: 'Strength', stat_Dexterity: 'Dexterity',
+                    stat_Faith: 'Faith', stat_Intelligence: 'Intelligence', stat_Critical: 'Critical',
+                    stat_Armor_Penetration: 'Armor Penetration', stat_Magic_Penetration: 'Magic Penetration', stat_Fervor: 'Fervor',
+                    type_Sword: 'Sword', type_Dual_Sword: 'Dual Sword', type_Axe: 'Axe', type_Dual_Axes: 'Dual Axes',
+                    type_Daggers: 'Daggers', type_Mace: 'Mace', type_Dual_Maces: 'Dual Maces', type_Spear: 'Spear',
+                    type_Fists: 'Fists', type_Two_Handed_Axe: 'Two-Handed Axe', type_Two_Handed_Mace: 'Two-Handed Mace',
+                    type_Bow: 'Bow', type_Thrown: 'Thrown', type_Scepter: 'Scepter', type_Crescent: 'Crescent',
+                    type_Halos: 'Halos', type_Spellbook: 'Spellbook', type_Shield: 'Shield', type_Head: 'Head',
+                    type_Shoulders: 'Shoulders', type_Chest: 'Chest', type_Back: 'Back', type_Hands: 'Hands',
+                    type_Waist: 'Waist', type_Legs: 'Legs', type_Feet: 'Feet', type_Trinket: 'Trinket',
+                    type_Mount: 'Mount', type_Glider: 'Glider'
+                },
+                fr: {
+                    filter_label: 'Filtres', class_label: 'Classe', stats_label: 'Statistiques', category_label: 'Catégorie', type_label: 'Type',
+                    match_all: 'Match: TOUS', match_any: 'Match: AUCUN', clear_filters: '✕ Effacer',
+                    warrior: 'Guerrier', rogue: 'Voleur', mage: 'Mage', priest: 'Prêtre',
+                    weapons: 'Armes', armor: 'Armure', mount: 'Monture', glider: 'Planeur',
+                    item_name: 'Nom', item_type: 'Type', classes: 'Classes', stats_header: 'Statistiques',
+                    lv: 'Nv', full_dungeon: 'Donjon complet', boss_only: 'Boss seul',
+                    rarity_label: 'Rareté:', blue: 'Bleu', purple: 'Violet', legendary: 'Légendaire',
+                    skill_final_combo: 'Attaque combo finale:', skill1: 'Compétence 1:', skill2: 'Compétence 2:', passive: 'Passif:',
+                    search_placeholder: 'Rechercher...', suggest_button: '💡 Suggérer',
+                    modal_title: '💬 Envoyer une suggestion', modal_placeholder: 'Tapez votre suggestion, commentaire ou détail manquant...',
+                    modal_cancel: 'Annuler', modal_submit: 'Envoyer', modal_footer: 'Votre suggestion est envoyée en privé au créateur.',
+                    toast_suggestion_sent: '✅ Suggestion envoyée ! Merci.', toast_filters_cleared: 'Tous les filtres effacés',
+                    scroll_top_title: 'Retour en haut',
+                    footer_text: '© 2026 Farever — Créé par {creator}. Tous droits réservés. Images et données provenant du {wiki_link}, sous licence {license_link}. Les assets du jeu sont la propriété de leurs créateurs.',
+                    empty_no_zones_title: 'Aucune zone disponible.', empty_no_zones_desc: 'Chargez vos données JSON pour commencer.',
+                    empty_no_match_title: 'Aucune zone ou donjon ne correspond à vos filtres.', empty_no_match_desc: 'Essayez d\'ajuster la recherche ou de supprimer des filtres.',
+                    badge_item_singular: 'objet', badge_item_plural: 'objets',
+                    badge_dungeon_singular: 'donjon', badge_dungeon_plural: 'donjons',
+                    header_subtitle: 'Base de données personnelle de drops de donjons', cap_badge_text: 'Toutes les stats au cap Nv20',
+                    image_unavailable: 'Image indisponible', toast_data_updated: '🔄 Données mises à jour version ',
+                    stat_Armor: 'Armure', stat_Vitality: 'Vitalité', stat_Strength: 'Force', stat_Dexterity: 'Dextérité',
+                    stat_Faith: 'Foi', stat_Intelligence: 'Intelligence', stat_Critical: 'Critique',
+                    stat_Armor_Penetration: 'Pénétration d\'armure', stat_Magic_Penetration: 'Pénétration magique', stat_Fervor: 'Ferveur',
+                    type_Sword: 'Épée', type_Dual_Sword: 'Épée double', type_Axe: 'Hache', type_Dual_Axes: 'Haches doubles',
+type_Daggers: 'Dagues', type_Mace: 'Masse', type_Dual_Maces: 'Masses doubles', type_Spear: 'Lance',
+type_Fists: 'Poings', type_Two_Handed_Axe: 'Hache à deux mains', type_Two_Handed_Mace: 'Masse à deux mains',
+type_Bow: 'Arc', type_Thrown: 'Armes de jet', type_Scepter: 'Sceptre', type_Crescent: 'Croissant',
+type_Halos: 'Auréoles', type_Spellbook: 'Grimoire', type_Shield: 'Bouclier', type_Head: 'Tête',
+type_Shoulders: 'Épaules', type_Chest: 'Torse', type_Back: 'Dos', type_Hands: 'Mains',
+type_Waist: 'Ceinture', type_Legs: 'Jambes', type_Feet: 'Pieds', type_Trinket: 'Bijou',
+type_Mount: 'Monture', type_Glider: 'Planeur'
+                },
+                es: {
+                    filter_label: 'Filtros', class_label: 'Clase', stats_label: 'Estadísticas', category_label: 'Categoría', type_label: 'Tipo',
+                    match_all: 'Match: TODOS', match_any: 'Match: CUALQUIERA', clear_filters: '✕ Limpiar',
+                    warrior: 'Guerrero', rogue: 'Pícaro', mage: 'Mago', priest: 'Sacerdote',
+                    weapons: 'Armas', armor: 'Armadura', mount: 'Montura', glider: 'Planeador',
+                    item_name: 'Nombre', item_type: 'Tipo', classes: 'Clases', stats_header: 'Estadísticas',
+                    lv: 'Nv', full_dungeon: 'Mazmorra completa', boss_only: 'Solo jefe',
+                    rarity_label: 'Rareza:', blue: 'Azul', purple: 'Púrpura', legendary: 'Legendario',
+                    skill_final_combo: 'Ataque combo final:', skill1: 'Habilidad 1:', skill2: 'Habilidad 2:', passive: 'Pasiva:',
+                    search_placeholder: 'Buscar...', suggest_button: '💡 Sugerir',
+                    modal_title: '💬 Enviar sugerencia', modal_placeholder: 'Escribe tu sugerencia, comentario o detalle faltante...',
+                    modal_cancel: 'Cancelar', modal_submit: 'Enviar', modal_footer: 'Tu sugerencia se envía en privado al creador.',
+                    toast_suggestion_sent: '✅ Sugerencia enviada. ¡Gracias!', toast_filters_cleared: 'Todos los filtros limpiados',
+                    scroll_top_title: 'Volver arriba',
+                    footer_text: '© 2026 Farever — Creado por {creator}. Todos los derechos reservados. Imágenes y datos del {wiki_link}, bajo licencia {license_link}. Los activos del juego son propiedad de sus creadores.',
+                    empty_no_zones_title: 'No hay zonas disponibles.', empty_no_zones_desc: 'Carga tus datos JSON para empezar.',
+                    empty_no_match_title: 'Ninguna zona o mazmorra coincide con los filtros.', empty_no_match_desc: 'Intenta ajustar la búsqueda o limpiar filtros.',
+                    badge_item_singular: 'objeto', badge_item_plural: 'objetos',
+                    badge_dungeon_singular: 'mazmorra', badge_dungeon_plural: 'mazmorras',
+                    header_subtitle: 'Base de datos personal de drops de mazmorras', cap_badge_text: 'Todas las stats al límite Nv20',
+                    image_unavailable: 'Imagen no disponible', toast_data_updated: '🔄 Datos actualizados a versión ',
+                    stat_Armor: 'Armadura', stat_Vitality: 'Vitalidad', stat_Strength: 'Fuerza', stat_Dexterity: 'Destreza',
+                    stat_Faith: 'Fe', stat_Intelligence: 'Inteligencia', stat_Critical: 'Crítico',
+                    stat_Armor_Penetration: 'Penetración de armadura', stat_Magic_Penetration: 'Penetración mágica', stat_Fervor: 'Fervor',
+                    type_Sword: 'Espada', type_Dual_Sword: 'Espada doble', type_Axe: 'Hacha', type_Dual_Axes: 'Hachas dobles',
+type_Daggers: 'Dagas', type_Mace: 'Maza', type_Dual_Maces: 'Mazas dobles', type_Spear: 'Lanza',
+type_Fists: 'Puños', type_Two_Handed_Axe: 'Hacha a dos manos', type_Two_Handed_Mace: 'Maza a dos manos',
+type_Bow: 'Arco', type_Thrown: 'Arrojadizas', type_Scepter: 'Cetro', type_Crescent: 'Media luna',
+type_Halos: 'Halos', type_Spellbook: 'Libro de hechizos', type_Shield: 'Escudo', type_Head: 'Cabeza',
+type_Shoulders: 'Hombros', type_Chest: 'Pecho', type_Back: 'Espalda', type_Hands: 'Manos',
+type_Waist: 'Cintura', type_Legs: 'Piernas', type_Feet: 'Pies', type_Trinket: 'Abalorio',
+type_Mount: 'Montura', type_Glider: 'Planeador'
+                }
+            };
 
             let appData = { zones: [] };
             let filterClasses = [];
@@ -564,6 +458,7 @@
             let statMatchMode = 'all';
             let searchQuery = '';
             let filterCategories = [];
+            let currentLang = localStorage.getItem('farever_lang') || 'en';
             const allItemsMap = new Map();
 
             const escapeHtml = str => str ? str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;') : '';
@@ -576,28 +471,39 @@
             const isWeapon = item => item.types.some(t => WEAPON_TYPES.includes(t));
             const isTrinket = item => item.types.includes('Trinket');
             const hasAbilities = item => item.skill1 || item.skill2 || item.skill3 || item.passive;
-            const hasTrinketPassive = item => item.trinketPassive && item.trinketPassive.trim() !== '';
+            const hasTrinketPassive = item => item.trinketPassive && (typeof item.trinketPassive === 'string' ? item.trinketPassive.trim() !== '' : item.trinketPassive.en && item.trinketPassive.en.trim() !== '');
             const getTypeColorClass = type => type ? 'type-color-' + toSlug(type) : '';
+
+            const t = (key, fallback) => (translations[currentLang] && translations[currentLang][key]) || fallback || key;
+
+            function getLocalizedText(value, lang) {
+                if (typeof value === 'object' && value !== null) {
+                    return value[lang] || value['en'] || Object.values(value).find(v => v) || '';
+                }
+                return value || '';
+            }
+
+            function getItemName(item) { return getLocalizedText(item.name, currentLang); }
+            function getZoneName(zone) { return getLocalizedText(zone.name, currentLang); }
+            function getDungeonName(dungeon) { return getLocalizedText(dungeon.name, currentLang); }
+            function getSkillText(skill) { return getLocalizedText(skill, currentLang); }
 
             const itemPassesFilter = item => {
                 if(filterCategories.length > 0) {
                     const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
                     const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
                     const passesMount = filterCategories.includes('mount') && item.types.includes('Mount');
-					const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
-					const passesMounts = passesMount || passesGlider;
+                    const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
+                    const passesMounts = passesMount || passesGlider;
                     if(!passesWeapons && !passesArmor && !passesMounts) return false;
                 }
                 if(filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
                 if(filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
                 if(filterStats.length) {
-                    if(statMatchMode === 'all') {
-                        if(!filterStats.every(s => item.stats.includes(s))) return false;
-                    } else {
-                        if(!filterStats.some(s => item.stats.includes(s))) return false;
-                    }
+                    if(statMatchMode === 'all') { if(!filterStats.every(s => item.stats.includes(s))) return false; }
+                    else { if(!filterStats.some(s => item.stats.includes(s))) return false; }
                 }
-                if(searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+                if(searchQuery && !getItemName(item).toLowerCase().includes(searchQuery.toLowerCase())) return false;
                 return true;
             };
 
@@ -707,17 +613,21 @@
                         localStorage.setItem(VERSION_KEY, serverVer);
                         saveState();
                         renderAll();
-                        showToast('🔄 Data updated to version ' + serverVer);
+                        showToast(t('toast_data_updated') + serverVer);
                     }
                 } catch(e) { console.warn('Update check failed:', e); }
             }
 
             function renderDungeonName(name) {
                 if(!name) return '';
-                let formatted = escapeHtml(name);
-                formatted = formatted.replace(/Lv(\d+)/gi, '<span class="dungeon-lv">Lv$1</span>');
-                formatted = formatted.replace(/Full Dungeon/gi, '<span class="dungeon-tag-full">Full Dungeon</span>');
-                formatted = formatted.replace(/Boss Only/gi, '<span class="dungeon-tag-boss">Boss Only</span>');
+                const displayName = getDungeonName({ name });
+                let formatted = escapeHtml(displayName);
+                const lvStr = t('lv', 'Lv');
+                const fullStr = t('full_dungeon', 'Full Dungeon');
+                const bossStr = t('boss_only', 'Boss Only');
+                formatted = formatted.replace(new RegExp(lvStr + '(\\d+)', 'gi'), '<span class="dungeon-lv">' + lvStr + '$1</span>');
+                formatted = formatted.replace(new RegExp(fullStr, 'gi'), '<span class="dungeon-tag-full">' + fullStr + '</span>');
+                formatted = formatted.replace(new RegExp(bossStr, 'gi'), '<span class="dungeon-tag-boss">' + bossStr + '</span>');
                 return formatted;
             }
 
@@ -733,8 +643,9 @@
                 }
                 const sortedStats = sortByOrder(item.stats, STAT_OPTIONS);
                 return sortedStats.map(s => {
+                    const displayStat = t('stat_' + s.replace(/ /g, '_'), s);
                     const val = statValues[s] ? ` <span class="stat-value">${statValues[s]}</span>` : '';
-                    return `<span class="tag stat-tag stat-${toSlug(s)}">${escapeHtml(s)}${val}</span>`;
+                    return `<span class="tag stat-tag stat-${toSlug(s)}">${escapeHtml(displayStat)}${val}</span>`;
                 }).join('');
             }
 
@@ -744,11 +655,11 @@
                 const defaultRarity = sortedVariants.find(v => v.rarity==='blue') || sortedVariants[0];
                 const defaultIndex = sortedVariants.indexOf(defaultRarity);
                 let buttons = sortedVariants.map((v,idx) => {
-                    const label = v.rarity==='blue'?'Blue':(v.rarity==='purple'?'Purple':'Legendary');
+                    const label = t(v.rarity);
                     const activeClass = idx===defaultIndex?' active':'';
                     return `<button class="rarity-btn${activeClass}" data-rarity="${v.rarity}" data-rarity-index="${idx}">${label}</button>`;
                 }).join('');
-                return `<div class="rarity-switcher" data-default-index="${defaultIndex}"><span class="rarity-label">Rarity:</span>${buttons}</div>`;
+                return `<div class="rarity-switcher" data-default-index="${defaultIndex}"><span class="rarity-label">${t('rarity_label')}</span>${buttons}</div>`;
             }
 
             function renderItemRow(item, index) {
@@ -756,8 +667,8 @@
                 const typeColorClass = getTypeColorClass(primaryType);
                 const sortedTypes = sortByOrder(item.types, TYPE_OPTIONS);
                 const sortedClasses = sortByOrder(item.classes, CLASS_OPTIONS);
-                const typeTags = sortedTypes.map(t => `<span class="tag type-tag type-${toSlug(t)}">${escapeHtml(t)}</span>`).join('');
-                const classTags = sortedClasses.map(cls => `<span class="tag class-${cls}">${CLASS_LABELS[cls]}</span>`).join('');
+                const typeTags = sortedTypes.map(typeName => `<span class="tag type-tag type-${toSlug(typeName)}">${escapeHtml(t('type_' + typeName.replace(/[ -]/g, '_'), typeName))}</span>`).join('');
+                const classTags = sortedClasses.map(cls => `<span class="tag class-${cls}">${escapeHtml(t(cls))}</span>`).join('');
                 const switcherHtml = buildRaritySwitcherHtml(item);
                 const defaultIndex = item.variants && item.variants.length>1 ? (item.variants.findIndex(v => v.rarity==='blue')!==-1 ? item.variants.findIndex(v => v.rarity==='blue') : 0) : 0;
                 const statTagsHtml = buildStatTagsHtml(item, defaultIndex);
@@ -765,24 +676,23 @@
                 let detailHtml = '';
                 if((isWeapon(item) || item.types.includes('Shield')) && hasAbilities(item)) {
                     const abils = [];
-                    if(item.skill1) abils.push(`<div><strong class="${typeColorClass}">Final Combo Attack:</strong> ${escapeHtml(item.skill1)}</div>`);
-                    if(item.skill2) abils.push(`<div><strong class="${typeColorClass}">Skill 1:</strong> ${escapeHtml(item.skill2)}</div>`);
-                    if(item.skill3) abils.push(`<div><strong class="${typeColorClass}">Skill 2:</strong> ${escapeHtml(item.skill3)}</div>`);
-                    if(item.passive) abils.push(`<div><strong class="${typeColorClass}">Passive:</strong> ${escapeHtml(item.passive)}</div>`);
+                    if(getSkillText(item.skill1)) abils.push(`<div><strong class="${typeColorClass}">${t('skill_final_combo')}</strong> ${escapeHtml(getSkillText(item.skill1))}</div>`);
+                    if(getSkillText(item.skill2)) abils.push(`<div><strong class="${typeColorClass}">${t('skill1')}</strong> ${escapeHtml(getSkillText(item.skill2))}</div>`);
+                    if(getSkillText(item.skill3)) abils.push(`<div><strong class="${typeColorClass}">${t('skill2')}</strong> ${escapeHtml(getSkillText(item.skill3))}</div>`);
+                    if(getSkillText(item.passive)) abils.push(`<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.passive))}</div>`);
                     detailHtml = abils.join('');
                 } else if(isTrinket(item) && hasTrinketPassive(item)) {
-                    detailHtml = `<div><strong class="${typeColorClass}">Passive:</strong> ${escapeHtml(item.trinketPassive)}</div>`;
+                    detailHtml = `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
                 } else if(item.types.some(t => MOUNT_GLIDER_TYPES.includes(t)) && hasTrinketPassive(item)) {
-                    detailHtml = `<div><strong class="${typeColorClass}">Passive:</strong> ${escapeHtml(item.trinketPassive)}</div>`;
+                    detailHtml = `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
                 }
-                const rareStarHtml = '';
                 const rowClass = detailHtml ? ' item-row-has-details' : '';
                 const clickHandler = detailHtml ? ` data-action="toggle-item-detail" data-item-id="${item.id}"` : '';
                 return `<tr class="item-main-row${rowClass}" data-item-id="${item.id}"${clickHandler}>
-                    <td data-label="Item Name"><span class="item-name ${typeColorClass}"${imageUrlAttr}>${escapeHtml(item.name)}${rareStarHtml}${detailHtml ? ' <span class="detail-indicator">▶</span>' : ''}</span></td>
-                    <td data-label="Item Type"><div class="tag-container">${typeTags}</div></td>
-                    <td data-label="Classes"><div class="tag-container">${classTags}</div></td>
-                    <td data-label="Stats">${switcherHtml}<div class="tag-container stat-tags-container">${statTagsHtml}</div></td>
+                    <td data-label="${t('item_name')}"><span class="item-name ${typeColorClass}"${imageUrlAttr}>${escapeHtml(getItemName(item))}${detailHtml ? ' <span class="detail-indicator">▶</span>' : ''}</span></td>
+                    <td data-label="${t('item_type')}"><div class="tag-container">${typeTags}</div></td>
+                    <td data-label="${t('classes')}"><div class="tag-container">${classTags}</div></td>
+                    <td data-label="${t('stats_header')}">${switcherHtml}<div class="tag-container stat-tags-container">${statTagsHtml}</div></td>
                 </tr>
                 ${detailHtml ? `<tr class="item-detail-row" data-item-detail="${item.id}" style="display:none;"><td colspan="4" class="item-detail-cell"><div class="item-detail-content">${detailHtml}</div></td></tr>` : ''}`;
             }
@@ -790,19 +700,20 @@
             function renderLootTable(lootItems) {
                 if(lootItems.length === 0) return '';
                 const rows = lootItems.map(renderItemRow).join('');
-                return `<table class="loot-table"><thead><tr><th>Item Name</th><th>Item Type</th><th>Classes</th><th>Stats</th></tr></thead><tbody>${rows}</tbody></table>`;
+                return `<table class="loot-table"><thead><tr><th>${t('item_name')}</th><th>${t('item_type')}</th><th>${t('classes')}</th><th>${t('stats_header')}</th></tr></thead><tbody>${rows}</tbody></table>`;
             }
 
             function renderDungeons(zone) {
                 const visibleDungeons = zone.dungeons.map(dungeon => ({ dungeon, filtered: dungeon.loot.filter(itemPassesFilter) })).filter(({filtered}) => filtered.length > 0);
                 if(visibleDungeons.length === 0) return '';
                 const dList = visibleDungeons.map(({dungeon, filtered}) => {
-                    const sortedLoot = [...filtered].sort((a,b) => { const rankA = getTypeGroupRank(getPrimaryType(a)), rankB = getTypeGroupRank(getPrimaryType(b)); if(rankA!==rankB) return rankA-rankB; const subA = getTypeSubOrder(getPrimaryType(a)), subB = getTypeSubOrder(getPrimaryType(b)); if(subA!==subB) return subA-subB; return a.name.localeCompare(b.name); });
+                    const sortedLoot = [...filtered].sort((a,b) => { const rankA = getTypeGroupRank(getPrimaryType(a)), rankB = getTypeGroupRank(getPrimaryType(b)); if(rankA!==rankB) return rankA-rankB; const subA = getTypeSubOrder(getPrimaryType(a)), subB = getTypeSubOrder(getPrimaryType(b)); if(subA!==subB) return subA-subB; return getItemName(a).localeCompare(getItemName(b)); });
                     const openClass = dungeon._open ? ' open' : '';
+                    const itemText = filtered.length === 1 ? t('badge_item_singular') : t('badge_item_plural');
                     return `<div class="dungeon-card${openClass}" data-dungeon-id="${dungeon.id}">
                         <div class="dungeon-header" data-action="toggle-dungeon" data-zone-id="${zone.id}" data-dungeon-id="${dungeon.id}">
                             <span class="dungeon-chevron">▶</span><span class="dungeon-icon">🏰</span>
-                            <div class="dungeon-info"><div class="dungeon-name-display">${renderDungeonName(dungeon.name)}</div><span class="badge badge-item">${filtered.length} item${filtered.length!==1?'s':''}</span></div>
+                            <div class="dungeon-info"><div class="dungeon-name-display">${renderDungeonName(dungeon.name)}</div><span class="badge badge-item">${filtered.length} ${itemText}</span></div>
                         </div>
                         <div class="dungeon-body">${renderLootTable(sortedLoot)}</div>
                     </div>`;
@@ -815,7 +726,7 @@
                 allItemsMap.clear();
                 appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => allItemsMap.set(item.id, item))));
                 if(appData.zones.length === 0) {
-                    container.innerHTML = `<div style="text-align:center;padding:60px 20px;color:var(--text-dim);"><div style="font-size:3rem;margin-bottom:16px;">🗺️</div><p style="font-size:1.1rem;margin-bottom:8px;">No zones available.</p><p style="font-size:0.85rem;">Load your JSON data to begin.</p></div>`;
+                    container.innerHTML = `<div style="text-align:center;padding:60px 20px;color:var(--text-dim);"><div style="font-size:3rem;margin-bottom:16px;">🗺️</div><p style="font-size:1.1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.85rem;">${t('empty_no_zones_desc')}</p></div>`;
                     updateFilterBarUI();
                     return;
                 }
@@ -824,18 +735,20 @@
                     return { zone, total };
                 }).filter(({ total }) => total > 0);
                 if(visibleZones.length === 0) {
-                    container.innerHTML = `<div style="text-align:center;padding:60px 20px;color:var(--text-dim);"><div style="font-size:3rem;margin-bottom:16px;">🔍</div><p style="font-size:1.1rem;margin-bottom:8px;">No zones or dungeons match your filters.</p><p style="font-size:0.85rem;">Try adjusting the search or clearing some filters.</p></div>`;
+                    container.innerHTML = `<div style="text-align:center;padding:60px 20px;color:var(--text-dim);"><div style="font-size:3rem;margin-bottom:16px;">🔍</div><p style="font-size:1.1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.85rem;">${t('empty_no_match_desc')}</p></div>`;
                     updateFilterBarUI();
                     return;
                 }
                 const zonesHtml = visibleZones.map(({ zone, total }) => {
                     const openClass = zone._open ? ' open' : '';
                     const dungeonCount = zone.dungeons.length;
+                    const dungText = dungeonCount === 1 ? t('badge_dungeon_singular') : t('badge_dungeon_plural');
+                    const itemText = total === 1 ? t('badge_item_singular') : t('badge_item_plural');
                     return `<div class="zone-card${openClass}" data-zone-id="${zone.id}">
                         <div class="zone-header" data-action="toggle-zone" data-zone-id="${zone.id}">
                             <span class="zone-chevron">▶</span><span class="zone-icon">🏞️</span>
-                            <div class="zone-info"><div class="zone-name-display">${escapeHtml(zone.name)}</div>
-                            <div class="zone-meta"><span class="badge badge-dungeon">${dungeonCount} dungeon${dungeonCount!==1?'s':''}</span><span class="badge badge-item">${total} item${total!==1?'s':''}</span></div></div>
+                            <div class="zone-info"><div class="zone-name-display">${escapeHtml(getZoneName(zone))}</div>
+                            <div class="zone-meta"><span class="badge badge-dungeon">${dungeonCount} ${dungText}</span><span class="badge badge-item">${total} ${itemText}</span></div></div>
                         </div>
                         <div class="zone-body">${renderDungeons(zone)}</div>
                     </div>`;
@@ -855,13 +768,13 @@
                             if(statMatchMode==='all') { if(!filterStats.every(s => item.stats.includes(s))) return false; }
                             else { if(!filterStats.some(s => item.stats.includes(s))) return false; }
                         }
-                        if(searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+                        if(searchQuery && !getItemName(item).toLowerCase().includes(searchQuery.toLowerCase())) return false;
                         if(filterCategories.length > 0) {
                             const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
                             const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
                             const passesMount = filterCategories.includes('mount') && item.types.includes('Mount');
-							const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
-							const passesMounts = passesMount || passesGlider;
+                            const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
+                            const passesMounts = passesMount || passesGlider;
                             if(!passesWeapons && !passesArmor && !passesMounts) return false;
                         }
                         return item.types.includes(type);
@@ -874,7 +787,10 @@
             }
 
             function updateFilterBarUI() {
-                document.querySelectorAll('.category-btn').forEach(b => b.classList.toggle('active', filterCategories.includes(b.dataset.category)));
+                document.querySelectorAll('.category-btn').forEach(b => {
+                    b.classList.toggle('active', filterCategories.includes(b.dataset.category));
+                    b.textContent = t(b.dataset.category);
+                });
                 const categoryCount = document.getElementById('category-count');
                 categoryCount.textContent = filterCategories.length;
                 categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
@@ -893,8 +809,54 @@
                 const clearBtn = document.getElementById('clear-all-btn');
                 clearBtn.style.display = (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) ? 'none' : 'inline-flex';
                 const toggleBtn = document.getElementById('stat-match-toggle');
-                toggleBtn.textContent = statMatchMode === 'all' ? 'Match: ALL' : 'Match: ANY';
+                toggleBtn.textContent = statMatchMode === 'all' ? t('match_all') : t('match_any');
                 toggleBtn.setAttribute('data-mode', statMatchMode);
+                document.getElementById('clear-all-btn').textContent = t('clear_filters');
+            }
+
+            function updateStaticUITexts() {
+                document.getElementById('filter-label').textContent = t('filter_label');
+                document.getElementById('class-label').textContent = t('class_label');
+                document.getElementById('stats-label').textContent = t('stats_label');
+                document.getElementById('category-label').textContent = t('category_label');
+                document.getElementById('type-label').textContent = t('type_label');
+                document.getElementById('search-input').placeholder = t('search_placeholder');
+                document.getElementById('open-suggestion-btn').innerHTML = t('suggest_button');
+                document.getElementById('modal-title').textContent = t('modal_title');
+                document.getElementById('suggestion-textarea').placeholder = t('modal_placeholder');
+                document.getElementById('modal-submit-btn').textContent = t('modal_submit');
+                document.getElementById('modal-cancel-btn').textContent = t('modal_cancel');
+                document.getElementById('modal-footer-text').textContent = t('modal_footer');
+                document.getElementById('scroll-to-top-btn').title = t('scroll_top_title');
+                document.getElementById('header-subtitle').innerHTML = t('header_subtitle') + ' <span class="cap-badge">' + t('cap_badge_text') + '</span>';
+                document.getElementById('image-tooltip').querySelector('.broken-placeholder').textContent = t('image_unavailable');
+                const footerText = t('footer_text');
+                const creatorName = '<span class="creator-name">Iielyn</span>';
+                const wikiLink = '<a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>';
+                const licenseLink = '<a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>';
+                const footerHtml = footerText.replace('{creator}', creatorName).replace('{wiki_link}', wikiLink).replace('{license_link}', licenseLink);
+                document.getElementById('site-footer').innerHTML = footerHtml;
+            }
+
+            function updateAllFilterButtonLabels() {
+                document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
+                    const cls = btn.dataset.class;
+                    btn.textContent = t(cls);
+                });
+                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
+                    const stat = btn.dataset.stat;
+                    btn.textContent = t('stat_' + stat.replace(/ /g, '_'), stat);
+                });
+                document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
+                    const type = btn.dataset.type;
+                    const displayType = t('type_' + type.replace(/[ -]/g, '_'), type);
+                    const countSpan = btn.querySelector('.item-count');
+                    if(countSpan) {
+                        btn.innerHTML = displayType + ' <span class="item-count">' + countSpan.textContent + '</span>';
+                    } else {
+                        btn.textContent = displayType;
+                    }
+                });
             }
 
             function toggleFilter(type, value) {
@@ -913,7 +875,7 @@
                 filterClasses=[]; filterTypes=[]; filterStats=[]; searchQuery=''; filterCategories=[];
                 document.getElementById('search-input').value = '';
                 renderAll();
-                showToast('All filters cleared');
+                showToast(t('toast_filters_cleared'));
             };
             window.toggleZone = function(zoneId) { const zone = appData.zones.find(z => z.id===zoneId); if(zone) { zone._open = !zone._open; saveState(); renderAll(); } };
             window.toggleDungeon = function(zoneId, dungeonId) { const zone = appData.zones.find(z => z.id===zoneId); if(!zone) return; const dungeon = zone.dungeons.find(d => d.id===dungeonId); if(dungeon) { dungeon._open = !dungeon._open; saveState(); renderAll(); } };
@@ -984,7 +946,7 @@
                 const modal = document.getElementById('suggestion-modal');
                 const openBtn = document.getElementById('open-suggestion-btn');
                 const closeBtn = document.getElementById('close-suggestion-modal');
-                const cancelBtn = document.getElementById('cancel-suggestion-modal');
+                const cancelBtn = document.getElementById('modal-cancel-btn');
                 const form = document.getElementById('suggestion-form');
                 function openModal() { modal.classList.add('active'); }
                 function closeModal() { modal.classList.remove('active'); form.reset(); }
@@ -1001,20 +963,50 @@
                     formEl.innerHTML = `<input type="text" name="${ENTRY_ID}" value="${escapeHtml(message)}">`;
                     document.body.appendChild(formEl); formEl.submit();
                     setTimeout(() => { document.body.removeChild(formEl); document.body.removeChild(iframe); }, 1000);
-                    showToast('✅ Suggestion sent! Thank you.');
+                    showToast(t('toast_suggestion_sent'));
                     closeModal();
                 });
             }
 
             function buildFilterButtons() {
-                const classContainer = document.getElementById('class-dropdown');
-                CLASS_OPTIONS.forEach(cls => { const btn=document.createElement('button'); btn.className='filter-btn class-btn'; btn.dataset.class=cls; btn.textContent=CLASS_LABELS[cls]; btn.addEventListener('click',()=>toggleFilter('class',cls)); classContainer.appendChild(btn); });
-                const typeContainer = document.getElementById('type-dropdown');
-                TYPE_OPTIONS.forEach(type => { const btn=document.createElement('button'); btn.className='filter-btn type-btn'; btn.dataset.type=type; btn.innerHTML=`${type} <span class="item-count">(0)</span>`; btn.addEventListener('click',()=>toggleFilter('type',type)); typeContainer.appendChild(btn); });
-                const statContainer = document.getElementById('stat-dropdown');
-                STAT_OPTIONS.forEach(stat => { const btn=document.createElement('button'); btn.className='filter-btn stat-btn'; btn.dataset.stat=stat; btn.textContent=stat; btn.addEventListener('click',()=>toggleFilter('stat',stat)); statContainer.appendChild(btn); });
-                document.querySelectorAll('.category-btn').forEach(btn => { btn.addEventListener('click', () => { const category = btn.dataset.category; toggleCategory(category); }); });
-            }
+    const classContainer = document.getElementById('class-dropdown');
+    CLASS_OPTIONS.forEach(cls => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn class-btn';
+        btn.dataset.class = cls;
+        btn.textContent = t(cls);
+        btn.addEventListener('click', () => toggleFilter('class', cls));
+        classContainer.appendChild(btn);
+    });
+
+    const typeContainer = document.getElementById('type-dropdown');
+    TYPE_OPTIONS.forEach(typeName => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn type-btn';
+        btn.dataset.type = typeName;
+        const displayType = t('type_' + typeName.replace(/[ -]/g, '_'), typeName);
+        btn.innerHTML = `${displayType} <span class="item-count">(0)</span>`;
+        btn.addEventListener('click', () => toggleFilter('type', typeName));
+        typeContainer.appendChild(btn);
+    });
+
+    const statContainer = document.getElementById('stat-dropdown');
+    STAT_OPTIONS.forEach(stat => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn stat-btn';
+        btn.dataset.stat = stat;
+        btn.textContent = t('stat_' + stat.replace(/ /g, '_'), stat);
+        btn.addEventListener('click', () => toggleFilter('stat', stat));
+        statContainer.appendChild(btn);
+    });
+
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.dataset.category;
+            toggleCategory(category);
+        });
+    });
+}
 
             function setupFilterDropdowns() {
                 document.querySelectorAll('.filter-group-header').forEach(header => {
@@ -1066,12 +1058,38 @@
                 document.addEventListener('mousemove', (e) => { if(tooltipVisible && activeElement && !e.target.closest('#zones-container')) updateTooltipPosition(e); });
             }
 
-            async function init() {
+            function setupLanguageSwitcher() {
+                const buttons = document.querySelectorAll('#lang-switcher .lang-btn');
+                function setActiveButton(lang) {
+                    buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+                }
+                async function switchLanguage(lang) {
+                    if(currentLang === lang) return;
+                    currentLang = lang;
+                    localStorage.setItem('farever_lang', lang);
+                    updateStaticUITexts();
+                    updateAllFilterButtonLabels();
+                    setActiveButton(lang);
+                    await loadAndRender();
+                }
+                buttons.forEach(btn => {
+                    btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
+                });
+                setActiveButton(currentLang);
+            }
+
+            async function loadAndRender() {
                 const loaded = await loadData();
                 appData = { zones: loaded.zones };
                 appData.zones = addDefaultsAndIds({ zones: appData.zones }).zones;
                 localStorage.setItem(VERSION_KEY, loaded.version || '0');
                 saveState();
+                updateStaticUITexts();
+                updateAllFilterButtonLabels();
+                renderAll();
+            }
+
+            async function init() {
                 buildFilterButtons();
                 setupFilterDropdowns();
                 setupGlobalListeners();
@@ -1079,7 +1097,8 @@
                 setupRaritySwitcher();
                 setupSuggestionModal();
                 setupImageTooltip();
-                renderAll();
+                setupLanguageSwitcher();
+                await loadAndRender();
                 document.body.classList.remove('loading');
                 setInterval(checkForUpdate, 5*60*1000);
                 checkForUpdate();
