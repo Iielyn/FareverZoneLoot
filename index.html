@@ -1857,6 +1857,57 @@
             color: #fdb980;
             box-shadow: 0 0 11px rgba(251, 146, 60, 0.37);
         }
+
+        .update-log-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin: 0 auto 14px;
+            max-width: 1300px;
+            padding: 12px 20px;
+            box-shadow: var(--shadow);
+        }
+        .update-log-box summary {
+            color: var(--gold);
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+        }
+        .update-log-box .log-content {
+            margin-top: 8px;
+            white-space: pre-wrap;
+            font-size: 0.78rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+.update-log-popover {
+    position: fixed;        
+    z-index: 200;
+    max-width: 420px;
+    display: none;
+    background: var(--surface);
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    white-space: pre-wrap;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--text);
+}
+.update-log-popover::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 24px;
+    width: 12px;
+    height: 12px;
+    background: var(--surface);
+    border-left: 1px solid var(--gold-dim);
+    border-top: 1px solid var(--gold-dim);
+    transform: rotate(45deg);
+}
     </style>
 </head>
 <body class="loading">
@@ -1880,12 +1931,15 @@
                 </div>
                 <div class="header-actions">
                     <div class="search-wrapper">
-                        <span class="search-icon">🔍</span>
-                        <input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off">
-                    </div>
-                    <button class="suggest-btn" id="open-suggestion-btn" title="Send a private suggestion">
-                        💡 <span class="suggest-text">Suggest</span>
-                    </button>
+    <span class="search-icon">🔍</span>
+    <input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off">
+</div>
+<button class="suggest-btn" id="open-suggestion-btn" title="Send a private suggestion">
+    💡 <span class="suggest-text">Suggest</span>
+</button>
+<button class="suggest-btn update-log-btn" id="update-log-toggle-btn" title="View update notes" style="display:none;">
+    📝 <span>What’s new</span>
+</button>
                 </div>
             </div>
         </header>
@@ -2067,7 +2121,8 @@
                     type_Feet: 'Feet',
                     type_Trinket: 'Trinket',
                     type_Mount: 'Mount',
-                    type_Glider: 'Glider'
+                    type_Glider: 'Glider',
+					whats_new_button: 'What’s new',
                 },
                 fr: {
                     filter_label: 'Filtres',
@@ -2162,7 +2217,8 @@
                     type_Feet: 'Pieds',
                     type_Trinket: 'Bijou',
                     type_Mount: 'Monture',
-                    type_Glider: 'Planeur'
+                    type_Glider: 'Planeur',
+					whats_new_button: 'Quoi de neuf',
                 },
                 es: {
                     filter_label: 'Filtros',
@@ -2257,11 +2313,13 @@
                     type_Feet: 'Pies',
                     type_Trinket: 'Abalorio',
                     type_Mount: 'Montura',
-                    type_Glider: 'Planeador'
+                    type_Planeador: 'Planeador',
+					whats_new_button: 'Novedades',
                 }
             };
 
             let appData = { zones: [] };
+			let appUpdateLog = null;
             let filterClasses = [];
             let filterTypes = [];
             let filterStats = [];
@@ -2319,6 +2377,32 @@
             function getDungeonName(dungeon) { return getLocalizedText(dungeon.name, currentLang); }
 
             function getSkillText(skill) { return getLocalizedText(skill, currentLang); }
+			
+			function getUpdateLogText() {
+    if (typeof appUpdateLog === 'object' && appUpdateLog !== null) {
+        return appUpdateLog[currentLang] || appUpdateLog['en'] || '';
+    }
+    return appUpdateLog || '';
+}
+			
+			function renderUpdateLog(logData) {
+    const btn = document.getElementById('update-log-toggle-btn');
+    if (!btn) return;
+    appUpdateLog = logData || null;
+    if (appUpdateLog && (typeof appUpdateLog === 'string' ? appUpdateLog.trim() : true)) {
+        btn.style.display = 'flex';
+        btn.querySelector('span').textContent = t('whats_new_button');
+        const popover = document.getElementById('update-log-popover');
+        if (popover && popover.style.display === 'block') {
+            popover.textContent = getUpdateLogText();
+        }
+    } else {
+        btn.style.display = 'none';
+        appUpdateLog = null;
+        const popover = document.getElementById('update-log-popover');
+        if (popover) popover.style.display = 'none';
+    }
+}
 
             const itemPassesFilter = item => {
                 if (filterCategories.length > 0) {
@@ -2391,31 +2475,28 @@
                     Error('Fetch failed'); return await resp.json(); }
 
             async function loadData() {
-                let serverData = null,
-                    serverVersion = '0';
-                try { serverData = await fetchData(DATA_URL);
-                    serverVersion = serverData.version || '0'; } catch (e) {}
-                if (!serverData) { try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) serverData = JSON.parse(
-                        raw); } catch (e) {} }
-                if (!serverData || !Array.isArray(serverData.zones)) return { zones: [], version: '0' };
-                try {
-                    const oldRaw = localStorage.getItem(STORAGE_KEY);
-                    if (oldRaw) {
-                        const oldData = JSON.parse(oldRaw);
-                        if (oldData && Array.isArray(oldData.zones)) {
-                            const oldZoneMap = new Map(oldData.zones.map(z => [z.id, z._open]));
-                            const oldDungeonMap = new Map();
-                            oldData.zones.forEach(z => z.dungeons.forEach(d => oldDungeonMap.set(d.id, d._open)));
-                            serverData.zones.forEach(zone => {
-                                if (oldZoneMap.has(zone.id)) zone._open = oldZoneMap.get(zone.id);
-                                zone.dungeons.forEach(d => { if (oldDungeonMap.has(d.id)) d._open = oldDungeonMap
-                                        .get(d.id); });
-                            });
-                        }
-                    }
-                } catch (e) {}
-                return { zones: serverData.zones, version: serverVersion };
+    let serverData = null,
+        serverVersion = '0',
+        updateLog = '';
+    try {
+        serverData = await fetchData(DATA_URL);
+        serverVersion = serverData.version || '0';
+        updateLog = serverData.updateLog || '';
+    } catch (e) {}
+    if (!serverData) {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                serverData = { zones: parsed.zones, updateLog: parsed.updateLog || '' };
+                updateLog = serverData.updateLog;
             }
+        } catch (e) {}
+        if (!serverData || !Array.isArray(serverData.zones)) return { zones: [], version: '0', updateLog: '' };
+        return { zones: serverData.zones, version: '0', updateLog };
+    }
+    return { zones: serverData.zones, version: serverVersion, updateLog };
+}
 
             function saveState() {
                 const clean = {
@@ -2455,6 +2536,7 @@
                 try {
                     const serverData = await fetchData(DATA_URL);
                     const serverVer = serverData.version || '0';
+                    const serverUpdateLog = serverData.updateLog || '';
                     const localVer = localStorage.getItem(VERSION_KEY) || '0';
                     if (serverVer > localVer && Array.isArray(serverData.zones)) {
                         const newData = addDefaultsAndIds(serverData);
@@ -2469,6 +2551,7 @@
                         appData.zones = newData.zones;
                         localStorage.setItem(VERSION_KEY, serverVer);
                         saveState();
+                        renderUpdateLog(serverUpdateLog);
                         renderAll();
                         showToast(t('toast_data_updated') + serverVer);
                     }
@@ -3049,6 +3132,7 @@
                 saveState();
                 updateStaticUITexts();
                 updateAllFilterButtonLabels();
+                renderUpdateLog(loaded.updateLog || '');
                 renderAll();
             }
 
@@ -3062,6 +3146,45 @@
                 setupImageTooltip();
                 setupLanguageSwitcher();
                 await loadAndRender();
+const toggleBtn = document.getElementById('update-log-toggle-btn');
+const popover = document.createElement('div');
+popover.id = 'update-log-popover';
+popover.className = 'update-log-popover';
+document.body.appendChild(popover);
+toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (popover.style.display === 'block') {
+        popover.style.display = 'none';
+    } else {
+        popover.textContent = getUpdateLogText();
+        popover.style.display = 'block';
+        positionPopover();
+    }
+});
+document.addEventListener('click', (e) => {
+    if (!toggleBtn.contains(e.target) && !popover.contains(e.target)) {
+        popover.style.display = 'none';
+    }
+});
+
+function positionPopover() {
+    const btnRect = toggleBtn.getBoundingClientRect();
+    const popRect = popover.getBoundingClientRect();
+    let top = btnRect.bottom + 8;
+    let left = btnRect.right - popRect.width; 
+    if (left < 10) left = 10;
+    if (top + popRect.height > window.innerHeight - 10) {
+        top = btnRect.top - popRect.height - 8;
+    }
+    popover.style.top = top + 'px';
+    popover.style.left = left + 'px';
+}
+window.addEventListener('resize', () => {
+    if (popover.style.display === 'block') positionPopover();
+});
+window.addEventListener('scroll', () => {
+    if (popover.style.display === 'block') positionPopover();
+});
                 document.body.classList.remove('loading');
                 setInterval(checkForUpdate, 5 * 60 * 1000);
                 checkForUpdate();
