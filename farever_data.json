@@ -1,9 +1,9 @@
 {
-  "version": "v98",
+  "version": "v99",
   "updateLog": {
-    "en": "Added two languages to the top right, Spanish + French. Might not be super accurate, but did my best. Also moved Ponogian Leggybug mount from Trunk of the Hivetree to Honeyzabeth's Hivetrunk where it belongs. I apologize, was tired when adding them.",
-    "fr": "Ajout de deux langues en haut à droite, espagnol + français. Ce n'est peut-être pas très précis, mais j'ai fait de mon mieux. La monture Ponogian Leggybug a également été déplacée du Tronc de la Ruche vers le Tronc de la Ruche de Honeyzabeth, à sa place. Je m'excuse, j'étais fatigué en les ajoutant.",
-    "es": "Se agregaron dos idiomas en la parte superior derecha, español + francés. Puede que no sea muy preciso, pero hice lo mejor que pude. También se movió la montura Poogian Leggybug del Tronco del Árbol Colmena al Tronco Colmena de Honeyzabeth, donde pertenece. Pido disculpas, estaba cansado al agregarlos."
+    "en": "Added Gauntlets of the Royal Guard image to the item, it seems to have been missed. Thank you for letting me know!",
+    "fr": "Ajout de l'image des Gantelets de la Garde Royale à l'objet, elle semble avoir été manquée. Merci de me l'avoir fait savoir !",
+    "es": "Se agregó la imagen de los Guanteletes de la Guardia Real al artículo, parece haberse perdido. ¡Gracias por hacérmelo saber!"
   },
   "zones": [
     {
@@ -7294,6 +7294,7 @@
                 "es": ""
               },
               "rare": false,
+              "image": "images/Bee_HM.w.r.hands.png",
               "statValues": {
                 "Armor": 147,
                 "Vitality": 5,
@@ -8220,6 +8221,7 @@
                 "es": ""
               },
               "rare": false,
+              "image": "images/Bee_HM.w.r.hands.png",
               "statValues": {
                 "Armor": 147,
                 "Vitality": 5,
@@ -12603,6 +12605,7 @@
                 "es": ""
               },
               "rare": false,
+              "image": "images/Bee_HM.w.r.hands.png",
               "statValues": {
                 "Armor": 147,
                 "Vitality": 5,
