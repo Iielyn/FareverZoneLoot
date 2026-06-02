@@ -305,6 +305,11 @@
             gap: 5px;
         }
 
+
+		#class-dropdown, #category-dropdown {
+			flex-direction: column;
+		}
+
         .filter-btn {
             padding: 4px 10px;
             font-size: 0.64rem;
@@ -357,26 +362,50 @@
             box-shadow: 0 0 12px rgba(176, 74, 74, 0.3);
         }
 
-        .stat-match-toggle {
+        .clear-fav-btn {
             padding: 4px 11px;
             font-size: 0.64rem;
             font-weight: 600;
             letter-spacing: 0.03em;
             text-transform: uppercase;
             border-radius: 18px;
-            border: 1px solid var(--border);
-            background: var(--tag-bg);
-            color: var(--tag-text);
+            border: 1px solid rgba(212, 90, 90, 0.6);
+            background: rgba(176, 74, 74, 0.1);
+            color: #e86060;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: var(--font);
+            white-space: nowrap;
+            box-shadow: 0 0 8px rgba(176, 74, 74, 0.12);
+        }
+
+        .clear-fav-btn:hover {
+            background: rgba(176, 74, 74, 0.25);
+            border-color: #e86060;
+            color: #ff7070;
+            box-shadow: 0 0 12px rgba(176, 74, 74, 0.3);
+        }
+
+        .favorites-toggle {
+            padding: 4px 11px;
+            font-size: 0.64rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            border-radius: 18px;
+            border: 1px solid var(--gold-dim);
+            background: rgba(201, 164, 75, 0.12);
+            color: var(--gold);
             cursor: pointer;
             transition: all var(--transition);
             font-family: var(--font);
             white-space: nowrap;
         }
 
-        .stat-match-toggle:hover {
-            background: var(--surface2);
-            color: var(--text);
-            border-color: #555;
+        .favorites-toggle.active {
+            background: rgba(201, 164, 75, 0.3);
+            border-color: var(--gold);
+            box-shadow: 0 0 9px rgba(201, 164, 75, 0.35);
         }
 
         .container {
@@ -697,265 +726,51 @@
             transition: all var(--transition);
         }
 
-        .tag.class-warrior {
-            color: #ff9e9e;
-            border-color: rgba(255, 64, 64, 0.4);
-            background: rgba(201, 66, 66, 0.12);
-        }
+        .tag.class-warrior { color: #ff9e9e; border-color: rgba(255, 64, 64, 0.4); background: rgba(201, 66, 66, 0.12); }
+        .tag.class-rogue { color: #fddd80; border-color: rgba(224, 184, 64, 0.4); background: rgba(201, 164, 75, 0.12); }
+        .tag.class-mage { color: #c0a0ff; border-color: rgba(144, 96, 240, 0.4); background: rgba(123, 94, 204, 0.12); }
+        .tag.class-priest { color: #ffffff; border-color: rgba(255, 255, 255, 0.4); background: rgba(232, 232, 232, 0.1); }
 
-        .tag.class-rogue {
-            color: #fddd80;
-            border-color: rgba(224, 184, 64, 0.4);
-            background: rgba(201, 164, 75, 0.12);
-        }
+        .tag.type-head { color: #e0b4ff; border-color: rgba(192, 132, 252, 0.4); background: rgba(192, 132, 252, 0.1); }
+        .tag.type-halos { color: #fde68a; border-color: rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.1); }
+        .tag.type-shoulders { color: #cbd5e1; border-color: rgba(148, 163, 184, 0.4); background: rgba(148, 163, 184, 0.1); }
+        .tag.type-chest { color: #fca5a5; border-color: rgba(248, 113, 113, 0.4); background: rgba(248, 113, 113, 0.1); }
+        .tag.type-back { color: #b4bcfc; border-color: rgba(129, 140, 248, 0.4); background: rgba(129, 140, 248, 0.1); }
+        .tag.type-legs { color: #c4a882; border-color: rgba(167, 139, 113, 0.4); background: rgba(167, 139, 113, 0.1); }
+        .tag.type-feet { color: #e0b48a; border-color: rgba(201, 151, 107, 0.4); background: rgba(201, 151, 107, 0.1); }
+        .tag.type-waist { color: #d4a074; border-color: rgba(184, 132, 92, 0.4); background: rgba(184, 132, 92, 0.1); }
+        .tag.type-hands { color: #e8c9a0; border-color: rgba(212, 165, 116, 0.4); background: rgba(212, 165, 116, 0.1); }
+        .tag.type-shield { color: #93c5fd; border-color: rgba(96, 165, 250, 0.4); background: rgba(96, 165, 250, 0.1); }
+        .tag.type-sword { color: #bae6fd; border-color: rgba(125, 211, 252, 0.4); background: rgba(125, 211, 252, 0.1); }
+        .tag.type-dual-sword { color: #7dd3fc; border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.1); }
+        .tag.type-axe { color: #f87171; border-color: rgba(220, 38, 38, 0.4); background: rgba(220, 38, 38, 0.1); }
+        .tag.type-dual-axes { color: #f87171; border-color: rgba(225, 29, 72, 0.4); background: rgba(225, 29, 72, 0.1); }
+        .tag.type-daggers { color: #cbd5e1; border-color: rgba(148, 163, 184, 0.4); background: rgba(148, 163, 184, 0.1); }
+        .tag.type-two-handed-axe { color: #ef4444; border-color: rgba(185, 28, 28, 0.4); background: rgba(185, 28, 28, 0.1); }
+        .tag.type-mace { color: #fbbf24; border-color: rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.1); }
+        .tag.type-two-handed-mace { color: #94a3b8; border-color: rgba(100, 116, 139, 0.4); background: rgba(100, 116, 139, 0.1); }
+        .tag.type-dual-maces { color: #94a3b8; border-color: rgba(148, 163, 184, 0.4); background: rgba(148, 163, 184, 0.1); }
+        .tag.type-spear { color: #fef3c7; border-color: rgba(253, 230, 138, 0.4); background: rgba(253, 230, 138, 0.1); }
+        .tag.type-bow { color: #86efac; border-color: rgba(74, 222, 128, 0.4); background: rgba(74, 222, 128, 0.1); }
+        .tag.type-thrown { color: #fdb980; border-color: rgba(251, 146, 60, 0.4); background: rgba(251, 146, 60, 0.1); }
+        .tag.type-fists { color: #f87171; border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.1); }
+        .tag.type-scepter { color: #c084fc; border-color: rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.1); }
+        .tag.type-crescent { color: #e2e8f0; border-color: rgba(203, 213, 225, 0.4); background: rgba(203, 213, 225, 0.1); }
+        .tag.type-spellbook { color: #67e8f9; border-color: rgba(34, 211, 238, 0.4); background: rgba(34, 211, 238, 0.1); }
+        .tag.type-trinket { color: #f9a8d4; border-color: rgba(244, 114, 182, 0.4); background: rgba(244, 114, 182, 0.1); }
+        .tag.type-mount { color: #fcd34d; border-color: rgba(245, 158, 11, 0.5); background: rgba(245, 158, 11, 0.15); text-shadow: 0 0 5px rgba(245, 158, 11, 0.35); }
+        .tag.type-glider { color: #67e8f9; border-color: rgba(6, 182, 212, 0.5); background: rgba(6, 182, 212, 0.15); text-shadow: 0 0 5px rgba(6, 182, 212, 0.35); }
 
-        .tag.class-mage {
-            color: #c0a0ff;
-            border-color: rgba(144, 96, 240, 0.4);
-            background: rgba(123, 94, 204, 0.12);
-        }
-
-        .tag.class-priest {
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.4);
-            background: rgba(232, 232, 232, 0.1);
-        }
-
-        .tag.type-head {
-            color: #e0b4ff;
-            border-color: rgba(192, 132, 252, 0.4);
-            background: rgba(192, 132, 252, 0.1);
-        }
-
-        .tag.type-halos {
-            color: #fde68a;
-            border-color: rgba(251, 191, 36, 0.4);
-            background: rgba(251, 191, 36, 0.1);
-        }
-
-        .tag.type-shoulders {
-            color: #cbd5e1;
-            border-color: rgba(148, 163, 184, 0.4);
-            background: rgba(148, 163, 184, 0.1);
-        }
-
-        .tag.type-chest {
-            color: #fca5a5;
-            border-color: rgba(248, 113, 113, 0.4);
-            background: rgba(248, 113, 113, 0.1);
-        }
-
-        .tag.type-back {
-            color: #b4bcfc;
-            border-color: rgba(129, 140, 248, 0.4);
-            background: rgba(129, 140, 248, 0.1);
-        }
-
-        .tag.type-legs {
-            color: #c4a882;
-            border-color: rgba(167, 139, 113, 0.4);
-            background: rgba(167, 139, 113, 0.1);
-        }
-
-        .tag.type-feet {
-            color: #e0b48a;
-            border-color: rgba(201, 151, 107, 0.4);
-            background: rgba(201, 151, 107, 0.1);
-        }
-
-        .tag.type-waist {
-            color: #d4a074;
-            border-color: rgba(184, 132, 92, 0.4);
-            background: rgba(184, 132, 92, 0.1);
-        }
-
-        .tag.type-hands {
-            color: #e8c9a0;
-            border-color: rgba(212, 165, 116, 0.4);
-            background: rgba(212, 165, 116, 0.1);
-        }
-
-        .tag.type-shield {
-            color: #93c5fd;
-            border-color: rgba(96, 165, 250, 0.4);
-            background: rgba(96, 165, 250, 0.1);
-        }
-
-        .tag.type-sword {
-            color: #bae6fd;
-            border-color: rgba(125, 211, 252, 0.4);
-            background: rgba(125, 211, 252, 0.1);
-        }
-
-        .tag.type-dual-sword {
-            color: #7dd3fc;
-            border-color: rgba(56, 189, 248, 0.4);
-            background: rgba(56, 189, 248, 0.1);
-        }
-
-        .tag.type-axe {
-            color: #f87171;
-            border-color: rgba(220, 38, 38, 0.4);
-            background: rgba(220, 38, 38, 0.1);
-        }
-
-        .tag.type-dual-axes {
-            color: #f87171;
-            border-color: rgba(225, 29, 72, 0.4);
-            background: rgba(225, 29, 72, 0.1);
-        }
-
-        .tag.type-daggers {
-            color: #cbd5e1;
-            border-color: rgba(148, 163, 184, 0.4);
-            background: rgba(148, 163, 184, 0.1);
-        }
-
-        .tag.type-two-handed-axe {
-            color: #ef4444;
-            border-color: rgba(185, 28, 28, 0.4);
-            background: rgba(185, 28, 28, 0.1);
-        }
-
-        .tag.type-mace {
-            color: #fbbf24;
-            border-color: rgba(251, 191, 36, 0.4);
-            background: rgba(251, 191, 36, 0.1);
-        }
-
-        .tag.type-two-handed-mace {
-            color: #94a3b8;
-            border-color: rgba(100, 116, 139, 0.4);
-            background: rgba(100, 116, 139, 0.1);
-        }
-
-        .tag.type-dual-maces {
-            color: #94a3b8;
-            border-color: rgba(148, 163, 184, 0.4);
-            background: rgba(148, 163, 184, 0.1);
-        }
-
-        .tag.type-spear {
-            color: #fef3c7;
-            border-color: rgba(253, 230, 138, 0.4);
-            background: rgba(253, 230, 138, 0.1);
-        }
-
-        .tag.type-bow {
-            color: #86efac;
-            border-color: rgba(74, 222, 128, 0.4);
-            background: rgba(74, 222, 128, 0.1);
-        }
-
-        .tag.type-thrown {
-            color: #fdb980;
-            border-color: rgba(251, 146, 60, 0.4);
-            background: rgba(251, 146, 60, 0.1);
-        }
-
-        .tag.type-fists {
-            color: #f87171;
-            border-color: rgba(239, 68, 68, 0.4);
-            background: rgba(239, 68, 68, 0.1);
-        }
-
-        .tag.type-scepter {
-            color: #c084fc;
-            border-color: rgba(168, 85, 247, 0.4);
-            background: rgba(168, 85, 247, 0.1);
-        }
-
-        .tag.type-crescent {
-            color: #e2e8f0;
-            border-color: rgba(203, 213, 225, 0.4);
-            background: rgba(203, 213, 225, 0.1);
-        }
-
-        .tag.type-spellbook {
-            color: #67e8f9;
-            border-color: rgba(34, 211, 238, 0.4);
-            background: rgba(34, 211, 238, 0.1);
-        }
-
-        .tag.type-trinket {
-            color: #f9a8d4;
-            border-color: rgba(244, 114, 182, 0.4);
-            background: rgba(244, 114, 182, 0.1);
-        }
-
-        .tag.type-mount {
-            color: #fcd34d;
-            border-color: rgba(245, 158, 11, 0.5);
-            background: rgba(245, 158, 11, 0.15);
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.35);
-        }
-
-        .tag.type-glider {
-            color: #67e8f9;
-            border-color: rgba(6, 182, 212, 0.5);
-            background: rgba(6, 182, 212, 0.15);
-            text-shadow: 0 0 5px rgba(6, 182, 212, 0.35);
-        }
-
-        .tag.stat-armor {
-            color: #d1d5db;
-            border-color: rgba(156, 163, 175, 0.4);
-            background: rgba(156, 163, 175, 0.1);
-        }
-
-        .tag.stat-vitality {
-            color: #6ee7b7;
-            border-color: rgba(52, 211, 153, 0.4);
-            background: rgba(52, 211, 153, 0.1);
-        }
-
-        .tag.stat-strength {
-            color: #fca5a5;
-            border-color: rgba(248, 113, 113, 0.4);
-            background: rgba(248, 113, 113, 0.1);
-        }
-
-        .tag.stat-dexterity {
-            color: #fde68a;
-            border-color: rgba(251, 191, 36, 0.4);
-            background: rgba(251, 191, 36, 0.1);
-        }
-
-        .tag.stat-faith {
-            color: #fef3c7;
-            border-color: rgba(252, 211, 77, 0.4);
-            background: rgba(252, 211, 77, 0.1);
-        }
-
-        .tag.stat-intelligence {
-            color: #b4bcfc;
-            border-color: rgba(129, 140, 248, 0.4);
-            background: rgba(129, 140, 248, 0.1);
-        }
-
-        .tag.stat-critical {
-            color: #f9a8d4;
-            border-color: rgba(244, 114, 182, 0.4);
-            background: rgba(244, 114, 182, 0.1);
-        }
-
-        .tag.stat-armor-penetration {
-            color: #f4a28e;
-            border-color: rgba(232, 121, 94, 0.4);
-            background: rgba(232, 121, 94, 0.1);
-        }
-
-        .tag.stat-magic-penetration {
-            color: #e0b4ff;
-            border-color: rgba(192, 132, 252, 0.4);
-            background: rgba(192, 132, 252, 0.1);
-        }
-
-        .tag.stat-fervor {
-            color: #fdb980;
-            border-color: rgba(251, 146, 60, 0.4);
-            background: rgba(251, 146, 60, 0.1);
-        }
+        .tag.stat-armor { color: #d1d5db; border-color: rgba(156, 163, 175, 0.4); background: rgba(156, 163, 175, 0.1); }
+        .tag.stat-vitality { color: #6ee7b7; border-color: rgba(52, 211, 153, 0.4); background: rgba(52, 211, 153, 0.1); }
+        .tag.stat-strength { color: #fca5a5; border-color: rgba(248, 113, 113, 0.4); background: rgba(248, 113, 113, 0.1); }
+        .tag.stat-dexterity { color: #fde68a; border-color: rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.1); }
+        .tag.stat-faith { color: #fef3c7; border-color: rgba(252, 211, 77, 0.4); background: rgba(252, 211, 77, 0.1); }
+        .tag.stat-intelligence { color: #b4bcfc; border-color: rgba(129, 140, 248, 0.4); background: rgba(129, 140, 248, 0.1); }
+        .tag.stat-critical { color: #f9a8d4; border-color: rgba(244, 114, 182, 0.4); background: rgba(244, 114, 182, 0.1); }
+        .tag.stat-armor-penetration { color: #f4a28e; border-color: rgba(232, 121, 94, 0.4); background: rgba(232, 121, 94, 0.1); }
+        .tag.stat-magic-penetration { color: #e0b4ff; border-color: rgba(192, 132, 252, 0.4); background: rgba(192, 132, 252, 0.1); }
+        .tag.stat-fervor { color: #fdb980; border-color: rgba(251, 146, 60, 0.4); background: rgba(251, 146, 60, 0.1); }
 
         .rarity-switcher {
             display: flex;
@@ -997,187 +812,42 @@
             transform: translateY(-1px);
         }
 
-        .rarity-btn[data-rarity="blue"] {
-            border-color: rgba(59, 130, 246, 0.6);
-            color: #60a5fa;
-        }
+        .rarity-btn[data-rarity="blue"] { border-color: rgba(59, 130, 246, 0.6); color: #60a5fa; }
+        .rarity-btn[data-rarity="blue"].active { background: rgba(59, 130, 246, 0.3); border-color: #60a5fa; box-shadow: 0 0 11px rgba(59, 130, 246, 0.45); color: #93c5fd; }
+        .rarity-btn[data-rarity="purple"] { border-color: rgba(168, 85, 247, 0.6); color: #c084fc; }
+        .rarity-btn[data-rarity="purple"].active { background: rgba(168, 85, 247, 0.3); border-color: #c084fc; box-shadow: 0 0 11px rgba(168, 85, 247, 0.45); color: #e0b4ff; }
+        .rarity-btn[data-rarity="legendary"] { border-color: rgba(245, 158, 11, 0.6); color: #fbbf24; }
+        .rarity-btn[data-rarity="legendary"].active { background: rgba(245, 158, 11, 0.3); border-color: #fbbf24; box-shadow: 0 0 13px rgba(245, 158, 11, 0.55); color: #fde68a; text-shadow: 0 0 5px rgba(245, 158, 11, 0.55); }
 
-        .rarity-btn[data-rarity="blue"].active {
-            background: rgba(59, 130, 246, 0.3);
-            border-color: #60a5fa;
-            box-shadow: 0 0 11px rgba(59, 130, 246, 0.45);
-            color: #93c5fd;
-        }
-
-        .rarity-btn[data-rarity="purple"] {
-            border-color: rgba(168, 85, 247, 0.6);
-            color: #c084fc;
-        }
-
-        .rarity-btn[data-rarity="purple"].active {
-            background: rgba(168, 85, 247, 0.3);
-            border-color: #c084fc;
-            box-shadow: 0 0 11px rgba(168, 85, 247, 0.45);
-            color: #e0b4ff;
-        }
-
-        .rarity-btn[data-rarity="legendary"] {
-            border-color: rgba(245, 158, 11, 0.6);
-            color: #fbbf24;
-        }
-
-        .rarity-btn[data-rarity="legendary"].active {
-            background: rgba(245, 158, 11, 0.3);
-            border-color: #fbbf24;
-            box-shadow: 0 0 13px rgba(245, 158, 11, 0.55);
-            color: #fde68a;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.55);
-        }
-
-        .type-color-sword {
-            color: #bae6fd;
-            text-shadow: 0 0 7px rgba(125, 211, 252, 0.33);
-        }
-
-        .type-color-dual-sword {
-            color: #7dd3fc;
-            text-shadow: 0 0 7px rgba(56, 189, 248, 0.33);
-        }
-
-        .type-color-axe {
-            color: #f87171;
-            text-shadow: 0 0 7px rgba(220, 38, 38, 0.33);
-        }
-
-        .type-color-dual-axes {
-            color: #f87171;
-            text-shadow: 0 0 7px rgba(225, 29, 72, 0.33);
-        }
-
-        .type-color-daggers {
-            color: #cbd5e1;
-            text-shadow: 0 0 7px rgba(148, 163, 184, 0.33);
-        }
-
-        .type-color-two-handed-axe {
-            color: #ef4444;
-            text-shadow: 0 0 7px rgba(185, 28, 28, 0.35);
-        }
-
-        .type-color-mace {
-            color: #fbbf24;
-            text-shadow: 0 0 7px rgba(251, 191, 36, 0.33);
-        }
-
-        .type-color-two-handed-mace {
-            color: #94a3b8;
-            text-shadow: 0 0 7px rgba(100, 116, 139, 0.3);
-        }
-
-        .type-color-dual-maces {
-            color: #94a3b8;
-            text-shadow: 0 0 7px rgba(148, 163, 184, 0.3);
-        }
-
-        .type-color-spear {
-            color: #fef3c7;
-            text-shadow: 0 0 7px rgba(253, 230, 138, 0.3);
-        }
-
-        .type-color-bow {
-            color: #86efac;
-            text-shadow: 0 0 7px rgba(74, 222, 128, 0.33);
-        }
-
-        .type-color-fists {
-            color: #f87171;
-            text-shadow: 0 0 9px rgba(239, 68, 68, 0.38);
-        }
-
-        .type-color-thrown {
-            color: #fdb980;
-            text-shadow: 0 0 7px rgba(251, 146, 60, 0.3);
-        }
-
-        .type-color-scepter {
-            color: #c084fc;
-            text-shadow: 0 0 7px rgba(168, 85, 247, 0.33);
-        }
-
-        .type-color-crescent {
-            color: #e2e8f0;
-            text-shadow: 0 0 7px rgba(203, 213, 225, 0.28);
-        }
-
-        .type-color-halos {
-            color: #fde68a;
-            text-shadow: 0 0 9px rgba(251, 191, 36, 0.35);
-        }
-
-        .type-color-spellbook {
-            color: #67e8f9;
-            text-shadow: 0 0 7px rgba(34, 211, 238, 0.33);
-        }
-
-        .type-color-shield {
-            color: #93c5fd;
-            text-shadow: 0 0 7px rgba(96, 165, 250, 0.3);
-        }
-
-        .type-color-head {
-            color: #e0b4ff;
-            text-shadow: 0 0 7px rgba(192, 132, 252, 0.3);
-        }
-
-        .type-color-shoulders {
-            color: #cbd5e1;
-            text-shadow: 0 0 5px rgba(148, 163, 184, 0.26);
-        }
-
-        .type-color-chest {
-            color: #fca5a5;
-            text-shadow: 0 0 7px rgba(248, 113, 113, 0.3);
-        }
-
-        .type-color-back {
-            color: #b4bcfc;
-            text-shadow: 0 0 7px rgba(129, 140, 248, 0.3);
-        }
-
-        .type-color-hands {
-            color: #e8c9a0;
-            text-shadow: 0 0 7px rgba(212, 165, 116, 0.26);
-        }
-
-        .type-color-legs {
-            color: #c4a882;
-            text-shadow: 0 0 7px rgba(167, 139, 113, 0.26);
-        }
-
-        .type-color-feet {
-            color: #e0b48a;
-            text-shadow: 0 0 7px rgba(201, 151, 107, 0.26);
-        }
-
-        .type-color-waist {
-            color: #d4a074;
-            text-shadow: 0 0 7px rgba(184, 132, 92, 0.26);
-        }
-
-        .type-color-trinket {
-            color: #f9a8d4;
-            text-shadow: 0 0 7px rgba(244, 114, 182, 0.3);
-        }
-
-        .type-color-mount {
-            color: #fcd34d;
-            text-shadow: 0 0 9px rgba(245, 158, 11, 0.43);
-        }
-
-        .type-color-glider {
-            color: #67e8f9;
-            text-shadow: 0 0 9px rgba(6, 182, 212, 0.43);
-        }
+        .type-color-sword { color: #bae6fd; text-shadow: 0 0 7px rgba(125, 211, 252, 0.33); }
+        .type-color-dual-sword { color: #7dd3fc; text-shadow: 0 0 7px rgba(56, 189, 248, 0.33); }
+        .type-color-axe { color: #f87171; text-shadow: 0 0 7px rgba(220, 38, 38, 0.33); }
+        .type-color-dual-axes { color: #f87171; text-shadow: 0 0 7px rgba(225, 29, 72, 0.33); }
+        .type-color-daggers { color: #cbd5e1; text-shadow: 0 0 7px rgba(148, 163, 184, 0.33); }
+        .type-color-two-handed-axe { color: #ef4444; text-shadow: 0 0 7px rgba(185, 28, 28, 0.35); }
+        .type-color-mace { color: #fbbf24; text-shadow: 0 0 7px rgba(251, 191, 36, 0.33); }
+        .type-color-two-handed-mace { color: #94a3b8; text-shadow: 0 0 7px rgba(100, 116, 139, 0.3); }
+        .type-color-dual-maces { color: #94a3b8; text-shadow: 0 0 7px rgba(148, 163, 184, 0.3); }
+        .type-color-spear { color: #fef3c7; text-shadow: 0 0 7px rgba(253, 230, 138, 0.3); }
+        .type-color-bow { color: #86efac; text-shadow: 0 0 7px rgba(74, 222, 128, 0.33); }
+        .type-color-fists { color: #f87171; text-shadow: 0 0 9px rgba(239, 68, 68, 0.38); }
+        .type-color-thrown { color: #fdb980; text-shadow: 0 0 7px rgba(251, 146, 60, 0.3); }
+        .type-color-scepter { color: #c084fc; text-shadow: 0 0 7px rgba(168, 85, 247, 0.33); }
+        .type-color-crescent { color: #e2e8f0; text-shadow: 0 0 7px rgba(203, 213, 225, 0.28); }
+        .type-color-halos { color: #fde68a; text-shadow: 0 0 9px rgba(251, 191, 36, 0.35); }
+        .type-color-spellbook { color: #67e8f9; text-shadow: 0 0 7px rgba(34, 211, 238, 0.33); }
+        .type-color-shield { color: #93c5fd; text-shadow: 0 0 7px rgba(96, 165, 250, 0.3); }
+        .type-color-head { color: #e0b4ff; text-shadow: 0 0 7px rgba(192, 132, 252, 0.3); }
+        .type-color-shoulders { color: #cbd5e1; text-shadow: 0 0 5px rgba(148, 163, 184, 0.26); }
+        .type-color-chest { color: #fca5a5; text-shadow: 0 0 7px rgba(248, 113, 113, 0.3); }
+        .type-color-back { color: #b4bcfc; text-shadow: 0 0 7px rgba(129, 140, 248, 0.3); }
+        .type-color-hands { color: #e8c9a0; text-shadow: 0 0 7px rgba(212, 165, 116, 0.26); }
+        .type-color-legs { color: #c4a882; text-shadow: 0 0 7px rgba(167, 139, 113, 0.26); }
+        .type-color-feet { color: #e0b48a; text-shadow: 0 0 7px rgba(201, 151, 107, 0.26); }
+        .type-color-waist { color: #d4a074; text-shadow: 0 0 7px rgba(184, 132, 92, 0.26); }
+        .type-color-trinket { color: #f9a8d4; text-shadow: 0 0 7px rgba(244, 114, 182, 0.3); }
+        .type-color-mount { color: #fcd34d; text-shadow: 0 0 9px rgba(245, 158, 11, 0.43); }
+        .type-color-glider { color: #67e8f9; text-shadow: 0 0 9px rgba(6, 182, 212, 0.43); }
 
         .stat-value {
             font-size: 0.74rem;
@@ -1231,116 +901,37 @@
         }
 
         @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(35px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(35px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-                transform: translateY(-9px);
-            }
+            from { opacity: 1; }
+            to { opacity: 0; transform: translateY(-9px); }
         }
 
         @media (max-width:800px) {
-            .loot-table,
-            .loot-table thead,
-            .loot-table tbody,
-            .loot-table th,
-            .loot-table td,
-            .loot-table tr {
-                display: block;
-            }
-            .loot-table thead {
-                display: none;
-            }
-            .loot-table tbody tr.item-main-row {
-                padding: 9px;
-                border-bottom: 1px solid var(--border);
-                margin-bottom: 5px;
-                background: rgba(255, 255, 255, 0.01);
-                border-radius: var(--radius-sm);
-            }
-            .loot-table tbody td {
-                display: block;
-                padding: 4px 0;
-                border-bottom: none;
-                text-align: left;
-            }
-            .loot-table tbody td::before {
-                content: attr(data-label);
-                font-weight: 600;
-                color: var(--text-dim);
-                font-size: 0.62rem;
-                display: inline-block;
-                width: 75px;
-            }
-            .header {
-                padding: 12px 16px;
-            }
-            .header h1 {
-                font-size: 1.25rem;
-            }
-            .container {
-                padding: 14px 10px 28px;
-            }
-            .zone-header {
-                padding: 10px 14px;
-                gap: 7px;
-            }
-            .zone-body {
-                padding: 10px 12px 12px;
-            }
-            .dungeon-header {
-                padding: 8px 12px;
-                gap: 5px;
-            }
-            .dungeon-body {
-                padding: 6px 8px 8px;
-            }
-            .zone-name-display {
-                font-size: 0.88rem;
-            }
-            .dungeon-name-display {
-                font-size: 0.76rem;
-            }
-            .filter-bar {
-                padding: 10px 14px;
-                gap: 8px;
-                flex-wrap: wrap;
-                border-radius: 0;
-            }
-            .filter-label {
-                width: 100%;
-                margin-bottom: 3px;
-            }
-            .search-input {
-                width: 130px;
-            }
-            .search-input:focus {
-                width: 160px;
-            }
-            .site-footer {
-                padding: 10px 14px;
-                font-size: 0.58rem;
-            }
-            .suggest-btn,
-            .lang-btn {
-                font-size: 0.7rem;
-                padding: 4px 9px;
-            }
-            .stat-value {
-                font-size: 0.68rem;
-            }
+            .loot-table, .loot-table thead, .loot-table tbody, .loot-table th, .loot-table td, .loot-table tr { display: block; }
+            .loot-table thead { display: none; }
+            .loot-table tbody tr.item-main-row { padding: 9px; border-bottom: 1px solid var(--border); margin-bottom: 5px; background: rgba(255, 255, 255, 0.01); border-radius: var(--radius-sm); }
+            .loot-table tbody td { display: block; padding: 4px 0; border-bottom: none; text-align: left; }
+            .loot-table tbody td::before { content: attr(data-label); font-weight: 600; color: var(--text-dim); font-size: 0.62rem; display: inline-block; width: 75px; }
+            .header { padding: 12px 16px; }
+            .header h1 { font-size: 1.25rem; }
+            .container { padding: 14px 10px 28px; }
+            .zone-header { padding: 10px 14px; gap: 7px; }
+            .zone-body { padding: 10px 12px 12px; }
+            .dungeon-header { padding: 8px 12px; gap: 5px; }
+            .dungeon-body { padding: 6px 8px 8px; }
+            .zone-name-display { font-size: 0.88rem; }
+            .dungeon-name-display { font-size: 0.76rem; }
+            .filter-bar { padding: 10px 14px; gap: 8px; flex-wrap: wrap; border-radius: 0; }
+            .filter-label { width: 100%; margin-bottom: 3px; }
+            .search-input { width: 130px; }
+            .search-input:focus { width: 160px; }
+            .site-footer { padding: 10px 14px; font-size: 0.58rem; }
+            .suggest-btn, .lang-btn { font-size: 0.7rem; padding: 4px 9px; }
+            .stat-value { font-size: 0.68rem; }
         }
 
         .suggest-btn {
@@ -1483,14 +1074,10 @@
             min-width: 330px;
         }
 
-        #class-dropdown {
-            min-width: 280px;
-            flex-wrap: nowrap;
-        }
-
+        #class-dropdown { min-width: 280px; flex-wrap: nowrap; }
         #stat-dropdown {
-            flex-wrap: wrap;
-        }
+		flex-direction: column;
+		}
 
         #scroll-to-top-btn {
             background: rgba(201, 164, 75, 0.12);
@@ -1506,6 +1093,7 @@
             box-shadow: 0 0 15px rgba(201, 164, 75, 0.48);
             transform: scale(1.07);
         }
+		
 
         #image-tooltip {
             position: fixed;
@@ -1529,334 +1117,54 @@
             height: auto;
         }
 
-        .class-btn[data-class="warrior"].active {
-            background: rgba(201, 66, 66, 0.35);
-            border-color: #ff4040;
-            color: #ff8080;
-            box-shadow: 0 0 11px rgba(201, 66, 66, 0.38);
-        }
+        .class-btn[data-class="warrior"].active { background: rgba(201, 66, 66, 0.35); border-color: #ff4040; color: #ff8080; box-shadow: 0 0 11px rgba(201, 66, 66, 0.38); }
+        .class-btn[data-class="rogue"].active { background: rgba(201, 164, 75, 0.35); border-color: #e0b840; color: #fddd80; box-shadow: 0 0 11px rgba(201, 164, 75, 0.38); }
+        .class-btn[data-class="mage"].active { background: rgba(123, 94, 204, 0.35); border-color: #9060f0; color: #c0a0ff; box-shadow: 0 0 11px rgba(123, 94, 204, 0.38); }
+        .class-btn[data-class="priest"].active { background: rgba(232, 232, 232, 0.25); border-color: #ffffff; color: #ffffff; box-shadow: 0 0 11px rgba(232, 232, 232, 0.33); }
 
-        .class-btn[data-class="rogue"].active {
-            background: rgba(201, 164, 75, 0.35);
-            border-color: #e0b840;
-            color: #fddd80;
-            box-shadow: 0 0 11px rgba(201, 164, 75, 0.38);
-        }
+        .type-btn[data-type="Sword"].active { background: rgba(125, 211, 252, 0.20); border-color: #7dd3fc; color: #bae6fd; box-shadow: 0 0 9px rgba(125, 211, 252, 0.35); }
+        .type-btn[data-type="Dual Sword"].active { background: rgba(56, 189, 248, 0.20); border-color: #38bdf8; color: #7dd3fc; box-shadow: 0 0 9px rgba(56, 189, 248, 0.35); }
+        .type-btn[data-type="Axe"].active { background: rgba(220, 38, 38, 0.22); border-color: #dc2626; color: #f87171; box-shadow: 0 0 9px rgba(220, 38, 38, 0.35); }
+        .type-btn[data-type="Dual Axes"].active { background: rgba(225, 29, 72, 0.22); border-color: #e11d48; color: #f87171; box-shadow: 0 0 9px rgba(225, 29, 72, 0.35); }
+        .type-btn[data-type="Daggers"].active { background: rgba(148, 163, 184, 0.22); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 9px rgba(148, 163, 184, 0.33); }
+        .type-btn[data-type="Two-Handed Axe"].active { background: rgba(185, 28, 28, 0.24); border-color: #b91c1c; color: #ef4444; box-shadow: 0 0 9px rgba(185, 28, 28, 0.37); }
+        .type-btn[data-type="Mace"].active { background: rgba(251, 191, 36, 0.22); border-color: #fbbf24; color: #fbbf24; box-shadow: 0 0 9px rgba(251, 191, 36, 0.33); }
+        .type-btn[data-type="Two-Handed Mace"].active { background: rgba(100, 116, 139, 0.22); border-color: #64748b; color: #94a3b8; box-shadow: 0 0 9px rgba(100, 116, 139, 0.33); }
+        .type-btn[data-type="Dual Maces"].active { background: rgba(148, 163, 184, 0.22); border-color: #94a3b8; color: #94a3b8; box-shadow: 0 0 9px rgba(148, 163, 184, 0.33); }
+        .type-btn[data-type="Spear"].active { background: rgba(253, 230, 138, 0.18); border-color: #fde68a; color: #fef3c7; box-shadow: 0 0 9px rgba(253, 230, 138, 0.33); }
+        .type-btn[data-type="Bow"].active { background: rgba(74, 222, 128, 0.20); border-color: #4ade80; color: #86efac; box-shadow: 0 0 9px rgba(74, 222, 128, 0.33); }
+        .type-btn[data-type="Fists"].active { background: rgba(239, 68, 68, 0.24); border-color: #ef4444; color: #f87171; box-shadow: 0 0 11px rgba(239, 68, 68, 0.39); }
+        .type-btn[data-type="Thrown"].active { background: rgba(251, 146, 60, 0.20); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 9px rgba(251, 146, 60, 0.33); }
+        .type-btn[data-type="Scepter"].active { background: rgba(168, 85, 247, 0.20); border-color: #a855f7; color: #c084fc; box-shadow: 0 0 9px rgba(168, 85, 247, 0.35); }
+        .type-btn[data-type="Crescent"].active { background: rgba(203, 213, 225, 0.18); border-color: #cbd5e1; color: #e2e8f0; box-shadow: 0 0 9px rgba(203, 213, 225, 0.3); }
+        .type-btn[data-type="Halos"].active { background: rgba(251, 191, 36, 0.22); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 11px rgba(251, 191, 36, 0.37); }
+        .type-btn[data-type="Spellbook"].active { background: rgba(34, 211, 238, 0.20); border-color: #22d3ee; color: #67e8f9; box-shadow: 0 0 9px rgba(34, 211, 238, 0.35); }
+        .type-btn[data-type="Shield"].active { background: rgba(96, 165, 250, 0.20); border-color: #60a5fa; color: #93c5fd; box-shadow: 0 0 9px rgba(96, 165, 250, 0.33); }
+        .type-btn[data-type="Head"].active { background: rgba(192, 132, 252, 0.20); border-color: #c084fc; color: #e0b4ff; box-shadow: 0 0 9px rgba(192, 132, 252, 0.33); }
+        .type-btn[data-type="Shoulders"].active { background: rgba(148, 163, 184, 0.20); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 7px rgba(148, 163, 184, 0.28); }
+        .type-btn[data-type="Chest"].active { background: rgba(248, 113, 113, 0.20); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 9px rgba(248, 113, 113, 0.33); }
+        .type-btn[data-type="Back"].active { background: rgba(129, 140, 248, 0.20); border-color: #818cf8; color: #b4bcfc; box-shadow: 0 0 9px rgba(129, 140, 248, 0.33); }
+        .type-btn[data-type="Hands"].active { background: rgba(212, 165, 116, 0.20); border-color: #d4a574; color: #e8c9a0; box-shadow: 0 0 7px rgba(212, 165, 116, 0.28); }
+        .type-btn[data-type="Legs"].active { background: rgba(167, 139, 113, 0.20); border-color: #a78b71; color: #c4a882; box-shadow: 0 0 7px rgba(167, 139, 113, 0.28); }
+        .type-btn[data-type="Feet"].active { background: rgba(201, 151, 107, 0.20); border-color: #c9976b; color: #e0b48a; box-shadow: 0 0 7px rgba(201, 151, 107, 0.28); }
+        .type-btn[data-type="Waist"].active { background: rgba(184, 132, 92, 0.20); border-color: #b8845c; color: #d4a074; box-shadow: 0 0 7px rgba(184, 132, 92, 0.28); }
+        .type-btn[data-type="Trinket"].active { background: rgba(244, 114, 182, 0.20); border-color: #f472b6; color: #f9a8d4; box-shadow: 0 0 9px rgba(244, 114, 182, 0.33); }
 
-        .class-btn[data-class="mage"].active {
-            background: rgba(123, 94, 204, 0.35);
-            border-color: #9060f0;
-            color: #c0a0ff;
-            box-shadow: 0 0 11px rgba(123, 94, 204, 0.38);
-        }
+        .category-btn[data-category="weapons"].active { background: rgba(201, 164, 75, 0.25); border-color: var(--gold); color: var(--gold); box-shadow: 0 0 9px rgba(201, 164, 75, 0.33); }
+        .category-btn[data-category="mount"].active { background: rgba(245, 158, 11, 0.22); border-color: #f59e0b; color: #fcd34d; box-shadow: 0 0 11px rgba(245, 158, 11, 0.37); }
+        .category-btn[data-category="glider"].active { background: rgba(6, 182, 212, 0.22); border-color: #06b6d4; color: #67e8f9; box-shadow: 0 0 11px rgba(6, 182, 212, 0.37); }
+        .category-btn[data-category="armor"].active { background: rgba(59, 130, 246, 0.20); border-color: var(--rarity-blue); color: #93c5fd; box-shadow: 0 0 9px rgba(59, 130, 246, 0.33); }
 
-        .class-btn[data-class="priest"].active {
-            background: rgba(232, 232, 232, 0.25);
-            border-color: #ffffff;
-            color: #ffffff;
-            box-shadow: 0 0 11px rgba(232, 232, 232, 0.33);
-        }
-
-        .type-btn[data-type="Sword"].active {
-            background: rgba(125, 211, 252, 0.20);
-            border-color: #7dd3fc;
-            color: #bae6fd;
-            box-shadow: 0 0 9px rgba(125, 211, 252, 0.35);
-        }
-
-        .type-btn[data-type="Dual Sword"].active {
-            background: rgba(56, 189, 248, 0.20);
-            border-color: #38bdf8;
-            color: #7dd3fc;
-            box-shadow: 0 0 9px rgba(56, 189, 248, 0.35);
-        }
-
-        .type-btn[data-type="Axe"].active {
-            background: rgba(220, 38, 38, 0.22);
-            border-color: #dc2626;
-            color: #f87171;
-            box-shadow: 0 0 9px rgba(220, 38, 38, 0.35);
-        }
-
-        .type-btn[data-type="Dual Axes"].active {
-            background: rgba(225, 29, 72, 0.22);
-            border-color: #e11d48;
-            color: #f87171;
-            box-shadow: 0 0 9px rgba(225, 29, 72, 0.35);
-        }
-
-        .type-btn[data-type="Daggers"].active {
-            background: rgba(148, 163, 184, 0.22);
-            border-color: #94a3b8;
-            color: #cbd5e1;
-            box-shadow: 0 0 9px rgba(148, 163, 184, 0.33);
-        }
-
-        .type-btn[data-type="Two-Handed Axe"].active {
-            background: rgba(185, 28, 28, 0.24);
-            border-color: #b91c1c;
-            color: #ef4444;
-            box-shadow: 0 0 9px rgba(185, 28, 28, 0.37);
-        }
-
-        .type-btn[data-type="Mace"].active {
-            background: rgba(251, 191, 36, 0.22);
-            border-color: #fbbf24;
-            color: #fbbf24;
-            box-shadow: 0 0 9px rgba(251, 191, 36, 0.33);
-        }
-
-        .type-btn[data-type="Two-Handed Mace"].active {
-            background: rgba(100, 116, 139, 0.22);
-            border-color: #64748b;
-            color: #94a3b8;
-            box-shadow: 0 0 9px rgba(100, 116, 139, 0.33);
-        }
-
-        .type-btn[data-type="Dual Maces"].active {
-            background: rgba(148, 163, 184, 0.22);
-            border-color: #94a3b8;
-            color: #94a3b8;
-            box-shadow: 0 0 9px rgba(148, 163, 184, 0.33);
-        }
-
-        .type-btn[data-type="Spear"].active {
-            background: rgba(253, 230, 138, 0.18);
-            border-color: #fde68a;
-            color: #fef3c7;
-            box-shadow: 0 0 9px rgba(253, 230, 138, 0.33);
-        }
-
-        .type-btn[data-type="Bow"].active {
-            background: rgba(74, 222, 128, 0.20);
-            border-color: #4ade80;
-            color: #86efac;
-            box-shadow: 0 0 9px rgba(74, 222, 128, 0.33);
-        }
-
-        .type-btn[data-type="Fists"].active {
-            background: rgba(239, 68, 68, 0.24);
-            border-color: #ef4444;
-            color: #f87171;
-            box-shadow: 0 0 11px rgba(239, 68, 68, 0.39);
-        }
-
-        .type-btn[data-type="Thrown"].active {
-            background: rgba(251, 146, 60, 0.20);
-            border-color: #fb923c;
-            color: #fdb980;
-            box-shadow: 0 0 9px rgba(251, 146, 60, 0.33);
-        }
-
-        .type-btn[data-type="Scepter"].active {
-            background: rgba(168, 85, 247, 0.20);
-            border-color: #a855f7;
-            color: #c084fc;
-            box-shadow: 0 0 9px rgba(168, 85, 247, 0.35);
-        }
-
-        .type-btn[data-type="Crescent"].active {
-            background: rgba(203, 213, 225, 0.18);
-            border-color: #cbd5e1;
-            color: #e2e8f0;
-            box-shadow: 0 0 9px rgba(203, 213, 225, 0.3);
-        }
-
-        .type-btn[data-type="Halos"].active {
-            background: rgba(251, 191, 36, 0.22);
-            border-color: #fbbf24;
-            color: #fde68a;
-            box-shadow: 0 0 11px rgba(251, 191, 36, 0.37);
-        }
-
-        .type-btn[data-type="Spellbook"].active {
-            background: rgba(34, 211, 238, 0.20);
-            border-color: #22d3ee;
-            color: #67e8f9;
-            box-shadow: 0 0 9px rgba(34, 211, 238, 0.35);
-        }
-
-        .type-btn[data-type="Shield"].active {
-            background: rgba(96, 165, 250, 0.20);
-            border-color: #60a5fa;
-            color: #93c5fd;
-            box-shadow: 0 0 9px rgba(96, 165, 250, 0.33);
-        }
-
-        .type-btn[data-type="Head"].active {
-            background: rgba(192, 132, 252, 0.20);
-            border-color: #c084fc;
-            color: #e0b4ff;
-            box-shadow: 0 0 9px rgba(192, 132, 252, 0.33);
-        }
-
-        .type-btn[data-type="Shoulders"].active {
-            background: rgba(148, 163, 184, 0.20);
-            border-color: #94a3b8;
-            color: #cbd5e1;
-            box-shadow: 0 0 7px rgba(148, 163, 184, 0.28);
-        }
-
-        .type-btn[data-type="Chest"].active {
-            background: rgba(248, 113, 113, 0.20);
-            border-color: #f87171;
-            color: #fca5a5;
-            box-shadow: 0 0 9px rgba(248, 113, 113, 0.33);
-        }
-
-        .type-btn[data-type="Back"].active {
-            background: rgba(129, 140, 248, 0.20);
-            border-color: #818cf8;
-            color: #b4bcfc;
-            box-shadow: 0 0 9px rgba(129, 140, 248, 0.33);
-        }
-
-        .type-btn[data-type="Hands"].active {
-            background: rgba(212, 165, 116, 0.20);
-            border-color: #d4a574;
-            color: #e8c9a0;
-            box-shadow: 0 0 7px rgba(212, 165, 116, 0.28);
-        }
-
-        .type-btn[data-type="Legs"].active {
-            background: rgba(167, 139, 113, 0.20);
-            border-color: #a78b71;
-            color: #c4a882;
-            box-shadow: 0 0 7px rgba(167, 139, 113, 0.28);
-        }
-
-        .type-btn[data-type="Feet"].active {
-            background: rgba(201, 151, 107, 0.20);
-            border-color: #c9976b;
-            color: #e0b48a;
-            box-shadow: 0 0 7px rgba(201, 151, 107, 0.28);
-        }
-
-        .type-btn[data-type="Waist"].active {
-            background: rgba(184, 132, 92, 0.20);
-            border-color: #b8845c;
-            color: #d4a074;
-            box-shadow: 0 0 7px rgba(184, 132, 92, 0.28);
-        }
-
-        .type-btn[data-type="Trinket"].active {
-            background: rgba(244, 114, 182, 0.20);
-            border-color: #f472b6;
-            color: #f9a8d4;
-            box-shadow: 0 0 9px rgba(244, 114, 182, 0.33);
-        }
-
-        .type-btn[data-type="Mount"].active {
-            background: rgba(245, 158, 11, 0.24);
-            border-color: #f59e0b;
-            color: #fcd34d;
-            box-shadow: 0 0 11px rgba(245, 158, 11, 0.37);
-        }
-
-        .type-btn[data-type="Glider"].active {
-            background: rgba(6, 182, 212, 0.24);
-            border-color: #06b6d4;
-            color: #67e8f9;
-            box-shadow: 0 0 11px rgba(6, 182, 212, 0.37);
-        }
-
-        .category-btn[data-category="weapons"].active {
-            background: rgba(201, 164, 75, 0.25);
-            border-color: var(--gold);
-            color: var(--gold);
-            box-shadow: 0 0 9px rgba(201, 164, 75, 0.33);
-        }
-
-        .category-btn[data-category="mount"].active {
-            background: rgba(245, 158, 11, 0.22);
-            border-color: #f59e0b;
-            color: #fcd34d;
-            box-shadow: 0 0 11px rgba(245, 158, 11, 0.37);
-        }
-
-        .category-btn[data-category="glider"].active {
-            background: rgba(6, 182, 212, 0.22);
-            border-color: #06b6d4;
-            color: #67e8f9;
-            box-shadow: 0 0 11px rgba(6, 182, 212, 0.37);
-        }
-
-        .category-btn[data-category="armor"].active {
-            background: rgba(59, 130, 246, 0.20);
-            border-color: var(--rarity-blue);
-            color: #93c5fd;
-            box-shadow: 0 0 9px rgba(59, 130, 246, 0.33);
-        }
-
-        .stat-btn[data-stat="Armor"].active {
-            background: rgba(156, 163, 175, 0.20);
-            border-color: #9ca3af;
-            color: #d1d5db;
-            box-shadow: 0 0 7px rgba(156, 163, 175, 0.3);
-        }
-
-        .stat-btn[data-stat="Vitality"].active {
-            background: rgba(52, 211, 153, 0.20);
-            border-color: #34d399;
-            color: #6ee7b7;
-            box-shadow: 0 0 9px rgba(52, 211, 153, 0.35);
-        }
-
-        .stat-btn[data-stat="Strength"].active {
-            background: rgba(248, 113, 113, 0.22);
-            border-color: #f87171;
-            color: #fca5a5;
-            box-shadow: 0 0 9px rgba(248, 113, 113, 0.35);
-        }
-
-        .stat-btn[data-stat="Dexterity"].active {
-            background: rgba(251, 191, 36, 0.20);
-            border-color: #fbbf24;
-            color: #fde68a;
-            box-shadow: 0 0 9px rgba(251, 191, 36, 0.35);
-        }
-
-        .stat-btn[data-stat="Faith"].active {
-            background: rgba(252, 211, 77, 0.22);
-            border-color: #fcd34d;
-            color: #fef3c7;
-            box-shadow: 0 0 11px rgba(252, 211, 77, 0.39);
-        }
-
-        .stat-btn[data-stat="Intelligence"].active {
-            background: rgba(129, 140, 248, 0.20);
-            border-color: #818cf8;
-            color: #b4bcfc;
-            box-shadow: 0 0 9px rgba(129, 140, 248, 0.35);
-        }
-
-        .stat-btn[data-stat="Critical"].active {
-            background: rgba(244, 114, 182, 0.22);
-            border-color: #f472b6;
-            color: #f9a8d4;
-            box-shadow: 0 0 11px rgba(244, 114, 182, 0.37);
-        }
-
-        .stat-btn[data-stat="Armor Penetration"].active {
-            background: rgba(232, 121, 94, 0.22);
-            border-color: #e8795e;
-            color: #f4a28e;
-            box-shadow: 0 0 9px rgba(232, 121, 94, 0.35);
-        }
-
-        .stat-btn[data-stat="Magic Penetration"].active {
-            background: rgba(192, 132, 252, 0.20);
-            border-color: #c084fc;
-            color: #e0b4ff;
-            box-shadow: 0 0 9px rgba(192, 132, 252, 0.35);
-        }
-
-        .stat-btn[data-stat="Fervor"].active {
-            background: rgba(251, 146, 60, 0.22);
-            border-color: #fb923c;
-            color: #fdb980;
-            box-shadow: 0 0 11px rgba(251, 146, 60, 0.37);
-        }
+        .stat-btn[data-stat="Armor"].active { background: rgba(156, 163, 175, 0.20); border-color: #9ca3af; color: #d1d5db; box-shadow: 0 0 7px rgba(156, 163, 175, 0.3); }
+        .stat-btn[data-stat="Vitality"].active { background: rgba(52, 211, 153, 0.20); border-color: #34d399; color: #6ee7b7; box-shadow: 0 0 9px rgba(52, 211, 153, 0.35); }
+        .stat-btn[data-stat="Strength"].active { background: rgba(248, 113, 113, 0.22); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 9px rgba(248, 113, 113, 0.35); }
+        .stat-btn[data-stat="Dexterity"].active { background: rgba(251, 191, 36, 0.20); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 9px rgba(251, 191, 36, 0.35); }
+        .stat-btn[data-stat="Faith"].active { background: rgba(252, 211, 77, 0.22); border-color: #fcd34d; color: #fef3c7; box-shadow: 0 0 11px rgba(252, 211, 77, 0.39); }
+        .stat-btn[data-stat="Intelligence"].active { background: rgba(129, 140, 248, 0.20); border-color: #818cf8; color: #b4bcfc; box-shadow: 0 0 9px rgba(129, 140, 248, 0.35); }
+        .stat-btn[data-stat="Critical"].active { background: rgba(244, 114, 182, 0.22); border-color: #f472b6; color: #f9a8d4; box-shadow: 0 0 11px rgba(244, 114, 182, 0.37); }
+        .stat-btn[data-stat="Armor Penetration"].active { background: rgba(232, 121, 94, 0.22); border-color: #e8795e; color: #f4a28e; box-shadow: 0 0 9px rgba(232, 121, 94, 0.35); }
+        .stat-btn[data-stat="Magic Penetration"].active { background: rgba(192, 132, 252, 0.20); border-color: #c084fc; color: #e0b4ff; box-shadow: 0 0 9px rgba(192, 132, 252, 0.35); }
+        .stat-btn[data-stat="Fervor"].active { background: rgba(251, 146, 60, 0.22); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 11px rgba(251, 146, 60, 0.37); }
 
         .update-log-box {
             background: var(--surface);
@@ -1881,32 +1189,52 @@
             color: var(--text);
             line-height: 1.5;
         }
-.update-log-popover {
-    position: fixed;        
-    z-index: 200;
-    max-width: 420px;
-    display: none;
-    background: var(--surface);
-    border: 1px solid var(--gold-dim);
-    border-radius: var(--radius);
-    padding: 14px 18px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-    white-space: pre-wrap;
-    font-size: 0.78rem;
-    line-height: 1.5;
-    color: var(--text);
+        .update-log-popover {
+            position: fixed;        
+            z-index: 200;
+            max-width: 420px;
+            display: none;
+            background: var(--surface);
+            border: 1px solid var(--gold-dim);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            white-space: pre-wrap;
+            font-size: 0.78rem;
+            line-height: 1.5;
+            color: var(--text);
+        }
+        .update-log-popover::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 24px;
+            width: 12px;
+            height: 12px;
+            background: var(--surface);
+            border-left: 1px solid var(--gold-dim);
+            border-top: 1px solid var(--gold-dim);
+            transform: rotate(45deg);
+        }
+        .fav-star {
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-right: 5px;
+            color: var(--text-dim);
+            transition: color 0.2s, text-shadow 0.2s;
+            user-select: none;
+        }
+        .fav-star:hover {
+            color: var(--gold);
+            text-shadow: 0 0 5px rgba(201, 164, 75, 0.5);
+        }
+.fav-star.favorited {
+    color: var(--gold);
+    text-shadow: 0 0 6px rgba(201, 164, 75, 0.6);
 }
-.update-log-popover::before {
-    content: '';
-    position: absolute;
-    top: -6px;
-    right: 24px;
-    width: 12px;
-    height: 12px;
-    background: var(--surface);
-    border-left: 1px solid var(--gold-dim);
-    border-top: 1px solid var(--gold-dim);
-    transform: rotate(45deg);
+
+#favorites-toggle-btn {
+    margin-left: auto;
 }
     </style>
 </head>
@@ -1931,50 +1259,50 @@
                 </div>
                 <div class="header-actions">
                     <div class="search-wrapper">
-    <span class="search-icon">🔍</span>
-    <input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off">
-</div>
-<button class="suggest-btn" id="open-suggestion-btn" title="Send a private suggestion">
-    💡 <span class="suggest-text">Suggest</span>
-</button>
-<button class="suggest-btn update-log-btn" id="update-log-toggle-btn" title="View update notes" style="display:none;">
-    📝 <span>What’s new</span>
-</button>
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off">
+                    </div>
+                    <button class="suggest-btn" id="open-suggestion-btn" title="Send a private suggestion">
+                        💡 <span class="suggest-text">Suggest</span>
+                    </button>
+                    <button class="suggest-btn update-log-btn" id="update-log-toggle-btn" title="View update notes" style="display:none;">
+                        📝 <span>What’s new</span>
+                    </button>
                 </div>
             </div>
         </header>
         <div class="filter-bar" id="filter-bar">
-            <span class="filter-label" id="filter-label">Filters</span>
-            <div class="filter-group-wrapper" id="class-wrapper">
-                <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="class-label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
-                <div class="filter-dropdown" id="class-dropdown"></div>
-            </div>
-            <div class="filter-group-wrapper" id="stat-wrapper">
-                <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="stats-label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
-                <div class="filter-dropdown" id="stat-dropdown"></div>
-            </div>
-            <div class="filter-group-wrapper" id="category-wrapper">
-                <div class="filter-group-header">
-                    <span class="arrow">▼</span>
-                    <span class="label" id="category-label">Category</span>
-                    <span class="active-count" id="category-count" style="display:none">0</span>
-                </div>
-                <div class="filter-dropdown" id="category-dropdown">
-                    <button class="filter-btn category-btn" data-category="weapons">Weapons</button>
-                    <button class="filter-btn category-btn" data-category="armor">Armor</button>
-                    <button class="filter-btn category-btn" data-category="mount">Mount</button>
-                    <button class="filter-btn category-btn" data-category="glider">Glider</button>
-                </div>
-            </div>
-            <div class="filter-group-wrapper" id="type-wrapper">
-                <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="type-label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
-                <div class="filter-dropdown" id="type-dropdown"></div>
-            </div>
-            <button class="stat-match-toggle" id="stat-match-toggle" data-mode="all">Match: ALL</button>
-            <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear</button>
+    <span class="filter-label" id="filter-label">Filters</span>
+    <div class="filter-group-wrapper" id="class-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="class-label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="class-dropdown"></div>
+    </div>
+    <div class="filter-group-wrapper" id="stat-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="stats-label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="stat-dropdown"></div>
+    </div>
+    <div class="filter-group-wrapper" id="type-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="type-label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="type-dropdown"></div>
+    </div>
+    <div class="filter-group-wrapper" id="category-wrapper">
+        <div class="filter-group-header">
+            <span class="arrow">▼</span>
+            <span class="label" id="category-label">Category</span>
+            <span class="active-count" id="category-count" style="display:none">0</span>
+        </div>
+        <div class="filter-dropdown" id="category-dropdown">
+            <button class="filter-btn category-btn" data-category="weapons">Weapons <span class="item-count">(0)</span></button>
+            <button class="filter-btn category-btn" data-category="armor">Armor <span class="item-count">(0)</span></button>
+            <button class="filter-btn category-btn" data-category="mount">Mount <span class="item-count">(0)</span></button>
+            <button class="filter-btn category-btn" data-category="glider">Glider <span class="item-count">(0)</span></button>
         </div>
     </div>
-    <div class="main-content">
+    <button class="favorites-toggle" id="favorites-toggle-btn" data-active="false">⭐ Favorites</button>
+    <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear Filters</button>
+    <button class="clear-fav-btn" id="clear-fav-btn" style="display:none;">🗑️ Clear Favorites</button>
+</div>
+<div class="main-content">
         <main class="container" id="zones-container"></main>
     </div>
     <footer class="site-footer" id="site-footer">
@@ -2011,17 +1339,13 @@
             const STORAGE_KEY = 'farever_data_v11';
             const VERSION_KEY = 'farever_data_version_v2';
             const DATA_URL = './farever_data.json';
-            const FORM_URL =
-                'https://docs.google.com/forms/d/e/1FAIpQLScAUAFWgtKAOMNfr4hipZMp9l8JMeeISnT3PBmS7sLgF-EfYg/formResponse';
+            const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScAUAFWgtKAOMNfr4hipZMp9l8JMeeISnT3PBmS7sLgF-EfYg/formResponse';
             const ENTRY_ID = 'entry.1596480602';
             const CLASS_OPTIONS = ['warrior', 'rogue', 'mage', 'priest'];
             const STAT_OPTIONS = ['Armor', 'Vitality', 'Strength', 'Dexterity', 'Faith', 'Intelligence', 'Critical',
-                'Armor Penetration', 'Magic Penetration', 'Fervor'
-            ];
+                'Armor Penetration', 'Magic Penetration', 'Fervor'];
             const WEAPON_TYPES = ['Sword', 'Dual Sword', 'Axe', 'Dual Axes', 'Daggers', 'Mace', 'Dual Maces', 'Spear',
-                'Fists', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Scepter', 'Crescent', 'Halos', 'Spellbook',
-                'Shield'
-            ];
+                'Fists', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Scepter', 'Crescent', 'Halos', 'Spellbook', 'Shield'];
             const ARMOR_TYPES = ['Head', 'Shoulders', 'Chest', 'Back', 'Hands', 'Waist', 'Legs', 'Feet'];
             const TRINKET_TYPES = ['Trinket'];
             const MOUNT_GLIDER_TYPES = ['Mount', 'Glider'];
@@ -2034,9 +1358,9 @@
                     stats_label: 'Stats',
                     category_label: 'Category',
                     type_label: 'Type',
-                    match_all: 'Match: ALL',
-                    match_any: 'Match: ANY',
-                    clear_filters: '✕ Clear',
+                    clear_filters: '✕ Clear Filters',
+                    clear_favorites: '🗑️ Clear Favorites',
+                    favorites_button: '⭐ Favorites',
                     warrior: 'Warrior',
                     rogue: 'Rogue',
                     mage: 'Mage',
@@ -2122,7 +1446,7 @@
                     type_Trinket: 'Trinket',
                     type_Mount: 'Mount',
                     type_Glider: 'Glider',
-					whats_new_button: 'What’s new',
+                    whats_new_button: 'What’s new',
                 },
                 fr: {
                     filter_label: 'Filtres',
@@ -2130,9 +1454,9 @@
                     stats_label: 'Statistiques',
                     category_label: 'Catégorie',
                     type_label: 'Type',
-                    match_all: 'Match: TOUS',
-                    match_any: 'Match: AUCUN',
-                    clear_filters: '✕ Effacer',
+                    clear_filters: '✕ Effacer les filtres',
+                    clear_favorites: '🗑️ Effacer les favoris',
+                    favorites_button: '⭐ Favoris',
                     warrior: 'Guerrier',
                     rogue: 'Voleur',
                     mage: 'Mage',
@@ -2218,7 +1542,7 @@
                     type_Trinket: 'Bijou',
                     type_Mount: 'Monture',
                     type_Glider: 'Planeur',
-					whats_new_button: 'Quoi de neuf',
+                    whats_new_button: 'Quoi de neuf',
                 },
                 es: {
                     filter_label: 'Filtros',
@@ -2226,9 +1550,9 @@
                     stats_label: 'Estadísticas',
                     category_label: 'Categoría',
                     type_label: 'Tipo',
-                    match_all: 'Match: TODOS',
-                    match_any: 'Match: CUALQUIERA',
-                    clear_filters: '✕ Limpiar',
+                    clear_filters: '✕ Limpiar filtros',
+                    clear_favorites: '🗑️ Limpiar favoritos',
+                    favorites_button: '⭐ Favoritos',
                     warrior: 'Guerrero',
                     rogue: 'Pícaro',
                     mage: 'Mago',
@@ -2314,28 +1638,27 @@
                     type_Trinket: 'Abalorio',
                     type_Mount: 'Montura',
                     type_Planeador: 'Planeador',
-					whats_new_button: 'Novedades',
+                    whats_new_button: 'Novedades',
                 }
             };
 
             let appData = { zones: [] };
-			let appUpdateLog = null;
+            let appUpdateLog = null;
             let filterClasses = [];
             let filterTypes = [];
             let filterStats = [];
-            let statMatchMode = 'all';
             let searchQuery = '';
             let filterCategories = [];
+            let showFavoritesOnly = false;
             let currentLang = localStorage.getItem('farever_lang') || 'en';
+            let favoriteIds = new Set(JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]'));
             const allItemsMap = new Map();
 
-            const escapeHtml = str => str ? str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(
-                /"/g, '&quot;').replace(/'/g, '&#39;') : '';
+            const escapeHtml = str => str ? str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;') : '';
             const toSlug = str => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
             const generateId = () => 'id_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 8);
             const sortByOrder = (arr, order) => [...arr].sort((a, b) => {
-                const ia = order.indexOf(a),
-                    ib = order.indexOf(b);
+                const ia = order.indexOf(a), ib = order.indexOf(b);
                 if (ia === -1 && ib === -1) return 0;
                 if (ia === -1) return 1;
                 if (ib === -1) return -1;
@@ -2346,70 +1669,64 @@
                 const sorted = sortByOrder(item.types, TYPE_OPTIONS);
                 return sorted[0] || '';
             };
-            const getTypeGroupRank = type => { if (WEAPON_TYPES.includes(type)) return 0;
+            const getTypeGroupRank = type => {
+                if (WEAPON_TYPES.includes(type)) return 0;
                 if (ARMOR_TYPES.includes(type)) return 1;
                 if (TRINKET_TYPES.includes(type)) return 2;
-                if (MOUNT_GLIDER_TYPES.includes(type)) return 3; return 4; };
-            const getTypeSubOrder = type => { if (WEAPON_TYPES.includes(type)) return WEAPON_TYPES.indexOf(type);
+                if (MOUNT_GLIDER_TYPES.includes(type)) return 3;
+                return 4;
+            };
+            const getTypeSubOrder = type => {
+                if (WEAPON_TYPES.includes(type)) return WEAPON_TYPES.indexOf(type);
                 if (ARMOR_TYPES.includes(type)) return ARMOR_TYPES.indexOf(type);
                 if (TRINKET_TYPES.includes(type)) return 0;
-                if (MOUNT_GLIDER_TYPES.includes(type)) return MOUNT_GLIDER_TYPES.indexOf(type); return -1; };
+                if (MOUNT_GLIDER_TYPES.includes(type)) return MOUNT_GLIDER_TYPES.indexOf(type);
+                return -1;
+            };
             const isWeapon = item => item.types.some(t => WEAPON_TYPES.includes(t));
             const isTrinket = item => item.types.includes('Trinket');
             const hasAbilities = item => item.skill1 || item.skill2 || item.skill3 || item.passive;
-            const hasTrinketPassive = item => item.trinketPassive && (typeof item.trinketPassive === 'string' ? item
-                .trinketPassive.trim() !== '' : item.trinketPassive.en && item.trinketPassive.en.trim() !== '');
+            const hasTrinketPassive = item => item.trinketPassive && (typeof item.trinketPassive === 'string' ? item.trinketPassive.trim() !== '' : item.trinketPassive.en && item.trinketPassive.en.trim() !== '');
             const getTypeColorClass = type => type ? 'type-color-' + toSlug(type) : '';
 
             const t = (key, fallback) => (translations[currentLang] && translations[currentLang][key]) || fallback || key;
 
             function getLocalizedText(value, lang) {
-                if (typeof value === 'object' && value !== null) {
-                    return value[lang] || value['en'] || Object.values(value).find(v => v) || '';
-                }
+                if (typeof value === 'object' && value !== null) return value[lang] || value['en'] || Object.values(value).find(v => v) || '';
                 return value || '';
             }
 
             function getItemName(item) { return getLocalizedText(item.name, currentLang); }
-
             function getZoneName(zone) { return getLocalizedText(zone.name, currentLang); }
-
             function getDungeonName(dungeon) { return getLocalizedText(dungeon.name, currentLang); }
-
             function getSkillText(skill) { return getLocalizedText(skill, currentLang); }
-			
-			function getUpdateLogText() {
-    if (typeof appUpdateLog === 'object' && appUpdateLog !== null) {
-        return appUpdateLog[currentLang] || appUpdateLog['en'] || '';
-    }
-    return appUpdateLog || '';
-}
-			
-			function renderUpdateLog(logData) {
-    const btn = document.getElementById('update-log-toggle-btn');
-    if (!btn) return;
-    appUpdateLog = logData || null;
-    if (appUpdateLog && (typeof appUpdateLog === 'string' ? appUpdateLog.trim() : true)) {
-        btn.style.display = 'flex';
-        btn.querySelector('span').textContent = t('whats_new_button');
-        const popover = document.getElementById('update-log-popover');
-        if (popover && popover.style.display === 'block') {
-            popover.textContent = getUpdateLogText();
-        }
-    } else {
-        btn.style.display = 'none';
-        appUpdateLog = null;
-        const popover = document.getElementById('update-log-popover');
-        if (popover) popover.style.display = 'none';
-    }
-}
+
+            function getUpdateLogText() {
+                if (typeof appUpdateLog === 'object' && appUpdateLog !== null) return appUpdateLog[currentLang] || appUpdateLog['en'] || '';
+                return appUpdateLog || '';
+            }
+
+            function renderUpdateLog(logData) {
+                const btn = document.getElementById('update-log-toggle-btn');
+                if (!btn) return;
+                appUpdateLog = logData || null;
+                if (appUpdateLog && (typeof appUpdateLog === 'string' ? appUpdateLog.trim() : true)) {
+                    btn.style.display = 'flex';
+                    btn.querySelector('span').textContent = t('whats_new_button');
+                    const popover = document.getElementById('update-log-popover');
+                    if (popover && popover.style.display === 'block') popover.textContent = getUpdateLogText();
+                } else {
+                    btn.style.display = 'none';
+                    appUpdateLog = null;
+                    const popover = document.getElementById('update-log-popover');
+                    if (popover) popover.style.display = 'none';
+                }
+            }
 
             const itemPassesFilter = item => {
                 if (filterCategories.length > 0) {
-                    const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES
-                        .includes(t));
-                    const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) ||
-                        t === 'Trinket');
+                    const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
+                    const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
                     const passesMount = filterCategories.includes('mount') && item.types.includes('Mount');
                     const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
                     const passesMounts = passesMount || passesGlider;
@@ -2417,11 +1734,9 @@
                 }
                 if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
                 if (filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
-                if (filterStats.length) {
-                    if (statMatchMode === 'all') { if (!filterStats.every(s => item.stats.includes(s))) return false; } else { if (
-                            !filterStats.some(s => item.stats.includes(s))) return false; }
-                }
+                if (filterStats.length && !filterStats.every(s => item.stats.includes(s))) return false;
                 if (searchQuery && !getItemName(item).toLowerCase().includes(searchQuery.toLowerCase())) return false;
+                if (showFavoritesOnly && !favoriteIds.has(item.id)) return false;
                 return true;
             };
 
@@ -2435,8 +1750,8 @@
                         dungeon.loot = (dungeon.loot || []).map(item => {
                             const types = Array.isArray(item.types) ? [...item.types] : [];
                             if (types.includes('Cape')) {
-                                if (!types.includes('Back')) { types[types.indexOf('Cape')] =
-                                        'Back'; } else { types.splice(types.indexOf('Cape'), 1); }
+                                if (!types.includes('Back')) types[types.indexOf('Cape')] = 'Back';
+                                else types.splice(types.indexOf('Cape'), 1);
                             }
                             return {
                                 id: item.id || generateId(),
@@ -2444,16 +1759,12 @@
                                 types: types,
                                 classes: Array.isArray(item.classes) ? [...item.classes] : [],
                                 stats: Array.isArray(item.stats) ? [...item.stats] : [],
-                                statValues: (item.statValues && typeof item.statValues === 'object') ? { ...item
-                                        .statValues } : {},
+                                statValues: (item.statValues && typeof item.statValues === 'object') ? { ...item.statValues } : {},
                                 variants: Array.isArray(item.variants) ? item.variants.map(v => ({
                                     rarity: v.rarity || 'blue',
-                                    damageMin: v.damageMin !== undefined ? v.damageMin : (v.damage ? parseInt(v
-                                        .damage.split('-')[0]) || 0 : 0),
-                                    damageMax: v.damageMax !== undefined ? v.damageMax : (v.damage ? parseInt(v
-                                        .damage.split('-')[1]) || 0 : 0),
-                                    statValues: (v.statValues && typeof v.statValues === 'object') ? { ...v
-                                        .statValues } : {}
+                                    damageMin: v.damageMin !== undefined ? v.damageMin : (v.damage ? parseInt(v.damage.split('-')[0]) || 0 : 0),
+                                    damageMax: v.damageMax !== undefined ? v.damageMax : (v.damage ? parseInt(v.damage.split('-')[1]) || 0 : 0),
+                                    statValues: (v.statValues && typeof v.statValues === 'object') ? { ...v.statValues } : {}
                                 })) : [],
                                 skill1: item.skill1 || '',
                                 skill2: item.skill2 || '',
@@ -2471,32 +1782,33 @@
                 return { zones };
             }
 
-            async function fetchData(url) { const resp = await fetch(url, { cache: 'no-cache' }); if (!resp.ok) throw new
-                    Error('Fetch failed'); return await resp.json(); }
+            async function fetchData(url) {
+                const resp = await fetch(url, { cache: 'no-cache' });
+                if (!resp.ok) throw new Error('Fetch failed');
+                return await resp.json();
+            }
 
             async function loadData() {
-    let serverData = null,
-        serverVersion = '0',
-        updateLog = '';
-    try {
-        serverData = await fetchData(DATA_URL);
-        serverVersion = serverData.version || '0';
-        updateLog = serverData.updateLog || '';
-    } catch (e) {}
-    if (!serverData) {
-        try {
-            const raw = localStorage.getItem(STORAGE_KEY);
-            if (raw) {
-                const parsed = JSON.parse(raw);
-                serverData = { zones: parsed.zones, updateLog: parsed.updateLog || '' };
-                updateLog = serverData.updateLog;
+                let serverData = null, serverVersion = '0', updateLog = '';
+                try {
+                    serverData = await fetchData(DATA_URL);
+                    serverVersion = serverData.version || '0';
+                    updateLog = serverData.updateLog || '';
+                } catch (e) {}
+                if (!serverData) {
+                    try {
+                        const raw = localStorage.getItem(STORAGE_KEY);
+                        if (raw) {
+                            const parsed = JSON.parse(raw);
+                            serverData = { zones: parsed.zones, updateLog: parsed.updateLog || '' };
+                            updateLog = serverData.updateLog;
+                        }
+                    } catch (e) {}
+                    if (!serverData || !Array.isArray(serverData.zones)) return { zones: [], version: '0', updateLog: '' };
+                    return { zones: serverData.zones, version: '0', updateLog };
+                }
+                return { zones: serverData.zones, version: serverVersion, updateLog };
             }
-        } catch (e) {}
-        if (!serverData || !Array.isArray(serverData.zones)) return { zones: [], version: '0', updateLog: '' };
-        return { zones: serverData.zones, version: '0', updateLog };
-    }
-    return { zones: serverData.zones, version: serverVersion, updateLog };
-}
 
             function saveState() {
                 const clean = {
@@ -2515,9 +1827,7 @@
                                 classes: [...l.classes],
                                 stats: [...l.stats],
                                 statValues: { ...l.statValues },
-                                variants: l.variants.map(v => ({ rarity: v.rarity,
-                                    damageMin: v.damageMin, damageMax: v.damageMax,
-                                    statValues: { ...v.statValues } })),
+                                variants: l.variants.map(v => ({ rarity: v.rarity, damageMin: v.damageMin, damageMax: v.damageMax, statValues: { ...v.statValues } })),
                                 skill1: l.skill1,
                                 skill2: l.skill2,
                                 skill3: l.skill3,
@@ -2545,8 +1855,7 @@
                         appData.zones.forEach(z => z.dungeons.forEach(d => oldDungeonMap.set(d.id, d._open)));
                         newData.zones.forEach(zone => {
                             if (oldZoneMap.has(zone.id)) zone._open = oldZoneMap.get(zone.id);
-                            zone.dungeons.forEach(d => { if (oldDungeonMap.has(d.id)) d._open = oldDungeonMap.get(d
-                                    .id); });
+                            zone.dungeons.forEach(d => { if (oldDungeonMap.has(d.id)) d._open = oldDungeonMap.get(d.id); });
                         });
                         appData.zones = newData.zones;
                         localStorage.setItem(VERSION_KEY, serverVer);
@@ -2565,26 +1874,19 @@
                 const lvStr = t('lv', 'Lv');
                 const fullStr = t('full_dungeon', 'Full Dungeon');
                 const bossStr = t('boss_only', 'Boss Only');
-                formatted = formatted.replace(new RegExp(lvStr + '(\\d+)', 'gi'), '<span class="dungeon-lv">' + lvStr +
-                    '$1</span>');
-                formatted = formatted.replace(new RegExp(fullStr, 'gi'), '<span class="dungeon-tag-full">' + fullStr +
-                    '</span>');
-                formatted = formatted.replace(new RegExp(bossStr, 'gi'), '<span class="dungeon-tag-boss">' + bossStr +
-                    '</span>');
+                formatted = formatted.replace(new RegExp(lvStr + '(\\d+)', 'gi'), '<span class="dungeon-lv">' + lvStr + '$1</span>');
+                formatted = formatted.replace(new RegExp(fullStr, 'gi'), '<span class="dungeon-tag-full">' + fullStr + '</span>');
+                formatted = formatted.replace(new RegExp(bossStr, 'gi'), '<span class="dungeon-tag-boss">' + bossStr + '</span>');
                 return formatted;
             }
 
             function buildStatTagsHtml(item, variantIndex = null) {
                 let statValues = {};
                 if (item.variants && item.variants.length > 1) {
-                    const selectedIdx = variantIndex !== null ? variantIndex : (item.variants.findIndex(v => v.rarity ===
-                        'blue') !== -1 ? item.variants.findIndex(v => v.rarity === 'blue') : 0);
+                    const selectedIdx = variantIndex !== null ? variantIndex : (item.variants.findIndex(v => v.rarity === 'blue') !== -1 ? item.variants.findIndex(v => v.rarity === 'blue') : 0);
                     statValues = item.variants[selectedIdx].statValues;
-                } else if (item.variants && item.variants.length === 1) {
-                    statValues = item.variants[0].statValues;
-                } else {
-                    statValues = item.statValues || {};
-                }
+                } else if (item.variants && item.variants.length === 1) statValues = item.variants[0].statValues;
+                else statValues = item.statValues || {};
                 const sortedStats = sortByOrder(item.stats, STAT_OPTIONS);
                 return sortedStats.map(s => {
                     const displayStat = t('stat_' + s.replace(/ /g, '_'), s);
@@ -2595,8 +1897,7 @@
 
             function buildRaritySwitcherHtml(item) {
                 if (!item.variants || item.variants.length <= 1) return '';
-                const sortedVariants = [...item.variants].sort((a, b) => { const order = { blue: 0, purple: 1,
-                        legendary: 2 }; return (order[a.rarity] || 0) - (order[b.rarity] || 0); });
+                const sortedVariants = [...item.variants].sort((a, b) => { const order = { blue: 0, purple: 1, legendary: 2 }; return (order[a.rarity] || 0) - (order[b.rarity] || 0); });
                 const defaultRarity = sortedVariants.find(v => v.rarity === 'blue') || sortedVariants[0];
                 const defaultIndex = sortedVariants.indexOf(defaultRarity);
                 let buttons = sortedVariants.map((v, idx) => {
@@ -2615,44 +1916,40 @@
                 const typeTags = sortedTypes.map(typeName =>
                     `<span class="tag type-tag type-${toSlug(typeName)}">${escapeHtml(t('type_' + typeName.replace(/[ -]/g, '_'), typeName))}</span>`
                 ).join('');
-                const classTags = sortedClasses.map(cls => `<span class="tag class-${cls}">${escapeHtml(t(cls))}</span>`)
-                    .join('');
+                const classTags = sortedClasses.map(cls => `<span class="tag class-${cls}">${escapeHtml(t(cls))}</span>`).join('');
                 const switcherHtml = buildRaritySwitcherHtml(item);
-                const defaultIndex = item.variants && item.variants.length > 1 ? (item.variants.findIndex(v => v.rarity ===
-                    'blue') !== -1 ? item.variants.findIndex(v => v.rarity === 'blue') : 0) : 0;
+                const defaultIndex = item.variants && item.variants.length > 1 ? (item.variants.findIndex(v => v.rarity === 'blue') !== -1 ? item.variants.findIndex(v => v.rarity === 'blue') : 0) : 0;
                 const statTagsHtml = buildStatTagsHtml(item, defaultIndex);
                 const imageUrlAttr = item.image ? ` data-image-url="${escapeHtml(item.image)}"` : '';
                 let detailHtml = '';
                 if ((isWeapon(item) || item.types.includes('Shield')) && hasAbilities(item)) {
                     const abils = [];
-                    if (getSkillText(item.skill1)) abils.push(
-                        `<div><strong class="${typeColorClass}">${t('skill_final_combo')}</strong> ${escapeHtml(getSkillText(item.skill1))}</div>`
-                    );
-                    if (getSkillText(item.skill2)) abils.push(
-                        `<div><strong class="${typeColorClass}">${t('skill1')}</strong> ${escapeHtml(getSkillText(item.skill2))}</div>`
-                    );
-                    if (getSkillText(item.skill3)) abils.push(
-                        `<div><strong class="${typeColorClass}">${t('skill2')}</strong> ${escapeHtml(getSkillText(item.skill3))}</div>`
-                    );
-                    if (getSkillText(item.passive)) abils.push(
-                        `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.passive))}</div>`
-                    );
+                    if (getSkillText(item.skill1)) abils.push(`<div><strong class="${typeColorClass}">${t('skill_final_combo')}</strong> ${escapeHtml(getSkillText(item.skill1))}</div>`);
+                    if (getSkillText(item.skill2)) abils.push(`<div><strong class="${typeColorClass}">${t('skill1')}</strong> ${escapeHtml(getSkillText(item.skill2))}</div>`);
+                    if (getSkillText(item.skill3)) abils.push(`<div><strong class="${typeColorClass}">${t('skill2')}</strong> ${escapeHtml(getSkillText(item.skill3))}</div>`);
+                    if (getSkillText(item.passive)) abils.push(`<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.passive))}</div>`);
                     detailHtml = abils.join('');
                 } else if (isTrinket(item) && hasTrinketPassive(item)) {
-                    detailHtml =
-                        `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
+                    detailHtml = `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
                 } else if (item.types.some(t => MOUNT_GLIDER_TYPES.includes(t)) && hasTrinketPassive(item)) {
-                    detailHtml =
-                        `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
+                    detailHtml = `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
                 }
                 const rowClass = detailHtml ? ' item-row-has-details' : '';
                 const clickHandler = detailHtml ? ` data-action="toggle-item-detail" data-item-id="${item.id}"` : '';
+                const favClass = isFavorited(item.id) ? ' favorited' : '';
+                const starHtml = `<span class="fav-star${favClass}" data-item-id="${item.id}" data-action="toggle-favorite">★</span>`;
                 return `<tr class="item-main-row${rowClass}" data-item-id="${item.id}"${clickHandler}>
-                    <td data-label="${t('item_name')}"><span class="item-name ${typeColorClass}"${imageUrlAttr}>${escapeHtml(getItemName(item))}${detailHtml ? ' <span class="detail-indicator">▶</span>' : ''}</span></td>
-                    <td data-label="${t('item_type')}"><div class="tag-container">${typeTags}</div></td>
-                    <td data-label="${t('classes')}"><div class="tag-container">${classTags}</div></td>
-                    <td data-label="${t('stats_header')}">${switcherHtml}<div class="tag-container stat-tags-container">${statTagsHtml}</div></td>
-                </tr>
+    <td data-label="${t('item_name')}">
+        <span class="item-name ${typeColorClass}"${imageUrlAttr}>
+            ${starHtml}
+            ${escapeHtml(getItemName(item))}
+            ${detailHtml ? ' <span class="detail-indicator">▶</span>' : ''}
+        </span>
+    </td>
+    <td data-label="${t('item_type')}"><div class="tag-container">${typeTags}</div></td>
+    <td data-label="${t('classes')}"><div class="tag-container">${classTags}</div></td>
+    <td data-label="${t('stats_header')}">${switcherHtml}<div class="tag-container stat-tags-container">${statTagsHtml}</div></td>
+</tr>
                 ${detailHtml ? `<tr class="item-detail-row" data-item-detail="${item.id}" style="display:none;"><td colspan="4" class="item-detail-cell"><div class="item-detail-content">${detailHtml}</div></td></tr>` : ''}`;
             }
 
@@ -2663,16 +1960,16 @@
             }
 
             function renderDungeons(zone) {
-                const visibleDungeons = zone.dungeons.map(dungeon => ({ dungeon, filtered: dungeon.loot.filter(
-                        itemPassesFilter) })).filter(({ filtered }) => filtered.length > 0);
+                const visibleDungeons = zone.dungeons.map(dungeon => ({ dungeon, filtered: dungeon.loot.filter(itemPassesFilter) })).filter(({ filtered }) => filtered.length > 0);
                 if (visibleDungeons.length === 0) return '';
                 const dList = visibleDungeons.map(({ dungeon, filtered }) => {
-                    const sortedLoot = [...filtered].sort((a, b) => { const rankA = getTypeGroupRank(getPrimaryType(
-                            a)),
-                            rankB = getTypeGroupRank(getPrimaryType(b)); if (rankA !== rankB) return rankA -
-                            rankB; const subA = getTypeSubOrder(getPrimaryType(a)), subB = getTypeSubOrder(
-                            getPrimaryType(b)); if (subA !== subB) return subA - subB; return getItemName(a)
-                            .localeCompare(getItemName(b)); });
+                    const sortedLoot = [...filtered].sort((a, b) => {
+                        const rankA = getTypeGroupRank(getPrimaryType(a)), rankB = getTypeGroupRank(getPrimaryType(b));
+                        if (rankA !== rankB) return rankA - rankB;
+                        const subA = getTypeSubOrder(getPrimaryType(a)), subB = getTypeSubOrder(getPrimaryType(b));
+                        if (subA !== subB) return subA - subB;
+                        return getItemName(a).localeCompare(getItemName(b));
+                    });
                     const openClass = dungeon._open ? ' open' : '';
                     const itemText = filtered.length === 1 ? t('badge_item_singular') : t('badge_item_plural');
                     return `<div class="dungeon-card${openClass}" data-dungeon-id="${dungeon.id}">
@@ -2691,8 +1988,7 @@
                 allItemsMap.clear();
                 appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => allItemsMap.set(item.id, item))));
                 if (appData.zones.length === 0) {
-                    container.innerHTML =
-                        `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🗺️</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.8rem;">${t('empty_no_zones_desc')}</p></div>`;
+                    container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🗺️</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.8rem;">${t('empty_no_zones_desc')}</p></div>`;
                     updateFilterBarUI();
                     return;
                 }
@@ -2701,8 +1997,7 @@
                     return { zone, total };
                 }).filter(({ total }) => total > 0);
                 if (visibleZones.length === 0) {
-                    container.innerHTML =
-                        `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🔍</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.8rem;">${t('empty_no_match_desc')}</p></div>`;
+                    container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🔍</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.8rem;">${t('empty_no_match_desc')}</p></div>`;
                     updateFilterBarUI();
                     return;
                 }
@@ -2725,56 +2020,64 @@
                 updateFilterBarUI();
             }
 
-            function updateTypeButtonCounts() {
+            function updateAllFilterCounts() {
                 const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
+                const counts = { class: {}, stat: {}, category: {}, type: {} };
+                CLASS_OPTIONS.forEach(c => counts.class[c] = 0);
+                STAT_OPTIONS.forEach(s => counts.stat[s] = 0);
+                ['weapons', 'armor', 'mount', 'glider'].forEach(cat => counts.category[cat] = 0);
+                TYPE_OPTIONS.forEach(t => counts.type[t] = 0);
+                allItems.forEach(item => {
+                    if (!itemPassesFilter(item)) return;
+                    item.classes.forEach(cls => { if (counts.class[cls] !== undefined) counts.class[cls]++; });
+                    item.stats.forEach(stat => { if (counts.stat[stat] !== undefined) counts.stat[stat]++; });
+                    if (item.types.some(t => WEAPON_TYPES.includes(t))) counts.category.weapons++;
+                    if (item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket')) counts.category.armor++;
+                    if (item.types.includes('Mount')) counts.category.mount++;
+                    if (item.types.includes('Glider')) counts.category.glider++;
+                    item.types.forEach(t => { if (counts.type[t] !== undefined) counts.type[t]++; });
+                });
+			document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
+    const cls = btn.dataset.class;
+    const span = btn.querySelector('.item-count');
+    if (span) span.textContent = `(${counts.class[cls] || 0})`;
+});
+                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
+                    const stat = btn.dataset.stat;
+                    const span = btn.querySelector('.item-count');
+                    if (span) span.textContent = `(${counts.stat[stat] || 0})`;
+                });
+                document.querySelectorAll('#category-dropdown .category-btn').forEach(btn => {
+                    const cat = btn.dataset.category;
+                    const span = btn.querySelector('.item-count');
+                    if (span) span.textContent = `(${counts.category[cat] || 0})`;
+                });
                 document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
                     const type = btn.dataset.type;
-                    const count = allItems.filter(item => {
-                        if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls)))
-                            return false;
-                        if (filterStats.length) {
-                            if (statMatchMode === 'all') { if (!filterStats.every(s => item.stats.includes(s)))
-                                    return false; } else { if (!filterStats.some(s => item.stats.includes(s)))
-                                    return false; }
-                        }
-                        if (searchQuery && !getItemName(item).toLowerCase().includes(searchQuery.toLowerCase()))
-                            return false;
-                        if (filterCategories.length > 0) {
-                            const passesWeapons = filterCategories.includes('weapons') && item.types.some(t =>
-                                WEAPON_TYPES.includes(t));
-                            const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES
-                                .includes(t) || t === 'Trinket');
-                            const passesMount = filterCategories.includes('mount') && item.types.includes('Mount');
-                            const passesGlider = filterCategories.includes('glider') && item.types.includes(
-                            'Glider');
-                            const passesMounts = passesMount || passesGlider;
-                            if (!passesWeapons && !passesArmor && !passesMounts) return false;
-                        }
-                        return item.types.includes(type);
-                    }).length;
-                    let countSpan = btn.querySelector('.item-count');
-                    if (!countSpan) { countSpan = document.createElement('span');
-                        countSpan.className = 'item-count';
-                        btn.appendChild(document.createTextNode(' '));
-                        btn.appendChild(countSpan); }
-                    countSpan.textContent = `(${count})`;
-                    btn.classList.toggle('active', filterTypes.includes(type));
+                    const span = btn.querySelector('.item-count');
+                    if (span) span.textContent = `(${counts.type[type] || 0})`;
                 });
             }
 
             function updateFilterBarUI() {
                 document.querySelectorAll('.category-btn').forEach(b => {
-                    b.classList.toggle('active', filterCategories.includes(b.dataset.category));
-                    b.textContent = t(b.dataset.category);
-                });
+				b.classList.toggle('active', filterCategories.includes(b.dataset.category));
+				const label = t(b.dataset.category);
+				const firstTextNode = b.childNodes[0];
+				if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
+					firstTextNode.textContent = label;
+				}
+			});
+                const favBtn = document.getElementById('favorites-toggle-btn');
+                favBtn.classList.toggle('active', showFavoritesOnly);
+                const clearFavBtn = document.getElementById('clear-fav-btn');
+                clearFavBtn.style.display = favoriteIds.size > 0 ? 'inline-flex' : 'none';
                 const categoryCount = document.getElementById('category-count');
                 categoryCount.textContent = filterCategories.length;
                 categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
-                updateTypeButtonCounts();
-                document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active',
-                    filterClasses.includes(b.dataset.class)));
-                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active', filterStats
-                    .includes(b.dataset.stat)));
+                updateAllFilterCounts();
+                document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active', filterClasses.includes(b.dataset.class)));
+                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active', filterStats.includes(b.dataset.stat)));
                 const classCount = document.getElementById('class-count');
                 classCount.textContent = filterClasses.length;
                 classCount.style.display = filterClasses.length ? 'inline' : 'none';
@@ -2785,11 +2088,7 @@
                 statCount.textContent = filterStats.length;
                 statCount.style.display = filterStats.length ? 'inline' : 'none';
                 const clearBtn = document.getElementById('clear-all-btn');
-                clearBtn.style.display = (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length ===
-                    0 && !searchQuery && filterCategories.length === 0) ? 'none' : 'inline-flex';
-                const toggleBtn = document.getElementById('stat-match-toggle');
-                toggleBtn.textContent = statMatchMode === 'all' ? t('match_all') : t('match_any');
-                toggleBtn.setAttribute('data-mode', statMatchMode);
+                clearBtn.style.display = (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) ? 'none' : 'inline-flex';
                 document.getElementById('clear-all-btn').textContent = t('clear_filters');
             }
 
@@ -2807,37 +2106,41 @@
                 document.getElementById('modal-cancel-btn').textContent = t('modal_cancel');
                 document.getElementById('modal-footer-text').textContent = t('modal_footer');
                 document.getElementById('scroll-to-top-btn').title = t('scroll_top_title');
-                document.getElementById('header-subtitle').innerHTML = t('header_subtitle') +
-                    ' <span class="cap-badge">' + t('cap_badge_text') + '</span>';
-                document.getElementById('image-tooltip').querySelector('.broken-placeholder').textContent = t(
-                    'image_unavailable');
+                document.getElementById('favorites-toggle-btn').textContent = t('favorites_button');
+                document.getElementById('clear-fav-btn').textContent = t('clear_favorites');
+                document.getElementById('header-subtitle').innerHTML = t('header_subtitle') + ' <span class="cap-badge">' + t('cap_badge_text') + '</span>';
+                document.getElementById('image-tooltip').querySelector('.broken-placeholder').textContent = t('image_unavailable');
                 const footerText = t('footer_text');
                 const creatorName = '<span class="creator-name">Iielyn</span>';
-                const wikiLink =
-                    '<a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>';
-                const licenseLink =
-                    '<a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>';
-                const footerHtml = footerText.replace('{creator}', creatorName).replace('{wiki_link}', wikiLink).replace(
-                    '{license_link}', licenseLink);
+                const wikiLink = '<a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>';
+                const licenseLink = '<a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>';
+                const footerHtml = footerText.replace('{creator}', creatorName).replace('{wiki_link}', wikiLink).replace('{license_link}', licenseLink);
                 document.getElementById('site-footer').innerHTML = footerHtml;
             }
 
             function updateAllFilterButtonLabels() {
                 document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
-                    const cls = btn.dataset.class;
-                    btn.textContent = t(cls);
-                });
-                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
-                    const stat = btn.dataset.stat;
-                    btn.textContent = t('stat_' + stat.replace(/ /g, '_'), stat);
-                });
+    const cls = btn.dataset.class;
+    const label = t(cls);
+    const firstTextNode = btn.childNodes[0];
+    if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
+        firstTextNode.textContent = label;
+    }
+});
+            document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
+				const stat = btn.dataset.stat;
+				const label = t('stat_' + stat.replace(/ /g, '_'), stat);
+				const firstTextNode = btn.childNodes[0];
+				if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
+					firstTextNode.textContent = label;
+				}
+			});
                 document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
                     const type = btn.dataset.type;
                     const displayType = t('type_' + type.replace(/[ -]/g, '_'), type);
                     const countSpan = btn.querySelector('.item-count');
                     if (countSpan) {
-                        btn.innerHTML = displayType + ' <span class="item-count">' + countSpan.textContent +
-                            '</span>';
+                        btn.innerHTML = displayType + ' <span class="item-count">' + countSpan.textContent + '</span>';
                     } else {
                         btn.textContent = displayType;
                     }
@@ -2845,12 +2148,9 @@
             }
 
             function toggleFilter(type, value) {
-                if (type === 'class') { const idx = filterClasses.indexOf(value);
-                    idx === -1 ? filterClasses.push(value) : filterClasses.splice(idx, 1); } else if (type === 'type') { const
-                        idx = filterTypes.indexOf(value);
-                    idx === -1 ? filterTypes.push(value) : filterTypes.splice(idx, 1); } else if (type === 'stat') { const idx =
-                        filterStats.indexOf(value);
-                    idx === -1 ? filterStats.push(value) : filterStats.splice(idx, 1); }
+                if (type === 'class') { const idx = filterClasses.indexOf(value); idx === -1 ? filterClasses.push(value) : filterClasses.splice(idx, 1); }
+                else if (type === 'type') { const idx = filterTypes.indexOf(value); idx === -1 ? filterTypes.push(value) : filterTypes.splice(idx, 1); }
+                else if (type === 'stat') { const idx = filterStats.indexOf(value); idx === -1 ? filterStats.push(value) : filterStats.splice(idx, 1); }
                 renderAll();
             }
 
@@ -2866,19 +2166,24 @@
                 filterStats = [];
                 searchQuery = '';
                 filterCategories = [];
+                showFavoritesOnly = false;
+                document.getElementById('favorites-toggle-btn').classList.remove('active');
                 document.getElementById('search-input').value = '';
                 renderAll();
                 showToast(t('toast_filters_cleared'));
             };
-            window.toggleZone = function(zoneId) { const zone = appData.zones.find(z => z.id === zoneId); if (zone) { zone
-                        ._open = !zone._open;
-                    saveState();
-                    renderAll(); } };
-            window.toggleDungeon = function(zoneId, dungeonId) { const zone = appData.zones.find(z => z.id === zoneId); if (
-                    !zone) return; const dungeon = zone.dungeons.find(d => d.id === dungeonId); if (dungeon) { dungeon._open =
-                        !dungeon._open;
-                    saveState();
-                    renderAll(); } };
+
+            window.toggleZone = function(zoneId) {
+                const zone = appData.zones.find(z => z.id === zoneId);
+                if (zone) { zone._open = !zone._open; saveState(); renderAll(); }
+            };
+
+            window.toggleDungeon = function(zoneId, dungeonId) {
+                const zone = appData.zones.find(z => z.id === zoneId);
+                if (!zone) return;
+                const dungeon = zone.dungeons.find(d => d.id === dungeonId);
+                if (dungeon) { dungeon._open = !dungeon._open; saveState(); renderAll(); }
+            };
 
             function setupItemDetailToggle() {
                 const container = document.getElementById('zones-container');
@@ -2890,12 +2195,13 @@
                     const detailRow = container.querySelector(`.item-detail-row[data-item-detail="${itemId}"]`);
                     if (!detailRow) return;
                     const isOpen = detailRow.style.display !== 'none';
-                    if (isOpen) { detailRow.style.display = 'none';
-                        mainRow.classList.remove('expanded'); } else {
-                        container.querySelectorAll('.item-detail-row[style*="display: block"]').forEach(r => { r.style
-                            .display = 'none'; const id = r.dataset.itemDetail; if (id) { const main = container
-                                .querySelector(`.item-main-row[data-item-id="${id}"]`); if (main) main.classList
-                                .remove('expanded'); } });
+                    if (isOpen) { detailRow.style.display = 'none'; mainRow.classList.remove('expanded'); }
+                    else {
+                        container.querySelectorAll('.item-detail-row[style*="display: block"]').forEach(r => {
+                            r.style.display = 'none';
+                            const id = r.dataset.itemDetail;
+                            if (id) { const main = container.querySelector(`.item-main-row[data-item-id="${id}"]`); if (main) main.classList.remove('expanded'); }
+                        });
                         detailRow.style.display = 'table-row';
                         mainRow.classList.add('expanded');
                     }
@@ -2919,7 +2225,7 @@
                     switcher.querySelectorAll('.rarity-btn').forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     const statContainer = row.querySelector('.stat-tags-container');
-                    if (statContainer) { statContainer.innerHTML = buildStatTagsHtml(item, variantIndex); }
+                    if (statContainer) statContainer.innerHTML = buildStatTagsHtml(item, variantIndex);
                 });
             }
 
@@ -2931,12 +2237,8 @@
             }
 
             const scrollBtn = document.getElementById('scroll-to-top-btn');
-            window.addEventListener('scroll', () => {
-                scrollBtn.style.display = window.scrollY > 450 ? 'block' : 'none';
-            });
-            scrollBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+            window.addEventListener('scroll', () => { scrollBtn.style.display = window.scrollY > 450 ? 'block' : 'none'; });
+            scrollBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
             function showToast(msg) {
                 const container = document.getElementById('toast-container');
@@ -2947,17 +2249,35 @@
                 setTimeout(() => el.remove(), 2200);
             }
 
+            function isFavorited(itemId) { return favoriteIds.has(itemId); }
+
+            function toggleFavorite(itemId) {
+                if (favoriteIds.has(itemId)) favoriteIds.delete(itemId);
+                else favoriteIds.add(itemId);
+                localStorage.setItem('farever_favorites_v1', JSON.stringify([...favoriteIds]));
+                renderAll();
+            }
+
+            function clearAllFavorites() {
+                favoriteIds.clear();
+                localStorage.removeItem('farever_favorites_v1');
+                if (showFavoritesOnly) {
+                    showFavoritesOnly = false;
+                    const favBtn = document.getElementById('favorites-toggle-btn');
+                    favBtn.classList.remove('active');
+                    favBtn.setAttribute('data-active', 'false');
+                }
+                renderAll();
+            }
+
             function setupSuggestionModal() {
                 const modal = document.getElementById('suggestion-modal');
                 const openBtn = document.getElementById('open-suggestion-btn');
                 const closeBtn = document.getElementById('close-suggestion-modal');
                 const cancelBtn = document.getElementById('modal-cancel-btn');
                 const form = document.getElementById('suggestion-form');
-
                 function openModal() { modal.classList.add('active'); }
-
-                function closeModal() { modal.classList.remove('active');
-                    form.reset(); }
+                function closeModal() { modal.classList.remove('active'); form.reset(); }
                 openBtn.addEventListener('click', openModal);
                 closeBtn.addEventListener('click', closeModal);
                 cancelBtn.addEventListener('click', closeModal);
@@ -2978,8 +2298,7 @@
                     formEl.innerHTML = `<input type="text" name="${ENTRY_ID}" value="${escapeHtml(message)}">`;
                     document.body.appendChild(formEl);
                     formEl.submit();
-                    setTimeout(() => { document.body.removeChild(formEl);
-                        document.body.removeChild(iframe); }, 1000);
+                    setTimeout(() => { document.body.removeChild(formEl); document.body.removeChild(iframe); }, 1000);
                     showToast(t('toast_suggestion_sent'));
                     closeModal();
                 });
@@ -2992,12 +2311,16 @@
                     btn.className = 'filter-btn class-btn';
                     btn.dataset.class = cls;
                     btn.textContent = t(cls);
+                    const countSpan = document.createElement('span');
+                    countSpan.className = 'item-count';
+                    countSpan.textContent = '(0)';
+                    btn.appendChild(document.createTextNode(' '));
+                    btn.appendChild(countSpan);
                     btn.addEventListener('click', () => toggleFilter('class', cls));
                     classContainer.appendChild(btn);
                 });
-
                 const typeContainer = document.getElementById('type-dropdown');
-                TYPE_OPTIONS.forEach(typeName => {
+                TYPE_OPTIONS.filter(t => t !== 'Mount' && t !== 'Glider').forEach(typeName => {
                     const btn = document.createElement('button');
                     btn.className = 'filter-btn type-btn';
                     btn.dataset.type = typeName;
@@ -3006,22 +2329,22 @@
                     btn.addEventListener('click', () => toggleFilter('type', typeName));
                     typeContainer.appendChild(btn);
                 });
-
                 const statContainer = document.getElementById('stat-dropdown');
                 STAT_OPTIONS.forEach(stat => {
                     const btn = document.createElement('button');
                     btn.className = 'filter-btn stat-btn';
                     btn.dataset.stat = stat;
                     btn.textContent = t('stat_' + stat.replace(/ /g, '_'), stat);
+                    const countSpan = document.createElement('span');
+                    countSpan.className = 'item-count';
+                    countSpan.textContent = '(0)';
+                    btn.appendChild(document.createTextNode(' '));
+                    btn.appendChild(countSpan);
                     btn.addEventListener('click', () => toggleFilter('stat', stat));
                     statContainer.appendChild(btn);
                 });
-
                 document.querySelectorAll('.category-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const category = btn.dataset.category;
-                        toggleCategory(category);
-                    });
+                    btn.addEventListener('click', () => toggleCategory(btn.dataset.category));
                 });
             }
 
@@ -3030,58 +2353,52 @@
                     header.addEventListener('click', (e) => {
                         const wrapper = header.closest('.filter-group-wrapper');
                         const isOpen = wrapper.classList.contains('open');
-                        document.querySelectorAll('.filter-group-wrapper').forEach(w => w.classList.remove(
-                            'open'));
+                        document.querySelectorAll('.filter-group-wrapper').forEach(w => w.classList.remove('open'));
                         if (!isOpen) wrapper.classList.add('open');
                     });
                 });
-                document.addEventListener('click', (e) => { if (!e.target.closest('.filter-group-wrapper')) { document
-                        .querySelectorAll('.filter-group-wrapper').forEach(w => w.classList.remove('open')); } });
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.filter-group-wrapper')) document.querySelectorAll('.filter-group-wrapper').forEach(w => w.classList.remove('open'));
+                });
             }
 
             function setupGlobalListeners() {
                 const searchInput = document.getElementById('search-input');
                 let debounceTimer;
-                searchInput.addEventListener('input', () => { clearTimeout(debounceTimer);
-                    debounceTimer = setTimeout(() => { searchQuery = searchInput.value.trim();
-                        renderAll(); }, 250); });
+                searchInput.addEventListener('input', () => {
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(() => { searchQuery = searchInput.value.trim(); renderAll(); }, 250);
+                });
                 document.getElementById('clear-all-btn').addEventListener('click', window.clearAllFilters);
                 document.getElementById('zones-container').addEventListener('click', (e) => {
-                    const zoneHeader = e.target.closest('[data-action="toggle-zone"]'); if (zoneHeader) { toggleZone(
-                            zoneHeader.dataset.zoneId); return; }
-                    const dungeonHeader = e.target.closest('[data-action="toggle-dungeon"]'); if (dungeonHeader) {
-                        toggleDungeon(dungeonHeader.dataset.zoneId, dungeonHeader.dataset.dungeonId); }
+                    const zoneHeader = e.target.closest('[data-action="toggle-zone"]');
+                    if (zoneHeader) { toggleZone(zoneHeader.dataset.zoneId); return; }
+                    const dungeonHeader = e.target.closest('[data-action="toggle-dungeon"]');
+                    if (dungeonHeader) { toggleDungeon(dungeonHeader.dataset.zoneId, dungeonHeader.dataset.dungeonId); return; }
+                    const starBtn = e.target.closest('[data-action="toggle-favorite"]');
+                    if (starBtn) { toggleFavorite(starBtn.dataset.itemId); return; }
                 });
-                document.getElementById('stat-match-toggle').addEventListener('click', function() { statMatchMode =
-                        statMatchMode === 'all' ? 'any' : 'all';
-                    renderAll(); });
+                const favToggleBtn = document.getElementById('favorites-toggle-btn');
+                favToggleBtn.addEventListener('click', () => {
+                    showFavoritesOnly = !showFavoritesOnly;
+                    favToggleBtn.classList.toggle('active', showFavoritesOnly);
+                    favToggleBtn.setAttribute('data-active', showFavoritesOnly);
+                    renderAll();
+                });
+                document.getElementById('clear-fav-btn').addEventListener('click', clearAllFavorites);
             }
 
             function setupImageTooltip() {
                 const tooltipEl = document.getElementById('image-tooltip');
                 const imgEl = tooltipEl.querySelector('img');
                 const placeholderEl = tooltipEl.querySelector('.broken-placeholder');
-                let activeElement = null;
-                let tooltipVisible = false;
-
-                function resetTooltipImage() { imgEl.style.display = '';
-                    placeholderEl.style.display = 'none'; }
-
-                function showTooltip(url) { resetTooltipImage();
-                    imgEl.src = url;
-                    tooltipEl.style.display = 'block';
-                    tooltipVisible = true; }
-
-                function hideTooltip() { tooltipEl.style.display = 'none';
-                    tooltipVisible = false;
-                    activeElement = null;
-                    imgEl.src = ''; }
-
+                let activeElement = null, tooltipVisible = false;
+                function resetTooltipImage() { imgEl.style.display = ''; placeholderEl.style.display = 'none'; }
+                function showTooltip(url) { resetTooltipImage(); imgEl.src = url; tooltipEl.style.display = 'block'; tooltipVisible = true; }
+                function hideTooltip() { tooltipEl.style.display = 'none'; tooltipVisible = false; activeElement = null; imgEl.src = ''; }
                 function updateTooltipPosition(e) {
-                    const offsetX = 15,
-                        offsetY = 15;
-                    let left = e.clientX + offsetX,
-                        top = e.clientY + offsetY;
+                    const offsetX = 15, offsetY = 15;
+                    let left = e.clientX + offsetX, top = e.clientY + offsetY;
                     const tooltipRect = tooltipEl.getBoundingClientRect();
                     if (left + tooltipRect.width > window.innerWidth - 10) left = e.clientX - tooltipRect.width - offsetX;
                     if (top + tooltipRect.height > window.innerHeight - 10) top = e.clientY - tooltipRect.height - offsetY;
@@ -3090,25 +2407,19 @@
                 }
                 const container = document.getElementById('zones-container');
                 container.addEventListener('mouseover', (e) => {
-                    const target = e.target.closest('[data-image-url]'); if (target && target !== activeElement) {
-                        activeElement = target; const url = target.dataset.imageUrl; if (url) { showTooltip(url);
-                            updateTooltipPosition(e); } }
+                    const target = e.target.closest('[data-image-url]');
+                    if (target && target !== activeElement) { activeElement = target; const url = target.dataset.imageUrl; if (url) { showTooltip(url); updateTooltipPosition(e); } }
                 });
-                container.addEventListener('mouseout', (e) => { if (activeElement) { const relatedTarget = e.relatedTarget &&
-                        e.relatedTarget.closest('[data-image-url]'); if (!relatedTarget || relatedTarget !==
-                        activeElement) hideTooltip(); } });
-                container.addEventListener('mousemove', (e) => { if (tooltipVisible && activeElement)
-                    updateTooltipPosition(e); });
-                document.addEventListener('mousemove', (e) => { if (tooltipVisible && activeElement && !e.target.closest(
-                        '#zones-container')) updateTooltipPosition(e); });
+                container.addEventListener('mouseout', (e) => {
+                    if (activeElement) { const relatedTarget = e.relatedTarget && e.relatedTarget.closest('[data-image-url]'); if (!relatedTarget || relatedTarget !== activeElement) hideTooltip(); }
+                });
+                container.addEventListener('mousemove', (e) => { if (tooltipVisible && activeElement) updateTooltipPosition(e); });
+                document.addEventListener('mousemove', (e) => { if (tooltipVisible && activeElement && !e.target.closest('#zones-container')) updateTooltipPosition(e); });
             }
 
             function setupLanguageSwitcher() {
                 const buttons = document.querySelectorAll('#lang-switcher .lang-btn');
-
-                function setActiveButton(lang) {
-                    buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-                }
+                function setActiveButton(lang) { buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang)); }
                 async function switchLanguage(lang) {
                     if (currentLang === lang) return;
                     currentLang = lang;
@@ -3118,9 +2429,7 @@
                     setActiveButton(lang);
                     await loadAndRender();
                 }
-                buttons.forEach(btn => {
-                    btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
-                });
+                buttons.forEach(btn => { btn.addEventListener('click', () => switchLanguage(btn.dataset.lang)); });
                 setActiveButton(currentLang);
             }
 
@@ -3130,6 +2439,7 @@
                 appData.zones = addDefaultsAndIds({ zones: appData.zones }).zones;
                 localStorage.setItem(VERSION_KEY, loaded.version || '0');
                 saveState();
+                filterTypes = filterTypes.filter(t => t !== 'Mount' && t !== 'Glider');
                 updateStaticUITexts();
                 updateAllFilterButtonLabels();
                 renderUpdateLog(loaded.updateLog || '');
@@ -3146,45 +2456,29 @@
                 setupImageTooltip();
                 setupLanguageSwitcher();
                 await loadAndRender();
-const toggleBtn = document.getElementById('update-log-toggle-btn');
-const popover = document.createElement('div');
-popover.id = 'update-log-popover';
-popover.className = 'update-log-popover';
-document.body.appendChild(popover);
-toggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (popover.style.display === 'block') {
-        popover.style.display = 'none';
-    } else {
-        popover.textContent = getUpdateLogText();
-        popover.style.display = 'block';
-        positionPopover();
-    }
-});
-document.addEventListener('click', (e) => {
-    if (!toggleBtn.contains(e.target) && !popover.contains(e.target)) {
-        popover.style.display = 'none';
-    }
-});
-
-function positionPopover() {
-    const btnRect = toggleBtn.getBoundingClientRect();
-    const popRect = popover.getBoundingClientRect();
-    let top = btnRect.bottom + 8;
-    let left = btnRect.right - popRect.width; 
-    if (left < 10) left = 10;
-    if (top + popRect.height > window.innerHeight - 10) {
-        top = btnRect.top - popRect.height - 8;
-    }
-    popover.style.top = top + 'px';
-    popover.style.left = left + 'px';
-}
-window.addEventListener('resize', () => {
-    if (popover.style.display === 'block') positionPopover();
-});
-window.addEventListener('scroll', () => {
-    if (popover.style.display === 'block') positionPopover();
-});
+                const toggleBtn = document.getElementById('update-log-toggle-btn');
+                const popover = document.createElement('div');
+                popover.id = 'update-log-popover';
+                popover.className = 'update-log-popover';
+                document.body.appendChild(popover);
+                toggleBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (popover.style.display === 'block') { popover.style.display = 'none'; }
+                    else { popover.textContent = getUpdateLogText(); popover.style.display = 'block'; positionPopover(); }
+                });
+                document.addEventListener('click', (e) => { if (!toggleBtn.contains(e.target) && !popover.contains(e.target)) popover.style.display = 'none'; });
+                function positionPopover() {
+                    const btnRect = toggleBtn.getBoundingClientRect();
+                    const popRect = popover.getBoundingClientRect();
+                    let top = btnRect.bottom + 8;
+                    let left = btnRect.right - popRect.width;
+                    if (left < 10) left = 10;
+                    if (top + popRect.height > window.innerHeight - 10) top = btnRect.top - popRect.height - 8;
+                    popover.style.top = top + 'px';
+                    popover.style.left = left + 'px';
+                }
+                window.addEventListener('resize', () => { if (popover.style.display === 'block') positionPopover(); });
+                window.addEventListener('scroll', () => { if (popover.style.display === 'block') positionPopover(); });
                 document.body.classList.remove('loading');
                 setInterval(checkForUpdate, 5 * 60 * 1000);
                 checkForUpdate();
