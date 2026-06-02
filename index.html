@@ -38,25 +38,66 @@
             --tag-border: rgba(255, 255, 255, 0.08);
             --tag-text: #8a857a;
         }
-
+		
+		html {
+			height: 100%;
+		}
+		
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--font);
-            min-height: 100vh;
-            background-image: radial-gradient(ellipse at 50% 0%, rgba(201, 164, 75, 0.04) 0%, transparent 60%), radial-gradient(ellipse at 80% 100%, rgba(91, 140, 189, 0.03) 0%, transparent 60%);
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            font-size: 0.88rem;
-        }
+html {
+    height: 100%;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;              /* definite viewport height */
+    margin: 0;
+    overflow: hidden;           /* prevent body scroll */
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(201, 164, 75, 0.04) 0%, transparent 60%),
+                      radial-gradient(ellipse at 80% 100%, rgba(91, 140, 189, 0.03) 0%, transparent 60%);
+    background-attachment: fixed;
+    font-size: 0.88rem;
+}
+
+div[style*="position: sticky"] {
+    flex-shrink: 0;           
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+div[style*="position: sticky"] {
+    flex-shrink: 0;
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    padding-bottom: 50px;
+}
+
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
         .header {
             background: var(--surface);
             border-bottom: 1px solid var(--border);
@@ -413,9 +454,6 @@
             padding-right: 0.9%;
         }
 
-        .main-content {
-            flex: 1 0 auto;
-        }
 
         .zone-card {
             background: var(--surface);
@@ -1298,11 +1336,11 @@
             <button class="filter-btn category-btn" data-category="glider">Glider <span class="item-count">(0)</span></button>
         </div>
     </div>
-    <button class="favorites-toggle" id="favorites-toggle-btn" data-active="false">⭐ Favorites</button>
     <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear Filters</button>
-    <button class="clear-fav-btn" id="clear-fav-btn" style="display:none;">🗑️ Clear Favorites</button>
-</div>
-<div class="main-content">
+	<button class="favorites-toggle" id="favorites-toggle-btn">⭐ Favorites</button>
+	<button class="clear-fav-btn" id="clear-fav-btn" style="display:none;">🗑️ Clear Favorites</button>
+	</div>
+	<div class="main-content">
         <main class="container" id="zones-container"></main>
     </div>
     <footer class="site-footer" id="site-footer">
