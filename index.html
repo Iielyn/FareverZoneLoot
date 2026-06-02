@@ -2098,37 +2098,38 @@ div[style*="position: sticky"] {
             }
 
             function updateFilterBarUI() {
-                document.querySelectorAll('.category-btn').forEach(b => {
-				b.classList.toggle('active', filterCategories.includes(b.dataset.category));
-				const label = t(b.dataset.category);
-				const firstTextNode = b.childNodes[0];
-				if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
-					firstTextNode.textContent = label;
-				}
-			});
-                const favBtn = document.getElementById('favorites-toggle-btn');
-                favBtn.classList.toggle('active', showFavoritesOnly);
-                const clearFavBtn = document.getElementById('clear-fav-btn');
-                clearFavBtn.style.display = favoriteIds.size > 0 ? 'inline-flex' : 'none';
-                const categoryCount = document.getElementById('category-count');
-                categoryCount.textContent = filterCategories.length;
-                categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
-                updateAllFilterCounts();
-                document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active', filterClasses.includes(b.dataset.class)));
-                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active', filterStats.includes(b.dataset.stat)));
-                const classCount = document.getElementById('class-count');
-                classCount.textContent = filterClasses.length;
-                classCount.style.display = filterClasses.length ? 'inline' : 'none';
-                const typeCount = document.getElementById('type-count');
-                typeCount.textContent = filterTypes.length;
-                typeCount.style.display = filterTypes.length ? 'inline' : 'none';
-                const statCount = document.getElementById('stat-count');
-                statCount.textContent = filterStats.length;
-                statCount.style.display = filterStats.length ? 'inline' : 'none';
-                const clearBtn = document.getElementById('clear-all-btn');
-                clearBtn.style.display = (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) ? 'none' : 'inline-flex';
-                document.getElementById('clear-all-btn').textContent = t('clear_filters');
-            }
+    document.querySelectorAll('.category-btn').forEach(b => {
+        b.classList.toggle('active', filterCategories.includes(b.dataset.category));
+        const label = t(b.dataset.category);
+        const firstTextNode = b.childNodes[0];
+        if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
+            firstTextNode.textContent = label;
+        }
+    });
+    const favBtn = document.getElementById('favorites-toggle-btn');
+    favBtn.classList.toggle('active', showFavoritesOnly);
+    const clearFavBtn = document.getElementById('clear-fav-btn');
+    clearFavBtn.style.display = favoriteIds.size > 0 ? 'inline-flex' : 'none';
+    const categoryCount = document.getElementById('category-count');
+    categoryCount.textContent = filterCategories.length;
+    categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
+    updateAllFilterCounts();
+    document.querySelectorAll('#type-dropdown .type-btn').forEach(b => b.classList.toggle('active', filterTypes.includes(b.dataset.type)));
+    document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active', filterClasses.includes(b.dataset.class)));
+    document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active', filterStats.includes(b.dataset.stat)));
+    const classCount = document.getElementById('class-count');
+    classCount.textContent = filterClasses.length;
+    classCount.style.display = filterClasses.length ? 'inline' : 'none';
+    const typeCount = document.getElementById('type-count');
+    typeCount.textContent = filterTypes.length;
+    typeCount.style.display = filterTypes.length ? 'inline' : 'none';
+    const statCount = document.getElementById('stat-count');
+    statCount.textContent = filterStats.length;
+    statCount.style.display = filterStats.length ? 'inline' : 'none';
+    const clearBtn = document.getElementById('clear-all-btn');
+    clearBtn.style.display = (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) ? 'none' : 'inline-flex';
+    document.getElementById('clear-all-btn').textContent = t('clear_filters');
+}
 
             function updateStaticUITexts() {
                 document.getElementById('filter-label').textContent = t('filter_label');
