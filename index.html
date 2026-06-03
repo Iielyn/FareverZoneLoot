@@ -1002,6 +1002,19 @@ body {
             box-shadow: 0 0 9px rgba(201, 164, 75, 0.18);
         }
 
+		.donate-btn {
+			color: var(--gold);
+			border-color: var(--gold-dim);
+			background: rgba(201, 164, 75, 0.08);
+			transition: all var(--transition);
+		}
+		.donate-btn:hover {
+			background: rgba(201, 164, 75, 0.2);
+			color: #fddd80;
+			border-color: var(--gold);
+			box-shadow: 0 0 12px rgba(201, 164, 75, 0.35);
+		}
+
         .modal-overlay {
             display: none;
             position: fixed;
@@ -1312,8 +1325,11 @@ body {
                     <button class="suggest-btn update-log-btn" id="update-log-toggle-btn" title="View update notes" style="display:none;">
                         📝 <span>What’s new</span>
                     </button>
+					 <a href="https://ko-fi.com/iielyn" target="_blank" rel="noopener noreferrer" class="suggest-btn donate-btn" id="support-link">
+						<span id="support-link-text"></span>
+					</a>
+					</div>
                 </div>
-            </div>
         </header>
         <div class="filter-bar" id="filter-bar">
     <span class="filter-label" id="filter-label">Filters</span>
@@ -1493,6 +1509,7 @@ body {
                     type_Mount: 'Mount',
                     type_Glider: 'Glider',
                     whats_new_button: 'What’s new',
+					support_button: '☕ Buy me a coffee'
                 },
                 fr: {
                     filter_label: 'Filtres',
@@ -1590,6 +1607,7 @@ body {
                     type_Mount: 'Monture',
                     type_Glider: 'Planeur',
                     whats_new_button: 'Quoi de neuf',
+					support_button: '☕ Offrez-moi un café'
                 },
                 es: {
                     filter_label: 'Filtros',
@@ -1687,6 +1705,7 @@ body {
                     type_Mount: 'Montura',
                     type_Glider: 'Planeador',
                     whats_new_button: 'Novedades',
+					support_button: '☕ Invítame un café'
                 }
             };
 
@@ -2181,6 +2200,7 @@ body {
                 const wikiLink = '<a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>';
                 const licenseLink = '<a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>';
                 const footerHtml = footerText.replace('{creator}', creatorName).replace('{wiki_link}', wikiLink).replace('{license_link}', licenseLink);
+				document.getElementById('support-link-text').textContent = t('support_button');
                 document.getElementById('site-footer').innerHTML = footerHtml;
             }
 
