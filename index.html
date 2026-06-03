@@ -2189,14 +2189,12 @@ if (scrollContainer) {
     if (type === 'class') { const idx = filterClasses.indexOf(value); idx === -1 ? filterClasses.push(value) : filterClasses.splice(idx, 1); }
     else if (type === 'type') { const idx = filterTypes.indexOf(value); idx === -1 ? filterTypes.push(value) : filterTypes.splice(idx, 1); }
     else if (type === 'stat') { const idx = filterStats.indexOf(value); idx === -1 ? filterStats.push(value) : filterStats.splice(idx, 1); }
-    document.querySelectorAll('.filter-group-wrapper').forEach(w => w.classList.remove('open'));
     renderAll();
 }
 
 function toggleCategory(category) {
     const idx = filterCategories.indexOf(category);
     idx === -1 ? filterCategories.push(category) : filterCategories.splice(idx, 1);
-    document.querySelectorAll('.filter-group-wrapper').forEach(w => w.classList.remove('open'));
     renderAll();
 }
 
