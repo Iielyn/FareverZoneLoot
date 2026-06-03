@@ -449,10 +449,18 @@ body {
         }
 
         .favorites-toggle.active {
-            background: rgba(201, 164, 75, 0.3);
-            border-color: var(--gold);
-            box-shadow: 0 0 9px rgba(201, 164, 75, 0.35);
-        }
+			background: rgba(201, 164, 75, 0.45);
+			border-color: var(--gold);
+			color: #ffffff;
+			box-shadow: 0 0 12px rgba(201, 164, 75, 0.55);
+		}
+
+		.favorites-toggle.active:hover {
+			background: rgba(201, 164, 75, 0.6);
+			border-color: var(--gold);
+			color: #ffffff;
+			box-shadow: 0 0 16px rgba(201, 164, 75, 0.7);
+		}
 
         .container {
             padding-left: 0.9%;
@@ -929,6 +937,12 @@ body {
             animation: slideIn 0.3s ease, fadeOut 0.3s ease 1.8s forwards;
             max-width: 320px;
         }
+		
+		.toast.red {
+    border-color: #f87171;
+    background: rgba(120, 30, 30, 0.85);
+    color: #fecaca;
+}
 
         @keyframes slideIn {
             from { opacity: 0; transform: translateX(35px); }
@@ -1358,7 +1372,7 @@ body {
             <p class="modal-footer-text" id="modal-footer-text">Your suggestion is sent privately to the creator.</p>
         </div>
     </div>
-    <button id="scroll-to-top-btn" title="Back to top" style="display:none; position:fixed; bottom:20px; right:20px; z-index:998; background:rgba(201,164,75,0.15); border:1px solid var(--gold-dim); color:var(--gold); border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:1.2rem; font-weight:bold; transition:all var(--transition); box-shadow:0 2px 11px rgba(0,0,0,0.5);">↑</button>
+    <button id="scroll-to-top-btn" title="Back to top" style="display:none; position:fixed; bottom:60px; right:20px; z-index:998; background:rgba(201,164,75,0.15); border:1px solid var(--gold-dim); color:var(--gold); border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:1.2rem; font-weight:bold; transition:all var(--transition); box-shadow:0 2px 11px rgba(0,0,0,0.5);">↑</button>
     <div class="toast-container" id="toast-container"></div>
     <div id="image-tooltip">
         <img src="" alt="Item image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
@@ -1424,6 +1438,7 @@ body {
                     modal_footer: 'Your suggestion is sent privately to the creator.',
                     toast_suggestion_sent: '✅ Suggestion sent! Thank you.',
                     toast_filters_cleared: 'All filters cleared',
+					toast_favorites_cleared: 'Favorites cleared',
                     scroll_top_title: 'Back to top',
                     footer_text: '© 2026 Farever — Created by {creator}. All rights reserved. Images and certain data sourced from the {wiki_link}, licensed under {license_link}. Game assets are property of the game\'s creators.',
                     empty_no_zones_title: 'No zones available.',
@@ -1520,6 +1535,7 @@ body {
                     modal_footer: 'Votre suggestion est envoyée en privé au créateur.',
                     toast_suggestion_sent: '✅ Suggestion envoyée ! Merci.',
                     toast_filters_cleared: 'Tous les filtres effacés',
+					toast_favorites_cleared: 'Favoris effacés',
                     scroll_top_title: 'Retour en haut',
                     footer_text: '© 2026 Farever — Créé par {creator}. Tous droits réservés. Images et données provenant du {wiki_link}, sous licence {license_link}. Les assets du jeu sont la propriété de leurs créateurs.',
                     empty_no_zones_title: 'Aucune zone disponible.',
@@ -1616,6 +1632,7 @@ body {
                     modal_footer: 'Tu sugerencia se envía en privado al creador.',
                     toast_suggestion_sent: '✅ Sugerencia enviada. ¡Gracias!',
                     toast_filters_cleared: 'Todos los filtros limpiados',
+					toast_favorites_cleared: 'Favoritos eliminados',
                     scroll_top_title: 'Volver arriba',
                     footer_text: '© 2026 Farever — Creado por {creator}. Todos los derechos reservados. Imágenes y datos del {wiki_link}, bajo licencia {license_link}. Los activos del juego son propiedad de sus creadores.',
                     empty_no_zones_title: 'No hay zonas disponibles.',
@@ -1668,7 +1685,7 @@ body {
                     type_Feet: 'Pies',
                     type_Trinket: 'Abalorio',
                     type_Mount: 'Montura',
-                    type_Planeador: 'Planeador',
+                    type_Glider: 'Planeador',
                     whats_new_button: 'Novedades',
                 }
             };
@@ -1687,7 +1704,6 @@ body {
 
             const escapeHtml = str => str ? str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;') : '';
             const toSlug = str => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-            const generateId = () => 'id_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 8);
             const sortByOrder = (arr, order) => [...arr].sort((a, b) => {
                 const ia = order.indexOf(a), ib = order.indexOf(b);
                 if (ia === -1 && ib === -1) return 0;
@@ -1771,12 +1787,19 @@ body {
                 return true;
             };
 
+			function getStableId(name) {
+			if (typeof name === 'object' && name !== null) {
+					return name.en || Object.values(name).find(v => v) || '';
+				}
+				return name || '';
+			}
+
             function addDefaultsAndIds(serverData) {
                 const zones = serverData.zones.map(zone => {
-                    zone.id = zone.id || generateId();
+                    zone.id = zone.id || toSlug(getStableId(zone.name));
                     zone._open = zone._open || false;
                     zone.dungeons = (zone.dungeons || []).map(dungeon => {
-                        dungeon.id = dungeon.id || generateId();
+                        dungeon.id = dungeon.id || (zone.id + '_' + toSlug(getStableId(dungeon.name)));
                         dungeon._open = dungeon._open || false;
                         dungeon.loot = (dungeon.loot || []).map(item => {
                             const types = Array.isArray(item.types) ? [...item.types] : [];
@@ -1785,7 +1808,7 @@ body {
                                 else types.splice(types.indexOf('Cape'), 1);
                             }
                             return {
-                                id: item.id || generateId(),
+                                id: item.id || (dungeon.id + '_' + toSlug(getStableId(item.name))),
                                 name: item.name || '',
                                 types: types,
                                 classes: Array.isArray(item.classes) ? [...item.classes] : [],
@@ -2025,11 +2048,7 @@ body {
         container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🗺️</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.8rem;">${t('empty_no_zones_desc')}</p></div>`;
         updateFilterBarUI();
         if (scrollContainer) {
-            if (scrollContainer) {
-    requestAnimationFrame(() => {
-        scrollContainer.scrollTop = scrollTop;
-    });
-}
+            requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
         }
         return;
     }
@@ -2041,11 +2060,7 @@ body {
         container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🔍</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.8rem;">${t('empty_no_match_desc')}</p></div>`;
         updateFilterBarUI();
         if (scrollContainer) {
-            if (scrollContainer) {
-    requestAnimationFrame(() => {
-        scrollContainer.scrollTop = scrollTop;
-    });
-}
+            requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
         }
         return;
     }
@@ -2067,11 +2082,7 @@ body {
     applyTableStripes();
     updateFilterBarUI();
     if (scrollContainer) {
-if (scrollContainer) {
-    requestAnimationFrame(() => {
-        scrollContainer.scrollTop = scrollTop;
-    });
-}
+        requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
     }
 }
             function updateAllFilterCounts() {
@@ -2091,11 +2102,11 @@ if (scrollContainer) {
                     if (item.types.includes('Glider')) counts.category.glider++;
                     item.types.forEach(t => { if (counts.type[t] !== undefined) counts.type[t]++; });
                 });
-			document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
-    const cls = btn.dataset.class;
-    const span = btn.querySelector('.item-count');
-    if (span) span.textContent = `(${counts.class[cls] || 0})`;
-});
+                document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
+                    const cls = btn.dataset.class;
+                    const span = btn.querySelector('.item-count');
+                    if (span) span.textContent = `(${counts.class[cls] || 0})`;
+                });
                 document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
                     const stat = btn.dataset.stat;
                     const span = btn.querySelector('.item-count');
@@ -2175,21 +2186,21 @@ if (scrollContainer) {
 
             function updateAllFilterButtonLabels() {
                 document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
-    const cls = btn.dataset.class;
-    const label = t(cls);
-    const firstTextNode = btn.childNodes[0];
-    if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
-        firstTextNode.textContent = label;
-    }
-});
-            document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
-				const stat = btn.dataset.stat;
-				const label = t('stat_' + stat.replace(/ /g, '_'), stat);
-				const firstTextNode = btn.childNodes[0];
-				if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
-					firstTextNode.textContent = label;
-				}
-			});
+                    const cls = btn.dataset.class;
+                    const label = t(cls);
+                    const firstTextNode = btn.childNodes[0];
+                    if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
+                        firstTextNode.textContent = label;
+                    }
+                });
+                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
+                    const stat = btn.dataset.stat;
+                    const label = t('stat_' + stat.replace(/ /g, '_'), stat);
+                    const firstTextNode = btn.childNodes[0];
+                    if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
+                        firstTextNode.textContent = label;
+                    }
+                });
                 document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
                     const type = btn.dataset.type;
                     const displayType = t('type_' + type.replace(/[ -]/g, '_'), type);
@@ -2225,7 +2236,7 @@ function toggleCategory(category) {
                 document.getElementById('favorites-toggle-btn').classList.remove('active');
                 document.getElementById('search-input').value = '';
                 renderAll();
-                showToast(t('toast_filters_cleared'));
+                showToast(t('toast_filters_cleared'), 'red');
             };
 
             window.toggleZone = function(zoneId) {
@@ -2292,17 +2303,24 @@ function toggleCategory(category) {
             }
 
             const scrollBtn = document.getElementById('scroll-to-top-btn');
-            window.addEventListener('scroll', () => { scrollBtn.style.display = window.scrollY > 450 ? 'block' : 'none'; });
-            scrollBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+const mainContent = document.querySelector('.main-content');
 
-            function showToast(msg) {
-                const container = document.getElementById('toast-container');
-                const el = document.createElement('div');
-                el.className = 'toast';
-                el.textContent = msg;
-                container.appendChild(el);
-                setTimeout(() => el.remove(), 2200);
-            }
+mainContent.addEventListener('scroll', () => {
+    scrollBtn.style.display = mainContent.scrollTop > 450 ? 'block' : 'none';
+});
+
+scrollBtn.addEventListener('click', () => {
+    mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+            function showToast(msg, className = '') {
+    const container = document.getElementById('toast-container');
+    const el = document.createElement('div');
+    el.className = 'toast' + (className ? ' ' + className : '');
+    el.textContent = msg;
+    container.appendChild(el);
+    setTimeout(() => el.remove(), 2200);
+}
 
             function isFavorited(itemId) { return favoriteIds.has(itemId); }
 
@@ -2322,6 +2340,7 @@ function toggleCategory(category) {
                     favBtn.classList.remove('active');
                     favBtn.setAttribute('data-active', 'false');
                 }
+                showToast(t('toast_favorites_cleared'), 'red');
                 renderAll();
             }
 
