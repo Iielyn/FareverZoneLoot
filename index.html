@@ -49,46 +49,27 @@
             box-sizing: border-box;
         }
 
-html {
+html, body {
     height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;              /* definite viewport height */
-    margin: 0;
-    overflow: hidden;           /* prevent body scroll */
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font);
-    background-image: radial-gradient(ellipse at 50% 0%, rgba(201, 164, 75, 0.04) 0%, transparent 60%),
-                      radial-gradient(ellipse at 80% 100%, rgba(91, 140, 189, 0.03) 0%, transparent 60%);
-    background-attachment: fixed;
-    font-size: 0.88rem;
-}
-
-div[style*="position: sticky"] {
-    flex-shrink: 0;           
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
     margin: 0;
     overflow: hidden;
 }
 
-div[style*="position: sticky"] {
-    flex-shrink: 0;
+body {
+    display: grid;
+    grid-template-rows: auto 1fr;  
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(201,164,75,0.04) 0%, transparent 60%),
+                      radial-gradient(ellipse at 80% 100%, rgba(91,140,189,0.03) 0%, transparent 60%);
+    font-size: 0.88rem;
 }
 
 .main-content {
-    flex: 1;
-    overflow-y: auto;
-    min-height: 0;
-    padding-bottom: 50px;
+    overflow-y: auto;         
+    min-height: 0;            
+    padding-bottom: 50px;    
 }
 
 .site-footer {
@@ -97,7 +78,14 @@ div[style*="position: sticky"] {
     left: 0;
     right: 0;
     z-index: 50;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 12px 24px;
+    text-align: center;
+    font-size: 0.65rem;
+    color: var(--text-dim);
 }
+
         .header {
             background: var(--surface);
             border-bottom: 1px solid var(--border);
@@ -902,19 +890,6 @@ div[style*="position: sticky"] {
             font-weight: 600;
         }
 
-        .site-footer {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            padding: 12px 24px;
-            text-align: center;
-            font-size: 0.65rem;
-            color: var(--text-dim);
-            letter-spacing: 0.04em;
-            margin-top: auto;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
         .toast-container {
             position: fixed;
             bottom: 20px;
@@ -1277,7 +1252,6 @@ div[style*="position: sticky"] {
     </style>
 </head>
 <body class="loading">
-    <div style="position: sticky; top: 0; z-index: 100;">
         <header class="header">
             <div class="header-brand">
                 <div class="header-icon">⚔️</div>
@@ -2484,6 +2458,7 @@ div[style*="position: sticky"] {
                 renderUpdateLog(loaded.updateLog || '');
                 renderAll();
             }
+			
 
             async function init() {
                 buildFilterButtons();
