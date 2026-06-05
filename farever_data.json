@@ -1,9 +1,9 @@
 {
-  "version": "v103",
+  "version": "v104",
   "updateLog": {
-    "en": "[Added Gauntlets of the Royal Guard image to the item, it seems to have been missed. Thank you for letting me know! 5/31]\n\n[Added a favorites button top right along with a clear favorites option + stars next to all items so you can now favorite and track items you want to get. Also removed the Match All/Any button as it felt a bit pointless to have and cluttered the filter bar. Added a number count next to all filters so you can see all items of that filter as you are filtering it. Removed Gliders & Mounts from the Type filter, as they were already in the Category filter. Swapped the Type and Category filters as that should make more sense since Category is a broad filter. Made it so all filters are now vertiacle in the dropdown so it hopefully gives a cleaner look when filters out items. 6/2]\n\nFixed the page not scrolling, which of course caused a filter bug. So apologies it took so long, it was being stubborn.  \n\n[Restored the gold up arrow bottom right to instantly take you back to the top of the page. Changed the Clear Filter/Favorites icon bottom right when clearing to red for better visibility. Changed the scroll bar on the right to gold to better match the layout of the page. Refreshing the page after adding favorites \"should\" now keep your favorites until cleared. Changed the favorites button to be more visible when it's active, so you can tell when it's on or off. 6/3]",
-    "fr": "[Ajout de l'image des Gantelets de la Garde Royale à l'objet, elle semble avoir été manquée. Merci de me l'avoir fait savoir ! 31/05]\n\n[Ajout d'un bouton Favoris en haut à droite ainsi qu'une option Favoris clairs + étoiles à côté de tous les éléments afin que vous puissiez désormais mettre en favoris et suivre les éléments que vous souhaitez obtenir. Nous avons également supprimé le bouton Match All/Any, car cela semblait un peu inutile et encombrait la barre de filtre. Ajout d'un nombre à côté de tous les filtres afin que vous puissiez voir tous les éléments de ce filtre pendant que vous le filtrez. Suppression des planeurs et des montures du filtre Type, car ils étaient déjà dans le filtre Catégorie. J'ai permuté les filtres Type et Catégorie, car cela devrait avoir plus de sens puisque la catégorie est un filtre large. Nous avons fait en sorte que tous les filtres soient désormais vertiacle dans la liste déroulante afin que cela donne, espérons-le, un aspect plus propre lors du filtrage des éléments. 6/2]\n\nCorrection de la page qui ne défilait pas, ce qui provoquait bien sûr un bug de filtre. Alors excuses, cela a pris si longtemps, c'était têtu.  \n\n[La flèche dorée vers le haut a été restaurée en bas à droite pour vous ramener instantanément en haut de la page. Modification de l'icône Effacer le filtre/Favoris en bas à droite lors de la suppression en rouge pour une meilleure visibilité. Modification de la barre de défilement à droite en or pour mieux correspondre à la mise en page de la page. L'actualisation de la page après avoir ajouté des favoris \"devrait\" désormais conserver vos favoris jusqu'à ce qu'ils soient effacés. Modification du bouton Favoris pour qu'il soit plus visible lorsqu'il est actif, afin que vous puissiez savoir quand il est activé ou désactivé. 6/3]",
-    "es": "[Se agregó la imagen de los Guanteletes de la Guardia Real al artículo, parece que se ha perdido. ¡Gracias por hacérmelo saber! 31/05]\n\n[Se agregó un botón de favoritos en la parte superior derecha junto con una opción clara de favoritos + estrellas al lado de todos los elementos para que ahora pueda marcar como favoritos y realizar un seguimiento de los elementos que desea obtener. También se eliminó el botón Coincidir todo/Cualquiera, ya que parecía un poco inútil tenerlo y abarrotaba la barra de filtros. Se agregó un recuento de números junto a todos los filtros para que pueda ver todos los elementos de ese filtro mientras lo filtra. Se eliminaron planeadores y monturas del filtro Tipo, ya que ya estaban en el filtro Categoría. Se cambiaron los filtros Tipo y Categoría, ya que eso debería tener más sentido ya que Categoría es un filtro amplio. Se hizo para que todos los filtros ahora estén en posición vertical en el menú desplegable, por lo que, con suerte, dará una apariencia más limpia cuando se filtren elementos. 6/2]\n\nSe corrigió que la página no se desplazara, lo que por supuesto causó un error de filtro. Así que disculpas, tomó tanto tiempo, fue terco.  \n\n[Se restauró la flecha dorada hacia arriba en la parte inferior derecha para llevarlo instantáneamente de regreso a la parte superior de la página. Se cambió el ícono Borrar filtro/Favoritos en la parte inferior derecha al borrarlo a rojo para una mejor visibilidad. Se cambió la barra de desplazamiento a la derecha a dorada para que coincida mejor con el diseño de la página. Actualizar la página después de agregar favoritos \"debería\" ahora mantener sus favoritos hasta que se borre. Se cambió el botón de favoritos para que sea más visible cuando está activo, para que puedas saber cuándo está activado o desactivado. 6/3]"
+    "en": "[Added Gauntlets of the Royal Guard image to the item, it seems to have been missed. Thank you for letting me know! 5/31]\n\n[Added a favorites button top right along with a clear favorites option + stars next to all items so you can now favorite and track items you want to get. Also removed the Match All/Any button as it felt a bit pointless to have and cluttered the filter bar. Added a number count next to all filters so you can see all items of that filter as you are filtering it. Removed Gliders & Mounts from the Type filter, as they were already in the Category filter. Swapped the Type and Category filters as that should make more sense since Category is a broad filter. Made it so all filters are now vertiacle in the dropdown so it hopefully gives a cleaner look when filters out items. 6/2]\n\nFixed the page not scrolling, which of course caused a filter bug. So apologies it took so long, it was being stubborn.  \n\n[Restored the gold up arrow bottom right to instantly take you back to the top of the page. Changed the Clear Filter/Favorites icon bottom right when clearing to red for better visibility. Changed the scroll bar on the right to gold to better match the layout of the page. Refreshing the page after adding favorites \"should\" now keep your favorites until cleared. Changed the favorites button to be more visible when it's active, so you can tell when it's on or off. 6/3]\n\n[Added Goldilock's Thrice Latched Jacket & Spirit of the Spelunker to Cheese Station, no idea why the only two chest pieces for there was missing, but hopefully fixed now, I appreciate it being pointed out! Feel free to let me know if there's anything else missing/wrong! Also fixed the spelling error in Wings of the Prophet. 6/4]",
+    "fr": "[Ajout de l'image des Gantelets de la Garde Royale à l'objet, elle semble avoir été manquée. Merci de me l'avoir fait savoir ! 31/05]\n\n[Ajout d'un bouton Favoris en haut à droite ainsi qu'une option Favoris clairs + étoiles à côté de tous les éléments afin que vous puissiez désormais mettre en favoris et suivre les éléments que vous souhaitez obtenir. Nous avons également supprimé le bouton Match All/Any, car cela semblait un peu inutile et encombrait la barre de filtre. Ajout d'un nombre à côté de tous les filtres afin que vous puissiez voir tous les éléments de ce filtre pendant que vous le filtrez. Suppression des planeurs et des montures du filtre Type, car ils étaient déjà dans le filtre Catégorie. J'ai permuté les filtres Type et Catégorie, car cela devrait avoir plus de sens puisque la catégorie est un filtre large. Nous avons fait en sorte que tous les filtres soient désormais vertiacle dans la liste déroulante afin que cela donne, espérons-le, un aspect plus propre lors du filtrage des éléments. 6/2]\n\nCorrection de la page qui ne défilait pas, ce qui provoquait bien sûr un bug de filtre. Alors excuses, cela a pris si longtemps, c'était têtu.  \n\n[La flèche dorée vers le haut a été restaurée en bas à droite pour vous ramener instantanément en haut de la page. Modification de l'icône Effacer le filtre/Favoris en bas à droite lors de la suppression en rouge pour une meilleure visibilité. Modification de la barre de défilement à droite en or pour mieux correspondre à la mise en page de la page. L'actualisation de la page après avoir ajouté des favoris \"devrait\" désormais conserver vos favoris jusqu'à ce qu'ils soient effacés. Modification du bouton Favoris pour qu'il soit plus visible lorsqu'il est actif, afin que vous puissiez savoir quand il est activé ou désactivé. 6/3]\n\n[Ajout de la veste trois fois verrouillée de Boucle d'or et de l'esprit du spéléologue à Cheese Station, aucune idée de la raison pour laquelle les deux seules pièces de poitrine manquaient, mais j'espère que c'est corrigé maintenant, j'apprécie que cela soit signalé ! N'hésitez pas à me faire savoir s'il manque ou s'il y a autre chose qui ne va pas ! Correction également de l'erreur d'orthographe dans Wings of the Prophet. 6/4]",
+    "es": "[Se agregó la imagen de los Guanteletes de la Guardia Real al artículo, parece que se ha perdido. ¡Gracias por hacérmelo saber! 31/05]\n\n[Se agregó un botón de favoritos en la parte superior derecha junto con una opción clara de favoritos + estrellas al lado de todos los elementos para que ahora pueda marcar como favoritos y realizar un seguimiento de los elementos que desea obtener. También se eliminó el botón Coincidir todo/Cualquiera, ya que parecía un poco inútil tenerlo y abarrotaba la barra de filtros. Se agregó un recuento de números junto a todos los filtros para que pueda ver todos los elementos de ese filtro mientras lo filtra. Se eliminaron planeadores y monturas del filtro Tipo, ya que ya estaban en el filtro Categoría. Se cambiaron los filtros Tipo y Categoría, ya que eso debería tener más sentido ya que Categoría es un filtro amplio. Se hizo para que todos los filtros ahora estén en posición vertical en el menú desplegable, por lo que, con suerte, dará una apariencia más limpia cuando se filtren elementos. 6/2]\n\nSe corrigió que la página no se desplazara, lo que por supuesto causó un error de filtro. Así que disculpas, tomó tanto tiempo, fue terco.  \n\n[Se restauró la flecha dorada hacia arriba en la parte inferior derecha para llevarlo instantáneamente de regreso a la parte superior de la página. Se cambió el ícono Borrar filtro/Favoritos en la parte inferior derecha al borrarlo a rojo para una mejor visibilidad. Se cambió la barra de desplazamiento a la derecha a dorada para que coincida mejor con el diseño de la página. Actualizar la página después de agregar favoritos \"debería\" ahora mantener sus favoritos hasta que se borre. Se cambió el botón de favoritos para que sea más visible cuando está activo, para que puedas saber cuándo está activado o desactivado. 6/3]\n\n[Se agregó la chaqueta tres veces cerrada de Ricito de Oro y el espíritu del espeleólogo a la estación de queso, no tengo idea de por qué faltaban las dos únicas piezas del cofre, pero espero que se hayan arreglado ahora, ¡aprecio que lo señalen! ¡No dudes en avisarme si falta algo o hay algún error! También se corrigió el error de ortografía en Wings of the Prophet. 6/4]"
   },
   "zones": [
     {
@@ -109,8 +109,8 @@
             {
               "name": {
                 "en": "Wings of the Prophet",
-                "fr": "Ailes Du Prophète",
-                "es": "Alas Del Profeta"
+                "fr": "Ailes du Prophète",
+                "es": "Alas del profeta"
               },
               "types": [
                 "Back"
@@ -3458,7 +3458,7 @@
             },
             {
               "name": {
-                "en": "Wings of the Phophet",
+                "en": "Wings of the Prophet",
                 "fr": "Ailes Du Phophet",
                 "es": "Alas Del Phophet"
               },
@@ -10848,9 +10848,9 @@
             },
             {
               "name": {
-                "en": "Book of Mi`Mizan",
-                "fr": "Livre De Mi`Mizan",
-                "es": "Libro De Mi`Mizan"
+                "en": "Book of Mi'Mizan",
+                "fr": "Livre De Mi'Mizan",
+                "es": "Libro De Mi'Mizan"
               },
               "types": [
                 "Spellbook"
@@ -15037,6 +15037,115 @@
                 "es": ""
               },
               "rare": false
+            },
+            {
+              "name": {
+                "en": "Goldilock's Thrice Latched Jacket",
+                "fr": "Veste Trois Fois Verrouillée De Boucle D'Or",
+                "es": "Chaqueta Tres Veces Cerrada De Ricitos De Oro"
+              },
+              "types": [
+                "Chest"
+              ],
+              "classes": [
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Faith",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "rare": false,
+              "image": "images/Rats.p.chest20.png",
+              "statValues": {
+                "Armor": 149,
+                "Vitality": 8,
+                "Faith": 7,
+                "Critical": 24
+              }
+            },
+            {
+              "name": {
+                "en": "Spirit of the Spelunker",
+                "fr": "Esprit Du Spéléologue",
+                "es": "Espíritu Del Espeleólogo"
+              },
+              "types": [
+                "Chest"
+              ],
+              "classes": [
+                "rogue",
+                "mage"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Intelligence",
+                "Armor Penetration",
+                "Magic Penetration"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "rare": false,
+              "image": "images/Kob.r.m.chest20.png",
+              "statValues": {
+                "Armor": 170,
+                "Vitality": 7,
+                "Dexterity": 4,
+                "Intelligence": 4,
+                "Armor Penetration": 12,
+                "Magic Penetration": 12
+              }
             }
           ]
         }
