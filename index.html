@@ -38,70 +38,70 @@
             --tag-border: rgba(255, 255, 255, 0.08);
             --tag-text: #8a857a;
         }
-		
-		html {
-			height: 100%;
-		}
-		
+
+        html {
+            height: 100%;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-}
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
 
-body {
-    display: grid;
-    grid-template-rows: auto 1fr;  
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font);
-    background-image: radial-gradient(ellipse at 50% 0%, rgba(201,164,75,0.04) 0%, transparent 60%),
-                      radial-gradient(ellipse at 80% 100%, rgba(91,140,189,0.03) 0%, transparent 60%);
-    font-size: 0.88rem;
-}
+        body {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            background-image: radial-gradient(ellipse at 50% 0%, rgba(201,164,75,0.04) 0%, transparent 60%),
+            radial-gradient(ellipse at 80% 100%, rgba(91,140,189,0.03) 0%, transparent 60%);
+            font-size: 0.88rem;
+        }
 
-.main-content {
-    overflow-y: auto;
-    min-height: 0;
-    padding-bottom: 50px;
-    scrollbar-color: var(--gold) var(--bg);
-    scrollbar-width: thin;
-}
+        .main-content {
+            overflow-y: auto;
+            min-height: 0;
+            padding-bottom: 50px;
+            scrollbar-color: var(--gold) var(--bg);
+            scrollbar-width: thin;
+        }
 
-.main-content::-webkit-scrollbar {
-    width: 8px;
-}
-.main-content::-webkit-scrollbar-track {
-    background: var(--bg);
-    border-radius: 8px;
-}
-.main-content::-webkit-scrollbar-thumb {
-    background-color: var(--gold);
-    border-radius: 8px;
-}
-.main-content::-webkit-scrollbar-thumb:hover {
-    background-color: var(--gold-dim);
-}
+        .main-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .main-content::-webkit-scrollbar-track {
+            background: var(--bg);
+            border-radius: 8px;
+        }
+        .main-content::-webkit-scrollbar-thumb {
+            background-color: var(--gold);
+            border-radius: 8px;
+        }
+        .main-content::-webkit-scrollbar-thumb:hover {
+            background-color: var(--gold-dim);
+        }
 
-.site-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    padding: 12px 24px;
-    text-align: center;
-    font-size: 0.65rem;
-    color: var(--text-dim);
-}
+        .site-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 0.65rem;
+            color: var(--text-dim);
+        }
 
         .header {
             background: var(--surface);
@@ -351,10 +351,9 @@ body {
             gap: 5px;
         }
 
-
-		#class-dropdown, #category-dropdown {
-			flex-direction: column;
-		}
+        #class-dropdown, #category-dropdown {
+            flex-direction: column;
+        }
 
         .filter-btn {
             padding: 4px 10px;
@@ -449,24 +448,23 @@ body {
         }
 
         .favorites-toggle.active {
-			background: rgba(201, 164, 75, 0.45);
-			border-color: var(--gold);
-			color: #ffffff;
-			box-shadow: 0 0 12px rgba(201, 164, 75, 0.55);
-		}
+            background: rgba(201, 164, 75, 0.45);
+            border-color: var(--gold);
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(201, 164, 75, 0.55);
+        }
 
-		.favorites-toggle.active:hover {
-			background: rgba(201, 164, 75, 0.6);
-			border-color: var(--gold);
-			color: #ffffff;
-			box-shadow: 0 0 16px rgba(201, 164, 75, 0.7);
-		}
+        .favorites-toggle.active:hover {
+            background: rgba(201, 164, 75, 0.6);
+            border-color: var(--gold);
+            color: #ffffff;
+            box-shadow: 0 0 16px rgba(201, 164, 75, 0.7);
+        }
 
         .container {
             padding-left: 0.9%;
             padding-right: 0.9%;
         }
-
 
         .zone-card {
             background: var(--surface);
@@ -937,12 +935,12 @@ body {
             animation: slideIn 0.3s ease, fadeOut 0.3s ease 1.8s forwards;
             max-width: 320px;
         }
-		
-		.toast.red {
-    border-color: #f87171;
-    background: rgba(120, 30, 30, 0.85);
-    color: #fecaca;
-}
+
+        .toast.red {
+            border-color: #f87171;
+            background: rgba(120, 30, 30, 0.85);
+            color: #fecaca;
+        }
 
         @keyframes slideIn {
             from { opacity: 0; transform: translateX(35px); }
@@ -1002,18 +1000,18 @@ body {
             box-shadow: 0 0 9px rgba(201, 164, 75, 0.18);
         }
 
-		.donate-btn {
-			color: var(--gold);
-			border-color: var(--gold-dim);
-			background: rgba(201, 164, 75, 0.08);
-			transition: all var(--transition);
-		}
-		.donate-btn:hover {
-			background: rgba(201, 164, 75, 0.2);
-			color: #fddd80;
-			border-color: var(--gold);
-			box-shadow: 0 0 12px rgba(201, 164, 75, 0.35);
-		}
+        .donate-btn {
+            color: var(--gold);
+            border-color: var(--gold-dim);
+            background: rgba(201, 164, 75, 0.08);
+            transition: all var(--transition);
+        }
+        .donate-btn:hover {
+            background: rgba(201, 164, 75, 0.2);
+            color: #fddd80;
+            border-color: var(--gold);
+            box-shadow: 0 0 12px rgba(201, 164, 75, 0.35);
+        }
 
         .modal-overlay {
             display: none;
@@ -1133,8 +1131,8 @@ body {
 
         #class-dropdown { min-width: 280px; flex-wrap: nowrap; }
         #stat-dropdown {
-		flex-direction: column;
-		}
+            flex-direction: column;
+        }
 
         #scroll-to-top-btn {
             background: rgba(201, 164, 75, 0.12);
@@ -1150,7 +1148,6 @@ body {
             box-shadow: 0 0 15px rgba(201, 164, 75, 0.48);
             transform: scale(1.07);
         }
-		
 
         #image-tooltip {
             position: fixed;
@@ -1247,7 +1244,7 @@ body {
             line-height: 1.5;
         }
         .update-log-popover {
-            position: fixed;        
+            position: fixed;
             z-index: 200;
             max-width: 420px;
             display: none;
@@ -1285,733 +1282,773 @@ body {
             color: var(--gold);
             text-shadow: 0 0 5px rgba(201, 164, 75, 0.5);
         }
-.fav-star.favorited {
-    color: var(--gold);
-    text-shadow: 0 0 6px rgba(201, 164, 75, 0.6);
-}
+        .fav-star.favorited {
+            color: var(--gold);
+            text-shadow: 0 0 6px rgba(201, 164, 75, 0.6);
+        }
+        #build-name-display {
+            display: none;
+            color: var(--gold);
+            font-weight: 600;
+            margin-left: 12px;
+        }
+        #exit-build-btn {
+            display: none;
+            margin-left: 12px;
+            cursor: pointer;
+        }
 
-#favorites-toggle-btn {
-    margin-left: auto;
-}
+        .filter-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
     </style>
 </head>
 <body class="loading">
-    <div class="header-and-filter">
-        <header class="header">
-            <div class="header-brand">
-                <div class="header-icon">⚔️</div>
-                <div>
-                    <h1>Farever</h1>
-                    <div class="header-subtitle" id="header-subtitle">
-                        Just a personal dungeon drop database
-                        <span class="cap-badge" id="cap-badge-text">All stats at Lv20 cap</span>
-                    </div>
+<div class="header-and-filter">
+    <header class="header">
+        <div class="header-brand">
+            <div class="header-icon">⚔️</div>
+            <div>
+                <h1>Farever</h1>
+                <div class="header-subtitle" id="header-subtitle">
+                    Just a personal dungeon drop database
+                    <span class="cap-badge" id="cap-badge-text">All stats at Lv20 cap</span>
                 </div>
+                <span id="build-name-display"></span>
+                <button id="exit-build-btn" class="filter-btn">❌ Exit Build View</button>
             </div>
-            <div class="header-right">
-                <div class="lang-switcher" id="lang-switcher">
-                    <button class="lang-btn" data-lang="en">English</button>
-                    <button class="lang-btn" data-lang="es">Español</button>
-                    <button class="lang-btn" data-lang="fr">Français</button>
-                </div>
-                <div class="header-actions">
-                    <div class="search-wrapper">
-                        <span class="search-icon">🔍</span>
-                        <input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off">
-                    </div>
-                    <button class="suggest-btn" id="open-suggestion-btn" title="Send a private suggestion">
-                        💡 <span class="suggest-text">Suggest</span>
-                    </button>
-                    <button class="suggest-btn update-log-btn" id="update-log-toggle-btn" title="View update notes" style="display:none;">
-                        📝 <span>What’s new</span>
-                    </button>
-					 <a href="https://ko-fi.com/iielyn" target="_blank" rel="noopener noreferrer" class="suggest-btn donate-btn" id="support-link">
-						<span id="support-link-text"></span>
-					</a>
-					</div>
-                </div>
-        </header>
-        <div class="filter-bar" id="filter-bar">
-    <span class="filter-label" id="filter-label">Filters</span>
-    <div class="filter-group-wrapper" id="class-wrapper">
-        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="class-label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
-        <div class="filter-dropdown" id="class-dropdown"></div>
-    </div>
-    <div class="filter-group-wrapper" id="stat-wrapper">
-        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="stats-label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
-        <div class="filter-dropdown" id="stat-dropdown"></div>
-    </div>
-    <div class="filter-group-wrapper" id="type-wrapper">
-        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="type-label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
-        <div class="filter-dropdown" id="type-dropdown"></div>
-    </div>
-    <div class="filter-group-wrapper" id="category-wrapper">
-        <div class="filter-group-header">
-            <span class="arrow">▼</span>
-            <span class="label" id="category-label">Category</span>
-            <span class="active-count" id="category-count" style="display:none">0</span>
         </div>
-        <div class="filter-dropdown" id="category-dropdown">
-            <button class="filter-btn category-btn" data-category="weapons">Weapons <span class="item-count">(0)</span></button>
-            <button class="filter-btn category-btn" data-category="armor">Armor <span class="item-count">(0)</span></button>
-            <button class="filter-btn category-btn" data-category="mount">Mount <span class="item-count">(0)</span></button>
-            <button class="filter-btn category-btn" data-category="glider">Glider <span class="item-count">(0)</span></button>
-        </div>
-    </div>
-    <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear Filters</button>
-	<button class="favorites-toggle" id="favorites-toggle-btn">⭐ Favorites</button>
-	<button class="clear-fav-btn" id="clear-fav-btn" style="display:none;">🗑️ Clear Favorites</button>
-	</div>
-    </div>
-    <div class="main-content">
-        <main class="container" id="zones-container"></main>
-    </div>
-    <footer class="site-footer" id="site-footer">
-        <span class="copyright-symbol">&copy;</span> 2026 Farever — Created by <span class="creator-name">Iielyn</span>. All rights reserved.
-        Images and certain data sourced from the <a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>,
-        licensed under <a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
-        Game assets are property of the game's creators.
-    </footer>
-    <div class="modal-overlay" id="suggestion-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modal-title">💬 Send a Suggestion</h2>
-                <button class="modal-close" id="close-suggestion-modal">×</button>
+        <div class="header-right">
+            <div class="lang-switcher" id="lang-switcher">
+                <button class="lang-btn" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="es">Español</button>
+                <button class="lang-btn" data-lang="fr">Français</button>
             </div>
-            <form class="modal-form" id="suggestion-form">
-                <textarea name="message" id="suggestion-textarea" placeholder="Type your suggestion, feedback, or missing item details..." required rows="5"></textarea>
-                <div style="display:flex; gap:9px; margin-top:10px;">
-                    <button type="submit" class="submit-btn" id="modal-submit-btn" style="flex:1;">Send Suggestion</button>
-                    <button type="button" class="cancel-btn" id="modal-cancel-btn" style="flex:1;">Cancel</button>
+            <div class="header-actions">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off">
                 </div>
-            </form>
-            <p class="modal-footer-text" id="modal-footer-text">Your suggestion is sent privately to the creator.</p>
+                <button class="suggest-btn" id="open-suggestion-btn" title="Send a private suggestion">
+                    💡 <span class="suggest-text">Suggest</span>
+                </button>
+                <button class="suggest-btn update-log-btn" id="update-log-toggle-btn" title="View update notes" style="display:none;">
+                    📝 <span>What’s new</span>
+                </button>
+                <a href="https://ko-fi.com/iielyn" target="_blank" rel="noopener noreferrer" class="suggest-btn donate-btn" id="support-link">
+                    <span id="support-link-text"></span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="filter-bar" id="filter-bar">
+        <span class="filter-label" id="filter-label">Filters</span>
+        <div class="filter-group-wrapper" id="class-wrapper">
+            <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="class-label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
+            <div class="filter-dropdown" id="class-dropdown"></div>
+        </div>
+        <div class="filter-group-wrapper" id="stat-wrapper">
+            <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="stats-label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
+            <div class="filter-dropdown" id="stat-dropdown"></div>
+        </div>
+        <div class="filter-group-wrapper" id="type-wrapper">
+            <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="type-label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
+            <div class="filter-dropdown" id="type-dropdown"></div>
+        </div>
+        <div class="filter-group-wrapper" id="category-wrapper">
+            <div class="filter-group-header">
+                <span class="arrow">▼</span>
+                <span class="label" id="category-label">Category</span>
+                <span class="active-count" id="category-count" style="display:none">0</span>
+            </div>
+            <div class="filter-dropdown" id="category-dropdown">
+                <button class="filter-btn category-btn" data-category="weapons">Weapons <span class="item-count">(0)</span></button>
+                <button class="filter-btn category-btn" data-category="armor">Armor <span class="item-count">(0)</span></button>
+                <button class="filter-btn category-btn" data-category="mount">Mount <span class="item-count">(0)</span></button>
+                <button class="filter-btn category-btn" data-category="glider">Glider <span class="item-count">(0)</span></button>
+            </div>
+        </div>
+        <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear Filters</button>
+        <div class="filter-actions">
+            <button class="suggest-btn" id="share-build-btn" title="Share current favourites as a build">
+                <span id="share-build-text">Share Build</span>
+            </button>
+            <button class="favorites-toggle" id="favorites-toggle-btn">⭐ Favorites</button>
+            <button class="clear-fav-btn" id="clear-fav-btn" style="display:none;">🗑️ Clear Favorites</button>
         </div>
     </div>
-    <button id="scroll-to-top-btn" title="Back to top" style="display:none; position:fixed; bottom:60px; right:20px; z-index:998; background:rgba(201,164,75,0.15); border:1px solid var(--gold-dim); color:var(--gold); border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:1.2rem; font-weight:bold; transition:all var(--transition); box-shadow:0 2px 11px rgba(0,0,0,0.5);">↑</button>
-    <div class="toast-container" id="toast-container"></div>
-    <div id="image-tooltip">
-        <img src="" alt="Item image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="broken-placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">🖼️ Image not available</div>
+</div>
+<div class="main-content">
+    <main class="container" id="zones-container"></main>
+</div>
+<footer class="site-footer" id="site-footer">
+    <span class="copyright-symbol">&copy;</span> 2026 Farever — Created by <span class="creator-name">Iielyn</span>. All rights reserved.
+    Images and certain data sourced from the <a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>,
+    licensed under <a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+    Game assets are property of the game's creators.
+</footer>
+<div class="modal-overlay" id="suggestion-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-title">💬 Send a Suggestion</h2>
+            <button class="modal-close" id="close-suggestion-modal">×</button>
+        </div>
+        <form class="modal-form" id="suggestion-form">
+            <textarea name="message" id="suggestion-textarea" placeholder="Type your suggestion, feedback, or missing item details..." required rows="5"></textarea>
+            <div style="display:flex; gap:9px; margin-top:10px;">
+                <button type="submit" class="submit-btn" id="modal-submit-btn" style="flex:1;">Send Suggestion</button>
+                <button type="button" class="cancel-btn" id="modal-cancel-btn" style="flex:1;">Cancel</button>
+            </div>
+        </form>
+        <p class="modal-footer-text" id="modal-footer-text">Your suggestion is sent privately to the creator.</p>
     </div>
-    <script>
-        (function() {
-            'use strict';
-            const STORAGE_KEY = 'farever_data_v11';
-            const VERSION_KEY = 'farever_data_version_v2';
-            const DATA_URL = './farever_data.json';
-            const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScAUAFWgtKAOMNfr4hipZMp9l8JMeeISnT3PBmS7sLgF-EfYg/formResponse';
-            const ENTRY_ID = 'entry.1596480602';
-            const CLASS_OPTIONS = ['warrior', 'rogue', 'mage', 'priest'];
-            const STAT_OPTIONS = ['Armor', 'Vitality', 'Strength', 'Dexterity', 'Faith', 'Intelligence', 'Critical',
-                'Armor Penetration', 'Magic Penetration', 'Fervor'];
-            const WEAPON_TYPES = ['Sword', 'Dual Sword', 'Axe', 'Dual Axes', 'Daggers', 'Mace', 'Dual Maces', 'Spear',
-                'Fists', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Scepter', 'Crescent', 'Halos', 'Spellbook', 'Shield'];
-            const ARMOR_TYPES = ['Head', 'Shoulders', 'Chest', 'Back', 'Hands', 'Waist', 'Legs', 'Feet'];
-            const TRINKET_TYPES = ['Trinket'];
-            const MOUNT_GLIDER_TYPES = ['Mount', 'Glider'];
-            const TYPE_OPTIONS = [...WEAPON_TYPES, ...ARMOR_TYPES, ...TRINKET_TYPES, ...MOUNT_GLIDER_TYPES];
+</div>
+<button id="scroll-to-top-btn" title="Back to top" style="display:none; position:fixed; bottom:60px; right:20px; z-index:998; background:rgba(201,164,75,0.15); border:1px solid var(--gold-dim); color:var(--gold); border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:1.2rem; font-weight:bold; transition:all var(--transition); box-shadow:0 2px 11px rgba(0,0,0,0.5);">↑</button>
+<div class="toast-container" id="toast-container"></div>
+<div id="image-tooltip">
+    <img src="" alt="Item image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+    <div class="broken-placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">🖼️ Image not available</div>
+</div>
+<script>
+    (function() {
+        'use strict';
+        const STORAGE_KEY = 'farever_data_v11';
+        const VERSION_KEY = 'farever_data_version_v2';
+        const DATA_URL = './farever_data.json';
+        const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScAUAFWgtKAOMNfr4hipZMp9l8JMeeISnT3PBmS7sLgF-EfYg/formResponse';
+        const ENTRY_ID = 'entry.1596480602';
+        const CLASS_OPTIONS = ['warrior', 'rogue', 'mage', 'priest'];
+        const STAT_OPTIONS = ['Armor', 'Vitality', 'Strength', 'Dexterity', 'Faith', 'Intelligence', 'Critical',
+            'Armor Penetration', 'Magic Penetration', 'Fervor'];
+        const WEAPON_TYPES = ['Sword', 'Dual Sword', 'Axe', 'Dual Axes', 'Daggers', 'Mace', 'Dual Maces', 'Spear',
+            'Fists', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Scepter', 'Crescent', 'Halos', 'Spellbook', 'Shield'];
+        const ARMOR_TYPES = ['Head', 'Shoulders', 'Chest', 'Back', 'Hands', 'Waist', 'Legs', 'Feet'];
+        const TRINKET_TYPES = ['Trinket'];
+        const MOUNT_GLIDER_TYPES = ['Mount', 'Glider'];
+        const TYPE_OPTIONS = [...WEAPON_TYPES, ...ARMOR_TYPES, ...TRINKET_TYPES, ...MOUNT_GLIDER_TYPES];
 
-            const translations = {
-                en: {
-                    filter_label: 'Filters',
-                    class_label: 'Class',
-                    stats_label: 'Stats',
-                    category_label: 'Category',
-                    type_label: 'Type',
-                    clear_filters: '✕ Clear Filters',
-                    clear_favorites: '🗑️ Clear Favorites',
-                    favorites_button: '⭐ Favorites',
-                    warrior: 'Warrior',
-                    rogue: 'Rogue',
-                    mage: 'Mage',
-                    priest: 'Priest',
-                    weapons: 'Weapons',
-                    armor: 'Armor',
-                    mount: 'Mount',
-                    glider: 'Glider',
-                    item_name: 'Item Name',
-                    item_type: 'Item Type',
-                    classes: 'Classes',
-                    stats_header: 'Stats',
-                    lv: 'Lv',
-                    full_dungeon: 'Full Dungeon',
-                    boss_only: 'Boss Only',
-                    rarity_label: 'Rarity:',
-                    blue: 'Blue',
-                    purple: 'Purple',
-                    legendary: 'Legendary',
-                    skill_final_combo: 'Final Combo Attack:',
-                    skill1: 'Skill 1:',
-                    skill2: 'Skill 2:',
-                    passive: 'Passive:',
-                    search_placeholder: 'Search items...',
-                    suggest_button: '💡 Suggest',
-                    modal_title: '💬 Send a Suggestion',
-                    modal_placeholder: 'Type your suggestion, feedback, or missing item details...',
-                    modal_cancel: 'Cancel',
-                    modal_submit: 'Send Suggestion',
-                    modal_footer: 'Your suggestion is sent privately to the creator.',
-                    toast_suggestion_sent: '✅ Suggestion sent! Thank you.',
-                    toast_filters_cleared: 'All filters cleared',
-					toast_favorites_cleared: 'Favorites cleared',
-                    scroll_top_title: 'Back to top',
-                    footer_text: '© 2026 Farever — Created by {creator}. All rights reserved. Images and certain data sourced from the {wiki_link}, licensed under {license_link}. Game assets are property of the game\'s creators.',
-                    empty_no_zones_title: 'No zones available.',
-                    empty_no_zones_desc: 'Load your JSON data to begin.',
-                    empty_no_match_title: 'No zones or dungeons match your filters.',
-                    empty_no_match_desc: 'Try adjusting the search or clearing some filters.',
-                    badge_item_singular: 'item',
-                    badge_item_plural: 'items',
-                    badge_dungeon_singular: 'dungeon',
-                    badge_dungeon_plural: 'dungeons',
-                    header_subtitle: 'Just a personal dungeon drop database',
-                    cap_badge_text: 'All stats at Lv20 cap',
-                    image_unavailable: 'Image not available',
-                    toast_data_updated: '🔄 Data updated to version ',
-                    stat_Armor: 'Armor',
-                    stat_Vitality: 'Vitality',
-                    stat_Strength: 'Strength',
-                    stat_Dexterity: 'Dexterity',
-                    stat_Faith: 'Faith',
-                    stat_Intelligence: 'Intelligence',
-                    stat_Critical: 'Critical',
-                    stat_Armor_Penetration: 'Armor Penetration',
-                    stat_Magic_Penetration: 'Magic Penetration',
-                    stat_Fervor: 'Fervor',
-                    type_Sword: 'Sword',
-                    type_Dual_Sword: 'Dual Sword',
-                    type_Axe: 'Axe',
-                    type_Dual_Axes: 'Dual Axes',
-                    type_Daggers: 'Daggers',
-                    type_Mace: 'Mace',
-                    type_Dual_Maces: 'Dual Maces',
-                    type_Spear: 'Spear',
-                    type_Fists: 'Fists',
-                    type_Two_Handed_Axe: 'Two-Handed Axe',
-                    type_Two_Handed_Mace: 'Two-Handed Mace',
-                    type_Bow: 'Bow',
-                    type_Thrown: 'Thrown',
-                    type_Scepter: 'Scepter',
-                    type_Crescent: 'Crescent',
-                    type_Halos: 'Halos',
-                    type_Spellbook: 'Spellbook',
-                    type_Shield: 'Shield',
-                    type_Head: 'Head',
-                    type_Shoulders: 'Shoulders',
-                    type_Chest: 'Chest',
-                    type_Back: 'Back',
-                    type_Hands: 'Hands',
-                    type_Waist: 'Waist',
-                    type_Legs: 'Legs',
-                    type_Feet: 'Feet',
-                    type_Trinket: 'Trinket',
-                    type_Mount: 'Mount',
-                    type_Glider: 'Glider',
-                    whats_new_button: 'What’s new',
-					support_button: '☕ Buy me a coffee'
-                },
-                fr: {
-                    filter_label: 'Filtres',
-                    class_label: 'Classe',
-                    stats_label: 'Statistiques',
-                    category_label: 'Catégorie',
-                    type_label: 'Type',
-                    clear_filters: '✕ Effacer les filtres',
-                    clear_favorites: '🗑️ Effacer les favoris',
-                    favorites_button: '⭐ Favoris',
-                    warrior: 'Guerrier',
-                    rogue: 'Voleur',
-                    mage: 'Mage',
-                    priest: 'Prêtre',
-                    weapons: 'Armes',
-                    armor: 'Armure',
-                    mount: 'Monture',
-                    glider: 'Planeur',
-                    item_name: 'Nom',
-                    item_type: 'Type',
-                    classes: 'Classes',
-                    stats_header: 'Statistiques',
-                    lv: 'Nv',
-                    full_dungeon: 'Donjon complet',
-                    boss_only: 'Boss seul',
-                    rarity_label: 'Rareté:',
-                    blue: 'Bleu',
-                    purple: 'Violet',
-                    legendary: 'Légendaire',
-                    skill_final_combo: 'Attaque combo finale:',
-                    skill1: 'Compétence 1:',
-                    skill2: 'Compétence 2:',
-                    passive: 'Passif:',
-                    search_placeholder: 'Rechercher...',
-                    suggest_button: '💡 Suggérer',
-                    modal_title: '💬 Envoyer une suggestion',
-                    modal_placeholder: 'Tapez votre suggestion, commentaire ou détail manquant...',
-                    modal_cancel: 'Annuler',
-                    modal_submit: 'Envoyer',
-                    modal_footer: 'Votre suggestion est envoyée en privé au créateur.',
-                    toast_suggestion_sent: '✅ Suggestion envoyée ! Merci.',
-                    toast_filters_cleared: 'Tous les filtres effacés',
-					toast_favorites_cleared: 'Favoris effacés',
-                    scroll_top_title: 'Retour en haut',
-                    footer_text: '© 2026 Farever — Créé par {creator}. Tous droits réservés. Images et données provenant du {wiki_link}, sous licence {license_link}. Les assets du jeu sont la propriété de leurs créateurs.',
-                    empty_no_zones_title: 'Aucune zone disponible.',
-                    empty_no_zones_desc: 'Chargez vos données JSON pour commencer.',
-                    empty_no_match_title: 'Aucune zone ou donjon ne correspond à vos filtres.',
-                    empty_no_match_desc: 'Essayez d\'ajuster la recherche ou de supprimer des filtres.',
-                    badge_item_singular: 'objet',
-                    badge_item_plural: 'objets',
-                    badge_dungeon_singular: 'donjon',
-                    badge_dungeon_plural: 'donjons',
-                    header_subtitle: 'Base de données personnelle de drops de donjons',
-                    cap_badge_text: 'Toutes les stats au cap Nv20',
-                    image_unavailable: 'Image indisponible',
-                    toast_data_updated: '🔄 Données mises à jour version ',
-                    stat_Armor: 'Armure',
-                    stat_Vitality: 'Vitalité',
-                    stat_Strength: 'Force',
-                    stat_Dexterity: 'Dextérité',
-                    stat_Faith: 'Foi',
-                    stat_Intelligence: 'Intelligence',
-                    stat_Critical: 'Critique',
-                    stat_Armor_Penetration: 'Pénétration d\'armure',
-                    stat_Magic_Penetration: 'Pénétration magique',
-                    stat_Fervor: 'Ferveur',
-                    type_Sword: 'Épée',
-                    type_Dual_Sword: 'Épée double',
-                    type_Axe: 'Hache',
-                    type_Dual_Axes: 'Haches doubles',
-                    type_Daggers: 'Dagues',
-                    type_Mace: 'Masse',
-                    type_Dual_Maces: 'Masses doubles',
-                    type_Spear: 'Lance',
-                    type_Fists: 'Poings',
-                    type_Two_Handed_Axe: 'Hache à deux mains',
-                    type_Two_Handed_Mace: 'Masse à deux mains',
-                    type_Bow: 'Arc',
-                    type_Thrown: 'Armes de jet',
-                    type_Scepter: 'Sceptre',
-                    type_Crescent: 'Croissant',
-                    type_Halos: 'Auréoles',
-                    type_Spellbook: 'Grimoire',
-                    type_Shield: 'Bouclier',
-                    type_Head: 'Tête',
-                    type_Shoulders: 'Épaules',
-                    type_Chest: 'Torse',
-                    type_Back: 'Dos',
-                    type_Hands: 'Mains',
-                    type_Waist: 'Ceinture',
-                    type_Legs: 'Jambes',
-                    type_Feet: 'Pieds',
-                    type_Trinket: 'Bijou',
-                    type_Mount: 'Monture',
-                    type_Glider: 'Planeur',
-                    whats_new_button: 'Quoi de neuf',
-					support_button: '☕ Offrez-moi un café'
-                },
-                es: {
-                    filter_label: 'Filtros',
-                    class_label: 'Clase',
-                    stats_label: 'Estadísticas',
-                    category_label: 'Categoría',
-                    type_label: 'Tipo',
-                    clear_filters: '✕ Limpiar filtros',
-                    clear_favorites: '🗑️ Limpiar favoritos',
-                    favorites_button: '⭐ Favoritos',
-                    warrior: 'Guerrero',
-                    rogue: 'Pícaro',
-                    mage: 'Mago',
-                    priest: 'Sacerdote',
-                    weapons: 'Armas',
-                    armor: 'Armadura',
-                    mount: 'Montura',
-                    glider: 'Planeador',
-                    item_name: 'Nombre',
-                    item_type: 'Tipo',
-                    classes: 'Clases',
-                    stats_header: 'Estadísticas',
-                    lv: 'Nv',
-                    full_dungeon: 'Mazmorra completa',
-                    boss_only: 'Solo jefe',
-                    rarity_label: 'Rareza:',
-                    blue: 'Azul',
-                    purple: 'Púrpura',
-                    legendary: 'Legendario',
-                    skill_final_combo: 'Ataque combo final:',
-                    skill1: 'Habilidad 1:',
-                    skill2: 'Habilidad 2:',
-                    passive: 'Pasiva:',
-                    search_placeholder: 'Buscar...',
-                    suggest_button: '💡 Sugerir',
-                    modal_title: '💬 Enviar sugerencia',
-                    modal_placeholder: 'Escribe tu sugerencia, comentario o detalle faltante...',
-                    modal_cancel: 'Cancelar',
-                    modal_submit: 'Enviar',
-                    modal_footer: 'Tu sugerencia se envía en privado al creador.',
-                    toast_suggestion_sent: '✅ Sugerencia enviada. ¡Gracias!',
-                    toast_filters_cleared: 'Todos los filtros limpiados',
-					toast_favorites_cleared: 'Favoritos eliminados',
-                    scroll_top_title: 'Volver arriba',
-                    footer_text: '© 2026 Farever — Creado por {creator}. Todos los derechos reservados. Imágenes y datos del {wiki_link}, bajo licencia {license_link}. Los activos del juego son propiedad de sus creadores.',
-                    empty_no_zones_title: 'No hay zonas disponibles.',
-                    empty_no_zones_desc: 'Carga tus datos JSON para empezar.',
-                    empty_no_match_title: 'Ninguna zona o mazmorra coincide con los filtros.',
-                    empty_no_match_desc: 'Intenta ajustar la búsqueda o limpiar filtros.',
-                    badge_item_singular: 'objeto',
-                    badge_item_plural: 'objetos',
-                    badge_dungeon_singular: 'mazmorra',
-                    badge_dungeon_plural: 'mazmorras',
-                    header_subtitle: 'Base de datos personal de drops de mazmorras',
-                    cap_badge_text: 'Todas las stats al límite Nv20',
-                    image_unavailable: 'Imagen no disponible',
-                    toast_data_updated: '🔄 Datos actualizados a versión ',
-                    stat_Armor: 'Armadura',
-                    stat_Vitality: 'Vitalidad',
-                    stat_Strength: 'Fuerza',
-                    stat_Dexterity: 'Destreza',
-                    stat_Faith: 'Fe',
-                    stat_Intelligence: 'Inteligencia',
-                    stat_Critical: 'Crítico',
-                    stat_Armor_Penetration: 'Penetración de armadura',
-                    stat_Magic_Penetration: 'Penetración mágica',
-                    stat_Fervor: 'Fervor',
-                    type_Sword: 'Espada',
-                    type_Dual_Sword: 'Espada doble',
-                    type_Axe: 'Hacha',
-                    type_Dual_Axes: 'Hachas dobles',
-                    type_Daggers: 'Dagas',
-                    type_Mace: 'Maza',
-                    type_Dual_Maces: 'Mazas dobles',
-                    type_Spear: 'Lanza',
-                    type_Fists: 'Puños',
-                    type_Two_Handed_Axe: 'Hacha a dos manos',
-                    type_Two_Handed_Mace: 'Maza a dos manos',
-                    type_Bow: 'Arco',
-                    type_Thrown: 'Arrojadizas',
-                    type_Scepter: 'Cetro',
-                    type_Crescent: 'Media luna',
-                    type_Halos: 'Halos',
-                    type_Spellbook: 'Libro de hechizos',
-                    type_Shield: 'Escudo',
-                    type_Head: 'Cabeza',
-                    type_Shoulders: 'Hombros',
-                    type_Chest: 'Pecho',
-                    type_Back: 'Espalda',
-                    type_Hands: 'Manos',
-                    type_Waist: 'Cintura',
-                    type_Legs: 'Piernas',
-                    type_Feet: 'Pies',
-                    type_Trinket: 'Abalorio',
-                    type_Mount: 'Montura',
-                    type_Glider: 'Planeador',
-                    whats_new_button: 'Novedades',
-					support_button: '☕ Invítame un café'
-                }
-            };
-
-            let appData = { zones: [] };
-            let appUpdateLog = null;
-            let filterClasses = [];
-            let filterTypes = [];
-            let filterStats = [];
-            let searchQuery = '';
-            let filterCategories = [];
-            let showFavoritesOnly = false;
-            let currentLang = localStorage.getItem('farever_lang') || 'en';
-            let favoriteIds = new Set(JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]'));
-            const allItemsMap = new Map();
-
-            const escapeHtml = str => str ? str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;') : '';
-            const toSlug = str => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-            const sortByOrder = (arr, order) => [...arr].sort((a, b) => {
-                const ia = order.indexOf(a), ib = order.indexOf(b);
-                if (ia === -1 && ib === -1) return 0;
-                if (ia === -1) return 1;
-                if (ib === -1) return -1;
-                return ia - ib;
-            });
-            const getPrimaryType = item => {
-                if (!Array.isArray(item.types) || item.types.length === 0) return '';
-                const sorted = sortByOrder(item.types, TYPE_OPTIONS);
-                return sorted[0] || '';
-            };
-            const getTypeGroupRank = type => {
-                if (WEAPON_TYPES.includes(type)) return 0;
-                if (ARMOR_TYPES.includes(type)) return 1;
-                if (TRINKET_TYPES.includes(type)) return 2;
-                if (MOUNT_GLIDER_TYPES.includes(type)) return 3;
-                return 4;
-            };
-            const getTypeSubOrder = type => {
-                if (WEAPON_TYPES.includes(type)) return WEAPON_TYPES.indexOf(type);
-                if (ARMOR_TYPES.includes(type)) return ARMOR_TYPES.indexOf(type);
-                if (TRINKET_TYPES.includes(type)) return 0;
-                if (MOUNT_GLIDER_TYPES.includes(type)) return MOUNT_GLIDER_TYPES.indexOf(type);
-                return -1;
-            };
-            const isWeapon = item => item.types.some(t => WEAPON_TYPES.includes(t));
-            const isTrinket = item => item.types.includes('Trinket');
-            const hasAbilities = item => item.skill1 || item.skill2 || item.skill3 || item.passive;
-            const hasTrinketPassive = item => item.trinketPassive && (typeof item.trinketPassive === 'string' ? item.trinketPassive.trim() !== '' : item.trinketPassive.en && item.trinketPassive.en.trim() !== '');
-            const getTypeColorClass = type => type ? 'type-color-' + toSlug(type) : '';
-
-            const t = (key, fallback) => (translations[currentLang] && translations[currentLang][key]) || fallback || key;
-
-            function getLocalizedText(value, lang) {
-                if (typeof value === 'object' && value !== null) return value[lang] || value['en'] || Object.values(value).find(v => v) || '';
-                return value || '';
+        const translations = {
+            en: {
+                filter_label: 'Filters',
+                class_label: 'Class',
+                stats_label: 'Stats',
+                category_label: 'Category',
+                type_label: 'Type',
+                clear_filters: '✕ Clear Filters',
+                clear_favorites: '🗑️ Clear Favorites',
+                favorites_button: '⭐ Favorites',
+                warrior: 'Warrior',
+                rogue: 'Rogue',
+                mage: 'Mage',
+                priest: 'Priest',
+                weapons: 'Weapons',
+                armor: 'Armor',
+                mount: 'Mount',
+                glider: 'Glider',
+                item_name: 'Item Name',
+                item_type: 'Item Type',
+                classes: 'Classes',
+                stats_header: 'Stats',
+                lv: 'Lv',
+                full_dungeon: 'Full Dungeon',
+                boss_only: 'Boss Only',
+                rarity_label: 'Rarity:',
+                blue: 'Blue',
+                purple: 'Purple',
+                legendary: 'Legendary',
+                skill_final_combo: 'Final Combo Attack:',
+                skill1: 'Skill 1:',
+                skill2: 'Skill 2:',
+                passive: 'Passive:',
+                search_placeholder: 'Search items...',
+                suggest_button: '💡 Suggest',
+                modal_title: '💬 Send a Suggestion',
+                modal_placeholder: 'Type your suggestion, feedback, or missing item details...',
+                modal_cancel: 'Cancel',
+                modal_submit: 'Send Suggestion',
+                modal_footer: 'Your suggestion is sent privately to the creator.',
+                toast_suggestion_sent: '✅ Suggestion sent! Thank you.',
+                toast_filters_cleared: 'All filters cleared',
+                toast_favorites_cleared: 'Favorites cleared',
+                scroll_top_title: 'Back to top',
+                footer_text: '© 2026 Farever — Created by {creator}. All rights reserved. Images and certain data sourced from the {wiki_link}, licensed under {license_link}. Game assets are property of the game\'s creators.',
+                empty_no_zones_title: 'No zones available.',
+                empty_no_zones_desc: 'Load your JSON data to begin.',
+                empty_no_match_title: 'No zones or dungeons match your filters.',
+                empty_no_match_desc: 'Try adjusting the search or clearing some filters.',
+                badge_item_singular: 'item',
+                badge_item_plural: 'items',
+                badge_dungeon_singular: 'dungeon',
+                badge_dungeon_plural: 'dungeons',
+                header_subtitle: 'Just a personal dungeon drop database',
+                cap_badge_text: 'All stats at Lv20 cap',
+                image_unavailable: 'Image not available',
+                toast_data_updated: '🔄 Data updated to version ',
+                stat_Armor: 'Armor',
+                stat_Vitality: 'Vitality',
+                stat_Strength: 'Strength',
+                stat_Dexterity: 'Dexterity',
+                stat_Faith: 'Faith',
+                stat_Intelligence: 'Intelligence',
+                stat_Critical: 'Critical',
+                stat_Armor_Penetration: 'Armor Penetration',
+                stat_Magic_Penetration: 'Magic Penetration',
+                stat_Fervor: 'Fervor',
+                type_Sword: 'Sword',
+                type_Dual_Sword: 'Dual Sword',
+                type_Axe: 'Axe',
+                type_Dual_Axes: 'Dual Axes',
+                type_Daggers: 'Daggers',
+                type_Mace: 'Mace',
+                type_Dual_Maces: 'Dual Maces',
+                type_Spear: 'Spear',
+                type_Fists: 'Fists',
+                type_Two_Handed_Axe: 'Two-Handed Axe',
+                type_Two_Handed_Mace: 'Two-Handed Mace',
+                type_Bow: 'Bow',
+                type_Thrown: 'Thrown',
+                type_Scepter: 'Scepter',
+                type_Crescent: 'Crescent',
+                type_Halos: 'Halos',
+                type_Spellbook: 'Spellbook',
+                type_Shield: 'Shield',
+                type_Head: 'Head',
+                type_Shoulders: 'Shoulders',
+                type_Chest: 'Chest',
+                type_Back: 'Back',
+                type_Hands: 'Hands',
+                type_Waist: 'Waist',
+                type_Legs: 'Legs',
+                type_Feet: 'Feet',
+                type_Trinket: 'Trinket',
+                type_Mount: 'Mount',
+                type_Glider: 'Glider',
+                whats_new_button: 'What’s new',
+                support_button: '☕ Buy me a coffee',
+                share_build_button: '🔗 Share Favorites',
+                exit_build_view: '❌ Exit Build View',
+                build_view_title: 'Viewing build: {name}',
+                toast_no_favorites: 'No favourites to share.',
+                toast_link_copied: 'Shareable link copied to clipboard!',
+                toast_cannot_modify_build: 'Cannot modify favourites while viewing a shared build.'
+            },
+            fr: {
+                filter_label: 'Filtres',
+                class_label: 'Classe',
+                stats_label: 'Statistiques',
+                category_label: 'Catégorie',
+                type_label: 'Type',
+                clear_filters: '✕ Effacer les filtres',
+                clear_favorites: '🗑️ Effacer les favoris',
+                favorites_button: '⭐ Favoris',
+                warrior: 'Guerrier',
+                rogue: 'Voleur',
+                mage: 'Mage',
+                priest: 'Prêtre',
+                weapons: 'Armes',
+                armor: 'Armure',
+                mount: 'Monture',
+                glider: 'Planeur',
+                item_name: 'Nom',
+                item_type: 'Type',
+                classes: 'Classes',
+                stats_header: 'Statistiques',
+                lv: 'Nv',
+                full_dungeon: 'Donjon complet',
+                boss_only: 'Boss seul',
+                rarity_label: 'Rareté:',
+                blue: 'Bleu',
+                purple: 'Violet',
+                legendary: 'Légendaire',
+                skill_final_combo: 'Attaque combo finale:',
+                skill1: 'Compétence 1:',
+                skill2: 'Compétence 2:',
+                passive: 'Passif:',
+                search_placeholder: 'Rechercher...',
+                suggest_button: '💡 Suggérer',
+                modal_title: '💬 Envoyer une suggestion',
+                modal_placeholder: 'Tapez votre suggestion, commentaire ou détail manquant...',
+                modal_cancel: 'Annuler',
+                modal_submit: 'Envoyer',
+                modal_footer: 'Votre suggestion est envoyée en privé au créateur.',
+                toast_suggestion_sent: '✅ Suggestion envoyée ! Merci.',
+                toast_filters_cleared: 'Tous les filtres effacés',
+                toast_favorites_cleared: 'Favoris effacés',
+                scroll_top_title: 'Retour en haut',
+                footer_text: '© 2026 Farever — Créé par {creator}. Tous droits réservés. Images et données provenant du {wiki_link}, sous licence {license_link}. Les assets du jeu sont la propriété de leurs créateurs.',
+                empty_no_zones_title: 'Aucune zone disponible.',
+                empty_no_zones_desc: 'Chargez vos données JSON pour commencer.',
+                empty_no_match_title: 'Aucune zone ou donjon ne correspond à vos filtres.',
+                empty_no_match_desc: 'Essayez d\'ajuster la recherche ou de supprimer des filtres.',
+                badge_item_singular: 'objet',
+                badge_item_plural: 'objets',
+                badge_dungeon_singular: 'donjon',
+                badge_dungeon_plural: 'donjons',
+                header_subtitle: 'Base de données personnelle de drops de donjons',
+                cap_badge_text: 'Toutes les stats au cap Nv20',
+                image_unavailable: 'Image indisponible',
+                toast_data_updated: '🔄 Données mises à jour version ',
+                stat_Armor: 'Armure',
+                stat_Vitality: 'Vitalité',
+                stat_Strength: 'Force',
+                stat_Dexterity: 'Dextérité',
+                stat_Faith: 'Foi',
+                stat_Intelligence: 'Intelligence',
+                stat_Critical: 'Critique',
+                stat_Armor_Penetration: 'Pénétration d\'armure',
+                stat_Magic_Penetration: 'Pénétration magique',
+                stat_Fervor: 'Ferveur',
+                type_Sword: 'Épée',
+                type_Dual_Sword: 'Épée double',
+                type_Axe: 'Hache',
+                type_Dual_Axes: 'Haches doubles',
+                type_Daggers: 'Dagues',
+                type_Mace: 'Masse',
+                type_Dual_Maces: 'Masses doubles',
+                type_Spear: 'Lance',
+                type_Fists: 'Poings',
+                type_Two_Handed_Axe: 'Hache à deux mains',
+                type_Two_Handed_Mace: 'Masse à deux mains',
+                type_Bow: 'Arc',
+                type_Thrown: 'Armes de jet',
+                type_Scepter: 'Sceptre',
+                type_Crescent: 'Croissant',
+                type_Halos: 'Auréoles',
+                type_Spellbook: 'Grimoire',
+                type_Shield: 'Bouclier',
+                type_Head: 'Tête',
+                type_Shoulders: 'Épaules',
+                type_Chest: 'Torse',
+                type_Back: 'Dos',
+                type_Hands: 'Mains',
+                type_Waist: 'Ceinture',
+                type_Legs: 'Jambes',
+                type_Feet: 'Pieds',
+                type_Trinket: 'Bijou',
+                type_Mount: 'Monture',
+                type_Glider: 'Planeur',
+                whats_new_button: 'Quoi de neuf',
+                support_button: '☕ Offrez-moi un café',
+                share_build_button: '🔗 Partager le build',
+                exit_build_view: '❌ Quitter la vue build',
+                build_view_title: 'Build affiché : {name}',
+                toast_no_favorites: 'Aucun favori à partager.',
+                toast_link_copied: 'Lien partageable copié dans le presse-papiers !',
+                toast_cannot_modify_build: 'Impossible de modifier les favoris en affichant un build partagé.'
+            },
+            es: {
+                filter_label: 'Filtros',
+                class_label: 'Clase',
+                stats_label: 'Estadísticas',
+                category_label: 'Categoría',
+                type_label: 'Tipo',
+                clear_filters: '✕ Limpiar filtros',
+                clear_favorites: '🗑️ Limpiar favoritos',
+                favorites_button: '⭐ Favoritos',
+                warrior: 'Guerrero',
+                rogue: 'Pícaro',
+                mage: 'Mago',
+                priest: 'Sacerdote',
+                weapons: 'Armas',
+                armor: 'Armadura',
+                mount: 'Montura',
+                glider: 'Planeador',
+                item_name: 'Nombre',
+                item_type: 'Tipo',
+                classes: 'Clases',
+                stats_header: 'Estadísticas',
+                lv: 'Nv',
+                full_dungeon: 'Mazmorra completa',
+                boss_only: 'Solo jefe',
+                rarity_label: 'Rareza:',
+                blue: 'Azul',
+                purple: 'Púrpura',
+                legendary: 'Legendario',
+                skill_final_combo: 'Ataque combo final:',
+                skill1: 'Habilidad 1:',
+                skill2: 'Habilidad 2:',
+                passive: 'Pasiva:',
+                search_placeholder: 'Buscar...',
+                suggest_button: '💡 Sugerir',
+                modal_title: '💬 Enviar sugerencia',
+                modal_placeholder: 'Escribe tu sugerencia, comentario o detalle faltante...',
+                modal_cancel: 'Cancelar',
+                modal_submit: 'Enviar',
+                modal_footer: 'Tu sugerencia se envía en privado al creador.',
+                toast_suggestion_sent: '✅ Sugerencia enviada. ¡Gracias!',
+                toast_filters_cleared: 'Todos los filtros limpiados',
+                toast_favorites_cleared: 'Favoritos eliminados',
+                scroll_top_title: 'Volver arriba',
+                footer_text: '© 2026 Farever — Creado por {creator}. Todos los derechos reservados. Imágenes y datos del {wiki_link}, bajo licencia {license_link}. Los activos del juego son propiedad de sus creadores.',
+                empty_no_zones_title: 'No hay zonas disponibles.',
+                empty_no_zones_desc: 'Carga tus datos JSON para empezar.',
+                empty_no_match_title: 'Ninguna zona o mazmorra coincide con los filtros.',
+                empty_no_match_desc: 'Intenta ajustar la búsqueda o limpiar filtros.',
+                badge_item_singular: 'objeto',
+                badge_item_plural: 'objetos',
+                badge_dungeon_singular: 'mazmorra',
+                badge_dungeon_plural: 'mazmorras',
+                header_subtitle: 'Base de datos personal de drops de mazmorras',
+                cap_badge_text: 'Todas las stats al límite Nv20',
+                image_unavailable: 'Imagen no disponible',
+                toast_data_updated: '🔄 Datos actualizados a versión ',
+                stat_Armor: 'Armadura',
+                stat_Vitality: 'Vitalidad',
+                stat_Strength: 'Fuerza',
+                stat_Dexterity: 'Destreza',
+                stat_Faith: 'Fe',
+                stat_Intelligence: 'Inteligencia',
+                stat_Critical: 'Crítico',
+                stat_Armor_Penetration: 'Penetración de armadura',
+                stat_Magic_Penetration: 'Penetración mágica',
+                stat_Fervor: 'Fervor',
+                type_Sword: 'Espada',
+                type_Dual_Sword: 'Espada doble',
+                type_Axe: 'Hacha',
+                type_Dual_Axes: 'Hachas dobles',
+                type_Daggers: 'Dagas',
+                type_Mace: 'Maza',
+                type_Dual_Maces: 'Mazas dobles',
+                type_Spear: 'Lanza',
+                type_Fists: 'Puños',
+                type_Two_Handed_Axe: 'Hacha a dos manos',
+                type_Two_Handed_Mace: 'Maza a dos manos',
+                type_Bow: 'Arco',
+                type_Thrown: 'Arrojadizas',
+                type_Scepter: 'Cetro',
+                type_Crescent: 'Media luna',
+                type_Halos: 'Halos',
+                type_Spellbook: 'Libro de hechizos',
+                type_Shield: 'Escudo',
+                type_Head: 'Cabeza',
+                type_Shoulders: 'Hombros',
+                type_Chest: 'Pecho',
+                type_Back: 'Espalda',
+                type_Hands: 'Manos',
+                type_Waist: 'Cintura',
+                type_Legs: 'Piernas',
+                type_Feet: 'Pies',
+                type_Trinket: 'Abalorio',
+                type_Mount: 'Montura',
+                type_Glider: 'Planeador',
+                whats_new_button: 'Novedades',
+                support_button: '☕ Invítame un café',
+                share_build_button: '🔗 Compartir build',
+                exit_build_view: '❌ Salir de la vista build',
+                build_view_title: 'Viendo build: {name}',
+                toast_no_favorites: 'No hay favoritos para compartir.',
+                toast_link_copied: '¡Enlace copiado al portapapeles!',
+                toast_cannot_modify_build: 'No se pueden modificar favoritos mientras se ve un build compartido.'
             }
+        };
 
-            function getItemName(item) { return getLocalizedText(item.name, currentLang); }
-            function getZoneName(zone) { return getLocalizedText(zone.name, currentLang); }
-            function getDungeonName(dungeon) { return getLocalizedText(dungeon.name, currentLang); }
-            function getSkillText(skill) { return getLocalizedText(skill, currentLang); }
+        let appData = { zones: [] };
+        let appUpdateLog = null;
+        let filterClasses = [];
+        let filterTypes = [];
+        let filterStats = [];
+        let searchQuery = '';
+        let filterCategories = [];
+        let showFavoritesOnly = false;
+        let currentLang = localStorage.getItem('farever_lang') || 'en';
+        let favoriteIds = new Set(JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]'));
+        let sharedBuild = null;
+        const allItemsMap = new Map();
 
-            function getUpdateLogText() {
-                if (typeof appUpdateLog === 'object' && appUpdateLog !== null) return appUpdateLog[currentLang] || appUpdateLog['en'] || '';
-                return appUpdateLog || '';
+        const escapeHtml = str => str ? str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;') : '';
+        const toSlug = str => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        const sortByOrder = (arr, order) => [...arr].sort((a, b) => {
+            const ia = order.indexOf(a), ib = order.indexOf(b);
+            if (ia === -1 && ib === -1) return 0;
+            if (ia === -1) return 1;
+            if (ib === -1) return -1;
+            return ia - ib;
+        });
+        const getPrimaryType = item => {
+            if (!Array.isArray(item.types) || item.types.length === 0) return '';
+            const sorted = sortByOrder(item.types, TYPE_OPTIONS);
+            return sorted[0] || '';
+        };
+        const getTypeGroupRank = type => {
+            if (WEAPON_TYPES.includes(type)) return 0;
+            if (ARMOR_TYPES.includes(type)) return 1;
+            if (TRINKET_TYPES.includes(type)) return 2;
+            if (MOUNT_GLIDER_TYPES.includes(type)) return 3;
+            return 4;
+        };
+        const getTypeSubOrder = type => {
+            if (WEAPON_TYPES.includes(type)) return WEAPON_TYPES.indexOf(type);
+            if (ARMOR_TYPES.includes(type)) return ARMOR_TYPES.indexOf(type);
+            if (TRINKET_TYPES.includes(type)) return 0;
+            if (MOUNT_GLIDER_TYPES.includes(type)) return MOUNT_GLIDER_TYPES.indexOf(type);
+            return -1;
+        };
+        const isWeapon = item => item.types.some(t => WEAPON_TYPES.includes(t));
+        const isTrinket = item => item.types.includes('Trinket');
+        const hasAbilities = item => item.skill1 || item.skill2 || item.skill3 || item.passive;
+        const hasTrinketPassive = item => item.trinketPassive && (typeof item.trinketPassive === 'string' ? item.trinketPassive.trim() !== '' : item.trinketPassive.en && item.trinketPassive.en.trim() !== '');
+        const getTypeColorClass = type => type ? 'type-color-' + toSlug(type) : '';
+
+        const t = (key, fallback) => (translations[currentLang] && translations[currentLang][key]) || fallback || key;
+
+        function getLocalizedText(value, lang) {
+            if (typeof value === 'object' && value !== null) return value[lang] || value['en'] || Object.values(value).find(v => v) || '';
+            return value || '';
+        }
+
+        function getItemName(item) { return getLocalizedText(item.name, currentLang); }
+        function getZoneName(zone) { return getLocalizedText(zone.name, currentLang); }
+        function getDungeonName(dungeon) { return getLocalizedText(dungeon.name, currentLang); }
+        function getSkillText(skill) { return getLocalizedText(skill, currentLang); }
+
+        function getUpdateLogText() {
+            if (typeof appUpdateLog === 'object' && appUpdateLog !== null) return appUpdateLog[currentLang] || appUpdateLog['en'] || '';
+            return appUpdateLog || '';
+        }
+
+        function renderUpdateLog(logData) {
+            const btn = document.getElementById('update-log-toggle-btn');
+            if (!btn) return;
+            appUpdateLog = logData || null;
+            if (appUpdateLog && (typeof appUpdateLog === 'string' ? appUpdateLog.trim() : true)) {
+                btn.style.display = 'flex';
+                btn.querySelector('span').textContent = t('whats_new_button');
+                const popover = document.getElementById('update-log-popover');
+                if (popover && popover.style.display === 'block') popover.textContent = getUpdateLogText();
+            } else {
+                btn.style.display = 'none';
+                appUpdateLog = null;
+                const popover = document.getElementById('update-log-popover');
+                if (popover) popover.style.display = 'none';
             }
+        }
 
-            function renderUpdateLog(logData) {
-                const btn = document.getElementById('update-log-toggle-btn');
-                if (!btn) return;
-                appUpdateLog = logData || null;
-                if (appUpdateLog && (typeof appUpdateLog === 'string' ? appUpdateLog.trim() : true)) {
-                    btn.style.display = 'flex';
-                    btn.querySelector('span').textContent = t('whats_new_button');
-                    const popover = document.getElementById('update-log-popover');
-                    if (popover && popover.style.display === 'block') popover.textContent = getUpdateLogText();
-                } else {
-                    btn.style.display = 'none';
-                    appUpdateLog = null;
-                    const popover = document.getElementById('update-log-popover');
-                    if (popover) popover.style.display = 'none';
-                }
+        const itemPassesFilter = item => {
+            if (filterCategories.length > 0) {
+                const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
+                const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
+                const passesMount = filterCategories.includes('mount') && item.types.includes('Mount');
+                const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
+                const passesMounts = passesMount || passesGlider;
+                if (!passesWeapons && !passesArmor && !passesMounts) return false;
             }
+            if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
+            if (filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
+            if (filterStats.length && !filterStats.every(s => item.stats.includes(s))) return false;
+            if (searchQuery && !getItemName(item).toLowerCase().includes(searchQuery.toLowerCase())) return false;
+            if (showFavoritesOnly && !favoriteIds.has(item.id)) return false;
+            return true;
+        };
 
-            const itemPassesFilter = item => {
-                if (filterCategories.length > 0) {
-                    const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
-                    const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
-                    const passesMount = filterCategories.includes('mount') && item.types.includes('Mount');
-                    const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
-                    const passesMounts = passesMount || passesGlider;
-                    if (!passesWeapons && !passesArmor && !passesMounts) return false;
-                }
-                if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
-                if (filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
-                if (filterStats.length && !filterStats.every(s => item.stats.includes(s))) return false;
-                if (searchQuery && !getItemName(item).toLowerCase().includes(searchQuery.toLowerCase())) return false;
-                if (showFavoritesOnly && !favoriteIds.has(item.id)) return false;
-                return true;
-            };
-
-			function getStableId(name) {
-			if (typeof name === 'object' && name !== null) {
-					return name.en || Object.values(name).find(v => v) || '';
-				}
-				return name || '';
-			}
-
-            function addDefaultsAndIds(serverData) {
-                const zones = serverData.zones.map(zone => {
-                    zone.id = zone.id || toSlug(getStableId(zone.name));
-                    zone._open = zone._open || false;
-                    zone.dungeons = (zone.dungeons || []).map(dungeon => {
-                        dungeon.id = dungeon.id || (zone.id + '_' + toSlug(getStableId(dungeon.name)));
-                        dungeon._open = dungeon._open || false;
-                        dungeon.loot = (dungeon.loot || []).map(item => {
-                            const types = Array.isArray(item.types) ? [...item.types] : [];
-                            if (types.includes('Cape')) {
-                                if (!types.includes('Back')) types[types.indexOf('Cape')] = 'Back';
-                                else types.splice(types.indexOf('Cape'), 1);
-                            }
-                            return {
-                                id: item.id || (dungeon.id + '_' + toSlug(getStableId(item.name))),
-                                name: item.name || '',
-                                types: types,
-                                classes: Array.isArray(item.classes) ? [...item.classes] : [],
-                                stats: Array.isArray(item.stats) ? [...item.stats] : [],
-                                statValues: (item.statValues && typeof item.statValues === 'object') ? { ...item.statValues } : {},
-                                variants: Array.isArray(item.variants) ? item.variants.map(v => ({
-                                    rarity: v.rarity || 'blue',
-                                    damageMin: v.damageMin !== undefined ? v.damageMin : (v.damage ? parseInt(v.damage.split('-')[0]) || 0 : 0),
-                                    damageMax: v.damageMax !== undefined ? v.damageMax : (v.damage ? parseInt(v.damage.split('-')[1]) || 0 : 0),
-                                    statValues: (v.statValues && typeof v.statValues === 'object') ? { ...v.statValues } : {}
-                                })) : [],
-                                skill1: item.skill1 || '',
-                                skill2: item.skill2 || '',
-                                skill3: item.skill3 || '',
-                                passive: item.passive || '',
-                                trinketPassive: item.trinketPassive || '',
-                                rare: item.rare === true ? true : false,
-                                image: item.image || ''
-                            };
-                        });
-                        return dungeon;
-                    });
-                    return zone;
-                });
-                return { zones };
+        function getStableId(name) {
+            if (typeof name === 'object' && name !== null) {
+                return name.en || Object.values(name).find(v => v) || '';
             }
+            return name || '';
+        }
 
-            async function fetchData(url) {
-                const resp = await fetch(url, { cache: 'no-cache' });
-                if (!resp.ok) throw new Error('Fetch failed');
-                return await resp.json();
-            }
-
-            async function loadData() {
-                let serverData = null, serverVersion = '0', updateLog = '';
-                try {
-                    serverData = await fetchData(DATA_URL);
-                    serverVersion = serverData.version || '0';
-                    updateLog = serverData.updateLog || '';
-                } catch (e) {}
-                if (!serverData) {
-                    try {
-                        const raw = localStorage.getItem(STORAGE_KEY);
-                        if (raw) {
-                            const parsed = JSON.parse(raw);
-                            serverData = { zones: parsed.zones, updateLog: parsed.updateLog || '' };
-                            updateLog = serverData.updateLog;
+        function addDefaultsAndIds(serverData) {
+            const zones = serverData.zones.map(zone => {
+                zone.id = zone.id || toSlug(getStableId(zone.name));
+                zone._open = zone._open || false;
+                zone.dungeons = (zone.dungeons || []).map(dungeon => {
+                    dungeon.id = dungeon.id || (zone.id + '_' + toSlug(getStableId(dungeon.name)));
+                    dungeon._open = dungeon._open || false;
+                    dungeon.loot = (dungeon.loot || []).map(item => {
+                        const types = Array.isArray(item.types) ? [...item.types] : [];
+                        if (types.includes('Cape')) {
+                            if (!types.includes('Back')) types[types.indexOf('Cape')] = 'Back';
+                            else types.splice(types.indexOf('Cape'), 1);
                         }
-                    } catch (e) {}
-                    if (!serverData || !Array.isArray(serverData.zones)) return { zones: [], version: '0', updateLog: '' };
-                    return { zones: serverData.zones, version: '0', updateLog };
-                }
-                return { zones: serverData.zones, version: serverVersion, updateLog };
-            }
+                        return {
+                            id: item.id || (dungeon.id + '_' + toSlug(getStableId(item.name))),
+                            name: item.name || '',
+                            types: types,
+                            classes: Array.isArray(item.classes) ? [...item.classes] : [],
+                            stats: Array.isArray(item.stats) ? [...item.stats] : [],
+                            statValues: (item.statValues && typeof item.statValues === 'object') ? { ...item.statValues } : {},
+                            variants: Array.isArray(item.variants) ? item.variants.map(v => ({
+                                rarity: v.rarity || 'blue',
+                                damageMin: v.damageMin !== undefined ? v.damageMin : (v.damage ? parseInt(v.damage.split('-')[0]) || 0 : 0),
+                                damageMax: v.damageMax !== undefined ? v.damageMax : (v.damage ? parseInt(v.damage.split('-')[1]) || 0 : 0),
+                                statValues: (v.statValues && typeof v.statValues === 'object') ? { ...v.statValues } : {}
+                            })) : [],
+                            skill1: item.skill1 || '',
+                            skill2: item.skill2 || '',
+                            skill3: item.skill3 || '',
+                            passive: item.passive || '',
+                            trinketPassive: item.trinketPassive || '',
+                            rare: item.rare === true ? true : false,
+                            image: item.image || ''
+                        };
+                    });
+                    return dungeon;
+                });
+                return zone;
+            });
+            return { zones };
+        }
 
-            function saveState() {
-                const clean = {
-                    zones: appData.zones.map(z => ({
-                        id: z.id,
-                        name: z.name,
-                        _open: z._open,
-                        dungeons: z.dungeons.map(d => ({
-                            id: d.id,
-                            name: d.name,
-                            _open: d._open,
-                            loot: d.loot.map(l => ({
-                                id: l.id,
-                                name: l.name,
-                                types: [...l.types],
-                                classes: [...l.classes],
-                                stats: [...l.stats],
-                                statValues: { ...l.statValues },
-                                variants: l.variants.map(v => ({ rarity: v.rarity, damageMin: v.damageMin, damageMax: v.damageMax, statValues: { ...v.statValues } })),
-                                skill1: l.skill1,
-                                skill2: l.skill2,
-                                skill3: l.skill3,
-                                passive: l.passive,
-                                trinketPassive: l.trinketPassive,
-                                rare: l.rare === true,
-                                image: l.image || ''
-                            }))
+        async function fetchData(url) {
+            const resp = await fetch(url, { cache: 'no-cache' });
+            if (!resp.ok) throw new Error('Fetch failed');
+            return await resp.json();
+        }
+
+        async function loadData() {
+            let serverData = null, serverVersion = '0', updateLog = '';
+            try {
+                serverData = await fetchData(DATA_URL);
+                serverVersion = serverData.version || '0';
+                updateLog = serverData.updateLog || '';
+            } catch (e) {}
+            if (!serverData) {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        serverData = { zones: parsed.zones, updateLog: parsed.updateLog || '' };
+                        updateLog = serverData.updateLog;
+                    }
+                } catch (e) {}
+                if (!serverData || !Array.isArray(serverData.zones)) return { zones: [], version: '0', updateLog: '' };
+                return { zones: serverData.zones, version: '0', updateLog };
+            }
+            return { zones: serverData.zones, version: serverVersion, updateLog };
+        }
+
+        function saveState() {
+            const clean = {
+                zones: appData.zones.map(z => ({
+                    id: z.id,
+                    name: z.name,
+                    _open: z._open,
+                    dungeons: z.dungeons.map(d => ({
+                        id: d.id,
+                        name: d.name,
+                        _open: d._open,
+                        loot: d.loot.map(l => ({
+                            id: l.id,
+                            name: l.name,
+                            types: [...l.types],
+                            classes: [...l.classes],
+                            stats: [...l.stats],
+                            statValues: { ...l.statValues },
+                            variants: l.variants.map(v => ({ rarity: v.rarity, damageMin: v.damageMin, damageMax: v.damageMax, statValues: { ...v.statValues } })),
+                            skill1: l.skill1,
+                            skill2: l.skill2,
+                            skill3: l.skill3,
+                            passive: l.passive,
+                            trinketPassive: l.trinketPassive,
+                            rare: l.rare === true,
+                            image: l.image || ''
                         }))
                     }))
-                };
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(clean));
-            }
+                }))
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(clean));
+        }
 
-            async function checkForUpdate() {
-                try {
-                    const serverData = await fetchData(DATA_URL);
-                    const serverVer = serverData.version || '0';
-                    const serverUpdateLog = serverData.updateLog || '';
-                    const localVer = localStorage.getItem(VERSION_KEY) || '0';
-                    if (serverVer > localVer && Array.isArray(serverData.zones)) {
-                        const newData = addDefaultsAndIds(serverData);
-                        const oldZoneMap = new Map(appData.zones.map(z => [z.id, z._open]));
-                        const oldDungeonMap = new Map();
-                        appData.zones.forEach(z => z.dungeons.forEach(d => oldDungeonMap.set(d.id, d._open)));
-                        newData.zones.forEach(zone => {
-                            if (oldZoneMap.has(zone.id)) zone._open = oldZoneMap.get(zone.id);
-                            zone.dungeons.forEach(d => { if (oldDungeonMap.has(d.id)) d._open = oldDungeonMap.get(d.id); });
-                        });
-                        appData.zones = newData.zones;
-                        localStorage.setItem(VERSION_KEY, serverVer);
-                        saveState();
-                        renderUpdateLog(serverUpdateLog);
-                        renderAll();
-                        showToast(t('toast_data_updated') + serverVer);
-                    }
-                } catch (e) { console.warn('Update check failed:', e); }
-            }
-
-            function renderDungeonName(name) {
-                if (!name) return '';
-                const displayName = getDungeonName({ name });
-                let formatted = escapeHtml(displayName);
-                const lvStr = t('lv', 'Lv');
-                const fullStr = t('full_dungeon', 'Full Dungeon');
-                const bossStr = t('boss_only', 'Boss Only');
-                formatted = formatted.replace(new RegExp(lvStr + '(\\d+)', 'gi'), '<span class="dungeon-lv">' + lvStr + '$1</span>');
-                formatted = formatted.replace(new RegExp(fullStr, 'gi'), '<span class="dungeon-tag-full">' + fullStr + '</span>');
-                formatted = formatted.replace(new RegExp(bossStr, 'gi'), '<span class="dungeon-tag-boss">' + bossStr + '</span>');
-                return formatted;
-            }
-
-            function buildStatTagsHtml(item, variantIndex = null) {
-                let statValues = {};
-                if (item.variants && item.variants.length > 1) {
-                    const selectedIdx = variantIndex !== null ? variantIndex : (item.variants.findIndex(v => v.rarity === 'blue') !== -1 ? item.variants.findIndex(v => v.rarity === 'blue') : 0);
-                    statValues = item.variants[selectedIdx].statValues;
-                } else if (item.variants && item.variants.length === 1) statValues = item.variants[0].statValues;
-                else statValues = item.statValues || {};
-                const sortedStats = sortByOrder(item.stats, STAT_OPTIONS);
-                return sortedStats.map(s => {
-                    const displayStat = t('stat_' + s.replace(/ /g, '_'), s);
-                    const val = statValues[s] ? ` <span class="stat-value">${statValues[s]}</span>` : '';
-                    return `<span class="tag stat-tag stat-${toSlug(s)}">${escapeHtml(displayStat)}${val}</span>`;
-                }).join('');
-            }
-
-            function buildRaritySwitcherHtml(item) {
-                if (!item.variants || item.variants.length <= 1) return '';
-                const sortedVariants = [...item.variants].sort((a, b) => { const order = { blue: 0, purple: 1, legendary: 2 }; return (order[a.rarity] || 0) - (order[b.rarity] || 0); });
-                const defaultRarity = sortedVariants.find(v => v.rarity === 'blue') || sortedVariants[0];
-                const defaultIndex = sortedVariants.indexOf(defaultRarity);
-                let buttons = sortedVariants.map((v, idx) => {
-                    const label = t(v.rarity);
-                    const activeClass = idx === defaultIndex ? ' active' : '';
-                    return `<button class="rarity-btn${activeClass}" data-rarity="${v.rarity}" data-rarity-index="${idx}">${label}</button>`;
-                }).join('');
-                return `<div class="rarity-switcher" data-default-index="${defaultIndex}"><span class="rarity-label">${t('rarity_label')}</span>${buttons}</div>`;
-            }
-
-            function renderItemRow(item, index) {
-                const primaryType = getPrimaryType(item);
-                const typeColorClass = getTypeColorClass(primaryType);
-                const sortedTypes = sortByOrder(item.types, TYPE_OPTIONS);
-                const sortedClasses = sortByOrder(item.classes, CLASS_OPTIONS);
-                const typeTags = sortedTypes.map(typeName =>
-                    `<span class="tag type-tag type-${toSlug(typeName)}">${escapeHtml(t('type_' + typeName.replace(/[ -]/g, '_'), typeName))}</span>`
-                ).join('');
-                const classTags = sortedClasses.map(cls => `<span class="tag class-${cls}">${escapeHtml(t(cls))}</span>`).join('');
-                const switcherHtml = buildRaritySwitcherHtml(item);
-                const defaultIndex = item.variants && item.variants.length > 1 ? (item.variants.findIndex(v => v.rarity === 'blue') !== -1 ? item.variants.findIndex(v => v.rarity === 'blue') : 0) : 0;
-                const statTagsHtml = buildStatTagsHtml(item, defaultIndex);
-                const imageUrlAttr = item.image ? ` data-image-url="${escapeHtml(item.image)}"` : '';
-                let detailHtml = '';
-                if ((isWeapon(item) || item.types.includes('Shield')) && hasAbilities(item)) {
-                    const abils = [];
-                    if (getSkillText(item.skill1)) abils.push(`<div><strong class="${typeColorClass}">${t('skill_final_combo')}</strong> ${escapeHtml(getSkillText(item.skill1))}</div>`);
-                    if (getSkillText(item.skill2)) abils.push(`<div><strong class="${typeColorClass}">${t('skill1')}</strong> ${escapeHtml(getSkillText(item.skill2))}</div>`);
-                    if (getSkillText(item.skill3)) abils.push(`<div><strong class="${typeColorClass}">${t('skill2')}</strong> ${escapeHtml(getSkillText(item.skill3))}</div>`);
-                    if (getSkillText(item.passive)) abils.push(`<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.passive))}</div>`);
-                    detailHtml = abils.join('');
-                } else if (isTrinket(item) && hasTrinketPassive(item)) {
-                    detailHtml = `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
-                } else if (item.types.some(t => MOUNT_GLIDER_TYPES.includes(t)) && hasTrinketPassive(item)) {
-                    detailHtml = `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
+        async function checkForUpdate() {
+            try {
+                const serverData = await fetchData(DATA_URL);
+                const serverVer = serverData.version || '0';
+                const serverUpdateLog = serverData.updateLog || '';
+                const localVer = localStorage.getItem(VERSION_KEY) || '0';
+                if (serverVer > localVer && Array.isArray(serverData.zones)) {
+                    const newData = addDefaultsAndIds(serverData);
+                    const oldZoneMap = new Map(appData.zones.map(z => [z.id, z._open]));
+                    const oldDungeonMap = new Map();
+                    appData.zones.forEach(z => z.dungeons.forEach(d => oldDungeonMap.set(d.id, d._open)));
+                    newData.zones.forEach(zone => {
+                        if (oldZoneMap.has(zone.id)) zone._open = oldZoneMap.get(zone.id);
+                        zone.dungeons.forEach(d => { if (oldDungeonMap.has(d.id)) d._open = oldDungeonMap.get(d.id); });
+                    });
+                    appData.zones = newData.zones;
+                    localStorage.setItem(VERSION_KEY, serverVer);
+                    saveState();
+                    renderUpdateLog(serverUpdateLog);
+                    renderAll();
+                    showToast(t('toast_data_updated') + serverVer);
                 }
-                const rowClass = detailHtml ? ' item-row-has-details' : '';
-                const clickHandler = detailHtml ? ` data-action="toggle-item-detail" data-item-id="${item.id}"` : '';
-                const favClass = isFavorited(item.id) ? ' favorited' : '';
-                const starHtml = `<span class="fav-star${favClass}" data-item-id="${item.id}" data-action="toggle-favorite">★</span>`;
-                return `<tr class="item-main-row${rowClass}" data-item-id="${item.id}"${clickHandler}>
+            } catch (e) { console.warn('Update check failed:', e); }
+        }
+
+        function renderDungeonName(name) {
+            if (!name) return '';
+            const displayName = getDungeonName({ name });
+            let formatted = escapeHtml(displayName);
+            const lvStr = t('lv', 'Lv');
+            const fullStr = t('full_dungeon', 'Full Dungeon');
+            const bossStr = t('boss_only', 'Boss Only');
+            formatted = formatted.replace(new RegExp(lvStr + '(\\d+)', 'gi'), '<span class="dungeon-lv">' + lvStr + '$1</span>');
+            formatted = formatted.replace(new RegExp(fullStr, 'gi'), '<span class="dungeon-tag-full">' + fullStr + '</span>');
+            formatted = formatted.replace(new RegExp(bossStr, 'gi'), '<span class="dungeon-tag-boss">' + bossStr + '</span>');
+            return formatted;
+        }
+
+        function buildStatTagsHtml(item, variantIndex = null) {
+            let statValues = {};
+            if (item.variants && item.variants.length > 1) {
+                const selectedIdx = variantIndex !== null ? variantIndex : (item.variants.findIndex(v => v.rarity === 'blue') !== -1 ? item.variants.findIndex(v => v.rarity === 'blue') : 0);
+                statValues = item.variants[selectedIdx].statValues;
+            } else if (item.variants && item.variants.length === 1) statValues = item.variants[0].statValues;
+            else statValues = item.statValues || {};
+            const sortedStats = sortByOrder(item.stats, STAT_OPTIONS);
+            return sortedStats.map(s => {
+                const displayStat = t('stat_' + s.replace(/ /g, '_'), s);
+                const val = statValues[s] ? ` <span class="stat-value">${statValues[s]}</span>` : '';
+                return `<span class="tag stat-tag stat-${toSlug(s)}">${escapeHtml(displayStat)}${val}</span>`;
+            }).join('');
+        }
+
+        function buildRaritySwitcherHtml(item) {
+            if (!item.variants || item.variants.length <= 1) return '';
+            const sortedVariants = [...item.variants].sort((a, b) => { const order = { blue: 0, purple: 1, legendary: 2 }; return (order[a.rarity] || 0) - (order[b.rarity] || 0); });
+            const defaultRarity = sortedVariants.find(v => v.rarity === 'blue') || sortedVariants[0];
+            const defaultIndex = sortedVariants.indexOf(defaultRarity);
+            let buttons = sortedVariants.map((v, idx) => {
+                const label = t(v.rarity);
+                const activeClass = idx === defaultIndex ? ' active' : '';
+                return `<button class="rarity-btn${activeClass}" data-rarity="${v.rarity}" data-rarity-index="${idx}">${label}</button>`;
+            }).join('');
+            return `<div class="rarity-switcher" data-default-index="${defaultIndex}"><span class="rarity-label">${t('rarity_label')}</span>${buttons}</div>`;
+        }
+
+        function renderItemRow(item, index) {
+            const primaryType = getPrimaryType(item);
+            const typeColorClass = getTypeColorClass(primaryType);
+            const sortedTypes = sortByOrder(item.types, TYPE_OPTIONS);
+            const sortedClasses = sortByOrder(item.classes, CLASS_OPTIONS);
+            const typeTags = sortedTypes.map(typeName =>
+                `<span class="tag type-tag type-${toSlug(typeName)}">${escapeHtml(t('type_' + typeName.replace(/[ -]/g, '_'), typeName))}</span>`
+            ).join('');
+            const classTags = sortedClasses.map(cls => `<span class="tag class-${cls}">${escapeHtml(t(cls))}</span>`).join('');
+            const switcherHtml = buildRaritySwitcherHtml(item);
+            const defaultIndex = item.variants && item.variants.length > 1 ? (item.variants.findIndex(v => v.rarity === 'blue') !== -1 ? item.variants.findIndex(v => v.rarity === 'blue') : 0) : 0;
+            const statTagsHtml = buildStatTagsHtml(item, defaultIndex);
+            const imageUrlAttr = item.image ? ` data-image-url="${escapeHtml(item.image)}"` : '';
+            let detailHtml = '';
+            if ((isWeapon(item) || item.types.includes('Shield')) && hasAbilities(item)) {
+                const abils = [];
+                if (getSkillText(item.skill1)) abils.push(`<div><strong class="${typeColorClass}">${t('skill_final_combo')}</strong> ${escapeHtml(getSkillText(item.skill1))}</div>`);
+                if (getSkillText(item.skill2)) abils.push(`<div><strong class="${typeColorClass}">${t('skill1')}</strong> ${escapeHtml(getSkillText(item.skill2))}</div>`);
+                if (getSkillText(item.skill3)) abils.push(`<div><strong class="${typeColorClass}">${t('skill2')}</strong> ${escapeHtml(getSkillText(item.skill3))}</div>`);
+                if (getSkillText(item.passive)) abils.push(`<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.passive))}</div>`);
+                detailHtml = abils.join('');
+            } else if (isTrinket(item) && hasTrinketPassive(item)) {
+                detailHtml = `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
+            } else if (item.types.some(t => MOUNT_GLIDER_TYPES.includes(t)) && hasTrinketPassive(item)) {
+                detailHtml = `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
+            }
+            const rowClass = detailHtml ? ' item-row-has-details' : '';
+            const clickHandler = detailHtml ? ` data-action="toggle-item-detail" data-item-id="${item.id}"` : '';
+            const favClass = isFavorited(item.id) ? ' favorited' : '';
+            const starHtml = `<span class="fav-star${favClass}" data-item-id="${item.id}" data-action="toggle-favorite">★</span>`;
+            return `<tr class="item-main-row${rowClass}" data-item-id="${item.id}"${clickHandler}>
     <td data-label="${t('item_name')}">
         <span class="item-name ${typeColorClass}"${imageUrlAttr}>
             ${starHtml}
@@ -2024,71 +2061,76 @@ body {
     <td data-label="${t('stats_header')}">${switcherHtml}<div class="tag-container stat-tags-container">${statTagsHtml}</div></td>
 </tr>
                 ${detailHtml ? `<tr class="item-detail-row" data-item-detail="${item.id}" style="display:none;"><td colspan="4" class="item-detail-cell"><div class="item-detail-content">${detailHtml}</div></td></tr>` : ''}`;
-            }
+        }
 
-            function renderLootTable(lootItems) {
-                if (lootItems.length === 0) return '';
-                const rows = lootItems.map(renderItemRow).join('');
-                return `<table class="loot-table"><thead><tr><th>${t('item_name')}</th><th>${t('item_type')}</th><th>${t('classes')}</th><th>${t('stats_header')}</th></tr></thead><tbody>${rows}</tbody></table>`;
-            }
+        function renderLootTable(lootItems) {
+            if (lootItems.length === 0) return '';
+            const rows = lootItems.map(renderItemRow).join('');
+            return `<table class="loot-table"><thead><tr><th>${t('item_name')}</th><th>${t('item_type')}</th><th>${t('classes')}</th><th>${t('stats_header')}</th></tr></thead><tbody>${rows}</tbody></table>`;
+        }
 
-            function renderDungeons(zone) {
-                const visibleDungeons = zone.dungeons.map(dungeon => ({ dungeon, filtered: dungeon.loot.filter(itemPassesFilter) })).filter(({ filtered }) => filtered.length > 0);
-                if (visibleDungeons.length === 0) return '';
-                const dList = visibleDungeons.map(({ dungeon, filtered }) => {
-                    const sortedLoot = [...filtered].sort((a, b) => {
-                        const rankA = getTypeGroupRank(getPrimaryType(a)), rankB = getTypeGroupRank(getPrimaryType(b));
-                        if (rankA !== rankB) return rankA - rankB;
-                        const subA = getTypeSubOrder(getPrimaryType(a)), subB = getTypeSubOrder(getPrimaryType(b));
-                        if (subA !== subB) return subA - subB;
-                        return getItemName(a).localeCompare(getItemName(b));
-                    });
-                    const openClass = dungeon._open ? ' open' : '';
-                    const itemText = filtered.length === 1 ? t('badge_item_singular') : t('badge_item_plural');
-                    return `<div class="dungeon-card${openClass}" data-dungeon-id="${dungeon.id}">
+        function renderDungeons(zone) {
+            const visibleDungeons = zone.dungeons.map(dungeon => ({ dungeon, filtered: dungeon.loot.filter(itemPassesFilter) })).filter(({ filtered }) => filtered.length > 0);
+            if (visibleDungeons.length === 0) return '';
+            const dList = visibleDungeons.map(({ dungeon, filtered }) => {
+                const sortedLoot = [...filtered].sort((a, b) => {
+                    const rankA = getTypeGroupRank(getPrimaryType(a)), rankB = getTypeGroupRank(getPrimaryType(b));
+                    if (rankA !== rankB) return rankA - rankB;
+                    const subA = getTypeSubOrder(getPrimaryType(a)), subB = getTypeSubOrder(getPrimaryType(b));
+                    if (subA !== subB) return subA - subB;
+                    return getItemName(a).localeCompare(getItemName(b));
+                });
+                const openClass = dungeon._open ? ' open' : '';
+                const itemText = filtered.length === 1 ? t('badge_item_singular') : t('badge_item_plural');
+                return `<div class="dungeon-card${openClass}" data-dungeon-id="${dungeon.id}">
                         <div class="dungeon-header" data-action="toggle-dungeon" data-zone-id="${zone.id}" data-dungeon-id="${dungeon.id}">
                             <span class="dungeon-chevron">▶</span><span class="dungeon-icon">🏰</span>
                             <div class="dungeon-info"><div class="dungeon-name-display">${renderDungeonName(dungeon.name)}</div><span class="badge badge-item">${filtered.length} ${itemText}</span></div>
                         </div>
                         <div class="dungeon-body">${renderLootTable(sortedLoot)}</div>
                     </div>`;
-                }).join('');
-                return `<div class="dungeons-list">${dList}</div>`;
-            }
+            }).join('');
+            return `<div class="dungeons-list">${dList}</div>`;
+        }
 
-            function renderAll() {
-    const container = document.getElementById('zones-container');
-    const scrollContainer = document.querySelector('.main-content');
-    const filterBar = document.getElementById('filter-bar');
-    const scrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
-    allItemsMap.clear();
-    appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => allItemsMap.set(item.id, item))));
-    if (appData.zones.length === 0) {
-        container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🗺️</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.8rem;">${t('empty_no_zones_desc')}</p></div>`;
-        updateFilterBarUI();
-        if (scrollContainer) {
-            requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
-        }
-        return;
+        function renderAll() {
+            const container = document.getElementById('zones-container');
+            const scrollContainer = document.querySelector('.main-content');
+            const scrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
+            allItemsMap.clear();
+            appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => allItemsMap.set(item.id, item))));
+            if (appData.zones.length === 0) {
+                container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🗺️</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.8rem;">${t('empty_no_zones_desc')}</p></div>`;
+                updateFilterBarUI();
+                updateBuildViewUI();
+                if (scrollContainer) {
+                    requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
+                }
+                return;
+            }
+            const visibleZones = appData.zones.map(zone => {
+                const total = zone.dungeons.reduce((sum, d) => sum + d.loot.filter(itemPassesFilter).length, 0);
+                return { zone, total };
+            }).filter(({ total }) => total > 0);
+            if (visibleZones.length === 0) {
+    let emptyDesc = t('empty_no_match_desc');
+    if (showFavoritesOnly && (filterClasses.length || filterTypes.length || filterStats.length || filterCategories.length || searchQuery)) {
+        emptyDesc = 'No favourites match your current filters. Try clearing them.';
     }
-    const visibleZones = appData.zones.map(zone => {
-        const total = zone.dungeons.reduce((sum, d) => sum + d.loot.filter(itemPassesFilter).length, 0);
-        return { zone, total };
-    }).filter(({ total }) => total > 0);
-    if (visibleZones.length === 0) {
-        container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🔍</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.8rem;">${t('empty_no_match_desc')}</p></div>`;
-        updateFilterBarUI();
-        if (scrollContainer) {
-            requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
-        }
-        return;
+    container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🔍</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.8rem;">${emptyDesc}</p></div>`;
+    updateFilterBarUI();
+    updateBuildViewUI();
+    if (scrollContainer) {
+        requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
     }
-    const zonesHtml = visibleZones.map(({ zone, total }) => {
-        const openClass = zone._open ? ' open' : '';
-        const dungeonCount = zone.dungeons.length;
-        const dungText = dungeonCount === 1 ? t('badge_dungeon_singular') : t('badge_dungeon_plural');
-        const itemText = total === 1 ? t('badge_item_singular') : t('badge_item_plural');
-        return `<div class="zone-card${openClass}" data-zone-id="${zone.id}">
+    return;
+}
+            const zonesHtml = visibleZones.map(({ zone, total }) => {
+                const openClass = zone._open ? ' open' : '';
+                const dungeonCount = zone.dungeons.length;
+                const dungText = dungeonCount === 1 ? t('badge_dungeon_singular') : t('badge_dungeon_plural');
+                const itemText = total === 1 ? t('badge_item_singular') : t('badge_item_plural');
+                return `<div class="zone-card${openClass}" data-zone-id="${zone.id}">
             <div class="zone-header" data-action="toggle-zone" data-zone-id="${zone.id}">
                 <span class="zone-chevron">▶</span><span class="zone-icon">🏞️</span>
                 <div class="zone-info"><div class="zone-name-display">${escapeHtml(getZoneName(zone))}</div>
@@ -2096,490 +2138,556 @@ body {
             </div>
             <div class="zone-body">${renderDungeons(zone)}</div>
         </div>`;
-    }).join('');
-    container.innerHTML = zonesHtml;
-    applyTableStripes();
-    updateFilterBarUI();
-    if (scrollContainer) {
-        requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
-    }
-}
-            function updateAllFilterCounts() {
-                const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
-                const counts = { class: {}, stat: {}, category: {}, type: {} };
-                CLASS_OPTIONS.forEach(c => counts.class[c] = 0);
-                STAT_OPTIONS.forEach(s => counts.stat[s] = 0);
-                ['weapons', 'armor', 'mount', 'glider'].forEach(cat => counts.category[cat] = 0);
-                TYPE_OPTIONS.forEach(t => counts.type[t] = 0);
-                allItems.forEach(item => {
-                    if (!itemPassesFilter(item)) return;
-                    item.classes.forEach(cls => { if (counts.class[cls] !== undefined) counts.class[cls]++; });
-                    item.stats.forEach(stat => { if (counts.stat[stat] !== undefined) counts.stat[stat]++; });
-                    if (item.types.some(t => WEAPON_TYPES.includes(t))) counts.category.weapons++;
-                    if (item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket')) counts.category.armor++;
-                    if (item.types.includes('Mount')) counts.category.mount++;
-                    if (item.types.includes('Glider')) counts.category.glider++;
-                    item.types.forEach(t => { if (counts.type[t] !== undefined) counts.type[t]++; });
-                });
-                document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
-                    const cls = btn.dataset.class;
-                    const span = btn.querySelector('.item-count');
-                    if (span) span.textContent = `(${counts.class[cls] || 0})`;
-                });
-                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
-                    const stat = btn.dataset.stat;
-                    const span = btn.querySelector('.item-count');
-                    if (span) span.textContent = `(${counts.stat[stat] || 0})`;
-                });
-                document.querySelectorAll('#category-dropdown .category-btn').forEach(btn => {
-                    const cat = btn.dataset.category;
-                    const span = btn.querySelector('.item-count');
-                    if (span) span.textContent = `(${counts.category[cat] || 0})`;
-                });
-                document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
-                    const type = btn.dataset.type;
-                    const span = btn.querySelector('.item-count');
-                    if (span) span.textContent = `(${counts.type[type] || 0})`;
-                });
+            }).join('');
+            container.innerHTML = zonesHtml;
+            applyTableStripes();
+            updateFilterBarUI();
+            updateBuildViewUI();
+            if (scrollContainer) {
+                requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
             }
-
-            function updateFilterBarUI() {
-    document.querySelectorAll('.category-btn').forEach(b => {
-        b.classList.toggle('active', filterCategories.includes(b.dataset.category));
-        const label = t(b.dataset.category);
-        const firstTextNode = b.childNodes[0];
-        if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
-            firstTextNode.textContent = label;
         }
-    });
-    const favBtn = document.getElementById('favorites-toggle-btn');
-    favBtn.classList.toggle('active', showFavoritesOnly);
-    const clearFavBtn = document.getElementById('clear-fav-btn');
-    clearFavBtn.style.display = favoriteIds.size > 0 ? 'inline-flex' : 'none';
-    const categoryCount = document.getElementById('category-count');
-    categoryCount.textContent = filterCategories.length;
-    categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
-    updateAllFilterCounts();
-    document.querySelectorAll('#type-dropdown .type-btn').forEach(b => b.classList.toggle('active', filterTypes.includes(b.dataset.type)));
-    document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active', filterClasses.includes(b.dataset.class)));
-    document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active', filterStats.includes(b.dataset.stat)));
-    const classCount = document.getElementById('class-count');
-    classCount.textContent = filterClasses.length;
-    classCount.style.display = filterClasses.length ? 'inline' : 'none';
-    const typeCount = document.getElementById('type-count');
-    typeCount.textContent = filterTypes.length;
-    typeCount.style.display = filterTypes.length ? 'inline' : 'none';
-    const statCount = document.getElementById('stat-count');
-    statCount.textContent = filterStats.length;
-    statCount.style.display = filterStats.length ? 'inline' : 'none';
-    const clearBtn = document.getElementById('clear-all-btn');
-    clearBtn.style.display = (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) ? 'none' : 'inline-flex';
-    document.getElementById('clear-all-btn').textContent = t('clear_filters');
-}
 
-            function updateStaticUITexts() {
-                document.getElementById('filter-label').textContent = t('filter_label');
-                document.getElementById('class-label').textContent = t('class_label');
-                document.getElementById('stats-label').textContent = t('stats_label');
-                document.getElementById('category-label').textContent = t('category_label');
-                document.getElementById('type-label').textContent = t('type_label');
-                document.getElementById('search-input').placeholder = t('search_placeholder');
-                document.getElementById('open-suggestion-btn').innerHTML = t('suggest_button');
-                document.getElementById('modal-title').textContent = t('modal_title');
-                document.getElementById('suggestion-textarea').placeholder = t('modal_placeholder');
-                document.getElementById('modal-submit-btn').textContent = t('modal_submit');
-                document.getElementById('modal-cancel-btn').textContent = t('modal_cancel');
-                document.getElementById('modal-footer-text').textContent = t('modal_footer');
-                document.getElementById('scroll-to-top-btn').title = t('scroll_top_title');
-                document.getElementById('favorites-toggle-btn').textContent = t('favorites_button');
-                document.getElementById('clear-fav-btn').textContent = t('clear_favorites');
-                document.getElementById('header-subtitle').innerHTML = t('header_subtitle') + ' <span class="cap-badge">' + t('cap_badge_text') + '</span>';
-                document.getElementById('image-tooltip').querySelector('.broken-placeholder').textContent = t('image_unavailable');
-                const footerText = t('footer_text');
-                const creatorName = '<span class="creator-name">Iielyn</span>';
-                const wikiLink = '<a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>';
-                const licenseLink = '<a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>';
-                const footerHtml = footerText.replace('{creator}', creatorName).replace('{wiki_link}', wikiLink).replace('{license_link}', licenseLink);
-				document.getElementById('support-link-text').textContent = t('support_button');
-                document.getElementById('site-footer').innerHTML = footerHtml;
+        function updateAllFilterCounts() {
+            const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
+            const counts = { class: {}, stat: {}, category: {}, type: {} };
+            CLASS_OPTIONS.forEach(c => counts.class[c] = 0);
+            STAT_OPTIONS.forEach(s => counts.stat[s] = 0);
+            ['weapons', 'armor', 'mount', 'glider'].forEach(cat => counts.category[cat] = 0);
+            TYPE_OPTIONS.forEach(t => counts.type[t] = 0);
+            allItems.forEach(item => {
+                if (!itemPassesFilter(item)) return;
+                item.classes.forEach(cls => { if (counts.class[cls] !== undefined) counts.class[cls]++; });
+                item.stats.forEach(stat => { if (counts.stat[stat] !== undefined) counts.stat[stat]++; });
+                if (item.types.some(t => WEAPON_TYPES.includes(t))) counts.category.weapons++;
+                if (item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket')) counts.category.armor++;
+                if (item.types.includes('Mount')) counts.category.mount++;
+                if (item.types.includes('Glider')) counts.category.glider++;
+                item.types.forEach(t => { if (counts.type[t] !== undefined) counts.type[t]++; });
+            });
+            document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
+                const cls = btn.dataset.class;
+                const span = btn.querySelector('.item-count');
+                if (span) span.textContent = `(${counts.class[cls] || 0})`;
+            });
+            document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
+                const stat = btn.dataset.stat;
+                const span = btn.querySelector('.item-count');
+                if (span) span.textContent = `(${counts.stat[stat] || 0})`;
+            });
+            document.querySelectorAll('#category-dropdown .category-btn').forEach(btn => {
+                const cat = btn.dataset.category;
+                const span = btn.querySelector('.item-count');
+                if (span) span.textContent = `(${counts.category[cat] || 0})`;
+            });
+            document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
+                const type = btn.dataset.type;
+                const span = btn.querySelector('.item-count');
+                if (span) span.textContent = `(${counts.type[type] || 0})`;
+            });
+        }
+
+        function updateFilterBarUI() {
+            document.querySelectorAll('.category-btn').forEach(b => {
+                b.classList.toggle('active', filterCategories.includes(b.dataset.category));
+                const label = t(b.dataset.category);
+                const firstTextNode = b.childNodes[0];
+                if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
+                    firstTextNode.textContent = label;
+                }
+            });
+            const favBtn = document.getElementById('favorites-toggle-btn');
+            favBtn.classList.toggle('active', showFavoritesOnly);
+            const clearFavBtn = document.getElementById('clear-fav-btn');
+            clearFavBtn.style.display = (sharedBuild || favoriteIds.size === 0) ? 'none' : 'inline-flex';
+            const categoryCount = document.getElementById('category-count');
+            categoryCount.textContent = filterCategories.length;
+            categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
+            updateAllFilterCounts();
+            document.querySelectorAll('#type-dropdown .type-btn').forEach(b => b.classList.toggle('active', filterTypes.includes(b.dataset.type)));
+            document.querySelectorAll('#class-dropdown .class-btn').forEach(b => b.classList.toggle('active', filterClasses.includes(b.dataset.class)));
+            document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b => b.classList.toggle('active', filterStats.includes(b.dataset.stat)));
+            const classCount = document.getElementById('class-count');
+            classCount.textContent = filterClasses.length;
+            classCount.style.display = filterClasses.length ? 'inline' : 'none';
+            const typeCount = document.getElementById('type-count');
+            typeCount.textContent = filterTypes.length;
+            typeCount.style.display = filterTypes.length ? 'inline' : 'none';
+            const statCount = document.getElementById('stat-count');
+            statCount.textContent = filterStats.length;
+            statCount.style.display = filterStats.length ? 'inline' : 'none';
+            const clearBtn = document.getElementById('clear-all-btn');
+            clearBtn.style.display = (filterClasses.length === 0 && filterTypes.length === 0 && filterStats.length === 0 && !searchQuery && filterCategories.length === 0) ? 'none' : 'inline-flex';
+            document.getElementById('clear-all-btn').textContent = t('clear_filters');
+        }
+
+        function updateStaticUITexts() {
+            document.getElementById('filter-label').textContent = t('filter_label');
+            document.getElementById('class-label').textContent = t('class_label');
+            document.getElementById('stats-label').textContent = t('stats_label');
+            document.getElementById('category-label').textContent = t('category_label');
+            document.getElementById('type-label').textContent = t('type_label');
+            document.getElementById('search-input').placeholder = t('search_placeholder');
+            document.getElementById('open-suggestion-btn').innerHTML = t('suggest_button');
+            document.getElementById('modal-title').textContent = t('modal_title');
+            document.getElementById('suggestion-textarea').placeholder = t('modal_placeholder');
+            document.getElementById('modal-submit-btn').textContent = t('modal_submit');
+            document.getElementById('modal-cancel-btn').textContent = t('modal_cancel');
+            document.getElementById('modal-footer-text').textContent = t('modal_footer');
+            document.getElementById('scroll-to-top-btn').title = t('scroll_top_title');
+            document.getElementById('favorites-toggle-btn').textContent = t('favorites_button');
+            document.getElementById('clear-fav-btn').textContent = t('clear_favorites');
+            document.getElementById('header-subtitle').innerHTML = t('header_subtitle') + ' <span class="cap-badge">' + t('cap_badge_text') + '</span>';
+            document.getElementById('image-tooltip').querySelector('.broken-placeholder').textContent = t('image_unavailable');
+            document.getElementById('share-build-text').textContent = t('share_build_button');
+            document.getElementById('exit-build-btn').textContent = t('exit_build_view');
+            const footerText = t('footer_text');
+            const creatorName = '<span class="creator-name">Iielyn</span>';
+            const wikiLink = '<a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>';
+            const licenseLink = '<a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>';
+            const footerHtml = footerText.replace('{creator}', creatorName).replace('{wiki_link}', wikiLink).replace('{license_link}', licenseLink);
+            document.getElementById('support-link-text').textContent = t('support_button');
+            document.getElementById('site-footer').innerHTML = footerHtml;
+        }
+
+        function updateBuildViewUI() {
+            const buildNameEl = document.getElementById('build-name-display');
+            const exitBtn = document.getElementById('exit-build-btn');
+            if (sharedBuild && sharedBuild.name) {
+                buildNameEl.style.display = 'inline';
+                buildNameEl.textContent = t('build_view_title').replace('{name}', sharedBuild.name);
+                exitBtn.style.display = 'inline-block';
+            } else {
+                buildNameEl.style.display = 'none';
+                exitBtn.style.display = 'none';
             }
+        }
 
-            function updateAllFilterButtonLabels() {
-                document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
-                    const cls = btn.dataset.class;
-                    const label = t(cls);
-                    const firstTextNode = btn.childNodes[0];
-                    if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
-                        firstTextNode.textContent = label;
-                    }
-                });
-                document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
-                    const stat = btn.dataset.stat;
-                    const label = t('stat_' + stat.replace(/ /g, '_'), stat);
-                    const firstTextNode = btn.childNodes[0];
-                    if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
-                        firstTextNode.textContent = label;
-                    }
-                });
-                document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
-                    const type = btn.dataset.type;
-                    const displayType = t('type_' + type.replace(/[ -]/g, '_'), type);
-                    const countSpan = btn.querySelector('.item-count');
-                    if (countSpan) {
-                        btn.innerHTML = displayType + ' <span class="item-count">' + countSpan.textContent + '</span>';
-                    } else {
-                        btn.textContent = displayType;
-                    }
-                });
+        function updateAllFilterButtonLabels() {
+            document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
+                const cls = btn.dataset.class;
+                const label = t(cls);
+                const firstTextNode = btn.childNodes[0];
+                if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
+                    firstTextNode.textContent = label;
+                }
+            });
+            document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn => {
+                const stat = btn.dataset.stat;
+                const label = t('stat_' + stat.replace(/ /g, '_'), stat);
+                const firstTextNode = btn.childNodes[0];
+                if (firstTextNode && firstTextNode.nodeType === Node.TEXT_NODE) {
+                    firstTextNode.textContent = label;
+                }
+            });
+            document.querySelectorAll('#type-dropdown .type-btn').forEach(btn => {
+                const type = btn.dataset.type;
+                const displayType = t('type_' + type.replace(/[ -]/g, '_'), type);
+                const countSpan = btn.querySelector('.item-count');
+                if (countSpan) {
+                    btn.innerHTML = displayType + ' <span class="item-count">' + countSpan.textContent + '</span>';
+                } else {
+                    btn.textContent = displayType;
+                }
+            });
+        }
+
+        function toggleFilter(type, value) {
+            if (type === 'class') { const idx = filterClasses.indexOf(value); idx === -1 ? filterClasses.push(value) : filterClasses.splice(idx, 1); }
+            else if (type === 'type') { const idx = filterTypes.indexOf(value); idx === -1 ? filterTypes.push(value) : filterTypes.splice(idx, 1); }
+            else if (type === 'stat') { const idx = filterStats.indexOf(value); idx === -1 ? filterStats.push(value) : filterStats.splice(idx, 1); }
+            renderAll();
+        }
+
+        function toggleCategory(category) {
+            const idx = filterCategories.indexOf(category);
+            idx === -1 ? filterCategories.push(category) : filterCategories.splice(idx, 1);
+            renderAll();
+        }
+
+        window.clearAllFilters = function() {
+            filterClasses = [];
+            filterTypes = [];
+            filterStats = [];
+            searchQuery = '';
+            filterCategories = [];
+            showFavoritesOnly = false;
+            document.getElementById('favorites-toggle-btn').classList.remove('active');
+            document.getElementById('search-input').value = '';
+            renderAll();
+            showToast(t('toast_filters_cleared'), 'red');
+        };
+
+        window.toggleZone = function(zoneId) {
+            const zone = appData.zones.find(z => z.id === zoneId);
+            if (zone) { zone._open = !zone._open; saveState(); renderAll(); }
+        };
+
+        window.toggleDungeon = function(zoneId, dungeonId) {
+            const zone = appData.zones.find(z => z.id === zoneId);
+            if (!zone) return;
+            const dungeon = zone.dungeons.find(d => d.id === dungeonId);
+            if (dungeon) { dungeon._open = !dungeon._open; saveState(); renderAll(); }
+        };
+
+        function setupItemDetailToggle() {
+            const container = document.getElementById('zones-container');
+            container.addEventListener('click', (e) => {
+                if (e.target.closest('.rarity-btn') || e.target.closest('[data-image-url]')) return;
+                const mainRow = e.target.closest('[data-action="toggle-item-detail"]');
+                if (!mainRow) return;
+                const itemId = mainRow.dataset.itemId;
+                const detailRow = container.querySelector(`.item-detail-row[data-item-detail="${itemId}"]`);
+                if (!detailRow) return;
+                const isOpen = detailRow.style.display !== 'none';
+                if (isOpen) { detailRow.style.display = 'none'; mainRow.classList.remove('expanded'); }
+                else {
+                    container.querySelectorAll('.item-detail-row[style*="display: block"]').forEach(r => {
+                        r.style.display = 'none';
+                        const id = r.dataset.itemDetail;
+                        if (id) { const main = container.querySelector(`.item-main-row[data-item-id="${id}"]`); if (main) main.classList.remove('expanded'); }
+                    });
+                    detailRow.style.display = 'table-row';
+                    mainRow.classList.add('expanded');
+                }
+            });
+        }
+
+        function setupRaritySwitcher() {
+            const container = document.getElementById('zones-container');
+            container.addEventListener('click', (e) => {
+                const btn = e.target.closest('.rarity-btn');
+                if (!btn) return;
+                e.stopPropagation();
+                const switcher = btn.closest('.rarity-switcher');
+                const row = switcher.closest('tr.item-main-row');
+                const itemId = row.dataset.itemId;
+                const item = allItemsMap.get(itemId);
+                if (!item || !item.variants) return;
+                const rarity = btn.dataset.rarity;
+                const variantIndex = item.variants.findIndex(v => v.rarity === rarity);
+                if (variantIndex === -1) return;
+                switcher.querySelectorAll('.rarity-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const statContainer = row.querySelector('.stat-tags-container');
+                if (statContainer) statContainer.innerHTML = buildStatTagsHtml(item, variantIndex);
+            });
+        }
+
+        function applyTableStripes() {
+            document.querySelectorAll('.loot-table tbody').forEach(tbody => {
+                const rows = tbody.querySelectorAll('tr.item-main-row');
+                rows.forEach((row, i) => row.classList.toggle('striped', i % 2 === 1));
+            });
+        }
+
+        const scrollBtn = document.getElementById('scroll-to-top-btn');
+        const mainContent = document.querySelector('.main-content');
+        mainContent.addEventListener('scroll', () => {
+            scrollBtn.style.display = mainContent.scrollTop > 450 ? 'block' : 'none';
+        });
+        scrollBtn.addEventListener('click', () => {
+            mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        function showToast(msg, className = '') {
+            const container = document.getElementById('toast-container');
+            const el = document.createElement('div');
+            el.className = 'toast' + (className ? ' ' + className : '');
+            el.textContent = msg;
+            container.appendChild(el);
+            setTimeout(() => el.remove(), 2200);
+        }
+
+        function isFavorited(itemId) { return favoriteIds.has(itemId); }
+
+        function toggleFavorite(itemId) {
+            if (sharedBuild) {
+                showToast(t('toast_cannot_modify_build'), 'red');
+                return;
             }
+            if (favoriteIds.has(itemId)) favoriteIds.delete(itemId);
+            else favoriteIds.add(itemId);
+            localStorage.setItem('farever_favorites_v1', JSON.stringify([...favoriteIds]));
+            renderAll();
+        }
 
-            function toggleFilter(type, value) {
-    if (type === 'class') { const idx = filterClasses.indexOf(value); idx === -1 ? filterClasses.push(value) : filterClasses.splice(idx, 1); }
-    else if (type === 'type') { const idx = filterTypes.indexOf(value); idx === -1 ? filterTypes.push(value) : filterTypes.splice(idx, 1); }
-    else if (type === 'stat') { const idx = filterStats.indexOf(value); idx === -1 ? filterStats.push(value) : filterStats.splice(idx, 1); }
-    renderAll();
-}
-
-function toggleCategory(category) {
-    const idx = filterCategories.indexOf(category);
-    idx === -1 ? filterCategories.push(category) : filterCategories.splice(idx, 1);
-    renderAll();
-}
-
-            window.clearAllFilters = function() {
-                filterClasses = [];
-                filterTypes = [];
-                filterStats = [];
-                searchQuery = '';
-                filterCategories = [];
+        function clearAllFavorites() {
+            if (sharedBuild) {
+                showToast(t('toast_cannot_modify_build'), 'red');
+                return;
+            }
+            favoriteIds.clear();
+            localStorage.removeItem('farever_favorites_v1');
+            if (showFavoritesOnly) {
                 showFavoritesOnly = false;
                 document.getElementById('favorites-toggle-btn').classList.remove('active');
-                document.getElementById('search-input').value = '';
+            }
+            showToast(t('toast_favorites_cleared'), 'red');
+            renderAll();
+        }
+
+        function getBuildFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const favParam = params.get('fav');
+            const name = params.get('build') || '';
+            if (!favParam) return null;
+            const ids = favParam.split(',').map(s => s.trim()).filter(Boolean);
+            return { ids, name };
+        }
+
+        function buildShareUrl(favIds, buildName) {
+            const url = new URL(window.location);
+            url.searchParams.set('fav', [...favIds].join(','));
+            if (buildName) url.searchParams.set('build', buildName);
+            else url.searchParams.delete('build');
+            return url.toString();
+        }
+
+        function setupSuggestionModal() {
+            const modal = document.getElementById('suggestion-modal');
+            const openBtn = document.getElementById('open-suggestion-btn');
+            const closeBtn = document.getElementById('close-suggestion-modal');
+            const cancelBtn = document.getElementById('modal-cancel-btn');
+            const form = document.getElementById('suggestion-form');
+            function openModal() { modal.classList.add('active'); }
+            function closeModal() { modal.classList.remove('active'); form.reset(); }
+            openBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+            cancelBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const message = form.querySelector('textarea[name="message"]').value.trim();
+                if (!message) return;
+                const iframe = document.createElement('iframe');
+                iframe.name = 'hidden-suggestion-iframe';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                const formEl = document.createElement('form');
+                formEl.method = 'POST';
+                formEl.action = FORM_URL;
+                formEl.target = 'hidden-suggestion-iframe';
+                formEl.style.display = 'none';
+                formEl.innerHTML = `<input type="text" name="${ENTRY_ID}" value="${escapeHtml(message)}">`;
+                document.body.appendChild(formEl);
+                formEl.submit();
+                setTimeout(() => { document.body.removeChild(formEl); document.body.removeChild(iframe); }, 1000);
+                showToast(t('toast_suggestion_sent'));
+                closeModal();
+            });
+        }
+
+        function buildFilterButtons() {
+            const classContainer = document.getElementById('class-dropdown');
+            CLASS_OPTIONS.forEach(cls => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn class-btn';
+                btn.dataset.class = cls;
+                btn.textContent = t(cls);
+                const countSpan = document.createElement('span');
+                countSpan.className = 'item-count';
+                countSpan.textContent = '(0)';
+                btn.appendChild(document.createTextNode(' '));
+                btn.appendChild(countSpan);
+                btn.addEventListener('click', () => toggleFilter('class', cls));
+                classContainer.appendChild(btn);
+            });
+            const typeContainer = document.getElementById('type-dropdown');
+            TYPE_OPTIONS.filter(t => t !== 'Mount' && t !== 'Glider').forEach(typeName => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn type-btn';
+                btn.dataset.type = typeName;
+                const displayType = t('type_' + typeName.replace(/[ -]/g, '_'), typeName);
+                btn.innerHTML = `${displayType} <span class="item-count">(0)</span>`;
+                btn.addEventListener('click', () => toggleFilter('type', typeName));
+                typeContainer.appendChild(btn);
+            });
+            const statContainer = document.getElementById('stat-dropdown');
+            STAT_OPTIONS.forEach(stat => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn stat-btn';
+                btn.dataset.stat = stat;
+                btn.textContent = t('stat_' + stat.replace(/ /g, '_'), stat);
+                const countSpan = document.createElement('span');
+                countSpan.className = 'item-count';
+                countSpan.textContent = '(0)';
+                btn.appendChild(document.createTextNode(' '));
+                btn.appendChild(countSpan);
+                btn.addEventListener('click', () => toggleFilter('stat', stat));
+                statContainer.appendChild(btn);
+            });
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.addEventListener('click', () => toggleCategory(btn.dataset.category));
+            });
+        }
+
+        function setupFilterDropdowns() {
+            document.querySelectorAll('.filter-group-header').forEach(header => {
+                header.addEventListener('click', (e) => {
+                    const wrapper = header.closest('.filter-group-wrapper');
+                    const isOpen = wrapper.classList.contains('open');
+                    document.querySelectorAll('.filter-group-wrapper').forEach(w => w.classList.remove('open'));
+                    if (!isOpen) wrapper.classList.add('open');
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.filter-group-wrapper')) document.querySelectorAll('.filter-group-wrapper').forEach(w => w.classList.remove('open'));
+            });
+        }
+
+        function setupGlobalListeners() {
+            const searchInput = document.getElementById('search-input');
+            let debounceTimer;
+            searchInput.addEventListener('input', () => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => { searchQuery = searchInput.value.trim(); renderAll(); }, 250);
+            });
+            document.getElementById('clear-all-btn').addEventListener('click', window.clearAllFilters);
+            document.getElementById('zones-container').addEventListener('click', (e) => {
+                const zoneHeader = e.target.closest('[data-action="toggle-zone"]');
+                if (zoneHeader) { toggleZone(zoneHeader.dataset.zoneId); return; }
+                const dungeonHeader = e.target.closest('[data-action="toggle-dungeon"]');
+                if (dungeonHeader) { toggleDungeon(dungeonHeader.dataset.zoneId, dungeonHeader.dataset.dungeonId); return; }
+                const starBtn = e.target.closest('[data-action="toggle-favorite"]');
+                if (starBtn) { toggleFavorite(starBtn.dataset.itemId); return; }
+            });
+            const favToggleBtn = document.getElementById('favorites-toggle-btn');
+            favToggleBtn.addEventListener('click', () => {
+                showFavoritesOnly = !showFavoritesOnly;
+                favToggleBtn.classList.toggle('active', showFavoritesOnly);
                 renderAll();
-                showToast(t('toast_filters_cleared'), 'red');
-            };
-
-            window.toggleZone = function(zoneId) {
-                const zone = appData.zones.find(z => z.id === zoneId);
-                if (zone) { zone._open = !zone._open; saveState(); renderAll(); }
-            };
-
-            window.toggleDungeon = function(zoneId, dungeonId) {
-                const zone = appData.zones.find(z => z.id === zoneId);
-                if (!zone) return;
-                const dungeon = zone.dungeons.find(d => d.id === dungeonId);
-                if (dungeon) { dungeon._open = !dungeon._open; saveState(); renderAll(); }
-            };
-
-            function setupItemDetailToggle() {
-                const container = document.getElementById('zones-container');
-                container.addEventListener('click', (e) => {
-                    if (e.target.closest('.rarity-btn') || e.target.closest('[data-image-url]')) return;
-                    const mainRow = e.target.closest('[data-action="toggle-item-detail"]');
-                    if (!mainRow) return;
-                    const itemId = mainRow.dataset.itemId;
-                    const detailRow = container.querySelector(`.item-detail-row[data-item-detail="${itemId}"]`);
-                    if (!detailRow) return;
-                    const isOpen = detailRow.style.display !== 'none';
-                    if (isOpen) { detailRow.style.display = 'none'; mainRow.classList.remove('expanded'); }
-                    else {
-                        container.querySelectorAll('.item-detail-row[style*="display: block"]').forEach(r => {
-                            r.style.display = 'none';
-                            const id = r.dataset.itemDetail;
-                            if (id) { const main = container.querySelector(`.item-main-row[data-item-id="${id}"]`); if (main) main.classList.remove('expanded'); }
-                        });
-                        detailRow.style.display = 'table-row';
-                        mainRow.classList.add('expanded');
-                    }
+            });
+            document.getElementById('clear-fav-btn').addEventListener('click', clearAllFavorites);
+            document.getElementById('share-build-btn').addEventListener('click', () => {
+                if (favoriteIds.size === 0) {
+                    showToast(t('toast_no_favorites'), 'red');
+                    return;
+                }
+                const buildName = prompt('Enter a name for your build (e.g., "Warrior Build")', 'My Build');
+                if (buildName === null) return;
+                const url = buildShareUrl(favoriteIds, buildName.trim() || '');
+                navigator.clipboard.writeText(url).then(() => {
+                    showToast(t('toast_link_copied'));
+                }).catch(() => {
+                    prompt('Copy this link to share your build:', url);
                 });
-            }
-
-            function setupRaritySwitcher() {
-                const container = document.getElementById('zones-container');
-                container.addEventListener('click', (e) => {
-                    const btn = e.target.closest('.rarity-btn');
-                    if (!btn) return;
-                    e.stopPropagation();
-                    const switcher = btn.closest('.rarity-switcher');
-                    const row = switcher.closest('tr.item-main-row');
-                    const itemId = row.dataset.itemId;
-                    const item = allItemsMap.get(itemId);
-                    if (!item || !item.variants) return;
-                    const rarity = btn.dataset.rarity;
-                    const variantIndex = item.variants.findIndex(v => v.rarity === rarity);
-                    if (variantIndex === -1) return;
-                    switcher.querySelectorAll('.rarity-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    const statContainer = row.querySelector('.stat-tags-container');
-                    if (statContainer) statContainer.innerHTML = buildStatTagsHtml(item, variantIndex);
-                });
-            }
-
-            function applyTableStripes() {
-                document.querySelectorAll('.loot-table tbody').forEach(tbody => {
-                    const rows = tbody.querySelectorAll('tr.item-main-row');
-                    rows.forEach((row, i) => row.classList.toggle('striped', i % 2 === 1));
-                });
-            }
-
-            const scrollBtn = document.getElementById('scroll-to-top-btn');
-const mainContent = document.querySelector('.main-content');
-
-mainContent.addEventListener('scroll', () => {
-    scrollBtn.style.display = mainContent.scrollTop > 450 ? 'block' : 'none';
-});
-
-scrollBtn.addEventListener('click', () => {
-    mainContent.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-            function showToast(msg, className = '') {
-    const container = document.getElementById('toast-container');
-    const el = document.createElement('div');
-    el.className = 'toast' + (className ? ' ' + className : '');
-    el.textContent = msg;
-    container.appendChild(el);
-    setTimeout(() => el.remove(), 2200);
-}
-
-            function isFavorited(itemId) { return favoriteIds.has(itemId); }
-
-            function toggleFavorite(itemId) {
-                if (favoriteIds.has(itemId)) favoriteIds.delete(itemId);
-                else favoriteIds.add(itemId);
-                localStorage.setItem('farever_favorites_v1', JSON.stringify([...favoriteIds]));
+            });
+            document.getElementById('exit-build-btn').addEventListener('click', () => {
+                window.history.replaceState({}, document.title, window.location.pathname);
+                sharedBuild = null;
+                showFavoritesOnly = false;
+                favoriteIds = new Set(JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]'));
                 renderAll();
-            }
+            });
+        }
 
-            function clearAllFavorites() {
-                favoriteIds.clear();
-                localStorage.removeItem('farever_favorites_v1');
-                if (showFavoritesOnly) {
-                    showFavoritesOnly = false;
-                    const favBtn = document.getElementById('favorites-toggle-btn');
-                    favBtn.classList.remove('active');
-                    favBtn.setAttribute('data-active', 'false');
-                }
-                showToast(t('toast_favorites_cleared'), 'red');
-                renderAll();
+        function setupImageTooltip() {
+            const tooltipEl = document.getElementById('image-tooltip');
+            const imgEl = tooltipEl.querySelector('img');
+            const placeholderEl = tooltipEl.querySelector('.broken-placeholder');
+            let activeElement = null, tooltipVisible = false;
+            function resetTooltipImage() { imgEl.style.display = ''; placeholderEl.style.display = 'none'; }
+            function showTooltip(url) { resetTooltipImage(); imgEl.src = url; tooltipEl.style.display = 'block'; tooltipVisible = true; }
+            function hideTooltip() { tooltipEl.style.display = 'none'; tooltipVisible = false; activeElement = null; imgEl.src = ''; }
+            function updateTooltipPosition(e) {
+                const offsetX = 15, offsetY = 15;
+                let left = e.clientX + offsetX, top = e.clientY + offsetY;
+                const tooltipRect = tooltipEl.getBoundingClientRect();
+                if (left + tooltipRect.width > window.innerWidth - 10) left = e.clientX - tooltipRect.width - offsetX;
+                if (top + tooltipRect.height > window.innerHeight - 10) top = e.clientY - tooltipRect.height - offsetY;
+                tooltipEl.style.left = Math.max(5, left) + 'px';
+                tooltipEl.style.top = Math.max(5, top) + 'px';
             }
+            const container = document.getElementById('zones-container');
+            container.addEventListener('mouseover', (e) => {
+                const target = e.target.closest('[data-image-url]');
+                if (target && target !== activeElement) { activeElement = target; const url = target.dataset.imageUrl; if (url) { showTooltip(url); updateTooltipPosition(e); } }
+            });
+            container.addEventListener('mouseout', (e) => {
+                if (activeElement) { const relatedTarget = e.relatedTarget && e.relatedTarget.closest('[data-image-url]'); if (!relatedTarget || relatedTarget !== activeElement) hideTooltip(); }
+            });
+            container.addEventListener('mousemove', (e) => { if (tooltipVisible && activeElement) updateTooltipPosition(e); });
+            document.addEventListener('mousemove', (e) => { if (tooltipVisible && activeElement && !e.target.closest('#zones-container')) updateTooltipPosition(e); });
+        }
 
-            function setupSuggestionModal() {
-                const modal = document.getElementById('suggestion-modal');
-                const openBtn = document.getElementById('open-suggestion-btn');
-                const closeBtn = document.getElementById('close-suggestion-modal');
-                const cancelBtn = document.getElementById('modal-cancel-btn');
-                const form = document.getElementById('suggestion-form');
-                function openModal() { modal.classList.add('active'); }
-                function closeModal() { modal.classList.remove('active'); form.reset(); }
-                openBtn.addEventListener('click', openModal);
-                closeBtn.addEventListener('click', closeModal);
-                cancelBtn.addEventListener('click', closeModal);
-                modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const message = form.querySelector('textarea[name="message"]').value.trim();
-                    if (!message) return;
-                    const iframe = document.createElement('iframe');
-                    iframe.name = 'hidden-suggestion-iframe';
-                    iframe.style.display = 'none';
-                    document.body.appendChild(iframe);
-                    const formEl = document.createElement('form');
-                    formEl.method = 'POST';
-                    formEl.action = FORM_URL;
-                    formEl.target = 'hidden-suggestion-iframe';
-                    formEl.style.display = 'none';
-                    formEl.innerHTML = `<input type="text" name="${ENTRY_ID}" value="${escapeHtml(message)}">`;
-                    document.body.appendChild(formEl);
-                    formEl.submit();
-                    setTimeout(() => { document.body.removeChild(formEl); document.body.removeChild(iframe); }, 1000);
-                    showToast(t('toast_suggestion_sent'));
-                    closeModal();
-                });
-            }
-
-            function buildFilterButtons() {
-                const classContainer = document.getElementById('class-dropdown');
-                CLASS_OPTIONS.forEach(cls => {
-                    const btn = document.createElement('button');
-                    btn.className = 'filter-btn class-btn';
-                    btn.dataset.class = cls;
-                    btn.textContent = t(cls);
-                    const countSpan = document.createElement('span');
-                    countSpan.className = 'item-count';
-                    countSpan.textContent = '(0)';
-                    btn.appendChild(document.createTextNode(' '));
-                    btn.appendChild(countSpan);
-                    btn.addEventListener('click', () => toggleFilter('class', cls));
-                    classContainer.appendChild(btn);
-                });
-                const typeContainer = document.getElementById('type-dropdown');
-                TYPE_OPTIONS.filter(t => t !== 'Mount' && t !== 'Glider').forEach(typeName => {
-                    const btn = document.createElement('button');
-                    btn.className = 'filter-btn type-btn';
-                    btn.dataset.type = typeName;
-                    const displayType = t('type_' + typeName.replace(/[ -]/g, '_'), typeName);
-                    btn.innerHTML = `${displayType} <span class="item-count">(0)</span>`;
-                    btn.addEventListener('click', () => toggleFilter('type', typeName));
-                    typeContainer.appendChild(btn);
-                });
-                const statContainer = document.getElementById('stat-dropdown');
-                STAT_OPTIONS.forEach(stat => {
-                    const btn = document.createElement('button');
-                    btn.className = 'filter-btn stat-btn';
-                    btn.dataset.stat = stat;
-                    btn.textContent = t('stat_' + stat.replace(/ /g, '_'), stat);
-                    const countSpan = document.createElement('span');
-                    countSpan.className = 'item-count';
-                    countSpan.textContent = '(0)';
-                    btn.appendChild(document.createTextNode(' '));
-                    btn.appendChild(countSpan);
-                    btn.addEventListener('click', () => toggleFilter('stat', stat));
-                    statContainer.appendChild(btn);
-                });
-                document.querySelectorAll('.category-btn').forEach(btn => {
-                    btn.addEventListener('click', () => toggleCategory(btn.dataset.category));
-                });
-            }
-
-            function setupFilterDropdowns() {
-                document.querySelectorAll('.filter-group-header').forEach(header => {
-                    header.addEventListener('click', (e) => {
-                        const wrapper = header.closest('.filter-group-wrapper');
-                        const isOpen = wrapper.classList.contains('open');
-                        document.querySelectorAll('.filter-group-wrapper').forEach(w => w.classList.remove('open'));
-                        if (!isOpen) wrapper.classList.add('open');
-                    });
-                });
-                document.addEventListener('click', (e) => {
-                    if (!e.target.closest('.filter-group-wrapper')) document.querySelectorAll('.filter-group-wrapper').forEach(w => w.classList.remove('open'));
-                });
-            }
-
-            function setupGlobalListeners() {
-                const searchInput = document.getElementById('search-input');
-                let debounceTimer;
-                searchInput.addEventListener('input', () => {
-                    clearTimeout(debounceTimer);
-                    debounceTimer = setTimeout(() => { searchQuery = searchInput.value.trim(); renderAll(); }, 250);
-                });
-                document.getElementById('clear-all-btn').addEventListener('click', window.clearAllFilters);
-                document.getElementById('zones-container').addEventListener('click', (e) => {
-                    const zoneHeader = e.target.closest('[data-action="toggle-zone"]');
-                    if (zoneHeader) { toggleZone(zoneHeader.dataset.zoneId); return; }
-                    const dungeonHeader = e.target.closest('[data-action="toggle-dungeon"]');
-                    if (dungeonHeader) { toggleDungeon(dungeonHeader.dataset.zoneId, dungeonHeader.dataset.dungeonId); return; }
-                    const starBtn = e.target.closest('[data-action="toggle-favorite"]');
-                    if (starBtn) { toggleFavorite(starBtn.dataset.itemId); return; }
-                });
-                const favToggleBtn = document.getElementById('favorites-toggle-btn');
-                favToggleBtn.addEventListener('click', () => {
-                    showFavoritesOnly = !showFavoritesOnly;
-                    favToggleBtn.classList.toggle('active', showFavoritesOnly);
-                    favToggleBtn.setAttribute('data-active', showFavoritesOnly);
-                    renderAll();
-                });
-                document.getElementById('clear-fav-btn').addEventListener('click', clearAllFavorites);
-            }
-
-            function setupImageTooltip() {
-                const tooltipEl = document.getElementById('image-tooltip');
-                const imgEl = tooltipEl.querySelector('img');
-                const placeholderEl = tooltipEl.querySelector('.broken-placeholder');
-                let activeElement = null, tooltipVisible = false;
-                function resetTooltipImage() { imgEl.style.display = ''; placeholderEl.style.display = 'none'; }
-                function showTooltip(url) { resetTooltipImage(); imgEl.src = url; tooltipEl.style.display = 'block'; tooltipVisible = true; }
-                function hideTooltip() { tooltipEl.style.display = 'none'; tooltipVisible = false; activeElement = null; imgEl.src = ''; }
-                function updateTooltipPosition(e) {
-                    const offsetX = 15, offsetY = 15;
-                    let left = e.clientX + offsetX, top = e.clientY + offsetY;
-                    const tooltipRect = tooltipEl.getBoundingClientRect();
-                    if (left + tooltipRect.width > window.innerWidth - 10) left = e.clientX - tooltipRect.width - offsetX;
-                    if (top + tooltipRect.height > window.innerHeight - 10) top = e.clientY - tooltipRect.height - offsetY;
-                    tooltipEl.style.left = Math.max(5, left) + 'px';
-                    tooltipEl.style.top = Math.max(5, top) + 'px';
-                }
-                const container = document.getElementById('zones-container');
-                container.addEventListener('mouseover', (e) => {
-                    const target = e.target.closest('[data-image-url]');
-                    if (target && target !== activeElement) { activeElement = target; const url = target.dataset.imageUrl; if (url) { showTooltip(url); updateTooltipPosition(e); } }
-                });
-                container.addEventListener('mouseout', (e) => {
-                    if (activeElement) { const relatedTarget = e.relatedTarget && e.relatedTarget.closest('[data-image-url]'); if (!relatedTarget || relatedTarget !== activeElement) hideTooltip(); }
-                });
-                container.addEventListener('mousemove', (e) => { if (tooltipVisible && activeElement) updateTooltipPosition(e); });
-                document.addEventListener('mousemove', (e) => { if (tooltipVisible && activeElement && !e.target.closest('#zones-container')) updateTooltipPosition(e); });
-            }
-
-            function setupLanguageSwitcher() {
-                const buttons = document.querySelectorAll('#lang-switcher .lang-btn');
-                function setActiveButton(lang) { buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang)); }
-                async function switchLanguage(lang) {
-                    if (currentLang === lang) return;
-                    currentLang = lang;
-                    localStorage.setItem('farever_lang', lang);
-                    updateStaticUITexts();
-                    updateAllFilterButtonLabels();
-                    setActiveButton(lang);
-                    await loadAndRender();
-                }
-                buttons.forEach(btn => { btn.addEventListener('click', () => switchLanguage(btn.dataset.lang)); });
-                setActiveButton(currentLang);
-            }
-
-            async function loadAndRender() {
-                const loaded = await loadData();
-                appData = { zones: loaded.zones };
-                appData.zones = addDefaultsAndIds({ zones: appData.zones }).zones;
-                localStorage.setItem(VERSION_KEY, loaded.version || '0');
-                saveState();
-                filterTypes = filterTypes.filter(t => t !== 'Mount' && t !== 'Glider');
+        function setupLanguageSwitcher() {
+            const buttons = document.querySelectorAll('#lang-switcher .lang-btn');
+            function setActiveButton(lang) { buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang)); }
+            async function switchLanguage(lang) {
+                if (currentLang === lang) return;
+                currentLang = lang;
+                localStorage.setItem('farever_lang', lang);
                 updateStaticUITexts();
                 updateAllFilterButtonLabels();
-                renderUpdateLog(loaded.updateLog || '');
-                renderAll();
-            }
-			
-
-            async function init() {
-                buildFilterButtons();
-                setupFilterDropdowns();
-                setupGlobalListeners();
-                setupItemDetailToggle();
-                setupRaritySwitcher();
-                setupSuggestionModal();
-                setupImageTooltip();
-                setupLanguageSwitcher();
+                setActiveButton(lang);
                 await loadAndRender();
-                const toggleBtn = document.getElementById('update-log-toggle-btn');
-                const popover = document.createElement('div');
-                popover.id = 'update-log-popover';
-                popover.className = 'update-log-popover';
-                document.body.appendChild(popover);
-                toggleBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    if (popover.style.display === 'block') { popover.style.display = 'none'; }
-                    else { popover.textContent = getUpdateLogText(); popover.style.display = 'block'; positionPopover(); }
-                });
-                document.addEventListener('click', (e) => { if (!toggleBtn.contains(e.target) && !popover.contains(e.target)) popover.style.display = 'none'; });
-                function positionPopover() {
-                    const btnRect = toggleBtn.getBoundingClientRect();
-                    const popRect = popover.getBoundingClientRect();
-                    let top = btnRect.bottom + 8;
-                    let left = btnRect.right - popRect.width;
-                    if (left < 10) left = 10;
-                    if (top + popRect.height > window.innerHeight - 10) top = btnRect.top - popRect.height - 8;
-                    popover.style.top = top + 'px';
-                    popover.style.left = left + 'px';
-                }
-                window.addEventListener('resize', () => { if (popover.style.display === 'block') positionPopover(); });
-                window.addEventListener('scroll', () => { if (popover.style.display === 'block') positionPopover(); });
-                document.body.classList.remove('loading');
-                setInterval(checkForUpdate, 5 * 60 * 1000);
-                checkForUpdate();
             }
-            init();
-        })();
-    </script>
+            buttons.forEach(btn => { btn.addEventListener('click', () => switchLanguage(btn.dataset.lang)); });
+            setActiveButton(currentLang);
+        }
+
+        async function loadAndRender() {
+            const loaded = await loadData();
+            appData = { zones: loaded.zones };
+            appData.zones = addDefaultsAndIds({ zones: appData.zones }).zones;
+            localStorage.setItem(VERSION_KEY, loaded.version || '0');
+            saveState();
+            filterTypes = filterTypes.filter(t => t !== 'Mount' && t !== 'Glider');
+            updateStaticUITexts();
+            updateAllFilterButtonLabels();
+            renderUpdateLog(loaded.updateLog || '');
+            const urlBuild = getBuildFromUrl();
+            if (urlBuild) {
+                favoriteIds = new Set(urlBuild.ids);
+                showFavoritesOnly = true;
+                sharedBuild = { ids: urlBuild.ids, name: urlBuild.name };
+            } else {
+                sharedBuild = null;
+                favoriteIds = new Set(JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]'));
+            }
+            renderAll();
+        }
+
+        async function init() {
+            buildFilterButtons();
+            setupFilterDropdowns();
+            setupGlobalListeners();
+            setupItemDetailToggle();
+            setupRaritySwitcher();
+            setupSuggestionModal();
+            setupImageTooltip();
+            setupLanguageSwitcher();
+            await loadAndRender();
+            const toggleBtn = document.getElementById('update-log-toggle-btn');
+            const popover = document.createElement('div');
+            popover.id = 'update-log-popover';
+            popover.className = 'update-log-popover';
+            document.body.appendChild(popover);
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (popover.style.display === 'block') { popover.style.display = 'none'; }
+                else { popover.textContent = getUpdateLogText(); popover.style.display = 'block'; positionPopover(); }
+            });
+            document.addEventListener('click', (e) => { if (!toggleBtn.contains(e.target) && !popover.contains(e.target)) popover.style.display = 'none'; });
+            function positionPopover() {
+                const btnRect = toggleBtn.getBoundingClientRect();
+                const popRect = popover.getBoundingClientRect();
+                let top = btnRect.bottom + 8;
+                let left = btnRect.right - popRect.width;
+                if (left < 10) left = 10;
+                if (top + popRect.height > window.innerHeight - 10) top = btnRect.top - popRect.height - 8;
+                popover.style.top = top + 'px';
+                popover.style.left = left + 'px';
+            }
+            window.addEventListener('resize', () => { if (popover.style.display === 'block') positionPopover(); });
+            window.addEventListener('scroll', () => { if (popover.style.display === 'block') positionPopover(); });
+            document.body.classList.remove('loading');
+            setInterval(checkForUpdate, 5 * 60 * 1000);
+            checkForUpdate();
+        }
+        init();
+    })();
+</script>
 </body>
 </html>
