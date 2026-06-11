@@ -39,21 +39,9 @@
             --tag-text: #8a857a;
         }
 
-        html {
-            height: 100%;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            margin: 0;
-            overflow: hidden;
-        }
+        html { height: 100%; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; margin: 0; overflow: hidden; }
 
         body {
             display: grid;
@@ -62,7 +50,7 @@
             color: var(--text);
             font-family: var(--font);
             background-image: radial-gradient(ellipse at 50% 0%, rgba(201,164,75,0.04) 0%, transparent 60%),
-            radial-gradient(ellipse at 80% 100%, rgba(91,140,189,0.03) 0%, transparent 60%);
+                            radial-gradient(ellipse at 80% 100%, rgba(91,140,189,0.03) 0%, transparent 60%);
             font-size: 0.88rem;
         }
 
@@ -74,888 +62,355 @@
             scrollbar-width: thin;
         }
 
-        .main-content::-webkit-scrollbar {
-            width: 8px;
-        }
-        .main-content::-webkit-scrollbar-track {
-            background: var(--bg);
-            border-radius: 8px;
-        }
-        .main-content::-webkit-scrollbar-thumb {
-            background-color: var(--gold);
-            border-radius: 8px;
-        }
-        .main-content::-webkit-scrollbar-thumb:hover {
-            background-color: var(--gold-dim);
-        }
+        .main-content::-webkit-scrollbar { width: 8px; }
+        .main-content::-webkit-scrollbar-track { background: var(--bg); border-radius: 8px; }
+        .main-content::-webkit-scrollbar-thumb { background-color: var(--gold); border-radius: 8px; }
+        .main-content::-webkit-scrollbar-thumb:hover { background-color: var(--gold-dim); }
 
         .site-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            padding: 12px 24px;
-            text-align: center;
-            font-size: 0.65rem;
-            color: var(--text-dim);
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+            background: var(--surface); border-top: 1px solid var(--border);
+            padding: 12px 24px; text-align: center; font-size: 0.65rem; color: var(--text-dim);
         }
 
         .header {
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+            background: var(--surface); border-bottom: 1px solid var(--border);
+            padding: 16px 24px; display: flex; align-items: center;
+            justify-content: space-between; flex-wrap: wrap; gap: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.35);
         }
 
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .header-brand { display: flex; align-items: center; gap: 10px; }
 
         .header-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #3a2f1f, #5a4025);
-            border: 2px solid var(--gold-dim);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: var(--gold);
-            flex-shrink: 0;
+            width: 40px; height: 40px; background: linear-gradient(135deg, #3a2f1f, #5a4025);
+            border: 2px solid var(--gold-dim); border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; color: var(--gold); flex-shrink: 0;
         }
 
         .header h1 {
-            font-family: var(--font-display);
-            font-size: 1.65rem;
-            color: var(--gold);
-            letter-spacing: 0.05em;
-            font-weight: 600;
-            text-shadow: 0 0 10px rgba(201, 164, 75, 0.15);
-            line-height: 1.15;
+            font-family: var(--font-display); font-size: 1.65rem; color: var(--gold);
+            letter-spacing: 0.05em; font-weight: 600;
+            text-shadow: 0 0 10px rgba(201,164,75,0.15); line-height: 1.15;
         }
 
-        .header-subtitle {
-            font-size: 0.68rem;
-            color: var(--text-dim);
-            letter-spacing: 0.09em;
-            text-transform: uppercase;
-        }
-
+        .header-subtitle { font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.09em; text-transform: uppercase; }
         .cap-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 1px 8px;
-            border-radius: 10px;
-            font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            background: rgba(201, 164, 75, 0.12);
-            border: 1px solid var(--gold-dim);
-            color: var(--gold);
-            margin-left: 6px;
-            white-space: nowrap;
+            display: inline-flex; align-items: center; padding: 1px 8px; border-radius: 10px;
+            font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+            background: rgba(201,164,75,0.12); border: 1px solid var(--gold-dim); color: var(--gold);
+            margin-left: 6px; white-space: nowrap;
         }
 
-        .header-right {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            align-items: flex-end;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .lang-switcher {
-            display: flex;
-            gap: 5px;
-        }
+        .header-right { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+        .header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .lang-switcher { display: flex; gap: 5px; }
 
         .lang-btn {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--text-dim);
-            border-radius: 18px;
-            padding: 5px 12px;
-            font-size: 0.71rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition);
-            font-family: var(--font);
-            white-space: nowrap;
-            text-transform: capitalize;
-            letter-spacing: 0.03em;
+            background: none; border: 1px solid var(--border); color: var(--text-dim);
+            border-radius: 18px; padding: 5px 12px; font-size: 0.71rem; font-weight: 600;
+            cursor: pointer; transition: all var(--transition); font-family: var(--font);
+            white-space: nowrap; text-transform: capitalize; letter-spacing: 0.03em;
         }
 
-        .lang-btn:hover {
-            background: var(--surface2);
-            color: var(--gold);
-            border-color: var(--gold-dim);
-            box-shadow: 0 0 8px rgba(201, 164, 75, 0.15);
-        }
+        .lang-btn:hover { background: var(--surface2); color: var(--gold); border-color: var(--gold-dim); box-shadow: 0 0 8px rgba(201,164,75,0.15); }
+        .lang-btn.active { background: rgba(201,164,75,0.2); border-color: var(--gold); color: var(--gold); }
 
-        .lang-btn.active {
-            background: rgba(201, 164, 75, 0.2);
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        .search-wrapper {
-            position: relative;
-        }
-
+        .search-wrapper { position: relative; }
         .search-input {
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 6px 14px 6px 33px;
-            font-size: 0.76rem;
-            color: var(--text);
-            font-family: var(--font);
-            width: 175px;
-            transition: all var(--transition);
-            outline: none;
+            background: var(--surface2); border: 1px solid var(--border); border-radius: 18px;
+            padding: 6px 14px 6px 33px; font-size: 0.76rem; color: var(--text);
+            font-family: var(--font); width: 175px; transition: all var(--transition); outline: none;
         }
-
-        .search-input::placeholder {
-            color: var(--text-dim);
-        }
-
-        .search-input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 8px rgba(91, 140, 189, 0.2);
-            width: 215px;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 11px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-dim);
-            font-size: 0.8rem;
-            pointer-events: none;
-        }
+        .search-input::placeholder { color: var(--text-dim); }
+        .search-input:focus { border-color: var(--accent); box-shadow: 0 0 8px rgba(91,140,189,0.2); width: 215px; }
+        .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 0.8rem; pointer-events: none; }
 
         .filter-bar {
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 12px 24px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            border-radius: 0 0 var(--radius) var(--radius);
+            background: var(--surface); border-bottom: 1px solid var(--border);
+            padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3); border-radius: 0 0 var(--radius) var(--radius);
             margin-bottom: 8px;
         }
 
         .filter-label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.09em;
-            color: var(--text-dim);
-            font-weight: 600;
-            margin-right: 6px;
-            opacity: 0.75;
-            white-space: nowrap;
+            font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.09em;
+            color: var(--text-dim); font-weight: 600; margin-right: 6px; opacity: 0.75; white-space: nowrap;
         }
 
-        .filter-group-wrapper {
-            position: relative;
-        }
+        .filter-group-wrapper { position: relative; }
 
         .filter-group-header {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            user-select: none;
-            padding: 5px 12px;
-            border-radius: 18px;
-            border: 1px solid var(--border);
-            background: transparent;
-            transition: all var(--transition);
-            white-space: nowrap;
-            font-size: 0.68rem;
+            display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none;
+            padding: 5px 12px; border-radius: 18px; border: 1px solid var(--border);
+            background: transparent; transition: all var(--transition); white-space: nowrap; font-size: 0.68rem;
         }
 
-        .filter-group-header:hover {
-            background: var(--surface2);
-            border-color: #555;
-        }
-
-        .filter-group-header .arrow {
-            font-size: 0.51rem;
-            transition: transform 0.25s ease;
-            color: var(--text-dim);
-        }
-
-        .filter-group-wrapper.open .filter-group-header .arrow {
-            transform: rotate(180deg);
-        }
-
-        .filter-group-header .label {
-            font-size: 0.66rem;
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-            color: var(--text-dim);
-            font-weight: 600;
-        }
-
-        .filter-group-header .active-count {
-            background: var(--accent);
-            color: #fff;
-            border-radius: 9px;
-            padding: 1px 5px;
-            font-size: 0.55rem;
-            font-weight: 700;
-        }
+        .filter-group-header:hover { background: var(--surface2); border-color: #555; }
+        .filter-group-header .arrow { font-size: 0.51rem; transition: transform 0.25s ease; color: var(--text-dim); }
+        .filter-group-wrapper.open .filter-group-header .arrow { transform: rotate(180deg); }
+        .filter-group-header .label { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-dim); font-weight: 600; }
+        .filter-group-header .active-count { background: var(--accent); color: #fff; border-radius: 9px; padding: 1px 5px; font-size: 0.55rem; font-weight: 700; }
 
         .filter-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            margin-top: 5px;
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 10px;
-            box-shadow: var(--shadow);
-            z-index: 95;
-            min-width: 210px;
-            max-height: 460px;
-            overflow-y: auto;
+            display: none; position: absolute; top: 100%; left: 0; margin-top: 5px;
+            background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+            padding: 10px; box-shadow: var(--shadow); z-index: 95; min-width: 210px; max-height: 460px; overflow-y: auto;
         }
 
-        .filter-group-wrapper.open .filter-dropdown {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
+        #builds-dropdown {
+            min-width: 380px;
+            font-size: 0.8rem;
         }
 
-        #class-dropdown, #category-dropdown {
-            flex-direction: column;
-        }
+        .filter-group-wrapper.open .filter-dropdown { display: flex; flex-wrap: wrap; gap: 5px; }
+        #class-dropdown, #category-dropdown { flex-direction: column; }
 
         .filter-btn {
-            padding: 4px 10px;
-            font-size: 0.64rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            background: var(--tag-bg);
-            color: var(--tag-text);
-            cursor: pointer;
-            transition: all var(--transition);
-            font-family: var(--font);
-            white-space: nowrap;
+            padding: 4px 10px; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.03em;
+            text-transform: uppercase; border-radius: 16px; border: 1px solid var(--border);
+            background: var(--tag-bg); color: var(--tag-text); cursor: pointer;
+            transition: all var(--transition); font-family: var(--font); white-space: nowrap;
         }
 
-        .filter-btn:hover {
-            background: var(--surface2);
-            color: var(--text);
-            border-color: #555;
-        }
-
-        .filter-btn .item-count {
-            font-size: 0.55rem;
-            opacity: 0.7;
-            margin-left: 2px;
-        }
+        .filter-btn:hover { background: var(--surface2); color: var(--text); border-color: #555; }
+        .filter-btn .item-count { font-size: 0.55rem; opacity: 0.7; margin-left: 2px; }
 
         .clear-all-btn {
-            padding: 5px 12px;
-            font-size: 0.66rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            border-radius: 18px;
-            border: 1px solid rgba(212, 90, 90, 0.6);
-            background: rgba(176, 74, 74, 0.1);
-            color: #e86060;
-            cursor: pointer;
-            transition: all var(--transition);
-            font-family: var(--font);
-            white-space: nowrap;
-            box-shadow: 0 0 8px rgba(176, 74, 74, 0.12);
+            padding: 5px 12px; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.03em;
+            text-transform: uppercase; border-radius: 18px; border: 1px solid rgba(212,90,90,0.6);
+            background: rgba(176,74,74,0.1); color: #e86060; cursor: pointer;
+            transition: all var(--transition); font-family: var(--font); white-space: nowrap;
+            box-shadow: 0 0 8px rgba(176,74,74,0.12);
         }
 
-        .clear-all-btn:hover {
-            background: rgba(176, 74, 74, 0.25);
-            border-color: #e86060;
-            color: #ff7070;
-            box-shadow: 0 0 12px rgba(176, 74, 74, 0.3);
-        }
+        .clear-all-btn:hover { background: rgba(176,74,74,0.25); border-color: #e86060; color: #ff7070; box-shadow: 0 0 12px rgba(176,74,74,0.3); }
 
         .clear-fav-btn {
-            padding: 4px 11px;
-            font-size: 0.64rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            border-radius: 18px;
-            border: 1px solid rgba(212, 90, 90, 0.6);
-            background: rgba(176, 74, 74, 0.1);
-            color: #e86060;
-            cursor: pointer;
-            transition: all var(--transition);
-            font-family: var(--font);
-            white-space: nowrap;
-            box-shadow: 0 0 8px rgba(176, 74, 74, 0.12);
+            padding: 4px 11px; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.03em;
+            text-transform: uppercase; border-radius: 18px; border: 1px solid rgba(212,90,90,0.6);
+            background: rgba(176,74,74,0.1); color: #e86060; cursor: pointer;
+            transition: all var(--transition); font-family: var(--font); white-space: nowrap;
+            box-shadow: 0 0 8px rgba(176,74,74,0.12);
         }
 
-        .clear-fav-btn:hover {
-            background: rgba(176, 74, 74, 0.25);
-            border-color: #e86060;
-            color: #ff7070;
-            box-shadow: 0 0 12px rgba(176, 74, 74, 0.3);
-        }
+        .clear-fav-btn:hover { background: rgba(176,74,74,0.25); border-color: #e86060; color: #ff7070; box-shadow: 0 0 12px rgba(176,74,74,0.3); }
 
         .favorites-toggle {
-            padding: 4px 11px;
-            font-size: 0.64rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            border-radius: 18px;
-            border: 1px solid var(--gold-dim);
-            background: rgba(201, 164, 75, 0.12);
-            color: var(--gold);
-            cursor: pointer;
-            transition: all var(--transition);
-            font-family: var(--font);
-            white-space: nowrap;
+            padding: 4px 11px; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.03em;
+            text-transform: uppercase; border-radius: 18px; border: 1px solid var(--gold-dim);
+            background: rgba(201,164,75,0.12); color: var(--gold); cursor: pointer;
+            transition: all var(--transition); font-family: var(--font); white-space: nowrap;
         }
 
-        .favorites-toggle.active {
-            background: rgba(201, 164, 75, 0.45);
-            border-color: var(--gold);
-            color: #ffffff;
-            box-shadow: 0 0 12px rgba(201, 164, 75, 0.55);
-        }
+        .favorites-toggle.active { background: rgba(201,164,75,0.45); border-color: var(--gold); color: #ffffff; box-shadow: 0 0 12px rgba(201,164,75,0.55); }
+        .favorites-toggle.active:hover { background: rgba(201,164,75,0.6); border-color: var(--gold); color: #ffffff; box-shadow: 0 0 16px rgba(201,164,75,0.7); }
 
-        .favorites-toggle.active:hover {
-            background: rgba(201, 164, 75, 0.6);
-            border-color: var(--gold);
-            color: #ffffff;
-            box-shadow: 0 0 16px rgba(201, 164, 75, 0.7);
-        }
-
-        .container {
-            padding-left: 0.9%;
-            padding-right: 0.9%;
-        }
+        .container { padding-left: 0.9%; padding-right: 0.9%; }
 
         .zone-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            margin-bottom: 14px;
-            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
-            overflow: hidden;
-            transition: all var(--transition);
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+            margin-bottom: 14px; box-shadow: 0 3px 14px rgba(0,0,0,0.35); overflow: hidden; transition: all var(--transition);
         }
 
-        .zone-card:hover {
-            border-color: #444;
-        }
+        .zone-card:hover { border-color: #444; }
 
         .zone-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 20px;
-            cursor: pointer;
-            user-select: none;
-            background: var(--surface2);
-            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 10px; padding: 14px 20px; cursor: pointer;
+            user-select: none; background: var(--surface2); border-bottom: 1px solid var(--border);
             transition: background var(--transition);
         }
 
-        .zone-header:hover {
-            background: #252a35;
-            box-shadow: inset 3px 0 0 rgba(201, 164, 75, 0.2);
-            transition: background 0.25s ease, box-shadow 0.25s ease;
-        }
+        .zone-header:hover { background: #252a35; box-shadow: inset 3px 0 0 rgba(201,164,75,0.2); }
 
-        .zone-chevron {
-            font-size: 0.6rem;
-            color: var(--gold);
-            transition: transform 0.25s ease;
-            flex-shrink: 0;
-            width: 16px;
-            text-align: center;
-        }
-
-        .zone-card.open .zone-chevron {
-            transform: rotate(90deg);
-        }
-
-        .zone-icon {
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .zone-info {
-            flex: 1;
-            min-width: 0;
-        }
+        .zone-chevron { font-size: 0.6rem; color: var(--gold); transition: transform 0.25s ease; flex-shrink: 0; width: 16px; text-align: center; }
+        .zone-card.open .zone-chevron { transform: rotate(90deg); }
+        .zone-icon { font-size: 1.1rem; flex-shrink: 0; }
+        .zone-info { flex: 1; min-width: 0; }
 
         .zone-name-display {
-            color: var(--gold);
-            font-size: 1rem;
-            font-weight: 700;
-            font-family: var(--font-display);
-            letter-spacing: 0.03em;
+            color: var(--gold); font-size: 1rem; font-weight: 700; font-family: var(--font-display); letter-spacing: 0.03em;
         }
 
-        .zone-meta {
-            font-size: 0.67rem;
-            color: var(--text-dim);
-            margin-top: 2px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-
-        .zone-body {
-            display: none;
-            padding: 12px 20px 16px;
-            background: var(--bg);
-        }
-
-        .zone-card.open .zone-body {
-            display: block;
-        }
+        .zone-meta { font-size: 0.67rem; color: var(--text-dim); margin-top: 2px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+        .zone-body { display: none; padding: 12px 20px 16px; background: var(--bg); }
+        .zone-card.open .zone-body { display: block; }
 
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            padding: 1.5px 7px;
-            border-radius: 9px;
-            font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
+            display: inline-flex; align-items: center; gap: 3px; padding: 1.5px 7px;
+            border-radius: 9px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
         }
 
-        .badge-dungeon {
-            background: rgba(248, 113, 113, 0.18);
-            border: 1px solid var(--dungeon-red);
-            color: var(--dungeon-red);
-            box-shadow: 0 0 5px rgba(248, 113, 113, 0.2);
-        }
+        .badge-dungeon { background: rgba(248,113,113,0.18); border: 1px solid var(--dungeon-red); color: var(--dungeon-red); box-shadow: 0 0 5px rgba(248,113,113,0.2); }
+        .badge-item { background: rgba(74,222,128,0.15); border: 1px solid var(--item-green); color: var(--item-green); box-shadow: 0 0 5px rgba(74,222,128,0.2); }
 
-        .badge-item {
-            background: rgba(74, 222, 128, 0.15);
-            border: 1px solid var(--item-green);
-            color: var(--item-green);
-            box-shadow: 0 0 5px rgba(74, 222, 128, 0.2);
-        }
-
-        .dungeons-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+        .dungeons-list { display: flex; flex-direction: column; gap: 10px; }
 
         .dungeon-card {
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            transition: all var(--transition);
+            background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+            overflow: hidden; transition: all var(--transition);
         }
 
-        .dungeon-card:hover {
-            border-color: #444;
-        }
+        .dungeon-card:hover { border-color: #444; }
 
         .dungeon-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
-            cursor: pointer;
-            user-select: none;
-            background: rgba(0, 0, 0, 0.2);
-            border-bottom: 1px solid transparent;
+            display: flex; align-items: center; gap: 8px; padding: 10px 14px; cursor: pointer;
+            user-select: none; background: rgba(0,0,0,0.2); border-bottom: 1px solid transparent;
             transition: all var(--transition);
         }
 
-        .dungeon-card.open .dungeon-header {
-            border-bottom-color: var(--border);
-            background: rgba(0, 0, 0, 0.35);
-        }
+        .dungeon-card.open .dungeon-header { border-bottom-color: var(--border); background: rgba(0,0,0,0.35); }
+        .dungeon-header:hover { background: rgba(255,255,255,0.02); }
+        .dungeon-chevron { font-size: 0.5rem; color: var(--accent); transition: transform 0.25s ease; flex-shrink: 0; width: 13px; text-align: center; }
+        .dungeon-card.open .dungeon-chevron { transform: rotate(90deg); }
+        .dungeon-icon { font-size: 0.95rem; flex-shrink: 0; }
+        .dungeon-info { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+        .dungeon-name-display { font-size: 0.86rem; font-weight: 600; }
+        .dungeon-lv { color: var(--dungeon-lv); font-weight: 700; font-size: 0.78rem; }
+        .dungeon-tag-full { color: var(--dungeon-full); font-weight: 600; font-size: 0.78rem; }
+        .dungeon-tag-boss { color: var(--dungeon-boss); font-weight: 600; font-size: 0.78rem; }
+        .dungeon-tag-full::before, .dungeon-tag-boss::before { content: ' · '; color: var(--text-dim); font-weight: 400; }
+        .dungeon-body { display: none; padding: 6px 12px 10px; background: rgba(0,0,0,0.15); overflow-x: auto; }
+        .dungeon-card.open .dungeon-body { display: block; }
 
-        .dungeon-header:hover {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .dungeon-chevron {
-            font-size: 0.5rem;
-            color: var(--accent);
-            transition: transform 0.25s ease;
-            flex-shrink: 0;
-            width: 13px;
-            text-align: center;
-        }
-
-        .dungeon-card.open .dungeon-chevron {
-            transform: rotate(90deg);
-        }
-
-        .dungeon-icon {
-            font-size: 0.95rem;
-            flex-shrink: 0;
-        }
-
-        .dungeon-info {
-            flex: 1;
-            min-width: 0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .dungeon-name-display {
-            font-size: 0.86rem;
-            font-weight: 600;
-        }
-
-        .dungeon-lv {
-            color: var(--dungeon-lv);
-            font-weight: 700;
-            font-size: 0.78rem;
-        }
-
-        .dungeon-tag-full {
-            color: var(--dungeon-full);
-            font-weight: 600;
-            font-size: 0.78rem;
-        }
-
-        .dungeon-tag-boss {
-            color: var(--dungeon-boss);
-            font-weight: 600;
-            font-size: 0.78rem;
-        }
-
-        .dungeon-tag-full::before,
-        .dungeon-tag-boss::before {
-            content: ' · ';
-            color: var(--text-dim);
-            font-weight: 400;
-        }
-
-        .dungeon-body {
-            display: none;
-            padding: 6px 12px 10px;
-            background: rgba(0, 0, 0, 0.15);
-            overflow-x: auto;
-        }
-
-        .dungeon-card.open .dungeon-body {
-            display: block;
-        }
-
-        .loot-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.78rem;
-            min-width: 850px;
-        }
-
+        .loot-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; min-width: 850px; }
         .loot-table thead th {
-            text-align: left;
-            padding: 6px 8px;
-            font-size: 0.63rem;
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-            color: var(--text-dim);
-            border-bottom: 1px solid var(--border);
-            font-weight: 600;
+            text-align: left; padding: 6px 8px; font-size: 0.63rem; text-transform: uppercase;
+            letter-spacing: 0.07em; color: var(--text-dim); border-bottom: 1px solid var(--border); font-weight: 600;
         }
 
-        .loot-table tbody td {
-            padding: 10px 8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-            vertical-align: top;
-        }
+        .loot-table tbody td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.07); vertical-align: top; }
+        .loot-table tbody tr.item-main-row.striped { background: rgba(255,255,255,0.02); }
+        .loot-table tbody tr { transition: background var(--transition); }
+        .loot-table tbody tr:hover { background: rgba(255,255,255,0.05); }
+        .loot-table tbody tr:last-child td { border-bottom: none; }
+        .loot-table tbody tr.item-detail-row td { padding: 8px 12px; background: rgba(0,0,0,0.25); border-bottom: 1px solid rgba(255,255,255,0.06); }
 
-        .loot-table tbody tr.item-main-row.striped {
-            background: rgba(255, 255, 255, 0.02);
-        }
+        .item-name { font-weight: 700; display: inline-flex; align-items: center; gap: 4px; cursor: pointer; font-size: 0.82rem; }
+        .detail-indicator { display: inline-block; transition: transform 0.2s ease; font-size: 0.6em; margin-left: 4px; color: var(--text-dim); }
+        .item-main-row.expanded .detail-indicator { transform: rotate(90deg); }
+        .item-main-row.item-row-has-details { cursor: pointer; }
 
-        .loot-table tbody tr {
-            transition: background var(--transition);
-        }
-
-        .loot-table tbody tr:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .loot-table tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        .loot-table tbody tr.item-detail-row td {
-            padding: 8px 12px;
-            background: rgba(0, 0, 0, 0.25);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .item-name {
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            cursor: pointer;
-            font-size: 0.82rem;
-        }
-
-        .detail-indicator {
-            display: inline-block;
-            transition: transform 0.2s ease;
-            font-size: 0.6em;
-            margin-left: 4px;
-            color: var(--text-dim);
-        }
-
-        .item-main-row.expanded .detail-indicator {
-            transform: rotate(90deg);
-        }
-
-        .item-main-row.item-row-has-details {
-            cursor: pointer;
-        }
-
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3px;
-        }
-
+        .tag-container { display: flex; flex-wrap: wrap; gap: 3px; }
         .tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 2px;
-            padding: 2px 7px;
-            border-radius: 10px;
-            font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            border: 1px solid var(--tag-border);
-            background: var(--tag-bg);
-            color: var(--tag-text);
-            transition: all var(--transition);
+            display: inline-flex; align-items: center; gap: 2px; padding: 2px 7px; border-radius: 10px;
+            font-size: 0.6rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+            border: 1px solid var(--tag-border); background: var(--tag-bg); color: var(--tag-text); transition: all var(--transition);
         }
 
-        .tag.class-warrior { color: #ff9e9e; border-color: rgba(255, 64, 64, 0.4); background: rgba(201, 66, 66, 0.12); }
-        .tag.class-rogue { color: #fddd80; border-color: rgba(224, 184, 64, 0.4); background: rgba(201, 164, 75, 0.12); }
-        .tag.class-mage { color: #c0a0ff; border-color: rgba(144, 96, 240, 0.4); background: rgba(123, 94, 204, 0.12); }
-        .tag.class-priest { color: #ffffff; border-color: rgba(255, 255, 255, 0.4); background: rgba(232, 232, 232, 0.1); }
+        .tag.class-warrior { color: #ff9e9e; border-color: rgba(255,64,64,0.4); background: rgba(201,66,66,0.12); }
+        .tag.class-rogue { color: #fddd80; border-color: rgba(224,184,64,0.4); background: rgba(201,164,75,0.12); }
+        .tag.class-mage { color: #c0a0ff; border-color: rgba(144,96,240,0.4); background: rgba(123,94,204,0.12); }
+        .tag.class-priest { color: #ffffff; border-color: rgba(255,255,255,0.4); background: rgba(232,232,232,0.1); }
 
-        .tag.type-head { color: #e0b4ff; border-color: rgba(192, 132, 252, 0.4); background: rgba(192, 132, 252, 0.1); }
-        .tag.type-halos { color: #fde68a; border-color: rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.1); }
-        .tag.type-shoulders { color: #cbd5e1; border-color: rgba(148, 163, 184, 0.4); background: rgba(148, 163, 184, 0.1); }
-        .tag.type-chest { color: #fca5a5; border-color: rgba(248, 113, 113, 0.4); background: rgba(248, 113, 113, 0.1); }
-        .tag.type-back { color: #b4bcfc; border-color: rgba(129, 140, 248, 0.4); background: rgba(129, 140, 248, 0.1); }
-        .tag.type-legs { color: #c4a882; border-color: rgba(167, 139, 113, 0.4); background: rgba(167, 139, 113, 0.1); }
-        .tag.type-feet { color: #e0b48a; border-color: rgba(201, 151, 107, 0.4); background: rgba(201, 151, 107, 0.1); }
-        .tag.type-waist { color: #d4a074; border-color: rgba(184, 132, 92, 0.4); background: rgba(184, 132, 92, 0.1); }
-        .tag.type-hands { color: #e8c9a0; border-color: rgba(212, 165, 116, 0.4); background: rgba(212, 165, 116, 0.1); }
-        .tag.type-shield { color: #93c5fd; border-color: rgba(96, 165, 250, 0.4); background: rgba(96, 165, 250, 0.1); }
-        .tag.type-sword { color: #bae6fd; border-color: rgba(125, 211, 252, 0.4); background: rgba(125, 211, 252, 0.1); }
-        .tag.type-dual-sword { color: #7dd3fc; border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.1); }
-        .tag.type-axe { color: #f87171; border-color: rgba(220, 38, 38, 0.4); background: rgba(220, 38, 38, 0.1); }
-        .tag.type-dual-axes { color: #f87171; border-color: rgba(225, 29, 72, 0.4); background: rgba(225, 29, 72, 0.1); }
-        .tag.type-daggers { color: #cbd5e1; border-color: rgba(148, 163, 184, 0.4); background: rgba(148, 163, 184, 0.1); }
-        .tag.type-two-handed-axe { color: #ef4444; border-color: rgba(185, 28, 28, 0.4); background: rgba(185, 28, 28, 0.1); }
-        .tag.type-mace { color: #fbbf24; border-color: rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.1); }
-        .tag.type-two-handed-mace { color: #94a3b8; border-color: rgba(100, 116, 139, 0.4); background: rgba(100, 116, 139, 0.1); }
-        .tag.type-dual-maces { color: #94a3b8; border-color: rgba(148, 163, 184, 0.4); background: rgba(148, 163, 184, 0.1); }
-        .tag.type-spear { color: #fef3c7; border-color: rgba(253, 230, 138, 0.4); background: rgba(253, 230, 138, 0.1); }
-        .tag.type-bow { color: #86efac; border-color: rgba(74, 222, 128, 0.4); background: rgba(74, 222, 128, 0.1); }
-        .tag.type-thrown { color: #fdb980; border-color: rgba(251, 146, 60, 0.4); background: rgba(251, 146, 60, 0.1); }
-        .tag.type-fists { color: #f87171; border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.1); }
-        .tag.type-scepter { color: #c084fc; border-color: rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.1); }
-        .tag.type-crescent { color: #e2e8f0; border-color: rgba(203, 213, 225, 0.4); background: rgba(203, 213, 225, 0.1); }
-        .tag.type-spellbook { color: #67e8f9; border-color: rgba(34, 211, 238, 0.4); background: rgba(34, 211, 238, 0.1); }
-        .tag.type-trinket { color: #f9a8d4; border-color: rgba(244, 114, 182, 0.4); background: rgba(244, 114, 182, 0.1); }
-        .tag.type-mount { color: #fcd34d; border-color: rgba(245, 158, 11, 0.5); background: rgba(245, 158, 11, 0.15); text-shadow: 0 0 5px rgba(245, 158, 11, 0.35); }
-        .tag.type-glider { color: #67e8f9; border-color: rgba(6, 182, 212, 0.5); background: rgba(6, 182, 212, 0.15); text-shadow: 0 0 5px rgba(6, 182, 212, 0.35); }
+        .tag.type-head { color: #e0b4ff; border-color: rgba(192,132,252,0.4); background: rgba(192,132,252,0.1); }
+        .tag.type-halos { color: #fde68a; border-color: rgba(251,191,36,0.4); background: rgba(251,191,36,0.1); }
+        .tag.type-shoulders { color: #cbd5e1; border-color: rgba(148,163,184,0.4); background: rgba(148,163,184,0.1); }
+        .tag.type-chest { color: #fca5a5; border-color: rgba(248,113,113,0.4); background: rgba(248,113,113,0.1); }
+        .tag.type-back { color: #b4bcfc; border-color: rgba(129,140,248,0.4); background: rgba(129,140,248,0.1); }
+        .tag.type-legs { color: #c4a882; border-color: rgba(167,139,113,0.4); background: rgba(167,139,113,0.1); }
+        .tag.type-feet { color: #e0b48a; border-color: rgba(201,151,107,0.4); background: rgba(201,151,107,0.1); }
+        .tag.type-waist { color: #d4a074; border-color: rgba(184,132,92,0.4); background: rgba(184,132,92,0.1); }
+        .tag.type-hands { color: #e8c9a0; border-color: rgba(212,165,116,0.4); background: rgba(212,165,116,0.1); }
+        .tag.type-shield { color: #93c5fd; border-color: rgba(96,165,250,0.4); background: rgba(96,165,250,0.1); }
+        .tag.type-sword { color: #bae6fd; border-color: rgba(125,211,252,0.4); background: rgba(125,211,252,0.1); }
+        .tag.type-dual-sword { color: #7dd3fc; border-color: rgba(56,189,248,0.4); background: rgba(56,189,248,0.1); }
+        .tag.type-axe { color: #f87171; border-color: rgba(220,38,38,0.4); background: rgba(220,38,38,0.1); }
+        .tag.type-dual-axes { color: #f87171; border-color: rgba(225,29,72,0.4); background: rgba(225,29,72,0.1); }
+        .tag.type-daggers { color: #cbd5e1; border-color: rgba(148,163,184,0.4); background: rgba(148,163,184,0.1); }
+        .tag.type-two-handed-axe { color: #ef4444; border-color: rgba(185,28,28,0.4); background: rgba(185,28,28,0.1); }
+        .tag.type-mace { color: #fbbf24; border-color: rgba(251,191,36,0.4); background: rgba(251,191,36,0.1); }
+        .tag.type-two-handed-mace { color: #94a3b8; border-color: rgba(100,116,139,0.4); background: rgba(100,116,139,0.1); }
+        .tag.type-dual-maces { color: #94a3b8; border-color: rgba(148,163,184,0.4); background: rgba(148,163,184,0.1); }
+        .tag.type-spear { color: #fef3c7; border-color: rgba(253,230,138,0.4); background: rgba(253,230,138,0.1); }
+        .tag.type-bow { color: #86efac; border-color: rgba(74,222,128,0.4); background: rgba(74,222,128,0.1); }
+        .tag.type-thrown { color: #fdb980; border-color: rgba(251,146,60,0.4); background: rgba(251,146,60,0.1); }
+        .tag.type-fists { color: #f87171; border-color: rgba(239,68,68,0.4); background: rgba(239,68,68,0.1); }
+        .tag.type-scepter { color: #c084fc; border-color: rgba(168,85,247,0.4); background: rgba(168,85,247,0.1); }
+        .tag.type-crescent { color: #e2e8f0; border-color: rgba(203,213,225,0.4); background: rgba(203,213,225,0.1); }
+        .tag.type-spellbook { color: #67e8f9; border-color: rgba(34,211,238,0.4); background: rgba(34,211,238,0.1); }
+        .tag.type-trinket { color: #f9a8d4; border-color: rgba(244,114,182,0.4); background: rgba(244,114,182,0.1); }
+        .tag.type-mount { color: #fcd34d; border-color: rgba(245,158,11,0.5); background: rgba(245,158,11,0.15); text-shadow: 0 0 5px rgba(245,158,11,0.35); }
+        .tag.type-glider { color: #67e8f9; border-color: rgba(6,182,212,0.5); background: rgba(6,182,212,0.15); text-shadow: 0 0 5px rgba(6,182,212,0.35); }
 
-        .tag.stat-armor { color: #d1d5db; border-color: rgba(156, 163, 175, 0.4); background: rgba(156, 163, 175, 0.1); }
-        .tag.stat-vitality { color: #6ee7b7; border-color: rgba(52, 211, 153, 0.4); background: rgba(52, 211, 153, 0.1); }
-        .tag.stat-strength { color: #fca5a5; border-color: rgba(248, 113, 113, 0.4); background: rgba(248, 113, 113, 0.1); }
-        .tag.stat-dexterity { color: #fde68a; border-color: rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.1); }
-        .tag.stat-faith { color: #fef3c7; border-color: rgba(252, 211, 77, 0.4); background: rgba(252, 211, 77, 0.1); }
-        .tag.stat-intelligence { color: #b4bcfc; border-color: rgba(129, 140, 248, 0.4); background: rgba(129, 140, 248, 0.1); }
-        .tag.stat-critical { color: #f9a8d4; border-color: rgba(244, 114, 182, 0.4); background: rgba(244, 114, 182, 0.1); }
-        .tag.stat-armor-penetration { color: #f4a28e; border-color: rgba(232, 121, 94, 0.4); background: rgba(232, 121, 94, 0.1); }
-        .tag.stat-magic-penetration { color: #e0b4ff; border-color: rgba(192, 132, 252, 0.4); background: rgba(192, 132, 252, 0.1); }
-        .tag.stat-fervor { color: #fdb980; border-color: rgba(251, 146, 60, 0.4); background: rgba(251, 146, 60, 0.1); }
+        .tag.stat-armor { color: #d1d5db; border-color: rgba(156,163,175,0.4); background: rgba(156,163,175,0.1); }
+        .tag.stat-vitality { color: #6ee7b7; border-color: rgba(52,211,153,0.4); background: rgba(52,211,153,0.1); }
+        .tag.stat-strength { color: #fca5a5; border-color: rgba(248,113,113,0.4); background: rgba(248,113,113,0.1); }
+        .tag.stat-dexterity { color: #fde68a; border-color: rgba(251,191,36,0.4); background: rgba(251,191,36,0.1); }
+        .tag.stat-faith { color: #fef3c7; border-color: rgba(252,211,77,0.4); background: rgba(252,211,77,0.1); }
+        .tag.stat-intelligence { color: #b4bcfc; border-color: rgba(129,140,248,0.4); background: rgba(129,140,248,0.1); }
+        .tag.stat-critical { color: #f9a8d4; border-color: rgba(244,114,182,0.4); background: rgba(244,114,182,0.1); }
+        .tag.stat-armor-penetration { color: #f4a28e; border-color: rgba(232,121,94,0.4); background: rgba(232,121,94,0.1); }
+        .tag.stat-magic-penetration { color: #e0b4ff; border-color: rgba(192,132,252,0.4); background: rgba(192,132,252,0.1); }
+        .tag.stat-fervor { color: #fdb980; border-color: rgba(251,146,60,0.4); background: rgba(251,146,60,0.1); }
 
-        .rarity-switcher {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            margin-bottom: 5px;
-        }
-
-        .rarity-label {
-            font-size: 0.52rem;
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-            color: var(--gold);
-            margin-right: 3px;
-            opacity: 0.9;
-        }
+        .rarity-switcher { display: flex; align-items: center; gap: 4px; margin-bottom: 5px; }
+        .rarity-label { font-size: 0.52rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold); margin-right: 3px; opacity: 0.9; }
 
         .rarity-btn {
-            padding: 3px 9px;
-            font-size: 0.59rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            border-radius: 9px;
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: var(--font);
-            text-transform: capitalize;
-            min-width: 40px;
+            padding: 3px 9px; font-size: 0.59rem; font-weight: 700; letter-spacing: 0.06em;
+            border-radius: 9px; border: 1px solid var(--border); background: rgba(255,255,255,0.05);
+            color: var(--text); cursor: pointer; transition: all 0.2s ease; font-family: var(--font);
+            text-transform: capitalize; min-width: 40px;
         }
 
-        .rarity-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
-            color: #ffffff;
-            border-color: #666;
-            box-shadow: 0 0 7px rgba(255, 255, 255, 0.12);
-            transform: translateY(-1px);
-        }
+        .rarity-btn:hover { background: rgba(255,255,255,0.12); color: #ffffff; border-color: #666; box-shadow: 0 0 7px rgba(255,255,255,0.12); transform: translateY(-1px); }
+        .rarity-btn[data-rarity="blue"] { border-color: rgba(59,130,246,0.6); color: #60a5fa; }
+        .rarity-btn[data-rarity="blue"].active { background: rgba(59,130,246,0.3); border-color: #60a5fa; box-shadow: 0 0 11px rgba(59,130,246,0.45); color: #93c5fd; }
+        .rarity-btn[data-rarity="purple"] { border-color: rgba(168,85,247,0.6); color: #c084fc; }
+        .rarity-btn[data-rarity="purple"].active { background: rgba(168,85,247,0.3); border-color: #c084fc; box-shadow: 0 0 11px rgba(168,85,247,0.45); color: #e0b4ff; }
+        .rarity-btn[data-rarity="legendary"] { border-color: rgba(245,158,11,0.6); color: #fbbf24; }
+        .rarity-btn[data-rarity="legendary"].active { background: rgba(245,158,11,0.3); border-color: #fbbf24; box-shadow: 0 0 13px rgba(245,158,11,0.55); color: #fde68a; text-shadow: 0 0 5px rgba(245,158,11,0.55); }
 
-        .rarity-btn[data-rarity="blue"] { border-color: rgba(59, 130, 246, 0.6); color: #60a5fa; }
-        .rarity-btn[data-rarity="blue"].active { background: rgba(59, 130, 246, 0.3); border-color: #60a5fa; box-shadow: 0 0 11px rgba(59, 130, 246, 0.45); color: #93c5fd; }
-        .rarity-btn[data-rarity="purple"] { border-color: rgba(168, 85, 247, 0.6); color: #c084fc; }
-        .rarity-btn[data-rarity="purple"].active { background: rgba(168, 85, 247, 0.3); border-color: #c084fc; box-shadow: 0 0 11px rgba(168, 85, 247, 0.45); color: #e0b4ff; }
-        .rarity-btn[data-rarity="legendary"] { border-color: rgba(245, 158, 11, 0.6); color: #fbbf24; }
-        .rarity-btn[data-rarity="legendary"].active { background: rgba(245, 158, 11, 0.3); border-color: #fbbf24; box-shadow: 0 0 13px rgba(245, 158, 11, 0.55); color: #fde68a; text-shadow: 0 0 5px rgba(245, 158, 11, 0.55); }
+        .type-color-sword { color: #bae6fd; text-shadow: 0 0 7px rgba(125,211,252,0.33); }
+        .type-color-dual-sword { color: #7dd3fc; text-shadow: 0 0 7px rgba(56,189,248,0.33); }
+        .type-color-axe { color: #f87171; text-shadow: 0 0 7px rgba(220,38,38,0.33); }
+        .type-color-dual-axes { color: #f87171; text-shadow: 0 0 7px rgba(225,29,72,0.33); }
+        .type-color-daggers { color: #cbd5e1; text-shadow: 0 0 7px rgba(148,163,184,0.33); }
+        .type-color-two-handed-axe { color: #ef4444; text-shadow: 0 0 7px rgba(185,28,28,0.35); }
+        .type-color-mace { color: #fbbf24; text-shadow: 0 0 7px rgba(251,191,36,0.33); }
+        .type-color-two-handed-mace { color: #94a3b8; text-shadow: 0 0 7px rgba(100,116,139,0.3); }
+        .type-color-dual-maces { color: #94a3b8; text-shadow: 0 0 7px rgba(148,163,184,0.3); }
+        .type-color-spear { color: #fef3c7; text-shadow: 0 0 7px rgba(253,230,138,0.3); }
+        .type-color-bow { color: #86efac; text-shadow: 0 0 7px rgba(74,222,128,0.33); }
+        .type-color-fists { color: #f87171; text-shadow: 0 0 9px rgba(239,68,68,0.38); }
+        .type-color-thrown { color: #fdb980; text-shadow: 0 0 7px rgba(251,146,60,0.3); }
+        .type-color-scepter { color: #c084fc; text-shadow: 0 0 7px rgba(168,85,247,0.33); }
+        .type-color-crescent { color: #e2e8f0; text-shadow: 0 0 7px rgba(203,213,225,0.28); }
+        .type-color-halos { color: #fde68a; text-shadow: 0 0 9px rgba(251,191,36,0.35); }
+        .type-color-spellbook { color: #67e8f9; text-shadow: 0 0 7px rgba(34,211,238,0.33); }
+        .type-color-shield { color: #93c5fd; text-shadow: 0 0 7px rgba(96,165,250,0.3); }
+        .type-color-head { color: #e0b4ff; text-shadow: 0 0 7px rgba(192,132,252,0.3); }
+        .type-color-shoulders { color: #cbd5e1; text-shadow: 0 0 5px rgba(148,163,184,0.26); }
+        .type-color-chest { color: #fca5a5; text-shadow: 0 0 7px rgba(248,113,113,0.3); }
+        .type-color-back { color: #b4bcfc; text-shadow: 0 0 7px rgba(129,140,248,0.3); }
+        .type-color-hands { color: #e8c9a0; text-shadow: 0 0 7px rgba(212,165,116,0.26); }
+        .type-color-legs { color: #c4a882; text-shadow: 0 0 7px rgba(167,139,113,0.26); }
+        .type-color-feet { color: #e0b48a; text-shadow: 0 0 7px rgba(201,151,107,0.26); }
+        .type-color-waist { color: #d4a074; text-shadow: 0 0 7px rgba(184,132,92,0.26); }
+        .type-color-trinket { color: #f9a8d4; text-shadow: 0 0 7px rgba(244,114,182,0.3); }
+        .type-color-mount { color: #fcd34d; text-shadow: 0 0 9px rgba(245,158,11,0.43); }
+        .type-color-glider { color: #67e8f9; text-shadow: 0 0 9px rgba(6,182,212,0.43); }
 
-        .type-color-sword { color: #bae6fd; text-shadow: 0 0 7px rgba(125, 211, 252, 0.33); }
-        .type-color-dual-sword { color: #7dd3fc; text-shadow: 0 0 7px rgba(56, 189, 248, 0.33); }
-        .type-color-axe { color: #f87171; text-shadow: 0 0 7px rgba(220, 38, 38, 0.33); }
-        .type-color-dual-axes { color: #f87171; text-shadow: 0 0 7px rgba(225, 29, 72, 0.33); }
-        .type-color-daggers { color: #cbd5e1; text-shadow: 0 0 7px rgba(148, 163, 184, 0.33); }
-        .type-color-two-handed-axe { color: #ef4444; text-shadow: 0 0 7px rgba(185, 28, 28, 0.35); }
-        .type-color-mace { color: #fbbf24; text-shadow: 0 0 7px rgba(251, 191, 36, 0.33); }
-        .type-color-two-handed-mace { color: #94a3b8; text-shadow: 0 0 7px rgba(100, 116, 139, 0.3); }
-        .type-color-dual-maces { color: #94a3b8; text-shadow: 0 0 7px rgba(148, 163, 184, 0.3); }
-        .type-color-spear { color: #fef3c7; text-shadow: 0 0 7px rgba(253, 230, 138, 0.3); }
-        .type-color-bow { color: #86efac; text-shadow: 0 0 7px rgba(74, 222, 128, 0.33); }
-        .type-color-fists { color: #f87171; text-shadow: 0 0 9px rgba(239, 68, 68, 0.38); }
-        .type-color-thrown { color: #fdb980; text-shadow: 0 0 7px rgba(251, 146, 60, 0.3); }
-        .type-color-scepter { color: #c084fc; text-shadow: 0 0 7px rgba(168, 85, 247, 0.33); }
-        .type-color-crescent { color: #e2e8f0; text-shadow: 0 0 7px rgba(203, 213, 225, 0.28); }
-        .type-color-halos { color: #fde68a; text-shadow: 0 0 9px rgba(251, 191, 36, 0.35); }
-        .type-color-spellbook { color: #67e8f9; text-shadow: 0 0 7px rgba(34, 211, 238, 0.33); }
-        .type-color-shield { color: #93c5fd; text-shadow: 0 0 7px rgba(96, 165, 250, 0.3); }
-        .type-color-head { color: #e0b4ff; text-shadow: 0 0 7px rgba(192, 132, 252, 0.3); }
-        .type-color-shoulders { color: #cbd5e1; text-shadow: 0 0 5px rgba(148, 163, 184, 0.26); }
-        .type-color-chest { color: #fca5a5; text-shadow: 0 0 7px rgba(248, 113, 113, 0.3); }
-        .type-color-back { color: #b4bcfc; text-shadow: 0 0 7px rgba(129, 140, 248, 0.3); }
-        .type-color-hands { color: #e8c9a0; text-shadow: 0 0 7px rgba(212, 165, 116, 0.26); }
-        .type-color-legs { color: #c4a882; text-shadow: 0 0 7px rgba(167, 139, 113, 0.26); }
-        .type-color-feet { color: #e0b48a; text-shadow: 0 0 7px rgba(201, 151, 107, 0.26); }
-        .type-color-waist { color: #d4a074; text-shadow: 0 0 7px rgba(184, 132, 92, 0.26); }
-        .type-color-trinket { color: #f9a8d4; text-shadow: 0 0 7px rgba(244, 114, 182, 0.3); }
-        .type-color-mount { color: #fcd34d; text-shadow: 0 0 9px rgba(245, 158, 11, 0.43); }
-        .type-color-glider { color: #67e8f9; text-shadow: 0 0 9px rgba(6, 182, 212, 0.43); }
+        .stat-value { font-size: 0.74rem; font-weight: 600; color: #ffffff; margin-left: 2px; text-shadow: 0 0 4px rgba(255,255,255,0.18); }
+        .item-damage-line { font-size: 0.74rem; color: #ffffff; margin-bottom: 4px; font-weight: 600; }
 
-        .stat-value {
-            font-size: 0.74rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-left: 2px;
-            text-shadow: 0 0 4px rgba(255, 255, 255, 0.18);
-        }
-
-        .item-damage-line {
-            font-size: 0.74rem;
-            color: #ffffff;
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .toast-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-        }
-
+        .toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 999; display: flex; flex-direction: column; gap: 7px; }
         .toast {
-            background: rgba(30, 34, 43, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--border);
-            padding: 9px 15px;
-            border-radius: var(--radius-sm);
-            font-size: 0.76rem;
-            color: var(--text);
-            box-shadow: var(--shadow);
-            animation: slideIn 0.3s ease, fadeOut 0.3s ease 1.8s forwards;
-            max-width: 320px;
+            background: rgba(30,34,43,0.85); backdrop-filter: blur(8px); border: 1px solid var(--border);
+            padding: 9px 15px; border-radius: var(--radius-sm); font-size: 0.76rem; color: var(--text);
+            box-shadow: var(--shadow); animation: slideIn 0.3s ease, fadeOut 0.3s ease 1.8s forwards; max-width: 320px;
         }
+        .toast.red { border-color: #f87171; background: rgba(120,30,30,0.85); color: #fecaca; }
 
-        .toast.red {
-            border-color: #f87171;
-            background: rgba(120, 30, 30, 0.85);
-            color: #fecaca;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(35px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; transform: translateY(-9px); }
-        }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(35px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-9px); } }
 
         @media (max-width:800px) {
             .loot-table, .loot-table thead, .loot-table tbody, .loot-table th, .loot-table td, .loot-table tr { display: block; }
             .loot-table thead { display: none; }
-            .loot-table tbody tr.item-main-row { padding: 9px; border-bottom: 1px solid var(--border); margin-bottom: 5px; background: rgba(255, 255, 255, 0.01); border-radius: var(--radius-sm); }
+            .loot-table tbody tr.item-main-row { padding: 9px; border-bottom: 1px solid var(--border); margin-bottom: 5px; background: rgba(255,255,255,0.01); border-radius: var(--radius-sm); }
             .loot-table tbody td { display: block; padding: 4px 0; border-bottom: none; text-align: left; }
             .loot-table tbody td::before { content: attr(data-label); font-weight: 600; color: var(--text-dim); font-size: 0.62rem; display: inline-block; width: 75px; }
             .header { padding: 12px 16px; }
@@ -977,337 +432,189 @@
         }
 
         .suggest-btn {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--text-dim);
-            border-radius: 18px;
-            padding: 5px 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-family: var(--font);
-            white-space: nowrap;
-        }
+    background: rgba(201,164,75,0.08);
+    border: 1px solid rgba(201,164,75,0.35);
+    color: #c9a44b;
+    border-radius: 18px;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font);
+    white-space: nowrap;
+}
 
-        .suggest-btn:hover {
-            background: var(--surface2);
-            color: var(--gold);
-            border-color: var(--gold-dim);
-            box-shadow: 0 0 9px rgba(201, 164, 75, 0.18);
-        }
+.suggest-btn:hover {
+    background: rgba(201,164,75,0.18);
+    color: #fddd80;
+    border-color: var(--gold);
+    box-shadow: 0 0 14px rgba(201,164,75,0.3);
+}
+       .donate-btn {
+    color: #fde68a;
+    border-color: var(--gold);
+    background: rgba(201,164,75,0.16);
+    transition: all var(--transition);
+}
 
-        .donate-btn {
-            color: var(--gold);
-            border-color: var(--gold-dim);
-            background: rgba(201, 164, 75, 0.08);
-            transition: all var(--transition);
-        }
-        .donate-btn:hover {
-            background: rgba(201, 164, 75, 0.2);
-            color: #fddd80;
-            border-color: var(--gold);
-            box-shadow: 0 0 12px rgba(201, 164, 75, 0.35);
-        }
+.donate-btn:hover {
+    background: rgba(201,164,75,0.35);
+    color: #ffffff;
+    border-color: #fddd80;
+    box-shadow: 0 0 18px rgba(201,164,75,0.5);
+}
 
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10001;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 10001; justify-content: center; align-items: center; }
+        .modal-overlay.active { display: flex; }
 
         .modal-content {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 22px;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 11px 36px rgba(0, 0, 0, 0.78);
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 22px; width: 90%; max-width: 400px; box-shadow: 0 11px 36px rgba(0,0,0,0.78);
         }
 
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .modal-header h2 { color: var(--gold); font-family: var(--font-display); font-size: 1.2rem; margin: 0; }
+        .modal-close { background: none; border: none; color: var(--text-dim); font-size: 1.4rem; cursor: pointer; line-height: 1; }
+        .modal-close:hover { color: var(--text); }
+
+        .modal-form input, .modal-form select, .modal-form textarea {
+            width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+            padding: 8px 11px; border-radius: var(--radius-sm); margin-bottom: 9px; font-family: var(--font); font-size: 0.8rem;
         }
 
-        .modal-header h2 {
-            color: var(--gold);
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            margin: 0;
-        }
+        .modal-form textarea { resize: vertical; min-height: 75px; }
+        .modal-form button { padding: 9px; border: none; border-radius: var(--radius-sm); font-weight: 700; cursor: pointer; font-family: var(--font); font-size: 0.78rem; }
+        .modal-form .submit-btn { background: var(--accent); color: #fff; }
+        .modal-form .submit-btn:hover { background: var(--accent-hover); }
+        .modal-form .cancel-btn { background: var(--surface2); color: var(--text); border: 1px solid var(--border); margin-left: 9px; }
+        .modal-form .cancel-btn:hover { background: #2a2f3a; }
 
-        .modal-close {
-            background: none;
-            border: none;
-            color: var(--text-dim);
-            font-size: 1.4rem;
-            cursor: pointer;
-            line-height: 1;
-        }
+        .modal-footer-text { font-size: 0.65rem; color: var(--text-dim); margin-top: 11px; text-align: center; }
 
-        .modal-close:hover {
-            color: var(--text);
-        }
+		#build-name-modal .modal-content {
+			max-width: 320px;
+		}
 
-        .modal-form input,
-        .modal-form select,
-        .modal-form textarea {
-            width: 100%;
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 8px 11px;
-            border-radius: var(--radius-sm);
-            margin-bottom: 9px;
-            font-family: var(--font);
-            font-size: 0.8rem;
-        }
-
-        .modal-form textarea {
-            resize: vertical;
-            min-height: 75px;
-        }
-
-        .modal-form button {
-            padding: 9px;
-            border: none;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            cursor: pointer;
-            font-family: var(--font);
-            font-size: 0.78rem;
-        }
-
-        .modal-form .submit-btn {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .modal-form .submit-btn:hover {
-            background: var(--accent-hover);
-        }
-
-        .modal-form .cancel-btn {
-            background: var(--surface2);
-            color: var(--text);
-            border: 1px solid var(--border);
-            margin-left: 9px;
-        }
-
-        .modal-form .cancel-btn:hover {
-            background: #2a2f3a;
-        }
-
-        .modal-footer-text {
-            font-size: 0.65rem;
-            color: var(--text-dim);
-            margin-top: 11px;
-            text-align: center;
-        }
-
-        .filter-group-wrapper.open #type-dropdown {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5px;
-            max-height: none;
-            overflow-y: visible;
-            min-width: 330px;
-        }
-
+        .filter-group-wrapper.open #type-dropdown { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; max-height: none; overflow-y: visible; min-width: 330px; }
         #class-dropdown { min-width: 280px; flex-wrap: nowrap; }
-        #stat-dropdown {
-            flex-direction: column;
-        }
+        #stat-dropdown { flex-direction: column; }
 
-        #scroll-to-top-btn {
-            background: rgba(201, 164, 75, 0.12);
-            border-color: var(--gold-dim);
-            color: var(--gold);
-            box-shadow: 0 2px 11px rgba(0, 0, 0, 0.4);
-        }
+        #scroll-to-top-btn { background: rgba(201,164,75,0.12); border-color: var(--gold-dim); color: var(--gold); box-shadow: 0 2px 11px rgba(0,0,0,0.4); }
+        #scroll-to-top-btn:hover { background: rgba(201,164,75,0.30); color: #fddd80; border-color: var(--gold); box-shadow: 0 0 15px rgba(201,164,75,0.48); transform: scale(1.07); }
 
-        #scroll-to-top-btn:hover {
-            background: rgba(201, 164, 75, 0.30);
-            color: #fddd80;
-            border-color: var(--gold);
-            box-shadow: 0 0 15px rgba(201, 164, 75, 0.48);
-            transform: scale(1.07);
-        }
+        #image-tooltip { position: fixed; z-index: 10000; pointer-events: none; background: transparent; border: none; box-shadow: none; padding: 0; display: none; max-width: 800px; max-height: 540px; overflow: hidden; }
+        #image-tooltip img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; }
 
-        #image-tooltip {
-            position: fixed;
-            z-index: 10000;
-            pointer-events: none;
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            padding: 0;
-            display: none;
-            max-width: 800px;
-            max-height: 540px;
-            overflow: hidden;
-        }
+        .class-btn[data-class="warrior"].active { background: rgba(201,66,66,0.35); border-color: #ff4040; color: #ff8080; box-shadow: 0 0 11px rgba(201,66,66,0.38); }
+        .class-btn[data-class="rogue"].active { background: rgba(201,164,75,0.35); border-color: #e0b840; color: #fddd80; box-shadow: 0 0 11px rgba(201,164,75,0.38); }
+        .class-btn[data-class="mage"].active { background: rgba(123,94,204,0.35); border-color: #9060f0; color: #c0a0ff; box-shadow: 0 0 11px rgba(123,94,204,0.38); }
+        .class-btn[data-class="priest"].active { background: rgba(232,232,232,0.25); border-color: #ffffff; color: #ffffff; box-shadow: 0 0 11px rgba(232,232,232,0.33); }
 
-        #image-tooltip img {
-            display: block;
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-        }
+        .type-btn[data-type="Sword"].active { background: rgba(125,211,252,0.20); border-color: #7dd3fc; color: #bae6fd; box-shadow: 0 0 9px rgba(125,211,252,0.35); }
+        .type-btn[data-type="Dual Sword"].active { background: rgba(56,189,248,0.20); border-color: #38bdf8; color: #7dd3fc; box-shadow: 0 0 9px rgba(56,189,248,0.35); }
+        .type-btn[data-type="Axe"].active { background: rgba(220,38,38,0.22); border-color: #dc2626; color: #f87171; box-shadow: 0 0 9px rgba(220,38,38,0.35); }
+        .type-btn[data-type="Dual Axes"].active { background: rgba(225,29,72,0.22); border-color: #e11d48; color: #f87171; box-shadow: 0 0 9px rgba(225,29,72,0.35); }
+        .type-btn[data-type="Daggers"].active { background: rgba(148,163,184,0.22); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 9px rgba(148,163,184,0.33); }
+        .type-btn[data-type="Two-Handed Axe"].active { background: rgba(185,28,28,0.24); border-color: #b91c1c; color: #ef4444; box-shadow: 0 0 9px rgba(185,28,28,0.37); }
+        .type-btn[data-type="Mace"].active { background: rgba(251,191,36,0.22); border-color: #fbbf24; color: #fbbf24; box-shadow: 0 0 9px rgba(251,191,36,0.33); }
+        .type-btn[data-type="Two-Handed Mace"].active { background: rgba(100,116,139,0.22); border-color: #64748b; color: #94a3b8; box-shadow: 0 0 9px rgba(100,116,139,0.33); }
+        .type-btn[data-type="Dual Maces"].active { background: rgba(148,163,184,0.22); border-color: #94a3b8; color: #94a3b8; box-shadow: 0 0 9px rgba(148,163,184,0.33); }
+        .type-btn[data-type="Spear"].active { background: rgba(253,230,138,0.18); border-color: #fde68a; color: #fef3c7; box-shadow: 0 0 9px rgba(253,230,138,0.33); }
+        .type-btn[data-type="Bow"].active { background: rgba(74,222,128,0.20); border-color: #4ade80; color: #86efac; box-shadow: 0 0 9px rgba(74,222,128,0.33); }
+        .type-btn[data-type="Fists"].active { background: rgba(239,68,68,0.24); border-color: #ef4444; color: #f87171; box-shadow: 0 0 11px rgba(239,68,68,0.39); }
+        .type-btn[data-type="Thrown"].active { background: rgba(251,146,60,0.20); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 9px rgba(251,146,60,0.33); }
+        .type-btn[data-type="Scepter"].active { background: rgba(168,85,247,0.20); border-color: #a855f7; color: #c084fc; box-shadow: 0 0 9px rgba(168,85,247,0.35); }
+        .type-btn[data-type="Crescent"].active { background: rgba(203,213,225,0.18); border-color: #cbd5e1; color: #e2e8f0; box-shadow: 0 0 9px rgba(203,213,225,0.3); }
+        .type-btn[data-type="Halos"].active { background: rgba(251,191,36,0.22); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 11px rgba(251,191,36,0.37); }
+        .type-btn[data-type="Spellbook"].active { background: rgba(34,211,238,0.20); border-color: #22d3ee; color: #67e8f9; box-shadow: 0 0 9px rgba(34,211,238,0.35); }
+        .type-btn[data-type="Shield"].active { background: rgba(96,165,250,0.20); border-color: #60a5fa; color: #93c5fd; box-shadow: 0 0 9px rgba(96,165,250,0.33); }
+        .type-btn[data-type="Head"].active { background: rgba(192,132,252,0.20); border-color: #c084fc; color: #e0b4ff; box-shadow: 0 0 9px rgba(192,132,252,0.33); }
+        .type-btn[data-type="Shoulders"].active { background: rgba(148,163,184,0.20); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 7px rgba(148,163,184,0.28); }
+        .type-btn[data-type="Chest"].active { background: rgba(248,113,113,0.20); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 9px rgba(248,113,113,0.33); }
+        .type-btn[data-type="Back"].active { background: rgba(129,140,248,0.20); border-color: #818cf8; color: #b4bcfc; box-shadow: 0 0 9px rgba(129,140,248,0.33); }
+        .type-btn[data-type="Hands"].active { background: rgba(212,165,116,0.20); border-color: #d4a574; color: #e8c9a0; box-shadow: 0 0 7px rgba(212,165,116,0.28); }
+        .type-btn[data-type="Legs"].active { background: rgba(167,139,113,0.20); border-color: #a78b71; color: #c4a882; box-shadow: 0 0 7px rgba(167,139,113,0.28); }
+        .type-btn[data-type="Feet"].active { background: rgba(201,151,107,0.20); border-color: #c9976b; color: #e0b48a; box-shadow: 0 0 7px rgba(201,151,107,0.28); }
+        .type-btn[data-type="Waist"].active { background: rgba(184,132,92,0.20); border-color: #b8845c; color: #d4a074; box-shadow: 0 0 7px rgba(184,132,92,0.28); }
+        .type-btn[data-type="Trinket"].active { background: rgba(244,114,182,0.20); border-color: #f472b6; color: #f9a8d4; box-shadow: 0 0 9px rgba(244,114,182,0.33); }
 
-        .class-btn[data-class="warrior"].active { background: rgba(201, 66, 66, 0.35); border-color: #ff4040; color: #ff8080; box-shadow: 0 0 11px rgba(201, 66, 66, 0.38); }
-        .class-btn[data-class="rogue"].active { background: rgba(201, 164, 75, 0.35); border-color: #e0b840; color: #fddd80; box-shadow: 0 0 11px rgba(201, 164, 75, 0.38); }
-        .class-btn[data-class="mage"].active { background: rgba(123, 94, 204, 0.35); border-color: #9060f0; color: #c0a0ff; box-shadow: 0 0 11px rgba(123, 94, 204, 0.38); }
-        .class-btn[data-class="priest"].active { background: rgba(232, 232, 232, 0.25); border-color: #ffffff; color: #ffffff; box-shadow: 0 0 11px rgba(232, 232, 232, 0.33); }
+        .category-btn[data-category="weapons"].active { background: rgba(201,164,75,0.25); border-color: var(--gold); color: var(--gold); box-shadow: 0 0 9px rgba(201,164,75,0.33); }
+        .category-btn[data-category="mount"].active { background: rgba(245,158,11,0.22); border-color: #f59e0b; color: #fcd34d; box-shadow: 0 0 11px rgba(245,158,11,0.37); }
+        .category-btn[data-category="glider"].active { background: rgba(6,182,212,0.22); border-color: #06b6d4; color: #67e8f9; box-shadow: 0 0 11px rgba(6,182,212,0.37); }
+        .category-btn[data-category="armor"].active { background: rgba(59,130,246,0.20); border-color: var(--rarity-blue); color: #93c5fd; box-shadow: 0 0 9px rgba(59,130,246,0.33); }
 
-        .type-btn[data-type="Sword"].active { background: rgba(125, 211, 252, 0.20); border-color: #7dd3fc; color: #bae6fd; box-shadow: 0 0 9px rgba(125, 211, 252, 0.35); }
-        .type-btn[data-type="Dual Sword"].active { background: rgba(56, 189, 248, 0.20); border-color: #38bdf8; color: #7dd3fc; box-shadow: 0 0 9px rgba(56, 189, 248, 0.35); }
-        .type-btn[data-type="Axe"].active { background: rgba(220, 38, 38, 0.22); border-color: #dc2626; color: #f87171; box-shadow: 0 0 9px rgba(220, 38, 38, 0.35); }
-        .type-btn[data-type="Dual Axes"].active { background: rgba(225, 29, 72, 0.22); border-color: #e11d48; color: #f87171; box-shadow: 0 0 9px rgba(225, 29, 72, 0.35); }
-        .type-btn[data-type="Daggers"].active { background: rgba(148, 163, 184, 0.22); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 9px rgba(148, 163, 184, 0.33); }
-        .type-btn[data-type="Two-Handed Axe"].active { background: rgba(185, 28, 28, 0.24); border-color: #b91c1c; color: #ef4444; box-shadow: 0 0 9px rgba(185, 28, 28, 0.37); }
-        .type-btn[data-type="Mace"].active { background: rgba(251, 191, 36, 0.22); border-color: #fbbf24; color: #fbbf24; box-shadow: 0 0 9px rgba(251, 191, 36, 0.33); }
-        .type-btn[data-type="Two-Handed Mace"].active { background: rgba(100, 116, 139, 0.22); border-color: #64748b; color: #94a3b8; box-shadow: 0 0 9px rgba(100, 116, 139, 0.33); }
-        .type-btn[data-type="Dual Maces"].active { background: rgba(148, 163, 184, 0.22); border-color: #94a3b8; color: #94a3b8; box-shadow: 0 0 9px rgba(148, 163, 184, 0.33); }
-        .type-btn[data-type="Spear"].active { background: rgba(253, 230, 138, 0.18); border-color: #fde68a; color: #fef3c7; box-shadow: 0 0 9px rgba(253, 230, 138, 0.33); }
-        .type-btn[data-type="Bow"].active { background: rgba(74, 222, 128, 0.20); border-color: #4ade80; color: #86efac; box-shadow: 0 0 9px rgba(74, 222, 128, 0.33); }
-        .type-btn[data-type="Fists"].active { background: rgba(239, 68, 68, 0.24); border-color: #ef4444; color: #f87171; box-shadow: 0 0 11px rgba(239, 68, 68, 0.39); }
-        .type-btn[data-type="Thrown"].active { background: rgba(251, 146, 60, 0.20); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 9px rgba(251, 146, 60, 0.33); }
-        .type-btn[data-type="Scepter"].active { background: rgba(168, 85, 247, 0.20); border-color: #a855f7; color: #c084fc; box-shadow: 0 0 9px rgba(168, 85, 247, 0.35); }
-        .type-btn[data-type="Crescent"].active { background: rgba(203, 213, 225, 0.18); border-color: #cbd5e1; color: #e2e8f0; box-shadow: 0 0 9px rgba(203, 213, 225, 0.3); }
-        .type-btn[data-type="Halos"].active { background: rgba(251, 191, 36, 0.22); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 11px rgba(251, 191, 36, 0.37); }
-        .type-btn[data-type="Spellbook"].active { background: rgba(34, 211, 238, 0.20); border-color: #22d3ee; color: #67e8f9; box-shadow: 0 0 9px rgba(34, 211, 238, 0.35); }
-        .type-btn[data-type="Shield"].active { background: rgba(96, 165, 250, 0.20); border-color: #60a5fa; color: #93c5fd; box-shadow: 0 0 9px rgba(96, 165, 250, 0.33); }
-        .type-btn[data-type="Head"].active { background: rgba(192, 132, 252, 0.20); border-color: #c084fc; color: #e0b4ff; box-shadow: 0 0 9px rgba(192, 132, 252, 0.33); }
-        .type-btn[data-type="Shoulders"].active { background: rgba(148, 163, 184, 0.20); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 7px rgba(148, 163, 184, 0.28); }
-        .type-btn[data-type="Chest"].active { background: rgba(248, 113, 113, 0.20); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 9px rgba(248, 113, 113, 0.33); }
-        .type-btn[data-type="Back"].active { background: rgba(129, 140, 248, 0.20); border-color: #818cf8; color: #b4bcfc; box-shadow: 0 0 9px rgba(129, 140, 248, 0.33); }
-        .type-btn[data-type="Hands"].active { background: rgba(212, 165, 116, 0.20); border-color: #d4a574; color: #e8c9a0; box-shadow: 0 0 7px rgba(212, 165, 116, 0.28); }
-        .type-btn[data-type="Legs"].active { background: rgba(167, 139, 113, 0.20); border-color: #a78b71; color: #c4a882; box-shadow: 0 0 7px rgba(167, 139, 113, 0.28); }
-        .type-btn[data-type="Feet"].active { background: rgba(201, 151, 107, 0.20); border-color: #c9976b; color: #e0b48a; box-shadow: 0 0 7px rgba(201, 151, 107, 0.28); }
-        .type-btn[data-type="Waist"].active { background: rgba(184, 132, 92, 0.20); border-color: #b8845c; color: #d4a074; box-shadow: 0 0 7px rgba(184, 132, 92, 0.28); }
-        .type-btn[data-type="Trinket"].active { background: rgba(244, 114, 182, 0.20); border-color: #f472b6; color: #f9a8d4; box-shadow: 0 0 9px rgba(244, 114, 182, 0.33); }
+        .stat-btn[data-stat="Armor"].active { background: rgba(156,163,175,0.20); border-color: #9ca3af; color: #d1d5db; box-shadow: 0 0 7px rgba(156,163,175,0.3); }
+        .stat-btn[data-stat="Vitality"].active { background: rgba(52,211,153,0.20); border-color: #34d399; color: #6ee7b7; box-shadow: 0 0 9px rgba(52,211,153,0.35); }
+        .stat-btn[data-stat="Strength"].active { background: rgba(248,113,113,0.22); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 9px rgba(248,113,113,0.35); }
+        .stat-btn[data-stat="Dexterity"].active { background: rgba(251,191,36,0.20); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 9px rgba(251,191,36,0.35); }
+        .stat-btn[data-stat="Faith"].active { background: rgba(252,211,77,0.22); border-color: #fcd34d; color: #fef3c7; box-shadow: 0 0 11px rgba(252,211,77,0.39); }
+        .stat-btn[data-stat="Intelligence"].active { background: rgba(129,140,248,0.20); border-color: #818cf8; color: #b4bcfc; box-shadow: 0 0 9px rgba(129,140,248,0.35); }
+        .stat-btn[data-stat="Critical"].active { background: rgba(244,114,182,0.22); border-color: #f472b6; color: #f9a8d4; box-shadow: 0 0 11px rgba(244,114,182,0.37); }
+        .stat-btn[data-stat="Armor Penetration"].active { background: rgba(232,121,94,0.22); border-color: #e8795e; color: #f4a28e; box-shadow: 0 0 9px rgba(232,121,94,0.35); }
+        .stat-btn[data-stat="Magic Penetration"].active { background: rgba(192,132,252,0.20); border-color: #c084fc; color: #e0b4ff; box-shadow: 0 0 9px rgba(192,132,252,0.35); }
+        .stat-btn[data-stat="Fervor"].active { background: rgba(251,146,60,0.22); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 11px rgba(251,146,60,0.37); }
 
-        .category-btn[data-category="weapons"].active { background: rgba(201, 164, 75, 0.25); border-color: var(--gold); color: var(--gold); box-shadow: 0 0 9px rgba(201, 164, 75, 0.33); }
-        .category-btn[data-category="mount"].active { background: rgba(245, 158, 11, 0.22); border-color: #f59e0b; color: #fcd34d; box-shadow: 0 0 11px rgba(245, 158, 11, 0.37); }
-        .category-btn[data-category="glider"].active { background: rgba(6, 182, 212, 0.22); border-color: #06b6d4; color: #67e8f9; box-shadow: 0 0 11px rgba(6, 182, 212, 0.37); }
-        .category-btn[data-category="armor"].active { background: rgba(59, 130, 246, 0.20); border-color: var(--rarity-blue); color: #93c5fd; box-shadow: 0 0 9px rgba(59, 130, 246, 0.33); }
+        .update-log-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin: 0 auto 14px; max-width: 1300px; padding: 12px 20px; box-shadow: var(--shadow); }
+        .update-log-box summary { color: var(--gold); cursor: pointer; font-weight: 600; font-family: var(--font-display); font-size: 0.9rem; }
+        .update-log-box .log-content { margin-top: 8px; white-space: pre-wrap; font-size: 0.78rem; color: var(--text); line-height: 1.5; }
 
-        .stat-btn[data-stat="Armor"].active { background: rgba(156, 163, 175, 0.20); border-color: #9ca3af; color: #d1d5db; box-shadow: 0 0 7px rgba(156, 163, 175, 0.3); }
-        .stat-btn[data-stat="Vitality"].active { background: rgba(52, 211, 153, 0.20); border-color: #34d399; color: #6ee7b7; box-shadow: 0 0 9px rgba(52, 211, 153, 0.35); }
-        .stat-btn[data-stat="Strength"].active { background: rgba(248, 113, 113, 0.22); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 9px rgba(248, 113, 113, 0.35); }
-        .stat-btn[data-stat="Dexterity"].active { background: rgba(251, 191, 36, 0.20); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 9px rgba(251, 191, 36, 0.35); }
-        .stat-btn[data-stat="Faith"].active { background: rgba(252, 211, 77, 0.22); border-color: #fcd34d; color: #fef3c7; box-shadow: 0 0 11px rgba(252, 211, 77, 0.39); }
-        .stat-btn[data-stat="Intelligence"].active { background: rgba(129, 140, 248, 0.20); border-color: #818cf8; color: #b4bcfc; box-shadow: 0 0 9px rgba(129, 140, 248, 0.35); }
-        .stat-btn[data-stat="Critical"].active { background: rgba(244, 114, 182, 0.22); border-color: #f472b6; color: #f9a8d4; box-shadow: 0 0 11px rgba(244, 114, 182, 0.37); }
-        .stat-btn[data-stat="Armor Penetration"].active { background: rgba(232, 121, 94, 0.22); border-color: #e8795e; color: #f4a28e; box-shadow: 0 0 9px rgba(232, 121, 94, 0.35); }
-        .stat-btn[data-stat="Magic Penetration"].active { background: rgba(192, 132, 252, 0.20); border-color: #c084fc; color: #e0b4ff; box-shadow: 0 0 9px rgba(192, 132, 252, 0.35); }
-        .stat-btn[data-stat="Fervor"].active { background: rgba(251, 146, 60, 0.22); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 11px rgba(251, 146, 60, 0.37); }
-
-        .update-log-box {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            margin: 0 auto 14px;
-            max-width: 1300px;
-            padding: 12px 20px;
-            box-shadow: var(--shadow);
-        }
-        .update-log-box summary {
-            color: var(--gold);
-            cursor: pointer;
-            font-weight: 600;
-            font-family: var(--font-display);
-            font-size: 0.9rem;
-        }
-        .update-log-box .log-content {
-            margin-top: 8px;
-            white-space: pre-wrap;
-            font-size: 0.78rem;
-            color: var(--text);
-            line-height: 1.5;
-        }
         .update-log-popover {
-            position: fixed;
-            z-index: 200;
-            max-width: 420px;
-            display: none;
-            background: var(--surface);
-            border: 1px solid var(--gold-dim);
-            border-radius: var(--radius);
-            padding: 14px 18px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-            white-space: pre-wrap;
-            font-size: 0.78rem;
-            line-height: 1.5;
-            color: var(--text);
+            position: fixed; z-index: 200; max-width: 420px; display: none; background: var(--surface);
+            border: 1px solid var(--gold-dim); border-radius: var(--radius); padding: 14px 18px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6); white-space: pre-wrap; font-size: 0.78rem; line-height: 1.5; color: var(--text);
         }
+
         .update-log-popover::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            right: 24px;
-            width: 12px;
-            height: 12px;
-            background: var(--surface);
-            border-left: 1px solid var(--gold-dim);
-            border-top: 1px solid var(--gold-dim);
+            content: ''; position: absolute; top: -6px; right: 24px; width: 12px; height: 12px;
+            background: var(--surface); border-left: 1px solid var(--gold-dim); border-top: 1px solid var(--gold-dim);
             transform: rotate(45deg);
         }
+
         .fav-star {
-    cursor: pointer;
-    font-size: 1.4em;
-    margin-right: 5px;
-    color: var(--text-dim);
-    transition: color 0.2s, text-shadow 0.2s;
-    user-select: none;
-    padding: 4px;
-    margin-left: -4px;
-    margin-top: -4px;
-    margin-bottom: -4px;
-}
-        .fav-star:hover {
-            color: var(--gold);
-            text-shadow: 0 0 5px rgba(201, 164, 75, 0.5);
-        }
-        .fav-star.favorited {
-            color: var(--gold);
-            text-shadow: 0 0 6px rgba(201, 164, 75, 0.6);
-        }
-        #build-name-display {
-            display: none;
-            color: var(--gold);
-            font-weight: 600;
-            margin-left: 12px;
-        }
-        #exit-build-btn {
-            display: none;
-            margin-left: 12px;
-            cursor: pointer;
+            cursor: pointer; font-size: 1.4em; margin-right: 5px; color: var(--text-dim);
+            transition: color 0.2s, text-shadow 0.2s; user-select: none; padding: 4px;
+            margin-left: -4px; margin-top: -4px; margin-bottom: -4px;
         }
 
-        .filter-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-left: auto;
+        .fav-star:hover { color: var(--gold); text-shadow: 0 0 5px rgba(201,164,75,0.5); }
+        .fav-star.favorited { color: var(--gold); text-shadow: 0 0 6px rgba(201,164,75,0.6); }
+
+        .filter-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+
+        .header-center { display: none; flex: 1; text-align: center; align-items: center; gap: 12px; }
+        .header-center.active { display: flex; justify-content: center; }
+
+        .exit-btn-header {
+            background: rgba(201,164,75,0.18); border: 1px solid var(--gold); color: var(--gold);
+            padding: 5px 16px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; font-weight: 700;
+            transition: all 0.2s ease; white-space: nowrap; font-family: var(--font);
         }
+
+        .exit-btn-header:hover { background: rgba(201,164,75,0.35); color: #fff; box-shadow: 0 0 10px rgba(201,164,75,0.4); }
+
+        #builds-dropdown .build-item {
+            display: flex; align-items: center; justify-content: space-between; padding: 4px 8px;
+            margin-bottom: 2px; border-radius: 12px; background: rgba(255,255,255,0.03); font-size: 0.85rem;
+        }
+
+        #builds-dropdown .build-item:hover { background: rgba(255,255,255,0.06); }
+        #builds-dropdown .build-item span {
+    font-size: 1rem;
+}
+
+        #builds-dropdown .build-item button {
+            background: none; border: 1px solid var(--border); color: var(--text-dim);
+            border-radius: 12px; padding: 2px 8px; font-size: 0.7rem; cursor: pointer;
+            transition: all 0.2s ease; white-space: nowrap;
+        }
+
+        #builds-dropdown .build-item button:hover { background: var(--surface2); color: var(--gold); border-color: var(--gold-dim); }
+        #builds-dropdown .build-item .delete-build-btn { border-color: rgba(212,90,90,0.5); color: #e86060; }
+        #builds-dropdown .build-item .delete-build-btn:hover { background: rgba(176,74,74,0.2); color: #ff7070; }
     </style>
 </head>
 <body class="loading">
@@ -1321,9 +628,11 @@
                     Just a personal dungeon drop database
                     <span class="cap-badge" id="cap-badge-text">All stats at Lv20 cap</span>
                 </div>
-                <span id="build-name-display"></span>
-                <button id="exit-build-btn" class="filter-btn">❌ Exit Build View</button>
             </div>
+        </div>
+        <div class="header-center" id="header-center">
+            <span id="build-name-display"></span>
+            <button id="exit-build-btn" class="exit-btn-header">❌ Exit Shared Build</button>
         </div>
         <div class="header-right">
             <div class="lang-switcher" id="lang-switcher">
@@ -1376,10 +685,16 @@
             </div>
         </div>
         <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear Filters</button>
+        <div class="filter-group-wrapper" id="builds-wrapper">
+            <div class="filter-group-header" id="builds-header" style="display:none;">
+                <span class="arrow">▼</span>
+                <span class="label">📁 Loadouts</span>
+                <span class="active-count" id="builds-count">0</span>
+            </div>
+            <div class="filter-dropdown" id="builds-dropdown" style="max-height: 400px; overflow-y: auto;"></div>
+        </div>
         <div class="filter-actions">
-            <button class="suggest-btn" id="share-build-btn" title="Share current favourites as a build">
-                <span id="share-build-text">Share Build</span>
-            </button>
+            <button class="suggest-btn" id="save-build-btn" title="Save current favorites as a build"><span id="save-build-text">Save Favorites</span></button>
             <button class="favorites-toggle" id="favorites-toggle-btn">⭐ Favorites</button>
             <button class="clear-fav-btn" id="clear-fav-btn" style="display:none;">🗑️ Clear Favorites</button>
         </div>
@@ -1408,6 +723,21 @@
             </div>
         </form>
         <p class="modal-footer-text" id="modal-footer-text">Your suggestion is sent privately to the creator.</p>
+    </div>
+</div>
+<div class="modal-overlay" id="build-name-modal">
+    <div class="modal-content" style="max-width: 320px;">
+        <div class="modal-header">
+            <h2 id="build-name-modal-title">💾 Save Build</h2>
+            <button class="modal-close" id="close-build-name-modal">×</button>
+        </div>
+        <div class="modal-form">
+            <input type="text" id="build-name-input" maxlength="30" placeholder="Build name (max 30 characters)" autocomplete="off">
+            <div style="display:flex; gap:9px; margin-top:10px;">
+                <button class="submit-btn" id="confirm-build-name-btn">Save</button>
+                <button class="cancel-btn" id="cancel-build-name-btn">Cancel</button>
+            </div>
+        </div>
     </div>
 </div>
 <button id="scroll-to-top-btn" title="Back to top" style="display:none; position:fixed; bottom:60px; right:20px; z-index:998; background:rgba(201,164,75,0.15); border:1px solid var(--gold-dim); color:var(--gold); border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:1.2rem; font-weight:bold; transition:all var(--transition); box-shadow:0 2px 11px rgba(0,0,0,0.5);">↑</button>
@@ -1535,9 +865,23 @@
                 share_build_button: '🔗 Share Favorites',
                 exit_build_view: '❌ Exit Build View',
                 build_view_title: 'Viewing build: {name}',
-                toast_no_favorites: 'No favourites to share.',
+                toast_no_favorites: 'No favorites to share.',
                 toast_link_copied: 'Shareable link copied to clipboard!',
-                toast_cannot_modify_build: 'Cannot modify favourites while viewing a shared build.'
+                toast_cannot_modify_build: 'Cannot modify favorites while viewing a shared build.',
+                save_build_button: '💾 Save Favorites',
+                builds_header: '📁 Loadouts',
+                toast_build_saved: 'Build saved!',
+                toast_build_loaded: 'Loaded "{name}"',
+                toast_build_deleted: 'Deleted "{name}"',
+				toast_no_favorites_save: 'No Favorites to save.',
+				build_overwrite_confirm: 'A build named "{name}" already exists. Overwrite?',
+				build_delete_confirm: 'Delete build "{name}"?',
+				toast_build_no_items: 'Build has no items.',
+				save_build_modal_title: '💾 Save Build',
+				build_name_placeholder: 'Build name (max 30 characters)',
+				save_button: 'Save',
+				cancel_button: 'Cancel',
+				load_button: 'Load',
             },
             fr: {
                 filter_label: 'Filtres',
@@ -1641,7 +985,21 @@
                 build_view_title: 'Build affiché : {name}',
                 toast_no_favorites: 'Aucun favori à partager.',
                 toast_link_copied: 'Lien partageable copié dans le presse-papiers !',
-                toast_cannot_modify_build: 'Impossible de modifier les favoris en affichant un build partagé.'
+                toast_cannot_modify_build: 'Impossible de modifier les favoris en affichant un build partagé.',
+                save_build_button: '💾 Enregistrer le build',
+                builds_header: '📁 Configs',
+                toast_build_saved: 'Build enregistré!',
+                toast_build_loaded: 'Chargé "{name}"',
+                toast_build_deleted: 'Supprimé "{name}"',
+				toast_no_favorites_save: 'Aucun favori à enregistrer.',
+				build_overwrite_confirm: 'Un build nommé "{name}" existe déjà. Écraser ?',
+				build_delete_confirm: 'Supprimer le build "{name}" ?',
+				toast_build_no_items: 'Le build ne contient aucun objet.',
+				save_build_modal_title: '💾 Enregistrer le build',
+				build_name_placeholder: 'Nom du build (max 30 caractères)',
+				save_button: 'Enregistrer',
+				cancel_button: 'Annuler',
+				load_button: 'Charger',
             },
             es: {
                 filter_label: 'Filtros',
@@ -1745,7 +1103,21 @@
                 build_view_title: 'Viendo build: {name}',
                 toast_no_favorites: 'No hay favoritos para compartir.',
                 toast_link_copied: '¡Enlace copiado al portapapeles!',
-                toast_cannot_modify_build: 'No se pueden modificar favoritos mientras se ve un build compartido.'
+                toast_cannot_modify_build: 'No se pueden modificar favoritos mientras se ve un build compartido.',
+                save_build_button: '💾 Guardar build',
+                builds_header: '📁 Equipos',
+                toast_build_saved: '¡Build guardado!',
+                toast_build_loaded: 'Cargado "{name}"',
+                toast_build_deleted: 'Eliminado "{name}"',
+				toast_no_favorites_save: 'No hay favoritos para guardar.',
+				build_overwrite_confirm: 'Ya existe un build llamado "{name}". ¿Sobrescribir?',
+				build_delete_confirm: '¿Eliminar build "{name}"?',
+				toast_build_no_items: 'El build no tiene objetos.',
+				save_build_modal_title: '💾 Guardar build',
+				build_name_placeholder: 'Nombre del build (máx. 30 caracteres)',
+				save_button: 'Guardar',
+				cancel_button: 'Cancelar',
+				load_button: 'Cargar',
             }
         };
 
@@ -1761,8 +1133,10 @@
         let favoriteIds = new Set(JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]'));
         let sharedBuild = null;
         const allItemsMap = new Map();
-		const shortIdMap = new Map();      
-		const reverseShortIdMap = new Map(); 
+        const shortIdMap = new Map();
+        const reverseShortIdMap = new Map();
+		const nameShortIdMap = new Map();
+		const reverseNameShortIdMap = new Map();
 
         const escapeHtml = str => str ? str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;') : '';
         const toSlug = str => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -1833,21 +1207,21 @@
         }
 
         const itemPassesFilter = item => {
-            if (filterCategories.length > 0) {
-                const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
-                const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
-                const passesMount = filterCategories.includes('mount') && item.types.includes('Mount');
-                const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
-                const passesMounts = passesMount || passesGlider;
-                if (!passesWeapons && !passesArmor && !passesMounts) return false;
-            }
-            if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
-            if (filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
-            if (filterStats.length && !filterStats.every(s => item.stats.includes(s))) return false;
-            if (searchQuery && !getItemName(item).toLowerCase().includes(searchQuery.toLowerCase())) return false;
-            if (showFavoritesOnly && !favoriteIds.has(item.id)) return false;
-            return true;
-        };
+    if (filterCategories.length > 0) {
+        const passesWeapons = filterCategories.includes('weapons') && item.types.some(t => WEAPON_TYPES.includes(t));
+        const passesArmor = filterCategories.includes('armor') && item.types.some(t => ARMOR_TYPES.includes(t) || t === 'Trinket');
+        const passesMount = filterCategories.includes('mount') && item.types.includes('Mount');
+        const passesGlider = filterCategories.includes('glider') && item.types.includes('Glider');
+        const passesMounts = passesMount || passesGlider;
+        if (!passesWeapons && !passesArmor && !passesMounts) return false;
+    }
+    if (filterClasses.length && !filterClasses.some(cls => item.classes.includes(cls))) return false;
+    if (filterTypes.length && !filterTypes.some(t => item.types.includes(t))) return false;
+    if (filterStats.length && !filterStats.every(s => item.stats.includes(s))) return false;
+    if (searchQuery && !getItemName(item).toLowerCase().includes(searchQuery.toLowerCase())) return false;
+    if (showFavoritesOnly && !favoriteIds.has(item.nameId)) return false;
+    return true;
+};
 
         function getStableId(name) {
             if (typeof name === 'object' && name !== null) {
@@ -1887,6 +1261,7 @@
                             skill3: item.skill3 || '',
                             passive: item.passive || '',
                             trinketPassive: item.trinketPassive || '',
+							nameId: toSlug(getStableId(item.name)),
                             rare: item.rare === true ? true : false,
                             image: item.image || ''
                         };
@@ -2052,7 +1427,7 @@
             }
             const rowClass = detailHtml ? ' item-row-has-details' : '';
             const clickHandler = detailHtml ? ` data-action="toggle-item-detail" data-item-id="${item.id}"` : '';
-            const favClass = isFavorited(item.id) ? ' favorited' : '';
+            const favClass = isFavorited(item.nameId) ? ' favorited' : '';
             const starHtml = `<span class="fav-star${favClass}" data-item-id="${item.id}" data-action="toggle-favorite">★</span>`;
             return `<tr class="item-main-row${rowClass}" data-item-id="${item.id}"${clickHandler}>
     <td data-label="${t('item_name')}">
@@ -2098,39 +1473,47 @@
             }).join('');
             return `<div class="dungeons-list">${dList}</div>`;
         }
-		
-		function generateShortId(originalId) {
-    let hash = 5381;
-    for (let i = 0; i < originalId.length; i++) {
-        hash = ((hash << 5) + hash) + originalId.charCodeAt(i);
-        hash = hash & hash; 
-    }
-    return Math.abs(hash).toString(36).padStart(5, '0').slice(0, 5);
-}
 
-function buildShortIdMaps() {
-    allItemsMap.clear();
-    shortIdMap.clear();
-    reverseShortIdMap.clear();
-    appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => {
-        allItemsMap.set(item.id, item);
-        if (!shortIdMap.has(item.id)) {
-            const short = generateShortId(item.id);
-            shortIdMap.set(item.id, short);
-            reverseShortIdMap.set(short, item.id);
+        function generateShortId(originalId) {
+            let hash = 5381;
+            for (let i = 0; i < originalId.length; i++) {
+                hash = ((hash << 5) + hash) + originalId.charCodeAt(i);
+                hash = hash & hash;
+            }
+            return Math.abs(hash).toString(36).padStart(5, '0').slice(0, 5);
         }
-    })));
+
+        function buildShortIdMaps() {
+            allItemsMap.clear();
+            shortIdMap.clear();
+            reverseShortIdMap.clear();
+            appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => {
+                allItemsMap.set(item.id, item);
+                if (!shortIdMap.has(item.id)) {
+                    const short = generateShortId(item.id);
+                    shortIdMap.set(item.id, short);
+                    reverseShortIdMap.set(short, item.id);
+                }
+				
+const canonicalName = item.nameId;
+if (!nameShortIdMap.has(canonicalName)) {
+    const shortName = generateShortId(canonicalName);
+    nameShortIdMap.set(canonicalName, shortName);
+    reverseNameShortIdMap.set(shortName, canonicalName);
 }
+            })));
+        }
 
         function renderAll() {
             const container = document.getElementById('zones-container');
             const scrollContainer = document.querySelector('.main-content');
             const scrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
-			buildShortIdMaps();
+            buildShortIdMaps();
             if (appData.zones.length === 0) {
                 container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🗺️</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.8rem;">${t('empty_no_zones_desc')}</p></div>`;
                 updateFilterBarUI();
                 updateBuildViewUI();
+                renderBuildsDropdown();
                 if (scrollContainer) {
                     requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
                 }
@@ -2143,11 +1526,12 @@ function buildShortIdMaps() {
             if (visibleZones.length === 0) {
                 let emptyDesc = t('empty_no_match_desc');
                 if (showFavoritesOnly && (filterClasses.length || filterTypes.length || filterStats.length || filterCategories.length || searchQuery)) {
-                    emptyDesc = 'No favourites match your current filters. Try clearing them.';
+                    emptyDesc = 'No favorites match your current filters. Try clearing them.';
                 }
                 container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🔍</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.8rem;">${emptyDesc}</p></div>`;
                 updateFilterBarUI();
                 updateBuildViewUI();
+                renderBuildsDropdown();
                 if (scrollContainer) {
                     requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
                 }
@@ -2171,6 +1555,7 @@ function buildShortIdMaps() {
             applyTableStripes();
             updateFilterBarUI();
             updateBuildViewUI();
+            renderBuildsDropdown();
             if (scrollContainer) {
                 requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
             }
@@ -2267,8 +1652,9 @@ function buildShortIdMaps() {
             document.getElementById('clear-fav-btn').textContent = t('clear_favorites');
             document.getElementById('header-subtitle').innerHTML = t('header_subtitle') + ' <span class="cap-badge">' + t('cap_badge_text') + '</span>';
             document.getElementById('image-tooltip').querySelector('.broken-placeholder').textContent = t('image_unavailable');
-            document.getElementById('share-build-text').textContent = t('share_build_button');
+            document.getElementById('save-build-text').textContent = t('save_build_button');
             document.getElementById('exit-build-btn').textContent = t('exit_build_view');
+            document.querySelector('#builds-header .label').textContent = t('builds_header');
             const footerText = t('footer_text');
             const creatorName = '<span class="creator-name">Iielyn</span>';
             const wikiLink = '<a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>';
@@ -2276,18 +1662,20 @@ function buildShortIdMaps() {
             const footerHtml = footerText.replace('{creator}', creatorName).replace('{wiki_link}', wikiLink).replace('{license_link}', licenseLink);
             document.getElementById('support-link-text').textContent = t('support_button');
             document.getElementById('site-footer').innerHTML = footerHtml;
+			document.getElementById('build-name-modal-title').textContent = t('save_build_modal_title');
+			document.getElementById('build-name-input').placeholder = t('build_name_placeholder');
+			document.getElementById('confirm-build-name-btn').textContent = t('save_button');
+			document.getElementById('cancel-build-name-btn').textContent = t('cancel_button');
         }
 
         function updateBuildViewUI() {
+            const center = document.getElementById('header-center');
             const buildNameEl = document.getElementById('build-name-display');
-            const exitBtn = document.getElementById('exit-build-btn');
             if (sharedBuild && sharedBuild.name) {
-                buildNameEl.style.display = 'inline';
+                center.classList.add('active');
                 buildNameEl.textContent = t('build_view_title').replace('{name}', sharedBuild.name);
-                exitBtn.style.display = 'inline-block';
             } else {
-                buildNameEl.style.display = 'none';
-                exitBtn.style.display = 'none';
+                center.classList.remove('active');
             }
         }
 
@@ -2317,6 +1705,121 @@ function buildShortIdMaps() {
                 } else {
                     btn.textContent = displayType;
                 }
+            });
+        }
+
+        const BUILDS_STORAGE_KEY = 'farever_builds_v1';
+
+        function loadBuilds() {
+            const raw = localStorage.getItem(BUILDS_STORAGE_KEY);
+            return raw ? JSON.parse(raw) : {};
+        }
+
+        function saveBuilds(builds) {
+            localStorage.setItem(BUILDS_STORAGE_KEY, JSON.stringify(builds));
+        }
+
+        function renderBuildsDropdown() {
+            const builds = loadBuilds();
+            const dropdown = document.getElementById('builds-dropdown');
+            const header = document.getElementById('builds-header');
+            const countEl = document.getElementById('builds-count');
+            const buildNames = Object.keys(builds);
+            if (buildNames.length === 0) {
+                header.style.display = 'none';
+                dropdown.innerHTML = '';
+                return;
+            }
+            header.style.display = 'flex';
+            countEl.textContent = buildNames.length;
+            countEl.style.display = 'inline';
+            dropdown.innerHTML = buildNames.map(name => {
+                const itemCount = builds[name].length;
+                return `<div class="build-item">
+                    <span title="${escapeHtml(name)}">${escapeHtml(name)} (${itemCount})</span>
+                    <button class="load-build-btn" data-build-name="${escapeHtml(name)}">${t('load_button')}</button>
+                    <button class="share-build-btn" data-build-name="${escapeHtml(name)}">🔗</button>
+                    <button class="delete-build-btn" data-build-name="${escapeHtml(name)}">✕</button>
+                </div>`;
+            }).join('');
+        }
+
+       function saveCurrentBuild() {
+    if (favoriteIds.size === 0) {
+        showToast(t('toast_no_favorites_save'), 'red');
+        return;
+    }
+    document.getElementById('build-name-input').value = '';
+    document.getElementById('build-name-modal').classList.add('active');
+    document.getElementById('build-name-input').focus();
+}
+
+function confirmSaveBuildName() {
+    const input = document.getElementById('build-name-input');
+    const name = input.value.trim();
+    if (!name) return;
+    const builds = loadBuilds();
+    if (builds[name]) {
+        if (!confirm(t('build_overwrite_confirm').replace('{name}', name))) return;
+    }
+    builds[name] = [...favoriteIds];
+    saveBuilds(builds);
+    renderBuildsDropdown();
+    showToast(t('toast_build_saved'));
+    closeBuildNameModal();
+}
+
+function closeBuildNameModal() {
+    document.getElementById('build-name-modal').classList.remove('active');
+}
+
+        function loadBuild(name) {
+            const builds = loadBuilds();
+            if (!builds[name]) return;
+            favoriteIds = new Set(builds[name]);
+            localStorage.setItem('farever_favorites_v1', JSON.stringify([...favoriteIds]));
+            showFavoritesOnly = true;
+            document.getElementById('favorites-toggle-btn').classList.add('active');
+            renderAll();
+            showToast(t('toast_build_loaded').replace('{name}', name));
+        }
+
+        function deleteBuild(name) {
+    if (!confirm(t('build_delete_confirm').replace('{name}', name))) return;
+    const builds = loadBuilds();
+    delete builds[name];
+    saveBuilds(builds);
+    renderBuildsDropdown();
+    showToast(t('toast_build_deleted').replace('{name}', name));
+    if (Object.keys(loadBuilds()).length > 0) {
+        setTimeout(() => {
+            document.getElementById('builds-wrapper').classList.add('open');
+        }, 0);
+    } else {
+        document.getElementById('builds-wrapper').classList.remove('open');
+    }
+}
+
+function buildShareUrl(idsSet, buildName) {
+    const shortIds = [...idsSet].map(id => nameShortIdMap.get(id) || id).filter(Boolean);
+    const url = new URL(window.location.href);
+    url.searchParams.set('fav', shortIds.join(','));
+    url.searchParams.set('build', buildName);
+    return url.toString();
+}
+
+        function shareBuild(name) {
+            const builds = loadBuilds();
+            const ids = builds[name];
+            if (!ids || ids.length === 0) {
+                showToast(t('toast_build_no_items'), 'red');
+                return;
+            }
+            const url = buildShareUrl(new Set(ids), name);
+            navigator.clipboard.writeText(url).then(() => {
+                showToast(t('toast_link_copied'));
+            }).catch(() => {
+                prompt('Copy this link to share your build:', url);
             });
         }
 
@@ -2427,18 +1930,21 @@ function buildShortIdMaps() {
             setTimeout(() => el.remove(), 2200);
         }
 
-        function isFavorited(itemId) { return favoriteIds.has(itemId); }
+        function isFavorited(nameId) { return favoriteIds.has(nameId); }
 
         function toggleFavorite(itemId) {
-            if (sharedBuild) {
-                showToast(t('toast_cannot_modify_build'), 'red');
-                return;
-            }
-            if (favoriteIds.has(itemId)) favoriteIds.delete(itemId);
-            else favoriteIds.add(itemId);
-            localStorage.setItem('farever_favorites_v1', JSON.stringify([...favoriteIds]));
-            renderAll();
-        }
+    if (sharedBuild) {
+        showToast(t('toast_cannot_modify_build'), 'red');
+        return;
+    }
+    const item = allItemsMap.get(itemId);
+    if (!item) return;
+    const nameId = item.nameId;
+    if (favoriteIds.has(nameId)) favoriteIds.delete(nameId);
+    else favoriteIds.add(nameId);
+    localStorage.setItem('farever_favorites_v1', JSON.stringify([...favoriteIds]));
+    renderAll();
+}
 
         function clearAllFavorites() {
             if (sharedBuild) {
@@ -2455,23 +1961,14 @@ function buildShortIdMaps() {
             renderAll();
         }
 
-function getBuildFromUrl() {
+        function getBuildFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const favParam = params.get('fav');
     const name = params.get('build') || '';
     if (!favParam) return null;
     const pieces = favParam.split(',').map(s => s.trim()).filter(Boolean);
-    const ids = pieces.map(p => reverseShortIdMap.get(p) || p);
+    const ids = pieces.map(p => reverseNameShortIdMap.get(p) || p);
     return { ids, name };
-}
-
-function buildShareUrl(favIds, buildName) {
-    const url = new URL(window.location);
-    const shortList = [...favIds].map(id => shortIdMap.get(id) || id).join(',');
-    url.searchParams.set('fav', shortList);
-    if (buildName) url.searchParams.set('build', buildName);
-    else url.searchParams.delete('build');
-    return url.toString();
 }
 
         function setupSuggestionModal() {
@@ -2589,19 +2086,31 @@ function buildShareUrl(favIds, buildName) {
                 renderAll();
             });
             document.getElementById('clear-fav-btn').addEventListener('click', clearAllFavorites);
-            document.getElementById('share-build-btn').addEventListener('click', () => {
-                if (favoriteIds.size === 0) {
-                    showToast(t('toast_no_favorites'), 'red');
-                    return;
+            document.getElementById('save-build-btn').addEventListener('click', saveCurrentBuild);
+			document.getElementById('confirm-build-name-btn').addEventListener('click', confirmSaveBuildName);
+document.getElementById('cancel-build-name-btn').addEventListener('click', closeBuildNameModal);
+document.getElementById('close-build-name-modal').addEventListener('click', closeBuildNameModal);
+document.getElementById('build-name-modal').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('build-name-modal')) closeBuildNameModal();
+});
+document.getElementById('build-name-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        confirmSaveBuildName();
+    } else if (e.key === 'Escape') {
+        closeBuildNameModal();
+    }
+});
+            document.getElementById('builds-dropdown').addEventListener('click', (e) => {
+                const btn = e.target.closest('button');
+                if (!btn) return;
+                const name = btn.dataset.buildName;
+                if (btn.classList.contains('load-build-btn')) {
+                    loadBuild(name);
+                } else if (btn.classList.contains('share-build-btn')) {
+                    shareBuild(name);
+                } else if (btn.classList.contains('delete-build-btn')) {
+                    deleteBuild(name);
                 }
-                const buildName = prompt('Enter a name for your build (e.g., "Warrior Build")', 'My Build');
-                if (buildName === null) return;
-                const url = buildShareUrl(favoriteIds, buildName.trim() || '');
-                navigator.clipboard.writeText(url).then(() => {
-                    showToast(t('toast_link_copied'));
-                }).catch(() => {
-                    prompt('Copy this link to share your build:', url);
-                });
             });
             document.getElementById('exit-build-btn').addEventListener('click', () => {
                 window.history.replaceState({}, document.title, window.location.pathname);
@@ -2667,8 +2176,19 @@ function buildShareUrl(favIds, buildName) {
             updateStaticUITexts();
             updateAllFilterButtonLabels();
             renderUpdateLog(loaded.updateLog || '');
-			buildShortIdMaps();
-			const urlBuild = getBuildFromUrl();
+            buildShortIdMaps();
+
+            const rawFavs = JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]');
+            if (rawFavs.length && typeof rawFavs[0] === 'string' && rawFavs[0].includes('_')) {
+                const migrated = new Set();
+                rawFavs.forEach(oldId => {
+                    const item = allItemsMap.get(oldId);
+                    if (item) migrated.add(item.nameId);
+                });
+                localStorage.setItem('farever_favorites_v1', JSON.stringify([...migrated]));
+            }
+
+            const urlBuild = getBuildFromUrl();
             if (urlBuild) {
                 favoriteIds = new Set(urlBuild.ids);
                 showFavoritesOnly = true;
@@ -2682,6 +2202,7 @@ function buildShareUrl(favIds, buildName) {
 
         async function init() {
             buildFilterButtons();
+            renderBuildsDropdown();
             setupFilterDropdowns();
             setupGlobalListeners();
             setupItemDetailToggle();
