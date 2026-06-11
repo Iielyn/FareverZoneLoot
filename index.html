@@ -1785,15 +1785,21 @@ function closeBuildNameModal() {
 }
 
         function loadBuild(name) {
-            const builds = loadBuilds();
-            if (!builds[name]) return;
-            favoriteIds = new Set(builds[name]);
-            localStorage.setItem('farever_favorites_v1', JSON.stringify([...favoriteIds]));
-            showFavoritesOnly = true;
-            document.getElementById('favorites-toggle-btn').classList.add('active');
-            renderAll();
-            showToast(t('toast_build_loaded').replace('{name}', name));
-        }
+    const builds = loadBuilds();
+    if (!builds[name]) return;
+    favoriteIds = new Set(builds[name]);
+    localStorage.setItem('farever_favorites_v1', JSON.stringify([...favoriteIds]));
+    showFavoritesOnly = true;
+    filterClasses = [];
+    filterTypes = [];
+    filterStats = [];
+    filterCategories = [];
+    searchQuery = '';
+    document.getElementById('search-input').value = '';
+    document.getElementById('favorites-toggle-btn').classList.add('active');
+    renderAll();
+    showToast(t('toast_build_loaded').replace('{name}', name));
+}
 
         function deleteBuild(name) {
     if (!confirm(t('build_delete_confirm').replace('{name}', name))) return;
