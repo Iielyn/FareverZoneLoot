@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/Ah.png">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
     <style>
         :root {
             --bg: #0d0f13;
@@ -2109,21 +2108,25 @@
     return Math.abs(hash).toString(36).padStart(5, '0').slice(0, 5);
 }
 
+function buildShortIdMaps() {
+    allItemsMap.clear();
+    shortIdMap.clear();
+    reverseShortIdMap.clear();
+    appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => {
+        allItemsMap.set(item.id, item);
+        if (!shortIdMap.has(item.id)) {
+            const short = generateShortId(item.id);
+            shortIdMap.set(item.id, short);
+            reverseShortIdMap.set(short, item.id);
+        }
+    })));
+}
+
         function renderAll() {
             const container = document.getElementById('zones-container');
             const scrollContainer = document.querySelector('.main-content');
             const scrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
-allItemsMap.clear();
-shortIdMap.clear();
-reverseShortIdMap.clear();
-appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => {
-    allItemsMap.set(item.id, item);
-    if (!shortIdMap.has(item.id)) {
-        const short = generateShortId(item.id);
-        shortIdMap.set(item.id, short);
-        reverseShortIdMap.set(short, item.id);
-    }
-})));
+			buildShortIdMaps();
             if (appData.zones.length === 0) {
                 container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🗺️</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.8rem;">${t('empty_no_zones_desc')}</p></div>`;
                 updateFilterBarUI();
@@ -2664,7 +2667,8 @@ function buildShareUrl(favIds, buildName) {
             updateStaticUITexts();
             updateAllFilterButtonLabels();
             renderUpdateLog(loaded.updateLog || '');
-            const urlBuild = getBuildFromUrl();
+			buildShortIdMaps();
+			const urlBuild = getBuildFromUrl();
             if (urlBuild) {
                 favoriteIds = new Set(urlBuild.ids);
                 showFavoritesOnly = true;
