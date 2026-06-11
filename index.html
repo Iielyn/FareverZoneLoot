@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/Ah.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
     <style>
         :root {
             --bg: #0d0f13;
@@ -1271,13 +1272,17 @@
             transform: rotate(45deg);
         }
         .fav-star {
-            cursor: pointer;
-            font-size: 1.1em;
-            margin-right: 5px;
-            color: var(--text-dim);
-            transition: color 0.2s, text-shadow 0.2s;
-            user-select: none;
-        }
+    cursor: pointer;
+    font-size: 1.4em;
+    margin-right: 5px;
+    color: var(--text-dim);
+    transition: color 0.2s, text-shadow 0.2s;
+    user-select: none;
+    padding: 4px;
+    margin-left: -4px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+}
         .fav-star:hover {
             color: var(--gold);
             text-shadow: 0 0 5px rgba(201, 164, 75, 0.5);
@@ -1757,6 +1762,8 @@
         let favoriteIds = new Set(JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]'));
         let sharedBuild = null;
         const allItemsMap = new Map();
+		const shortIdMap = new Map();      
+		const reverseShortIdMap = new Map(); 
 
         const escapeHtml = str => str ? str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;') : '';
         const toSlug = str => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -2092,13 +2099,31 @@
             }).join('');
             return `<div class="dungeons-list">${dList}</div>`;
         }
+		
+		function generateShortId(originalId) {
+    let hash = 5381;
+    for (let i = 0; i < originalId.length; i++) {
+        hash = ((hash << 5) + hash) + originalId.charCodeAt(i);
+        hash = hash & hash; 
+    }
+    return Math.abs(hash).toString(36).padStart(5, '0').slice(0, 5);
+}
 
         function renderAll() {
             const container = document.getElementById('zones-container');
             const scrollContainer = document.querySelector('.main-content');
             const scrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
-            allItemsMap.clear();
-            appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => allItemsMap.set(item.id, item))));
+allItemsMap.clear();
+shortIdMap.clear();
+reverseShortIdMap.clear();
+appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => {
+    allItemsMap.set(item.id, item);
+    if (!shortIdMap.has(item.id)) {
+        const short = generateShortId(item.id);
+        shortIdMap.set(item.id, short);
+        reverseShortIdMap.set(short, item.id);
+    }
+})));
             if (appData.zones.length === 0) {
                 container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🗺️</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.8rem;">${t('empty_no_zones_desc')}</p></div>`;
                 updateFilterBarUI();
@@ -2113,18 +2138,18 @@
                 return { zone, total };
             }).filter(({ total }) => total > 0);
             if (visibleZones.length === 0) {
-    let emptyDesc = t('empty_no_match_desc');
-    if (showFavoritesOnly && (filterClasses.length || filterTypes.length || filterStats.length || filterCategories.length || searchQuery)) {
-        emptyDesc = 'No favourites match your current filters. Try clearing them.';
-    }
-    container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🔍</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.8rem;">${emptyDesc}</p></div>`;
-    updateFilterBarUI();
-    updateBuildViewUI();
-    if (scrollContainer) {
-        requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
-    }
-    return;
-}
+                let emptyDesc = t('empty_no_match_desc');
+                if (showFavoritesOnly && (filterClasses.length || filterTypes.length || filterStats.length || filterCategories.length || searchQuery)) {
+                    emptyDesc = 'No favourites match your current filters. Try clearing them.';
+                }
+                container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🔍</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.8rem;">${emptyDesc}</p></div>`;
+                updateFilterBarUI();
+                updateBuildViewUI();
+                if (scrollContainer) {
+                    requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
+                }
+                return;
+            }
             const zonesHtml = visibleZones.map(({ zone, total }) => {
                 const openClass = zone._open ? ' open' : '';
                 const dungeonCount = zone.dungeons.length;
@@ -2427,22 +2452,24 @@
             renderAll();
         }
 
-        function getBuildFromUrl() {
-            const params = new URLSearchParams(window.location.search);
-            const favParam = params.get('fav');
-            const name = params.get('build') || '';
-            if (!favParam) return null;
-            const ids = favParam.split(',').map(s => s.trim()).filter(Boolean);
-            return { ids, name };
-        }
+function getBuildFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const favParam = params.get('fav');
+    const name = params.get('build') || '';
+    if (!favParam) return null;
+    const pieces = favParam.split(',').map(s => s.trim()).filter(Boolean);
+    const ids = pieces.map(p => reverseShortIdMap.get(p) || p);
+    return { ids, name };
+}
 
-        function buildShareUrl(favIds, buildName) {
-            const url = new URL(window.location);
-            url.searchParams.set('fav', [...favIds].join(','));
-            if (buildName) url.searchParams.set('build', buildName);
-            else url.searchParams.delete('build');
-            return url.toString();
-        }
+function buildShareUrl(favIds, buildName) {
+    const url = new URL(window.location);
+    const shortList = [...favIds].map(id => shortIdMap.get(id) || id).join(',');
+    url.searchParams.set('fav', shortList);
+    if (buildName) url.searchParams.set('build', buildName);
+    else url.searchParams.delete('build');
+    return url.toString();
+}
 
         function setupSuggestionModal() {
             const modal = document.getElementById('suggestion-modal');
