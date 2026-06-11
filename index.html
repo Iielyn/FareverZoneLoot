@@ -1611,7 +1611,7 @@ if (!nameShortIdMap.has(canonicalName)) {
             });
             const favBtn = document.getElementById('favorites-toggle-btn');
 			favBtn.classList.toggle('active', showFavoritesOnly);
-			favBtn.style.display = sharedBuild ? 'none' : '';   // ← added
+			favBtn.style.display = sharedBuild ? 'none' : '';   
 			const clearFavBtn = document.getElementById('clear-fav-btn');
 			clearFavBtn.style.display = (sharedBuild || favoriteIds.size === 0) ? 'none' : 'inline-flex';
             const categoryCount = document.getElementById('category-count');
@@ -1796,6 +1796,7 @@ function closeBuildNameModal() {
     filterCategories = [];
     searchQuery = '';
     document.getElementById('search-input').value = '';
+	updateFilterGroupVisibility();
     document.getElementById('favorites-toggle-btn').classList.add('active');
     renderAll();
     showToast(t('toast_build_loaded').replace('{name}', name));
@@ -1879,27 +1880,35 @@ function buildShareUrl(idsSet, buildName) {
         };
 
         function setupItemDetailToggle() {
-            const container = document.getElementById('zones-container');
-            container.addEventListener('click', (e) => {
-                if (e.target.closest('.rarity-btn') || e.target.closest('[data-image-url]')) return;
-                const mainRow = e.target.closest('[data-action="toggle-item-detail"]');
-                if (!mainRow) return;
-                const itemId = mainRow.dataset.itemId;
-                const detailRow = container.querySelector(`.item-detail-row[data-item-detail="${itemId}"]`);
-                if (!detailRow) return;
-                const isOpen = detailRow.style.display !== 'none';
-                if (isOpen) { detailRow.style.display = 'none'; mainRow.classList.remove('expanded'); }
-                else {
-                    container.querySelectorAll('.item-detail-row[style*="display: block"]').forEach(r => {
-                        r.style.display = 'none';
-                        const id = r.dataset.itemDetail;
-                        if (id) { const main = container.querySelector(`.item-main-row[data-item-id="${id}"]`); if (main) main.classList.remove('expanded'); }
-                    });
-                    detailRow.style.display = 'table-row';
-                    mainRow.classList.add('expanded');
+    const container = document.getElementById('zones-container');
+    container.addEventListener('click', (e) => {
+        if (e.target.closest('.rarity-btn') || e.target.closest('[data-image-url]')) return;
+        const mainRow = e.target.closest('[data-action="toggle-item-detail"]');
+        if (!mainRow) return;
+        const itemId = mainRow.dataset.itemId;
+        const detailRow = container.querySelector(`.item-detail-row[data-item-detail="${itemId}"]`);
+        if (!detailRow) return;
+        const isOpen = detailRow.style.display !== 'none';
+        if (isOpen) {
+            detailRow.style.display = 'none';
+            mainRow.classList.remove('expanded');
+        } else {
+            container.querySelectorAll('.item-detail-row').forEach(r => {
+                if (r.style.display !== 'none') {
+                    r.style.display = 'none';
+                    const id = r.dataset.itemDetail;
+                    if (id) {
+                        const main = container.querySelector(`.item-main-row[data-item-id="${id}"]`);
+                        if (main) main.classList.remove('expanded');
+                    }
                 }
             });
+            const isMobile = window.matchMedia('(max-width: 800px)').matches;
+            detailRow.style.display = isMobile ? 'block' : 'table-row';
+            mainRow.classList.add('expanded');
         }
+    });
+}
 
         function setupRaritySwitcher() {
             const container = document.getElementById('zones-container');
