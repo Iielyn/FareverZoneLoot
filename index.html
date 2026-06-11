@@ -1610,9 +1610,10 @@ if (!nameShortIdMap.has(canonicalName)) {
                 }
             });
             const favBtn = document.getElementById('favorites-toggle-btn');
-            favBtn.classList.toggle('active', showFavoritesOnly);
-            const clearFavBtn = document.getElementById('clear-fav-btn');
-            clearFavBtn.style.display = (sharedBuild || favoriteIds.size === 0) ? 'none' : 'inline-flex';
+			favBtn.classList.toggle('active', showFavoritesOnly);
+			favBtn.style.display = sharedBuild ? 'none' : '';   // ← added
+			const clearFavBtn = document.getElementById('clear-fav-btn');
+			clearFavBtn.style.display = (sharedBuild || favoriteIds.size === 0) ? 'none' : 'inline-flex';
             const categoryCount = document.getElementById('category-count');
             categoryCount.textContent = filterCategories.length;
             categoryCount.style.display = filterCategories.length ? 'inline' : 'none';
