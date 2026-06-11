@@ -658,47 +658,47 @@
         </div>
     </header>
     <div class="filter-bar" id="filter-bar">
-        <span class="filter-label" id="filter-label">Filters</span>
-        <div class="filter-group-wrapper" id="class-wrapper">
-            <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="class-label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
-            <div class="filter-dropdown" id="class-dropdown"></div>
+    <span class="filter-label" id="filter-label">Filters</span>
+    <div class="filter-group-wrapper" id="class-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="class-label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="class-dropdown"></div>
+    </div>
+    <div class="filter-group-wrapper" id="stat-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="stats-label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="stat-dropdown"></div>
+    </div>
+    <div class="filter-group-wrapper" id="type-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="type-label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="type-dropdown"></div>
+    </div>
+    <div class="filter-group-wrapper" id="category-wrapper">
+        <div class="filter-group-header">
+            <span class="arrow">▼</span>
+            <span class="label" id="category-label">Category</span>
+            <span class="active-count" id="category-count" style="display:none">0</span>
         </div>
-        <div class="filter-group-wrapper" id="stat-wrapper">
-            <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="stats-label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
-            <div class="filter-dropdown" id="stat-dropdown"></div>
-        </div>
-        <div class="filter-group-wrapper" id="type-wrapper">
-            <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="type-label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
-            <div class="filter-dropdown" id="type-dropdown"></div>
-        </div>
-        <div class="filter-group-wrapper" id="category-wrapper">
-            <div class="filter-group-header">
-                <span class="arrow">▼</span>
-                <span class="label" id="category-label">Category</span>
-                <span class="active-count" id="category-count" style="display:none">0</span>
-            </div>
-            <div class="filter-dropdown" id="category-dropdown">
-                <button class="filter-btn category-btn" data-category="weapons">Weapons <span class="item-count">(0)</span></button>
-                <button class="filter-btn category-btn" data-category="armor">Armor <span class="item-count">(0)</span></button>
-                <button class="filter-btn category-btn" data-category="mount">Mount <span class="item-count">(0)</span></button>
-                <button class="filter-btn category-btn" data-category="glider">Glider <span class="item-count">(0)</span></button>
-            </div>
-        </div>
-        <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear Filters</button>
-        <div class="filter-group-wrapper" id="builds-wrapper">
-            <div class="filter-group-header" id="builds-header" style="display:none;">
-                <span class="arrow">▼</span>
-                <span class="label">📁 Loadouts</span>
-                <span class="active-count" id="builds-count">0</span>
-            </div>
-            <div class="filter-dropdown" id="builds-dropdown" style="max-height: 400px; overflow-y: auto;"></div>
-        </div>
-        <div class="filter-actions">
-            <button class="suggest-btn" id="save-build-btn" title="Save current favorites as a build"><span id="save-build-text">Save Favorites</span></button>
-            <button class="favorites-toggle" id="favorites-toggle-btn">⭐ Favorites</button>
-            <button class="clear-fav-btn" id="clear-fav-btn" style="display:none;">🗑️ Clear Favorites</button>
+        <div class="filter-dropdown" id="category-dropdown">
+            <button class="filter-btn category-btn" data-category="weapons">Weapons <span class="item-count">(0)</span></button>
+            <button class="filter-btn category-btn" data-category="armor">Armor <span class="item-count">(0)</span></button>
+            <button class="filter-btn category-btn" data-category="mount">Mount <span class="item-count">(0)</span></button>
+            <button class="filter-btn category-btn" data-category="glider">Glider <span class="item-count">(0)</span></button>
         </div>
     </div>
+    <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear Filters</button>
+    <div class="filter-actions">
+    <div class="filter-group-wrapper" id="builds-wrapper">
+        <div class="filter-group-header" id="builds-header" style="display:none;">
+            <span class="arrow">▼</span>
+            <span class="label">📁 Loadouts</span>
+            <span class="active-count" id="builds-count">0</span>
+        </div>
+        <div class="filter-dropdown" id="builds-dropdown" style="max-height: 400px; overflow-y: auto;"></div>
+    </div>
+    <button class="suggest-btn" id="save-build-btn" title="Save current favorites as a build"><span id="save-build-text">Save Favorites</span></button>
+    <button class="favorites-toggle" id="favorites-toggle-btn">⭐ Favorites</button>
+    <button class="clear-fav-btn" id="clear-fav-btn" style="display:none;">🗑️ Clear Favorites</button>
+</div>
+</div>
 </div>
 <div class="main-content">
     <main class="container" id="zones-container"></main>
@@ -1669,15 +1669,25 @@ if (!nameShortIdMap.has(canonicalName)) {
         }
 
         function updateBuildViewUI() {
-            const center = document.getElementById('header-center');
-            const buildNameEl = document.getElementById('build-name-display');
-            if (sharedBuild && sharedBuild.name) {
-                center.classList.add('active');
-                buildNameEl.textContent = t('build_view_title').replace('{name}', sharedBuild.name);
-            } else {
-                center.classList.remove('active');
-            }
-        }
+    var center = document.getElementById('header-center');
+    var buildNameEl = document.getElementById('build-name-display');
+    if (sharedBuild && sharedBuild.name) {
+        center.classList.add('active');
+        buildNameEl.textContent = t('build_view_title').replace('{name}', sharedBuild.name);
+    } else {
+        center.classList.remove('active');
+    }
+    updateFilterGroupVisibility();
+}
+
+function updateFilterGroupVisibility() {
+    var hide = showFavoritesOnly || sharedBuild;
+    var ids = ['class-wrapper', 'stat-wrapper', 'type-wrapper', 'category-wrapper'];
+    for (var i = 0; i < ids.length; i++) {
+        var el = document.getElementById(ids[i]);
+        if (el) el.style.display = hide ? 'none' : '';
+    }
+}
 
         function updateAllFilterButtonLabels() {
             document.querySelectorAll('#class-dropdown .class-btn').forEach(btn => {
@@ -2081,10 +2091,24 @@ function buildShareUrl(idsSet, buildName) {
             });
             const favToggleBtn = document.getElementById('favorites-toggle-btn');
             favToggleBtn.addEventListener('click', () => {
-                showFavoritesOnly = !showFavoritesOnly;
-                favToggleBtn.classList.toggle('active', showFavoritesOnly);
-                renderAll();
-            });
+    if (showFavoritesOnly) {
+        showFavoritesOnly = false;
+        favToggleBtn.classList.remove('active');
+        updateFilterGroupVisibility();
+        renderAll();
+        return;
+    }
+    showFavoritesOnly = true;
+    favToggleBtn.classList.add('active');
+    filterClasses = [];
+    filterTypes = [];
+    filterStats = [];
+    filterCategories = [];
+    searchQuery = '';
+    document.getElementById('search-input').value = '';
+    updateFilterGroupVisibility();
+    renderAll();
+});
             document.getElementById('clear-fav-btn').addEventListener('click', clearAllFavorites);
             document.getElementById('save-build-btn').addEventListener('click', saveCurrentBuild);
 			document.getElementById('confirm-build-name-btn').addEventListener('click', confirmSaveBuildName);
