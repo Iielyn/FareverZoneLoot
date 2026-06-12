@@ -615,6 +615,10 @@
         #builds-dropdown .build-item button:hover { background: var(--surface2); color: var(--gold); border-color: var(--gold-dim); }
         #builds-dropdown .build-item .delete-build-btn { border-color: rgba(212,90,90,0.5); color: #e86060; }
         #builds-dropdown .build-item .delete-build-btn:hover { background: rgba(176,74,74,0.2); color: #ff7070; }
+		
+		.location-cell { font-size: 0.8rem; }
+		.location-zone { color: var(--gold); font-weight: 600; }
+		.location-dungeon { color: var(--text); }
     </style>
 </head>
 <body class="loading">
@@ -882,6 +886,7 @@
 				save_button: 'Save',
 				cancel_button: 'Cancel',
 				load_button: 'Load',
+				location: 'Location',
             },
             fr: {
                 filter_label: 'Filtres',
@@ -1000,6 +1005,7 @@
 				save_button: 'Enregistrer',
 				cancel_button: 'Annuler',
 				load_button: 'Charger',
+				location: 'Emplacement',
             },
             es: {
                 filter_label: 'Filtros',
@@ -1118,6 +1124,7 @@
 				save_button: 'Guardar',
 				cancel_button: 'Cancelar',
 				load_button: 'Cargar',
+				location: 'Ubicación',
             }
         };
 
@@ -1131,8 +1138,9 @@
         let showFavoritesOnly = false;
         let currentLang = localStorage.getItem('farever_lang') || 'en';
         let favoriteIds = new Set(JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]'));
-        let sharedBuild = null;
-        const allItemsMap = new Map();
+		let itemLocationMap = new Map();
+		let sharedBuild = null;
+		const allItemsMap = new Map();
         const shortIdMap = new Map();
         const reverseShortIdMap = new Map();
 		const nameShortIdMap = new Map();
@@ -1483,66 +1491,288 @@
             return Math.abs(hash).toString(36).padStart(5, '0').slice(0, 5);
         }
 
-        function buildShortIdMaps() {
-            allItemsMap.clear();
-            shortIdMap.clear();
-            reverseShortIdMap.clear();
-            appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => {
+const BASE36_CHARS = '0123456789abcdefghijklmnopqrstuvwxyz';
+
+function shortIdToNumber(shortId) {
+    let num = 0;
+    for (let i = 0; i < shortId.length; i++) {
+        num = num * 36 + BASE36_CHARS.indexOf(shortId[i]);
+    }
+    return num;
+}
+
+function numberToShortId(num) {
+    let str = '';
+    for (let i = 0; i < 5; i++) {
+        str = BASE36_CHARS[num % 36] + str;
+        num = Math.floor(num / 36);
+    }
+    return str;
+}
+
+function packShortIds(shortIds, name = '') {
+    const bits = [];
+    shortIds.forEach(id => {
+        const num = shortIdToNumber(id);
+        for (let i = 25; i >= 0; i--) bits.push((num >> i) & 1);
+    });
+    const encoder = new TextEncoder();
+    const nameBytes = encoder.encode(name);
+    for (let i = 15; i >= 0; i--) bits.push((nameBytes.length >> i) & 1);
+    nameBytes.forEach(byte => {
+        for (let i = 7; i >= 0; i--) bits.push((byte >> i) & 1);
+    });
+    const byteArray = [];
+    for (let i = 0; i < bits.length; i += 8) {
+        let byte = 0;
+        for (let j = 0; j < 8 && (i + j) < bits.length; j++) {
+            byte = (byte << 1) | bits[i + j];
+        }
+        if (i + 8 > bits.length) byte <<= (8 - (bits.length - i));
+        byteArray.push(byte);
+    }
+    return btoa(String.fromCharCode(...byteArray))
+        .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function unpackShortIds(packed) {
+    const base64 = packed.replace(/-/g, '+').replace(/_/g, '/');
+    const binaryStr = atob(base64);
+    const byteArray = new Uint8Array(binaryStr.length);
+    for (let i = 0; i < binaryStr.length; i++) byteArray[i] = binaryStr.charCodeAt(i);
+    const bits = [];
+    byteArray.forEach(byte => {
+        for (let i = 7; i >= 0; i--) bits.push((byte >> i) & 1);
+    });
+
+    const totalBits = bits.length;
+    let bestN = 0, bestL = 0, found = false;
+    for (let n = 0; n <= Math.floor((totalBits - 16) / 26); n++) {
+        const remainingBits = totalBits - 26*n - 16;
+        if (remainingBits >= 0 && remainingBits % 8 === 0) {
+            const l = remainingBits / 8;
+            if (l <= 65535) {
+                bestN = n;
+                bestL = l;
+                found = true;
+                break; 
+            }
+        }
+    }
+    if (!found) {
+        bestN = Math.floor(totalBits / 26);
+        bestL = 0;
+    }
+
+    const shortIds = [];
+    for (let i = 0; i < bestN; i++) {
+        let num = 0;
+        for (let j = 0; j < 26; j++) {
+            num = (num << 1) | bits[i * 26 + j];
+        }
+        shortIds.push(numberToShortId(num));
+    }
+
+    let name = '';
+    if (bestL > 0) {
+        const start = bestN * 26 + 16;
+        const nameBits = bits.slice(start, start + bestL * 8);
+        const nameBytes = new Uint8Array(bestL);
+        for (let i = 0; i < bestL; i++) {
+            let byte = 0;
+            for (let j = 0; j < 8; j++) {
+                byte = (byte << 1) | nameBits[i*8 + j];
+            }
+            nameBytes[i] = byte;
+        }
+        name = new TextDecoder().decode(nameBytes);
+    }
+    return { shortIds, name };
+}
+
+function buildShortIdMaps() {
+    allItemsMap.clear();
+    shortIdMap.clear();
+    reverseShortIdMap.clear();
+    nameShortIdMap.clear();
+    reverseNameShortIdMap.clear();
+    itemLocationMap.clear();
+
+    appData.zones.forEach(z => {
+        z.dungeons.forEach(d => {
+            d.loot.forEach(item => {
                 allItemsMap.set(item.id, item);
+                itemLocationMap.set(item.id, {
+                    zoneName: z.name,
+                    dungeonName: d.name
+                });
                 if (!shortIdMap.has(item.id)) {
                     const short = generateShortId(item.id);
                     shortIdMap.set(item.id, short);
                     reverseShortIdMap.set(short, item.id);
                 }
-				
-const canonicalName = item.nameId;
-if (!nameShortIdMap.has(canonicalName)) {
-    const shortName = generateShortId(canonicalName);
-    nameShortIdMap.set(canonicalName, shortName);
-    reverseNameShortIdMap.set(shortName, canonicalName);
+                const canonicalName = item.nameId;
+                if (!nameShortIdMap.has(canonicalName)) {
+                    const shortName = generateShortId(canonicalName);
+                    nameShortIdMap.set(canonicalName, shortName);
+                    reverseNameShortIdMap.set(shortName, canonicalName);
+                }
+            });
+        });
+    });
 }
-            })));
-        }
 
         function renderAll() {
-            const container = document.getElementById('zones-container');
-            const scrollContainer = document.querySelector('.main-content');
-            const scrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
-            buildShortIdMaps();
-            if (appData.zones.length === 0) {
-                container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🗺️</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.8rem;">${t('empty_no_zones_desc')}</p></div>`;
-                updateFilterBarUI();
-                updateBuildViewUI();
-                renderBuildsDropdown();
-                if (scrollContainer) {
-                    requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
-                }
-                return;
-            }
-            const visibleZones = appData.zones.map(zone => {
-                const total = zone.dungeons.reduce((sum, d) => sum + d.loot.filter(itemPassesFilter).length, 0);
-                return { zone, total };
-            }).filter(({ total }) => total > 0);
-            if (visibleZones.length === 0) {
-                let emptyDesc = t('empty_no_match_desc');
-                if (showFavoritesOnly && (filterClasses.length || filterTypes.length || filterStats.length || filterCategories.length || searchQuery)) {
-                    emptyDesc = 'No favorites match your current filters. Try clearing them.';
-                }
-                container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🔍</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.8rem;">${emptyDesc}</p></div>`;
-                updateFilterBarUI();
-                updateBuildViewUI();
-                renderBuildsDropdown();
-                if (scrollContainer) {
-                    requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
-                }
-                return;
-            }
-            const zonesHtml = visibleZones.map(({ zone, total }) => {
-                const openClass = zone._open ? ' open' : '';
-                const dungeonCount = zone.dungeons.length;
-                const dungText = dungeonCount === 1 ? t('badge_dungeon_singular') : t('badge_dungeon_plural');
-                const itemText = total === 1 ? t('badge_item_singular') : t('badge_item_plural');
-                return `<div class="zone-card${openClass}" data-zone-id="${zone.id}">
+    const container = document.getElementById('zones-container');
+    const scrollContainer = document.querySelector('.main-content');
+    const scrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
+    buildShortIdMaps();
+
+    if (sharedBuild || showFavoritesOnly) {
+    renderViewerMode();
+    if (scrollContainer) {
+        requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
+    }
+    return;
+}
+
+    if (appData.zones.length === 0) {
+        container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🗺️</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_zones_title')}</p><p style="font-size:0.8rem;">${t('empty_no_zones_desc')}</p></div>`;
+        updateFilterBarUI();
+        updateBuildViewUI();
+        renderBuildsDropdown();
+        if (scrollContainer) {
+            requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
+        }
+        return;
+    }
+
+    const visibleZones = appData.zones.map(zone => {
+        const total = zone.dungeons.reduce((sum, d) => sum + d.loot.filter(itemPassesFilter).length, 0);
+        return { zone, total };
+    }).filter(({ total }) => total > 0);
+
+    if (visibleZones.length === 0) {
+        let emptyDesc = t('empty_no_match_desc');
+        if (showFavoritesOnly && (filterClasses.length || filterTypes.length || filterStats.length || filterCategories.length || searchQuery)) {
+            emptyDesc = 'No favorites match your current filters. Try clearing them.';
+        }
+        container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);"><div style="font-size:2.8rem;margin-bottom:14px;">🔍</div><p style="font-size:1rem;margin-bottom:8px;">${t('empty_no_match_title')}</p><p style="font-size:0.8rem;">${emptyDesc}</p></div>`;
+        updateFilterBarUI();
+        updateBuildViewUI();
+        renderBuildsDropdown();
+        if (scrollContainer) {
+            requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
+        }
+        return;
+    }
+	
+	function renderViewerMode() {
+    const container = document.getElementById('zones-container');
+    const searchLower = searchQuery.toLowerCase();
+    const filteredItems = [];
+
+    allItemsMap.forEach((item, id) => {
+        if (!favoriteIds.has(item.nameId)) return;
+        if (searchQuery && !getItemName(item).toLowerCase().includes(searchLower)) return;
+        const location = itemLocationMap.get(id);
+        if (location) {
+            filteredItems.push({ item, location });
+        }
+    });
+
+    if (filteredItems.length === 0) {
+        const emptyMsg = searchQuery
+            ? `<p>No items match "${escapeHtml(searchQuery)}" in this build.</p>`
+            : '<p>This build contains no items.</p>';
+        container.innerHTML = `<div style="text-align:center;padding:50px 20px;color:var(--text-dim);">${emptyMsg}</div>`;
+        updateFilterBarUI();
+        updateBuildViewUI();
+        return;
+    }
+
+    filteredItems.sort((a, b) => {
+        const rankA = getTypeGroupRank(getPrimaryType(a.item));
+        const rankB = getTypeGroupRank(getPrimaryType(b.item));
+        if (rankA !== rankB) return rankA - rankB;
+        const subA = getTypeSubOrder(getPrimaryType(a.item));
+        const subB = getTypeSubOrder(getPrimaryType(b.item));
+        if (subA !== subB) return subA - subB;
+        return getItemName(a.item).localeCompare(getItemName(b.item));
+    });
+
+    const rows = filteredItems.map(({ item, location }) => {
+        const primaryType = getPrimaryType(item);
+        const typeColorClass = getTypeColorClass(primaryType);
+        const sortedTypes = sortByOrder(item.types, TYPE_OPTIONS);
+        const sortedClasses = sortByOrder(item.classes, CLASS_OPTIONS);
+        const typeTags = sortedTypes.map(typeName =>
+            `<span class="tag type-tag type-${toSlug(typeName)}">${escapeHtml(t('type_' + typeName.replace(/[ -]/g, '_'), typeName))}</span>`
+        ).join('');
+        const classTags = sortedClasses.map(cls => `<span class="tag class-${cls}">${escapeHtml(t(cls))}</span>`).join('');
+        const switcherHtml = buildRaritySwitcherHtml(item);
+        const defaultIndex = item.variants && item.variants.length > 1
+            ? (item.variants.findIndex(v => v.rarity === 'blue') !== -1 ? item.variants.findIndex(v => v.rarity === 'blue') : 0)
+            : 0;
+        const statTagsHtml = buildStatTagsHtml(item, defaultIndex);
+        const imageUrlAttr = item.image ? ` data-image-url="${escapeHtml(item.image)}"` : '';
+
+        let detailHtml = '';
+        if ((isWeapon(item) || item.types.includes('Shield')) && hasAbilities(item)) {
+            const abils = [];
+            if (getSkillText(item.skill1)) abils.push(`<div><strong class="${typeColorClass}">${t('skill_final_combo')}</strong> ${escapeHtml(getSkillText(item.skill1))}</div>`);
+            if (getSkillText(item.skill2)) abils.push(`<div><strong class="${typeColorClass}">${t('skill1')}</strong> ${escapeHtml(getSkillText(item.skill2))}</div>`);
+            if (getSkillText(item.skill3)) abils.push(`<div><strong class="${typeColorClass}">${t('skill2')}</strong> ${escapeHtml(getSkillText(item.skill3))}</div>`);
+            if (getSkillText(item.passive)) abils.push(`<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.passive))}</div>`);
+            detailHtml = abils.join('');
+        } else if (isTrinket(item) && hasTrinketPassive(item)) {
+            detailHtml = `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
+        } else if (item.types.some(t => MOUNT_GLIDER_TYPES.includes(t)) && hasTrinketPassive(item)) {
+            detailHtml = `<div><strong class="${typeColorClass}">${t('passive')}</strong> ${escapeHtml(getSkillText(item.trinketPassive))}</div>`;
+        }
+
+        const favClass = ' favorited';
+        const starHtml = `<span class="fav-star${favClass}" data-item-id="${item.id}" data-action="toggle-favorite">★</span>`;
+        const zoneNameHtml = escapeHtml(getZoneName({ name: location.zoneName }));
+        const dungeonNameHtml = renderDungeonName(location.dungeonName);
+        const locationHtml = `<span class="location-zone">${zoneNameHtml}</span> › <span class="location-dungeon">${dungeonNameHtml}</span>`;
+        const rowClass = detailHtml ? ' item-row-has-details' : '';
+        const clickHandler = detailHtml ? ` data-action="toggle-item-detail" data-item-id="${item.id}"` : '';
+
+        return `<tr class="item-main-row${rowClass}" data-item-id="${item.id}"${clickHandler}>
+            <td data-label="${t('item_name')}">
+                <span class="item-name ${typeColorClass}"${imageUrlAttr}>${starHtml}${escapeHtml(getItemName(item))}${detailHtml ? ' <span class="detail-indicator">▶</span>' : ''}</span>
+            </td>
+            <td data-label="${t('item_type')}"><div class="tag-container">${typeTags}</div></td>
+            <td data-label="${t('classes')}"><div class="tag-container">${classTags}</div></td>
+            <td data-label="${t('stats_header')}">${switcherHtml}<div class="tag-container stat-tags-container">${statTagsHtml}</div></td>
+            <td data-label="${t('location')}" class="location-cell">${locationHtml}</td>
+        </tr>
+        ${detailHtml ? `<tr class="item-detail-row" data-item-detail="${item.id}" style="display:none;"><td colspan="5" class="item-detail-cell"><div class="item-detail-content">${detailHtml}</div></td></tr>` : ''}`;
+    }).join('');
+
+    const tableHtml = `<table class="loot-table">
+        <thead><tr>
+            <th>${t('item_name')}</th>
+            <th>${t('item_type')}</th>
+            <th>${t('classes')}</th>
+            <th>${t('stats_header')}</th>
+            <th>${t('location')}</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+    </table>`;
+    container.innerHTML = tableHtml;
+    applyTableStripes();
+    updateFilterBarUI();
+    updateBuildViewUI();
+}
+
+    const zonesHtml = visibleZones.map(({ zone, total }) => {
+        const openClass = zone._open ? ' open' : '';
+        const dungeonCount = zone.dungeons.length;
+        const dungText = dungeonCount === 1 ? t('badge_dungeon_singular') : t('badge_dungeon_plural');
+        const itemText = total === 1 ? t('badge_item_singular') : t('badge_item_plural');
+        return `<div class="zone-card${openClass}" data-zone-id="${zone.id}">
             <div class="zone-header" data-action="toggle-zone" data-zone-id="${zone.id}">
                 <span class="zone-chevron">▶</span><span class="zone-icon">🏞️</span>
                 <div class="zone-info"><div class="zone-name-display">${escapeHtml(getZoneName(zone))}</div>
@@ -1550,16 +1780,16 @@ if (!nameShortIdMap.has(canonicalName)) {
             </div>
             <div class="zone-body">${renderDungeons(zone)}</div>
         </div>`;
-            }).join('');
-            container.innerHTML = zonesHtml;
-            applyTableStripes();
-            updateFilterBarUI();
-            updateBuildViewUI();
-            renderBuildsDropdown();
-            if (scrollContainer) {
-                requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
-            }
-        }
+    }).join('');
+    container.innerHTML = zonesHtml;
+    applyTableStripes();
+    updateFilterBarUI();
+    updateBuildViewUI();
+    renderBuildsDropdown();
+    if (scrollContainer) {
+        requestAnimationFrame(() => { scrollContainer.scrollTop = scrollTop; });
+    }
+}
 
         function updateAllFilterCounts() {
             const allItems = appData.zones.flatMap(z => z.dungeons.flatMap(d => d.loot));
@@ -1669,7 +1899,7 @@ if (!nameShortIdMap.has(canonicalName)) {
 			document.getElementById('cancel-build-name-btn').textContent = t('cancel_button');
         }
 
-        function updateBuildViewUI() {
+function updateBuildViewUI() {
     var center = document.getElementById('header-center');
     var buildNameEl = document.getElementById('build-name-display');
     if (sharedBuild && sharedBuild.name) {
@@ -1819,10 +2049,12 @@ function closeBuildNameModal() {
 }
 
 function buildShareUrl(idsSet, buildName) {
-    const shortIds = [...idsSet].map(id => nameShortIdMap.get(id) || id).filter(Boolean);
+    const shortIds = [...idsSet]
+        .map(id => nameShortIdMap.get(id) || id)
+        .filter(Boolean);
+    const packed = packShortIds(shortIds, buildName || '');
     const url = new URL(window.location.href);
-    url.searchParams.set('fav', shortIds.join(','));
-    url.searchParams.set('build', buildName);
+    url.searchParams.set('p', packed);
     return url.toString();
 }
 
@@ -1989,12 +2221,22 @@ function buildShareUrl(idsSet, buildName) {
 
         function getBuildFromUrl() {
     const params = new URLSearchParams(window.location.search);
+    const packed = params.get('p');
+    if (packed) {
+        try {
+            const { shortIds, name } = unpackShortIds(packed);
+            const ids = shortIds.map(s => reverseNameShortIdMap.get(s) || s);
+            return { ids, name };
+        } catch (e) {
+        }
+    }
     const favParam = params.get('fav');
-    const name = params.get('build') || '';
-    if (!favParam) return null;
-    const pieces = favParam.split(',').map(s => s.trim()).filter(Boolean);
-    const ids = pieces.map(p => reverseNameShortIdMap.get(p) || p);
-    return { ids, name };
+    if (favParam) {
+        const pieces = favParam.split(',').map(s => s.trim()).filter(Boolean);
+        const ids = pieces.map(p => reverseNameShortIdMap.get(p) || p);
+        return { ids, name: params.get('build') || '' };
+    }
+    return null;
 }
 
         function setupSuggestionModal() {
