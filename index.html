@@ -1975,9 +1975,11 @@ function updateFilterGroupVisibility() {
         showToast(t('toast_no_favorites_save'), 'red');
         return;
     }
-    document.getElementById('build-name-input').value = '';
+    const input = document.getElementById('build-name-input');
+    input.value = (sharedBuild && sharedBuild.name) ? sharedBuild.name : '';
     document.getElementById('build-name-modal').classList.add('active');
-    document.getElementById('build-name-input').focus();
+    input.focus();
+    input.select(); 
 }
 
 function confirmSaveBuildName() {
