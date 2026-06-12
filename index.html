@@ -1512,6 +1512,8 @@ function numberToShortId(num) {
 
 function packShortIds(shortIds, name = '') {
     const bits = [];
+    const count = shortIds.length;
+    for (let i = 15; i >= 0; i--) bits.push((count >> i) & 1);
     shortIds.forEach(id => {
         const num = shortIdToNumber(id);
         for (let i = 25; i >= 0; i--) bits.push((num >> i) & 1);
@@ -1544,49 +1546,32 @@ function unpackShortIds(packed) {
     byteArray.forEach(byte => {
         for (let i = 7; i >= 0; i--) bits.push((byte >> i) & 1);
     });
-
-    const totalBits = bits.length;
-    let bestN = 0, bestL = 0, found = false;
-    for (let n = 0; n <= Math.floor((totalBits - 16) / 26); n++) {
-        const remainingBits = totalBits - 26*n - 16;
-        if (remainingBits >= 0 && remainingBits % 8 === 0) {
-            const l = remainingBits / 8;
-            if (l <= 65535) {
-                bestN = n;
-                bestL = l;
-                found = true;
-                break; 
-            }
-        }
-    }
-    if (!found) {
-        bestN = Math.floor(totalBits / 26);
-        bestL = 0;
-    }
+	
+    let pos = 0;
+    if (pos + 16 > bits.length) return { shortIds: [], name: '' };
+    let count = 0;
+    for (let i = 0; i < 16; i++) count = (count << 1) | bits[pos++];
+    if (pos + 26 * count > bits.length) count = Math.floor((bits.length - pos) / 26); // safety
 
     const shortIds = [];
-    for (let i = 0; i < bestN; i++) {
+    for (let i = 0; i < count; i++) {
         let num = 0;
-        for (let j = 0; j < 26; j++) {
-            num = (num << 1) | bits[i * 26 + j];
-        }
+        for (let j = 0; j < 26; j++) num = (num << 1) | bits[pos++];
         shortIds.push(numberToShortId(num));
     }
 
-    let name = '';
-    if (bestL > 0) {
-        const start = bestN * 26 + 16;
-        const nameBits = bits.slice(start, start + bestL * 8);
-        const nameBytes = new Uint8Array(bestL);
-        for (let i = 0; i < bestL; i++) {
-            let byte = 0;
-            for (let j = 0; j < 8; j++) {
-                byte = (byte << 1) | nameBits[i*8 + j];
-            }
-            nameBytes[i] = byte;
-        }
-        name = new TextDecoder().decode(nameBytes);
+    if (pos + 16 > bits.length) return { shortIds, name: '' };
+    let nameLen = 0;
+    for (let i = 0; i < 16; i++) nameLen = (nameLen << 1) | bits[pos++];
+    nameLen = Math.min(nameLen, Math.floor((bits.length - pos) / 8)); // safety
+
+    const nameBytes = new Uint8Array(nameLen);
+    for (let i = 0; i < nameLen; i++) {
+        let byte = 0;
+        for (let j = 0; j < 8; j++) byte = (byte << 1) | bits[pos++];
+        nameBytes[i] = byte;
     }
+    const name = nameLen > 0 ? new TextDecoder().decode(nameBytes) : '';
     return { shortIds, name };
 }
 
