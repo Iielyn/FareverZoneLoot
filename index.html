@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farever — Zone | Dungeon | Loot Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/Ah.png">
+    <style>
+        :root {
+            --bg: #090b0f;
+            --bg-alt: #0f1118;
+            --surface: #131620;
+            --surface2: #1a1e2a;
+            --surface3: #222738;
+            --border: #252a38;
+            --border-light: #303648;
+            --gold: #d4a745;
+            --gold-bright: #f0c060;
+            --gold-dim: #8a6d2f;
+            --gold-glow: rgba(212,167,69,0.25);
+            --text: #e2ddd4;
+            --text-bright: #f5f1e8;
+            --text-dim: #7e7b71;
+            --text-muted: #5a5750;
+            --accent: #5b8cbd;
+            --accent-hover: #7aabda;
+            --accent-glow: rgba(91,140,189,0.25);
+            --danger: #e86060;
+            --danger-glow: rgba(232,96,96,0.3);
+            --success: #4ade80;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --radius-xs: 6px;
+            --radius-pill: 999px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+            --shadow: 0 4px 20px rgba(0,0,0,0.5);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.6);
+            --shadow-gold: 0 0 20px rgba(212,167,69,0.12);
+            --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --font: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            --font-display: 'Cinzel', 'Georgia', serif;
+
+            --dungeon-red: #f87171;
+            --item-green: #4ade80;
+            --dungeon-lv: #f0c060;
+            --dungeon-full: #5baf6b;
+            --dungeon-boss: #c97a3a;
+            --rarity-blue: #3b82f6;
+            --rarity-purple: #a855f7;
+            --rarity-legendary: #f59e0b;
+            --tag-bg: rgba(255,255,255,0.04);
+            --tag-border: rgba(255,255,255,0.08);
+            --tag-text: #8a857a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body { height: 100%; overflow: hidden; }
+
+        body {
+            display: grid;
+            grid-template-rows: auto auto 1fr;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 0.875rem;
+            letter-spacing: 0.01em;
+            background-image:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,167,69,0.03) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 85% 100%, rgba(91,140,189,0.02) 0%, transparent 60%);
+        }
+
+        .main-content {
+            overflow-y: auto;
+            min-height: 0;
+            padding-bottom: 56px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold-dim) transparent;
+        }
+        .main-content::-webkit-scrollbar { width: 6px; }
+        .main-content::-webkit-scrollbar-track { background: transparent; }
+        .main-content::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+        .main-content::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+        .header {
+            background: linear-gradient(180deg, var(--surface) 0%, var(--surface2) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 2%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            z-index: 100;
+            position: relative;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+            opacity: 0.5;
+        }
+        .header-brand { display: flex; align-items: center; gap: 12px; }
+        .header-icon {
+            width: 44px; height: 44px;
+            background: linear-gradient(135deg, #2a2015, #3d2f1a);
+            border: 2px solid var(--gold-dim);
+            border-radius: var(--radius-xs);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; color: var(--gold);
+            box-shadow: 0 0 12px rgba(212,167,69,0.1);
+        }
+        .header h1 {
+            font-family: var(--font-display);
+            font-size: 1.55rem; color: var(--gold-bright);
+            letter-spacing: 0.06em; font-weight: 700;
+            text-shadow: 0 0 16px rgba(240,192,96,0.2);
+            line-height: 1.15;
+        }
+        .header-subtitle {
+            font-size: 0.66rem; color: var(--text-dim);
+            letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+        }
+        .cap-badge {
+            display: inline-flex; align-items: center; padding: 2px 9px; border-radius: var(--radius-pill);
+            font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+            background: rgba(212,167,69,0.1); border: 1px solid var(--gold-dim); color: var(--gold);
+            margin-left: 6px; white-space: nowrap;
+        }
+        .header-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+        .header-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .header-center { display: none; flex: 1; text-align: center; align-items: center; gap: 12px; }
+        .header-center.active { display: flex; justify-content: center; }
+        .exit-btn-header {
+            background: rgba(212,167,69,0.12); border: 1px solid var(--gold);
+            color: var(--gold); padding: 6px 18px; border-radius: var(--radius-pill);
+            cursor: pointer; font-size: 0.78rem; font-weight: 600;
+            transition: all var(--transition); white-space: nowrap; font-family: var(--font);
+        }
+        .exit-btn-header:hover {
+            background: rgba(212,167,69,0.25); color: #fff;
+            box-shadow: 0 0 14px var(--gold-glow); transform: translateY(-1px);
+        }
+
+        .lang-switcher { display: flex; gap: 4px; }
+        .lang-btn {
+            background: none; border: 1px solid var(--border); color: var(--text-dim);
+            border-radius: var(--radius-pill); padding: 5px 13px; font-size: 0.7rem; font-weight: 600;
+            cursor: pointer; transition: all var(--transition); font-family: var(--font);
+            white-space: nowrap; text-transform: capitalize; letter-spacing: 0.03em;
+        }
+        .lang-btn:hover {
+            background: var(--surface3); color: var(--gold);
+            border-color: var(--gold-dim); box-shadow: 0 0 8px var(--gold-glow);
+        }
+        .lang-btn.active {
+            background: rgba(212,167,69,0.18); border-color: var(--gold);
+            color: var(--gold-bright); box-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        .search-wrapper { position: relative; }
+        .search-input {
+            background: var(--surface3); border: 1px solid var(--border-light);
+            border-radius: var(--radius-pill); padding: 7px 15px 7px 36px;
+            font-size: 0.75rem; color: var(--text); font-family: var(--font);
+            width: 180px; transition: all var(--transition); outline: none;
+        }
+        .search-input::placeholder { color: var(--text-muted); }
+        .search-input:focus {
+            border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow);
+            width: 220px; background: var(--surface2);
+        }
+        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.8rem; pointer-events: none; }
+
+        .btn {
+            border-radius: var(--radius-pill); padding: 7px 14px; font-size: 0.73rem;
+            font-weight: 600; cursor: pointer; transition: all var(--transition);
+            font-family: var(--font); white-space: nowrap; letter-spacing: 0.03em;
+            display: inline-flex; align-items: center; gap: 5px;
+        }
+        .suggest-btn {
+            background: rgba(212,167,69,0.08); border: 1px solid rgba(212,167,69,0.3);
+            color: var(--gold); text-decoration: none;
+        }
+        .suggest-btn:hover {
+            background: rgba(212,167,69,0.18); color: var(--gold-bright);
+            border-color: var(--gold); box-shadow: 0 0 14px var(--gold-glow); transform: translateY(-1px);
+        }
+        .donate-btn {
+            color: #fde68a; border-color: var(--gold);
+            background: rgba(212,167,69,0.14);
+        }
+        .donate-btn:hover {
+            background: rgba(212,167,69,0.3); color: #fff;
+            border-color: #fddd80; box-shadow: 0 0 18px rgba(212,167,69,0.45); transform: translateY(-1px);
+        }
+
+        .filter-bar {
+            background: var(--surface); border-bottom: 1px solid var(--border);
+            padding: 10px 2%; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+            box-shadow: var(--shadow-sm); z-index: 90; position: relative;
+        }
+        .filter-label, .active-filters-label {
+            display:inline-flex; align-items:center; gap:7px; padding:4px 10px 4px 8px;
+            font-size:0.61rem; text-transform:uppercase; letter-spacing:0.13em;
+            color:var(--gold); font-weight:800; margin-right:2px; white-space:nowrap;
+            border-left:2px solid var(--gold); background:transparent;
+        }
+        .filter-label::before, .active-filters-label::before { content:'◆'; font-size:.45rem; color:var(--gold-bright); }
+        .filter-group-wrapper { position: relative; }
+        .filter-group-header {
+            display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none;
+            padding: 6px 13px; border-radius: var(--radius-pill); border: 1px solid var(--border);
+            background: transparent; transition: all var(--transition); white-space: nowrap; font-size: 0.68rem;
+        }
+        .filter-group-header:hover { background: var(--surface3); border-color: var(--border-light); }
+        .filter-group-header .arrow { font-size: 0.5rem; transition: transform 0.25s ease; color: var(--text-dim); }
+        .filter-group-wrapper.open .filter-group-header .arrow { transform: rotate(180deg); }
+        .filter-group-header .label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); font-weight: 600; }
+        .filter-group-header .active-count { background: var(--accent); color: #fff; border-radius: 9px; padding: 1px 6px; font-size: 0.55rem; font-weight: 700; }
+        .filter-dropdown {
+            display: none; position: absolute; top: calc(100% + 6px); left: 0;
+            background: var(--surface2); border: 1px solid var(--border-light); border-radius: var(--radius-sm);
+            padding: 10px; box-shadow: var(--shadow-lg); z-index: 95; min-width: 210px;
+            max-height: 460px; overflow-y: auto;
+        }
+        #builds-dropdown { min-width: 380px; font-size: 0.8rem; }
+        .filter-group-wrapper.open .filter-dropdown { display: flex; flex-wrap: wrap; gap: 5px; }
+        #class-dropdown, #category-dropdown { flex-direction: column; }
+
+        .filter-btn {
+            padding: 5px 11px; font-size: 0.63rem; font-weight: 600; letter-spacing: 0.04em;
+            text-transform: uppercase; border-radius: var(--radius-pill); border: 1px solid var(--border);
+            background: var(--tag-bg); color: var(--tag-text); cursor: pointer;
+            transition: all var(--transition); font-family: var(--font); white-space: nowrap;
+        }
+        .filter-btn:hover { background: var(--surface3); color: var(--text); border-color: var(--border-light); }
+        .filter-btn .item-count { font-size: 0.54rem; opacity: 0.7; margin-left: 2px; }
+
+        .clear-all-btn {
+            padding: 6px 13px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.04em;
+            text-transform: uppercase; border-radius: var(--radius-pill);
+            border: 1px solid rgba(212,90,90,0.5); background: rgba(176,74,74,0.1);
+            color: var(--danger); cursor: pointer; transition: all var(--transition);
+            font-family: var(--font); white-space: nowrap;
+        }
+        .clear-all-btn:hover {
+            background: rgba(176,74,74,0.22); border-color: var(--danger);
+            color: #ff7070; box-shadow: 0 0 12px var(--danger-glow);
+        }
+        .clear-fav-btn {
+            padding: 6px 12px; font-size: 0.63rem; font-weight: 600; letter-spacing: 0.04em;
+            text-transform: uppercase; border-radius: var(--radius-pill);
+            border: 1px solid rgba(212,90,90,0.5); background: rgba(176,74,74,0.1);
+            color: var(--danger); cursor: pointer; transition: all var(--transition);
+            font-family: var(--font); white-space: nowrap;
+        }
+        .clear-fav-btn:hover {
+            background: rgba(176,74,74,0.22); border-color: var(--danger);
+            color: #ff7070; box-shadow: 0 0 12px var(--danger-glow);
+        }
+        .favorites-toggle {
+            padding: 6px 13px; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.04em;
+            text-transform: uppercase; border-radius: var(--radius-pill);
+            border: 1px solid var(--gold-dim); background: rgba(212,167,69,0.1);
+            color: var(--gold); cursor: pointer; transition: all var(--transition);
+            font-family: var(--font); white-space: nowrap;
+        }
+        .favorites-toggle.active {
+            background: rgba(212,167,69,0.4); border-color: var(--gold);
+            color: #fff; box-shadow: 0 0 14px var(--gold-glow);
+        }
+        .favorites-toggle.active:hover {
+            background: rgba(212,167,69,0.55);
+            box-shadow: 0 0 20px rgba(212,167,69,0.5);
+        }
+        .filter-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+        .active-filters-row { display:none; flex:1 0 100%; align-items:center; gap:6px; flex-wrap:wrap; padding-top:8px; margin-top:2px; border-top:1px solid rgba(255,255,255,.055); }
+        .active-filter-chip { display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border:1px solid rgba(91,140,189,.32); border-radius:var(--radius-pill); background:rgba(91,140,189,.1); color:var(--accent-hover); font:600 .61rem var(--font); cursor:pointer; }
+        .active-filter-chip:hover { border-color:var(--accent); background:rgba(91,140,189,.2); color:#fff; }
+        .active-filter-chip span { font-size:.78rem; line-height:.7; opacity:.8; }
+        .active-filters-clear { margin-left:auto; padding:5px 10px; border:1px solid rgba(232,96,96,.42); border-radius:var(--radius-pill); background:rgba(232,96,96,.09); color:#fca5a5; font:700 .61rem var(--font); cursor:pointer; white-space:nowrap; }
+        .active-filters-clear:hover { border-color:var(--danger); background:rgba(232,96,96,.2); color:#fee2e2; box-shadow:0 0 10px rgba(232,96,96,.14); }
+        #builds-dropdown .build-item .load-build-btn { background:rgba(74,222,128,.12)!important; border-color:rgba(74,222,128,.48)!important; color:#86efac!important; font-weight:700; border-radius:var(--radius-pill); }
+        #builds-dropdown .build-item .load-build-btn:hover { background:rgba(74,222,128,.24)!important; border-color:#4ade80!important; color:#dcfce7!important; }
+        #builds-dropdown .build-item .share-build-btn { background:rgba(91,140,189,.14)!important; border-color:rgba(91,140,189,.5)!important; color:var(--accent-hover)!important; font-weight:700; border-radius:var(--radius-pill); }
+        #builds-dropdown .build-item .share-build-btn:hover { background:rgba(91,140,189,.28)!important; border-color:var(--accent)!important; color:#fff!important; }
+        #builds-dropdown .build-item .delete-build-btn { background:rgba(232,96,96,.1)!important; border-color:rgba(232,96,96,.45)!important; color:#fca5a5!important; border-radius:var(--radius-pill); }
+        #builds-dropdown .build-item .delete-build-btn:hover { background:rgba(232,96,96,.22)!important; border-color:var(--danger)!important; color:#fee2e2!important; }
+
+        .container { padding: 16px 2%; }
+
+        .zone-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); margin-bottom: 16px;
+            box-shadow: var(--shadow); overflow: hidden;
+            transition: all var(--transition-slow);
+        }
+        .zone-card:hover { border-color: var(--border-light); box-shadow: var(--shadow-lg); }
+        .zone-header {
+            display: flex; align-items: center; gap: 12px; padding: 16px 24px;
+            cursor: pointer; user-select: none;
+            background: linear-gradient(180deg, var(--surface2) 0%, var(--surface) 100%);
+            border-bottom: 1px solid transparent;
+            transition: all var(--transition);
+        }
+        .zone-header:hover {
+            background: linear-gradient(180deg, #202532 0%, var(--surface2) 100%);
+            box-shadow: inset 3px 0 0 rgba(212,167,69,0.3);
+        }
+        .zone-chevron {
+            font-size: 0.55rem; color: var(--gold);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0; width: 18px; text-align: center;
+        }
+        .zone-card.open .zone-chevron { transform: rotate(90deg); }
+        .zone-card.open .zone-header { border-bottom-color: var(--border); }
+        .zone-icon { font-size: 1.2rem; flex-shrink: 0; opacity: 0.9; }
+        .zone-info { flex: 1; min-width: 0; }
+        .zone-name-display {
+            color: var(--gold-bright); font-size: 1.05rem; font-weight: 700;
+            font-family: var(--font-display); letter-spacing: 0.04em;
+        }
+        .zone-meta { font-size: 0.66rem; color: var(--text-dim); margin-top: 3px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .zone-body { display: none; padding: 16px 24px 20px; background: var(--bg-alt); }
+        .zone-card.open .zone-body { display: block; }
+
+        .badge {
+            display: inline-flex; align-items: center; gap: 3px; padding: 2px 8px;
+            border-radius: var(--radius-pill); font-size: 0.6rem; font-weight: 700;
+            letter-spacing: 0.05em; text-transform: uppercase;
+        }
+        .badge-dungeon {
+            background: rgba(248,113,113,0.15); border: 1px solid rgba(248,113,113,0.4);
+            color: var(--dungeon-red); box-shadow: 0 0 6px rgba(248,113,113,0.15);
+        }
+        .badge-item {
+            background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.4);
+            color: var(--item-green); box-shadow: 0 0 6px rgba(74,222,128,0.12);
+        }
+        .dungeons-list { display: flex; flex-direction: column; gap: 8px; }
+
+        .dungeon-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius-sm); overflow: hidden;
+            transition: all var(--transition);
+        }
+        .dungeon-card:hover { border-color: var(--border-light); }
+        .dungeon-header {
+            display: flex; align-items: center; gap: 9px; padding: 11px 16px;
+            cursor: pointer; user-select: none;
+            background: rgba(0,0,0,0.2); border-bottom: 1px solid transparent;
+            transition: all var(--transition);
+        }
+        .dungeon-card.open .dungeon-header {
+            border-bottom-color: var(--border); background: rgba(0,0,0,0.35);
+        }
+        .dungeon-header:hover { background: rgba(255,255,255,0.02); }
+        .dungeon-chevron {
+            font-size: 0.48rem; color: var(--accent);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0; width: 14px; text-align: center;
+        }
+        .dungeon-card.open .dungeon-chevron { transform: rotate(90deg); }
+        .dungeon-icon { font-size: 1rem; flex-shrink: 0; }
+        .dungeon-info { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+        .dungeon-name-display { font-size: 0.88rem; font-weight: 600; }
+        .dungeon-lv { color: var(--dungeon-lv); font-weight: 700; font-size: 0.8rem; }
+        .dungeon-tag-full { color: var(--dungeon-full); font-weight: 600; font-size: 0.78rem; }
+        .dungeon-tag-boss { color: var(--dungeon-boss); font-weight: 600; font-size: 0.78rem; }
+        .dungeon-tag-full::before, .dungeon-tag-boss::before { content: ' · '; color: var(--text-dim); font-weight: 400; }
+        .dungeon-body { display: none; padding: 8px 14px 12px; background: rgba(0,0,0,0.18); overflow-x: auto; }
+        .dungeon-card.open .dungeon-body { display: block; }
+
+        .loot-table { width: 100%; border-collapse: collapse; font-size: 0.79rem; min-width: 850px; }
+        .loot-table thead th {
+            text-align: left; padding: 8px 10px; font-size: 0.62rem; text-transform: uppercase;
+            letter-spacing: 0.08em; color: var(--text-dim); border-bottom: 1px solid var(--border);
+            font-weight: 600; background: rgba(0,0,0,0.15);
+        }
+        .loot-table tbody td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: top; }
+        .loot-table tbody tr.item-main-row.striped { background: rgba(255,255,255,0.015); }
+        .loot-table tbody tr { transition: background var(--transition); }
+        .loot-table tbody tr:hover { background: rgba(255,255,255,0.04); }
+        .loot-table tbody tr:last-child td { border-bottom: none; }
+        .loot-table tbody tr.item-detail-row td {
+            padding: 10px 14px; background: rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-radius: 0 0 var(--radius-xs) var(--radius-xs);
+        }
+        .item-name {
+            font-weight: 700; display: inline-flex; align-items: center; gap: 5px;
+            cursor: pointer; font-size: 0.83rem;
+        }
+        .detail-indicator {
+            display: inline-block; transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.55em; margin-left: 4px; color: var(--text-dim);
+        }
+        .item-main-row.expanded .detail-indicator { transform: rotate(90deg); }
+        .item-main-row.item-row-has-details { cursor: pointer; }
+
+        .tag-container { display: flex; flex-wrap: wrap; gap: 3px; }
+        .tag {
+            display: inline-flex; align-items: center; gap: 2px; padding: 2px 8px;
+            border-radius: var(--radius-pill); font-size: 0.59rem; font-weight: 700;
+            letter-spacing: 0.04em; text-transform: uppercase;
+            border: 1px solid var(--tag-border); background: var(--tag-bg);
+            color: var(--tag-text); transition: all var(--transition);
+        }
+
+        .tag.class-warrior, .active-filter-chip.class-warrior { color: #ff9e9e; border-color: rgba(255,64,64,0.35); background: rgba(201,66,66,0.1); }
+        .tag.class-rogue, .active-filter-chip.class-rogue { color: #fddd80; border-color: rgba(224,184,64,0.35); background: rgba(201,164,75,0.1); }
+        .tag.class-mage, .active-filter-chip.class-mage { color: #c0a0ff; border-color: rgba(144,96,240,0.35); background: rgba(123,94,204,0.1); }
+        .tag.class-priest, .active-filter-chip.class-priest { color: #ffffff; border-color: rgba(255,255,255,0.35); background: rgba(232,232,232,0.08); }
+
+        .tag.type-head, .active-filter-chip.type-head { color: #e0b4ff; border-color: rgba(192,132,252,0.35); background: rgba(192,132,252,0.08); }
+        .tag.type-halos, .active-filter-chip.type-halos { color: #fde68a; border-color: rgba(251,191,36,0.35); background: rgba(251,191,36,0.08); }
+        .tag.type-shoulders, .active-filter-chip.type-shoulders { color: #cbd5e1; border-color: rgba(148,163,184,0.35); background: rgba(148,163,184,0.08); }
+        .tag.type-chest, .active-filter-chip.type-chest { color: #fca5a5; border-color: rgba(248,113,113,0.35); background: rgba(248,113,113,0.08); }
+        .tag.type-back, .active-filter-chip.type-back { color: #b4bcfc; border-color: rgba(129,140,248,0.35); background: rgba(129,140,248,0.08); }
+        .tag.type-legs, .active-filter-chip.type-legs { color: #c4a882; border-color: rgba(167,139,113,0.35); background: rgba(167,139,113,0.08); }
+        .tag.type-feet, .active-filter-chip.type-feet { color: #e0b48a; border-color: rgba(201,151,107,0.35); background: rgba(201,151,107,0.08); }
+        .tag.type-waist, .active-filter-chip.type-waist { color: #d4a074; border-color: rgba(184,132,92,0.35); background: rgba(184,132,92,0.08); }
+        .tag.type-hands, .active-filter-chip.type-hands { color: #e8c9a0; border-color: rgba(212,165,116,0.35); background: rgba(212,165,116,0.08); }
+        .tag.type-shield, .active-filter-chip.type-shield { color: #93c5fd; border-color: rgba(96,165,250,0.35); background: rgba(96,165,250,0.08); }
+        .tag.type-sword, .active-filter-chip.type-sword { color: #bae6fd; border-color: rgba(125,211,252,0.35); background: rgba(125,211,252,0.08); }
+        .tag.type-dual-sword, .active-filter-chip.type-dual-sword { color: #7dd3fc; border-color: rgba(56,189,248,0.35); background: rgba(56,189,248,0.08); }
+        .tag.type-axe, .active-filter-chip.type-axe { color: #f87171; border-color: rgba(220,38,38,0.35); background: rgba(220,38,38,0.08); }
+        .tag.type-dual-axes, .active-filter-chip.type-dual-axes { color: #f87171; border-color: rgba(225,29,72,0.35); background: rgba(225,29,72,0.08); }
+        .tag.type-daggers, .active-filter-chip.type-daggers { color: #cbd5e1; border-color: rgba(148,163,184,0.35); background: rgba(148,163,184,0.08); }
+        .tag.type-two-handed-axe, .active-filter-chip.type-two-handed-axe { color: #ef4444; border-color: rgba(185,28,28,0.35); background: rgba(185,28,28,0.08); }
+        .tag.type-mace, .active-filter-chip.type-mace { color: #fbbf24; border-color: rgba(251,191,36,0.35); background: rgba(251,191,36,0.08); }
+        .tag.type-two-handed-mace, .active-filter-chip.type-two-handed-mace { color: #94a3b8; border-color: rgba(100,116,139,0.35); background: rgba(100,116,139,0.08); }
+        .tag.type-dual-maces, .active-filter-chip.type-dual-maces { color: #94a3b8; border-color: rgba(148,163,184,0.35); background: rgba(148,163,184,0.08); }
+        .tag.type-spear, .active-filter-chip.type-spear { color: #fef3c7; border-color: rgba(253,230,138,0.35); background: rgba(253,230,138,0.08); }
+        .tag.type-bow, .active-filter-chip.type-bow { color: #86efac; border-color: rgba(74,222,128,0.35); background: rgba(74,222,128,0.08); }
+        .tag.type-thrown, .active-filter-chip.type-thrown { color: #fdb980; border-color: rgba(251,146,60,0.35); background: rgba(251,146,60,0.08); }
+        .tag.type-fists, .active-filter-chip.type-fists { color: #f87171; border-color: rgba(239,68,68,0.35); background: rgba(239,68,68,0.08); }
+        .tag.type-scepter, .active-filter-chip.type-scepter { color: #c084fc; border-color: rgba(168,85,247,0.35); background: rgba(168,85,247,0.08); }
+        .tag.type-crescent, .active-filter-chip.type-crescent { color: #e2e8f0; border-color: rgba(203,213,225,0.35); background: rgba(203,213,225,0.08); }
+        .tag.type-spellbook, .active-filter-chip.type-spellbook { color: #67e8f9; border-color: rgba(34,211,238,0.35); background: rgba(34,211,238,0.08); }
+        .tag.type-trinket, .active-filter-chip.type-trinket { color: #f9a8d4; border-color: rgba(244,114,182,0.35); background: rgba(244,114,182,0.08); }
+        .tag.type-mount, .active-filter-chip.type-mount { color: #fcd34d; border-color: rgba(245,158,11,0.4); background: rgba(245,158,11,0.12); text-shadow: 0 0 5px rgba(245,158,11,0.25); }
+        .tag.type-glider, .active-filter-chip.type-glider { color: #67e8f9; border-color: rgba(6,182,212,0.4); background: rgba(6,182,212,0.12); text-shadow: 0 0 5px rgba(6,182,212,0.25); }
+
+        .tag.stat-armor, .active-filter-chip.stat-armor { color: #d1d5db; border-color: rgba(156,163,175,0.35); background: rgba(156,163,175,0.08); }
+        .tag.stat-vitality, .active-filter-chip.stat-vitality { color: #6ee7b7; border-color: rgba(52,211,153,0.35); background: rgba(52,211,153,0.08); }
+        .tag.stat-strength, .active-filter-chip.stat-strength { color: #fca5a5; border-color: rgba(248,113,113,0.35); background: rgba(248,113,113,0.08); }
+        .tag.stat-dexterity, .active-filter-chip.stat-dexterity { color: #fde68a; border-color: rgba(251,191,36,0.35); background: rgba(251,191,36,0.08); }
+        .tag.stat-faith, .active-filter-chip.stat-faith { color: #fef3c7; border-color: rgba(252,211,77,0.35); background: rgba(252,211,77,0.08); }
+        .tag.stat-intelligence, .active-filter-chip.stat-intelligence { color: #b4bcfc; border-color: rgba(129,140,248,0.35); background: rgba(129,140,248,0.08); }
+        .tag.stat-critical, .active-filter-chip.stat-critical { color: #f9a8d4; border-color: rgba(244,114,182,0.35); background: rgba(244,114,182,0.08); }
+        .tag.stat-armor-penetration, .active-filter-chip.stat-armor-penetration { color: #f4a28e; border-color: rgba(232,121,94,0.35); background: rgba(232,121,94,0.08); }
+        .tag.stat-magic-penetration, .active-filter-chip.stat-magic-penetration { color: #e0b4ff; border-color: rgba(192,132,252,0.35); background: rgba(192,132,252,0.08); }
+        .tag.stat-fervor, .active-filter-chip.stat-fervor { color: #fdb980; border-color: rgba(251,146,60,0.35); background: rgba(251,146,60,0.08); }
+
+        .rarity-switcher { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; }
+        .rarity-label { font-size: 0.52rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-right: 3px; opacity: 0.85; }
+        .rarity-btn {
+            padding: 3px 10px; font-size: 0.59rem; font-weight: 700; letter-spacing: 0.06em;
+            border-radius: var(--radius-pill); border: 1px solid var(--border);
+            background: rgba(255,255,255,0.04); color: var(--text);
+            cursor: pointer; transition: all 0.2s ease; font-family: var(--font);
+            text-transform: capitalize; min-width: 42px;
+        }
+        .rarity-btn:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: var(--border-light); box-shadow: 0 0 8px rgba(255,255,255,0.1); transform: translateY(-1px); }
+        .rarity-btn[data-rarity="blue"] { border-color: rgba(59,130,246,0.5); color: #60a5fa; }
+        .rarity-btn[data-rarity="blue"].active { background: rgba(59,130,246,0.25); border-color: #60a5fa; box-shadow: 0 0 12px rgba(59,130,246,0.4); color: #93c5fd; }
+        .rarity-btn[data-rarity="purple"] { border-color: rgba(168,85,247,0.5); color: #c084fc; }
+        .rarity-btn[data-rarity="purple"].active { background: rgba(168,85,247,0.25); border-color: #c084fc; box-shadow: 0 0 12px rgba(168,85,247,0.4); color: #e0b4ff; }
+        .rarity-btn[data-rarity="legendary"] { border-color: rgba(245,158,11,0.5); color: #fbbf24; }
+        .rarity-btn[data-rarity="legendary"].active { background: rgba(245,158,11,0.28); border-color: #fbbf24; box-shadow: 0 0 14px rgba(245,158,11,0.5); color: #fde68a; text-shadow: 0 0 5px rgba(245,158,11,0.45); }
+
+        .type-color-sword { color: #bae6fd; text-shadow: 0 0 7px rgba(125,211,252,0.3); }
+        .type-color-dual-sword { color: #7dd3fc; text-shadow: 0 0 7px rgba(56,189,248,0.3); }
+        .type-color-axe { color: #f87171; text-shadow: 0 0 7px rgba(220,38,38,0.3); }
+        .type-color-dual-axes { color: #f87171; text-shadow: 0 0 7px rgba(225,29,72,0.3); }
+        .type-color-daggers { color: #cbd5e1; text-shadow: 0 0 7px rgba(148,163,184,0.3); }
+        .type-color-two-handed-axe { color: #ef4444; text-shadow: 0 0 7px rgba(185,28,28,0.33); }
+        .type-color-mace { color: #fbbf24; text-shadow: 0 0 7px rgba(251,191,36,0.3); }
+        .type-color-two-handed-mace { color: #94a3b8; text-shadow: 0 0 7px rgba(100,116,139,0.28); }
+        .type-color-dual-maces { color: #94a3b8; text-shadow: 0 0 7px rgba(148,163,184,0.28); }
+        .type-color-spear { color: #fef3c7; text-shadow: 0 0 7px rgba(253,230,138,0.28); }
+        .type-color-bow { color: #86efac; text-shadow: 0 0 7px rgba(74,222,128,0.3); }
+        .type-color-fists { color: #f87171; text-shadow: 0 0 9px rgba(239,68,68,0.35); }
+        .type-color-thrown { color: #fdb980; text-shadow: 0 0 7px rgba(251,146,60,0.28); }
+        .type-color-scepter { color: #c084fc; text-shadow: 0 0 7px rgba(168,85,247,0.3); }
+        .type-color-crescent { color: #e2e8f0; text-shadow: 0 0 7px rgba(203,213,225,0.25); }
+        .type-color-halos { color: #fde68a; text-shadow: 0 0 9px rgba(251,191,36,0.32); }
+        .type-color-spellbook { color: #67e8f9; text-shadow: 0 0 7px rgba(34,211,238,0.3); }
+        .type-color-shield { color: #93c5fd; text-shadow: 0 0 7px rgba(96,165,250,0.28); }
+        .type-color-head { color: #e0b4ff; text-shadow: 0 0 7px rgba(192,132,252,0.28); }
+        .type-color-shoulders { color: #cbd5e1; text-shadow: 0 0 5px rgba(148,163,184,0.24); }
+        .type-color-chest { color: #fca5a5; text-shadow: 0 0 7px rgba(248,113,113,0.28); }
+        .type-color-back { color: #b4bcfc; text-shadow: 0 0 7px rgba(129,140,248,0.28); }
+        .type-color-hands { color: #e8c9a0; text-shadow: 0 0 7px rgba(212,165,116,0.24); }
+        .type-color-legs { color: #c4a882; text-shadow: 0 0 7px rgba(167,139,113,0.24); }
+        .type-color-feet { color: #e0b48a; text-shadow: 0 0 7px rgba(201,151,107,0.24); }
+        .type-color-waist { color: #d4a074; text-shadow: 0 0 7px rgba(184,132,92,0.24); }
+        .type-color-trinket { color: #f9a8d4; text-shadow: 0 0 7px rgba(244,114,182,0.28); }
+        .type-color-mount { color: #fcd34d; text-shadow: 0 0 9px rgba(245,158,11,0.4); }
+        .type-color-glider { color: #67e8f9; text-shadow: 0 0 9px rgba(6,182,212,0.4); }
+
+        .stat-value { font-size: 0.75rem; font-weight: 600; color: #ffffff; margin-left: 2px; text-shadow: 0 0 4px rgba(255,255,255,0.15); }
+        .item-damage-line { font-size: 0.75rem; color: #ffffff; margin-bottom: 4px; font-weight: 600; }
+
+        .fav-star {
+            cursor: pointer; font-size: 1.35em; margin-right: 4px; color: var(--text-dim);
+            transition: all 0.2s ease; user-select: none; padding: 3px;
+            margin-left: -3px; margin-top: -3px; margin-bottom: -3px;
+            border-radius: 50%;
+        }
+        .fav-star:hover { color: var(--gold-bright); text-shadow: 0 0 8px var(--gold-glow); }
+        .fav-star.favorited { color: var(--gold-bright); text-shadow: 0 0 8px rgba(240,192,96,0.5); }
+
+        .location-cell { font-size: 0.81rem; }
+        .location-zone { color: var(--gold); font-weight: 600; }
+        .location-dungeon { color: var(--text); }
+
+        .toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+        .toast {
+            background: rgba(20,22,32,0.9); backdrop-filter: blur(10px);
+            border: 1px solid var(--border-light); padding: 10px 16px;
+            border-radius: var(--radius-sm); font-size: 0.78rem; color: var(--text);
+            box-shadow: var(--shadow-lg); animation: slideIn 0.3s ease, fadeOut 0.3s ease 2s forwards;
+            max-width: 340px;
+        }
+        .toast.red { border-color: #f87171; background: rgba(120,30,30,0.88); color: #fecaca; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-10px); } }
+
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.82); z-index: 10001; justify-content: center; align-items: center; backdrop-filter: blur(3px); }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius);
+            padding: 24px; width: 90%; max-width: 420px; box-shadow: var(--shadow-lg);
+        }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+        .modal-header h2 { color: var(--gold-bright); font-family: var(--font-display); font-size: 1.15rem; margin: 0; }
+        .modal-close { background: none; border: none; color: var(--text-dim); font-size: 1.5rem; cursor: pointer; line-height: 1; transition: color var(--transition); }
+        .modal-close:hover { color: var(--text-bright); }
+        .modal-form input, .modal-form select, .modal-form textarea {
+            width: 100%; background: var(--surface3); border: 1px solid var(--border);
+            color: var(--text); padding: 9px 12px; border-radius: var(--radius-xs);
+            margin-bottom: 10px; font-family: var(--font); font-size: 0.82rem; outline: none;
+            transition: border-color var(--transition);
+        }
+        .modal-form input:focus, .modal-form textarea:focus { border-color: var(--accent); }
+        .modal-form textarea { resize: vertical; min-height: 80px; }
+        .modal-form button { padding: 10px; border: none; border-radius: var(--radius-xs); font-weight: 700; cursor: pointer; font-family: var(--font); font-size: 0.8rem; }
+        .modal-form .submit-btn { background: var(--accent); color: #fff; }
+        .modal-form .submit-btn:hover { background: var(--accent-hover); }
+        .modal-form .cancel-btn { background: var(--surface3); color: var(--text); border: 1px solid var(--border); margin-left: 9px; }
+        .modal-form .cancel-btn:hover { background: var(--border-light); }
+        .modal-footer-text { font-size: 0.66rem; color: var(--text-dim); margin-top: 12px; text-align: center; }
+
+        .filter-group-wrapper.open #type-dropdown { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; max-height: none; overflow-y: visible; min-width: 330px; }
+        #class-dropdown { min-width: 280px; flex-wrap: nowrap; }
+        .class-exclusive-btn {
+            background: transparent; border: 1px solid var(--border); color: var(--text-dim);
+        }
+        .class-exclusive-btn:hover { background: var(--surface3); border-color: var(--border-light); color: var(--text); }
+        .class-exclusive-btn.active {
+            background: rgba(91,140,189,0.18); border-color: var(--accent);
+            color: var(--accent-hover); box-shadow: 0 0 9px var(--accent-glow);
+        }
+        #stat-dropdown { flex-direction: column; }
+
+        #scroll-to-top-btn {
+            background: rgba(212,167,69,0.1); border-color: var(--gold-dim); color: var(--gold);
+            box-shadow: var(--shadow); border-radius: 50%; width: 42px; height: 42px;
+            cursor: pointer; font-size: 1.2rem; font-weight: bold;
+            transition: all var(--transition); display: flex; align-items: center; justify-content: center;
+        }
+        #scroll-to-top-btn:hover {
+            background: rgba(212,167,69,0.25); color: var(--gold-bright);
+            border-color: var(--gold); box-shadow: 0 0 18px var(--gold-glow); transform: scale(1.08);
+        }
+
+        #image-tooltip {
+            position: fixed; z-index: 10000; pointer-events: none;
+            background: var(--surface); border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm); padding: 4px; display: none;
+            max-width: 800px; max-height: 540px; overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        #image-tooltip img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; border-radius: 3px; }
+
+        #builds-dropdown .build-item {
+            display: flex; align-items: center; justify-content: space-between; padding: 5px 10px;
+            margin-bottom: 3px; border-radius: var(--radius-pill);
+            background: rgba(255,255,255,0.02); font-size: 0.86rem;
+        }
+        #builds-dropdown .build-item:hover { background: rgba(255,255,255,0.05); }
+        #builds-dropdown .build-item span { font-size: 0.9rem; }
+        #builds-dropdown .build-item button {
+            background: none; border: 1px solid var(--border); color: var(--text-dim);
+            border-radius: var(--radius-pill); padding: 3px 10px; font-size: 0.72rem; cursor: pointer;
+            transition: all 0.2s ease; white-space: nowrap;
+        }
+        #builds-dropdown .build-item button:hover { background: var(--surface3); color: var(--gold); border-color: var(--gold-dim); }
+        #builds-dropdown .build-item .delete-build-btn { border-color: rgba(212,90,90,0.45); color: var(--danger); }
+        #builds-dropdown .build-item .delete-build-btn:hover { background: rgba(176,74,74,0.2); color: #ff7070; }
+
+        .update-log-popover {
+            position: fixed; z-index: 200; max-width: 420px; display: none;
+            background: var(--surface); border: 1px solid var(--gold-dim);
+            border-radius: var(--radius); padding: 14px 18px;
+            box-shadow: var(--shadow-lg); white-space: pre-wrap;
+            font-size: 0.78rem; line-height: 1.5; color: var(--text);
+        }
+        .update-log-popover::before {
+            content: ''; position: absolute; top: -6px; right: 24px;
+            width: 12px; height: 12px; background: var(--surface);
+            border-left: 1px solid var(--gold-dim); border-top: 1px solid var(--gold-dim);
+            transform: rotate(45deg);
+        }
+
+        .class-btn[data-class="warrior"].active { background: rgba(201,66,66,0.3); border-color: #ff4040; color: #ff8080; box-shadow: 0 0 10px rgba(201,66,66,0.35); }
+        .class-btn[data-class="rogue"].active { background: rgba(201,164,75,0.3); border-color: #e0b840; color: #fddd80; box-shadow: 0 0 10px rgba(201,164,75,0.35); }
+        .class-btn[data-class="mage"].active { background: rgba(123,94,204,0.3); border-color: #9060f0; color: #c0a0ff; box-shadow: 0 0 10px rgba(123,94,204,0.35); }
+        .class-btn[data-class="priest"].active { background: rgba(232,232,232,0.2); border-color: #ffffff; color: #ffffff; box-shadow: 0 0 10px rgba(232,232,232,0.3); }
+
+        .type-btn.active, .type-btn[data-type].active { background: rgba(255,255,255,0.08); border-color: var(--text-dim); color: var(--text-bright); }
+        .type-btn[data-type="Sword"].active { background: rgba(125,211,252,0.18); border-color: #7dd3fc; color: #bae6fd; box-shadow: 0 0 8px rgba(125,211,252,0.3); }
+        .type-btn[data-type="Dual Sword"].active { background: rgba(56,189,248,0.18); border-color: #38bdf8; color: #7dd3fc; box-shadow: 0 0 8px rgba(56,189,248,0.3); }
+        .type-btn[data-type="Axe"].active { background: rgba(220,38,38,0.2); border-color: #dc2626; color: #f87171; box-shadow: 0 0 8px rgba(220,38,38,0.32); }
+        .type-btn[data-type="Dual Axes"].active { background: rgba(225,29,72,0.2); border-color: #e11d48; color: #f87171; box-shadow: 0 0 8px rgba(225,29,72,0.32); }
+        .type-btn[data-type="Daggers"].active { background: rgba(148,163,184,0.2); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 8px rgba(148,163,184,0.3); }
+        .type-btn[data-type="Two-Handed Axe"].active { background: rgba(185,28,28,0.22); border-color: #b91c1c; color: #ef4444; box-shadow: 0 0 8px rgba(185,28,28,0.35); }
+        .type-btn[data-type="Mace"].active { background: rgba(251,191,36,0.2); border-color: #fbbf24; color: #fbbf24; box-shadow: 0 0 8px rgba(251,191,36,0.3); }
+        .type-btn[data-type="Two-Handed Mace"].active { background: rgba(100,116,139,0.2); border-color: #64748b; color: #94a3b8; box-shadow: 0 0 8px rgba(100,116,139,0.3); }
+        .type-btn[data-type="Dual Maces"].active { background: rgba(148,163,184,0.2); border-color: #94a3b8; color: #94a3b8; box-shadow: 0 0 8px rgba(148,163,184,0.3); }
+        .type-btn[data-type="Spear"].active { background: rgba(253,230,138,0.16); border-color: #fde68a; color: #fef3c7; box-shadow: 0 0 8px rgba(253,230,138,0.3); }
+        .type-btn[data-type="Bow"].active { background: rgba(74,222,128,0.18); border-color: #4ade80; color: #86efac; box-shadow: 0 0 8px rgba(74,222,128,0.3); }
+        .type-btn[data-type="Fists"].active { background: rgba(239,68,68,0.22); border-color: #ef4444; color: #f87171; box-shadow: 0 0 10px rgba(239,68,68,0.36); }
+        .type-btn[data-type="Thrown"].active { background: rgba(251,146,60,0.18); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 8px rgba(251,146,60,0.3); }
+        .type-btn[data-type="Scepter"].active { background: rgba(168,85,247,0.18); border-color: #a855f7; color: #c084fc; box-shadow: 0 0 8px rgba(168,85,247,0.32); }
+        .type-btn[data-type="Crescent"].active { background: rgba(203,213,225,0.16); border-color: #cbd5e1; color: #e2e8f0; box-shadow: 0 0 8px rgba(203,213,225,0.28); }
+        .type-btn[data-type="Halos"].active { background: rgba(251,191,36,0.2); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 8px rgba(251,191,36,0.34); }
+        .type-btn[data-type="Spellbook"].active { background: rgba(34,211,238,0.18); border-color: #22d3ee; color: #67e8f9; box-shadow: 0 0 8px rgba(34,211,238,0.32); }
+        .type-btn[data-type="Shield"].active { background: rgba(96,165,250,0.18); border-color: #60a5fa; color: #93c5fd; box-shadow: 0 0 8px rgba(96,165,250,0.3); }
+        .type-btn[data-type="Head"].active { background: rgba(192,132,252,0.18); border-color: #c084fc; color: #e0b4ff; box-shadow: 0 0 8px rgba(192,132,252,0.3); }
+        .type-btn[data-type="Shoulders"].active { background: rgba(148,163,184,0.18); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 6px rgba(148,163,184,0.26); }
+        .type-btn[data-type="Chest"].active { background: rgba(248,113,113,0.18); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 8px rgba(248,113,113,0.3); }
+        .type-btn[data-type="Back"].active { background: rgba(129,140,248,0.18); border-color: #818cf8; color: #b4bcfc; box-shadow: 0 0 8px rgba(129,140,248,0.3); }
+        .type-btn[data-type="Hands"].active { background: rgba(212,165,116,0.18); border-color: #d4a574; color: #e8c9a0; box-shadow: 0 0 6px rgba(212,165,116,0.26); }
+        .type-btn[data-type="Legs"].active { background: rgba(167,139,113,0.18); border-color: #a78b71; color: #c4a882; box-shadow: 0 0 6px rgba(167,139,113,0.26); }
+        .type-btn[data-type="Feet"].active { background: rgba(201,151,107,0.18); border-color: #c9976b; color: #e0b48a; box-shadow: 0 0 6px rgba(201,151,107,0.26); }
+        .type-btn[data-type="Waist"].active { background: rgba(184,132,92,0.18); border-color: #b8845c; color: #d4a074; box-shadow: 0 0 6px rgba(184,132,92,0.26); }
+        .type-btn[data-type="Trinket"].active { background: rgba(244,114,182,0.18); border-color: #f472b6; color: #f9a8d4; box-shadow: 0 0 8px rgba(244,114,182,0.3); }
+
+        .category-btn[data-category="weapons"].active, .active-filter-chip.category-weapons { background: rgba(212,167,69,0.22); border-color: var(--gold); color: var(--gold-bright); box-shadow: 0 0 8px var(--gold-glow); }
+        .category-btn[data-category="mount"].active, .active-filter-chip.category-mount { background: rgba(245,158,11,0.2); border-color: #f59e0b; color: #fcd34d; box-shadow: 0 0 10px rgba(245,158,11,0.34); }
+        .category-btn[data-category="glider"].active, .active-filter-chip.category-glider { background: rgba(6,182,212,0.2); border-color: #06b6d4; color: #67e8f9; box-shadow: 0 0 10px rgba(6,182,212,0.34); }
+        .category-btn[data-category="armor"].active, .active-filter-chip.category-armor { background: rgba(59,130,246,0.18); border-color: var(--rarity-blue); color: #93c5fd; box-shadow: 0 0 8px rgba(59,130,246,0.3); }
+
+        .stat-btn[data-stat="Armor"].active { background: rgba(156,163,175,0.18); border-color: #9ca3af; color: #d1d5db; box-shadow: 0 0 6px rgba(156,163,175,0.28); }
+        .stat-btn[data-stat="Vitality"].active { background: rgba(52,211,153,0.18); border-color: #34d399; color: #6ee7b7; box-shadow: 0 0 8px rgba(52,211,153,0.32); }
+        .stat-btn[data-stat="Strength"].active { background: rgba(248,113,113,0.2); border-color: #f87171; color: #fca5a5; box-shadow: 0 0 8px rgba(248,113,113,0.32); }
+        .stat-btn[data-stat="Dexterity"].active { background: rgba(251,191,36,0.18); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 8px rgba(251,191,36,0.32); }
+        .stat-btn[data-stat="Faith"].active { background: rgba(252,211,77,0.2); border-color: #fcd34d; color: #fef3c7; box-shadow: 0 0 10px rgba(252,211,77,0.36); }
+        .stat-btn[data-stat="Intelligence"].active { background: rgba(129,140,248,0.18); border-color: #818cf8; color: #b4bcfc; box-shadow: 0 0 8px rgba(129,140,248,0.32); }
+        .stat-btn[data-stat="Critical"].active { background: rgba(244,114,182,0.2); border-color: #f472b6; color: #f9a8d4; box-shadow: 0 0 10px rgba(244,114,182,0.34); }
+        .stat-btn[data-stat="Armor Penetration"].active { background: rgba(232,121,94,0.2); border-color: #e8795e; color: #f4a28e; box-shadow: 0 0 8px rgba(232,121,94,0.32); }
+        .stat-btn[data-stat="Magic Penetration"].active { background: rgba(192,132,252,0.18); border-color: #c084fc; color: #e0b4ff; box-shadow: 0 0 8px rgba(192,132,252,0.32); }
+        .stat-btn[data-stat="Fervor"].active { background: rgba(251,146,60,0.2); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 10px rgba(251,146,60,0.34); }
+
+        .site-footer {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+            background: var(--surface); border-top: 1px solid var(--border);
+            padding: 10px 24px; text-align: center; font-size: 0.64rem; color: var(--text-dim);
+        }
+
+        @media (max-width:800px) {
+            .loot-table, .loot-table thead, .loot-table tbody, .loot-table th, .loot-table td, .loot-table tr { display: block; }
+            .loot-table thead { display: none; }
+            .loot-table tbody tr.item-main-row {
+                padding: 10px; border-bottom: 1px solid var(--border);
+                margin-bottom: 5px; background: rgba(255,255,255,0.01);
+                border-radius: var(--radius-xs);
+            }
+            .loot-table tbody td {
+                display: block; padding: 4px 0; border-bottom: none; text-align: left;
+            }
+            .loot-table tbody td::before {
+                content: attr(data-label); font-weight: 600; color: var(--text-dim);
+                font-size: 0.6rem; display: inline-block; width: 75px;
+            }
+            .header { padding: 10px 14px; }
+            .header h1 { font-size: 1.2rem; }
+            .container { padding: 12px 10px 24px; }
+            .zone-header { padding: 12px 16px; gap: 8px; }
+            .zone-body { padding: 10px 14px 14px; }
+            .dungeon-header { padding: 9px 14px; gap: 6px; }
+            .dungeon-body { padding: 6px 10px 10px; }
+            .zone-name-display { font-size: 0.9rem; }
+            .dungeon-name-display { font-size: 0.78rem; }
+            .filter-bar { padding: 8px 14px; gap: 6px; flex-wrap: wrap; }
+            .filter-label { width: 100%; margin-bottom: 2px; }
+            .search-input { width: 130px; }
+            .search-input:focus { width: 160px; }
+            .site-footer { padding: 8px 14px; font-size: 0.57rem; }
+            .btn, .suggest-btn, .lang-btn { font-size: 0.68rem; padding: 5px 10px; }
+            .stat-value { font-size: 0.66rem; }
+        }
+
+        .container { max-width: 1680px; margin: 0 auto; padding: 22px clamp(12px,2.4vw,38px); }
+        .header { padding-inline: clamp(14px,2.4vw,38px); }
+        .filter-bar { padding-inline: clamp(14px,2.4vw,38px); backdrop-filter: blur(16px); }
+        .zone-card { border-color: rgba(255,255,255,.075); }
+        .zone-header { min-height: 72px; }
+        .dungeon-card { border-color: rgba(255,255,255,.07); }
+        .loot-table thead { position: sticky; top: 0; z-index: 4; }
+        .loot-table thead th { background: #11141d; box-shadow: 0 1px 0 var(--border); }
+        .loot-table tbody td:first-child { width: 22%; }
+        .loot-table tbody td:last-child { width: 25%; }
+        .build-overview {
+            position: relative; overflow: hidden; margin-bottom: 14px; padding: 22px 24px;
+            border: 1px solid rgba(212,167,69,.25); border-radius: var(--radius);
+            background: linear-gradient(135deg,rgba(212,167,69,.12),rgba(91,140,189,.07) 55%,var(--surface));
+            box-shadow: var(--shadow), inset 0 1px rgba(255,255,255,.04);
+        }
+        .build-overview:after { content:''; position:absolute; width:260px; height:260px; right:-90px; top:-150px; border-radius:50%; background:rgba(212,167,69,.08); filter:blur(4px); pointer-events:none; }
+        .build-kicker { color:var(--gold); font-size:.63rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin-bottom:6px; }
+        .build-title { color:var(--text-bright); font:700 clamp(1.25rem,2.2vw,1.8rem)/1.2 var(--font-display); letter-spacing:.035em; }
+        .build-summary { display:flex; gap:8px; flex-wrap:wrap; margin-top:13px; }
+        .summary-chip { display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:var(--radius-pill); border:1px solid var(--border-light); background:rgba(0,0,0,.22); color:var(--text-dim); font-size:.68rem; font-weight:600; }
+        .summary-chip strong { color:var(--text-bright); }
+        .viewer-table-shell { overflow:auto; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+        .viewer-table-shell .loot-table { min-width:920px; }
+        .source-list { display:grid; gap:5px; min-width:210px; }
+        .source-entry { display:flex; gap:6px; align-items:flex-start; line-height:1.35; padding:4px 7px; border-radius:6px; background:rgba(255,255,255,.025); }
+        .source-entry:first-child { background:rgba(91,140,189,.08); }
+        .source-bullet { color:var(--accent); font-size:.68rem; padding-top:1px; }
+        .source-more { color:var(--text-dim); font-size:.63rem; margin-top:2px; }
+        .unique-note { color:var(--text-muted); font-size:.62rem; margin-top:4px; }
+        .rarity-switcher { margin:6px 0 0 31px; gap:2px; }
+        .rarity-switcher .rarity-btn { padding:2px 7px; font-size:.56rem; }
+        #save-build-btn:disabled { opacity:.42; cursor:not-allowed; filter:saturate(.35); transform:none; box-shadow:none; }
+        #builds-wrapper #builds-dropdown { left:auto; right:0; width:min(430px,calc(100vw - 24px)); min-width:0; flex-direction:column; flex-wrap:nowrap; }
+        #builds-dropdown .build-item { width:100%; min-width:0; flex-wrap:wrap; }
+        #builds-dropdown .build-item > span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+        .favorites-control { position:relative; display:flex; align-items:stretch; min-width:31px; }
+        .favorites-control .favorites-toggle { border-radius:var(--radius-pill); }
+        .favorites-control.has-options .favorites-toggle { border-radius:var(--radius-pill) 0 0 var(--radius-pill); border-right:0; }
+        .favorites-more-btn { width:31px; padding:0; border:1px solid var(--gold-dim); border-radius:0 var(--radius-pill) var(--radius-pill) 0; background:rgba(212,167,69,.08); color:var(--gold); cursor:pointer; font:700 .62rem var(--font); letter-spacing:-1px; }
+        .favorites-more-btn:hover,.favorites-more-btn[aria-expanded="true"] { background:rgba(212,167,69,.2); color:var(--gold-bright); }
+        .favorites-options-menu { display:none; position:absolute; top:calc(100% + 7px); right:0; z-index:100; min-width:190px; padding:6px; border:1px solid var(--border-light); border-radius:var(--radius-sm); background:var(--surface2); box-shadow:var(--shadow-lg); }
+        .favorites-options-menu.open { display:block; }
+        .favorites-options-menu .clear-fav-btn { width:100%; padding:8px 10px; border:0; border-radius:6px; background:transparent; text-align:left; font-size:.68rem; }
+        .favorites-options-menu .clear-fav-btn:hover { background:rgba(232,96,96,.12); }
+        .donate-btn { background:linear-gradient(135deg,rgba(212,167,69,.22),rgba(212,167,69,.09)); box-shadow:inset 0 1px rgba(255,255,255,.06); }
+        .support-cup { filter:saturate(.8); }
+        .build-item { gap:6px; }
+        .build-item > span { min-width:120px; flex:1; }
+        .build-item button { border-radius:6px; padding:5px 8px; }
+        .share-build-btn { color:var(--accent-hover)!important; }
+        .delete-build-btn { color:var(--danger)!important; }
+
+        .zone-card { position:relative; background:linear-gradient(180deg,#151923 0%,var(--surface) 100%); }
+        .zone-card:before { content:''; position:absolute; inset:0 auto 0 0; width:3px; background:linear-gradient(180deg,var(--gold),transparent 70%); opacity:.28; pointer-events:none; }
+        .zone-card.open { border-color:rgba(212,167,69,.22); box-shadow:0 10px 35px rgba(0,0,0,.38),0 0 0 1px rgba(212,167,69,.035); }
+        .zone-card.open:before { opacity:.8; }
+        .zone-header { padding:17px 22px; }
+        .zone-icon { display:grid; place-items:center; width:38px; height:38px; border-radius:10px; background:rgba(212,167,69,.075); border:1px solid rgba(212,167,69,.13); }
+        .zone-chevron,.dungeon-chevron { display:grid; place-items:center; border-radius:50%; background:rgba(255,255,255,.035); }
+        .zone-chevron { width:24px; height:24px; }
+        .zone-name-display { font-size:1.1rem; }
+        .zone-meta { margin-top:6px; }
+        .zone-body { padding:14px 18px 18px; }
+        .dungeons-list { gap:10px; }
+        .dungeon-card { background:rgba(7,9,13,.42); }
+        .dungeon-card.open { border-color:rgba(91,140,189,.28); box-shadow:0 6px 20px rgba(0,0,0,.22); }
+        .dungeon-header { min-height:52px; padding:11px 14px; }
+        .dungeon-card.open .dungeon-header { box-shadow:inset 3px 0 0 rgba(91,140,189,.65); }
+        .dungeon-icon { display:grid; place-items:center; width:30px; height:30px; border-radius:8px; background:rgba(91,140,189,.08); }
+        .dungeon-info { gap:10px; }
+        .dungeon-info .badge-item { margin-left:auto; }
+        .dungeon-body { padding:0; background:rgba(3,5,8,.28); }
+        .dungeon-body .loot-table { min-width:790px; }
+        .loot-table { table-layout:auto; }
+        .loot-table thead th { padding:11px 14px; background:#10131b; border-bottom-color:rgba(212,167,69,.16); }
+        .loot-table tbody td { padding:13px 14px; }
+        .loot-table tbody tr.item-main-row { border-left:2px solid transparent; }
+        .loot-table tbody tr.item-main-row:hover { background:rgba(91,140,189,.065); border-left-color:var(--accent); }
+        .loot-table tbody tr.item-main-row.expanded { background:rgba(212,167,69,.04); border-left-color:var(--gold); }
+        .loot-table .item-name { line-height:1.35; }
+        .loot-table .fav-star { width:22px; height:22px; display:inline-grid; place-items:center; border-radius:6px; background:rgba(255,255,255,.025); }
+        .loot-table .fav-star:hover { background:rgba(212,167,69,.12); }
+        .item-detail-content { max-width:1100px; padding:4px 2px; line-height:1.65; color:#c7c2b9; }
+        .item-detail-content > div + div { margin-top:9px; padding-top:9px; border-top:1px solid rgba(255,255,255,.055); }
+        .tag { min-height:21px; }
+        .rarity-switcher { margin-bottom:6px; }
+        @media (max-width:800px) {
+            html,body { overflow:auto; height:auto; }
+            body { display:block; }
+            .main-content { overflow:visible; padding-bottom:76px; }
+            .site-footer { position:static; }
+            .header-right { width:100%; align-items:stretch; }
+            .header-actions { width:100%; }
+            .search-wrapper { flex:1; }
+            .search-input,.search-input:focus { width:100%; }
+            .filter-actions { width:100%; margin-left:0; overflow-x:auto; padding-bottom:2px; }
+            .build-overview { padding:18px; }
+            .viewer-table-shell { border:0; overflow:visible; background:transparent; box-shadow:none; }
+            .viewer-table-shell .loot-table { min-width:0; }
+            .source-list { min-width:0; }
+            .rarity-switcher .rarity-btn { min-height:30px; padding:5px 8px; }
+            .search-input, .modal-form input, .modal-form textarea { font-size:16px; }
+            .site-footer { font-size:.68rem; line-height:1.55; }
+            .site-footer a { display:inline-block; padding:4px 2px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-brand">
+        <div class="header-icon">⚔️</div>
+        <div>
+            <h1>Farever</h1>
+            <div class="header-subtitle" id="header-subtitle">
+                Just a personal dungeon drop database
+                <span class="cap-badge" id="cap-badge-text">All stats at Lv20 cap</span>
+            </div>
+        </div>
+    </div>
+    <div class="header-center" id="header-center">
+        <span id="build-name-display"></span>
+        <button id="exit-build-btn" class="exit-btn-header">❌ Exit Shared Build</button>
+    </div>
+    <div class="header-right">
+        <div class="lang-switcher" id="lang-switcher">
+            <button class="lang-btn" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="es">Español</button>
+            <button class="lang-btn" data-lang="fr">Français</button>
+        </div>
+        <div class="header-actions">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off">
+            </div>
+            <button class="btn suggest-btn" id="open-suggestion-btn">💡 <span class="suggest-text">Suggest</span></button>
+            <button class="btn suggest-btn" id="update-log-toggle-btn" style="display:none;">📝 <span>What's new</span></button>
+            <a href="https://ko-fi.com/iielyn" target="_blank" rel="noopener noreferrer" class="btn suggest-btn donate-btn" id="support-link">
+                <span class="support-cup">☕</span><span id="support-link-text"></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="filter-bar" id="filter-bar">
+    <span class="filter-label" id="filter-label">Filters</span>
+    <div class="filter-group-wrapper" id="class-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="class-label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="class-dropdown"></div>
+    </div>
+    <div class="filter-group-wrapper" id="stat-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="stats-label">Stats</span><span class="active-count" id="stat-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="stat-dropdown"></div>
+    </div>
+    <div class="filter-group-wrapper" id="type-wrapper">
+        <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="type-label">Type</span><span class="active-count" id="type-count" style="display:none">0</span></div>
+        <div class="filter-dropdown" id="type-dropdown"></div>
+    </div>
+    <div class="filter-group-wrapper" id="category-wrapper">
+        <div class="filter-group-header">
+            <span class="arrow">▼</span>
+            <span class="label" id="category-label">Category</span>
+            <span class="active-count" id="category-count" style="display:none">0</span>
+        </div>
+        <div class="filter-dropdown" id="category-dropdown">
+            <button class="filter-btn category-btn" data-category="weapons">Weapons <span class="item-count">(0)</span></button>
+            <button class="filter-btn category-btn" data-category="armor">Armor <span class="item-count">(0)</span></button>
+            <button class="filter-btn category-btn" data-category="mount">Mount <span class="item-count">(0)</span></button>
+            <button class="filter-btn category-btn" data-category="glider">Glider <span class="item-count">(0)</span></button>
+        </div>
+    </div>
+    <button class="filter-btn class-exclusive-btn" id="class-exclusive-btn"><span id="class-exclusive-label">Class Exclusive</span></button>
+    <button class="clear-all-btn" id="clear-all-btn" style="display:none;">✕ Clear Filters</button>
+    <div class="filter-actions">
+        <div class="filter-group-wrapper" id="builds-wrapper">
+            <div class="filter-group-header" id="builds-header" style="display:none;">
+                <span class="arrow">▼</span>
+                <span class="label">📁 Loadouts</span>
+                <span class="active-count" id="builds-count">0</span>
+            </div>
+            <div class="filter-dropdown" id="builds-dropdown" style="max-height:400px;overflow-y:auto;"></div>
+        </div>
+        <button class="btn suggest-btn" id="save-build-btn"><span id="save-build-text">Save Favorites</span></button>
+        <div class="favorites-control" id="favorites-control">
+            <button class="favorites-toggle" id="favorites-toggle-btn">⭐ Favorites</button>
+            <button class="favorites-more-btn" id="favorites-more-btn" title="Favorite options" aria-label="Favorite options" aria-expanded="false">•••</button>
+            <div class="favorites-options-menu" id="favorites-options-menu">
+                <button class="clear-fav-btn" id="clear-fav-btn">🗑️ Clear all Favorites</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="active-filters-row" id="active-filters-row" aria-live="polite"></div>
+</div>
+
+<div class="main-content">
+    <main class="container" id="zones-container"></main>
+</div>
+
+<footer class="site-footer" id="site-footer">
+    <span class="copyright-symbol">&copy;</span> 2026 Farever — Created by <span class="creator-name">Iielyn</span>. All rights reserved.
+    Images and certain data sourced from the <a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>,
+    licensed under <a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+    Game assets are property of the game's creators.
+</footer>
+
+<div class="modal-overlay" id="suggestion-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-title">💬 Send a Suggestion</h2>
+            <button class="modal-close" id="close-suggestion-modal">&times;</button>
+        </div>
+        <form class="modal-form" id="suggestion-form">
+            <textarea name="message" id="suggestion-textarea" placeholder="Type your suggestion, feedback, or missing item details..." required rows="5"></textarea>
+            <div style="display:flex;gap:9px;margin-top:10px;">
+                <button type="submit" class="submit-btn" id="modal-submit-btn" style="flex:1;">Send Suggestion</button>
+                <button type="button" class="cancel-btn" id="modal-cancel-btn" style="flex:1;">Cancel</button>
+            </div>
+        </form>
+        <p class="modal-footer-text" id="modal-footer-text">Your suggestion is sent privately to the creator.</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="build-name-modal">
+    <div class="modal-content" style="max-width:340px;">
+        <div class="modal-header">
+            <h2 id="build-name-modal-title">💾 Save Build</h2>
+            <button class="modal-close" id="close-build-name-modal">&times;</button>
+        </div>
+        <div class="modal-form">
+            <p style="color:var(--text-dim);font-size:.75rem;line-height:1.5;margin-bottom:10px;">This saves your current Favorites as a separate loadout. Your Favorites will not be changed.</p>
+            <input type="text" id="build-name-input" maxlength="30" placeholder="Loadout name (max 30 characters)" autocomplete="off">
+            <div style="display:flex;gap:9px;margin-top:10px;">
+                <button class="submit-btn" id="confirm-build-name-btn">Save</button>
+                <button class="cancel-btn" id="cancel-build-name-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="scroll-to-top-btn" title="Back to top" style="display:none;position:fixed;bottom:60px;right:20px;z-index:998;border:1px solid var(--gold-dim);">↑</button>
+<div class="toast-container" id="toast-container"></div>
+<div id="image-tooltip"><img src="" alt="Item image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="broken-placeholder" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;color:var(--text-dim);">🖼️ Image not available</div></div>
+
+<script>
+(function() {
+    'use strict';
+
+    const STORAGE_KEY = 'farever_data_v11';
+    const VERSION_KEY = 'farever_data_version_v2';
+    const DATA_URL = './farever_data.json';
+    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScAUAFWgtKAOMNfr4hipZMp9l8JMeeISnT3PBmS7sLgF-EfYg/formResponse';
+    const ENTRY_ID = 'entry.1596480602';
+
+    const CLASS_OPTIONS = ['warrior', 'rogue', 'mage', 'priest'];
+    const STAT_OPTIONS = ['Armor', 'Vitality', 'Strength', 'Dexterity', 'Faith', 'Intelligence', 'Critical',
+        'Armor Penetration', 'Magic Penetration', 'Fervor'];
+    const WEAPON_TYPES = ['Sword', 'Dual Sword', 'Axe', 'Dual Axes', 'Daggers', 'Mace', 'Dual Maces', 'Spear',
+        'Fists', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Scepter', 'Crescent', 'Halos', 'Spellbook', 'Shield'];
+    const ARMOR_TYPES = ['Head', 'Shoulders', 'Chest', 'Back', 'Hands', 'Waist', 'Legs', 'Feet'];
+    const TRINKET_TYPES = ['Trinket'];
+    const MOUNT_GLIDER_TYPES = ['Mount', 'Glider'];
+    const TYPE_OPTIONS = [...WEAPON_TYPES, ...ARMOR_TYPES, ...TRINKET_TYPES, ...MOUNT_GLIDER_TYPES];
+
+    const translations = {
+        en: {
+            filter_label:'Filters', class_label:'Class', stats_label:'Stats', category_label:'Category', type_label:'Type',
+            clear_filters:'✕ Clear Filters', clear_favorites:'🗑️ Clear Favorites', favorites_button:'⭐ Favorites',
+            warrior:'Warrior', rogue:'Rogue', mage:'Mage', priest:'Priest',
+            weapons:'Weapons', armor:'Armor', mount:'Mount', glider:'Glider',
+            item_name:'Item Name', item_type:'Item Type', classes:'Classes', stats_header:'Stats', lv:'Lv',
+            full_dungeon:'Full Dungeon', boss_only:'Boss Only', rarity_label:'Rarity:',
+            blue:'Blue', purple:'Purple', legendary:'Legendary',
+            skill_final_combo:'Final Combo Attack:', skill1:'Skill 1:', skill2:'Skill 2:', passive:'Passive:',
+            search_placeholder:'Search items...', suggest_button:'💡 Suggest',
+            modal_title:'💬 Send a Suggestion', modal_placeholder:'Type your suggestion, feedback, or missing item details...',
+            modal_cancel:'Cancel', modal_submit:'Send Suggestion', modal_footer:'Your suggestion is sent privately to the creator.',
+            toast_suggestion_sent:'✅ Suggestion sent! Thank you.',
+            toast_filters_cleared:'All filters cleared', toast_favorites_cleared:'Favorites cleared',
+            scroll_top_title:'Back to top',
+            footer_text:'© 2026 Farever — Created by {creator}. All rights reserved. Images and certain data sourced from the {wiki_link}, licensed under {license_link}. Game assets are property of the game\'s creators.',
+            empty_no_zones_title:'No zones available.', empty_no_zones_desc:'Load your JSON data to begin.',
+            empty_no_match_title:'No zones or dungeons match your filters.', empty_no_match_desc:'Try adjusting the search or clearing some filters.',
+            badge_item_singular:'item', badge_item_plural:'items', badge_dungeon_singular:'dungeon', badge_dungeon_plural:'dungeons',
+            header_subtitle:'dungeon drop database', cap_badge_text:'All stats at Lv20 cap',
+            image_unavailable:'🖼️ Image not available', toast_data_updated:'🔄 Data updated to version ',
+            stat_Armor:'Armor', stat_Vitality:'Vitality', stat_Strength:'Strength', stat_Dexterity:'Dexterity',
+            stat_Faith:'Faith', stat_Intelligence:'Intelligence', stat_Critical:'Critical',
+            stat_Armor_Penetration:'Armor Penetration', stat_Magic_Penetration:'Magic Penetration', stat_Fervor:'Fervor',
+            type_Sword:'Sword', type_Dual_Sword:'Dual Sword', type_Axe:'Axe', type_Dual_Axes:'Dual Axes',
+            type_Daggers:'Daggers', type_Mace:'Mace', type_Dual_Maces:'Dual Maces', type_Spear:'Spear',
+            type_Fists:'Fists', type_Two_Handed_Axe:'Two-Handed Axe', type_Two_Handed_Mace:'Two-Handed Mace',
+            type_Bow:'Bow', type_Thrown:'Thrown', type_Scepter:'Scepter', type_Crescent:'Crescent',
+            type_Halos:'Halos', type_Spellbook:'Spellbook', type_Shield:'Shield',
+            type_Head:'Head', type_Shoulders:'Shoulders', type_Chest:'Chest', type_Back:'Back',
+            type_Hands:'Hands', type_Waist:'Waist', type_Legs:'Legs', type_Feet:'Feet',
+            type_Trinket:'Trinket', type_Mount:'Mount', type_Glider:'Glider',
+            whats_new_button:'What\'s new', support_button:'Support',
+            share_build_button:'🔗 Share Favorites', exit_build_view:'❌ Exit Build View',
+            build_view_title:'Viewing build: {name}',
+            toast_no_favorites:'No favorites to share.', toast_link_copied:'Shareable link copied to clipboard!',
+            toast_cannot_modify_build:'Cannot modify favorites while viewing a shared build.',
+            save_build_button:'＋ Create Loadout from Favorites', builds_header:'📁 Saved Loadouts',
+            toast_build_saved:'Build saved!', toast_build_loaded:'Loaded "{name}"', toast_build_deleted:'Deleted "{name}"',
+            toast_no_favorites_save:'Favorite at least one item before creating a loadout.',
+            build_overwrite_confirm:'A build named "{name}" already exists. Overwrite?',
+            build_delete_confirm:'Delete build "{name}"?', toast_build_no_items:'Build has no items.',
+            save_build_modal_title:'Save Favorites as a Loadout', build_name_placeholder:'Loadout name (max 30 characters)',
+            save_button:'Save', cancel_button:'Cancel', load_button:'Load', location:'Location',
+            class_exclusive:'Class Exclusive',
+        },
+        fr: {
+            filter_label:'Filtres', class_label:'Classe', stats_label:'Statistiques', category_label:'Catégorie', type_label:'Type',
+            clear_filters:'✕ Effacer les filtres', clear_favorites:'🗑️ Effacer les favoris', favorites_button:'⭐ Favoris',
+            warrior:'Guerrier', rogue:'Voleur', mage:'Mage', priest:'Prêtre',
+            weapons:'Armes', armor:'Armure', mount:'Monture', glider:'Planeur',
+            item_name:'Nom', item_type:'Type', classes:'Classes', stats_header:'Statistiques', lv:'Nv',
+            full_dungeon:'Donjon complet', boss_only:'Boss seul', rarity_label:'Rareté:',
+            blue:'Bleu', purple:'Violet', legendary:'Légendaire',
+            skill_final_combo:'Attaque combo finale:', skill1:'Compétence 1:', skill2:'Compétence 2:', passive:'Passif:',
+            search_placeholder:'Rechercher...', suggest_button:'💡 Suggérer',
+            modal_title:'💬 Envoyer une suggestion', modal_placeholder:'Tapez votre suggestion, commentaire ou détail manquant...',
+            modal_cancel:'Annuler', modal_submit:'Envoyer', modal_footer:'Votre suggestion est envoyée en privé au créateur.',
+            toast_suggestion_sent:'✅ Suggestion envoyée ! Merci.',
+            toast_filters_cleared:'Tous les filtres effacés', toast_favorites_cleared:'Favoris effacés',
+            scroll_top_title:'Retour en haut',
+            footer_text:'© 2026 Farever — Créé par {creator}. Tous droits réservés. Images et données provenant du {wiki_link}, sous licence {license_link}. Les assets du jeu sont la propriété de leurs créateurs.',
+            empty_no_zones_title:'Aucune zone disponible.', empty_no_zones_desc:'Chargez vos données JSON pour commencer.',
+            empty_no_match_title:'Aucune zone ou donjon ne correspond à vos filtres.', empty_no_match_desc:'Essayez d\'ajuster la recherche ou de supprimer des filtres.',
+            badge_item_singular:'objet', badge_item_plural:'objets', badge_dungeon_singular:'donjon', badge_dungeon_plural:'donjons',
+            header_subtitle:'Base de données personnelle de drops de donjons', cap_badge_text:'Toutes les stats au cap Nv20',
+            image_unavailable:'Image indisponible', toast_data_updated:'🔄 Données mises à jour version ',
+            stat_Armor:'Armure', stat_Vitality:'Vitalité', stat_Strength:'Force', stat_Dexterity:'Dextérité',
+            stat_Faith:'Foi', stat_Intelligence:'Intelligence', stat_Critical:'Critique',
+            stat_Armor_Penetration:'Pénétration d\'armure', stat_Magic_Penetration:'Pénétration magique', stat_Fervor:'Ferveur',
+            type_Sword:'Épée', type_Dual_Sword:'Épée double', type_Axe:'Hache', type_Dual_Axes:'Haches doubles',
+            type_Daggers:'Dagues', type_Mace:'Masse', type_Dual_Maces:'Masses doubles', type_Spear:'Lance',
+            type_Fists:'Poings', type_Two_Handed_Axe:'Hache à deux mains', type_Two_Handed_Mace:'Masse à deux mains',
+            type_Bow:'Arc', type_Thrown:'Armes de jet', type_Scepter:'Sceptre', type_Crescent:'Croissant',
+            type_Halos:'Auréoles', type_Spellbook:'Grimoire', type_Shield:'Bouclier',
+            type_Head:'Tête', type_Shoulders:'Épaules', type_Chest:'Torse', type_Back:'Dos',
+            type_Hands:'Mains', type_Waist:'Ceinture', type_Legs:'Jambes', type_Feet:'Pieds',
+            type_Trinket:'Bijou', type_Mount:'Monture', type_Glider:'Planeur',
+            whats_new_button:'Quoi de neuf', support_button:'Soutenir',
+            exit_build_view:'❌ Quitter la vue build', build_view_title:'Build affiché : {name}',
+            toast_no_favorites:'Aucun favori à partager.', toast_link_copied:'Lien partageable copié dans le presse-papiers !',
+            toast_cannot_modify_build:'Impossible de modifier les favoris en affichant un build partagé.',
+            save_build_button:'＋ Créer depuis les favoris', builds_header:'📁 Configurations enregistrées',
+            toast_build_saved:'Build enregistré!', toast_build_loaded:'Chargé "{name}"', toast_build_deleted:'Supprimé "{name}"',
+            toast_no_favorites_save:'Aucun favori à enregistrer.',
+            build_overwrite_confirm:'Un build nommé "{name}" existe déjà. Écraser ?',
+            build_delete_confirm:'Supprimer le build "{name}" ?', toast_build_no_items:'Le build ne contient aucun objet.',
+            save_build_modal_title:'Enregistrer les favoris comme configuration', build_name_placeholder:'Nom (30 caractères max)',
+            save_button:'Enregistrer', cancel_button:'Annuler', load_button:'Charger', location:'Emplacement',
+            class_exclusive:'Classe exclusive',
+        },
+        es: {
+            filter_label:'Filtros', class_label:'Clase', stats_label:'Estadísticas', category_label:'Categoría', type_label:'Tipo',
+            clear_filters:'✕ Limpiar filtros', clear_favorites:'🗑️ Limpiar favoritos', favorites_button:'⭐ Favoritos',
+            warrior:'Guerrero', rogue:'Pícaro', mage:'Mago', priest:'Sacerdote',
+            weapons:'Armas', armor:'Armadura', mount:'Montura', glider:'Planeador',
+            item_name:'Nombre', item_type:'Tipo', classes:'Clases', stats_header:'Estadísticas', lv:'Nv',
+            full_dungeon:'Mazmorra completa', boss_only:'Solo jefe', rarity_label:'Rareza:',
+            blue:'Azul', purple:'Púrpura', legendary:'Legendario',
+            skill_final_combo:'Ataque combo final:', skill1:'Habilidad 1:', skill2:'Habilidad 2:', passive:'Pasiva:',
+            search_placeholder:'Buscar...', suggest_button:'💡 Sugerir',
+            modal_title:'💬 Enviar sugerencia', modal_placeholder:'Escribe tu sugerencia, comentario o detalle faltante...',
+            modal_cancel:'Cancelar', modal_submit:'Enviar', modal_footer:'Tu sugerencia se envía en privado al creador.',
+            toast_suggestion_sent:'✅ Sugerencia enviada. ¡Gracias!',
+            toast_filters_cleared:'Todos los filtros limpiados', toast_favorites_cleared:'Favoritos eliminados',
+            scroll_top_title:'Volver arriba',
+            footer_text:'© 2026 Farever — Creado por {creator}. Todos los derechos reservados. Imágenes y datos del {wiki_link}, bajo licencia {license_link}. Los activos del juego son propiedad de sus creadores.',
+            empty_no_zones_title:'No hay zonas disponibles.', empty_no_zones_desc:'Carga tus datos JSON para empezar.',
+            empty_no_match_title:'Ninguna zona o mazmorra coincide con los filtros.', empty_no_match_desc:'Intenta ajustar la búsqueda o limpiar filtros.',
+            badge_item_singular:'objeto', badge_item_plural:'objetos', badge_dungeon_singular:'mazmorra', badge_dungeon_plural:'mazmorras',
+            header_subtitle:'Base de datos personal de drops de mazmorras', cap_badge_text:'Todas las stats al límite Nv20',
+            image_unavailable:'Imagen no disponible', toast_data_updated:'🔄 Datos actualizados a versión ',
+            stat_Armor:'Armadura', stat_Vitality:'Vitalidad', stat_Strength:'Fuerza', stat_Dexterity:'Destreza',
+            stat_Faith:'Fe', stat_Intelligence:'Inteligencia', stat_Critical:'Crítico',
+            stat_Armor_Penetration:'Penetración de armadura', stat_Magic_Penetration:'Penetración mágica', stat_Fervor:'Fervor',
+            type_Sword:'Espada', type_Dual_Sword:'Espada doble', type_Axe:'Hacha', type_Dual_Axes:'Hachas dobles',
+            type_Daggers:'Dagas', type_Mace:'Maza', type_Dual_Maces:'Mazas dobles', type_Spear:'Lanza',
+            type_Fists:'Puños', type_Two_Handed_Axe:'Hacha a dos manos', type_Two_Handed_Mace:'Maza a dos manos',
+            type_Bow:'Arco', type_Thrown:'Arrojadizas', type_Scepter:'Cetro', type_Crescent:'Media luna',
+            type_Halos:'Halos', type_Spellbook:'Libro de hechizos', type_Shield:'Escudo',
+            type_Head:'Cabeza', type_Shoulders:'Hombros', type_Chest:'Pecho', type_Back:'Espalda',
+            type_Hands:'Manos', type_Waist:'Cintura', type_Legs:'Piernas', type_Feet:'Pies',
+            type_Trinket:'Abalorio', type_Mount:'Montura', type_Glider:'Planeador',
+            whats_new_button:'Novedades', support_button:'Apoyar',
+            exit_build_view:'❌ Salir de la vista build', build_view_title:'Viendo build: {name}',
+            toast_no_favorites:'No hay favoritos para compartir.', toast_link_copied:'¡Enlace copiado al portapapeles!',
+            toast_cannot_modify_build:'No se pueden modificar favoritos mientras se ve un build compartido.',
+            save_build_button:'＋ Crear desde favoritos', builds_header:'📁 Equipos guardados',
+            toast_build_saved:'¡Build guardado!', toast_build_loaded:'Cargado "{name}"', toast_build_deleted:'Eliminado "{name}"',
+            toast_no_favorites_save:'No hay favoritos para guardar.',
+            build_overwrite_confirm:'Ya existe un build llamado "{name}". ¿Sobrescribir?',
+            build_delete_confirm:'¿Eliminar build "{name}"?', toast_build_no_items:'El build no tiene objetos.',
+            save_build_modal_title:'Guardar favoritos como equipo', build_name_placeholder:'Nombre (máx. 30 caracteres)',
+            save_button:'Guardar', cancel_button:'Cancelar', load_button:'Cargar', location:'Ubicación',
+            class_exclusive:'Clase exclusiva',
+        }
+    };
+
+    let appData = { zones: [] };
+    let appUpdateLog = null;
+    let filterClasses = [], filterTypes = [], filterStats = [], searchQuery = '', filterCategories = [];
+    let showFavoritesOnly = false;
+    let classExclusive = false;
+    let currentLang = localStorage.getItem('farever_lang') || 'en';
+    let favoriteIds = new Set(JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]'));
+    let itemLocationMap = new Map();
+    let sharedBuild = null;
+    const allItemsMap = new Map();
+    const shortIdMap = new Map();
+    const reverseShortIdMap = new Map();
+    const nameShortIdMap = new Map();
+    const reverseNameShortIdMap = new Map();
+
+    const escapeHtml = str => str ? str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;') : '';
+    const toSlug = str => str.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+    const sortByOrder = (arr, order) => [...arr].sort((a,b) => { const ia=order.indexOf(a), ib=order.indexOf(b); if(ia===-1&&ib===-1)return 0; if(ia===-1)return 1; if(ib===-1)return -1; return ia-ib; });
+    const getPrimaryType = item => { if(!Array.isArray(item.types)||item.types.length===0)return ''; const s=sortByOrder(item.types,TYPE_OPTIONS); return s[0]||''; };
+    const getTypeGroupRank = type => { if(WEAPON_TYPES.includes(type))return 0; if(ARMOR_TYPES.includes(type))return 1; if(TRINKET_TYPES.includes(type))return 2; if(MOUNT_GLIDER_TYPES.includes(type))return 3; return 4; };
+    const getTypeSubOrder = type => { if(WEAPON_TYPES.includes(type))return WEAPON_TYPES.indexOf(type); if(ARMOR_TYPES.includes(type))return ARMOR_TYPES.indexOf(type); if(TRINKET_TYPES.includes(type))return 0; if(MOUNT_GLIDER_TYPES.includes(type))return MOUNT_GLIDER_TYPES.indexOf(type); return -1; };
+    const isWeapon = item => item.types.some(t=>WEAPON_TYPES.includes(t));
+    const isTrinket = item => item.types.includes('Trinket');
+    const hasAbilities = item => item.skill1||item.skill2||item.skill3||item.passive;
+    const hasTrinketPassive = item => item.trinketPassive&&(typeof item.trinketPassive==='string'?item.trinketPassive.trim()!=='':item.trinketPassive.en&&item.trinketPassive.en.trim()!=='');
+    const getTypeColorClass = type => type?'type-color-'+toSlug(type):'';
+    const t = (key, fallback) => (translations[currentLang]&&translations[currentLang][key])||fallback||key;
+    function getLocalizedText(value, lang) { if(typeof value==='object'&&value!==null)return value[lang]||value['en']||Object.values(value).find(v=>v)||''; return value||''; }
+    function getItemName(item) { return getLocalizedText(item.name, currentLang); }
+    function getZoneName(zone) { return getLocalizedText(zone.name, currentLang); }
+    function getDungeonName(dungeon) { return getLocalizedText(dungeon.name, currentLang); }
+    function getSkillText(skill) { return getLocalizedText(skill, currentLang); }
+    function getUpdateLogText() { if(typeof appUpdateLog==='object'&&appUpdateLog!==null)return appUpdateLog[currentLang]||appUpdateLog['en']||''; return appUpdateLog||''; }
+
+    function renderUpdateLog(logData) {
+        const btn = document.getElementById('update-log-toggle-btn');
+        if(!btn) return;
+        appUpdateLog = logData||null;
+        if(appUpdateLog&&(typeof appUpdateLog==='string'?appUpdateLog.trim():true)) {
+            btn.style.display='flex'; btn.querySelector('span').textContent=t('whats_new_button');
+            const popover=document.getElementById('update-log-popover');
+            if(popover&&popover.style.display==='block') popover.textContent=getUpdateLogText();
+        } else {
+            btn.style.display='none'; appUpdateLog=null;
+            const popover=document.getElementById('update-log-popover');
+            if(popover) popover.style.display='none';
+        }
+    }
+
+    const itemPassesFilter = item => {
+        if(filterCategories.length>0){
+            const passesWeapons=filterCategories.includes('weapons')&&item.types.some(t=>WEAPON_TYPES.includes(t));
+            const passesArmor=filterCategories.includes('armor')&&item.types.some(t=>ARMOR_TYPES.includes(t)||t==='Trinket');
+            const passesMount=filterCategories.includes('mount')&&item.types.includes('Mount');
+            const passesGlider=filterCategories.includes('glider')&&item.types.includes('Glider');
+            if(!passesWeapons&&!passesArmor&&!passesMount&&!passesGlider)return false;
+        }
+        if(filterClasses.length&&!filterClasses.some(cls=>item.classes.includes(cls)))return false;
+        if(classExclusive&&item.classes.length!==1)return false;
+        if(filterTypes.length&&!filterTypes.some(t=>item.types.includes(t)))return false;
+        if(filterStats.length&&!filterStats.every(s=>item.stats.includes(s)))return false;
+        if(searchQuery&&!getItemName(item).toLowerCase().includes(searchQuery.toLowerCase()))return false;
+        if(showFavoritesOnly&&!favoriteIds.has(item.nameId))return false;
+        return true;
+    };
+
+    const passesNonClassFilters = item => {
+        if(filterCategories.length>0){
+            const passesWeapons=filterCategories.includes('weapons')&&item.types.some(t=>WEAPON_TYPES.includes(t));
+            const passesArmor=filterCategories.includes('armor')&&item.types.some(t=>ARMOR_TYPES.includes(t)||t==='Trinket');
+            const passesMount=filterCategories.includes('mount')&&item.types.includes('Mount');
+            const passesGlider=filterCategories.includes('glider')&&item.types.includes('Glider');
+            if(!passesWeapons&&!passesArmor&&!passesMount&&!passesGlider)return false;
+        }
+        if(filterTypes.length&&!filterTypes.some(t=>item.types.includes(t)))return false;
+        if(filterStats.length&&!filterStats.every(s=>item.stats.includes(s)))return false;
+        if(searchQuery&&!getItemName(item).toLowerCase().includes(searchQuery.toLowerCase()))return false;
+        if(showFavoritesOnly&&!favoriteIds.has(item.nameId))return false;
+        return true;
+    };
+
+    function getStableId(name) { if(typeof name==='object'&&name!==null)return name.en||Object.values(name).find(v=>v)||''; return name||''; }
+
+    function addDefaultsAndIds(serverData) {
+        const zones = serverData.zones.map(zone => {
+            zone.id = zone.id || toSlug(getStableId(zone.name));
+            zone._open = zone._open || false;
+            zone.dungeons = (zone.dungeons||[]).map(dungeon => {
+                dungeon.id = dungeon.id || (zone.id+'_'+toSlug(getStableId(dungeon.name)));
+                dungeon._open = dungeon._open || false;
+                dungeon.loot = (dungeon.loot||[]).map(item => {
+                    const types = Array.isArray(item.types)?[...item.types]:[];
+                    if(types.includes('Cape')){if(!types.includes('Back'))types[types.indexOf('Cape')]='Back';else types.splice(types.indexOf('Cape'),1);}
+                    return {
+                        id: item.id || (dungeon.id+'_'+toSlug(getStableId(item.name))),
+                        name: item.name||'', types:types,
+                        classes: Array.isArray(item.classes)?[...item.classes]:[],
+                        stats: Array.isArray(item.stats)?[...item.stats]:[],
+                        statValues: (item.statValues&&typeof item.statValues==='object')?{...item.statValues}:{},
+                        variants: Array.isArray(item.variants)?item.variants.map(v=>({
+                            rarity:v.rarity||'blue',
+                            damageMin:v.damageMin!==undefined?v.damageMin:(v.damage?parseInt(v.damage.split('-')[0])||0:0),
+                            damageMax:v.damageMax!==undefined?v.damageMax:(v.damage?parseInt(v.damage.split('-')[1])||0:0),
+                            statValues:(v.statValues&&typeof v.statValues==='object')?{...v.statValues}:{}
+                        })):[],
+                        skill1:item.skill1||'', skill2:item.skill2||'', skill3:item.skill3||'',
+                        passive:item.passive||'', trinketPassive:item.trinketPassive||'',
+                        nameId:toSlug(getStableId(item.name)),
+                        rare:item.rare===true, image:item.image||''
+                    };
+                });
+                return dungeon;
+            });
+            return zone;
+        });
+        return { zones };
+    }
+
+    async function fetchData(url) { const resp=await fetch(url,{cache:'no-cache'}); if(!resp.ok)throw new Error('Fetch failed'); return await resp.json(); }
+
+    async function loadData() {
+        let serverData=null, serverVersion='0', updateLog='';
+        try { serverData=await fetchData(DATA_URL); serverVersion=serverData.version||'0'; updateLog=serverData.updateLog||''; } catch(e){}
+        if(!serverData){
+            try { const raw=localStorage.getItem(STORAGE_KEY); if(raw){ const parsed=JSON.parse(raw); serverData={zones:parsed.zones,updateLog:parsed.updateLog||''}; updateLog=serverData.updateLog; } } catch(e){}
+            if(!serverData||!Array.isArray(serverData.zones))return{zones:[],version:'0',updateLog:''};
+            return{zones:serverData.zones,version:'0',updateLog};
+        }
+        return{zones:serverData.zones,version:serverVersion,updateLog};
+    }
+
+    function saveState() {
+        const clean = {
+            zones: appData.zones.map(z=>({
+                id:z.id, name:z.name, _open:z._open,
+                dungeons:z.dungeons.map(d=>({
+                    id:d.id, name:d.name, _open:d._open,
+                    loot:d.loot.map(l=>({
+                        id:l.id, name:l.name, types:[...l.types], classes:[...l.classes],
+                        stats:[...l.stats], statValues:{...l.statValues},
+                        variants:l.variants.map(v=>({rarity:v.rarity,damageMin:v.damageMin,damageMax:v.damageMax,statValues:{...v.statValues}})),
+                        skill1:l.skill1, skill2:l.skill2, skill3:l.skill3,
+                        passive:l.passive, trinketPassive:l.trinketPassive, rare:l.rare===true, image:l.image||''
+                    }))
+                }))
+            }))
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(clean));
+    }
+
+    async function checkForUpdate() {
+        try {
+            const serverData=await fetchData(DATA_URL);
+            const serverVer=serverData.version||'0', serverUpdateLog=serverData.updateLog||'';
+            const localVer=localStorage.getItem(VERSION_KEY)||'0';
+            if(serverVer>localVer&&Array.isArray(serverData.zones)){
+                const newData=addDefaultsAndIds(serverData);
+                const oldZoneMap=new Map(appData.zones.map(z=>[z.id,z._open]));
+                const oldDungeonMap=new Map();
+                appData.zones.forEach(z=>z.dungeons.forEach(d=>oldDungeonMap.set(d.id,d._open)));
+                newData.zones.forEach(zone=>{
+                    if(oldZoneMap.has(zone.id))zone._open=oldZoneMap.get(zone.id);
+                    zone.dungeons.forEach(d=>{if(oldDungeonMap.has(d.id))d._open=oldDungeonMap.get(d.id);});
+                });
+                appData.zones=newData.zones;
+                localStorage.setItem(VERSION_KEY,serverVer);
+                saveState();
+                renderUpdateLog(serverUpdateLog);
+                renderAll();
+                showToast(t('toast_data_updated')+serverVer);
+            }
+        } catch(e){}
+    }
+
+    function renderDungeonName(name) {
+        if(!name)return'';
+        const displayName=getDungeonName({name});
+        let formatted=escapeHtml(displayName);
+        const lvStr=t('lv'), fullStr=t('full_dungeon'), bossStr=t('boss_only');
+        formatted=formatted.replace(new RegExp(lvStr+'(\\d+)','gi'),'<span class="dungeon-lv">'+lvStr+'$1</span>');
+        formatted=formatted.replace(new RegExp(fullStr,'gi'),'<span class="dungeon-tag-full">'+fullStr+'</span>');
+        formatted=formatted.replace(new RegExp(bossStr,'gi'),'<span class="dungeon-tag-boss">'+bossStr+'</span>');
+        return formatted;
+    }
+
+    function buildStatTagsHtml(item, variantIndex=null) {
+        let statValues={};
+        if(item.variants&&item.variants.length>1){
+            const selIdx=variantIndex!==null?variantIndex:(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0);
+            statValues=item.variants[selIdx].statValues;
+        } else if(item.variants&&item.variants.length===1) statValues=item.variants[0].statValues;
+        else statValues=item.statValues||{};
+        const sortedStats=sortByOrder(item.stats,STAT_OPTIONS);
+        return sortedStats.map(s=>{
+            const displayStat=t('stat_'+s.replace(/ /g,'_'),s);
+            const val=statValues[s]?'<span class="stat-value">'+statValues[s]+'</span>':'';
+            return '<span class="tag stat-tag stat-'+toSlug(s)+'">'+escapeHtml(displayStat)+val+'</span>';
+        }).join('');
+    }
+
+    function buildRaritySwitcherHtml(item) {
+        if(!item.variants||item.variants.length<=1)return'';
+        const sortedVariants=[...item.variants].sort((a,b)=>{const order={blue:0,purple:1,legendary:2};return(order[a.rarity]||0)-(order[b.rarity]||0);});
+        const defaultRarity=sortedVariants.find(v=>v.rarity==='blue')||sortedVariants[0];
+        const defaultIndex=sortedVariants.indexOf(defaultRarity);
+        let buttons=sortedVariants.map((v,idx)=>{const label=t(v.rarity);const activeClass=idx===defaultIndex?' active':'';return'<button class="rarity-btn'+activeClass+'" data-rarity="'+v.rarity+'" data-rarity-index="'+idx+'">'+label+'</button>';}).join('');
+        return'<div class="rarity-switcher" aria-label="'+t('rarity_label')+'" data-default-index="'+defaultIndex+'">'+buttons+'</div>';
+    }
+
+    function renderItemRow(item, index) {
+        const primaryType=getPrimaryType(item);
+        const typeColorClass=getTypeColorClass(primaryType);
+        const sortedTypes=sortByOrder(item.types,TYPE_OPTIONS);
+        const sortedClasses=sortByOrder(item.classes,CLASS_OPTIONS);
+        const typeTags=sortedTypes.map(tn=>'<span class="tag type-tag type-'+toSlug(tn)+'">'+escapeHtml(t('type_'+tn.replace(/[ -]/g,'_'),tn))+'</span>').join('');
+        const classTags=sortedClasses.map(cls=>'<span class="tag class-'+cls+'">'+escapeHtml(t(cls))+'</span>').join('');
+        const switcherHtml=buildRaritySwitcherHtml(item);
+        const defaultIndex=item.variants&&item.variants.length>1?(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0):0;
+        const statTagsHtml=buildStatTagsHtml(item,defaultIndex);
+        const imageUrlAttr=item.image?' data-image-url="'+escapeHtml(item.image)+'"':'';
+        let detailHtml='';
+        if((isWeapon(item)||item.types.includes('Shield'))&&hasAbilities(item)){
+            const abils=[];
+            if(getSkillText(item.skill1))abils.push('<div><strong class="'+typeColorClass+'">'+t('skill_final_combo')+'</strong> '+escapeHtml(getSkillText(item.skill1))+'</div>');
+            if(getSkillText(item.skill2))abils.push('<div><strong class="'+typeColorClass+'">'+t('skill1')+'</strong> '+escapeHtml(getSkillText(item.skill2))+'</div>');
+            if(getSkillText(item.skill3))abils.push('<div><strong class="'+typeColorClass+'">'+t('skill2')+'</strong> '+escapeHtml(getSkillText(item.skill3))+'</div>');
+            if(getSkillText(item.passive))abils.push('<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.passive))+'</div>');
+            detailHtml=abils.join('');
+        } else if(isTrinket(item)&&hasTrinketPassive(item)){
+            detailHtml='<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.trinketPassive))+'</div>';
+        } else if(item.types.some(t=>MOUNT_GLIDER_TYPES.includes(t))&&hasTrinketPassive(item)){
+            detailHtml='<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.trinketPassive))+'</div>';
+        }
+        const rowClass=detailHtml?' item-row-has-details':'';
+        const clickHandler=detailHtml?' data-action="toggle-item-detail" data-item-id="'+item.id+'"':'';
+        const favClass=isFavorited(item.nameId)?' favorited':'';
+        const starHtml='<span class="fav-star'+favClass+'" data-item-id="'+item.id+'" data-action="toggle-favorite">★</span>';
+        return '<tr class="item-main-row'+rowClass+'" data-item-id="'+item.id+'"'+clickHandler+'>'+
+            '<td data-label="'+t('item_name')+'"><span class="item-name '+typeColorClass+'"'+imageUrlAttr+'>'+starHtml+escapeHtml(getItemName(item))+(detailHtml?' <span class="detail-indicator">▶</span>':'')+'</span>'+switcherHtml+'</td>'+
+            '<td data-label="'+t('item_type')+'"><div class="tag-container">'+typeTags+'</div></td>'+
+            '<td data-label="'+t('classes')+'"><div class="tag-container">'+classTags+'</div></td>'+
+            '<td data-label="'+t('stats_header')+'"><div class="tag-container stat-tags-container">'+statTagsHtml+'</div></td>'+
+            '</tr>'+
+            (detailHtml?'<tr class="item-detail-row" data-item-detail="'+item.id+'" style="display:none;"><td colspan="4" class="item-detail-cell"><div class="item-detail-content">'+detailHtml+'</div></td></tr>':'');
+    }
+
+    function renderLootTable(lootItems) {
+        if(lootItems.length===0)return'';
+        const rows=lootItems.map(renderItemRow).join('');
+        return'<table class="loot-table"><thead><tr><th scope="col">'+t('item_name')+'</th><th scope="col">'+t('item_type')+'</th><th scope="col">'+t('classes')+'</th><th scope="col">'+t('stats_header')+'</th></tr></thead><tbody>'+rows+'</tbody></table>';
+    }
+
+    function renderDungeons(zone) {
+        const visibleDungeons=zone.dungeons.map(dungeon=>({dungeon,filtered:dungeon.loot.filter(itemPassesFilter)})).filter(({filtered})=>filtered.length>0);
+        if(visibleDungeons.length===0)return'';
+        const dList=visibleDungeons.map(({dungeon,filtered})=>{
+            const sortedLoot=[...filtered].sort((a,b)=>{
+                const rankA=getTypeGroupRank(getPrimaryType(a)),rankB=getTypeGroupRank(getPrimaryType(b));
+                if(rankA!==rankB)return rankA-rankB;
+                const subA=getTypeSubOrder(getPrimaryType(a)),subB=getTypeSubOrder(getPrimaryType(b));
+                if(subA!==subB)return subA-subB;
+                return getItemName(a).localeCompare(getItemName(b));
+            });
+            const openClass=dungeon._open?' open':'';
+            const itemText=filtered.length===1?t('badge_item_singular'):t('badge_item_plural');
+            return'<div class="dungeon-card'+openClass+'" data-dungeon-id="'+dungeon.id+'">'+
+                '<div class="dungeon-header" data-action="toggle-dungeon" data-zone-id="'+zone.id+'" data-dungeon-id="'+dungeon.id+'">'+
+                '<span class="dungeon-chevron">▶</span><span class="dungeon-icon">🏰</span>'+
+                '<div class="dungeon-info"><div class="dungeon-name-display">'+renderDungeonName(dungeon.name)+'</div><span class="badge badge-item">'+filtered.length+' '+itemText+'</span></div>'+
+                '</div><div class="dungeon-body">'+renderLootTable(sortedLoot)+'</div></div>';
+        }).join('');
+        return'<div class="dungeons-list">'+dList+'</div>';
+    }
+
+    function generateShortId(originalId) {
+        let hash=5381;
+        for(let i=0;i<originalId.length;i++){hash=((hash<<5)+hash)+originalId.charCodeAt(i);hash=hash&hash;}
+        return Math.abs(hash).toString(36).padStart(5,'0').slice(0,5);
+    }
+
+    const BASE36_CHARS='0123456789abcdefghijklmnopqrstuvwxyz';
+    function shortIdToNumber(shortId) { let num=0; for(let i=0;i<shortId.length;i++)num=num*36+BASE36_CHARS.indexOf(shortId[i]); return num; }
+    function numberToShortId(num) { let str=''; for(let i=0;i<5;i++){str=BASE36_CHARS[num%36]+str;num=Math.floor(num/36);} return str; }
+    function packShortIds(shortIds, name='') {
+        const bits=[];
+        const count=shortIds.length;
+        for(let i=15;i>=0;i--)bits.push((count>>i)&1);
+        shortIds.forEach(id=>{const num=shortIdToNumber(id);for(let i=25;i>=0;i--)bits.push((num>>i)&1);});
+        const encoder=new TextEncoder();
+        const nameBytes=encoder.encode(name);
+        for(let i=15;i>=0;i--)bits.push((nameBytes.length>>i)&1);
+        nameBytes.forEach(byte=>{for(let i=7;i>=0;i--)bits.push((byte>>i)&1);});
+        const byteArray=[];
+        for(let i=0;i<bits.length;i+=8){
+            let byte=0;
+            for(let j=0;j<8&&(i+j)<bits.length;j++)byte=(byte<<1)|bits[i+j];
+            if(i+8>bits.length)byte<<=(8-(bits.length-i));
+            byteArray.push(byte);
+        }
+        return btoa(String.fromCharCode(...byteArray)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    }
+    function unpackShortIds(packed) {
+        const base64=packed.replace(/-/g,'+').replace(/_/g,'/');
+        const binaryStr=atob(base64);
+        const byteArray=new Uint8Array(binaryStr.length);
+        for(let i=0;i<binaryStr.length;i++)byteArray[i]=binaryStr.charCodeAt(i);
+        const bits=[];
+        byteArray.forEach(byte=>{for(let i=7;i>=0;i--)bits.push((byte>>i)&1);});
+        let pos=0;
+        if(pos+16>bits.length)return{shortIds:[],name:''};
+        let count=0;
+        for(let i=0;i<16;i++)count=(count<<1)|bits[pos++];
+        if(pos+26*count>bits.length)count=Math.floor((bits.length-pos)/26);
+        const shortIds=[];
+        for(let i=0;i<count;i++){let num=0;for(let j=0;j<26;j++)num=(num<<1)|bits[pos++];shortIds.push(numberToShortId(num));}
+        if(pos+16>bits.length)return{shortIds,name:''};
+        let nameLen=0;
+        for(let i=0;i<16;i++)nameLen=(nameLen<<1)|bits[pos++];
+        nameLen=Math.min(nameLen,Math.floor((bits.length-pos)/8));
+        const nameBytes=new Uint8Array(nameLen);
+        for(let i=0;i<nameLen;i++){let byte=0;for(let j=0;j<8;j++)byte=(byte<<1)|bits[pos++];nameBytes[i]=byte;}
+        const name=nameLen>0?new TextDecoder().decode(nameBytes):'';
+        return{shortIds,name};
+    }
+
+    function buildShortIdMaps() {
+        allItemsMap.clear(); shortIdMap.clear(); reverseShortIdMap.clear(); nameShortIdMap.clear(); reverseNameShortIdMap.clear(); itemLocationMap.clear();
+        appData.zones.forEach(z=>{
+            z.dungeons.forEach(d=>{
+                d.loot.forEach(item=>{
+                    allItemsMap.set(item.id,item);
+                    itemLocationMap.set(item.id,{zoneName:z.name,dungeonName:d.name});
+                    if(!shortIdMap.has(item.id)){const short=generateShortId(item.id);shortIdMap.set(item.id,short);reverseShortIdMap.set(short,item.id);}
+                    const canonicalName=item.nameId;
+                    if(!nameShortIdMap.has(canonicalName)){const shortName=generateShortId(canonicalName);nameShortIdMap.set(canonicalName,shortName);reverseNameShortIdMap.set(shortName,canonicalName);}
+                });
+            });
+        });
+    }
+
+    function renderAll() {
+        const container=document.getElementById('zones-container');
+        const scrollContainer=document.querySelector('.main-content');
+        const scrollTop=scrollContainer?scrollContainer.scrollTop:0;
+        buildShortIdMaps();
+        if(sharedBuild||showFavoritesOnly){renderViewerMode();if(scrollContainer)requestAnimationFrame(()=>{scrollContainer.scrollTop=scrollTop;});return;}
+        if(appData.zones.length===0){
+            container.innerHTML='<div style="text-align:center;padding:60px 20px;color:var(--text-dim);"><div style="font-size:3rem;margin-bottom:18px;">🗺️</div><p style="font-size:1.05rem;margin-bottom:10px;font-weight:600;">'+t('empty_no_zones_title')+'</p><p style="font-size:0.82rem;">'+t('empty_no_zones_desc')+'</p></div>';
+            updateFilterBarUI(); updateBuildViewUI(); renderBuildsDropdown();
+            if(scrollContainer)requestAnimationFrame(()=>{scrollContainer.scrollTop=scrollTop;});
+            return;
+        }
+        const visibleZones=appData.zones.map(zone=>{const total=zone.dungeons.reduce((sum,d)=>sum+d.loot.filter(itemPassesFilter).length,0);return{zone,total};}).filter(({total})=>total>0);
+        if(visibleZones.length===0){
+            let emptyDesc=t('empty_no_match_desc');
+            if(showFavoritesOnly&&(filterClasses.length||filterTypes.length||filterStats.length||filterCategories.length||searchQuery))emptyDesc='No favorites match your current filters. Try clearing them.';
+            container.innerHTML='<div style="text-align:center;padding:60px 20px;color:var(--text-dim);"><div style="font-size:3rem;margin-bottom:18px;">🔍</div><p style="font-size:1.05rem;margin-bottom:10px;font-weight:600;">'+t('empty_no_match_title')+'</p><p style="font-size:0.82rem;">'+emptyDesc+'</p></div>';
+            updateFilterBarUI(); updateBuildViewUI(); renderBuildsDropdown();
+            if(scrollContainer)requestAnimationFrame(()=>{scrollContainer.scrollTop=scrollTop;});
+            return;
+        }
+        const zonesHtml=visibleZones.map(({zone,total})=>{
+            const openClass=zone._open?' open':'';
+            const dungeonCount=zone.dungeons.length;
+            const dungText=dungeonCount===1?t('badge_dungeon_singular'):t('badge_dungeon_plural');
+            const itemText=total===1?t('badge_item_singular'):t('badge_item_plural');
+            return'<div class="zone-card'+openClass+'" data-zone-id="'+zone.id+'">'+
+                '<div class="zone-header" data-action="toggle-zone" data-zone-id="'+zone.id+'">'+
+                '<span class="zone-chevron">▶</span><span class="zone-icon">🏞️</span>'+
+                '<div class="zone-info"><div class="zone-name-display">'+escapeHtml(getZoneName(zone))+'</div>'+
+                '<div class="zone-meta"><span class="badge badge-dungeon">'+dungeonCount+' '+dungText+'</span><span class="badge badge-item">'+total+' '+itemText+'</span></div></div></div>'+
+                '<div class="zone-body">'+renderDungeons(zone)+'</div></div>';
+        }).join('');
+        container.innerHTML=zonesHtml;
+        applyTableStripes(); updateFilterBarUI(); updateBuildViewUI(); renderBuildsDropdown();
+        if(scrollContainer)requestAnimationFrame(()=>{scrollContainer.scrollTop=scrollTop;});
+    }
+
+    function renderViewerMode() {
+        const container=document.getElementById('zones-container');
+        const searchLower=searchQuery.toLowerCase();
+        const grouped=new Map();
+
+        // A loadout is item-centric: one item can legitimately drop in several dungeons.
+        allItemsMap.forEach((item,id)=>{
+            if(!favoriteIds.has(item.nameId))return;
+            if(searchQuery&&!getItemName(item).toLowerCase().includes(searchLower))return;
+            const location=itemLocationMap.get(id);
+            if(!location)return;
+            if(!grouped.has(item.nameId))grouped.set(item.nameId,{item,locations:[]});
+            const group=grouped.get(item.nameId);
+            const locationKey=getStableId(location.zoneName)+'|'+getStableId(location.dungeonName);
+            if(!group.locations.some(loc=>loc.key===locationKey))group.locations.push({...location,key:locationKey});
+        });
+        const filteredItems=[...grouped.values()];
+        if(filteredItems.length===0){
+            const emptyMsg=searchQuery?'<p>No items match "'+escapeHtml(searchQuery)+'" in this loadout.</p>':'<p>This loadout contains no items.</p>';
+            container.innerHTML='<div style="text-align:center;padding:60px 20px;color:var(--text-dim);">'+emptyMsg+'</div>';
+            updateFilterBarUI(); updateBuildViewUI(); return;
+        }
+        filteredItems.sort((a,b)=>{
+            const rankA=getTypeGroupRank(getPrimaryType(a.item)),rankB=getTypeGroupRank(getPrimaryType(b.item));
+            if(rankA!==rankB)return rankA-rankB;
+            const subA=getTypeSubOrder(getPrimaryType(a.item)),subB=getTypeSubOrder(getPrimaryType(b.item));
+            if(subA!==subB)return subA-subB;
+            return getItemName(a.item).localeCompare(getItemName(b.item));
+        });
+        const rows=filteredItems.map(({item,locations})=>{
+            const primaryType=getPrimaryType(item), typeColorClass=getTypeColorClass(primaryType);
+            const sortedTypes=sortByOrder(item.types,TYPE_OPTIONS), sortedClasses=sortByOrder(item.classes,CLASS_OPTIONS);
+            const typeTags=sortedTypes.map(tn=>'<span class="tag type-tag type-'+toSlug(tn)+'">'+escapeHtml(t('type_'+tn.replace(/[ -]/g,'_'),tn))+'</span>').join('');
+            const classTags=sortedClasses.map(cls=>'<span class="tag class-'+cls+'">'+escapeHtml(t(cls))+'</span>').join('');
+            const switcherHtml=buildRaritySwitcherHtml(item);
+            const defaultIndex=item.variants&&item.variants.length>1?(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0):0;
+            const statTagsHtml=buildStatTagsHtml(item,defaultIndex), imageUrlAttr=item.image?' data-image-url="'+escapeHtml(item.image)+'"':'';
+            const abils=[];
+            if((isWeapon(item)||item.types.includes('Shield'))&&hasAbilities(item)){
+                if(getSkillText(item.skill1))abils.push('<div><strong class="'+typeColorClass+'">'+t('skill_final_combo')+'</strong> '+escapeHtml(getSkillText(item.skill1))+'</div>');
+                if(getSkillText(item.skill2))abils.push('<div><strong class="'+typeColorClass+'">'+t('skill1')+'</strong> '+escapeHtml(getSkillText(item.skill2))+'</div>');
+                if(getSkillText(item.skill3))abils.push('<div><strong class="'+typeColorClass+'">'+t('skill2')+'</strong> '+escapeHtml(getSkillText(item.skill3))+'</div>');
+                if(getSkillText(item.passive))abils.push('<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.passive))+'</div>');
+            } else if((isTrinket(item)||item.types.some(t=>MOUNT_GLIDER_TYPES.includes(t)))&&hasTrinketPassive(item)){
+                abils.push('<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.trinketPassive))+'</div>');
+            }
+            const detailHtml=abils.join(''), detailId='viewer-'+item.nameId;
+            const starHtml='<span class="fav-star favorited" data-item-id="'+item.id+'" data-action="toggle-favorite">★</span>';
+            const locationHtml='<div class="source-list">'+locations.map(loc=>'<div class="source-entry"><span class="source-bullet">◆</span><span><span class="location-zone">'+escapeHtml(getZoneName({name:loc.zoneName}))+'</span> › <span class="location-dungeon">'+renderDungeonName(loc.dungeonName)+'</span></span></div>').join('')+'</div>';
+            return'<tr class="item-main-row'+(detailHtml?' item-row-has-details':'')+'" data-item-id="'+detailId+'"'+(detailHtml?' data-action="toggle-item-detail"':'')+'>'+
+                '<td data-label="'+t('item_name')+'"><span class="item-name '+typeColorClass+'"'+imageUrlAttr+'>'+starHtml+escapeHtml(getItemName(item))+(detailHtml?' <span class="detail-indicator">▶</span>':'')+'</span>'+switcherHtml+'</td>'+
+                '<td data-label="'+t('item_type')+'"><div class="tag-container">'+typeTags+'</div></td><td data-label="'+t('classes')+'"><div class="tag-container">'+classTags+'</div></td>'+
+                '<td data-label="'+t('stats_header')+'"><div class="tag-container stat-tags-container">'+statTagsHtml+'</div></td><td data-label="'+t('location')+'" class="location-cell">'+locationHtml+'</td></tr>'+
+                (detailHtml?'<tr class="item-detail-row" data-item-detail="'+detailId+'" style="display:none;"><td colspan="5" class="item-detail-cell"><div class="item-detail-content">'+detailHtml+'</div></td></tr>':'');
+        }).join('');
+        const table='<div class="viewer-table-shell"><table class="loot-table"><thead><tr><th>'+t('item_name')+'</th><th>'+t('item_type')+'</th><th>'+t('classes')+'</th><th>'+t('stats_header')+'</th><th>'+t('location')+'</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+        container.innerHTML=table;
+        applyTableStripes(); updateFilterBarUI(); updateBuildViewUI();
+    }
+
+    function updateAllFilterCounts() {
+        const allItems=appData.zones.flatMap(z=>z.dungeons.flatMap(d=>d.loot));
+        const counts={class:{},stat:{},category:{},type:{}};
+        CLASS_OPTIONS.forEach(c=>counts.class[c]=0);
+        STAT_OPTIONS.forEach(s=>counts.stat[s]=0);
+        ['weapons','armor','mount','glider'].forEach(cat=>counts.category[cat]=0);
+        TYPE_OPTIONS.forEach(t=>counts.type[t]=0);
+        allItems.forEach(item=>{
+            if(!itemPassesFilter(item))return;
+            item.stats.forEach(stat=>{if(counts.stat[stat]!==undefined)counts.stat[stat]++;});
+            if(item.types.some(t=>WEAPON_TYPES.includes(t)))counts.category.weapons++;
+            if(item.types.some(t=>ARMOR_TYPES.includes(t)||t==='Trinket'))counts.category.armor++;
+            if(item.types.includes('Mount'))counts.category.mount++;
+            if(item.types.includes('Glider'))counts.category.glider++;
+            item.types.forEach(t=>{if(counts.type[t]!==undefined)counts.type[t]++;});
+        });
+        CLASS_OPTIONS.forEach(cls=>counts.class[cls]=0);
+        allItems.forEach(item=>{
+            if(!passesNonClassFilters(item))return;
+            if(classExclusive&&item.classes.length!==1)return;
+            item.classes.forEach(cls=>{if(counts.class[cls]!==undefined)counts.class[cls]++;});
+        });
+        document.querySelectorAll('#class-dropdown .class-btn').forEach(btn=>{const cls=btn.dataset.class;const span=btn.querySelector('.item-count');if(span)span.textContent='('+(counts.class[cls]||0)+')';});
+        document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn=>{const stat=btn.dataset.stat;const span=btn.querySelector('.item-count');if(span)span.textContent='('+(counts.stat[stat]||0)+')';});
+        document.querySelectorAll('#category-dropdown .category-btn').forEach(btn=>{const cat=btn.dataset.category;const span=btn.querySelector('.item-count');if(span)span.textContent='('+(counts.category[cat]||0)+')';});
+        document.querySelectorAll('#type-dropdown .type-btn').forEach(btn=>{const type=btn.dataset.type;const span=btn.querySelector('.item-count');if(span)span.textContent='('+(counts.type[type]||0)+')';});
+    }
+
+    function renderActiveFilterChips() {
+        const row=document.getElementById('active-filters-row');
+        const chips=[];
+        const add=(kind,value,label)=>{
+            const colorClass=(kind==='stat'?' stat-'+toSlug(value):kind==='class'?' class-'+toSlug(value):kind==='type'?' type-'+toSlug(value):kind==='category'?' category-'+toSlug(value):' chip-'+kind);
+            chips.push('<button class="active-filter-chip'+colorClass+'" data-filter-kind="'+kind+'" data-filter-value="'+escapeHtml(value)+'" title="Remove '+escapeHtml(label)+'">'+escapeHtml(label)+' <span aria-hidden="true">×</span></button>');
+        };
+        filterClasses.forEach(value=>add('class',value,t(value,value)));
+        filterStats.forEach(value=>add('stat',value,t('stat_'+value.replace(/ /g,'_'),value)));
+        filterTypes.forEach(value=>add('type',value,t('type_'+value.replace(/[ -]/g,'_'),value)));
+        filterCategories.forEach(value=>add('category',value,t(value,value)));
+        if(classExclusive)add('exclusive','true',t('class_exclusive'));
+        if(searchQuery)add('search',searchQuery,'Search: '+searchQuery);
+        const hasFilters=chips.length>0;
+        row.style.display=hasFilters?'flex':'none';
+        row.innerHTML=hasFilters?'<span class="active-filters-label">Active</span>'+chips.join('')+'<button class="active-filters-clear" data-action="clear-active-filters">Clear all</button>':'';
+    }
+
+    function updateFilterBarUI() {
+        document.querySelectorAll('.category-btn').forEach(b=>{b.classList.toggle('active',filterCategories.includes(b.dataset.category));const label=t(b.dataset.category);const ftn=b.childNodes[0];if(ftn&&ftn.nodeType===Node.TEXT_NODE)ftn.textContent=label;});
+        const favBtn=document.getElementById('favorites-toggle-btn');
+        favBtn.classList.toggle('active',showFavoritesOnly&&!sharedBuild);
+        favBtn.textContent=t('favorites_button')+' ('+favoriteIds.size+')';
+        favBtn.style.display=sharedBuild?'none':'';
+        document.getElementById('favorites-control').style.display=sharedBuild?'none':'flex';
+        const saveBuildBtn=document.getElementById('save-build-btn');
+        saveBuildBtn.style.display=sharedBuild?'none':'inline-flex';
+        saveBuildBtn.disabled=favoriteIds.size===0;
+        saveBuildBtn.title=favoriteIds.size===0?'Favorite items first, then save them as a loadout.':'Save your '+favoriteIds.size+' favorites as a named loadout.';
+        const clearFavBtn=document.getElementById('clear-fav-btn');
+        const favoritesMoreBtn=document.getElementById('favorites-more-btn');
+        const hasFavoriteOptions=!sharedBuild&&favoriteIds.size>0;
+        document.getElementById('favorites-control').classList.toggle('has-options',hasFavoriteOptions);
+        favoritesMoreBtn.style.visibility=hasFavoriteOptions?'visible':'hidden';
+        favoritesMoreBtn.disabled=!hasFavoriteOptions;
+        clearFavBtn.style.display='flex';
+        const categoryCount=document.getElementById('category-count');categoryCount.textContent=filterCategories.length;categoryCount.style.display=filterCategories.length?'inline':'none';
+        updateAllFilterCounts();
+        document.querySelectorAll('#type-dropdown .type-btn').forEach(b=>b.classList.toggle('active',filterTypes.includes(b.dataset.type)));
+        document.querySelectorAll('#class-dropdown .class-btn').forEach(b=>b.classList.toggle('active',filterClasses.includes(b.dataset.class)));
+        document.querySelectorAll('#stat-dropdown .stat-btn').forEach(b=>b.classList.toggle('active',filterStats.includes(b.dataset.stat)));
+        const classCount=document.getElementById('class-count');classCount.textContent=filterClasses.length;classCount.style.display=filterClasses.length?'inline':'none';
+        const typeCount=document.getElementById('type-count');typeCount.textContent=filterTypes.length;typeCount.style.display=filterTypes.length?'inline':'none';
+        const statCount=document.getElementById('stat-count');statCount.textContent=filterStats.length;statCount.style.display=filterStats.length?'inline':'none';
+        const clearBtn=document.getElementById('clear-all-btn');
+        clearBtn.style.display='none';
+        clearBtn.textContent=t('clear_filters');
+        const exclToggle=document.getElementById('class-exclusive-btn');
+        if(exclToggle)exclToggle.classList.toggle('active',classExclusive);
+        renderActiveFilterChips();
+    }
+
+    function updateStaticUITexts() {
+        document.getElementById('filter-label').textContent=t('filter_label');
+        document.getElementById('class-label').textContent=t('class_label');
+        document.getElementById('stats-label').textContent=t('stats_label');
+        document.getElementById('category-label').textContent=t('category_label');
+        document.getElementById('type-label').textContent=t('type_label');
+        document.getElementById('search-input').placeholder=t('search_placeholder');
+        document.getElementById('open-suggestion-btn').innerHTML=t('suggest_button');
+        document.getElementById('modal-title').textContent=t('modal_title');
+        document.getElementById('suggestion-textarea').placeholder=t('modal_placeholder');
+        document.getElementById('modal-submit-btn').textContent=t('modal_submit');
+        document.getElementById('modal-cancel-btn').textContent=t('modal_cancel');
+        document.getElementById('modal-footer-text').textContent=t('modal_footer');
+        document.getElementById('scroll-to-top-btn').title=t('scroll_top_title');
+        document.getElementById('favorites-toggle-btn').textContent=t('favorites_button');
+        document.getElementById('clear-fav-btn').textContent=t('clear_favorites');
+        document.getElementById('header-subtitle').innerHTML=t('header_subtitle')+' <span class="cap-badge">'+t('cap_badge_text')+'</span>';
+        document.getElementById('save-build-text').textContent=t('save_build_button');
+        document.getElementById('exit-build-btn').textContent=t('exit_build_view');
+        document.querySelector('#builds-header .label').textContent=t('builds_header');
+        const footerText=t('footer_text');
+        const creatorName='<span class="creator-name">Iielyn</span>';
+        const wikiLink='<a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>';
+        const licenseLink='<a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>';
+        const footerHtml=footerText.replace('{creator}',creatorName).replace('{wiki_link}',wikiLink).replace('{license_link}',licenseLink);
+        document.getElementById('support-link-text').textContent=t('support_button');
+        document.getElementById('site-footer').innerHTML=footerHtml;
+        document.getElementById('build-name-modal-title').textContent=t('save_build_modal_title');
+        document.getElementById('build-name-input').placeholder=t('build_name_placeholder');
+        document.getElementById('confirm-build-name-btn').textContent=t('save_button');
+        document.getElementById('cancel-build-name-btn').textContent=t('cancel_button');
+        const exclLabel=document.getElementById('class-exclusive-label');
+        if(exclLabel)exclLabel.textContent=t('class_exclusive');
+    }
+
+    function updateBuildViewUI() {
+        const center=document.getElementById('header-center');
+        const buildNameEl=document.getElementById('build-name-display');
+        if(sharedBuild&&sharedBuild.name){center.classList.add('active');buildNameEl.textContent=t('build_view_title').replace('{name}',sharedBuild.name);}
+        else center.classList.remove('active');
+        updateFilterGroupVisibility();
+    }
+
+    function updateFilterGroupVisibility() {
+        const hide=showFavoritesOnly||sharedBuild;
+        ['class-wrapper','stat-wrapper','type-wrapper','category-wrapper'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display=hide?'none':'';});
+        const exclBtn=document.getElementById('class-exclusive-btn');
+        if(exclBtn)exclBtn.style.display=hide?'none':'inline-flex';
+    }
+
+    function updateAllFilterButtonLabels() {
+        document.querySelectorAll('#class-dropdown .class-btn').forEach(btn=>{const cls=btn.dataset.class;const label=t(cls);const ftn=btn.childNodes[0];if(ftn&&ftn.nodeType===Node.TEXT_NODE)ftn.textContent=label;});
+        document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn=>{const stat=btn.dataset.stat;const label=t('stat_'+stat.replace(/ /g,'_'),stat);const ftn=btn.childNodes[0];if(ftn&&ftn.nodeType===Node.TEXT_NODE)ftn.textContent=label;});
+        document.querySelectorAll('#type-dropdown .type-btn').forEach(btn=>{const type=btn.dataset.type;const displayType=t('type_'+type.replace(/[ -]/g,'_'),type);const countSpan=btn.querySelector('.item-count');if(countSpan)btn.innerHTML=displayType+' <span class="item-count">'+countSpan.textContent+'</span>';else btn.textContent=displayType;});
+    }
+
+    const BUILDS_STORAGE_KEY='farever_builds_v1';
+    function loadBuilds() { const raw=localStorage.getItem(BUILDS_STORAGE_KEY); return raw?JSON.parse(raw):{}; }
+    function saveBuilds(builds) { localStorage.setItem(BUILDS_STORAGE_KEY,JSON.stringify(builds)); }
+
+    function renderBuildsDropdown() {
+        const builds=loadBuilds();
+        const dropdown=document.getElementById('builds-dropdown');
+        const header=document.getElementById('builds-header');
+        const countEl=document.getElementById('builds-count');
+        const buildNames=Object.keys(builds);
+        if(buildNames.length===0){header.style.display='none';dropdown.innerHTML='';return;}
+        header.style.display='flex';countEl.textContent=buildNames.length;countEl.style.display='inline';
+        dropdown.innerHTML=buildNames.map(name=>{
+            const itemCount=builds[name].length;
+            return'<div class="build-item"><span title="'+escapeHtml(name)+'">'+escapeHtml(name)+' ('+itemCount+')</span>'+
+                '<button class="load-build-btn" title="Open loadout" data-build-name="'+escapeHtml(name)+'">'+t('load_button')+'</button>'+
+                '<button class="share-build-btn" title="Copy share link" aria-label="Copy share link for '+escapeHtml(name)+'" data-build-name="'+escapeHtml(name)+'">Share</button>'+
+                '<button class="delete-build-btn" title="Delete loadout" aria-label="Delete '+escapeHtml(name)+'" data-build-name="'+escapeHtml(name)+'">Delete</button></div>';
+        }).join('');
+    }
+
+    function saveCurrentBuild() {
+        if(favoriteIds.size===0){showToast(t('toast_no_favorites_save'),'red');return;}
+        const input=document.getElementById('build-name-input');
+        input.value=(sharedBuild&&sharedBuild.name)?sharedBuild.name:'';
+        document.getElementById('build-name-modal').classList.add('active');
+        input.focus();input.select();
+    }
+
+    function confirmSaveBuildName() {
+        const input=document.getElementById('build-name-input');
+        const name=input.value.trim();
+        if(!name)return;
+        const builds=loadBuilds();
+        if(builds[name]){if(!confirm(t('build_overwrite_confirm').replace('{name}',name)))return;}
+        builds[name]=[...favoriteIds];
+        saveBuilds(builds); renderBuildsDropdown();
+        showToast(t('toast_build_saved')); closeBuildNameModal();
+    }
+
+    function closeBuildNameModal() { document.getElementById('build-name-modal').classList.remove('active'); }
+
+    function loadBuild(name) {
+        const builds=loadBuilds();
+        if(!builds[name])return;
+        favoriteIds=new Set(builds[name]);
+        sharedBuild={ids:builds[name],name};
+        showFavoritesOnly=true; filterClasses=[]; filterTypes=[]; filterStats=[]; filterCategories=[]; searchQuery=''; classExclusive=false;
+        document.getElementById('search-input').value='';
+        updateFilterGroupVisibility();
+        renderAll();
+        showToast(t('toast_build_loaded').replace('{name}',name));
+    }
+
+    function deleteBuild(name) {
+        if(!confirm(t('build_delete_confirm').replace('{name}',name)))return;
+        const builds=loadBuilds(); delete builds[name]; saveBuilds(builds);
+        renderBuildsDropdown();
+        showToast(t('toast_build_deleted').replace('{name}',name));
+        document.getElementById('builds-wrapper').classList.remove('open');
+    }
+
+    function buildShareUrl(idsSet, buildName) {
+        const shortIds=[...idsSet].map(id=>nameShortIdMap.get(id)||id).filter(Boolean);
+        const packed=packShortIds(shortIds,buildName||'');
+        const url=new URL(window.location.href);
+        url.searchParams.set('p',packed);
+        return url.toString();
+    }
+
+    function shareBuild(name) {
+        const builds=loadBuilds();
+        const ids=builds[name];
+        if(!ids||ids.length===0){showToast(t('toast_build_no_items'),'red');return;}
+        const url=buildShareUrl(new Set(ids),name);
+        navigator.clipboard.writeText(url).then(()=>{showToast(t('toast_link_copied'));}).catch(()=>{prompt('Copy this link to share your build:',url);});
+    }
+
+    function toggleFilter(type, value) {
+        if(type==='class'){const idx=filterClasses.indexOf(value);idx===-1?filterClasses.push(value):filterClasses.splice(idx,1);}
+        else if(type==='type'){const idx=filterTypes.indexOf(value);idx===-1?filterTypes.push(value):filterTypes.splice(idx,1);}
+        else if(type==='stat'){const idx=filterStats.indexOf(value);idx===-1?filterStats.push(value):filterStats.splice(idx,1);}
+        renderAll();
+    }
+
+    function toggleCategory(category) { const idx=filterCategories.indexOf(category); idx===-1?filterCategories.push(category):filterCategories.splice(idx,1); renderAll(); }
+
+    window.clearAllFilters = function() {
+        filterClasses=[]; filterTypes=[]; filterStats=[]; searchQuery=''; filterCategories=[]; showFavoritesOnly=false; classExclusive=false;
+        document.getElementById('favorites-toggle-btn').classList.remove('active');
+        document.getElementById('search-input').value='';
+        const exclToggle=document.getElementById('class-exclusive-btn');
+        if(exclToggle)exclToggle.classList.remove('active');
+        renderAll();
+        showToast(t('toast_filters_cleared'),'red');
+    };
+
+    window.toggleZone = function(zoneId) {
+        const zone=appData.zones.find(z=>z.id===zoneId);
+        if(zone){zone._open=!zone._open;saveState();renderAll();}
+    };
+
+    window.toggleDungeon = function(zoneId, dungeonId) {
+        const zone=appData.zones.find(z=>z.id===zoneId);
+        if(!zone)return;
+        const dungeon=zone.dungeons.find(d=>d.id===dungeonId);
+        if(dungeon){dungeon._open=!dungeon._open;saveState();renderAll();}
+    };
+
+    function setupItemDetailToggle() {
+        const container=document.getElementById('zones-container');
+        container.addEventListener('click',(e)=>{
+            if(e.target.closest('.rarity-btn')||e.target.closest('[data-image-url]'))return;
+            const mainRow=e.target.closest('[data-action="toggle-item-detail"]');
+            if(!mainRow)return;
+            const itemId=mainRow.dataset.itemId;
+            const detailRow=container.querySelector('.item-detail-row[data-item-detail="'+itemId+'"]');
+            if(!detailRow)return;
+            const isOpen=detailRow.style.display!=='none';
+            if(isOpen){detailRow.style.display='none';mainRow.classList.remove('expanded');}
+            else {
+                container.querySelectorAll('.item-detail-row').forEach(r=>{
+                    if(r.style.display!=='none'){r.style.display='none';const id=r.dataset.itemDetail;if(id){const main=container.querySelector('.item-main-row[data-item-id="'+id+'"]');if(main)main.classList.remove('expanded');}}
+                });
+                const isMobile=window.matchMedia('(max-width:800px)').matches;
+                detailRow.style.display=isMobile?'block':'table-row';
+                mainRow.classList.add('expanded');
+            }
+        });
+    }
+
+    function setupRaritySwitcher() {
+        const container=document.getElementById('zones-container');
+        container.addEventListener('click',(e)=>{
+            const btn=e.target.closest('.rarity-btn');
+            if(!btn)return;
+            e.stopPropagation();
+            const switcher=btn.closest('.rarity-switcher');
+            const row=switcher.closest('tr.item-main-row');
+            const itemId=row.dataset.itemId;
+            let item=allItemsMap.get(itemId);
+            if(!item&&itemId&&itemId.startsWith('viewer-'))item=[...allItemsMap.values()].find(candidate=>candidate.nameId===itemId.slice(7));
+            if(!item||!item.variants)return;
+            const rarity=btn.dataset.rarity;
+            const variantIndex=item.variants.findIndex(v=>v.rarity===rarity);
+            if(variantIndex===-1)return;
+            switcher.querySelectorAll('.rarity-btn').forEach(b=>b.classList.remove('active'));
+            btn.classList.add('active');
+            const statContainer=row.querySelector('.stat-tags-container');
+            if(statContainer)statContainer.innerHTML=buildStatTagsHtml(item,variantIndex);
+        });
+    }
+
+    function applyTableStripes() { document.querySelectorAll('.loot-table tbody').forEach(tbody=>{const rows=tbody.querySelectorAll('tr.item-main-row');rows.forEach((row,i)=>row.classList.toggle('striped',i%2===1));}); }
+
+    const scrollBtn=document.getElementById('scroll-to-top-btn');
+    const mainContent=document.querySelector('.main-content');
+    mainContent.addEventListener('scroll',()=>{scrollBtn.style.display=mainContent.scrollTop>450?'flex':'none';});
+    scrollBtn.addEventListener('click',()=>{mainContent.scrollTo({top:0,behavior:'smooth'});});
+
+    function showToast(msg, className='') {
+        const container=document.getElementById('toast-container');
+        const el=document.createElement('div');
+        el.className='toast'+(className?' '+className:'');
+        el.textContent=msg;
+        container.appendChild(el);
+        setTimeout(()=>el.remove(),2400);
+    }
+
+    function isFavorited(nameId) { return favoriteIds.has(nameId); }
+
+    function toggleFavorite(itemId) {
+        if(sharedBuild){showToast(t('toast_cannot_modify_build'),'red');return;}
+        const item=allItemsMap.get(itemId);
+        if(!item)return;
+        const nameId=item.nameId;
+        if(favoriteIds.has(nameId))favoriteIds.delete(nameId);
+        else favoriteIds.add(nameId);
+        localStorage.setItem('farever_favorites_v1',JSON.stringify([...favoriteIds]));
+        renderAll();
+    }
+
+    function clearAllFavorites() {
+        if(sharedBuild){showToast(t('toast_cannot_modify_build'),'red');return;}
+        favoriteIds.clear();
+        localStorage.removeItem('farever_favorites_v1');
+        if(showFavoritesOnly){showFavoritesOnly=false;document.getElementById('favorites-toggle-btn').classList.remove('active');}
+        showToast(t('toast_favorites_cleared'),'red');
+        renderAll();
+    }
+
+    function getBuildFromUrl() {
+        const params=new URLSearchParams(window.location.search);
+        const packed=params.get('p');
+        if(packed){try{const {shortIds,name}=unpackShortIds(packed);const ids=shortIds.map(s=>reverseNameShortIdMap.get(s)||s);return{ids,name};}catch(e){}}
+        const favParam=params.get('fav');
+        if(favParam){const pieces=favParam.split(',').map(s=>s.trim()).filter(Boolean);const ids=pieces.map(p=>reverseNameShortIdMap.get(p)||p);return{ids,name:params.get('build')||''};}
+        return null;
+    }
+
+    function setupSuggestionModal() {
+        const modal=document.getElementById('suggestion-modal');
+        const openBtn=document.getElementById('open-suggestion-btn');
+        const closeBtn=document.getElementById('close-suggestion-modal');
+        const cancelBtn=document.getElementById('modal-cancel-btn');
+        const form=document.getElementById('suggestion-form');
+        function openModal(){modal.classList.add('active');}
+        function closeModal(){modal.classList.remove('active');form.reset();}
+        openBtn.addEventListener('click',openModal);
+        closeBtn.addEventListener('click',closeModal);
+        cancelBtn.addEventListener('click',closeModal);
+        modal.addEventListener('click',(e)=>{if(e.target===modal)closeModal();});
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            const message=form.querySelector('textarea[name="message"]').value.trim();
+            if(!message)return;
+            const iframe=document.createElement('iframe');iframe.name='hidden-suggestion-iframe';iframe.style.display='none';document.body.appendChild(iframe);
+            const formEl=document.createElement('form');formEl.method='POST';formEl.action=FORM_URL;formEl.target='hidden-suggestion-iframe';formEl.style.display='none';
+            formEl.innerHTML='<input type="text" name="'+ENTRY_ID+'" value="'+escapeHtml(message)+'">';
+            document.body.appendChild(formEl);formEl.submit();
+            setTimeout(()=>{document.body.removeChild(formEl);document.body.removeChild(iframe);},1000);
+            showToast(t('toast_suggestion_sent'));closeModal();
+        });
+    }
+
+    function buildFilterButtons() {
+        const classContainer=document.getElementById('class-dropdown');
+        CLASS_OPTIONS.forEach(cls=>{
+            const btn=document.createElement('button');btn.className='filter-btn class-btn';btn.dataset.class=cls;btn.textContent=t(cls);
+            const countSpan=document.createElement('span');countSpan.className='item-count';countSpan.textContent='(0)';
+            btn.appendChild(document.createTextNode(' '));btn.appendChild(countSpan);
+            btn.addEventListener('click',()=>toggleFilter('class',cls));
+            classContainer.appendChild(btn);
+        });
+        const typeContainer=document.getElementById('type-dropdown');
+        TYPE_OPTIONS.filter(t=>t!=='Mount'&&t!=='Glider').forEach(typeName=>{
+            const btn=document.createElement('button');btn.className='filter-btn type-btn';btn.dataset.type=typeName;
+            const displayType=t('type_'+typeName.replace(/[ -]/g,'_'),typeName);
+            btn.innerHTML=displayType+' <span class="item-count">(0)</span>';
+            btn.addEventListener('click',()=>toggleFilter('type',typeName));
+            typeContainer.appendChild(btn);
+        });
+        const statContainer=document.getElementById('stat-dropdown');
+        STAT_OPTIONS.forEach(stat=>{
+            const btn=document.createElement('button');btn.className='filter-btn stat-btn';btn.dataset.stat=stat;btn.textContent=t('stat_'+stat.replace(/ /g,'_'),stat);
+            const countSpan=document.createElement('span');countSpan.className='item-count';countSpan.textContent='(0)';
+            btn.appendChild(document.createTextNode(' '));btn.appendChild(countSpan);
+            btn.addEventListener('click',()=>toggleFilter('stat',stat));
+            statContainer.appendChild(btn);
+        });
+        document.querySelectorAll('.category-btn').forEach(btn=>{btn.addEventListener('click',()=>toggleCategory(btn.dataset.category));});
+    }
+
+    function setupFilterDropdowns() {
+        document.querySelectorAll('.filter-group-header').forEach(header=>{
+            header.addEventListener('click',(e)=>{
+                const wrapper=header.closest('.filter-group-wrapper');
+                const isOpen=wrapper.classList.contains('open');
+                document.querySelectorAll('.filter-group-wrapper').forEach(w=>w.classList.remove('open'));
+                if(!isOpen)wrapper.classList.add('open');
+            });
+        });
+        document.addEventListener('click',(e)=>{if(!e.target.closest('.filter-group-wrapper'))document.querySelectorAll('.filter-group-wrapper').forEach(w=>w.classList.remove('open'));});
+    }
+
+    function setupGlobalListeners() {
+        const favoritesMoreBtn=document.getElementById('favorites-more-btn');
+        const favoritesOptionsMenu=document.getElementById('favorites-options-menu');
+        favoritesMoreBtn.addEventListener('click',(e)=>{
+            e.stopPropagation();
+            const isOpen=favoritesOptionsMenu.classList.toggle('open');
+            favoritesMoreBtn.setAttribute('aria-expanded',String(isOpen));
+        });
+        document.addEventListener('click',(e)=>{
+            if(!e.target.closest('#favorites-control')){
+                favoritesOptionsMenu.classList.remove('open');
+                favoritesMoreBtn.setAttribute('aria-expanded','false');
+            }
+        });
+        const searchInput=document.getElementById('search-input');
+        let debounceTimer;
+        searchInput.addEventListener('input',()=>{clearTimeout(debounceTimer);debounceTimer=setTimeout(()=>{searchQuery=searchInput.value.trim();renderAll();},250);});
+        document.getElementById('clear-all-btn').addEventListener('click',window.clearAllFilters);
+        document.getElementById('active-filters-row').addEventListener('click',(e)=>{
+            if(e.target.closest('[data-action="clear-active-filters"]')){window.clearAllFilters();return;}
+            const chip=e.target.closest('.active-filter-chip');
+            if(!chip)return;
+            const kind=chip.dataset.filterKind,value=chip.dataset.filterValue;
+            if(kind==='class')filterClasses=filterClasses.filter(v=>v!==value);
+            else if(kind==='stat')filterStats=filterStats.filter(v=>v!==value);
+            else if(kind==='type')filterTypes=filterTypes.filter(v=>v!==value);
+            else if(kind==='category')filterCategories=filterCategories.filter(v=>v!==value);
+            else if(kind==='exclusive')classExclusive=false;
+            else if(kind==='search'){searchQuery='';document.getElementById('search-input').value='';}
+            renderAll();
+        });
+        document.getElementById('zones-container').addEventListener('click',(e)=>{
+            const zoneHeader=e.target.closest('[data-action="toggle-zone"]');
+            if(zoneHeader){toggleZone(zoneHeader.dataset.zoneId);return;}
+            const dungeonHeader=e.target.closest('[data-action="toggle-dungeon"]');
+            if(dungeonHeader){toggleDungeon(dungeonHeader.dataset.zoneId,dungeonHeader.dataset.dungeonId);return;}
+            const starBtn=e.target.closest('[data-action="toggle-favorite"]');
+            if(starBtn){toggleFavorite(starBtn.dataset.itemId);return;}
+        });
+        const favToggleBtn=document.getElementById('favorites-toggle-btn');
+        favToggleBtn.addEventListener('click',()=>{
+            if(showFavoritesOnly){showFavoritesOnly=false;favToggleBtn.classList.remove('active');updateFilterGroupVisibility();renderAll();return;}
+            showFavoritesOnly=true;favToggleBtn.classList.add('active');
+            filterClasses=[];filterTypes=[];filterStats=[];filterCategories=[];searchQuery='';classExclusive=false;
+            document.getElementById('search-input').value='';
+            const exclToggle=document.getElementById('class-exclusive-btn');
+            if(exclToggle)exclToggle.classList.remove('active');
+            updateFilterGroupVisibility();renderAll();
+        });
+        document.getElementById('clear-fav-btn').addEventListener('click',()=>{
+            favoritesOptionsMenu.classList.remove('open');
+            favoritesMoreBtn.setAttribute('aria-expanded','false');
+            clearAllFavorites();
+        });
+        document.getElementById('class-exclusive-btn').addEventListener('click',()=>{classExclusive=!classExclusive;renderAll();});
+        document.getElementById('save-build-btn').addEventListener('click',saveCurrentBuild);
+        document.getElementById('confirm-build-name-btn').addEventListener('click',confirmSaveBuildName);
+        document.getElementById('cancel-build-name-btn').addEventListener('click',closeBuildNameModal);
+        document.getElementById('close-build-name-modal').addEventListener('click',closeBuildNameModal);
+        document.getElementById('build-name-modal').addEventListener('click',(e)=>{if(e.target===document.getElementById('build-name-modal'))closeBuildNameModal();});
+        document.getElementById('build-name-input').addEventListener('keydown',(e)=>{if(e.key==='Enter')confirmSaveBuildName();else if(e.key==='Escape')closeBuildNameModal();});
+        document.getElementById('builds-dropdown').addEventListener('click',(e)=>{
+            const btn=e.target.closest('button');
+            if(!btn)return;
+            const name=btn.dataset.buildName;
+            if(btn.classList.contains('load-build-btn'))loadBuild(name);
+            else if(btn.classList.contains('share-build-btn'))shareBuild(name);
+            else if(btn.classList.contains('delete-build-btn'))deleteBuild(name);
+            document.getElementById('builds-wrapper').classList.remove('open');
+        });
+        document.getElementById('exit-build-btn').addEventListener('click',()=>{
+            window.history.replaceState({},document.title,window.location.pathname);
+            sharedBuild=null;showFavoritesOnly=false;
+            favoriteIds=new Set(JSON.parse(localStorage.getItem('farever_favorites_v1')||'[]'));
+            renderAll();
+        });
+    }
+
+    function setupImageTooltip() {
+        const tooltipEl=document.getElementById('image-tooltip');
+        const imgEl=tooltipEl.querySelector('img');
+        const placeholderEl=tooltipEl.querySelector('.broken-placeholder');
+        let activeElement=null, tooltipVisible=false;
+        function resetTooltipImage(){imgEl.style.display='';placeholderEl.style.display='none';}
+        function showTooltip(url){resetTooltipImage();imgEl.src=url;tooltipEl.style.display='block';tooltipVisible=true;}
+        function hideTooltip(){tooltipEl.style.display='none';tooltipVisible=false;activeElement=null;imgEl.src='';}
+        function updateTooltipPosition(e){
+            const offsetX=15,offsetY=15;
+            let left=e.clientX+offsetX,top=e.clientY+offsetY;
+            const tooltipRect=tooltipEl.getBoundingClientRect();
+            if(left+tooltipRect.width>window.innerWidth-10)left=e.clientX-tooltipRect.width-offsetX;
+            if(top+tooltipRect.height>window.innerHeight-10)top=e.clientY-tooltipRect.height-offsetY;
+            tooltipEl.style.left=Math.max(5,left)+'px';tooltipEl.style.top=Math.max(5,top)+'px';
+        }
+        const container=document.getElementById('zones-container');
+        container.addEventListener('mouseover',(e)=>{const target=e.target.closest('[data-image-url]');if(target&&target!==activeElement){activeElement=target;const url=target.dataset.imageUrl;if(url){showTooltip(url);updateTooltipPosition(e);}}});
+        container.addEventListener('mouseout',(e)=>{if(activeElement){const relatedTarget=e.relatedTarget&&e.relatedTarget.closest('[data-image-url]');if(!relatedTarget||relatedTarget!==activeElement)hideTooltip();}});
+        container.addEventListener('mousemove',(e)=>{if(tooltipVisible&&activeElement)updateTooltipPosition(e);});
+        document.addEventListener('mousemove',(e)=>{if(tooltipVisible&&activeElement&&!e.target.closest('#zones-container'))updateTooltipPosition(e);});
+    }
+
+    function setupLanguageSwitcher() {
+        const buttons=document.querySelectorAll('#lang-switcher .lang-btn');
+        function setActiveButton(lang){buttons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));}
+        async function switchLanguage(lang){
+            if(currentLang===lang)return;
+            currentLang=lang;localStorage.setItem('farever_lang',lang);
+            updateStaticUITexts();updateAllFilterButtonLabels();setActiveButton(lang);
+            await loadAndRender();
+        }
+        buttons.forEach(btn=>{btn.addEventListener('click',()=>switchLanguage(btn.dataset.lang));});
+        setActiveButton(currentLang);
+    }
+
+    async function loadAndRender() {
+        const loaded=await loadData();
+        appData={zones:loaded.zones};
+        appData.zones=addDefaultsAndIds({zones:appData.zones}).zones;
+        localStorage.setItem(VERSION_KEY,loaded.version||'0');
+        saveState();
+        filterTypes=filterTypes.filter(t=>t!=='Mount'&&t!=='Glider');
+        updateStaticUITexts();updateAllFilterButtonLabels();
+        renderUpdateLog(loaded.updateLog||'');
+        buildShortIdMaps();
+        const rawFavs=JSON.parse(localStorage.getItem('farever_favorites_v1')||'[]');
+        if(rawFavs.length&&typeof rawFavs[0]==='string'&&rawFavs[0].includes('_')){
+            const migrated=new Set();
+            rawFavs.forEach(oldId=>{const item=allItemsMap.get(oldId);if(item)migrated.add(item.nameId);});
+            localStorage.setItem('farever_favorites_v1',JSON.stringify([...migrated]));
+        }
+        const urlBuild=getBuildFromUrl();
+        if(urlBuild){favoriteIds=new Set(urlBuild.ids);showFavoritesOnly=true;sharedBuild={ids:urlBuild.ids,name:urlBuild.name};}
+        else{sharedBuild=null;favoriteIds=new Set(JSON.parse(localStorage.getItem('farever_favorites_v1')||'[]'));}
+        renderAll();
+    }
+
+    async function init() {
+        buildFilterButtons();
+        renderBuildsDropdown();
+        setupFilterDropdowns();
+        setupGlobalListeners();
+        setupItemDetailToggle();
+        setupRaritySwitcher();
+        setupSuggestionModal();
+        setupImageTooltip();
+        setupLanguageSwitcher();
+        await loadAndRender();
+
+        const toggleBtn=document.getElementById('update-log-toggle-btn');
+        const popover=document.createElement('div');popover.id='update-log-popover';popover.className='update-log-popover';document.body.appendChild(popover);
+        toggleBtn.addEventListener('click',(e)=>{
+            e.stopPropagation();
+            if(popover.style.display==='block'){popover.style.display='none';}
+            else{popover.textContent=getUpdateLogText();popover.style.display='block';positionPopover();}
+        });
+        document.addEventListener('click',(e)=>{if(!toggleBtn.contains(e.target)&&!popover.contains(e.target))popover.style.display='none';});
+        function positionPopover(){
+            const btnRect=toggleBtn.getBoundingClientRect();
+            const popRect=popover.getBoundingClientRect();
+            let top=btnRect.bottom+8;
+            let left=btnRect.right-popRect.width;
+            if(left<10)left=10;
+            if(top+popRect.height>window.innerHeight-10)top=btnRect.top-popRect.height-8;
+            popover.style.top=top+'px';popover.style.left=left+'px';
+        }
+        window.addEventListener('resize',()=>{if(popover.style.display==='block')positionPopover();});
+        window.addEventListener('scroll',()=>{if(popover.style.display==='block')positionPopover();});
+
+        setInterval(checkForUpdate,5*60*1000);
+        checkForUpdate();
+    }
+
+    init();
+})();
+</script>
+</body>
+</html>
