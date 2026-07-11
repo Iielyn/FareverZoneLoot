@@ -7,7 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/Ah.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/Ah.png?v=2">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=2">
+    <link rel="apple-touch-icon" sizes="512x512" href="images/Ah.png?v=2">
     <style>
         :root {
             --bg: #090b0f;
@@ -463,8 +465,7 @@
         .tag.stat-fervor, .active-filter-chip.stat-fervor { color: #fdb980; border-color: rgba(251,146,60,0.35); background: rgba(251,146,60,0.08); }
 
         .rarity-switcher { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; }
-        .rarity-label { font-size: 0.52rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-right: 3px; opacity: 0.85; }
-        .rarity-btn {
+.rarity-btn {
             padding: 3px 10px; font-size: 0.59rem; font-weight: 700; letter-spacing: 0.06em;
             border-radius: var(--radius-pill); border: 1px solid var(--border);
             background: rgba(255,255,255,0.04); color: var(--text);
@@ -510,9 +511,7 @@
         .type-color-glider { color: #67e8f9; text-shadow: 0 0 9px rgba(6,182,212,0.4); }
 
         .stat-value { font-size: 0.75rem; font-weight: 600; color: #ffffff; margin-left: 2px; text-shadow: 0 0 4px rgba(255,255,255,0.15); }
-        .item-damage-line { font-size: 0.75rem; color: #ffffff; margin-bottom: 4px; font-weight: 600; }
-
-        .fav-star {
+.fav-star {
             cursor: pointer; font-size: 1.35em; margin-right: 4px; color: var(--text-dim);
             transition: all 0.2s ease; user-select: none; padding: 3px;
             margin-left: -3px; margin-top: -3px; margin-bottom: -3px;
@@ -723,27 +722,13 @@
         .loot-table thead th { background: #11141d; box-shadow: 0 1px 0 var(--border); }
         .loot-table tbody td:first-child { width: 22%; }
         .loot-table tbody td:last-child { width: 25%; }
-        .build-overview {
-            position: relative; overflow: hidden; margin-bottom: 14px; padding: 22px 24px;
-            border: 1px solid rgba(212,167,69,.25); border-radius: var(--radius);
-            background: linear-gradient(135deg,rgba(212,167,69,.12),rgba(91,140,189,.07) 55%,var(--surface));
-            box-shadow: var(--shadow), inset 0 1px rgba(255,255,255,.04);
-        }
-        .build-overview:after { content:''; position:absolute; width:260px; height:260px; right:-90px; top:-150px; border-radius:50%; background:rgba(212,167,69,.08); filter:blur(4px); pointer-events:none; }
-        .build-kicker { color:var(--gold); font-size:.63rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin-bottom:6px; }
-        .build-title { color:var(--text-bright); font:700 clamp(1.25rem,2.2vw,1.8rem)/1.2 var(--font-display); letter-spacing:.035em; }
-        .build-summary { display:flex; gap:8px; flex-wrap:wrap; margin-top:13px; }
-        .summary-chip { display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:var(--radius-pill); border:1px solid var(--border-light); background:rgba(0,0,0,.22); color:var(--text-dim); font-size:.68rem; font-weight:600; }
-        .summary-chip strong { color:var(--text-bright); }
-        .viewer-table-shell { overflow:auto; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+.viewer-table-shell { overflow:auto; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
         .viewer-table-shell .loot-table { min-width:920px; }
         .source-list { display:grid; gap:5px; min-width:210px; }
         .source-entry { display:flex; gap:6px; align-items:flex-start; line-height:1.35; padding:4px 7px; border-radius:6px; background:rgba(255,255,255,.025); }
         .source-entry:first-child { background:rgba(91,140,189,.08); }
         .source-bullet { color:var(--accent); font-size:.68rem; padding-top:1px; }
-        .source-more { color:var(--text-dim); font-size:.63rem; margin-top:2px; }
-        .unique-note { color:var(--text-muted); font-size:.62rem; margin-top:4px; }
-        .rarity-switcher { margin:6px 0 0 31px; gap:2px; }
+.rarity-switcher { margin:6px 0 0 31px; gap:2px; }
         .rarity-switcher .rarity-btn { padding:2px 7px; font-size:.56rem; }
         #save-build-btn:disabled { opacity:.42; cursor:not-allowed; filter:saturate(.35); transform:none; box-shadow:none; }
         #builds-wrapper #builds-dropdown { left:auto; right:0; width:min(430px,calc(100vw - 24px)); min-width:0; flex-direction:column; flex-wrap:nowrap; }
@@ -810,8 +795,7 @@
             .search-wrapper { flex:1; }
             .search-input,.search-input:focus { width:100%; }
             .filter-actions { width:100%; margin-left:0; overflow-x:auto; padding-bottom:2px; }
-            .build-overview { padding:18px; }
-            .viewer-table-shell { border:0; overflow:visible; background:transparent; box-shadow:none; }
+.viewer-table-shell { border:0; overflow:visible; background:transparent; box-shadow:none; }
             .viewer-table-shell .loot-table { min-width:0; }
             .source-list { min-width:0; }
             .rarity-switcher .rarity-btn { min-height:30px; padding:5px 8px; }
@@ -1499,8 +1483,6 @@
         const container=document.getElementById('zones-container');
         const searchLower=searchQuery.toLowerCase();
         const grouped=new Map();
-
-        // A loadout is item-centric: one item can legitimately drop in several dungeons.
         allItemsMap.forEach((item,id)=>{
             if(!favoriteIds.has(item.nameId))return;
             if(searchQuery&&!getItemName(item).toLowerCase().includes(searchLower))return;
