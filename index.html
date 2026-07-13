@@ -222,10 +222,10 @@
             border-color: currentColor;
             background: rgba(255,255,255,0.07);
         }
-        .social-link.discord { color: #5865f2; }
-        .social-link.discord:hover { box-shadow: 0 0 12px rgba(88,101,242,0.35); color: #7b8aff; }
-        .social-link.twitch { color: #a970ff; }
-        .social-link.twitch:hover { box-shadow: 0 0 12px rgba(169,112,255,0.35); color: #c49fff; }
+        .social-link.discord { color: #5865f2; border-color: rgba(88,101,242,0.35); }
+        .social-link.discord:hover { box-shadow: 0 0 12px rgba(88,101,242,0.35); color: #7b8aff; border-color: #7b8aff; }
+        .social-link.twitch { color: #a970ff; border-color: rgba(169,112,255,0.35); }
+        .social-link.twitch:hover { box-shadow: 0 0 12px rgba(169,112,255,0.35); color: #c49fff; border-color: #c49fff; }
         .social-link .social-icon { font-size: 0.82rem; }
         .social-link { position: relative; }
         .social-tooltip {
@@ -880,7 +880,7 @@
             <div class="social-links">
                 <span class="social-text discord" tabindex="0">
                     <span class="social-icon">💬</span> @snowglow
-                    <span class="social-tooltip">Add me on Discord, if you'd like to provide items/screenshots!</span>
+                    <span class="social-tooltip">Add me on Discord if you'd like to help provide items or screenshots!</span>
                 </span>
                 <a href="https://www.twitch.tv/liamh" target="_blank" rel="noopener noreferrer" class="social-link twitch">
                     <span class="social-icon">📺</span> Thanks to LiamH!
@@ -2189,4 +2189,3 @@
     init();
 })();
 </script>
-</html>
