@@ -1,8 +1,8 @@
 {
   "updateLog": {
-    "en": "Big site refresh! [7/11]\n\nThe site should now feel cleaner and easier to use, especially on phones.\n\n• You can now see every filter you have selected and remove them one at a time.\n• Favorites and Loadouts are easier to understand and manage.\n• Opening a saved Loadout will no longer replace your Favorites.\n• Shared Loadouts show each item once, with all of its drop locations listed together.\n• Rarity buttons and Loadout actions are easier to see and use.\n• I also fixed a bunch of smaller layout and mobile issues.\n\nThanks to everyone who shared feedback!",
-    "fr": "Grande mise à jour du site ! [11/7]\n\nLe site devrait maintenant être plus clair et plus simple à utiliser, surtout sur téléphone.\n\n• Vous pouvez voir tous les filtres sélectionnés et les retirer un par un.\n• Les Favoris et les Configurations sont plus faciles à comprendre et à gérer.\n• Ouvrir une Configuration enregistrée ne remplacera plus vos Favoris.\n• Les Configurations partagées affichent chaque objet une seule fois, avec tous ses lieux d’obtention regroupés.\n• Les boutons de rareté et les actions des Configurations sont plus faciles à voir et à utiliser.\n• J’ai également corrigé plusieurs petits problèmes de mise en page et d’utilisation sur mobile.\n\nMerci à toutes les personnes qui ont envoyé leurs commentaires !",
-    "es": "¡Gran actualización del sitio! [11/7]\n\nEl sitio ahora debería sentirse más limpio y fácil de usar, especialmente en teléfonos.\n\n• Ahora puedes ver todos los filtros seleccionados y quitarlos uno por uno.\n• Favoritos y Equipos son más fáciles de entender y administrar.\n• Abrir un Equipo guardado ya no reemplazará tus Favoritos.\n• Los Equipos compartidos muestran cada objeto una sola vez y agrupan todas sus ubicaciones de obtención.\n• Los botones de rareza y las acciones de Equipos son más fáciles de ver y usar.\n• También corregí varios problemas pequeños de diseño y uso en móviles.\n\n¡Gracias a todos los que enviaron sus comentarios!"
+    "en": "Big site refresh! [7/11]\n\nThe site should now feel cleaner and easier to use, especially on phones.\n\n• You can now see every filter you have selected and remove them one at a time.\n• Favorites and Loadouts are easier to understand and manage.\n• Opening a saved Loadout will no longer replace your Favorites.\n• Shared Loadouts show each item once, with all of its drop locations listed together.\n• Rarity buttons and Loadout actions are easier to see and use.\n• I also fixed a bunch of smaller layout and mobile issues.\n\nThanks to everyone who shared feedback!\n\n[7/13]\n• Added Meropsian Crab, Krisomalese Bat, and Ponogian Leggybug pictures.\n• On a side note, I'm still missing Nescentine Leggybug, Rinuhrian Skunk, and all dungeon boss glider pictures. If anyone would like to contribute the pictures either through the suggestion box or by adding me on discord, I would appreciate it!",
+    "fr": "Gros rafraîchissement du site ! [7/11]\n\nLe site devrait désormais paraître plus propre et plus facile à utiliser, notamment sur les téléphones.\n\n• Vous pouvez maintenant voir tous les filtres que vous avez sélectionnés et les supprimer un par un.\n• Les favoris et les chargements sont plus faciles à comprendre et à gérer.\n• L'ouverture d'un chargement enregistré ne remplacera plus vos favoris.\n• Les chargements partagés affichent chaque élément une fois, avec tous ses emplacements de dépôt répertoriés ensemble.\n• Les boutons de rareté et les actions de chargement sont plus faciles à voir et à utiliser.\n• J'ai également résolu un certain nombre de petits problèmes de mise en page et de mobile.\n\nMerci à tous ceux qui ont partagé leurs commentaires !\n\n[7/13]\n• Ajout d'images de crabe méropsien, de chauve-souris Krisomalese et de Ponogian Leggybug.\n• En passant, il me manque toujours Nescentine Leggybug, Rinuhrian Skunk et toutes les photos de planeurs de boss de donjon. Si quelqu'un souhaite contribuer avec les photos via la boîte à suggestions ou en m'ajoutant sur Discord, je l'apprécierais !",
+    "es": "¡Gran actualización del sitio! [7/11]\n\nEl sitio ahora debería parecer más limpio y fácil de usar, especialmente en teléfonos.\n\n• Ahora puede ver todos los filtros que ha seleccionado y eliminarlos uno por uno.\n• Los favoritos y los equipamientos son más fáciles de entender y administrar.\n• Abrir un equipamiento guardado ya no reemplazará a tus favoritos.\n• Los equipamientos compartidos muestran cada elemento una vez, con todas sus ubicaciones de entrega enumeradas juntas.\n• Los botones de rareza y las acciones de equipamiento son más fáciles de ver y usar.\n• También solucioné un montón de problemas móviles y de diseño más pequeños.\n\n¡Gracias a todos los que compartieron sus comentarios!\n\n[7/13]\n• Se agregaron imágenes del Cangrejo Meropsiano, del Murciélago Krisomalés y del Leggybug Ponogiano.\n• Por cierto, todavía me faltan las imágenes de Nescentine Leggybug, Rinuhrian Skunk y todas las imágenes de los planeadores de los jefes de las mazmorras. Si alguien quisiera contribuir con las imágenes ya sea a través del buzón de sugerencias o agregándome en Discord, ¡se lo agradecería!"
   },
   "zones": [
     {
@@ -4574,7 +4574,8 @@
                 "fr": "",
                 "es": ""
               },
-              "rare": false
+              "rare": false,
+              "image": "images/Meropsian Crab.png"
             }
           ]
         }
@@ -6075,7 +6076,8 @@
                 "fr": "",
                 "es": ""
               },
-              "rare": false
+              "rare": false,
+              "image": "images/Krisomalese.png"
             }
           ]
         }
@@ -9133,7 +9135,8 @@
                 "fr": "",
                 "es": ""
               },
-              "rare": false
+              "rare": false,
+              "image": "images/Ponogian Leggybug.png"
             }
           ]
         }
