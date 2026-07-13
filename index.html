@@ -452,6 +452,8 @@
         .tag.type-trinket, .active-filter-chip.type-trinket { color: #f9a8d4; border-color: rgba(244,114,182,0.35); background: rgba(244,114,182,0.08); }
         .tag.type-mount, .active-filter-chip.type-mount { color: #fcd34d; border-color: rgba(245,158,11,0.4); background: rgba(245,158,11,0.12); text-shadow: 0 0 5px rgba(245,158,11,0.25); }
         .tag.type-glider, .active-filter-chip.type-glider { color: #67e8f9; border-color: rgba(6,182,212,0.4); background: rgba(6,182,212,0.12); text-shadow: 0 0 5px rgba(6,182,212,0.25); }
+        .tag.boss-kill-only { color: #fca5a5; border-color: rgba(248,113,113,0.42); background: rgba(248,113,113,0.10); }
+        .tag.drop-rate-unconfirmed { color: #fde68a; border-color: rgba(251,191,36,0.42); background: rgba(251,191,36,0.10); }
 
         .tag.stat-armor, .active-filter-chip.stat-armor { color: #d1d5db; border-color: rgba(156,163,175,0.35); background: rgba(156,163,175,0.08); }
         .tag.stat-vitality, .active-filter-chip.stat-vitality { color: #6ee7b7; border-color: rgba(52,211,153,0.35); background: rgba(52,211,153,0.08); }
@@ -1126,6 +1128,11 @@
     const isTrinket = item => item.types.includes('Trinket');
     const hasAbilities = item => item.skill1||item.skill2||item.skill3||item.passive;
     const hasTrinketPassive = item => item.trinketPassive&&(typeof item.trinketPassive==='string'?item.trinketPassive.trim()!=='':item.trinketPassive.en&&item.trinketPassive.en.trim()!=='');
+    const isMountOrGlider = item => Array.isArray(item.types)&&item.types.some(type=>MOUNT_GLIDER_TYPES.includes(type));
+    function buildClassTagsHtml(item) {
+        const classTags=sortByOrder(item.classes,CLASS_OPTIONS).map(cls=>'<span class="tag class-'+cls+'">'+escapeHtml(t(cls))+'</span>').join('');
+        return classTags+(isMountOrGlider(item)?'<span class="tag boss-kill-only">Boss kill only</span>':'');
+    }
     const getTypeColorClass = type => type?'type-color-'+toSlug(type):'';
     const t = (key, fallback) => (translations[currentLang]&&translations[currentLang][key])||fallback||key;
     function getLocalizedText(value, lang) { if(typeof value==='object'&&value!==null)return value[lang]||value['en']||Object.values(value).find(v=>v)||''; return value||''; }
@@ -1294,11 +1301,12 @@
         } else if(item.variants&&item.variants.length===1) statValues=item.variants[0].statValues;
         else statValues=item.statValues||{};
         const sortedStats=sortByOrder(item.stats,STAT_OPTIONS);
-        return sortedStats.map(s=>{
+        const statTags=sortedStats.map(s=>{
             const displayStat=t('stat_'+s.replace(/ /g,'_'),s);
             const val=statValues[s]?'<span class="stat-value">'+statValues[s]+'</span>':'';
             return '<span class="tag stat-tag stat-'+toSlug(s)+'">'+escapeHtml(displayStat)+val+'</span>';
         }).join('');
+        return statTags+(isMountOrGlider(item)?'<span class="tag drop-rate-unconfirmed">Estimated drop chance: 0.1%–1% (unconfirmed)</span>':'');
     }
 
     function buildRaritySwitcherHtml(item) {
@@ -1314,9 +1322,8 @@
         const primaryType=getPrimaryType(item);
         const typeColorClass=getTypeColorClass(primaryType);
         const sortedTypes=sortByOrder(item.types,TYPE_OPTIONS);
-        const sortedClasses=sortByOrder(item.classes,CLASS_OPTIONS);
         const typeTags=sortedTypes.map(tn=>'<span class="tag type-tag type-'+toSlug(tn)+'">'+escapeHtml(t('type_'+tn.replace(/[ -]/g,'_'),tn))+'</span>').join('');
-        const classTags=sortedClasses.map(cls=>'<span class="tag class-'+cls+'">'+escapeHtml(t(cls))+'</span>').join('');
+        const classTags=buildClassTagsHtml(item);
         const switcherHtml=buildRaritySwitcherHtml(item);
         const defaultIndex=item.variants&&item.variants.length>1?(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0):0;
         const statTagsHtml=buildStatTagsHtml(item,defaultIndex);
@@ -1331,7 +1338,7 @@
             detailHtml=abils.join('');
         } else if(isTrinket(item)&&hasTrinketPassive(item)){
             detailHtml='<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.trinketPassive))+'</div>';
-        } else if(item.types.some(t=>MOUNT_GLIDER_TYPES.includes(t))&&hasTrinketPassive(item)){
+        } else if(isMountOrGlider(item)&&hasTrinketPassive(item)){
             detailHtml='<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.trinketPassive))+'</div>';
         }
         const rowClass=detailHtml?' item-row-has-details':'';
@@ -1508,9 +1515,9 @@
         });
         const rows=filteredItems.map(({item,locations})=>{
             const primaryType=getPrimaryType(item), typeColorClass=getTypeColorClass(primaryType);
-            const sortedTypes=sortByOrder(item.types,TYPE_OPTIONS), sortedClasses=sortByOrder(item.classes,CLASS_OPTIONS);
+            const sortedTypes=sortByOrder(item.types,TYPE_OPTIONS);
             const typeTags=sortedTypes.map(tn=>'<span class="tag type-tag type-'+toSlug(tn)+'">'+escapeHtml(t('type_'+tn.replace(/[ -]/g,'_'),tn))+'</span>').join('');
-            const classTags=sortedClasses.map(cls=>'<span class="tag class-'+cls+'">'+escapeHtml(t(cls))+'</span>').join('');
+            const classTags=buildClassTagsHtml(item);
             const switcherHtml=buildRaritySwitcherHtml(item);
             const defaultIndex=item.variants&&item.variants.length>1?(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0):0;
             const statTagsHtml=buildStatTagsHtml(item,defaultIndex), imageUrlAttr=item.image?' data-image-url="'+escapeHtml(item.image)+'"':'';
@@ -1520,7 +1527,7 @@
                 if(getSkillText(item.skill2))abils.push('<div><strong class="'+typeColorClass+'">'+t('skill1')+'</strong> '+escapeHtml(getSkillText(item.skill2))+'</div>');
                 if(getSkillText(item.skill3))abils.push('<div><strong class="'+typeColorClass+'">'+t('skill2')+'</strong> '+escapeHtml(getSkillText(item.skill3))+'</div>');
                 if(getSkillText(item.passive))abils.push('<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.passive))+'</div>');
-            } else if((isTrinket(item)||item.types.some(t=>MOUNT_GLIDER_TYPES.includes(t)))&&hasTrinketPassive(item)){
+            } else if((isTrinket(item)||isMountOrGlider(item))&&hasTrinketPassive(item)){
                 abils.push('<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.trinketPassive))+'</div>');
             }
             const detailHtml=abils.join(''), detailId='viewer-'+item.nameId;
@@ -2113,5 +2120,4 @@
     init();
 })();
 </script>
-</body>
 </html>
