@@ -227,7 +227,32 @@
         .social-link.twitch { color: #a970ff; }
         .social-link.twitch:hover { box-shadow: 0 0 12px rgba(169,112,255,0.35); color: #c49fff; }
         .social-link .social-icon { font-size: 0.82rem; }
+        .social-link { position: relative; }
+        .social-tooltip {
+            position: absolute; top: calc(100% + 8px); left: 0; z-index: 200;
+            background: var(--surface2); border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm); padding: 8px 12px;
+            font-size: 0.72rem; font-weight: 500; line-height: 1.45;
+            color: var(--text); text-align: left;
+            width: max-content; max-width: 280px;
+            box-shadow: var(--shadow-lg);
+            opacity: 0; visibility: hidden;
+            pointer-events: none;
+        }
+        .social-link:hover .social-tooltip,
+        .social-link:focus-visible .social-tooltip,
+        .social-text:hover .social-tooltip,
+        .social-text:focus-visible .social-tooltip {
+            opacity: 1; visibility: visible;
+        }
+        .social-tooltip::before {
+            content: ''; position: absolute; top: -6px; left: 18px;
+            width: 10px; height: 10px; background: var(--surface2);
+            border-left: 1px solid var(--border-light); border-top: 1px solid var(--border-light);
+            transform: rotate(45deg);
+        }
         .social-text {
+            position: relative;
             display: inline-flex; align-items: center; gap: 5px;
             padding: 4px 10px; border-radius: var(--radius-pill);
             font-size: 0.66rem; font-weight: 600; letter-spacing: 0.03em;
@@ -853,11 +878,13 @@
                 <span class="cap-badge" id="cap-badge-text">All stats at Lv20 cap</span>
             </div>
             <div class="social-links">
-                <span class="social-text discord" title="Add me on Discord">
+                <span class="social-text discord" tabindex="0">
                     <span class="social-icon">💬</span> @snowglow
+                    <span class="social-tooltip">Add me on Discord, if you'd like to provide items/screenshots!</span>
                 </span>
-                <a href="https://www.twitch.tv/liamh" target="_blank" rel="noopener noreferrer" class="social-link twitch" title="Thanks so much to Liam for all the help, providing items, pictures, and shoutouts! He's a great guy, check him out!">
-                    <span class="social-icon">📺</span> Huge thanks to LiamH!
+                <a href="https://www.twitch.tv/liamh" target="_blank" rel="noopener noreferrer" class="social-link twitch">
+                    <span class="social-icon">📺</span> Thanks to LiamH!
+                    <span class="social-tooltip">Thanks so much to Liam for all the help, providing items, pictures, and shoutouts! He's a great guy, check him out!</span>
                 </a>
             </div>
         </div>
@@ -2162,3 +2189,4 @@
     init();
 })();
 </script>
+</html>
