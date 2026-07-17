@@ -16216,6 +16216,18 @@
                         "Fervor": 31
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Strength": 14,
+                        "Intelligence": 17,
+                        "Armor Penetration": 37,
+                        "Fervor": 37
+                      },
+                      "image": "images/WingsabersP.png"
                     }
                   }
                 },
@@ -20131,7 +20143,7 @@
                 "es": ""
               },
               "level": 20,
-              "experimentalScope": "faction",
+              "experimentalScope": "unknown",
               "levelData": {
                 "20": {
                   "statValues": {},
