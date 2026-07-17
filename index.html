@@ -137,10 +137,19 @@
             background: rgba(212,167,69,0.1); border: 1px solid var(--gold-dim); color: var(--gold);
             margin-left: 6px; white-space: nowrap;
         }
-        .header-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
-        .header-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .header-center { display: none; flex: 1; text-align: center; align-items: center; gap: 12px; }
+        /* Keep the database mode control centered and separate from search/actions. */
+        .header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+            align-items: center;
+        }
+        .header-brand { grid-column: 1; min-width: 0; }
+        .db-mode-control { grid-column: 2; grid-row: 1; justify-self: center; }
+        .header-right { grid-column: 3; grid-row: 1; justify-self: end; display: flex; flex-direction: column; gap: 6px; align-items: flex-end; min-width: 0; }
+        .header-actions { display: flex; justify-content: flex-end; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .header-center { display: none; grid-column: 1 / -1; grid-row: 2; text-align: center; align-items: center; gap: 12px; }
         .header-center.active { display: flex; justify-content: center; }
+        .db-mode-control .db-toggle-btn { min-width: 190px; }
         .exit-btn-header {
             background: rgba(212,167,69,0.12); border: 1px solid var(--gold);
             color: var(--gold); padding: 6px 18px; border-radius: var(--radius-pill);
@@ -205,6 +214,39 @@
             border-color: #fddd80; box-shadow: 0 0 18px rgba(212,167,69,0.45); transform: translateY(-1px);
         }
 
+        .db-toggle-btn {
+            position: relative;
+            background: rgba(212,167,69,0.1); border: 1px solid var(--gold-dim);
+            color: var(--gold); padding: 6px 16px; border-radius: var(--radius-pill);
+            cursor: pointer; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+            transition: all var(--transition); font-family: var(--font); white-space: nowrap;
+        }
+        .db-mode-tooltip {
+            position: absolute; top: calc(100% + 9px); left: 50%; z-index: 210;
+            width: max-content; max-width: min(310px, calc(100vw - 28px)); padding: 8px 11px;
+            border: 1px solid var(--border-light); border-radius: var(--radius-xs); background: var(--surface2);
+            color: var(--text); box-shadow: var(--shadow-lg); font: 600 .69rem/1.4 var(--font);
+            letter-spacing: .01em; text-align: left; white-space: normal; transform: translate(-50%, -3px);
+            opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .12s ease, transform .12s ease;
+        }
+        .db-mode-tooltip::before {
+            content: ''; position: absolute; top: -6px; left: 50%; width: 10px; height: 10px;
+            background: var(--surface2); border-left: 1px solid var(--border-light); border-top: 1px solid var(--border-light);
+            transform: translateX(-50%) rotate(45deg);
+        }
+        .db-toggle-btn:hover .db-mode-tooltip, .db-toggle-btn:focus-visible .db-mode-tooltip { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+        .db-toggle-btn:hover {
+            background: rgba(212,167,69,0.22); color: var(--gold-bright);
+            border-color: var(--gold); box-shadow: 0 0 14px var(--gold-glow); transform: translateY(-1px);
+        }
+        .db-toggle-btn.experimental {
+            background: rgba(168,85,247,0.14); border-color: rgba(168,85,247,0.5); color: #c084fc;
+        }
+        .db-toggle-btn.experimental:hover {
+            background: rgba(168,85,247,0.26); border-color: #c084fc;
+            box-shadow: 0 0 16px rgba(168,85,247,0.4); color: #e0b4ff;
+        }
+
         .social-links {
             display: flex; align-items: center; gap: 8px;
             margin-top: 8px; flex-wrap: wrap;
@@ -266,6 +308,13 @@
             padding: 10px 2%; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
             box-shadow: var(--shadow-sm); z-index: 90; position: relative;
         }
+        .stat-level-control { display: inline-flex; align-items: center; gap: 4px; padding: 3px; border: 1px solid var(--border); border-radius: var(--radius-pill); background: rgba(0,0,0,.13); }
+        .stat-level-label { padding: 0 5px 0 7px; color: var(--text-dim); font-size: .58rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; }
+        .stat-level-btn { border: 1px solid transparent; border-radius: var(--radius-pill); background: transparent; color: var(--text-dim); cursor: pointer; padding: 5px 9px; font: 700 .62rem var(--font); transition: all var(--transition); white-space: nowrap; }
+        .stat-level-btn:hover { color: var(--text); background: var(--surface3); }
+        .stat-level-btn.active { color: #bfdbfe; border-color: rgba(96,165,250,.52); background: rgba(59,130,246,.17); box-shadow: 0 0 9px rgba(59,130,246,.16); }
+        .stat-level-btn[data-stat-level="25"].active { color: #fde68a; border-color: rgba(251,191,36,.55); background: rgba(251,191,36,.14); box-shadow: 0 0 9px rgba(251,191,36,.14); }
+
         .filter-label, .active-filters-label {
             display:inline-flex; align-items:center; gap:7px; padding:4px 10px 4px 8px;
             font-size:0.61rem; text-transform:uppercase; letter-spacing:0.13em;
@@ -458,6 +507,7 @@
             font-weight: 700; display: inline-flex; align-items: center; gap: 5px;
             cursor: pointer; font-size: 0.83rem;
         }
+        .level-data-pending { color: #fde68a; border-color: rgba(251,191,36,.48)!important; background: rgba(251,191,36,.11)!important; text-transform: none!important; font-size: .62rem!important; }
         .detail-indicator {
             display: inline-block; transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 0.55em; margin-left: 4px; color: var(--text-dim);
@@ -491,6 +541,7 @@
         .tag.type-shield, .active-filter-chip.type-shield { color: #93c5fd; border-color: rgba(96,165,250,0.35); background: rgba(96,165,250,0.08); }
         .tag.type-sword, .active-filter-chip.type-sword { color: #bae6fd; border-color: rgba(125,211,252,0.35); background: rgba(125,211,252,0.08); }
         .tag.type-dual-sword, .active-filter-chip.type-dual-sword { color: #7dd3fc; border-color: rgba(56,189,248,0.35); background: rgba(56,189,248,0.08); }
+        .tag.type-two-handed-sword, .active-filter-chip.type-two-handed-sword { color: #a5b4fc; border-color: rgba(129,140,248,0.42); background: rgba(129,140,248,0.10); }
         .tag.type-axe, .active-filter-chip.type-axe { color: #f87171; border-color: rgba(220,38,38,0.35); background: rgba(220,38,38,0.08); }
         .tag.type-dual-axes, .active-filter-chip.type-dual-axes { color: #f87171; border-color: rgba(225,29,72,0.35); background: rgba(225,29,72,0.08); }
         .tag.type-daggers, .active-filter-chip.type-daggers { color: #cbd5e1; border-color: rgba(148,163,184,0.35); background: rgba(148,163,184,0.08); }
@@ -510,6 +561,7 @@
         .tag.type-glider, .active-filter-chip.type-glider { color: #67e8f9; border-color: rgba(6,182,212,0.4); background: rgba(6,182,212,0.12); text-shadow: 0 0 5px rgba(6,182,212,0.25); }
         .tag.boss-kill-only { color: #fca5a5; border-color: rgba(248,113,113,0.42); background: rgba(248,113,113,0.10); }
         .tag.drop-rate-unconfirmed { color: #fde68a; border-color: rgba(251,191,36,0.42); background: rgba(251,191,36,0.10); }
+        .experimental-scope-note { display: inline-flex; align-items: center; margin: 5px 0 0 31px; color: #fde68a; font-size: .61rem; font-weight: 700; line-height: 1.35; }
 
         .tag.stat-armor, .active-filter-chip.stat-armor { color: #d1d5db; border-color: rgba(156,163,175,0.35); background: rgba(156,163,175,0.08); }
         .tag.stat-vitality, .active-filter-chip.stat-vitality { color: #6ee7b7; border-color: rgba(52,211,153,0.35); background: rgba(52,211,153,0.08); }
@@ -531,15 +583,24 @@
             text-transform: capitalize; min-width: 42px;
         }
         .rarity-btn:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: var(--border-light); box-shadow: 0 0 8px rgba(255,255,255,0.1); transform: translateY(-1px); }
+        .rarity-btn[data-rarity="green"] { border-color: rgba(74,222,128,0.5); color: #4ade80; }
+        .rarity-btn[data-rarity="green"].active { background: rgba(74,222,128,0.25); border-color: #4ade80; box-shadow: 0 0 12px rgba(74,222,128,0.4); color: #86efac; }
         .rarity-btn[data-rarity="blue"] { border-color: rgba(59,130,246,0.5); color: #60a5fa; }
         .rarity-btn[data-rarity="blue"].active { background: rgba(59,130,246,0.25); border-color: #60a5fa; box-shadow: 0 0 12px rgba(59,130,246,0.4); color: #93c5fd; }
         .rarity-btn[data-rarity="purple"] { border-color: rgba(168,85,247,0.5); color: #c084fc; }
         .rarity-btn[data-rarity="purple"].active { background: rgba(168,85,247,0.25); border-color: #c084fc; box-shadow: 0 0 12px rgba(168,85,247,0.4); color: #e0b4ff; }
         .rarity-btn[data-rarity="legendary"] { border-color: rgba(245,158,11,0.5); color: #fbbf24; }
         .rarity-btn[data-rarity="legendary"].active { background: rgba(245,158,11,0.28); border-color: #fbbf24; box-shadow: 0 0 14px rgba(245,158,11,0.5); color: #fde68a; text-shadow: 0 0 5px rgba(245,158,11,0.45); }
+        .variant-level-warning {
+            display: flex; align-items: center; gap: 5px; margin: 4px 0 0 31px;
+            color: #fde68a; font-size: .61rem; font-weight: 600; line-height: 1.35;
+        }
+        .variant-level-warning[hidden] { display: none; }
+        .variant-level-warning::before { content: '⚠'; color: #fbbf24; font-size: .72rem; }
 
         .type-color-sword { color: #bae6fd; text-shadow: 0 0 7px rgba(125,211,252,0.3); }
         .type-color-dual-sword { color: #7dd3fc; text-shadow: 0 0 7px rgba(56,189,248,0.3); }
+        .type-color-two-handed-sword { color: #a5b4fc; text-shadow: 0 0 8px rgba(129,140,248,0.34); }
         .type-color-axe { color: #f87171; text-shadow: 0 0 7px rgba(220,38,38,0.3); }
         .type-color-dual-axes { color: #f87171; text-shadow: 0 0 7px rgba(225,29,72,0.3); }
         .type-color-daggers { color: #cbd5e1; text-shadow: 0 0 7px rgba(148,163,184,0.3); }
@@ -618,6 +679,65 @@
         .modal-form .cancel-btn { background: var(--surface3); color: var(--text); border: 1px solid var(--border); margin-left: 9px; }
         .modal-form .cancel-btn:hover { background: var(--border-light); }
         .modal-footer-text { font-size: 0.66rem; color: var(--text-dim); margin-top: 12px; text-align: center; }
+        .modal-actions { display: flex; gap: 10px; margin-top: 16px; }
+        .modal-actions .submit-btn,
+        .modal-actions .cancel-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            cursor: pointer;
+            font-family: var(--font);
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+            transition: all var(--transition);
+            border: 1px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+        .modal-actions .submit-btn {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        .modal-actions .submit-btn:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            box-shadow: 0 0 14px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+        .modal-actions .cancel-btn {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border);
+        }
+        .modal-actions .cancel-btn:hover {
+            background: var(--surface3);
+            border-color: var(--border-light);
+            color: var(--text-bright);
+        }
+        .modal-actions .submit-btn.experimental-confirm {
+            background: rgba(168,85,247,0.82);
+            border-color: rgba(192,132,252,0.55);
+            color: #f3e8ff;
+            box-shadow: 0 0 12px rgba(168,85,247,0.22);
+        }
+        .modal-actions .submit-btn.experimental-confirm:hover {
+            background: rgba(168,85,247,0.95);
+            border-color: #c084fc;
+            color: #fff;
+            box-shadow: 0 0 18px rgba(168,85,247,0.4);
+        }
+        #db-warning-body { display: grid; gap: 10px; }
+        .db-warning-lead, .db-warning-callout, .db-warning-caution { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: var(--radius-sm); line-height: 1.55; }
+        .db-warning-lead { color: #e9d5ff; background: rgba(168,85,247,.10); border: 1px solid rgba(192,132,252,.30); }
+        .db-warning-lead strong { color: #e9d5ff; }
+        .db-warning-callout { color: #fde68a; background: rgba(251,191,36,.09); border: 1px solid rgba(251,191,36,.28); }
+        .db-warning-caution { color: #fecaca; background: rgba(248,113,113,.09); border: 1px solid rgba(248,113,113,.28); }
+        .db-warning-icon { flex: 0 0 auto; font-size: 1rem; line-height: 1.35; }
+        .db-warning-copy { margin: 0; font-size: .76rem; }
 
         .filter-group-wrapper.open #type-dropdown { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; max-height: none; overflow-y: visible; min-width: 330px; }
         #class-dropdown { min-width: 280px; flex-wrap: nowrap; }
@@ -646,10 +766,13 @@
             position: fixed; z-index: 10000; pointer-events: none;
             background: var(--surface); border: 1px solid var(--border-light);
             border-radius: var(--radius-sm); padding: 4px; display: none;
-            max-width: 800px; max-height: 540px; overflow: hidden;
+            /* Normal tooltips stay compact; very wide comparison captures get extra room. */
+            max-width: min(468px, calc(100vw - 24px)); max-height: min(348px, calc(100vh - 24px)); overflow: hidden;
             box-shadow: var(--shadow-lg);
         }
-        #image-tooltip img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; border-radius: 3px; }
+        #image-tooltip img { display: block; max-width: min(460px, calc(100vw - 32px)); max-height: min(340px, calc(100vh - 32px)); width: auto; height: auto; border-radius: 3px; }
+        #image-tooltip.wide-image { max-width: min(804px, calc(90vw - 24px)); max-height: min(536px, calc(84vh - 24px)); }
+        #image-tooltip.wide-image img { max-width: min(796px, calc(90vw - 32px)); max-height: min(528px, calc(84vh - 32px)); }
 
         #builds-dropdown .build-item {
             display: flex; align-items: center; justify-content: space-between; padding: 5px 10px;
@@ -689,6 +812,7 @@
         .type-btn.active, .type-btn[data-type].active { background: rgba(255,255,255,0.08); border-color: var(--text-dim); color: var(--text-bright); }
         .type-btn[data-type="Sword"].active { background: rgba(125,211,252,0.18); border-color: #7dd3fc; color: #bae6fd; box-shadow: 0 0 8px rgba(125,211,252,0.3); }
         .type-btn[data-type="Dual Sword"].active { background: rgba(56,189,248,0.18); border-color: #38bdf8; color: #7dd3fc; box-shadow: 0 0 8px rgba(56,189,248,0.3); }
+        .type-btn[data-type="Two-Handed Sword"].active { background: rgba(129,140,248,0.19); border-color: #818cf8; color: #c7d2fe; box-shadow: 0 0 8px rgba(129,140,248,0.34); }
         .type-btn[data-type="Axe"].active { background: rgba(220,38,38,0.2); border-color: #dc2626; color: #f87171; box-shadow: 0 0 8px rgba(220,38,38,0.32); }
         .type-btn[data-type="Dual Axes"].active { background: rgba(225,29,72,0.2); border-color: #e11d48; color: #f87171; box-shadow: 0 0 8px rgba(225,29,72,0.32); }
         .type-btn[data-type="Daggers"].active { background: rgba(148,163,184,0.2); border-color: #94a3b8; color: #cbd5e1; box-shadow: 0 0 8px rgba(148,163,184,0.3); }
@@ -737,7 +861,28 @@
             padding: 10px 24px; text-align: center; font-size: 0.64rem; color: var(--text-dim);
         }
 
+        /* Experimental mode still uses the normal Zone › Dungeon flow; this label makes
+           the replaced faction pool obvious without changing how players navigate. */
+        .theory-pool-notice {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 9px 14px;
+            background: rgba(168,85,247,.09); border-bottom: 1px solid rgba(168,85,247,.24);
+            color: #d8b4fe; font-size: .7rem; font-weight: 700; letter-spacing: .025em;
+        }
+        .theory-pool-notice .theory-pool-icon { font-size: .9rem; }
+        .theory-pool-notice .theory-pool-hint { color: var(--text-dim); font-weight: 500; }
+        .theory-pool-notice .theory-pool-exception {
+            flex: 1 1 100%; margin: 0; padding-left: 1.55rem;
+            color: #fde68a; font-size: .62rem; font-weight: 600; line-height: 1.4;
+        }
+
+        @media (max-width: 1100px) {
+            .header { grid-template-columns: minmax(0, 1fr) auto; }
+            .header-right { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; align-items: flex-end; }
+            .header-center.active { grid-row: 3; }
+        }
+
         @media (max-width:800px) {
+            .db-mode-control .db-toggle-btn { min-width: 0; }
             .loot-table, .loot-table thead, .loot-table tbody, .loot-table th, .loot-table td, .loot-table tr { display: block; }
             .loot-table thead { display: none; }
             .loot-table tbody tr.item-main-row {
@@ -875,19 +1020,22 @@
             <h1>Farever</h1>
             <div class="header-subtitle" id="header-subtitle">
                 Just a personal dungeon drop database
-                <span class="cap-badge" id="cap-badge-text">All stats at Lv20 cap</span>
+                <span class="cap-badge" id="cap-badge-text">All stats at Lv20</span>
             </div>
             <div class="social-links">
                 <span class="social-text discord" tabindex="0">
                     <span class="social-icon">💬</span> @snowglow
-                    <span class="social-tooltip">Add me on Discord if you'd like to help provide items or screenshots!</span>
+                    <span class="social-tooltip" id="discord-help-tooltip">Add me on Discord if you'd like to help provide items or screenshots!</span>
                 </span>
                 <a href="https://www.twitch.tv/liamh" target="_blank" rel="noopener noreferrer" class="social-link twitch">
                     <span class="social-icon">📺</span> Thanks to LiamH!
-                    <span class="social-tooltip">Thanks so much to Liam for all the help, providing items, pictures, and shoutouts! He's a great guy, check him out!</span>
+                    <span class="social-tooltip" id="liam-thanks-tooltip">Thanks so much to Liam for all the help, providing items, pictures, and shoutouts! He's a great guy, check him out!</span>
                 </a>
             </div>
         </div>
+    </div>
+    <div class="db-mode-control" id="db-mode-control">
+        <button class="db-toggle-btn" id="db-toggle-btn" aria-describedby="db-mode-tooltip"><span class="db-mode-label">📦 Standard · Confirmed</span><span class="db-mode-tooltip" id="db-mode-tooltip" role="tooltip">Confirmed drops from recorded sources.</span></button>
     </div>
     <div class="header-center" id="header-center">
         <span id="build-name-display"></span>
@@ -915,6 +1063,11 @@
 
 <div class="filter-bar" id="filter-bar">
     <span class="filter-label" id="filter-label">Filters</span>
+    <div class="stat-level-control" id="stat-level-control" aria-label="Comparison stat level">
+        <span class="stat-level-label" id="stat-level-label">Compare at</span>
+        <button type="button" class="stat-level-btn" data-stat-level="20">Lv20</button>
+        <button type="button" class="stat-level-btn" data-stat-level="25">Lv25</button>
+    </div>
     <div class="filter-group-wrapper" id="class-wrapper">
         <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="class-label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
         <div class="filter-dropdown" id="class-dropdown"></div>
@@ -999,7 +1152,7 @@
             <button class="modal-close" id="close-build-name-modal">&times;</button>
         </div>
         <div class="modal-form">
-            <p style="color:var(--text-dim);font-size:.75rem;line-height:1.5;margin-bottom:10px;">This saves your current Favorites as a separate loadout. Your Favorites will not be changed.</p>
+            <p id="build-name-description" style="color:var(--text-dim);font-size:.75rem;line-height:1.5;margin-bottom:10px;">This saves your current Favorites as a separate loadout. Your Favorites will not be changed.</p>
             <input type="text" id="build-name-input" maxlength="30" placeholder="Loadout name (max 30 characters)" autocomplete="off">
             <div style="display:flex;gap:9px;margin-top:10px;">
                 <button class="submit-btn" id="confirm-build-name-btn">Save</button>
@@ -1009,9 +1162,27 @@
     </div>
 </div>
 
+<div class="modal-overlay" id="db-warning-modal">
+    <div class="modal-content" style="max-width:440px;">
+        <div class="modal-header">
+            <h2 id="db-warning-title">⚠️ Experimental Database</h2>
+            <button class="modal-close" id="close-db-warning-modal">&times;</button>
+        </div>
+        <div id="db-warning-body">
+            <p style="color:var(--text-dim);font-size:.8rem;line-height:1.6;margin-bottom:12px;">You are about to switch to the Nightling Invasion Theory Build.</p>
+            <p style="color:var(--text-dim);font-size:.78rem;line-height:1.6;margin-bottom:12px;">This is an experimental, unconfirmed database based on community observations.</p>
+            <p style="color:var(--text-dim);font-size:.78rem;line-height:1.6;margin-bottom:16px;">Zone and dungeon navigation stays the same. This warning appears only once.</p>
+        </div>
+        <div class="modal-actions">
+            <button type="button" class="submit-btn experimental-confirm" id="confirm-db-switch-btn">Switch to Experimental</button>
+            <button type="button" class="cancel-btn" id="cancel-db-switch-btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
 <button id="scroll-to-top-btn" title="Back to top" style="display:none;position:fixed;bottom:60px;right:20px;z-index:998;border:1px solid var(--gold-dim);">↑</button>
 <div class="toast-container" id="toast-container"></div>
-<div id="image-tooltip"><img src="" alt="Item image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="broken-placeholder" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;color:var(--text-dim);">🖼️ Image not available</div></div>
+<div id="image-tooltip"><img id="image-tooltip-img" src="" alt="Item image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="broken-placeholder" id="image-unavailable-text" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;color:var(--text-dim);">🖼️ Image not available</div></div>
 
 <script>
 (function() {
@@ -1020,6 +1191,9 @@
     const STORAGE_KEY = 'farever_data_v11';
     const VERSION_KEY = 'farever_data_version_v2';
     const DATA_URL = './farever_data.json';
+    const DB_MODE_KEY = 'farever_db_mode';
+    let currentDbMode = localStorage.getItem(DB_MODE_KEY) || 'v1';
+    let dbWarningAccepted = localStorage.getItem('farever_db_warning_accepted') === 'true';
     const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScAUAFWgtKAOMNfr4hipZMp9l8JMeeISnT3PBmS7sLgF-EfYg/formResponse';
     const ENTRY_ID = 'entry.1596480602';
 
@@ -1027,7 +1201,7 @@
     const STAT_OPTIONS = ['Armor', 'Vitality', 'Strength', 'Dexterity', 'Faith', 'Intelligence', 'Critical',
         'Armor Penetration', 'Magic Penetration', 'Fervor'];
     const WEAPON_TYPES = ['Sword', 'Dual Sword', 'Axe', 'Dual Axes', 'Daggers', 'Mace', 'Dual Maces', 'Spear',
-        'Fists', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Scepter', 'Crescent', 'Halos', 'Spellbook', 'Shield'];
+        'Fists', 'Two-Handed Sword', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Scepter', 'Crescent', 'Halos', 'Spellbook', 'Shield'];
     const ARMOR_TYPES = ['Head', 'Shoulders', 'Chest', 'Back', 'Hands', 'Waist', 'Legs', 'Feet'];
     const TRINKET_TYPES = ['Trinket'];
     const MOUNT_GLIDER_TYPES = ['Mount', 'Glider'];
@@ -1041,7 +1215,9 @@
             weapons:'Weapons', armor:'Armor', mount:'Mount', glider:'Glider',
             item_name:'Item Name', item_type:'Item Type', classes:'Classes', stats_header:'Stats', lv:'Lv',
             full_dungeon:'Full Dungeon', boss_only:'Boss Only', rarity_label:'Rarity:',
-            blue:'Blue', purple:'Purple', legendary:'Legendary',
+            blue:'Blue', purple:'Purple', legendary:'Legendary', green:'Green',
+            comparison_level:'Compare at', level_20_status:'Lv20 · Stable', level_25_status:'Lv25 · WIP',
+            level_data_pending:'Lv{level} data pending', pending_variant_warning:'Lv{level} data for this rarity is not yet verified.',
             skill_final_combo:'Final Combo Attack:', skill1:'Skill 1:', skill2:'Skill 2:', passive:'Passive:',
             search_placeholder:'Search items...', suggest_button:'💡 Suggest',
             modal_title:'💬 Send a Suggestion', modal_placeholder:'Type your suggestion, feedback, or missing item details...',
@@ -1053,12 +1229,12 @@
             empty_no_zones_title:'No zones available.', empty_no_zones_desc:'Load your JSON data to begin.',
             empty_no_match_title:'No zones or dungeons match your filters.', empty_no_match_desc:'Try adjusting the search or clearing some filters.',
             badge_item_singular:'item', badge_item_plural:'items', badge_dungeon_singular:'dungeon', badge_dungeon_plural:'dungeons',
-            header_subtitle:'dungeon drop database', cap_badge_text:'All stats at Lv20 cap',
+            header_subtitle:'dungeon drop database', cap_badge_text:'All stats at Lv{level}',
             image_unavailable:'🖼️ Image not available', toast_data_updated:'🔄 Data updated to version ',
             stat_Armor:'Armor', stat_Vitality:'Vitality', stat_Strength:'Strength', stat_Dexterity:'Dexterity',
             stat_Faith:'Faith', stat_Intelligence:'Intelligence', stat_Critical:'Critical',
             stat_Armor_Penetration:'Armor Penetration', stat_Magic_Penetration:'Magic Penetration', stat_Fervor:'Fervor',
-            type_Sword:'Sword', type_Dual_Sword:'Dual Sword', type_Axe:'Axe', type_Dual_Axes:'Dual Axes',
+            type_Sword:'Sword', type_Dual_Sword:'Dual Sword', type_Two_Handed_Sword:'Two-Handed Sword', type_Axe:'Axe', type_Dual_Axes:'Dual Axes',
             type_Daggers:'Daggers', type_Mace:'Mace', type_Dual_Maces:'Dual Maces', type_Spear:'Spear',
             type_Fists:'Fists', type_Two_Handed_Axe:'Two-Handed Axe', type_Two_Handed_Mace:'Two-Handed Mace',
             type_Bow:'Bow', type_Thrown:'Thrown', type_Scepter:'Scepter', type_Crescent:'Crescent',
@@ -1067,9 +1243,9 @@
             type_Hands:'Hands', type_Waist:'Waist', type_Legs:'Legs', type_Feet:'Feet',
             type_Trinket:'Trinket', type_Mount:'Mount', type_Glider:'Glider',
             whats_new_button:'What\'s new', support_button:'Support',
-            share_build_button:'🔗 Share Favorites', exit_build_view:'❌ Exit Build View',
+            exit_build_view:'❌ Exit Build View',
             build_view_title:'Viewing build: {name}',
-            toast_no_favorites:'No favorites to share.', toast_link_copied:'Shareable link copied to clipboard!',
+            toast_link_copied:'Shareable link copied to clipboard!',
             toast_cannot_modify_build:'Cannot modify favorites while viewing a shared build.',
             save_build_button:'＋ Create Loadout from Favorites', builds_header:'📁 Saved Loadouts',
             toast_build_saved:'Build saved!', toast_build_loaded:'Loaded "{name}"', toast_build_deleted:'Deleted "{name}"',
@@ -1079,6 +1255,29 @@
             save_build_modal_title:'Save Favorites as a Loadout', build_name_placeholder:'Loadout name (max 30 characters)',
             save_button:'Save', cancel_button:'Cancel', load_button:'Load', location:'Location',
             class_exclusive:'Class Exclusive',
+            db_toggle_standard:'📦 Standard · Confirmed',
+            db_toggle_experimental:'🧪 Experimental · Theory',
+            db_warning_title:'⚠️ Experimental Database',
+            db_warning_switch:'Switch to Experimental',
+            db_warning_switching:'Switching to the Nightling Invasion theory database — all loot is resolved by enemy faction.',
+            toast_db_standard:'Switched to Standard database', db_toggle_title:'Switch between confirmed data and the experimental theory', db_tooltip_standard:'Confirmed drops from recorded sources.', db_tooltip_experimental:'Unconfirmed theory — faction loot pools may apply across that faction’s dungeons.',
+            save_build_disabled_title:'Favorite items first, then save them as a loadout.', save_build_ready_title:'Save your {count} favorites as a named loadout.',
+            boss_kill_only:'Boss kill only', drop_rate_unconfirmed:'Estimated drop chance: 0.1%–1% (unconfirmed)',
+            search_filter_label:'Search: {query}', active_filters_label:'Active', clear_active_filters:'Clear all', remove_filter:'Remove {label}', favorites_options:'Favorite options',
+            build_name_description:'This saves your current Favorites as a separate loadout. Your Favorites will not be changed.',
+            share_button:'Share', delete_button:'Delete', load_build_title:'Open loadout', share_build_title:'Copy share link', delete_build_title:'Delete loadout',
+            viewer_empty:'This loadout contains no items.', viewer_empty_search:'No items match "{query}" in this loadout.',
+            empty_no_favorites_match:'No favorites match your current filters. Try clearing them.', share_prompt:'Copy this link to share your build:',
+            image_alt:'Item image', image_unavailable:'🖼️ Image not available',
+            social_discord_help:'Add me on Discord if you would like to help provide items or screenshots!',
+            social_liam_thanks:'Thanks so much to Liam for all the help, items, pictures, and shoutouts! He is a great guy — check him out!',
+            db_warning_intro:'You are about to switch to the Nightling Invasion Theory Build.',
+            db_warning_details:'This is an experimental, unconfirmed database based on community observations. Under this theory, all non-mount/non-glider loot is shared by enemy faction — any Kobold loot may drop from any Kobold dungeon, any Bee loot from any Bee dungeon, and so on.',
+            db_warning_navigation:'Zone and dungeon navigation stays the same: opening a dungeon shows its faction’s possible shared loot pool. This theory may be inaccurate. This warning appears only once.',
+            theoretical_pool:'Theoretical {faction} Loot Pool', possible_locations:'Possible locations under this theory:',
+            theoretical_pool_hint:'All loot in this enemy faction may drop here.',
+            theoretical_pool_exception:'Mounts and gliders remain dungeon-specific.',
+            experimental_other_sources_unconfirmed:'🧪 Other sources unconfirmed', possible_locations_short:'Possible locations',
         },
         fr: {
             filter_label:'Filtres', class_label:'Classe', stats_label:'Statistiques', category_label:'Catégorie', type_label:'Type',
@@ -1087,7 +1286,8 @@
             weapons:'Armes', armor:'Armure', mount:'Monture', glider:'Planeur',
             item_name:'Nom', item_type:'Type', classes:'Classes', stats_header:'Statistiques', lv:'Nv',
             full_dungeon:'Donjon complet', boss_only:'Boss seul', rarity_label:'Rareté:',
-            blue:'Bleu', purple:'Violet', legendary:'Légendaire',
+            blue:'Bleu', purple:'Violet', legendary:'Légendaire', green:'Vert',
+            comparison_level:'Comparer au', level_20_status:'Nv20 · Stable', level_25_status:'Nv25 · En cours', level_data_pending:'Données Nv{level} en attente', pending_variant_warning:'Les données Nv{level} pour cette rareté ne sont pas encore vérifiées.',
             skill_final_combo:'Attaque combo finale:', skill1:'Compétence 1:', skill2:'Compétence 2:', passive:'Passif:',
             search_placeholder:'Rechercher...', suggest_button:'💡 Suggérer',
             modal_title:'💬 Envoyer une suggestion', modal_placeholder:'Tapez votre suggestion, commentaire ou détail manquant...',
@@ -1099,12 +1299,12 @@
             empty_no_zones_title:'Aucune zone disponible.', empty_no_zones_desc:'Chargez vos données JSON pour commencer.',
             empty_no_match_title:'Aucune zone ou donjon ne correspond à vos filtres.', empty_no_match_desc:'Essayez d\'ajuster la recherche ou de supprimer des filtres.',
             badge_item_singular:'objet', badge_item_plural:'objets', badge_dungeon_singular:'donjon', badge_dungeon_plural:'donjons',
-            header_subtitle:'Base de données personnelle de drops de donjons', cap_badge_text:'Toutes les stats au cap Nv20',
+            header_subtitle:'Base de données personnelle de drops de donjons', cap_badge_text:'Toutes les stats au Nv{level}',
             image_unavailable:'Image indisponible', toast_data_updated:'🔄 Données mises à jour version ',
             stat_Armor:'Armure', stat_Vitality:'Vitalité', stat_Strength:'Force', stat_Dexterity:'Dextérité',
             stat_Faith:'Foi', stat_Intelligence:'Intelligence', stat_Critical:'Critique',
             stat_Armor_Penetration:'Pénétration d\'armure', stat_Magic_Penetration:'Pénétration magique', stat_Fervor:'Ferveur',
-            type_Sword:'Épée', type_Dual_Sword:'Épée double', type_Axe:'Hache', type_Dual_Axes:'Haches doubles',
+            type_Sword:'Épée', type_Dual_Sword:'Épée double', type_Two_Handed_Sword:'Épée à deux mains', type_Axe:'Hache', type_Dual_Axes:'Haches doubles',
             type_Daggers:'Dagues', type_Mace:'Masse', type_Dual_Maces:'Masses doubles', type_Spear:'Lance',
             type_Fists:'Poings', type_Two_Handed_Axe:'Hache à deux mains', type_Two_Handed_Mace:'Masse à deux mains',
             type_Bow:'Arc', type_Thrown:'Armes de jet', type_Scepter:'Sceptre', type_Crescent:'Croissant',
@@ -1114,7 +1314,7 @@
             type_Trinket:'Bijou', type_Mount:'Monture', type_Glider:'Planeur',
             whats_new_button:'Quoi de neuf', support_button:'Soutenir',
             exit_build_view:'❌ Quitter la vue build', build_view_title:'Build affiché : {name}',
-            toast_no_favorites:'Aucun favori à partager.', toast_link_copied:'Lien partageable copié dans le presse-papiers !',
+            toast_link_copied:'Lien partageable copié dans le presse-papiers !',
             toast_cannot_modify_build:'Impossible de modifier les favoris en affichant un build partagé.',
             save_build_button:'＋ Créer depuis les favoris', builds_header:'📁 Configurations enregistrées',
             toast_build_saved:'Build enregistré!', toast_build_loaded:'Chargé "{name}"', toast_build_deleted:'Supprimé "{name}"',
@@ -1124,6 +1324,29 @@
             save_build_modal_title:'Enregistrer les favoris comme configuration', build_name_placeholder:'Nom (30 caractères max)',
             save_button:'Enregistrer', cancel_button:'Annuler', load_button:'Charger', location:'Emplacement',
             class_exclusive:'Classe exclusive',
+            db_toggle_standard:'📦 Standard · Confirmé',
+            db_toggle_experimental:'🧪 Expérimental · Théorie',
+            db_warning_title:'⚠️ Base de données expérimentale',
+            db_warning_switch:'Passer en Expérimental',
+            db_warning_switching:'Passage à la base de données expérimentale Nightling Invasion — tout le butin est résolu par faction ennemie.',
+            toast_db_standard:'Passage à la base de données standard', db_toggle_title:'Basculer entre les données confirmées et la théorie expérimentale', db_tooltip_standard:'Drops confirmés à partir des sources enregistrées.', db_tooltip_experimental:'Théorie non confirmée — les pools de butin de faction peuvent s’appliquer à tous les donjons de cette faction.',
+            save_build_disabled_title:'Ajoutez d’abord des favoris, puis enregistrez-les comme configuration.', save_build_ready_title:'Enregistrer vos {count} favoris comme configuration.',
+            boss_kill_only:'Boss uniquement', drop_rate_unconfirmed:'Chance de drop estimée : 0,1 %–1 % (non confirmée)',
+            search_filter_label:'Recherche : {query}', active_filters_label:'Actifs', clear_active_filters:'Tout effacer', remove_filter:'Retirer {label}', favorites_options:'Options des favoris',
+            build_name_description:'Cela enregistre vos favoris actuels comme une configuration séparée. Vos favoris ne seront pas modifiés.',
+            share_button:'Partager', delete_button:'Supprimer', load_build_title:'Ouvrir la configuration', share_build_title:'Copier le lien de partage', delete_build_title:'Supprimer la configuration',
+            viewer_empty:'Cette configuration ne contient aucun objet.', viewer_empty_search:'Aucun objet ne correspond à « {query} » dans cette configuration.',
+            empty_no_favorites_match:'Aucun favori ne correspond à vos filtres actuels. Essayez de les effacer.', share_prompt:'Copiez ce lien pour partager votre configuration :',
+            image_alt:'Image de l’objet', image_unavailable:'🖼️ Image non disponible',
+            social_discord_help:'Ajoutez-moi sur Discord si vous souhaitez aider avec des objets ou des captures d’écran !',
+            social_liam_thanks:'Un immense merci à Liam pour son aide, ses objets, ses images et ses partages ! C’est un super gars, allez le voir !',
+            db_warning_intro:'Vous êtes sur le point de passer à la base théorique Nightling Invasion.',
+            db_warning_details:'Il s’agit d’une base expérimentale et non confirmée, fondée sur les observations de la communauté. Selon cette théorie, tout le butin hors montures et planeurs est partagé par faction ennemie : tout butin Kobold peut tomber dans n’importe quel donjon Kobold, et tout butin Abeille dans n’importe quel donjon Abeille.',
+            db_warning_navigation:'La navigation par zone et donjon reste identique : ouvrir un donjon affiche le pool de butin partagé possible de sa faction. Cette théorie peut être inexacte. Cet avertissement ne s’affiche qu’une fois.',
+            theoretical_pool:'Pool de butin théorique {faction}', possible_locations:'Lieux possibles selon cette théorie :',
+            theoretical_pool_hint:'Tout le butin de cette faction ennemie peut tomber ici.',
+            theoretical_pool_exception:'Les montures et planeurs restent propres au donjon.',
+            experimental_other_sources_unconfirmed:'🧪 Autres sources non confirmées', possible_locations_short:'Lieux possibles',
         },
         es: {
             filter_label:'Filtros', class_label:'Clase', stats_label:'Estadísticas', category_label:'Categoría', type_label:'Tipo',
@@ -1132,7 +1355,8 @@
             weapons:'Armas', armor:'Armadura', mount:'Montura', glider:'Planeador',
             item_name:'Nombre', item_type:'Tipo', classes:'Clases', stats_header:'Estadísticas', lv:'Nv',
             full_dungeon:'Mazmorra completa', boss_only:'Solo jefe', rarity_label:'Rareza:',
-            blue:'Azul', purple:'Púrpura', legendary:'Legendario',
+            blue:'Azul', purple:'Púrpura', legendary:'Legendario', green:'Verde',
+            comparison_level:'Comparar en', level_20_status:'Nv20 · Estable', level_25_status:'Nv25 · En progreso', level_data_pending:'Datos de Nv{level} pendientes', pending_variant_warning:'Los datos de Nv{level} de esta rareza aún no se verificaron.',
             skill_final_combo:'Ataque combo final:', skill1:'Habilidad 1:', skill2:'Habilidad 2:', passive:'Pasiva:',
             search_placeholder:'Buscar...', suggest_button:'💡 Sugerir',
             modal_title:'💬 Enviar sugerencia', modal_placeholder:'Escribe tu sugerencia, comentario o detalle faltante...',
@@ -1144,12 +1368,12 @@
             empty_no_zones_title:'No hay zonas disponibles.', empty_no_zones_desc:'Carga tus datos JSON para empezar.',
             empty_no_match_title:'Ninguna zona o mazmorra coincide con los filtros.', empty_no_match_desc:'Intenta ajustar la búsqueda o limpiar filtros.',
             badge_item_singular:'objeto', badge_item_plural:'objetos', badge_dungeon_singular:'mazmorra', badge_dungeon_plural:'mazmorras',
-            header_subtitle:'Base de datos personal de drops de mazmorras', cap_badge_text:'Todas las stats al límite Nv20',
+            header_subtitle:'Base de datos personal de drops de mazmorras', cap_badge_text:'Todas las stats en Nv{level}',
             image_unavailable:'Imagen no disponible', toast_data_updated:'🔄 Datos actualizados a versión ',
             stat_Armor:'Armadura', stat_Vitality:'Vitalidad', stat_Strength:'Fuerza', stat_Dexterity:'Destreza',
             stat_Faith:'Fe', stat_Intelligence:'Inteligencia', stat_Critical:'Crítico',
             stat_Armor_Penetration:'Penetración de armadura', stat_Magic_Penetration:'Penetración mágica', stat_Fervor:'Fervor',
-            type_Sword:'Espada', type_Dual_Sword:'Espada doble', type_Axe:'Hacha', type_Dual_Axes:'Hachas dobles',
+            type_Sword:'Espada', type_Dual_Sword:'Espada doble', type_Two_Handed_Sword:'Espada a dos manos', type_Axe:'Hacha', type_Dual_Axes:'Hachas dobles',
             type_Daggers:'Dagas', type_Mace:'Maza', type_Dual_Maces:'Mazas dobles', type_Spear:'Lanza',
             type_Fists:'Puños', type_Two_Handed_Axe:'Hacha a dos manos', type_Two_Handed_Mace:'Maza a dos manos',
             type_Bow:'Arco', type_Thrown:'Arrojadizas', type_Scepter:'Cetro', type_Crescent:'Media luna',
@@ -1159,7 +1383,7 @@
             type_Trinket:'Abalorio', type_Mount:'Montura', type_Glider:'Planeador',
             whats_new_button:'Novedades', support_button:'Apoyar',
             exit_build_view:'❌ Salir de la vista build', build_view_title:'Viendo build: {name}',
-            toast_no_favorites:'No hay favoritos para compartir.', toast_link_copied:'¡Enlace copiado al portapapeles!',
+            toast_link_copied:'¡Enlace copiado al portapapeles!',
             toast_cannot_modify_build:'No se pueden modificar favoritos mientras se ve un build compartido.',
             save_build_button:'＋ Crear desde favoritos', builds_header:'📁 Equipos guardados',
             toast_build_saved:'¡Build guardado!', toast_build_loaded:'Cargado "{name}"', toast_build_deleted:'Eliminado "{name}"',
@@ -1169,11 +1393,37 @@
             save_build_modal_title:'Guardar favoritos como equipo', build_name_placeholder:'Nombre (máx. 30 caracteres)',
             save_button:'Guardar', cancel_button:'Cancelar', load_button:'Cargar', location:'Ubicación',
             class_exclusive:'Clase exclusiva',
+            db_toggle_standard:'📦 Estándar · Confirmado',
+            db_toggle_experimental:'🧪 Experimental · Teoría',
+            db_warning_title:'⚠️ Base de datos experimental',
+            db_warning_switch:'Cambiar a Experimental',
+            db_warning_switching:'Cambiando a la base de datos experimental Nightling Invasion — todo el botín se resuelve por facción enemiga.',
+            toast_db_standard:'Cambiado a la base de datos estándar', db_toggle_title:'Cambiar entre datos confirmados y la teoría experimental', db_tooltip_standard:'Drops confirmados a partir de fuentes registradas.', db_tooltip_experimental:'Teoría sin confirmar — los pools de botín de facción pueden aplicarse en todas las mazmorras de esa facción.',
+            save_build_disabled_title:'Primero agrega favoritos y luego guárdalos como equipo.', save_build_ready_title:'Guardar tus {count} favoritos como equipo.',
+            boss_kill_only:'Solo jefe', drop_rate_unconfirmed:'Probabilidad estimada de drop: 0,1 %–1 % (sin confirmar)',
+            search_filter_label:'Buscar: {query}', active_filters_label:'Activos', clear_active_filters:'Limpiar todo', remove_filter:'Quitar {label}', favorites_options:'Opciones de favoritos',
+            build_name_description:'Esto guarda tus favoritos actuales como un equipo separado. Tus favoritos no cambiarán.',
+            share_button:'Compartir', delete_button:'Eliminar', load_build_title:'Abrir equipo', share_build_title:'Copiar enlace para compartir', delete_build_title:'Eliminar equipo',
+            viewer_empty:'Este equipo no contiene objetos.', viewer_empty_search:'Ningún objeto coincide con « {query} » en este equipo.',
+            empty_no_favorites_match:'Ningún favorito coincide con tus filtros actuales. Intenta limpiarlos.', share_prompt:'Copia este enlace para compartir tu equipo:',
+            image_alt:'Imagen del objeto', image_unavailable:'🖼️ Imagen no disponible',
+            social_discord_help:'¡Agrégame en Discord si quieres ayudar aportando objetos o capturas!',
+            social_liam_thanks:'¡Muchas gracias a Liam por toda la ayuda, objetos, imágenes y menciones! Es un gran tipo, ¡échale un vistazo!',
+            db_warning_intro:'Estás a punto de cambiar a la base teórica Nightling Invasion.',
+            db_warning_details:'Esta es una base experimental y sin confirmar basada en observaciones de la comunidad. Según esta teoría, todo el botín que no sea montura o planeador se comparte por facción enemiga: cualquier botín Kobold puede caer en cualquier mazmorra Kobold y cualquier botín Abeja en cualquier mazmorra Abeja.',
+            db_warning_navigation:'La navegación por zona y mazmorra no cambia: al abrir una mazmorra se muestra el posible botín compartido de su facción. Esta teoría puede ser inexacta. Esta advertencia solo se muestra una vez.',
+            theoretical_pool:'Botín teórico de {faction}', possible_locations:'Ubicaciones posibles según esta teoría:',
+            theoretical_pool_hint:'Todo el botín de esta facción enemiga puede caer aquí.',
+            theoretical_pool_exception:'Las monturas y planeadores siguen siendo específicos de la mazmorra.',
+            experimental_other_sources_unconfirmed:'🧪 Otras fuentes sin confirmar', possible_locations_short:'Ubicaciones posibles',
         }
     };
 
     let appData = { zones: [] };
     let appUpdateLog = null;
+    const STAT_LEVEL_KEY = 'farever_stat_comparison_level';
+    let currentStatLevel = localStorage.getItem(STAT_LEVEL_KEY) || '20';
+    if (!['20','25'].includes(currentStatLevel)) currentStatLevel = '20';
     let filterClasses = [], filterTypes = [], filterStats = [], searchQuery = '', filterCategories = [];
     let showFavoritesOnly = false;
     let classExclusive = false;
@@ -1200,7 +1450,11 @@
     const isMountOrGlider = item => Array.isArray(item.types)&&item.types.some(type=>MOUNT_GLIDER_TYPES.includes(type));
     function buildClassTagsHtml(item) {
         const classTags=sortByOrder(item.classes,CLASS_OPTIONS).map(cls=>'<span class="tag class-'+cls+'">'+escapeHtml(t(cls))+'</span>').join('');
-        return classTags+(isMountOrGlider(item)?'<span class="tag boss-kill-only">Boss kill only</span>':'');
+        return classTags+(isMountOrGlider(item)?'<span class="tag boss-kill-only">'+escapeHtml(t('boss_kill_only'))+'</span>':'');
+    }
+    function buildExperimentalScopeNote(item) {
+        if(currentDbMode!=='v2'||item.experimentalScope!=='unknown')return'';
+        return '<div class="experimental-scope-note">'+escapeHtml(t('experimental_other_sources_unconfirmed'))+'</div>';
     }
     const getTypeColorClass = type => type?'type-color-'+toSlug(type):'';
     const t = (key, fallback) => (translations[currentLang]&&translations[currentLang][key])||fallback||key;
@@ -1227,6 +1481,7 @@
     }
 
     const itemPassesFilter = item => {
+        if(!itemHasCurrentLevelData(item))return false;
         if(filterCategories.length>0){
             const passesWeapons=filterCategories.includes('weapons')&&item.types.some(t=>WEAPON_TYPES.includes(t));
             const passesArmor=filterCategories.includes('armor')&&item.types.some(t=>ARMOR_TYPES.includes(t)||t==='Trinket');
@@ -1260,6 +1515,83 @@
 
     function getStableId(name) { if(typeof name==='object'&&name!==null)return name.en||Object.values(name).find(v=>v)||''; return name||''; }
 
+    const EXPERIMENTAL_FACTION_PATTERNS = {
+        nepsid: ['lost city of mayda', 'crabgantua', 'abyss of new atlaan'],
+        kobold: ['mine estrone', 'ratsar', 'gorgon', 'cheese station'],
+        bee: ['hivetree', 'lady bee', 'honeyzabeth'],
+        crimson: ['crimson', 'chakram', 'high inquisitor']
+    };
+    function getExperimentalFaction(dungeonName) {
+        const name = getStableId(dungeonName).toLowerCase();
+        for (const [faction, patterns] of Object.entries(EXPERIMENTAL_FACTION_PATTERNS)) {
+            if (patterns.some(pattern => name.includes(pattern))) return faction;
+        }
+        return null;
+    }
+    function getFactionDisplayName(factionId) {
+        const pool = appData.factionPools && appData.factionPools[factionId];
+        return pool ? getLocalizedText(pool.displayName, currentLang) : factionId;
+    }
+
+    function normalizeLevelKey(level) {
+        const numeric = Number(level);
+        return String(Number.isFinite(numeric) && numeric > 0 ? numeric : 20);
+    }
+    function cloneLevelData(levelData) {
+        const cloned = {};
+        if (!levelData || typeof levelData !== 'object') return cloned;
+        Object.entries(levelData).forEach(([level, data]) => {
+            if (!data || typeof data !== 'object') return;
+            cloned[normalizeLevelKey(level)] = {
+                damageMin: data.damageMin,
+                damageMax: data.damageMax,
+                statValues: data.statValues && typeof data.statValues === 'object' ? {...data.statValues} : {},
+                image: data.image || ''
+            };
+        });
+        return cloned;
+    }
+    function normalizeBaseLevelData(rawItem, normalizedItem) {
+        const existing = cloneLevelData(rawItem.levelData || rawItem.levels);
+        if (Object.keys(existing).length) return existing;
+        const level = normalizeLevelKey(rawItem.level !== undefined ? rawItem.level : 20);
+        return { [level]: { statValues: {...normalizedItem.statValues}, image: normalizedItem.image || '' } };
+    }
+    function normalizeVariantLevelData(rawVariant, normalizedVariant) {
+        const existing = cloneLevelData(rawVariant.levelData || rawVariant.levels);
+        if (Object.keys(existing).length) return existing;
+        const level = normalizeLevelKey(rawVariant.level !== undefined ? rawVariant.level : 20);
+        return { [level]: {
+            damageMin: normalizedVariant.damageMin,
+            damageMax: normalizedVariant.damageMax,
+            statValues: {...normalizedVariant.statValues},
+            image: normalizedVariant.image || ''
+        } };
+    }
+    function getBaseLevelSnapshot(item, level=currentStatLevel) {
+        return item.levelData && item.levelData[String(level)] ? item.levelData[String(level)] : null;
+    }
+    function getVariantLevelSnapshot(variant, level=currentStatLevel) {
+        return variant && variant.levelData && variant.levelData[String(level)] ? variant.levelData[String(level)] : null;
+    }
+    function levelPendingText(level=currentStatLevel) {
+        return t('level_data_pending').replace('{level}', level);
+    }
+    function snapshotHasLevelData(snapshot) {
+        if (!snapshot) return false;
+        if (snapshot.statValues && Object.keys(snapshot.statValues).length > 0) return true;
+
+        return Number(snapshot.damageMin) > 0 || Number(snapshot.damageMax) > 0;
+    }
+    function itemHasCurrentLevelData(item) {
+
+        if (item.variants && item.variants.length > 1) {
+            return item.variants.some(variant => snapshotHasLevelData(getVariantLevelSnapshot(variant)));
+        }
+        if (item.variants && item.variants.length === 1) return snapshotHasLevelData(getVariantLevelSnapshot(item.variants[0]));
+        return snapshotHasLevelData(getBaseLevelSnapshot(item));
+    }
+
     function addDefaultsAndIds(serverData) {
         const zones = serverData.zones.map(zone => {
             zone.id = zone.id || toSlug(getStableId(zone.name));
@@ -1270,7 +1602,7 @@
                 dungeon.loot = (dungeon.loot||[]).map(item => {
                     const types = Array.isArray(item.types)?[...item.types]:[];
                     if(types.includes('Cape')){if(!types.includes('Back'))types[types.indexOf('Cape')]='Back';else types.splice(types.indexOf('Cape'),1);}
-                    return {
+                    const normalizedItem = {
                         id: item.id || (dungeon.id+'_'+toSlug(getStableId(item.name))),
                         name: item.name||'', types:types,
                         classes: Array.isArray(item.classes)?[...item.classes]:[],
@@ -1280,19 +1612,86 @@
                             rarity:v.rarity||'blue',
                             damageMin:v.damageMin!==undefined?v.damageMin:(v.damage?parseInt(v.damage.split('-')[0])||0:0),
                             damageMax:v.damageMax!==undefined?v.damageMax:(v.damage?parseInt(v.damage.split('-')[1])||0:0),
-                            statValues:(v.statValues&&typeof v.statValues==='object')?{...v.statValues}:{}
+                            statValues:(v.statValues&&typeof v.statValues==='object')?{...v.statValues}:{},
+                            image:v.image||'',
+                            level:v.level!==undefined?v.level:20,
+                            levelData:null
                         })):[],
                         skill1:item.skill1||'', skill2:item.skill2||'', skill3:item.skill3||'',
                         passive:item.passive||'', trinketPassive:item.trinketPassive||'',
+                        level:item.level!==undefined?item.level:20,
+                        experimentalScope:['faction','dungeon','unknown'].includes(item.experimentalScope)
+                            ? item.experimentalScope
+                            : (types.some(type=>type==='Mount'||type==='Glider')?'dungeon':'faction'),
                         nameId:toSlug(getStableId(item.name)),
                         rare:item.rare===true, image:item.image||''
                     };
+                    normalizedItem.levelData = normalizeBaseLevelData(item, normalizedItem);
+                    normalizedItem.variants = normalizedItem.variants.map((variant, index) => {
+                        variant.levelData = normalizeVariantLevelData(item.variants[index] || {}, variant);
+                        return variant;
+                    });
+                    return normalizedItem;
                 });
                 return dungeon;
             });
             return zone;
         });
         return { zones };
+    }
+
+    function buildFactionPools(zones) {
+        const factionPools = {}; // faction -> { items: [], displayName: {} }
+        const factionDisplayNames = {
+            'kobold': { en: 'Kobold', fr: 'Kobold', es: 'Kobold' },
+            'nepsid': { en: 'Nepsid', fr: 'Nepsid', es: 'Nepsid' },
+            'bee': { en: 'Bee', fr: 'Abeille', es: 'Abeja' },
+            'crimson': { en: 'Crimson', fr: 'Cramoisi', es: 'Carmesí' }
+        };
+
+        zones.forEach(zone => {
+            zone.dungeons.forEach(d => {
+                const fac = getExperimentalFaction(d.name);
+                if (!fac) return;
+                if (!factionPools[fac]) {
+                    factionPools[fac] = { items: [], locations: [], displayName: factionDisplayNames[fac] };
+                }
+                const sourceLocation = { zoneId: zone.id, zoneName: zone.name, dungeonId: d.id, dungeonName: d.name };
+                const pool = factionPools[fac];
+                if (!pool.locations.some(location => location.zoneId === sourceLocation.zoneId && location.dungeonId === sourceLocation.dungeonId)) {
+                    pool.locations.push(sourceLocation);
+                }
+                d.loot.filter(item => item.experimentalScope === 'faction' && !isMountOrGlider(item)).forEach(item => {
+
+                    const existing = pool.items.find(i => i.nameId === item.nameId);
+                    if (existing) {
+                        if (!existing._locations.some(location => location.zoneId === sourceLocation.zoneId && location.dungeonId === sourceLocation.dungeonId)) {
+                            existing._locations.push(sourceLocation);
+                        }
+                    } else {
+                        const clone = JSON.parse(JSON.stringify(item));
+                        clone._faction = fac;
+                        clone._locations = [sourceLocation];
+                        pool.items.push(clone);
+                    }
+                });
+            });
+        });
+
+
+        Object.values(factionPools).forEach(pool => {
+            pool.items.sort((a, b) => {
+                const rankA = getTypeGroupRank(getPrimaryType(a));
+                const rankB = getTypeGroupRank(getPrimaryType(b));
+                if (rankA !== rankB) return rankA - rankB;
+                const subA = getTypeSubOrder(getPrimaryType(a));
+                const subB = getTypeSubOrder(getPrimaryType(b));
+                if (subA !== subB) return subA - subB;
+                return getItemName(a).localeCompare(getItemName(b));
+            });
+        });
+
+        return factionPools;
     }
 
     async function fetchData(url) { const resp=await fetch(url,{cache:'no-cache'}); if(!resp.ok)throw new Error('Fetch failed'); return await resp.json(); }
@@ -1317,9 +1716,10 @@
                     loot:d.loot.map(l=>({
                         id:l.id, name:l.name, types:[...l.types], classes:[...l.classes],
                         stats:[...l.stats], statValues:{...l.statValues},
-                        variants:l.variants.map(v=>({rarity:v.rarity,damageMin:v.damageMin,damageMax:v.damageMax,statValues:{...v.statValues}})),
+                        variants:l.variants.map(v=>({rarity:v.rarity,damageMin:v.damageMin,damageMax:v.damageMax,statValues:{...v.statValues},image:v.image||'',level:v.level!==undefined?v.level:20,levelData:cloneLevelData(v.levelData)})),
                         skill1:l.skill1, skill2:l.skill2, skill3:l.skill3,
-                        passive:l.passive, trinketPassive:l.trinketPassive, rare:l.rare===true, image:l.image||''
+                        passive:l.passive, trinketPassive:l.trinketPassive,
+                        level:l.level!==undefined?l.level:20, levelData:cloneLevelData(l.levelData), experimentalScope:l.experimentalScope||'faction', rare:l.rare===true, image:l.image||''
                     }))
                 }))
             }))
@@ -1342,6 +1742,7 @@
                     zone.dungeons.forEach(d=>{if(oldDungeonMap.has(d.id))d._open=oldDungeonMap.get(d.id);});
                 });
                 appData.zones=newData.zones;
+                if(currentDbMode==='v2')appData.factionPools=buildFactionPools(appData.zones);
                 localStorage.setItem(VERSION_KEY,serverVer);
                 saveState();
                 renderUpdateLog(serverUpdateLog);
@@ -1362,30 +1763,90 @@
         return formatted;
     }
 
+    function getVariantLevel(variant) {
+        const level=Number(variant&&variant.level);
+        return Number.isFinite(level)&&level>0?level:20;
+    }
     function buildStatTagsHtml(item, variantIndex=null) {
-        let statValues={};
+        let snapshot=null;
         if(item.variants&&item.variants.length>1){
             const selIdx=variantIndex!==null?variantIndex:(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0);
-            statValues=item.variants[selIdx].statValues;
-        } else if(item.variants&&item.variants.length===1) statValues=item.variants[0].statValues;
-        else statValues=item.statValues||{};
+            snapshot=getVariantLevelSnapshot(item.variants[selIdx]);
+        } else if(item.variants&&item.variants.length===1) {
+            snapshot=getVariantLevelSnapshot(item.variants[0]);
+        } else snapshot=getBaseLevelSnapshot(item);
+        if(!snapshot||!snapshotHasLevelData(snapshot))return '<span class="tag level-data-pending">⚠ '+escapeHtml(levelPendingText())+'</span>';
+        const statValues=snapshot.statValues||{};
         const sortedStats=sortByOrder(item.stats,STAT_OPTIONS);
         const statTags=sortedStats.map(s=>{
             const displayStat=t('stat_'+s.replace(/ /g,'_'),s);
-            const val=statValues[s]?'<span class="stat-value">'+statValues[s]+'</span>':'';
+            const val=statValues[s]!==undefined&&statValues[s]!==''?'<span class="stat-value">'+statValues[s]+'</span>':'';
             return '<span class="tag stat-tag stat-'+toSlug(s)+'">'+escapeHtml(displayStat)+val+'</span>';
         }).join('');
-        return statTags+(isMountOrGlider(item)?'<span class="tag drop-rate-unconfirmed">Estimated drop chance: 0.1%–1% (unconfirmed)</span>':'');
+        return statTags+(isMountOrGlider(item)?'<span class="tag drop-rate-unconfirmed">'+escapeHtml(t('drop_rate_unconfirmed'))+'</span>':'');
+    }
+
+
+    function getDefaultVariant(item) {
+        if (!item.variants || item.variants.length === 0) return null;
+        return item.variants.find(variant => variant.rarity === 'blue') || item.variants[0];
+    }
+    function getItemImage(item, variant=null) {
+
+        const selectedSnapshot=getVariantLevelSnapshot(variant);
+        const baseSnapshot=getBaseLevelSnapshot(item);
+        const defaultSnapshot=getVariantLevelSnapshot(getDefaultVariant(item));
+        return (selectedSnapshot&&selectedSnapshot.image) ||
+            (baseSnapshot&&baseSnapshot.image) ||
+            (defaultSnapshot&&defaultSnapshot.image) || '';
+    }
+    function getDefaultItemImage(item) {
+        return getItemImage(item, getDefaultVariant(item));
     }
 
     function buildRaritySwitcherHtml(item) {
-        if(!item.variants||item.variants.length<=1)return'';
-        const sortedVariants=[...item.variants].sort((a,b)=>{const order={blue:0,purple:1,legendary:2};return(order[a.rarity]||0)-(order[b.rarity]||0);});
+        if(!item.variants||item.variants.length===0)return'';
+        const sortedVariants=[...item.variants].sort((a,b)=>{const order={green:0,blue:1,purple:2,legendary:3};return(order[a.rarity]||0)-(order[b.rarity]||0);});
         const defaultRarity=sortedVariants.find(v=>v.rarity==='blue')||sortedVariants[0];
         const defaultIndex=sortedVariants.indexOf(defaultRarity);
-        let buttons=sortedVariants.map((v,idx)=>{const label=t(v.rarity);const activeClass=idx===defaultIndex?' active':'';return'<button class="rarity-btn'+activeClass+'" data-rarity="'+v.rarity+'" data-rarity-index="'+idx+'">'+label+'</button>';}).join('');
-        return'<div class="rarity-switcher" aria-label="'+t('rarity_label')+'" data-default-index="'+defaultIndex+'">'+buttons+'</div>';
+        const warningText=snapshotHasLevelData(getVariantLevelSnapshot(defaultRarity))?'':t('pending_variant_warning').replace('{level}',currentStatLevel);
+        const buttons=sortedVariants.map((v,idx)=>{
+            const available=snapshotHasLevelData(getVariantLevelSnapshot(v));
+            const label=t(v.rarity)+(available?'':' ⚠');
+            const activeClass=idx===defaultIndex?' active':'';
+            return'<button class="rarity-btn'+activeClass+'" data-rarity="'+v.rarity+'" data-rarity-index="'+idx+'" data-variant-level="'+currentStatLevel+'">'+label+'</button>';
+        }).join('');
+        return'<div class="rarity-control"><div class="rarity-switcher" aria-label="'+t('rarity_label')+'" data-default-index="'+defaultIndex+'">'+buttons+'</div><div class="variant-level-warning" aria-live="polite"'+(warningText?'':' hidden')+'>'+escapeHtml(warningText)+'</div></div>';
     }
+
+    function getDungeonDisplayLoot(dungeon) {
+        if (currentDbMode !== 'v2') return dungeon.loot;
+        const factionId = getExperimentalFaction(dungeon.name);
+        const pool = factionId && appData.factionPools && appData.factionPools[factionId];
+
+        const dungeonSpecific = dungeon.loot.filter(item => isMountOrGlider(item) || item.experimentalScope !== 'faction');
+        if (!pool) return dungeon.loot;
+        const uniqueLoot = new Map();
+        [...pool.items, ...dungeonSpecific].forEach(item => {
+            uniqueLoot.set((item._faction || 'dungeon') + '|' + item.nameId, item);
+        });
+        return [...uniqueLoot.values()];
+    }
+
+    function renderTheoryPoolNotice(dungeon) {
+        if (currentDbMode !== 'v2') return '';
+        const factionId = getExperimentalFaction(dungeon.name);
+        if (!factionId || !appData.factionPools || !appData.factionPools[factionId]) return '';
+        const factionName = getFactionDisplayName(factionId);
+        const title = t('theoretical_pool').replace('{faction}', factionName);
+        return '<div class="theory-pool-notice">' +
+            '<span class="theory-pool-icon">🧪</span>' +
+            '<span>' + escapeHtml(title) + '</span>' +
+            '<span class="theory-pool-hint">— ' + escapeHtml(t('theoretical_pool_hint')) + '</span>' +
+            '<span class="theory-pool-exception">' + escapeHtml(t('theoretical_pool_exception')) + '</span>' +
+            '</div>';
+    }
+
 
     function renderItemRow(item, index) {
         const primaryType=getPrimaryType(item);
@@ -1394,9 +1855,11 @@
         const typeTags=sortedTypes.map(tn=>'<span class="tag type-tag type-'+toSlug(tn)+'">'+escapeHtml(t('type_'+tn.replace(/[ -]/g,'_'),tn))+'</span>').join('');
         const classTags=buildClassTagsHtml(item);
         const switcherHtml=buildRaritySwitcherHtml(item);
+        const scopeNoteHtml=buildExperimentalScopeNote(item);
         const defaultIndex=item.variants&&item.variants.length>1?(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0):0;
         const statTagsHtml=buildStatTagsHtml(item,defaultIndex);
-        const imageUrlAttr=item.image?' data-image-url="'+escapeHtml(item.image)+'"':'';
+        const defaultImage=getDefaultItemImage(item);
+        const imageUrlAttr=defaultImage?' data-image-url="'+escapeHtml(defaultImage)+'"':'';
         let detailHtml='';
         if((isWeapon(item)||item.types.includes('Shield'))&&hasAbilities(item)){
             const abils=[];
@@ -1415,7 +1878,7 @@
         const favClass=isFavorited(item.nameId)?' favorited':'';
         const starHtml='<span class="fav-star'+favClass+'" data-item-id="'+item.id+'" data-action="toggle-favorite">★</span>';
         return '<tr class="item-main-row'+rowClass+'" data-item-id="'+item.id+'"'+clickHandler+'>'+
-            '<td data-label="'+t('item_name')+'"><span class="item-name '+typeColorClass+'"'+imageUrlAttr+'>'+starHtml+escapeHtml(getItemName(item))+(detailHtml?' <span class="detail-indicator">▶</span>':'')+'</span>'+switcherHtml+'</td>'+
+            '<td data-label="'+t('item_name')+'"><span class="item-name '+typeColorClass+'"'+imageUrlAttr+'>'+starHtml+escapeHtml(getItemName(item))+(detailHtml?' <span class="detail-indicator">▶</span>':'')+'</span>'+switcherHtml+scopeNoteHtml+'</td>'+
             '<td data-label="'+t('item_type')+'"><div class="tag-container">'+typeTags+'</div></td>'+
             '<td data-label="'+t('classes')+'"><div class="tag-container">'+classTags+'</div></td>'+
             '<td data-label="'+t('stats_header')+'"><div class="tag-container stat-tags-container">'+statTagsHtml+'</div></td>'+
@@ -1430,7 +1893,7 @@
     }
 
     function renderDungeons(zone) {
-        const visibleDungeons=zone.dungeons.map(dungeon=>({dungeon,filtered:dungeon.loot.filter(itemPassesFilter)})).filter(({filtered})=>filtered.length>0);
+        const visibleDungeons=zone.dungeons.map(dungeon=>({dungeon,filtered:getDungeonDisplayLoot(dungeon).filter(itemPassesFilter)})).filter(({filtered})=>filtered.length>0);
         if(visibleDungeons.length===0)return'';
         const dList=visibleDungeons.map(({dungeon,filtered})=>{
             const sortedLoot=[...filtered].sort((a,b)=>{
@@ -1446,7 +1909,7 @@
                 '<div class="dungeon-header" data-action="toggle-dungeon" data-zone-id="'+zone.id+'" data-dungeon-id="'+dungeon.id+'">'+
                 '<span class="dungeon-chevron">▶</span><span class="dungeon-icon">🏰</span>'+
                 '<div class="dungeon-info"><div class="dungeon-name-display">'+renderDungeonName(dungeon.name)+'</div><span class="badge badge-item">'+filtered.length+' '+itemText+'</span></div>'+
-                '</div><div class="dungeon-body">'+renderLootTable(sortedLoot)+'</div></div>';
+                '</div><div class="dungeon-body">'+renderTheoryPoolNotice(dungeon)+renderLootTable(sortedLoot)+'</div></div>';
         }).join('');
         return'<div class="dungeons-list">'+dList+'</div>';
     }
@@ -1514,7 +1977,7 @@
                     if(!nameShortIdMap.has(canonicalName)){const shortName=generateShortId(canonicalName);nameShortIdMap.set(canonicalName,shortName);reverseNameShortIdMap.set(shortName,canonicalName);}
                 });
             });
-        });
+    });
     }
 
     function renderAll() {
@@ -1522,17 +1985,27 @@
         const scrollContainer=document.querySelector('.main-content');
         const scrollTop=scrollContainer?scrollContainer.scrollTop:0;
         buildShortIdMaps();
+
         if(sharedBuild||showFavoritesOnly){renderViewerMode();if(scrollContainer)requestAnimationFrame(()=>{scrollContainer.scrollTop=scrollTop;});return;}
+
+
+
         if(appData.zones.length===0){
             container.innerHTML='<div style="text-align:center;padding:60px 20px;color:var(--text-dim);"><div style="font-size:3rem;margin-bottom:18px;">🗺️</div><p style="font-size:1.05rem;margin-bottom:10px;font-weight:600;">'+t('empty_no_zones_title')+'</p><p style="font-size:0.82rem;">'+t('empty_no_zones_desc')+'</p></div>';
             updateFilterBarUI(); updateBuildViewUI(); renderBuildsDropdown();
             if(scrollContainer)requestAnimationFrame(()=>{scrollContainer.scrollTop=scrollTop;});
             return;
         }
-        const visibleZones=appData.zones.map(zone=>{const total=zone.dungeons.reduce((sum,d)=>sum+d.loot.filter(itemPassesFilter).length,0);return{zone,total};}).filter(({total})=>total>0);
+        const visibleZones=appData.zones.map(zone=>{
+            const dungeonLoot=zone.dungeons.map(d=>getDungeonDisplayLoot(d).filter(itemPassesFilter));
+            const total=currentDbMode==='v2'
+                ? new Set(dungeonLoot.flat().map(item=>(item._faction||'source')+'|'+item.nameId)).size
+                : dungeonLoot.reduce((sum,loot)=>sum+loot.length,0);
+            return{zone,total};
+        }).filter(({total})=>total>0);
         if(visibleZones.length===0){
             let emptyDesc=t('empty_no_match_desc');
-            if(showFavoritesOnly&&(filterClasses.length||filterTypes.length||filterStats.length||filterCategories.length||searchQuery))emptyDesc='No favorites match your current filters. Try clearing them.';
+            if(showFavoritesOnly&&(filterClasses.length||filterTypes.length||filterStats.length||filterCategories.length||searchQuery))emptyDesc=t('empty_no_favorites_match');
             container.innerHTML='<div style="text-align:center;padding:60px 20px;color:var(--text-dim);"><div style="font-size:3rem;margin-bottom:18px;">🔍</div><p style="font-size:1.05rem;margin-bottom:10px;font-weight:600;">'+t('empty_no_match_title')+'</p><p style="font-size:0.82rem;">'+emptyDesc+'</p></div>';
             updateFilterBarUI(); updateBuildViewUI(); renderBuildsDropdown();
             if(scrollContainer)requestAnimationFrame(()=>{scrollContainer.scrollTop=scrollTop;});
@@ -1555,12 +2028,27 @@
         if(scrollContainer)requestAnimationFrame(()=>{scrollContainer.scrollTop=scrollTop;});
     }
 
+    function getExperimentalViewerLocations(item, observedLocations) {
+        if(currentDbMode!=='v2'||item.experimentalScope!=='faction'||!appData.factionPools)return observedLocations;
+        const factionIds=new Set(observedLocations.map(location=>getExperimentalFaction(location.dungeonName)).filter(Boolean));
+        const locations=[];
+        factionIds.forEach(factionId=>{
+            const pool=appData.factionPools[factionId];
+            (pool&&pool.locations||[]).forEach(location=>{
+                const key=getStableId(location.zoneName)+'|'+getStableId(location.dungeonName);
+                if(!locations.some(existing=>existing.key===key))locations.push({...location,key});
+            });
+        });
+        return locations.length?locations:observedLocations;
+    }
+
     function renderViewerMode() {
         const container=document.getElementById('zones-container');
         const searchLower=searchQuery.toLowerCase();
         const grouped=new Map();
         allItemsMap.forEach((item,id)=>{
             if(!favoriteIds.has(item.nameId))return;
+            if(!itemHasCurrentLevelData(item))return;
             if(searchQuery&&!getItemName(item).toLowerCase().includes(searchLower))return;
             const location=itemLocationMap.get(id);
             if(!location)return;
@@ -1571,7 +2059,7 @@
         });
         const filteredItems=[...grouped.values()];
         if(filteredItems.length===0){
-            const emptyMsg=searchQuery?'<p>No items match "'+escapeHtml(searchQuery)+'" in this loadout.</p>':'<p>This loadout contains no items.</p>';
+            const emptyMsg=searchQuery?'<p>'+escapeHtml(t('viewer_empty_search').replace('{query}',searchQuery))+'</p>':'<p>'+escapeHtml(t('viewer_empty'))+'</p>';
             container.innerHTML='<div style="text-align:center;padding:60px 20px;color:var(--text-dim);">'+emptyMsg+'</div>';
             updateFilterBarUI(); updateBuildViewUI(); return;
         }
@@ -1582,14 +2070,16 @@
             if(subA!==subB)return subA-subB;
             return getItemName(a.item).localeCompare(getItemName(b.item));
         });
+        const viewerLocationLabel=currentDbMode==='v2'?t('possible_locations_short'):t('location');
         const rows=filteredItems.map(({item,locations})=>{
             const primaryType=getPrimaryType(item), typeColorClass=getTypeColorClass(primaryType);
             const sortedTypes=sortByOrder(item.types,TYPE_OPTIONS);
             const typeTags=sortedTypes.map(tn=>'<span class="tag type-tag type-'+toSlug(tn)+'">'+escapeHtml(t('type_'+tn.replace(/[ -]/g,'_'),tn))+'</span>').join('');
             const classTags=buildClassTagsHtml(item);
             const switcherHtml=buildRaritySwitcherHtml(item);
+            const scopeNoteHtml=buildExperimentalScopeNote(item);
             const defaultIndex=item.variants&&item.variants.length>1?(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0):0;
-            const statTagsHtml=buildStatTagsHtml(item,defaultIndex), imageUrlAttr=item.image?' data-image-url="'+escapeHtml(item.image)+'"':'';
+            const statTagsHtml=buildStatTagsHtml(item,defaultIndex), defaultImage=getDefaultItemImage(item), imageUrlAttr=defaultImage?' data-image-url="'+escapeHtml(defaultImage)+'"':'';
             const abils=[];
             if((isWeapon(item)||item.types.includes('Shield'))&&hasAbilities(item)){
                 if(getSkillText(item.skill1))abils.push('<div><strong class="'+typeColorClass+'">'+t('skill_final_combo')+'</strong> '+escapeHtml(getSkillText(item.skill1))+'</div>');
@@ -1601,20 +2091,28 @@
             }
             const detailHtml=abils.join(''), detailId='viewer-'+item.nameId;
             const starHtml='<span class="fav-star favorited" data-item-id="'+item.id+'" data-action="toggle-favorite">★</span>';
-            const locationHtml='<div class="source-list">'+locations.map(loc=>'<div class="source-entry"><span class="source-bullet">◆</span><span><span class="location-zone">'+escapeHtml(getZoneName({name:loc.zoneName}))+'</span> › <span class="location-dungeon">'+renderDungeonName(loc.dungeonName)+'</span></span></div>').join('')+'</div>';
+            const viewerLocations=getExperimentalViewerLocations(item,locations);
+            const locationTitleAttr=currentDbMode==='v2'?' title="'+escapeHtml(t('possible_locations'))+'"':'';
+            const locationHtml='<div class="source-list"'+locationTitleAttr+'>'+viewerLocations.map(loc=>'<div class="source-entry"><span class="source-bullet">◆</span><span><span class="location-zone">'+escapeHtml(getZoneName({name:loc.zoneName}))+'</span> › <span class="location-dungeon">'+renderDungeonName(loc.dungeonName)+'</span></span></div>').join('')+'</div>';
             return'<tr class="item-main-row'+(detailHtml?' item-row-has-details':'')+'" data-item-id="'+detailId+'"'+(detailHtml?' data-action="toggle-item-detail"':'')+'>'+
-                '<td data-label="'+t('item_name')+'"><span class="item-name '+typeColorClass+'"'+imageUrlAttr+'>'+starHtml+escapeHtml(getItemName(item))+(detailHtml?' <span class="detail-indicator">▶</span>':'')+'</span>'+switcherHtml+'</td>'+
+                '<td data-label="'+t('item_name')+'"><span class="item-name '+typeColorClass+'"'+imageUrlAttr+'>'+starHtml+escapeHtml(getItemName(item))+(detailHtml?' <span class="detail-indicator">▶</span>':'')+'</span>'+switcherHtml+scopeNoteHtml+'</td>'+
                 '<td data-label="'+t('item_type')+'"><div class="tag-container">'+typeTags+'</div></td><td data-label="'+t('classes')+'"><div class="tag-container">'+classTags+'</div></td>'+
-                '<td data-label="'+t('stats_header')+'"><div class="tag-container stat-tags-container">'+statTagsHtml+'</div></td><td data-label="'+t('location')+'" class="location-cell">'+locationHtml+'</td></tr>'+
+                '<td data-label="'+t('stats_header')+'"><div class="tag-container stat-tags-container">'+statTagsHtml+'</div></td><td data-label="'+viewerLocationLabel+'" class="location-cell">'+locationHtml+'</td></tr>'+
                 (detailHtml?'<tr class="item-detail-row" data-item-detail="'+detailId+'" style="display:none;"><td colspan="5" class="item-detail-cell"><div class="item-detail-content">'+detailHtml+'</div></td></tr>':'');
         }).join('');
-        const table='<div class="viewer-table-shell"><table class="loot-table"><thead><tr><th>'+t('item_name')+'</th><th>'+t('item_type')+'</th><th>'+t('classes')+'</th><th>'+t('stats_header')+'</th><th>'+t('location')+'</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+        const table='<div class="viewer-table-shell"><table class="loot-table"><thead><tr><th>'+t('item_name')+'</th><th>'+t('item_type')+'</th><th>'+t('classes')+'</th><th>'+t('stats_header')+'</th><th>'+viewerLocationLabel+'</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
         container.innerHTML=table;
         applyTableStripes(); updateFilterBarUI(); updateBuildViewUI();
     }
 
     function updateAllFilterCounts() {
-        const allItems=appData.zones.flatMap(z=>z.dungeons.flatMap(d=>d.loot));
+        const allItems=(currentDbMode==='v2'&&appData.factionPools)
+            ? [
+                ...Object.values(appData.factionPools).flatMap(pool=>pool.items),
+
+                ...appData.zones.flatMap(z=>z.dungeons.flatMap(d=>d.loot.filter(item=>item.experimentalScope!=='faction')))
+            ]
+            : appData.zones.flatMap(z=>z.dungeons.flatMap(d=>d.loot));
         const counts={class:{},stat:{},category:{},type:{}};
         CLASS_OPTIONS.forEach(c=>counts.class[c]=0);
         STAT_OPTIONS.forEach(s=>counts.stat[s]=0);
@@ -1646,20 +2144,25 @@
         const chips=[];
         const add=(kind,value,label)=>{
             const colorClass=(kind==='stat'?' stat-'+toSlug(value):kind==='class'?' class-'+toSlug(value):kind==='type'?' type-'+toSlug(value):kind==='category'?' category-'+toSlug(value):' chip-'+kind);
-            chips.push('<button class="active-filter-chip'+colorClass+'" data-filter-kind="'+kind+'" data-filter-value="'+escapeHtml(value)+'" title="Remove '+escapeHtml(label)+'">'+escapeHtml(label)+' <span aria-hidden="true">×</span></button>');
+            chips.push('<button class="active-filter-chip'+colorClass+'" data-filter-kind="'+kind+'" data-filter-value="'+escapeHtml(value)+'" title="'+escapeHtml(t('remove_filter').replace('{label}',label))+'">'+escapeHtml(label)+' <span aria-hidden="true">×</span></button>');
         };
         filterClasses.forEach(value=>add('class',value,t(value,value)));
         filterStats.forEach(value=>add('stat',value,t('stat_'+value.replace(/ /g,'_'),value)));
         filterTypes.forEach(value=>add('type',value,t('type_'+value.replace(/[ -]/g,'_'),value)));
         filterCategories.forEach(value=>add('category',value,t(value,value)));
         if(classExclusive)add('exclusive','true',t('class_exclusive'));
-        if(searchQuery)add('search',searchQuery,'Search: '+searchQuery);
+        if(searchQuery)add('search',searchQuery,t('search_filter_label').replace('{query}',searchQuery));
         const hasFilters=chips.length>0;
         row.style.display=hasFilters?'flex':'none';
-        row.innerHTML=hasFilters?'<span class="active-filters-label">Active</span>'+chips.join('')+'<button class="active-filters-clear" data-action="clear-active-filters">Clear all</button>':'';
+        row.innerHTML=hasFilters?'<span class="active-filters-label">'+escapeHtml(t('active_filters_label'))+'</span>'+chips.join('')+'<button class="active-filters-clear" data-action="clear-active-filters">'+escapeHtml(t('clear_active_filters'))+'</button>':'';
     }
 
     function updateFilterBarUI() {
+        document.querySelectorAll('#stat-level-control .stat-level-btn').forEach(btn=>{
+            const level=btn.dataset.statLevel;
+            btn.classList.toggle('active',level===currentStatLevel);
+            btn.textContent=t(level==='20'?'level_20_status':'level_25_status');
+        });
         document.querySelectorAll('.category-btn').forEach(b=>{b.classList.toggle('active',filterCategories.includes(b.dataset.category));const label=t(b.dataset.category);const ftn=b.childNodes[0];if(ftn&&ftn.nodeType===Node.TEXT_NODE)ftn.textContent=label;});
         const favBtn=document.getElementById('favorites-toggle-btn');
         favBtn.classList.toggle('active',showFavoritesOnly&&!sharedBuild);
@@ -1669,7 +2172,7 @@
         const saveBuildBtn=document.getElementById('save-build-btn');
         saveBuildBtn.style.display=sharedBuild?'none':'inline-flex';
         saveBuildBtn.disabled=favoriteIds.size===0;
-        saveBuildBtn.title=favoriteIds.size===0?'Favorite items first, then save them as a loadout.':'Save your '+favoriteIds.size+' favorites as a named loadout.';
+        saveBuildBtn.title=favoriteIds.size===0?t('save_build_disabled_title'):t('save_build_ready_title').replace('{count}',favoriteIds.size);
         const clearFavBtn=document.getElementById('clear-fav-btn');
         const favoritesMoreBtn=document.getElementById('favorites-more-btn');
         const hasFavoriteOptions=!sharedBuild&&favoriteIds.size>0;
@@ -1693,12 +2196,25 @@
         renderActiveFilterChips();
     }
 
+    function renderDbWarningUI() {
+        const title=document.getElementById('db-warning-title');
+        const body=document.getElementById('db-warning-body');
+        if(title)title.textContent=t('db_warning_title');
+        if(body)body.innerHTML='<div class="db-warning-lead"><span class="db-warning-icon">🧪</span><p class="db-warning-copy"><strong>'+escapeHtml(t('db_warning_intro'))+'</strong></p></div>'+            '<div class="db-warning-callout"><span class="db-warning-icon">✦</span><p class="db-warning-copy">'+escapeHtml(t('db_warning_details'))+'</p></div>'+            '<div class="db-warning-caution"><span class="db-warning-icon">⚠</span><p class="db-warning-copy">'+escapeHtml(t('db_warning_navigation'))+'</p></div>';
+        const confirmBtn=document.getElementById('confirm-db-switch-btn');
+        const cancelBtn=document.getElementById('cancel-db-switch-btn');
+        if(confirmBtn)confirmBtn.textContent=t('db_warning_switch');
+        if(cancelBtn)cancelBtn.textContent=t('cancel_button');
+    }
+
     function updateStaticUITexts() {
         document.getElementById('filter-label').textContent=t('filter_label');
         document.getElementById('class-label').textContent=t('class_label');
         document.getElementById('stats-label').textContent=t('stats_label');
         document.getElementById('category-label').textContent=t('category_label');
         document.getElementById('type-label').textContent=t('type_label');
+        document.getElementById('stat-level-label').textContent=t('comparison_level');
+        document.getElementById('stat-level-control').setAttribute('aria-label',t('comparison_level'));
         document.getElementById('search-input').placeholder=t('search_placeholder');
         document.getElementById('open-suggestion-btn').innerHTML=t('suggest_button');
         document.getElementById('modal-title').textContent=t('modal_title');
@@ -1709,7 +2225,7 @@
         document.getElementById('scroll-to-top-btn').title=t('scroll_top_title');
         document.getElementById('favorites-toggle-btn').textContent=t('favorites_button');
         document.getElementById('clear-fav-btn').textContent=t('clear_favorites');
-        document.getElementById('header-subtitle').innerHTML=t('header_subtitle')+' <span class="cap-badge">'+t('cap_badge_text')+'</span>';
+        document.getElementById('header-subtitle').innerHTML=t('header_subtitle')+' <span class="cap-badge" id="cap-badge-text">'+escapeHtml(t('cap_badge_text').replace('{level}',currentStatLevel))+'</span>';
         document.getElementById('save-build-text').textContent=t('save_build_button');
         document.getElementById('exit-build-btn').textContent=t('exit_build_view');
         document.querySelector('#builds-header .label').textContent=t('builds_header');
@@ -1726,6 +2242,23 @@
         document.getElementById('cancel-build-name-btn').textContent=t('cancel_button');
         const exclLabel=document.getElementById('class-exclusive-label');
         if(exclLabel)exclLabel.textContent=t('class_exclusive');
+        document.documentElement.lang=currentLang;
+        const favoritesMoreBtn=document.getElementById('favorites-more-btn');
+        if(favoritesMoreBtn){favoritesMoreBtn.title=t('favorites_options');favoritesMoreBtn.setAttribute('aria-label',t('favorites_options'));}
+        const buildDescription=document.getElementById('build-name-description');
+        if(buildDescription)buildDescription.textContent=t('build_name_description');
+        const discordTooltip=document.getElementById('discord-help-tooltip');
+        if(discordTooltip)discordTooltip.textContent=t('social_discord_help');
+        const liamTooltip=document.getElementById('liam-thanks-tooltip');
+        if(liamTooltip)liamTooltip.textContent=t('social_liam_thanks');
+        const dbToggle=document.getElementById('db-toggle-btn');
+        if(dbToggle)dbToggle.removeAttribute('title');
+        const imageTooltipImg=document.getElementById('image-tooltip-img');
+        if(imageTooltipImg)imageTooltipImg.alt=t('image_alt');
+        const imageUnavailable=document.getElementById('image-unavailable-text');
+        if(imageUnavailable)imageUnavailable.textContent=t('image_unavailable');
+        renderDbWarningUI();
+        renderBuildsDropdown();
     }
 
     function updateBuildViewUI() {
@@ -1764,9 +2297,9 @@
         dropdown.innerHTML=buildNames.map(name=>{
             const itemCount=builds[name].length;
             return'<div class="build-item"><span title="'+escapeHtml(name)+'">'+escapeHtml(name)+' ('+itemCount+')</span>'+
-                '<button class="load-build-btn" title="Open loadout" data-build-name="'+escapeHtml(name)+'">'+t('load_button')+'</button>'+
-                '<button class="share-build-btn" title="Copy share link" aria-label="Copy share link for '+escapeHtml(name)+'" data-build-name="'+escapeHtml(name)+'">Share</button>'+
-                '<button class="delete-build-btn" title="Delete loadout" aria-label="Delete '+escapeHtml(name)+'" data-build-name="'+escapeHtml(name)+'">Delete</button></div>';
+                '<button class="load-build-btn" title="'+escapeHtml(t('load_build_title'))+'" data-build-name="'+escapeHtml(name)+'">'+t('load_button')+'</button>'+
+                '<button class="share-build-btn" title="'+escapeHtml(t('share_build_title'))+'" aria-label="'+escapeHtml(t('share_build_title'))+' '+escapeHtml(name)+'" data-build-name="'+escapeHtml(name)+'">'+t('share_button')+'</button>'+
+                '<button class="delete-build-btn" title="'+escapeHtml(t('delete_build_title'))+'" aria-label="'+escapeHtml(t('delete_build_title'))+' '+escapeHtml(name)+'" data-build-name="'+escapeHtml(name)+'">'+t('delete_button')+'</button></div>';
         }).join('');
     }
 
@@ -1824,7 +2357,7 @@
         const ids=builds[name];
         if(!ids||ids.length===0){showToast(t('toast_build_no_items'),'red');return;}
         const url=buildShareUrl(new Set(ids),name);
-        navigator.clipboard.writeText(url).then(()=>{showToast(t('toast_link_copied'));}).catch(()=>{prompt('Copy this link to share your build:',url);});
+        navigator.clipboard.writeText(url).then(()=>{showToast(t('toast_link_copied'));}).catch(()=>{prompt(t('share_prompt'),url);});
     }
 
     function toggleFilter(type, value) {
@@ -1899,6 +2432,16 @@
             btn.classList.add('active');
             const statContainer=row.querySelector('.stat-tags-container');
             if(statContainer)statContainer.innerHTML=buildStatTagsHtml(item,variantIndex);
+            const levelWarning=switcher.closest('.rarity-control').querySelector('.variant-level-warning');
+            const variant=item.variants[variantIndex];
+            const warningText=snapshotHasLevelData(getVariantLevelSnapshot(variant))?'':t('pending_variant_warning').replace('{level}',currentStatLevel);
+            if(levelWarning){levelWarning.textContent=warningText;levelWarning.hidden=!warningText;}
+            const nameEl=row.querySelector('.item-name');
+            if(nameEl){
+                const img=getItemImage(item, variant);
+                if(img)nameEl.dataset.imageUrl=img;
+                else delete nameEl.dataset.imageUrl;
+            }
         });
     }
 
@@ -2028,6 +2571,15 @@
                 favoritesMoreBtn.setAttribute('aria-expanded','false');
             }
         });
+        document.getElementById('stat-level-control').addEventListener('click',(e)=>{
+            const btn=e.target.closest('.stat-level-btn');
+            if(!btn||btn.dataset.statLevel===currentStatLevel)return;
+            currentStatLevel=btn.dataset.statLevel;
+            localStorage.setItem(STAT_LEVEL_KEY,currentStatLevel);
+            const capBadge=document.getElementById('cap-badge-text');
+            if(capBadge)capBadge.textContent=t('cap_badge_text').replace('{level}',currentStatLevel);
+            renderAll();
+        });
         const searchInput=document.getElementById('search-input');
         let debounceTimer;
         searchInput.addEventListener('input',()=>{clearTimeout(debounceTimer);debounceTimer=setTimeout(()=>{searchQuery=searchInput.value.trim();renderAll();},250);});
@@ -2055,6 +2607,8 @@
         });
         const favToggleBtn=document.getElementById('favorites-toggle-btn');
         favToggleBtn.addEventListener('click',()=>{
+            favoritesOptionsMenu.classList.remove('open');
+            favoritesMoreBtn.setAttribute('aria-expanded','false');
             if(showFavoritesOnly){showFavoritesOnly=false;favToggleBtn.classList.remove('active');updateFilterGroupVisibility();renderAll();return;}
             showFavoritesOnly=true;favToggleBtn.classList.add('active');
             filterClasses=[];filterTypes=[];filterStats=[];filterCategories=[];searchQuery='';classExclusive=false;
@@ -2096,11 +2650,23 @@
         const tooltipEl=document.getElementById('image-tooltip');
         const imgEl=tooltipEl.querySelector('img');
         const placeholderEl=tooltipEl.querySelector('.broken-placeholder');
-        let activeElement=null, tooltipVisible=false;
-        function resetTooltipImage(){imgEl.style.display='';placeholderEl.style.display='none';}
-        function showTooltip(url){resetTooltipImage();imgEl.src=url;tooltipEl.style.display='block';tooltipVisible=true;}
+        let activeElement=null, tooltipVisible=false, lastPointerEvent=null;
+        function resetTooltipImage(){
+            imgEl.style.display=''; placeholderEl.style.display='none';
+            tooltipEl.classList.remove('wide-image');
+        }
+        function showTooltip(url){
+            resetTooltipImage();
+
+            imgEl.onload=()=>{
+                tooltipEl.classList.toggle('wide-image', imgEl.naturalWidth / imgEl.naturalHeight > 2);
+                if(lastPointerEvent)updateTooltipPosition(lastPointerEvent);
+            };
+            imgEl.src=url; tooltipEl.style.display='block'; tooltipVisible=true;
+        }
         function hideTooltip(){tooltipEl.style.display='none';tooltipVisible=false;activeElement=null;imgEl.src='';}
         function updateTooltipPosition(e){
+            lastPointerEvent=e;
             const offsetX=15,offsetY=15;
             let left=e.clientX+offsetX,top=e.clientY+offsetY;
             const tooltipRect=tooltipEl.getBoundingClientRect();
@@ -2121,7 +2687,7 @@
         async function switchLanguage(lang){
             if(currentLang===lang)return;
             currentLang=lang;localStorage.setItem('farever_lang',lang);
-            updateStaticUITexts();updateAllFilterButtonLabels();setActiveButton(lang);
+            updateStaticUITexts();updateAllFilterButtonLabels();updateDbToggleUI();setActiveButton(lang);
             await loadAndRender();
         }
         buttons.forEach(btn=>{btn.addEventListener('click',()=>switchLanguage(btn.dataset.lang));});
@@ -2129,9 +2695,19 @@
     }
 
     async function loadAndRender() {
+        const previousView = {
+            favoritesOnly: showFavoritesOnly,
+            sharedBuild: sharedBuild ? { ids: [...favoriteIds], name: sharedBuild.name || '' } : null
+        };
         const loaded=await loadData();
         appData={zones:loaded.zones};
         appData.zones=addDefaultsAndIds({zones:appData.zones}).zones;
+        if (currentDbMode === 'v2') {
+
+            appData.factionPools = buildFactionPools(appData.zones);
+        } else {
+            appData.factionPools = null;
+        }
         localStorage.setItem(VERSION_KEY,loaded.version||'0');
         saveState();
         filterTypes=filterTypes.filter(t=>t!=='Mount'&&t!=='Glider');
@@ -2145,9 +2721,80 @@
             localStorage.setItem('farever_favorites_v1',JSON.stringify([...migrated]));
         }
         const urlBuild=getBuildFromUrl();
-        if(urlBuild){favoriteIds=new Set(urlBuild.ids);showFavoritesOnly=true;sharedBuild={ids:urlBuild.ids,name:urlBuild.name};}
-        else{sharedBuild=null;favoriteIds=new Set(JSON.parse(localStorage.getItem('farever_favorites_v1')||'[]'));}
+        if(urlBuild){
+            favoriteIds=new Set(urlBuild.ids);
+            showFavoritesOnly=true;
+            sharedBuild={ids:urlBuild.ids,name:urlBuild.name};
+        } else if(previousView.sharedBuild) {
+
+            favoriteIds=new Set(previousView.sharedBuild.ids);
+            showFavoritesOnly=true;
+            sharedBuild={ids:previousView.sharedBuild.ids,name:previousView.sharedBuild.name};
+        } else {
+            sharedBuild=null;
+            showFavoritesOnly=previousView.favoritesOnly;
+            favoriteIds=new Set(JSON.parse(localStorage.getItem('farever_favorites_v1')||'[]'));
+        }
         renderAll();
+    }
+
+    function updateDbToggleUI() {
+        const btn = document.getElementById('db-toggle-btn');
+        if (!btn) return;
+        const isExperimental = currentDbMode === 'v2';
+        const label = t(isExperimental ? 'db_toggle_experimental' : 'db_toggle_standard');
+        const tooltip = t(isExperimental ? 'db_tooltip_experimental' : 'db_tooltip_standard');
+        btn.innerHTML = '<span class="db-mode-label">'+escapeHtml(label)+'</span><span class="db-mode-tooltip" id="db-mode-tooltip" role="tooltip">'+escapeHtml(tooltip)+'</span>';
+        btn.setAttribute('aria-label', t('db_toggle_title') + '. ' + label + '. ' + tooltip);
+        btn.classList.toggle('experimental',isExperimental);
+    }
+
+    function setupDbToggle() {
+        const btn = document.getElementById('db-toggle-btn');
+        const modal = document.getElementById('db-warning-modal');
+        const closeBtn = document.getElementById('close-db-warning-modal');
+        const confirmBtn = document.getElementById('confirm-db-switch-btn');
+        const cancelBtn = document.getElementById('cancel-db-switch-btn');
+
+        updateDbToggleUI();
+
+        btn.addEventListener('click', () => {
+
+            if (currentDbMode === 'v2') {
+                currentDbMode = 'v1';
+                localStorage.setItem(DB_MODE_KEY, 'v1');
+                updateDbToggleUI();
+                loadAndRender();
+                showToast(t('toast_db_standard'));
+                return;
+            }
+
+            if (dbWarningAccepted) {
+                currentDbMode = 'v2';
+                localStorage.setItem(DB_MODE_KEY, 'v2');
+                updateDbToggleUI();
+                loadAndRender();
+                showToast(t('db_warning_switching'));
+                return;
+            }
+            modal.classList.add('active');
+        });
+
+        function closeModal() { modal.classList.remove('active'); }
+        closeBtn.addEventListener('click', closeModal);
+        cancelBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+        confirmBtn.addEventListener('click', () => {
+            dbWarningAccepted = true;
+            localStorage.setItem('farever_db_warning_accepted', 'true');
+            currentDbMode = 'v2';
+            localStorage.setItem(DB_MODE_KEY, 'v2');
+            updateDbToggleUI();
+            closeModal();
+            loadAndRender();
+            showToast(t('db_warning_switching'));
+        });
     }
 
     async function init() {
@@ -2160,6 +2807,7 @@
         setupSuggestionModal();
         setupImageTooltip();
         setupLanguageSwitcher();
+        setupDbToggle();
         await loadAndRender();
 
         const toggleBtn=document.getElementById('update-log-toggle-btn');
