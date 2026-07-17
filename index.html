@@ -1518,7 +1518,7 @@
         if(classExclusive&&item.classes.length!==1)return false;
         if(filterTypes.length&&!filterTypes.some(t=>item.types.includes(t)))return false;
         if(filterStats.length&&!filterStats.every(s=>item.stats.includes(s)))return false;
-        if(searchQuery&&!getItemName(item).toLowerCase().includes(searchQuery.toLowerCase()))return false;
+        if(searchQuery){const q=searchQuery.toLowerCase();const name=getItemName(item).toLowerCase();const noSpaceName=name.replace(/\s+/g,'');const noSpaceQ=q.replace(/\s+/g,'');if(!name.includes(q)&&!noSpaceName.includes(noSpaceQ))return false;}
         if(showFavoritesOnly&&!favoriteIds.has(item.nameId))return false;
         return true;
     };
@@ -1533,7 +1533,7 @@
         }
         if(filterTypes.length&&!filterTypes.some(t=>item.types.includes(t)))return false;
         if(filterStats.length&&!filterStats.every(s=>item.stats.includes(s)))return false;
-        if(searchQuery&&!getItemName(item).toLowerCase().includes(searchQuery.toLowerCase()))return false;
+        if(searchQuery){const q=searchQuery.toLowerCase();const name=getItemName(item).toLowerCase();const noSpaceName=name.replace(/\s+/g,'');const noSpaceQ=q.replace(/\s+/g,'');if(!name.includes(q)&&!noSpaceName.includes(noSpaceQ))return false;}
         if(showFavoritesOnly&&!favoriteIds.has(item.nameId))return false;
         return true;
     };
