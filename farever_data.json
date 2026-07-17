@@ -8014,6 +8014,26 @@
                       "image": "images/MartyrofEnripitB.png"
                     }
                   }
+                },
+                {
+                  "rarity": "purple",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Strength": 29,
+                        "Critical": 75
+                      },
+                      "image": "images/MartyrofEnripitP.png"
+                    }
+                  }
                 }
               ]
             }
