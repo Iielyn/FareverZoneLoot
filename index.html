@@ -137,7 +137,7 @@
             background: rgba(212,167,69,0.1); border: 1px solid var(--gold-dim); color: var(--gold);
             margin-left: 6px; white-space: nowrap;
         }
-        /* Keep the database mode control centered and separate from search/actions. */
+
         .header {
             display: grid;
             grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -313,6 +313,19 @@
         .stat-level-btn { border: 1px solid transparent; border-radius: var(--radius-pill); background: transparent; color: var(--text-dim); cursor: pointer; padding: 5px 9px; font: 700 .62rem var(--font); transition: all var(--transition); white-space: nowrap; }
         .stat-level-btn:hover { color: var(--text); background: var(--surface3); }
         .stat-level-btn.active { color: #bfdbfe; border-color: rgba(96,165,250,.52); background: rgba(59,130,246,.17); box-shadow: 0 0 9px rgba(59,130,246,.16); }
+
+        .stat-level-btn[data-view-mode="dungeons"].active {
+            color: #fecaca;
+            border-color: rgba(248,113,113,.58);
+            background: rgba(248,113,113,.16);
+            box-shadow: 0 0 9px rgba(248,113,113,.20);
+        }
+        .stat-level-btn[data-view-mode="dungeons"].active:hover {
+            color: #fff1f2;
+            border-color: #f87171;
+            background: rgba(248,113,113,.25);
+            box-shadow: 0 0 12px rgba(248,113,113,.30);
+        }
         .stat-level-btn[data-stat-level="25"].active { color: #fde68a; border-color: rgba(251,191,36,.55); background: rgba(251,191,36,.14); box-shadow: 0 0 9px rgba(251,191,36,.14); }
 
         .filter-label, .active-filters-label {
@@ -766,7 +779,7 @@
             position: fixed; z-index: 10000; pointer-events: none;
             background: var(--surface); border: 1px solid var(--border-light);
             border-radius: var(--radius-sm); padding: 4px; display: none;
-            /* Normal tooltips stay compact; very wide comparison captures get extra room. */
+
             max-width: min(468px, calc(100vw - 24px)); max-height: min(348px, calc(100vh - 24px)); overflow: hidden;
             box-shadow: var(--shadow-lg);
         }
@@ -862,7 +875,7 @@
             padding: 10px 24px; text-align: center; font-size: 0.64rem; color: var(--text-dim);
         }
 
-        /* Experimental mode still uses the normal Zone › Dungeon flow; this label makes
+
            the replaced faction pool obvious without changing how players navigate. */
         .theory-pool-notice {
             display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 9px 14px;
@@ -1069,6 +1082,11 @@
         <button type="button" class="stat-level-btn" data-stat-level="20">Lv20</button>
         <button type="button" class="stat-level-btn" data-stat-level="25">Lv25</button>
     </div>
+    <div class="stat-level-control" id="view-mode-control" aria-label="Layout view mode">
+        <span class="stat-level-label" id="view-mode-label">View</span>
+        <button type="button" class="stat-level-btn" data-view-mode="loot">Loot</button>
+        <button type="button" class="stat-level-btn" data-view-mode="dungeons">Dungeons</button>
+    </div>
     <div class="filter-group-wrapper" id="class-wrapper">
         <div class="filter-group-header"><span class="arrow">▼</span><span class="label" id="class-label">Class</span><span class="active-count" id="class-count" style="display:none">0</span></div>
         <div class="filter-dropdown" id="class-dropdown"></div>
@@ -1212,6 +1230,7 @@
         en: {
             filter_label:'Filters', class_label:'Class', stats_label:'Stats', category_label:'Category', type_label:'Type',
             clear_filters:'✕ Clear Filters', clear_favorites:'🗑️ Clear Favorites', favorites_button:'⭐ Favorites',
+            view_label:'View', view_loot:'Loot', view_dungeons:'Dungeons',
             warrior:'Warrior', rogue:'Rogue', mage:'Mage', priest:'Priest',
             weapons:'Weapons', armor:'Armor', mount:'Mount', glider:'Glider',
             item_name:'Item Name', item_type:'Item Type', classes:'Classes', stats_header:'Stats', lv:'Lv',
@@ -1283,6 +1302,7 @@
         fr: {
             filter_label:'Filtres', class_label:'Classe', stats_label:'Statistiques', category_label:'Catégorie', type_label:'Type',
             clear_filters:'✕ Effacer les filtres', clear_favorites:'🗑️ Effacer les favoris', favorites_button:'⭐ Favoris',
+            view_label:'Vue', view_loot:'Butin', view_dungeons:'Donjons',
             warrior:'Guerrier', rogue:'Voleur', mage:'Mage', priest:'Prêtre',
             weapons:'Armes', armor:'Armure', mount:'Monture', glider:'Planeur',
             item_name:'Nom', item_type:'Type', classes:'Classes', stats_header:'Statistiques', lv:'Nv',
@@ -1352,6 +1372,7 @@
         es: {
             filter_label:'Filtros', class_label:'Clase', stats_label:'Estadísticas', category_label:'Categoría', type_label:'Tipo',
             clear_filters:'✕ Limpiar filtros', clear_favorites:'🗑️ Limpiar favoritos', favorites_button:'⭐ Favoritos',
+            view_label:'Vista', view_loot:'Botín', view_dungeons:'Mazmorras',
             warrior:'Guerrero', rogue:'Pícaro', mage:'Mago', priest:'Sacerdote',
             weapons:'Armas', armor:'Armadura', mount:'Montura', glider:'Planeador',
             item_name:'Nombre', item_type:'Tipo', classes:'Clases', stats_header:'Estadísticas', lv:'Nv',
@@ -1425,6 +1446,9 @@
     const STAT_LEVEL_KEY = 'farever_stat_comparison_level';
     let currentStatLevel = localStorage.getItem(STAT_LEVEL_KEY) || '20';
     if (!['20','25'].includes(currentStatLevel)) currentStatLevel = '20';
+    const VIEW_MODE_KEY = 'farever_view_mode';
+    let currentViewMode = localStorage.getItem(VIEW_MODE_KEY) || 'loot';
+    if (!['loot', 'dungeons'].includes(currentViewMode)) currentViewMode = 'loot';
     let filterClasses = [], filterTypes = [], filterStats = [], searchQuery = '', filterCategories = [];
     let showFavoritesOnly = false;
     let classExclusive = false;
@@ -1988,7 +2012,7 @@
         const scrollTop=scrollContainer?scrollContainer.scrollTop:0;
         buildShortIdMaps();
 
-        if(sharedBuild||showFavoritesOnly){renderViewerMode();if(scrollContainer)requestAnimationFrame(()=>{scrollContainer.scrollTop=scrollTop;});return;}
+        if(currentViewMode==='loot'||sharedBuild||showFavoritesOnly){renderLootFirstMode();if(scrollContainer)requestAnimationFrame(()=>{scrollContainer.scrollTop=scrollTop;});return;}
 
 
 
@@ -2044,14 +2068,32 @@
         return locations.length?locations:observedLocations;
     }
 
-    function renderViewerMode() {
+    function renderLootFirstMode() {
         const container=document.getElementById('zones-container');
         const searchLower=searchQuery.toLowerCase();
+
+        const dungeonRanks = new Map();
+        let globalDungeonIndex = 0;
+        appData.zones.forEach(z => {
+            z.dungeons.forEach(d => {
+                const key = getStableId(z.name) + '|' + getStableId(d.name);
+                dungeonRanks.set(key, globalDungeonIndex++);
+            });
+        });
+
+        function getItemMinDungeonRank(itemLocations) {
+            let minRank = Infinity;
+            itemLocations.forEach(loc => {
+                const key = getStableId(loc.zoneName) + '|' + getStableId(loc.dungeonName);
+                const rank = dungeonRanks.get(key);
+                if (rank !== undefined && rank < minRank) minRank = rank;
+            });
+            return minRank === Infinity ? 999999 : minRank;
+        }
+
         const grouped=new Map();
         allItemsMap.forEach((item,id)=>{
-            if(!favoriteIds.has(item.nameId))return;
-            if(!itemHasCurrentLevelData(item))return;
-            if(searchQuery&&!getItemName(item).toLowerCase().includes(searchLower))return;
+            if(!itemPassesFilter(item))return;
             const location=itemLocationMap.get(id);
             if(!location)return;
             if(!grouped.has(item.nameId))grouped.set(item.nameId,{item,locations:[]});
@@ -2061,15 +2103,31 @@
         });
         const filteredItems=[...grouped.values()];
         if(filteredItems.length===0){
-            const emptyMsg=searchQuery?'<p>'+escapeHtml(t('viewer_empty_search').replace('{query}',searchQuery))+'</p>':'<p>'+escapeHtml(t('viewer_empty'))+'</p>';
+            let emptyMsg='';
+            if(showFavoritesOnly || sharedBuild) {
+                emptyMsg=searchQuery?'<p>'+escapeHtml(t('viewer_empty_search').replace('{query}',searchQuery))+'</p>':'<p>'+escapeHtml(t('viewer_empty'))+'</p>';
+            } else {
+                let emptyDesc=t('empty_no_match_desc');
+                emptyMsg='<p style="font-size:1.05rem;margin-bottom:10px;font-weight:600;">'+escapeHtml(t('empty_no_match_title'))+'</p><p style="font-size:0.82rem;">'+escapeHtml(emptyDesc)+'</p>';
+            }
             container.innerHTML='<div style="text-align:center;padding:60px 20px;color:var(--text-dim);">'+emptyMsg+'</div>';
             updateFilterBarUI(); updateBuildViewUI(); return;
         }
         filteredItems.sort((a,b)=>{
-            const rankA=getTypeGroupRank(getPrimaryType(a.item)),rankB=getTypeGroupRank(getPrimaryType(b.item));
-            if(rankA!==rankB)return rankA-rankB;
-            const subA=getTypeSubOrder(getPrimaryType(a.item)),subB=getTypeSubOrder(getPrimaryType(b.item));
+            const viewerLocationsA = getExperimentalViewerLocations(a.item, a.locations);
+            const viewerLocationsB = getExperimentalViewerLocations(b.item, b.locations);
+            const rankA = getItemMinDungeonRank(viewerLocationsA);
+            const rankB = getItemMinDungeonRank(viewerLocationsB);
+            if (rankA !== rankB) return rankA - rankB;
+
+            const typeRankA=getTypeGroupRank(getPrimaryType(a.item));
+            const typeRankB=getTypeGroupRank(getPrimaryType(b.item));
+            if(typeRankA!==typeRankB)return typeRankA-typeRankB;
+
+            const subA=getTypeSubOrder(getPrimaryType(a.item));
+            const subB=getTypeSubOrder(getPrimaryType(b.item));
             if(subA!==subB)return subA-subB;
+
             return getItemName(a.item).localeCompare(getItemName(b.item));
         });
         const viewerLocationLabel=currentDbMode==='v2'?t('possible_locations_short'):t('location');
@@ -2092,7 +2150,8 @@
                 abils.push('<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.trinketPassive))+'</div>');
             }
             const detailHtml=abils.join(''), detailId='viewer-'+item.nameId;
-            const starHtml='<span class="fav-star favorited" data-item-id="'+item.id+'" data-action="toggle-favorite">★</span>';
+            const favClass=isFavorited(item.nameId)?' favorited':'';
+            const starHtml='<span class="fav-star'+favClass+'" data-item-id="'+item.id+'" data-action="toggle-favorite">★</span>';
             const viewerLocations=getExperimentalViewerLocations(item,locations);
             const locationTitleAttr=currentDbMode==='v2'?' title="'+escapeHtml(t('possible_locations'))+'"':'';
             const locationHtml='<div class="source-list"'+locationTitleAttr+'>'+viewerLocations.map(loc=>'<div class="source-entry"><span class="source-bullet">◆</span><span><span class="location-zone">'+escapeHtml(getZoneName({name:loc.zoneName}))+'</span> › <span class="location-dungeon">'+renderDungeonName(loc.dungeonName)+'</span></span></div>').join('')+'</div>';
@@ -2165,6 +2224,11 @@
             btn.classList.toggle('active',level===currentStatLevel);
             btn.textContent=t(level==='20'?'level_20_status':'level_25_status');
         });
+        document.querySelectorAll('#view-mode-control .stat-level-btn').forEach(btn=>{
+            const mode=btn.dataset.viewMode;
+            btn.classList.toggle('active',mode===currentViewMode);
+            btn.textContent=t('view_'+mode);
+        });
         document.querySelectorAll('.category-btn').forEach(b=>{b.classList.toggle('active',filterCategories.includes(b.dataset.category));const label=t(b.dataset.category);const ftn=b.childNodes[0];if(ftn&&ftn.nodeType===Node.TEXT_NODE)ftn.textContent=label;});
         const favBtn=document.getElementById('favorites-toggle-btn');
         favBtn.classList.toggle('active',showFavoritesOnly&&!sharedBuild);
@@ -2216,6 +2280,8 @@
         document.getElementById('category-label').textContent=t('category_label');
         document.getElementById('type-label').textContent=t('type_label');
         document.getElementById('stat-level-label').textContent=t('comparison_level');
+        const viewModeLabel = document.getElementById('view-mode-label');
+        if(viewModeLabel) viewModeLabel.textContent = t('view_label');
         document.getElementById('stat-level-control').setAttribute('aria-label',t('comparison_level'));
         document.getElementById('search-input').placeholder=t('search_placeholder');
         document.getElementById('open-suggestion-btn').innerHTML=t('suggest_button');
@@ -2583,6 +2649,16 @@
             if(capBadge)capBadge.textContent=t('cap_badge_text').replace('{level}',currentStatLevel);
             renderAll();
         });
+        const viewModeControl = document.getElementById('view-mode-control');
+        if (viewModeControl) {
+            viewModeControl.addEventListener('click', (e) => {
+                const btn = e.target.closest('.stat-level-btn');
+                if (!btn || btn.dataset.viewMode === currentViewMode) return;
+                currentViewMode = btn.dataset.viewMode;
+                localStorage.setItem(VIEW_MODE_KEY, currentViewMode);
+                renderAll();
+            });
+        }
         const searchInput=document.getElementById('search-input');
         let debounceTimer;
         searchInput.addEventListener('input',()=>{clearTimeout(debounceTimer);debounceTimer=setTimeout(()=>{searchQuery=searchInput.value.trim();renderAll();},250);});
