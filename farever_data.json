@@ -7961,22 +7961,22 @@
                 "Critical"
               ],
               "skill1": {
-                "en": "",
+                "en": "Smashes the ground and deals 143% Strength Physical to enemies, knocking them back and increasing your Cooldown Reduction by 2% for 12s, stacking up to 3 times.\n\n",
                 "fr": "",
                 "es": ""
               },
               "skill2": {
-                "en": "",
+                "en": "Spins around for 3s, dealing 35% Strength + 40.25% Strength Physical every 0.25s. The last hit knocks enemies back.\nYou can move freely during the channeling.",
                 "fr": "",
                 "es": ""
               },
               "skill3": {
-                "en": "",
+                "en": "Grants 6% to 10% Movement speed and 6% to 10% Physical Mastery to allies within 40 for 6s.",
                 "fr": "",
                 "es": ""
               },
               "passive": {
-                "en": "",
+                "en": "Each time you deal non-periodic Physical damage to an enemy, you gain a stack of Hysteria.\nAt 150 stacks, you can release your anger.\n\nAnger Release\nSmashes the ground and releases a massive nova dealing — to all enemies and knocking them back.",
                 "fr": "",
                 "es": ""
               },
@@ -14171,22 +14171,22 @@
                 "Critical"
               ],
               "skill1": {
-                "en": "",
+                "en": "Shoots an arrow dealing 59% Dexterity + 59% Intellect Physical to an enemy plus an additional 25% Dexterity + 25% Intellect + 32.5% Intellect + 32.5% Vitality Magic if the enemy is under 35% Health.",
                 "fr": "",
                 "es": ""
               },
               "skill2": {
-                "en": "",
+                "en": "Throws a net in the targeted direction dealing 100% Dexterity + 100% Intellect Physical to the first enemy hit and slowing them by -30% for 4s.\nIf an enemy is hit, you gain Big Game Hunter.",
                 "fr": "",
                 "es": ""
               },
               "skill3": {
-                "en": "",
+                "en": "Drops a spark trap on the targeted area. If an enemy steps on it, they are dealt 100% Dexterity Physical, are immobilized for 4s and you gain Big Game Hunter.",
                 "fr": "",
                 "es": ""
               },
               "passive": {
-                "en": "",
+                "en": "Your Weapon Skills' damage mark the enemies for 10s. Your next Attack against them consumes the mark and deal 50% increased damage.",
                 "fr": "",
                 "es": ""
               },
@@ -14196,8 +14196,12 @@
                 "es": ""
               },
               "level": 25,
-              "experimentalScope": "unknown",
+              "experimentalScope": "faction",
               "levelData": {
+                "20": {
+                  "statValues": {},
+                  "image": "images/HornsOfTheWind20.png"
+                },
                 "25": {
                   "statValues": {},
                   "image": ""
@@ -14213,6 +14217,17 @@
                   "level": 25,
                   "image": "",
                   "levelData": {
+                    "20": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 20,
+                        "Dexterity": 10,
+                        "Intelligence": 10,
+                        "Critical": 57
+                      },
+                      "image": ""
+                    },
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
@@ -14223,6 +14238,48 @@
                         "Critical": 69
                       },
                       "image": "images/HornsoftheWindB.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "purple",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 20,
+                  "image": "",
+                  "levelData": {
+                    "20": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 23,
+                        "Dexterity": 12,
+                        "Intelligence": 12,
+                        "Critical": 62
+                      },
+                      "image": ""
+                    }
+                  }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 20,
+                  "image": "",
+                  "levelData": {
+                    "20": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 27,
+                        "Dexterity": 14,
+                        "Intelligence": 14,
+                        "Critical": 66
+                      },
+                      "image": ""
                     }
                   }
                 }
@@ -20290,22 +20347,22 @@
                 "Fervor"
               ],
               "skill1": {
-                "en": "",
+                "en": "Smashes the ground and deals 84.5% Strength + 84.5% Faith Physical to enemies, knocking them back and granting you a stack of Burning Appetite, stacking up to 3 times.",
                 "fr": "",
                 "es": ""
               },
               "skill2": {
-                "en": "",
+                "en": "A huge slash in a cone dealing 150% Strength + 150% Faith Physical and reducing enemies Armor and Magic Resistance by -25% for 15s.",
                 "fr": "",
                 "es": ""
               },
               "skill3": {
-                "en": "",
+                "en": "Enter a dark state during 10s, increasing your Critical Chance, Magic Mastery, Physical Mastery and Cooldown Reduction by 10% to 15% but you are loosing 15% of your Maximum Health every 2s.",
                 "fr": "",
                 "es": ""
               },
               "passive": {
-                "en": "",
+                "en": "Your next Final Combo Attack deals 30% increased damage and heal yourself for 50% of the damage dealt (30s cooldown).",
                 "fr": "",
                 "es": ""
               },
@@ -20391,22 +20448,22 @@
                 "Fervor"
               ],
               "skill1": {
-                "en": "",
+                "en": "Releases two chaos bolts, each dealing 38.5% Intellect + 38.5% Faith Magic to an enemy and applying a stack of Void Bomblet, stacking up to 4 times.\n\nYour Magic Weapon Skills detonate Void Bomblet, dealing 50% Intellect + 62.5% Intellect Chaos per stack.",
                 "fr": "",
                 "es": ""
               },
               "skill2": {
-                "en": "",
+                "en": "Teleports to the targeted area, dealing 150% Intellect Magic upon arrival to nearby enemies. Recast within 3s to teleport back to the initial position.",
                 "fr": "",
                 "es": ""
               },
               "skill3": {
-                "en": "",
+                "en": "Drops an area at your position, lasting 6s. If an enemy leaves the area, it gets stunned for 3s and take 80% Intellect + 80% Faith Magic.",
                 "fr": "",
                 "es": ""
               },
               "passive": {
-                "en": "",
+                "en": "As long as all Skills of this weapon are on cooldown, you are permanently protected by a Shield absorbing 70% Intellect + 87.5% Intellect damage.",
                 "fr": "",
                 "es": ""
               },
@@ -20572,22 +20629,22 @@
                 "Critical"
               ],
               "skill1": {
-                "en": "",
+                "en": "Shoots an arrow dealing 59% Dexterity + 59% Intellect Physical to an enemy plus an additional 25% Dexterity + 25% Intellect + 32.5% Intellect + 32.5% Vitality Magic if the enemy is under 35% Health.",
                 "fr": "",
                 "es": ""
               },
               "skill2": {
-                "en": "",
+                "en": "Throws a net in the targeted direction dealing 100% Dexterity + 100% Intellect Physical to the first enemy hit and slowing them by -30% for 4s.\nIf an enemy is hit, you gain Big Game Hunter.",
                 "fr": "",
                 "es": ""
               },
               "skill3": {
-                "en": "",
+                "en": "Drops a spark trap on the targeted area. If an enemy steps on it, they are dealt 100% Dexterity Physical, are immobilized for 4s and you gain Big Game Hunter.",
                 "fr": "",
                 "es": ""
               },
               "passive": {
-                "en": "",
+                "en": "Your Weapon Skills' damage mark the enemies for 10s. Your next Attack against them consumes the mark and deal 50% increased damage.",
                 "fr": "",
                 "es": ""
               },
@@ -20659,22 +20716,22 @@
                 "Fervor"
               ],
               "skill1": {
-                "en": "",
+                "en": "Casts four light bolts, each dealing 25% Intellect + 25% Faith Light to an enemy and 25% of this damage to nearby enemies.",
                 "fr": "",
                 "es": ""
               },
               "skill2": {
-                "en": "",
+                "en": "Throws a bolt of energy in the targeted direction, dealing 120% Intellect + 120% Faith Light to enemies, stunning them for 1.5s and applying a [Staff_Censer_Mark].",
                 "fr": "",
                 "es": ""
               },
               "skill3": {
-                "en": "",
+                "en": "Spawns an light orb in the targeted area, creating an area slowing enemies by -50% to -70%. The orb explodes after 3s, dealing 180% Intellect + 180% Faith + 225% Intellect + 225% Faith Light to all enemies in the area and applying a [Staff_Censer_Mark].",
                 "fr": "",
                 "es": ""
               },
               "passive": {
-                "en": "",
+                "en": "A dark cloud spawns around every 3s in combat, lasting 6s. When you go into the cloud, the censer absorbs the cloud, increasing your movement speed by 30% for 3s.\nOnce you have absorbed 10 clouds, you can release a hidden power.\n\nHidden Power\nReleases a massive chaos beam in the targeted direction, dealing 300% Faith + 300% Intellect Magic to all enemies and healing all allies for 500% Faith.\n\n",
                 "fr": "",
                 "es": ""
               },
