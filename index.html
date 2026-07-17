@@ -553,6 +553,7 @@
         .tag.type-bow, .active-filter-chip.type-bow { color: #86efac; border-color: rgba(74,222,128,0.35); background: rgba(74,222,128,0.08); }
         .tag.type-thrown, .active-filter-chip.type-thrown { color: #fdb980; border-color: rgba(251,146,60,0.35); background: rgba(251,146,60,0.08); }
         .tag.type-fists, .active-filter-chip.type-fists { color: #f87171; border-color: rgba(239,68,68,0.35); background: rgba(239,68,68,0.08); }
+        .tag.type-staff, .active-filter-chip.type-staff { color: #5eead4; border-color: rgba(45,212,191,0.35); background: rgba(45,212,191,0.08); }
         .tag.type-scepter, .active-filter-chip.type-scepter { color: #c084fc; border-color: rgba(168,85,247,0.35); background: rgba(168,85,247,0.08); }
         .tag.type-crescent, .active-filter-chip.type-crescent { color: #e2e8f0; border-color: rgba(203,213,225,0.35); background: rgba(203,213,225,0.08); }
         .tag.type-spellbook, .active-filter-chip.type-spellbook { color: #67e8f9; border-color: rgba(34,211,238,0.35); background: rgba(34,211,238,0.08); }
@@ -610,6 +611,7 @@
         .type-color-bow { color: #86efac; text-shadow: 0 0 7px rgba(74,222,128,0.3); }
         .type-color-fists { color: #f87171; text-shadow: 0 0 9px rgba(239,68,68,0.35); }
         .type-color-thrown { color: #fdb980; text-shadow: 0 0 7px rgba(251,146,60,0.28); }
+        .type-color-staff { color: #5eead4; text-shadow: 0 0 7px rgba(45,212,191,0.3); }
         .type-color-scepter { color: #c084fc; text-shadow: 0 0 7px rgba(168,85,247,0.3); }
         .type-color-crescent { color: #e2e8f0; text-shadow: 0 0 7px rgba(203,213,225,0.25); }
         .type-color-halos { color: #fde68a; text-shadow: 0 0 9px rgba(251,191,36,0.32); }
@@ -822,6 +824,7 @@
         .type-btn[data-type="Bow"].active { background: rgba(74,222,128,0.18); border-color: #4ade80; color: #86efac; box-shadow: 0 0 8px rgba(74,222,128,0.3); }
         .type-btn[data-type="Fists"].active { background: rgba(239,68,68,0.22); border-color: #ef4444; color: #f87171; box-shadow: 0 0 10px rgba(239,68,68,0.36); }
         .type-btn[data-type="Thrown"].active { background: rgba(251,146,60,0.18); border-color: #fb923c; color: #fdb980; box-shadow: 0 0 8px rgba(251,146,60,0.3); }
+        .type-btn[data-type="Staff"].active { background: rgba(45,212,191,0.18); border-color: #2dd4bf; color: #5eead4; box-shadow: 0 0 8px rgba(45,212,191,0.3); }
         .type-btn[data-type="Scepter"].active { background: rgba(168,85,247,0.18); border-color: #a855f7; color: #c084fc; box-shadow: 0 0 8px rgba(168,85,247,0.32); }
         .type-btn[data-type="Crescent"].active { background: rgba(203,213,225,0.16); border-color: #cbd5e1; color: #e2e8f0; box-shadow: 0 0 8px rgba(203,213,225,0.28); }
         .type-btn[data-type="Halos"].active { background: rgba(251,191,36,0.2); border-color: #fbbf24; color: #fde68a; box-shadow: 0 0 8px rgba(251,191,36,0.34); }
@@ -1199,7 +1202,7 @@
     const STAT_OPTIONS = ['Armor', 'Vitality', 'Strength', 'Dexterity', 'Faith', 'Intelligence', 'Critical',
         'Armor Penetration', 'Magic Penetration', 'Fervor'];
     const WEAPON_TYPES = ['Sword', 'Dual Sword', 'Axe', 'Dual Axes', 'Daggers', 'Mace', 'Dual Maces', 'Spear',
-        'Fists', 'Two-Handed Sword', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Scepter', 'Crescent', 'Halos', 'Spellbook', 'Shield'];
+        'Fists', 'Two-Handed Sword', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Staff', 'Scepter', 'Crescent', 'Halos', 'Spellbook', 'Shield'];
     const ARMOR_TYPES = ['Head', 'Shoulders', 'Chest', 'Back', 'Hands', 'Waist', 'Legs', 'Feet'];
     const TRINKET_TYPES = ['Trinket'];
     const MOUNT_GLIDER_TYPES = ['Mount', 'Glider'];
@@ -1235,7 +1238,7 @@
             type_Sword:'Sword', type_Dual_Sword:'Dual Sword', type_Two_Handed_Sword:'Two-Handed Sword', type_Axe:'Axe', type_Dual_Axes:'Dual Axes',
             type_Daggers:'Daggers', type_Mace:'Mace', type_Dual_Maces:'Dual Maces', type_Spear:'Spear',
             type_Fists:'Fists', type_Two_Handed_Axe:'Two-Handed Axe', type_Two_Handed_Mace:'Two-Handed Mace',
-            type_Bow:'Bow', type_Thrown:'Thrown', type_Scepter:'Scepter', type_Crescent:'Crescent',
+            type_Bow:'Bow', type_Thrown:'Thrown', type_Staff:'Staff', type_Scepter:'Scepter', type_Crescent:'Crescent',
             type_Halos:'Halos', type_Spellbook:'Spellbook', type_Shield:'Shield',
             type_Head:'Head', type_Shoulders:'Shoulders', type_Chest:'Chest', type_Back:'Back',
             type_Hands:'Hands', type_Waist:'Waist', type_Legs:'Legs', type_Feet:'Feet',
@@ -1305,7 +1308,7 @@
             type_Sword:'Épée', type_Dual_Sword:'Épée double', type_Two_Handed_Sword:'Épée à deux mains', type_Axe:'Hache', type_Dual_Axes:'Haches doubles',
             type_Daggers:'Dagues', type_Mace:'Masse', type_Dual_Maces:'Masses doubles', type_Spear:'Lance',
             type_Fists:'Poings', type_Two_Handed_Axe:'Hache à deux mains', type_Two_Handed_Mace:'Masse à deux mains',
-            type_Bow:'Arc', type_Thrown:'Armes de jet', type_Scepter:'Sceptre', type_Crescent:'Croissant',
+            type_Bow:'Arc', type_Thrown:'Armes de jet', type_Staff:'Bâton', type_Scepter:'Sceptre', type_Crescent:'Croissant',
             type_Halos:'Auréoles', type_Spellbook:'Grimoire', type_Shield:'Bouclier',
             type_Head:'Tête', type_Shoulders:'Épaules', type_Chest:'Torse', type_Back:'Dos',
             type_Hands:'Mains', type_Waist:'Ceinture', type_Legs:'Jambes', type_Feet:'Pieds',
@@ -1374,7 +1377,7 @@
             type_Sword:'Espada', type_Dual_Sword:'Espada doble', type_Two_Handed_Sword:'Espada a dos manos', type_Axe:'Hacha', type_Dual_Axes:'Hachas dobles',
             type_Daggers:'Dagas', type_Mace:'Maza', type_Dual_Maces:'Mazas dobles', type_Spear:'Lanza',
             type_Fists:'Puños', type_Two_Handed_Axe:'Hacha a dos manos', type_Two_Handed_Mace:'Maza a dos manos',
-            type_Bow:'Arco', type_Thrown:'Arrojadizas', type_Scepter:'Cetro', type_Crescent:'Media luna',
+            type_Bow:'Arco', type_Thrown:'Arrojadizas', type_Staff:'Bastón', type_Scepter:'Cetro', type_Crescent:'Media luna',
             type_Halos:'Halos', type_Spellbook:'Libro de hechizos', type_Shield:'Escudo',
             type_Head:'Cabeza', type_Shoulders:'Hombros', type_Chest:'Pecho', type_Back:'Espalda',
             type_Hands:'Manos', type_Waist:'Cintura', type_Legs:'Piernas', type_Feet:'Pies',
@@ -2437,7 +2440,8 @@
             if(levelWarning){levelWarning.textContent=warningText;levelWarning.hidden=!warningText;}
             const nameEl=row.querySelector('.item-name');
             if(nameEl){
-                const img=getItemImage(item, variant);
+                const variantHasData=snapshotHasLevelData(getVariantLevelSnapshot(variant));
+                const img=variantHasData?getItemImage(item, variant):'';
                 if(img)nameEl.dataset.imageUrl=img;
                 else delete nameEl.dataset.imageUrl;
             }

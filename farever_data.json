@@ -1,8 +1,8 @@
 {
   "updateLog": {
-    "en": "[7/16] \n• Database has been separated into Lv20 and Lv25 gear, once I get all Lv25 gear the entire database will only consist of that, but for now the Lv20 is here to stay so you can still compare stats fairly if need be.\n• Added a Experimental Theory button so you can sort the dungeon loot by enemy architype, this is of course a theory I couldn't find anything on this being facts.\n• Added Two-Handed Sword as a weapon type.\n• Added stuff for Rift loot.\n• Do note, new items will only be lv25 (I will not be updating lv20 items anymore at this point in time, mounts and gliders are null from this rule since they are not level specific)\n• Moved Judgment from Ratsar's Lair to Cheese Station. If this is wrong please let me know!\n• I'm still missing Nescentine Leggybug, Rinuhrian Skunk, and some dungeon boss glider pictures. If anyone would like to contribute the pictures either through the suggestion box or by adding me on discord, I would appreciate it!\n\n",
-    "fr": "[16/07]\n• La base de données a été séparée entre l’équipement de niveau 20 et de niveau 25. Une fois que j’aurai tout l’équipement de niveau 25, la base de données ne contiendra plus que celui-ci, mais pour le moment l’équipement de niveau 20 reste disponible afin que vous puissiez comparer les statistiques équitablement si nécessaire.\n• Ajout d’un bouton Théorie expérimentale permettant de trier le butin des donjons par archétype d’ennemi. Il ne s’agit bien sûr que d’une théorie : je n’ai trouvé aucune information permettant de confirmer cela.\n• Ajout de l’épée à deux mains comme type d’arme.\n• Ajout de contenu pour le butin des Failles.\n• À noter : les nouveaux objets ne seront disponibles qu’au niveau 25 (je ne mettrai plus à jour les objets de niveau 20 à partir de maintenant ; les montures et les planeurs font exception à cette règle, car ils ne dépendent pas du niveau).\n• Judgment a été déplacé du Repaire de Ratsar à Cheese Station. Si c’est incorrect, merci de me le signaler !\n• Il me manque encore les images de Nescentine Leggybug, Rinuhrian Skunk et de certains planeurs de boss de donjon. Si vous souhaitez contribuer des images via la boîte à suggestions ou en m’ajoutant sur Discord, je vous en serais reconnaissant !\n\n",
-    "es": "[16/07]\n• La base de datos se ha dividido entre equipo de nivel 20 y nivel 25. Cuando consiga todo el equipo de nivel 25, la base de datos solo incluirá ese nivel; por ahora, el nivel 20 se mantiene para que puedas comparar las estadísticas de forma justa si lo necesitas.\n• Se añadió un botón de Teoría experimental para ordenar el botín de las mazmorras por arquetipo de enemigo. Por supuesto, es solo una teoría: no pude encontrar nada que confirme que sea un hecho.\n• Se añadió la espada a dos manos como tipo de arma.\n• Se añadieron elementos para el botín de las Grietas.\n• Ten en cuenta que los objetos nuevos solo serán de nivel 25 (a partir de ahora no actualizaré más los objetos de nivel 20; las monturas y los planeadores son la excepción, ya que no dependen del nivel).\n• Judgment se movió de la Guarida de Ratsar a Cheese Station. Si esto es incorrecto, ¡avísame!\n• Aún me faltan las imágenes de Nescentine Leggybug, Rinuhrian Skunk y algunos planeadores de jefes de mazmorra. Si alguien quiere aportar imágenes, ya sea mediante el buzón de sugerencias o agregándome en Discord, ¡lo agradecería!\n\n"
+    "en": "[7/16] \n• Database has been separated into Lv20 and Lv25 gear, once I get all Lv25 gear the entire database will only consist of that, but for now the Lv20 is here to stay so you can still compare stats fairly if need be.\n• Added a Experimental Theory button so you can sort the dungeon loot by enemy architype, this is of course a theory I couldn't find anything on this being facts.\n• Added Two-Handed Sword as a weapon type.\n• Added Staff as a weapon type.\n• Added stuff for Rift loot.\n• Do note, new items will only be lv25 (I will not be updating lv20 items anymore at this point in time, mounts and gliders are null from this rule since they are not level specific)\n• Moved Judgment from Ratsar's Lair to Cheese Station. If this is wrong please let me know!\n• I'm still missing Nescentine Leggybug, Rinuhrian Skunk, and some dungeon boss glider pictures. If anyone would like to contribute the pictures either through the suggestion box or by adding me on discord, I would appreciate it!\n\n",
+    "fr": "[7/16] \n• La base de données a été séparée en équipement Lv20 et Lv25, une fois que j'aurai obtenu tout l'équipement Lv25, la base de données entière ne sera composée que de cela, mais pour l'instant, le Lv20 est là pour rester afin que vous puissiez toujours comparer les statistiques équitablement si nécessaire.\n• Ajout d'un bouton Théorie expérimentale pour que vous puissiez trier le butin du donjon par archétype ennemi, c'est bien sûr une théorie sur laquelle je n'ai rien trouvé car il s'agit de faits.\n• Ajout de l'épée à deux mains comme type d'arme.\n• Ajout du bâton comme type d'arme.\n• Ajout d'éléments pour le butin Rift.\n• Attention, les nouveaux objets ne seront que de niveau 25 (je ne mettrai plus à jour les objets de niveau 20 pour le moment, les montures et les planeurs sont nuls par rapport à cette règle car ils ne sont pas spécifiques au niveau)\n• Déplacement du Jugement de Ratsar's Lair vers Cheese Station. Si c'est faux, faites-le-moi savoir !\n• Il me manque toujours Nescentine Leggybug, Rinuhrian Skunk et quelques photos de planeurs de boss de donjon. Si quelqu'un souhaite contribuer avec les photos via la boîte à suggestions ou en m'ajoutant sur Discord, je l'apprécierais !",
+    "es": "[7/16] \n• La base de datos se ha separado en equipo Lv20 y Lv25, una vez que obtenga todo el equipo Lv25, la base de datos completa solo consistirá en eso, pero por ahora el Lv20 llegó para quedarse, así que aún puedes comparar estadísticas de manera justa si es necesario.\n• Se agregó un botón de Teoría experimental para que puedas ordenar el botín de la mazmorra por artipo de enemigo. Esta es, por supuesto, una teoría. No pude encontrar nada sobre los hechos.\n• Se agregó Espada de dos manos como tipo de arma.\n• Se agregó Bastón como tipo de arma.\n• Se agregaron elementos para el botín de Rift.\n• Tenga en cuenta que los elementos nuevos solo serán de nivel 25 (ya no actualizaré los elementos de nivel 20 en este momento, las monturas y los planeadores no se aplican a esta regla ya que no son específicos de nivel)\n• Se movió Juicio de la Guarida de Ratsar a la Estación de Queso. Si esto está mal, ¡házmelo saber!\n• Todavía me faltan Nescentine Leggybug, Rinuhrian Skunk y algunas imágenes del planeador del jefe de la mazmorra. Si alguien quisiera contribuir con las imágenes ya sea a través del buzón de sugerencias o agregándome en Discord, ¡se lo agradecería!"
   },
   "zones": [
     {
@@ -14134,8 +14134,8 @@
             {
               "name": {
                 "en": "Horns of the Wind",
-                "fr": "Cornes Du Vent",
-                "es": "Cuernos Del Viento"
+                "fr": "Cornes du vent",
+                "es": "Cuernos del viento"
               },
               "types": [
                 "Bow"
@@ -14151,116 +14151,58 @@
                 "Critical"
               ],
               "skill1": {
-                "en": "\nSpark Shot\n1.1s\n59% Dexterity + 59% Intellect · Physical · 25% Dexterity + 25% Intellect + 32.5% Intellect + 32.5% Vitality · Magic\nShoots an arrow dealing 59% Dexterity + 59% Intellect Physical to an enemy plus an additional 25% Dexterity + 25% Intellect + 32.5% Intellect + 32.5% Vitality Magic if the enemy is under 35% [Health].",
-                "fr": "Tir d'étincelle\n1,1 s\n59% Dextérité + 59% Intelligence · Physique · 25% Dextérité + 25% Intelligence + 32,5% Intelligence + 32,5% Vitalité · Magie\nTire une flèche infligeant 59 % de Dextérité + 59 % d'Intelligence Physique à un ennemi plus 25 % de Dextérité + 25 % d'Intelligence + 32,5 % d'Intelligence + 32,5 % de Magie de Vitalité si l'ennemi a moins de 35 % de [Santé].",
-                "es": "Disparo de chispa\n1,1s\n59% Destreza + 59% Intelecto · Físico · 25% Destreza + 25% Intelecto + 32,5% Intelecto + 32,5% Vitalidad · Magia\nDispara una flecha que inflige 59 % de destreza + 59 % de intelecto físico a un enemigo más un 25 % adicional de destreza + 25 % de intelecto + 32,5 % de intelecto + 32,5 % de vitalidad mágica si el enemigo tiene menos del 35 % de [Salud]."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "skill2": {
-                "en": "\nHunter Net\ncd 16s · 0.4s\n100% Dexterity + 100% Intellect · Physical\nThrows a net in the targeted direction dealing 100% Dexterity + 100% Intellect Physical to the first enemy hit and slowing them by -30% for 4. If an enemy is hit, you gain Big Game Hunter.\n\n",
-                "fr": "Filet de chasseur\ncd 16 s · 0,4 s\n100% Dextérité + 100% Intelligence · Physique\nLance un filet dans la direction ciblée, infligeant 100 % de Dextérité + 100 % d'Intelligence Physique au premier ennemi touché et le ralentissant de -30 % pendant 4. Si un ennemi est touché, vous gagnez Big Game Hunter.",
-                "es": "Red de cazador\ncd 16s · 0.4s\n100% Destreza + 100% Intelecto · Físico\nLanza una red en la dirección objetivo, lo que inflige 100 % de destreza + 100 % de intelecto físico al primer enemigo golpeado y lo ralentiza en un -30 % durante 4. Si un enemigo es golpeado, obtienes Caza mayor."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "skill3": {
-                "en": "\nRam Trap\ncd 12s\n100% Dexterity · Physical\nDrops a spark trap on the targeted area. If an enemy steps on it, they are dealt 100% Dexterity Physical, are immobilized for 4 and you gain Big Game Hunter.",
-                "fr": "Piège à bélier\ncd 12s\n100% Dextérité · Physique\nLâche un piège à étincelles sur la zone ciblée. Si un ennemi marche dessus, il reçoit 100 % de Dextérité Physique, est immobilisé pendant 4 et vous gagnez Big Game Hunter.",
-                "es": "Trampa de carnero\ncd 12s\n100% Destreza · Física\nDeja caer una trampa de chispas en el área objetivo. Si un enemigo lo pisa, recibe 100% de destreza física, queda inmovilizado durante 4 y obtienes Big Game Hunter."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "passive": {
-                "en": "\nThrill of the Hunter\nYour [WeaponSkill]s' damage mark the enemies for 10. Your next [Attack] against them consumes the mark and deal 50% increased damage.",
-                "fr": "Frisson du chasseur\nLes dégâts de vos [WeaponSkill] marquent les ennemis pendant 10. Votre prochaine [Attaque] contre eux consomme la marque et inflige 50% de dégâts supplémentaires.",
-                "es": "Emoción del cazador\nEl daño de tus [WeaponSkill] marca a los enemigos en 10. Tu próximo [Ataque] contra ellos consume la marca e inflige un 50% más de daño."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "trinketPassive": {
                 "en": "",
                 "fr": "",
                 "es": ""
               },
-              "level": 20,
-              "experimentalScope": "faction",
+              "level": 25,
+              "experimentalScope": "unknown",
               "levelData": {
-                "20": {
+                "25": {
                   "statValues": {},
-                  "image": "images/HornsOfTheWind20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/HornsOfTheWind20.png",
               "variants": [
                 {
                   "rarity": "blue",
                   "damageMin": 0,
                   "damageMax": 0,
-                  "statValues": {
-                    "Vitality": 20,
-                    "Dexterity": 10,
-                    "Intelligence": 10,
-                    "Critical": 57
-                  },
-                  "level": 20,
+                  "statValues": {},
+                  "level": 25,
                   "image": "",
                   "levelData": {
-                    "20": {
+                    "25": {
                       "damageMin": 0,
                       "damageMax": 0,
                       "statValues": {
-                        "Vitality": 20,
-                        "Dexterity": 10,
-                        "Intelligence": 10,
-                        "Critical": 57
+                        "Vitality": 29,
+                        "Dexterity": 15,
+                        "Intelligence": 15,
+                        "Critical": 69
                       },
-                      "image": ""
-                    }
-                  }
-                },
-                {
-                  "rarity": "purple",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {
-                    "Vitality": 23,
-                    "Dexterity": 12,
-                    "Intelligence": 12,
-                    "Critical": 62
-                  },
-                  "level": 20,
-                  "image": "",
-                  "levelData": {
-                    "20": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 23,
-                        "Dexterity": 12,
-                        "Intelligence": 12,
-                        "Critical": 62
-                      },
-                      "image": ""
-                    }
-                  }
-                },
-                {
-                  "rarity": "legendary",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {
-                    "Vitality": 27,
-                    "Dexterity": 14,
-                    "Intelligence": 14,
-                    "Critical": 66
-                  },
-                  "level": 20,
-                  "image": "",
-                  "levelData": {
-                    "20": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 27,
-                        "Dexterity": 14,
-                        "Intelligence": 14,
-                        "Critical": 66
-                      },
-                      "image": ""
+                      "image": "images/HornsoftheWindB.png"
                     }
                   }
                 }
@@ -20465,7 +20407,9 @@
                       "statValues": {
                         "Vitality": 32,
                         "Faith": 12,
-                        "Intelligence": 15
+                        "Intelligence": 15,
+                        "Magic Penetration": 35,
+                        "Fervor": 35
                       },
                       "image": "images/MirrorsoftheNightgoddessesB.png"
                     }
@@ -20482,12 +20426,327 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 37,
+                        "Faith": 14,
+                        "Intelligence": 17,
+                        "Magic Penetration": 37,
+                        "Fervor": 37
+                      },
+                      "image": "images/MirrorsoftheNightgoddessesP.png"
                     }
                   }
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Crimson Citadel",
+        "fr": "Citadelle cramoisie",
+        "es": "Ciudadela carmesí"
+      },
+      "dungeons": [
+        {
+          "name": {
+            "en": "Crimson Barracks · Lv22 · Full Dungeon",
+            "fr": "Caserne Pourpre · Lv22 · Donjon Complet",
+            "es": "Cuartel Carmesí · Lv22 · Mazmorra completa"
+          },
+          "loot": [
+            {
+              "name": {
+                "en": "Forbidden Insignia of Silence",
+                "fr": "Insigne interdit du silence",
+                "es": "Insignia prohibida del silencio"
+              },
+              "types": [
+                "Waist"
+              ],
+              "classes": [
+                "warrior",
+                "rogue"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Dexterity",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 177,
+                    "Vitality": 7,
+                    "Strength": 4,
+                    "Dexterity": 4,
+                    "Critical": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/ForbiddenInsigniaofSilence.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Horns of the Wind",
+                "fr": "Cornes du vent",
+                "es": "Cuernos del viento"
+              },
+              "types": [
+                "Bow"
+              ],
+              "classes": [
+                "rogue",
+                "mage"
+              ],
+              "stats": [
+                "Vitality",
+                "Dexterity",
+                "Intelligence",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "blue",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 29,
+                        "Dexterity": 15,
+                        "Intelligence": 15,
+                        "Critical": 69
+                      },
+                      "image": "images/HornsoftheWindB.png"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": {
+            "en": "Chakram's Chapel · Lv25 · Boss Only",
+            "fr": "Chapelle de Chakram · Lv25 · Boss uniquement",
+            "es": "Capilla de Chakram · Lv25 · Solo jefe"
+          },
+          "loot": [
+            {
+              "name": {
+                "en": "Censer of Wool Hollow",
+                "fr": "Encensoir de laine creuse",
+                "es": "Incensario de Lana Hueco"
+              },
+              "types": [
+                "Staff"
+              ],
+              "classes": [
+                "mage",
+                "priest"
+              ],
+              "stats": [
+                "Vitality",
+                "Faith",
+                "Intelligence",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "purple",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Faith": 14,
+                        "Intelligence": 17,
+                        "Critical": 37,
+                        "Fervor": 37
+                      },
+                      "image": "images/CenserofWoolHollowP.png"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "en": "Spaulders of Intangible Faith",
+                "fr": "Spallières de foi intangible",
+                "es": "Bufas de fe intangible"
+              },
+              "types": [
+                "Shoulders"
+              ],
+              "classes": [
+                "warrior",
+                "mage"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Intelligence",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 187,
+                    "Vitality": 9,
+                    "Strength": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/SpauldersofIntangibleFaith.png"
+                }
+              },
+              "rare": false
             }
           ]
         }
