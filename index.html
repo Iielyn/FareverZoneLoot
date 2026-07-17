@@ -583,8 +583,6 @@
             text-transform: capitalize; min-width: 42px;
         }
         .rarity-btn:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: var(--border-light); box-shadow: 0 0 8px rgba(255,255,255,0.1); transform: translateY(-1px); }
-        .rarity-btn[data-rarity="green"] { border-color: rgba(74,222,128,0.5); color: #4ade80; }
-        .rarity-btn[data-rarity="green"].active { background: rgba(74,222,128,0.25); border-color: #4ade80; box-shadow: 0 0 12px rgba(74,222,128,0.4); color: #86efac; }
         .rarity-btn[data-rarity="blue"] { border-color: rgba(59,130,246,0.5); color: #60a5fa; }
         .rarity-btn[data-rarity="blue"].active { background: rgba(59,130,246,0.25); border-color: #60a5fa; box-shadow: 0 0 12px rgba(59,130,246,0.4); color: #93c5fd; }
         .rarity-btn[data-rarity="purple"] { border-color: rgba(168,85,247,0.5); color: #c084fc; }
@@ -1215,7 +1213,7 @@
             weapons:'Weapons', armor:'Armor', mount:'Mount', glider:'Glider',
             item_name:'Item Name', item_type:'Item Type', classes:'Classes', stats_header:'Stats', lv:'Lv',
             full_dungeon:'Full Dungeon', boss_only:'Boss Only', rarity_label:'Rarity:',
-            blue:'Blue', purple:'Purple', legendary:'Legendary', green:'Green',
+            blue:'Blue', purple:'Purple', legendary:'Legendary',
             comparison_level:'Compare at', level_20_status:'Lv20 · Stable', level_25_status:'Lv25 · WIP',
             level_data_pending:'Lv{level} data pending', pending_variant_warning:'Lv{level} data for this rarity is not yet verified.',
             skill_final_combo:'Final Combo Attack:', skill1:'Skill 1:', skill2:'Skill 2:', passive:'Passive:',
@@ -1286,7 +1284,7 @@
             weapons:'Armes', armor:'Armure', mount:'Monture', glider:'Planeur',
             item_name:'Nom', item_type:'Type', classes:'Classes', stats_header:'Statistiques', lv:'Nv',
             full_dungeon:'Donjon complet', boss_only:'Boss seul', rarity_label:'Rareté:',
-            blue:'Bleu', purple:'Violet', legendary:'Légendaire', green:'Vert',
+            blue:'Bleu', purple:'Violet', legendary:'Légendaire',
             comparison_level:'Comparer au', level_20_status:'Nv20 · Stable', level_25_status:'Nv25 · En cours', level_data_pending:'Données Nv{level} en attente', pending_variant_warning:'Les données Nv{level} pour cette rareté ne sont pas encore vérifiées.',
             skill_final_combo:'Attaque combo finale:', skill1:'Compétence 1:', skill2:'Compétence 2:', passive:'Passif:',
             search_placeholder:'Rechercher...', suggest_button:'💡 Suggérer',
@@ -1355,7 +1353,7 @@
             weapons:'Armas', armor:'Armadura', mount:'Montura', glider:'Planeador',
             item_name:'Nombre', item_type:'Tipo', classes:'Clases', stats_header:'Estadísticas', lv:'Nv',
             full_dungeon:'Mazmorra completa', boss_only:'Solo jefe', rarity_label:'Rareza:',
-            blue:'Azul', purple:'Púrpura', legendary:'Legendario', green:'Verde',
+            blue:'Azul', purple:'Púrpura', legendary:'Legendario',
             comparison_level:'Comparar en', level_20_status:'Nv20 · Estable', level_25_status:'Nv25 · En progreso', level_data_pending:'Datos de Nv{level} pendientes', pending_variant_warning:'Los datos de Nv{level} de esta rareza aún no se verificaron.',
             skill_final_combo:'Ataque combo final:', skill1:'Habilidad 1:', skill2:'Habilidad 2:', passive:'Pasiva:',
             search_placeholder:'Buscar...', suggest_button:'💡 Sugerir',
@@ -1602,13 +1600,14 @@
                 dungeon.loot = (dungeon.loot||[]).map(item => {
                     const types = Array.isArray(item.types)?[...item.types]:[];
                     if(types.includes('Cape')){if(!types.includes('Back'))types[types.indexOf('Cape')]='Back';else types.splice(types.indexOf('Cape'),1);}
+                    const rawVariants = Array.isArray(item.variants) ? item.variants.filter(v => (v.rarity||'blue')!=='green') : [];
                     const normalizedItem = {
                         id: item.id || (dungeon.id+'_'+toSlug(getStableId(item.name))),
                         name: item.name||'', types:types,
                         classes: Array.isArray(item.classes)?[...item.classes]:[],
                         stats: Array.isArray(item.stats)?[...item.stats]:[],
                         statValues: (item.statValues&&typeof item.statValues==='object')?{...item.statValues}:{},
-                        variants: Array.isArray(item.variants)?item.variants.map(v=>({
+                        variants: rawVariants.map(v=>({
                             rarity:v.rarity||'blue',
                             damageMin:v.damageMin!==undefined?v.damageMin:(v.damage?parseInt(v.damage.split('-')[0])||0:0),
                             damageMax:v.damageMax!==undefined?v.damageMax:(v.damage?parseInt(v.damage.split('-')[1])||0:0),
@@ -1616,7 +1615,7 @@
                             image:v.image||'',
                             level:v.level!==undefined?v.level:20,
                             levelData:null
-                        })):[],
+                        })),
                         skill1:item.skill1||'', skill2:item.skill2||'', skill3:item.skill3||'',
                         passive:item.passive||'', trinketPassive:item.trinketPassive||'',
                         level:item.level!==undefined?item.level:20,
@@ -1628,7 +1627,7 @@
                     };
                     normalizedItem.levelData = normalizeBaseLevelData(item, normalizedItem);
                     normalizedItem.variants = normalizedItem.variants.map((variant, index) => {
-                        variant.levelData = normalizeVariantLevelData(item.variants[index] || {}, variant);
+                        variant.levelData = normalizeVariantLevelData(rawVariants[index] || {}, variant);
                         return variant;
                     });
                     return normalizedItem;
@@ -1806,7 +1805,7 @@
 
     function buildRaritySwitcherHtml(item) {
         if(!item.variants||item.variants.length===0)return'';
-        const sortedVariants=[...item.variants].sort((a,b)=>{const order={green:0,blue:1,purple:2,legendary:3};return(order[a.rarity]||0)-(order[b.rarity]||0);});
+        const sortedVariants=[...item.variants].sort((a,b)=>{const order={blue:0,purple:1,legendary:2};return(order[a.rarity]||0)-(order[b.rarity]||0);});
         const defaultRarity=sortedVariants.find(v=>v.rarity==='blue')||sortedVariants[0];
         const defaultIndex=sortedVariants.indexOf(defaultRarity);
         const warningText=snapshotHasLevelData(getVariantLevelSnapshot(defaultRarity))?'':t('pending_variant_warning').replace('{level}',currentStatLevel);
