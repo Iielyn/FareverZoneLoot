@@ -1121,6 +1121,7 @@
     const DATA_URL = './farever_data.json';
     const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScAUAFWgtKAOMNfr4hipZMp9l8JMeeISnT3PBmS7sLgF-EfYg/formResponse';
     const ENTRY_ID = 'entry.1596480602';
+    const CF_WORKER_URL = 'https://snowy-voice-b4ca.manytears812.workers.dev'; 
 
     const CLASS_OPTIONS = ['warrior', 'rogue', 'mage', 'priest'];
     const STAT_OPTIONS = ['Armor', 'Vitality', 'Strength', 'Dexterity', 'Faith', 'Intelligence', 'Critical',
@@ -1171,6 +1172,7 @@
             whats_new_button:'What\'s new', support_button:'Support',
             exit_build_view:'❌ Exit Build View',
             build_view_title:'Viewing build: {name}',
+            toast_generating_link:'Generating shareable link...',
             toast_link_copied:'Shareable link copied to clipboard!',
             toast_cannot_modify_build:'Cannot modify favorites while viewing a shared build.',
             save_build_button:'＋ Create Loadout from Favorites', builds_header:'📁 Saved Loadouts',
@@ -1228,6 +1230,7 @@
             type_Trinket:'Bijou', type_Mount:'Monture', type_Glider:'Planeur',
             whats_new_button:'Quoi de neuf', support_button:'Soutenir',
             exit_build_view:'❌ Quitter la vue build', build_view_title:'Build affiché : {name}',
+            toast_generating_link:'Génération du lien de partage...',
             toast_link_copied:'Lien partageable copié dans le presse-papiers !',
             toast_cannot_modify_build:'Impossible de modifier les favoris en affichant un build partagé.',
             save_build_button:'＋ Créer depuis les favoris', builds_header:'📁 Configurations enregistrées',
@@ -1285,6 +1288,7 @@
             type_Trinket:'Abalorio', type_Mount:'Montura', type_Glider:'Planeador',
             whats_new_button:'Novedades', support_button:'Apoyar',
             exit_build_view:'❌ Salir de la vista build', build_view_title:'Viendo build: {name}',
+            toast_generating_link:'Generando enlace para compartir...',
             toast_link_copied:'¡Enlace copiado al portapapeles!',
             toast_cannot_modify_build:'No se pueden modificar favoritos mientras se ve un build compartido.',
             save_build_button:'＋ Crear desde favoritos', builds_header:'📁 Equipos guardados',
@@ -1748,6 +1752,19 @@
         return{shortIds,name};
     }
 
+    function slugify(text) {
+        if (!text) return '';
+        return text
+            .toString()
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9\s-]/g, '')
+            .trim()
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-');
+    }
+
     function buildShortIdMaps() {
         allItemsMap.clear(); shortIdMap.clear(); reverseShortIdMap.clear(); nameShortIdMap.clear(); reverseNameShortIdMap.clear(); itemLocationMap.clear();
         appData.zones.forEach(z=>{
@@ -2128,20 +2145,47 @@
         document.getElementById('builds-wrapper').classList.remove('open');
     }
 
-    function buildShareUrl(idsSet, buildName) {
-        const shortIds=[...idsSet].map(id=>nameShortIdMap.get(id)||id).filter(Boolean);
-        const packed=packShortIds(shortIds,buildName||'');
-        const url=new URL(window.location.href);
-        url.searchParams.set('p',packed);
-        return url.toString();
+    async function getShortenedSlug(packed, buildName) {
+        try {
+            const cleanUrl = CF_WORKER_URL.replace(/\/+$/, '');
+            const response = await fetch(`${cleanUrl}/shorten`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ p: packed, name: buildName })
+            });
+            if (response.ok) {
+                const data = await response.json();
+                return data.slug;
+            }
+        } catch (e) {
+            console.error("Failed to shorten link, falling back to long URL:", e);
+        }
+        return null;
     }
 
-    function shareBuild(name) {
-        const builds=loadBuilds();
-        const ids=builds[name];
+    async function shareBuild(name) {
+        const builds = loadBuilds();
+        const ids = builds[name];
         if(!ids||ids.length===0){showToast(t('toast_build_no_items'),'red');return;}
-        const url=buildShareUrl(new Set(ids),name);
-        navigator.clipboard.writeText(url).then(()=>{showToast(t('toast_link_copied'));}).catch(()=>{prompt(t('share_prompt'),url);});
+        
+        showToast(t('toast_generating_link') || 'Generating short link...', 'yellow');
+
+        const shortIds=[...ids].map(id=>nameShortIdMap.get(id)||id).filter(Boolean);
+        const packed=packShortIds(shortIds,name||'');
+        const url=new URL(window.location.href);
+        url.searchParams.delete('p');
+        url.searchParams.delete('b');
+
+       
+        const slug = await getShortenedSlug(packed, name);
+        if (slug) {
+            url.searchParams.set('b', slug); 
+        } else {
+            url.searchParams.set('p', packed); 
+        }
+
+        const urlStr = url.toString();
+        navigator.clipboard.writeText(urlStr).then(()=>{showToast(t('toast_link_copied'));}).catch(()=>{prompt(t('share_prompt'),urlStr);});
     }
 
     function toggleFilter(type, value) {
@@ -2268,8 +2312,26 @@
         renderAll();
     }
 
-    function getBuildFromUrl() {
+    async function getBuildFromUrl() {
         const params=new URLSearchParams(window.location.search);
+        const slug=params.get('b');
+        if(slug){
+            try {
+                const cleanUrl = CF_WORKER_URL.replace(/\/+$/, '');
+                const response = await fetch(`${cleanUrl}/b/${slug}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    const packed = data.p;
+                    if (packed) {
+                        const { shortIds, name } = unpackShortIds(packed);
+                        const ids = shortIds.map(s => reverseNameShortIdMap.get(s) || s);
+                        return { ids, name };
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to load shortened build from database:", e);
+            }
+        }
         const packed=params.get('p');
         if(packed){try{const {shortIds,name}=unpackShortIds(packed);const ids=shortIds.map(s=>reverseNameShortIdMap.get(s)||s);return{ids,name};}catch(e){}}
         const favParam=params.get('fav');
@@ -2509,7 +2571,7 @@
             rawFavs.forEach(oldId=>{const item=allItemsMap.get(oldId);if(item)migrated.add(item.nameId);});
             localStorage.setItem('farever_favorites_v1',JSON.stringify([...migrated]));
         }
-        const urlBuild=getBuildFromUrl();
+        const urlBuild=await getBuildFromUrl();
         if(urlBuild){
             favoriteIds=new Set(urlBuild.ids);
             showFavoritesOnly=true;
