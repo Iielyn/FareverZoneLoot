@@ -1755,9 +1755,10 @@
         const getCurrentItemImage = (it) => {
             if (!it) return '';
             const snap = getBaseLevelSnapshot(it);
-            if (!snap || !snapshotHasLevelData(snap)) return '';
+            
+            if (!snap) return '';
             if (snap.image) return snap.image;
-            // Legacy fallback only when the item itself is explicitly for the current level.
+            
             if (declaredLevelMatches(it.level) && it.image) return it.image;
             return '';
         };

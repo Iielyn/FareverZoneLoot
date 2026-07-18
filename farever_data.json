@@ -1,8 +1,8 @@
 {
   "updateLog": {
-    "en": "[7/16] \n• Database has been separated into Lv20 and Lv25 gear, once I get all Lv25 gear the entire database will only consist of that, but for now the Lv20 is here to stay so you can still compare stats fairly if need be.\n• Added a Experimental Theory button so you can sort the dungeon loot by enemy architype, this is of course a theory I couldn't find anything on this being facts.\n• Added Two-Handed Sword as a weapon type.\n• Added Staff as a weapon type.\n• Added stuff for Rift loot.\n• Do note, new items will only be lv25 (I will not be updating lv20 items anymore at this point in time, mounts and gliders are null from this rule since they are not level specific)\n• Moved Judgment from Ratsar's Lair to Cheese Station. If this is wrong please let me know!\n• I'm still missing Nescentine Leggybug, Rinuhrian Skunk, and some dungeon boss glider pictures. If anyone would like to contribute the pictures either through the suggestion box or by adding me on discord, I would appreciate it!\n• Added a different way to view the table/loot and a toggle incase you prefer the other way still.",
-    "fr": "[16/07]\n• La base de données a été séparée entre l’équipement de niveau 20 et de niveau 25. Dès que j’aurai obtenu tout l’équipement de niveau 25, la base de données ne contiendra plus que celui-ci, mais pour l’instant l’équipement de niveau 20 reste disponible afin que vous puissiez comparer les statistiques équitablement si nécessaire.\n• Ajout d’un bouton « Théorie expérimentale » permettant de trier le butin des donjons par archétype d’ennemi. Il s’agit bien sûr d’une théorie : je n’ai rien trouvé qui confirme ces informations.\n• Ajout de l’épée à deux mains comme type d’arme.\n• Ajout du bâton comme type d’arme.\n• Ajout d’éléments pour le butin de la Faille.\n• À noter : les nouveaux objets seront uniquement de niveau 25 (je ne mettrai plus à jour les objets de niveau 20 pour le moment ; les montures et les planeurs ne sont pas concernés puisqu’ils ne dépendent pas du niveau).\n• Jugement a été déplacé de l’Antre de Ratsar vers la Station de Fromage. Si cela est incorrect, merci de me le signaler !\n• Il me manque encore les images du Leggybug Nescentine, de la Mouffette Rinuhrian et de certains planeurs des boss de donjon. Si quelqu’un souhaite fournir ces images via la boîte à suggestions ou en m’ajoutant sur Discord, je lui en serais reconnaissant !\n• Ajout d’une autre manière d’afficher le tableau/le butin, ainsi que d’une option permettant de revenir à l’affichage précédent.",
-    "es": "[16/7]\n• La base de datos se ha separado entre el equipo de nivel 20 y el de nivel 25. Cuando consiga todo el equipo de nivel 25, la base de datos solo contendrá ese equipo, pero por ahora el de nivel 20 seguirá disponible para que puedas comparar las estadísticas de forma justa si lo necesitas.\n• Se ha añadido un botón de «Teoría experimental» para ordenar el botín de las mazmorras por arquetipo de enemigo. Por supuesto, esto es solo una teoría: no encontré nada que confirmara que fueran datos oficiales.\n• Se ha añadido la espada de dos manos como tipo de arma.\n• Se ha añadido el bastón como tipo de arma.\n• Se han añadido elementos del botín de la Grieta.\n• Ten en cuenta que los objetos nuevos serán únicamente de nivel 25 (por ahora no actualizaré más los objetos de nivel 20; las monturas y los planeadores no están sujetos a esta regla porque no dependen del nivel).\n• Juicio se ha trasladado de la Guarida de Ratsar a la Estación de Queso. Si esto es incorrecto, ¡házmelo saber!\n• Todavía me faltan las imágenes del Leggybug Nescentine, del zorrillo rinuhriano y de algunos planeadores de los jefes de mazmorra. Si alguien quiere aportar las imágenes mediante el buzón de sugerencias o añadiéndome en Discord, ¡se lo agradecería!\n• Se ha añadido otra forma de ver la tabla/el botín y un interruptor por si prefieres seguir usando la vista anterior."
+    "en": "[7/16] \n• Database has been separated into Lv20 and Lv25 gear, once I get all Lv25 gear the entire database will only consist of that, but for now the Lv20 is here to stay so you can still compare stats fairly if need be.\n• Added Two-Handed Sword as a weapon type.\n• Added Staff as a weapon type.\n• Added Rift as a zone\n• Do note, new items will only be lv25 (I will not be updating lv20 items anymore at this point in time, mounts and gliders are null from this rule since they are not level specific)\n• Moved Judgment from Ratsar's Lair to Cheese Station. If this is wrong please let me know!\n• I'm still missing Nescentine Leggybug, Rinuhrian Skunk, and some dungeon boss glider pictures. If anyone would like to contribute the pictures either through the suggestion box or by adding me on discord, I would appreciate it!\n• Added a different way to view the table/loot and a toggle incase you prefer the other way still.\n\n[7/18]\n• Moved Amon Ram, the Creator from Cheese Station to Chakram's Chapel. If this is wrong please let me know!",
+    "fr": "[7/16]\n• La base de données a été divisée entre les équipements de niveau 20 et ceux de niveau 25. Une fois que j’aurai obtenu tous les équipements de niveau 25, la base de données ne contiendra plus que ceux-ci. Pour l’instant, les équipements de niveau 20 resteront disponibles afin que vous puissiez toujours comparer les statistiques équitablement si nécessaire.\n• Ajout de l’épée à deux mains comme type d’arme.\n• Ajout du bâton comme type d’arme.\n• Ajout de Rift comme zone.\n• Veuillez noter que les nouveaux objets seront uniquement de niveau 25. Pour le moment, je ne mettrai plus à jour les objets de niveau 20. Les montures et les planeurs ne sont pas concernés par cette règle, puisqu’ils ne sont pas liés à un niveau précis.\n• Judgment a été déplacé de Ratsar's Lair vers Cheese Station. Si cela est incorrect, merci de me le signaler !\n• Il me manque encore des images de Nescentine Leggybug, de Rinuhrian Skunk et de certains planeurs obtenus auprès des boss de donjon. Si quelqu’un souhaite fournir des images via la boîte à suggestions ou en m’ajoutant sur Discord, je lui en serais reconnaissant !\n• Ajout d’une nouvelle façon d’afficher le tableau/le butin, ainsi que d’une option permettant de basculer entre les deux modes d’affichage si vous préférez toujours l’ancien.\n\n[7/18]\n• Amon Ram, the Creator a été déplacé de Cheese Station vers Chakram's Chapel. Si cela est incorrect, merci de me le signaler !",
+    "es": "[7/16]\n• La base de datos se ha dividido entre equipo de nivel 20 y equipo de nivel 25. Cuando consiga todo el equipo de nivel 25, la base de datos incluirá únicamente ese nivel. Por ahora, el equipo de nivel 20 seguirá disponible para que todavía puedas comparar las estadísticas de forma justa si lo necesitas.\n• Se añadió Espada a dos manos como tipo de arma.\n• Se añadió Bastón como tipo de arma.\n• Se añadió Rift como zona.\n• Ten en cuenta que los nuevos objetos solo serán de nivel 25. Por el momento, ya no actualizaré los objetos de nivel 20. Las monturas y los planeadores están exentos de esta regla, ya que no tienen un nivel específico.\n• Se trasladó Judgment de Ratsar's Lair a Cheese Station. Si esto es incorrecto, ¡háganmelo saber!\n• Todavía me faltan imágenes de Nescentine Leggybug, Rinuhrian Skunk y algunos planeadores de jefes de mazmorra. Si alguien desea aportar imágenes mediante el buzón de sugerencias o agregándome en Discord, ¡se lo agradecería!\n• Se añadió una forma diferente de ver la tabla/el botín, además de una opción para alternar entre ambas vistas por si todavía prefieres la anterior.\n\n[7/18]\n• Se trasladó Amon Ram, the Creator de Cheese Station a Chakram's Chapel. Si esto es incorrecto, ¡háganmelo saber!"
   },
   "zones": [
     {
@@ -4873,6 +4873,18 @@
                         "Magic Penetration": 33
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 38,
+                        "Dexterity": 20,
+                        "Intelligence": 20,
+                        "Critical": 40,
+                        "Magic Penetration": 40
+                      },
+                      "image": "images/ClawdiusL.png"
                     }
                   }
                 }
@@ -6728,6 +6740,16 @@
                       "damageMax": 0,
                       "statValues": {},
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 34,
+                        "Dexterity": 39,
+                        "Critical": 81
+                      },
+                      "image": "images/TwinFangsofRatsarL.png"
                     }
                   }
                 }
@@ -18923,141 +18945,6 @@
           "loot": [
             {
               "name": {
-                "en": "Amon Ram, the Creator",
-                "fr": "Amon Ram, Le Créateur",
-                "es": "Amon Ram, El Creador"
-              },
-              "types": [
-                "Mace"
-              ],
-              "classes": [
-                "warrior",
-                "priest"
-              ],
-              "stats": [
-                "Vitality",
-                "Strength",
-                "Faith",
-                "Fervor"
-              ],
-              "skill1": {
-                "en": "\nSmite\n0.75s\n71.5% Strength · Physical · 20% Faith\nDeals 71.5% Strength Physical to an enemy and generates a stack of Benediction, stacking up to 5 times.",
-                "fr": "Frapper\n0,75 s\n71,5% Force · Physique · 20% Foi\nInflige 71,5 % de force physique à un ennemi et génère une pile de bénédiction, cumulable jusqu'à 5 fois.",
-                "es": "herir\n0,75s\n71,5% Fuerza · Física · 20% Fe\nOtorga 71,5% de fuerza física a un enemigo y genera una acumulación de Bendición, acumulándose hasta 5 veces."
-              },
-              "skill2": {
-                "en": "\nRam Veil\ncd 8s · 0.5s\n80% Faith · Magic\nEmits bright light around you, dealing 80% Faith Magic to nearby enemies and consuming all Benediction stacks. If 5 stacks are consumed, this increases your [CritChance] and [Fervor] by 10% for 15.",
-                "fr": "Voile de bélier\ncd 8s · 0,5s\n80 % de foi · Magie\nÉmet une lumière vive autour de vous, infligeant 80 % de magie de foi aux ennemis proches et consommant tous les cumuls de bénédiction. Si 5 stacks sont consommés, cela augmente votre [CritChance] et votre [Ferveur] de 10 % pendant 15.",
-                "es": "Velo de carnero\ncd 8s · 0.5s\n80% Fe · Magia\nEmite una luz brillante a tu alrededor, lo que inflige un 80 % de magia de fe a los enemigos cercanos y consume todas las acumulaciones de Bendición. Si se consumen 5 acumulaciones, esto aumenta tu [CritChance] y [Fervor] en un 10% durante 15."
-              },
-              "skill3": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "passive": {
-                "en": "\nBlessing\nYour [WeaponSkill] empower your next 2 [Attack]s that will deal an additional ::dmg:: and generate a Benediction stack, stacking up to 5 times.",
-                "fr": "Bénédiction\nVotre [WeaponSkill] renforce vos 2 prochaines [Attaques] qui infligeront un ::dmg:: supplémentaire et généreront une pile de bénédiction, cumulable jusqu'à 5 fois.",
-                "es": "Bendición\nTu [WeaponSkill] potencia tus próximos 2 [Ataques] que causarán un ::dmg:: adicional y generarán una acumulación de Bendición, acumulándose hasta 5 veces."
-              },
-              "trinketPassive": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "level": 20,
-              "experimentalScope": "faction",
-              "levelData": {
-                "20": {
-                  "statValues": {},
-                  "image": "images/AmonRam20.png"
-                }
-              },
-              "rare": false,
-              "image": "images/AmonRam20.png",
-              "variants": [
-                {
-                  "rarity": "blue",
-                  "damageMin": 9,
-                  "damageMax": 12,
-                  "statValues": {
-                    "Vitality": 22,
-                    "Strength": 9,
-                    "Faith": 9,
-                    "Fervor": 57
-                  },
-                  "level": 20,
-                  "image": "",
-                  "levelData": {
-                    "20": {
-                      "damageMin": 9,
-                      "damageMax": 12,
-                      "statValues": {
-                        "Vitality": 22,
-                        "Strength": 9,
-                        "Faith": 9,
-                        "Fervor": 57
-                      },
-                      "image": ""
-                    }
-                  }
-                },
-                {
-                  "rarity": "purple",
-                  "damageMin": 9,
-                  "damageMax": 12,
-                  "statValues": {
-                    "Vitality": 26,
-                    "Strength": 10,
-                    "Faith": 10,
-                    "Fervor": 62
-                  },
-                  "level": 20,
-                  "image": "",
-                  "levelData": {
-                    "20": {
-                      "damageMin": 9,
-                      "damageMax": 12,
-                      "statValues": {
-                        "Vitality": 26,
-                        "Strength": 10,
-                        "Faith": 10,
-                        "Fervor": 62
-                      },
-                      "image": ""
-                    }
-                  }
-                },
-                {
-                  "rarity": "legendary",
-                  "damageMin": 9,
-                  "damageMax": 12,
-                  "statValues": {
-                    "Vitality": 30,
-                    "Strength": 12,
-                    "Faith": 12,
-                    "Fervor": 66
-                  },
-                  "level": 20,
-                  "image": "",
-                  "levelData": {
-                    "20": {
-                      "damageMin": 9,
-                      "damageMax": 12,
-                      "statValues": {
-                        "Vitality": 30,
-                        "Strength": 12,
-                        "Faith": 12,
-                        "Fervor": 66
-                      },
-                      "image": ""
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "name": {
                 "en": "Armored Docker Cap",
                 "fr": "Casquette Docker Blindée",
                 "es": "Gorra Docker Blindada"
@@ -21883,6 +21770,163 @@
                 }
               },
               "rare": false
+            },
+            {
+              "name": {
+                "en": "Amon Ram, the Creator",
+                "fr": "Amon Ram, Le Créateur",
+                "es": "Amon Ram, El Creador"
+              },
+              "types": [
+                "Mace"
+              ],
+              "classes": [
+                "warrior",
+                "priest"
+              ],
+              "stats": [
+                "Vitality",
+                "Strength",
+                "Faith",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "\nSmite\n0.75s\n71.5% Strength · Physical · 20% Faith\nDeals 71.5% Strength Physical to an enemy and generates a stack of Benediction, stacking up to 5 times.",
+                "fr": "Frapper\n0,75 s\n71,5% Force · Physique · 20% Foi\nInflige 71,5 % de force physique à un ennemi et génère une pile de bénédiction, cumulable jusqu'à 5 fois.",
+                "es": "herir\n0,75s\n71,5% Fuerza · Física · 20% Fe\nOtorga 71,5% de fuerza física a un enemigo y genera una acumulación de Bendición, acumulándose hasta 5 veces."
+              },
+              "skill2": {
+                "en": "\nRam Veil\ncd 8s · 0.5s\n80% Faith · Magic\nEmits bright light around you, dealing 80% Faith Magic to nearby enemies and consuming all Benediction stacks. If 5 stacks are consumed, this increases your [CritChance] and [Fervor] by 10% for 15.",
+                "fr": "Voile de bélier\ncd 8s · 0,5s\n80 % de foi · Magie\nÉmet une lumière vive autour de vous, infligeant 80 % de magie de foi aux ennemis proches et consommant tous les cumuls de bénédiction. Si 5 stacks sont consommés, cela augmente votre [CritChance] et votre [Ferveur] de 10 % pendant 15.",
+                "es": "Velo de carnero\ncd 8s · 0.5s\n80% Fe · Magia\nEmite una luz brillante a tu alrededor, lo que inflige un 80 % de magia de fe a los enemigos cercanos y consume todas las acumulaciones de Bendición. Si se consumen 5 acumulaciones, esto aumenta tu [CritChance] y [Fervor] en un 10% durante 15."
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "\nBlessing\nYour [WeaponSkill] empower your next 2 [Attack]s that will deal an additional ::dmg:: and generate a Benediction stack, stacking up to 5 times.",
+                "fr": "Bénédiction\nVotre [WeaponSkill] renforce vos 2 prochaines [Attaques] qui infligeront un ::dmg:: supplémentaire et généreront une pile de bénédiction, cumulable jusqu'à 5 fois.",
+                "es": "Bendición\nTu [WeaponSkill] potencia tus próximos 2 [Ataques] que causarán un ::dmg:: adicional y generarán una acumulación de Bendición, acumulándose hasta 5 veces."
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 20,
+              "experimentalScope": "faction",
+              "levelData": {
+                "20": {
+                  "statValues": {},
+                  "image": "images/AmonRam20.png"
+                }
+              },
+              "rare": false,
+              "image": "images/AmonRam20.png",
+              "variants": [
+                {
+                  "rarity": "blue",
+                  "damageMin": 9,
+                  "damageMax": 12,
+                  "statValues": {
+                    "Vitality": 22,
+                    "Strength": 9,
+                    "Faith": 9,
+                    "Fervor": 57
+                  },
+                  "level": 20,
+                  "image": "",
+                  "levelData": {
+                    "20": {
+                      "damageMin": 9,
+                      "damageMax": 12,
+                      "statValues": {
+                        "Vitality": 22,
+                        "Strength": 9,
+                        "Faith": 9,
+                        "Fervor": 57
+                      },
+                      "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 32,
+                        "Strength": 12,
+                        "Faith": 12,
+                        "Fervor": 69
+                      },
+                      "image": "images/AmonRamtheCreatorB.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "purple",
+                  "damageMin": 9,
+                  "damageMax": 12,
+                  "statValues": {
+                    "Vitality": 26,
+                    "Strength": 10,
+                    "Faith": 10,
+                    "Fervor": 62
+                  },
+                  "level": 20,
+                  "image": "",
+                  "levelData": {
+                    "20": {
+                      "damageMin": 9,
+                      "damageMax": 12,
+                      "statValues": {
+                        "Vitality": 26,
+                        "Strength": 10,
+                        "Faith": 10,
+                        "Fervor": 62
+                      },
+                      "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Strength": 14,
+                        "Faith": 14,
+                        "Fervor": 75
+                      },
+                      "image": "images/AmonRamtheCreatorP.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 9,
+                  "damageMax": 12,
+                  "statValues": {
+                    "Vitality": 30,
+                    "Strength": 12,
+                    "Faith": 12,
+                    "Fervor": 66
+                  },
+                  "level": 20,
+                  "image": "",
+                  "levelData": {
+                    "20": {
+                      "damageMin": 9,
+                      "damageMax": 12,
+                      "statValues": {
+                        "Vitality": 30,
+                        "Strength": 12,
+                        "Faith": 12,
+                        "Fervor": 66
+                      },
+                      "image": ""
+                    }
+                  }
+                }
+              ]
             }
           ]
         }
