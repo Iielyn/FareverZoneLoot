@@ -1609,13 +1609,44 @@
         return item.variants.find(variant => variant.rarity === 'blue') || item.variants[0];
     }
     function getItemImage(item, variant=null) {
+        if (!item) return '';
 
-        const selectedSnapshot=getVariantLevelSnapshot(variant);
-        const baseSnapshot=getBaseLevelSnapshot(item);
-        const defaultSnapshot=getVariantLevelSnapshot(getDefaultVariant(item));
-        return (selectedSnapshot&&selectedSnapshot.image) ||
-            (baseSnapshot&&baseSnapshot.image) ||
-            (defaultSnapshot&&defaultSnapshot.image) || '';
+        const getImgFromVariant = (v) => {
+            if (!v) return '';
+            const snap = getVariantLevelSnapshot(v);
+            if (snap && snap.image) return snap.image;
+            if (v.levelData) {
+                for (const lvl in v.levelData) {
+                    if (v.levelData[lvl] && v.levelData[lvl].image) return v.levelData[lvl].image;
+                }
+            }
+            if (v.image) return v.image;
+            return '';
+        };
+
+        const getImgFromItem = (it) => {
+            if (!it) return '';
+            const snap = getBaseLevelSnapshot(it);
+            if (snap && snap.image) return snap.image;
+            if (it.levelData) {
+                for (const lvl in it.levelData) {
+                    if (it.levelData[lvl] && it.levelData[lvl].image) return it.levelData[lvl].image;
+                }
+            }
+            if (it.image) return it.image;
+            return '';
+        };
+
+        let img = getImgFromVariant(variant);
+        if (img) return img;
+
+        img = getImgFromItem(item);
+        if (img) return img;
+
+        img = getImgFromVariant(getDefaultVariant(item));
+        if (img) return img;
+
+        return '';
     }
     function getDefaultItemImage(item) {
         return getItemImage(item, getDefaultVariant(item));
@@ -2266,8 +2297,7 @@
             if(levelWarning){levelWarning.textContent=warningText;levelWarning.hidden=!warningText;}
             const nameEl=row.querySelector('.item-name');
             if(nameEl){
-                const variantHasData=snapshotHasLevelData(getVariantLevelSnapshot(variant));
-                const img=variantHasData?getItemImage(item, variant):'';
+                const img=getItemImage(item, variant);
                 if(img)nameEl.dataset.imageUrl=img;
                 else delete nameEl.dataset.imageUrl;
             }
@@ -2532,10 +2562,24 @@
             tooltipEl.style.left=Math.max(5,left)+'px';tooltipEl.style.top=Math.max(5,top)+'px';
         }
         const container=document.getElementById('zones-container');
-        container.addEventListener('mouseover',(e)=>{const target=e.target.closest('[data-image-url]');if(target&&target!==activeElement){activeElement=target;const url=target.dataset.imageUrl;if(url){showTooltip(url);updateTooltipPosition(e);}}});
-        container.addEventListener('mouseout',(e)=>{if(activeElement){const relatedTarget=e.relatedTarget&&e.relatedTarget.closest('[data-image-url]');if(!relatedTarget||relatedTarget!==activeElement)hideTooltip();}});
+        container.addEventListener('mouseover',(e)=>{
+            const target=e.target&&typeof e.target.closest==='function'?e.target.closest('[data-image-url]'):null;
+            if(target&&target!==activeElement){
+                activeElement=target;
+                const url=target.dataset.imageUrl;
+                if(url){showTooltip(url);updateTooltipPosition(e);}
+            }
+        });
+        container.addEventListener('mouseout',(e)=>{
+            if(activeElement){
+                const relatedTarget=e.relatedTarget&&typeof e.relatedTarget.closest==='function'?e.relatedTarget.closest('[data-image-url]'):null;
+                if(!relatedTarget||relatedTarget!==activeElement)hideTooltip();
+            }
+        });
         container.addEventListener('mousemove',(e)=>{if(tooltipVisible&&activeElement)updateTooltipPosition(e);});
-        document.addEventListener('mousemove',(e)=>{if(tooltipVisible&&activeElement&&!e.target.closest('#zones-container'))updateTooltipPosition(e);});
+        document.addEventListener('mousemove',(e)=>{
+            if(tooltipVisible&&activeElement&&e.target&&typeof e.target.closest==='function'&&!e.target.closest('#zones-container'))updateTooltipPosition(e);
+        });
     }
 
     function setupLanguageSwitcher() {
