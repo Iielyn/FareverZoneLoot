@@ -1738,42 +1738,45 @@
     function getItemImage(item, variant=null) {
         if (!item) return '';
 
-        const getImgFromVariant = (v) => {
+      
+        const currentLevelKey = String(currentStatLevel);
+        const declaredLevelMatches = value => normalizeLevelKey(value !== undefined ? value : 20) === currentLevelKey;
+
+        const getCurrentVariantImage = (v) => {
             if (!v) return '';
             const snap = getVariantLevelSnapshot(v);
-            if (snap && snap.image) return snap.image;
-            if (v.levelData) {
-                for (const lvl in v.levelData) {
-                    if (v.levelData[lvl] && v.levelData[lvl].image) return v.levelData[lvl].image;
-                }
-            }
-            if (v.image) return v.image;
+            if (!snap || !snapshotHasLevelData(snap)) return '';
+            if (snap.image) return snap.image;
+           
+            if (declaredLevelMatches(v.level) && v.image) return v.image;
             return '';
         };
 
-        const getImgFromItem = (it) => {
+        const getCurrentItemImage = (it) => {
             if (!it) return '';
             const snap = getBaseLevelSnapshot(it);
-            if (snap && snap.image) return snap.image;
-            if (it.levelData) {
-                for (const lvl in it.levelData) {
-                    if (it.levelData[lvl] && it.levelData[lvl].image) return it.levelData[lvl].image;
-                }
-            }
-            if (it.image) return it.image;
+            if (!snap || !snapshotHasLevelData(snap)) return '';
+            if (snap.image) return snap.image;
+            // Legacy fallback only when the item itself is explicitly for the current level.
+            if (declaredLevelMatches(it.level) && it.image) return it.image;
             return '';
         };
 
-        let img = getImgFromVariant(variant);
-        if (img) return img;
+        if (variant) {
+            const variantImg = getCurrentVariantImage(variant);
+            if (variantImg) return variantImg;
 
-        img = getImgFromItem(item);
-        if (img) return img;
+       
+            const variantSnap = getVariantLevelSnapshot(variant);
+            if (variantSnap && snapshotHasLevelData(variantSnap)) return getCurrentItemImage(item);
+            return '';
+        }
 
-        img = getImgFromVariant(getDefaultVariant(item));
-        if (img) return img;
+        if (item.variants && item.variants.length > 0) {
+            return getCurrentVariantImage(getDefaultVariant(item));
+        }
 
-        return '';
+        return getCurrentItemImage(item);
     }
     function getDefaultItemImage(item) {
         return getItemImage(item, getDefaultVariant(item));

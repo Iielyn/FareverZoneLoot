@@ -128,6 +128,18 @@
                         "Dexterity": 12
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 33,
+                        "Strength": 14,
+                        "Dexterity": 17,
+                        "Critical": 37,
+                        "Armor Penetration": 37
+                      },
+                      "image": "images/IronFinsoftheLeviathanP.png"
                     }
                   }
                 },
@@ -292,6 +304,17 @@
                     "Fervor": 12
                   },
                   "image": "images/H-Crabg.r.p.legs.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 181,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Critical": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/NepicursVacationShorts.png"
                 }
               },
               "rare": false,
@@ -784,6 +807,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Crabg.r.p.chest20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 204,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Critical": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/JacketoftheLastPirate.png"
                 }
               },
               "rare": false,
@@ -928,6 +962,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Nepsid.w.r.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 209,
+                    "Vitality": 8,
+                    "Strength": 4,
+                    "Dexterity": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/AbyssalShoulderplates.png"
                 }
               },
               "rare": false,
@@ -1000,6 +1045,17 @@
                     "Magic Penetration": 7
                   },
                   "image": "images/Crab.r.m.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 57,
+                    "Vitality": 6,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Critical": 8,
+                    "Magic Penetration": 8
+                  },
+                  "image": "images/CloakoftheThirdWaveApostle.png"
                 }
               },
               "rare": false,
@@ -1067,6 +1123,15 @@
                     "Critical": 24
                   },
                   "image": "images/Nep.r.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 9,
+                    "Dexterity": 12,
+                    "Critical": 30
+                  },
+                  "image": "images/SubmarineTorpedoHelmet.png"
                 }
               },
               "rare": false,
@@ -1444,10 +1509,10 @@
                 "rogue"
               ],
               "stats": [
-                "Armor",
                 "Vitality",
-                "Dexterity",
-                "Critical"
+                "Armor",
+                "Critical",
+                "Dexterity"
               ],
               "skill1": {
                 "en": "",
@@ -1485,6 +1550,15 @@
                     "Critical": 18
                   },
                   "image": "images/Nep.r.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 141,
+                    "Vitality": 6,
+                    "Dexterity": 8,
+                    "Critical": 22
+                  },
+                  "image": "images/BurdenoftheAbyss.png"
                 }
               },
               "rare": false,
@@ -1699,6 +1773,17 @@
                     "Armor Penetration": 12
                   },
                   "image": "images/Crabg.w.r.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 257,
+                    "Vitality": 10,
+                    "Strength": 5,
+                    "Dexterity": 6,
+                    "Critical": 15,
+                    "Armor Penetration": 15
+                  },
+                  "image": "images/VestureoftheMusselHunter.png"
                 }
               },
               "rare": false,
@@ -1968,6 +2053,15 @@
                     "Critical": 18
                   },
                   "image": "images/Nep.r.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 154,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Critical": 22
+                  },
+                  "image": "images/BleakShellsKneePads.png"
                 }
               },
               "rare": false,
@@ -2583,9 +2677,9 @@
                 "Armor",
                 "Vitality",
                 "Dexterity",
-                "Intelligence",
+                "Magic Penetration",
                 "Armor Penetration",
-                "Magic Penetration"
+                "Intelligence"
               ],
               "skill1": {
                 "en": "",
@@ -2625,6 +2719,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.chest20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 204,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/SpiritoftheSpelunker.png"
                 }
               },
               "rare": false,
@@ -2692,6 +2797,15 @@
                     "Armor Penetration": 13
                   },
                   "image": "images/Kob.r.back20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 64,
+                    "Vitality": 5,
+                    "Dexterity": 7,
+                    "Armor Penetration": 16
+                  },
+                  "image": "images/ReversibleBiboftheCheeseTaster.png"
                 }
               },
               "rare": false,
@@ -2901,6 +3015,15 @@
                     "Armor Penetration": 18
                   },
                   "image": "images/Kob.r.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 141,
+                    "Vitality": 6,
+                    "Dexterity": 8,
+                    "Armor Penetration": 22
+                  },
+                  "image": "images/RelicoftheFourHundred.png"
                 }
               },
               "rare": false,
@@ -2971,6 +3094,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Kob.r.p.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 136,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/SpelunkingShoesofEmmenTunnel.png"
                 }
               },
               "rare": false,
@@ -3277,6 +3411,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/VisionoftheCheeseslicer.png"
                 }
               },
               "rare": false,
@@ -3483,6 +3628,15 @@
                     "Armor Penetration": 18
                   },
                   "image": "images/Kob.r.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 166,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Armor Penetration": 22
+                  },
+                  "image": "images/CheeseCoveredShoulderpads.png"
                 }
               },
               "rare": false,
@@ -3856,6 +4010,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Kob.r.p.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/GlovesofNinkilimtheEnvoy.png"
                 }
               },
               "rare": false,
@@ -3928,6 +4093,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 181,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/GarmentoftheAurockMaster.png"
                 }
               },
               "rare": false,
@@ -4193,6 +4369,17 @@
                     "Armor Penetration": 12
                   },
                   "image": "images/Crabg.w.r.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 257,
+                    "Vitality": 10,
+                    "Strength": 5,
+                    "Dexterity": 6,
+                    "Critical": 15,
+                    "Armor Penetration": 15
+                  },
+                  "image": "images/VestureoftheMusselHunter.png"
                 }
               },
               "rare": false,
@@ -4646,6 +4833,18 @@
                         "Magic Penetration": 31
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 33,
+                        "Dexterity": 17,
+                        "Intelligence": 17,
+                        "Critical": 37,
+                        "Magic Penetration": 37
+                      },
+                      "image": "images/ClawdiusP.png"
                     }
                   }
                 },
@@ -4947,6 +5146,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Crabg.r.p.chest20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 204,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Critical": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/JacketoftheLastPirate.png"
                 }
               },
               "rare": false,
@@ -5231,8 +5441,8 @@
                 "Back"
               ],
               "classes": [
-                "rogue",
-                "mage"
+                "mage",
+                "rogue"
               ],
               "stats": [
                 "Armor",
@@ -5280,6 +5490,17 @@
                     "Magic Penetration": 7
                   },
                   "image": "images/Crab.r.m.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 57,
+                    "Vitality": 6,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Critical": 8,
+                    "Magic Penetration": 8
+                  },
+                  "image": "images/CloakoftheThirdWaveApostle.png"
                 }
               },
               "rare": false,
@@ -5378,10 +5599,10 @@
                 "rogue"
               ],
               "stats": [
-                "Armor",
                 "Vitality",
-                "Dexterity",
-                "Critical"
+                "Armor",
+                "Critical",
+                "Dexterity"
               ],
               "skill1": {
                 "en": "",
@@ -5419,6 +5640,15 @@
                     "Critical": 18
                   },
                   "image": "images/Nep.r.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 141,
+                    "Vitality": 6,
+                    "Dexterity": 8,
+                    "Critical": 22
+                  },
+                  "image": "images/BurdenoftheAbyss.png"
                 }
               },
               "rare": false,
@@ -5484,6 +5714,15 @@
                     "Critical": 18
                   },
                   "image": "images/Nep.r.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 154,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Critical": 22
+                  },
+                  "image": "images/BleakShellsKneePads.png"
                 }
               },
               "rare": false,
@@ -5626,6 +5865,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Nepsid.w.r.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 209,
+                    "Vitality": 8,
+                    "Strength": 4,
+                    "Dexterity": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/AbyssalShoulderplates.png"
                 }
               },
               "rare": false,
@@ -5649,16 +5899,16 @@
                 "Legs"
               ],
               "classes": [
-                "priest",
-                "rogue"
+                "rogue",
+                "priest"
               ],
               "stats": [
-                "Armor",
                 "Vitality",
                 "Dexterity",
                 "Faith",
+                "Fervor",
                 "Critical",
-                "Fervor"
+                "Armor"
               ],
               "skill1": {
                 "en": "",
@@ -5689,12 +5939,38 @@
               "experimentalScope": "faction",
               "levelData": {
                 "20": {
-                  "statValues": {},
+                  "statValues": {
+                    "Armor": 151,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Faith": 3,
+                    "Critical": 12,
+                    "Fervor": 12
+                  },
                   "image": "images/H-Crabg.r.p.legs.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 181,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Critical": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/NepicursVacationShorts.png"
                 }
               },
               "rare": false,
-              "image": "images/H-Crabg.r.p.legs.png"
+              "image": "images/H-Crabg.r.p.legs.png",
+              "statValues": {
+                "Armor": 151,
+                "Vitality": 7,
+                "Dexterity": 4,
+                "Faith": 3,
+                "Critical": 12,
+                "Fervor": 12
+              }
             },
             {
               "name": {
@@ -5815,6 +6091,15 @@
                     "Critical": 24
                   },
                   "image": "images/Nep.r.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 9,
+                    "Dexterity": 12,
+                    "Critical": 30
+                  },
+                  "image": "images/SubmarineTorpedoHelmet.png"
                 }
               },
               "rare": false,
@@ -6738,6 +7023,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Kob.r.p.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 136,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/SpelunkingShoesofEmmenTunnel.png"
                 }
               },
               "rare": false,
@@ -6990,9 +7286,9 @@
                 "Armor",
                 "Vitality",
                 "Dexterity",
-                "Intelligence",
+                "Magic Penetration",
                 "Armor Penetration",
-                "Magic Penetration"
+                "Intelligence"
               ],
               "skill1": {
                 "en": "",
@@ -7032,6 +7328,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.chest20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 204,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/SpiritoftheSpelunker.png"
                 }
               },
               "rare": false,
@@ -7169,6 +7476,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/VisionoftheCheeseslicer.png"
                 }
               },
               "rare": false,
@@ -7308,6 +7626,15 @@
                     "Armor Penetration": 13
                   },
                   "image": "images/Kob.r.back20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 64,
+                    "Vitality": 5,
+                    "Dexterity": 7,
+                    "Armor Penetration": 16
+                  },
+                  "image": "images/ReversibleBiboftheCheeseTaster.png"
                 }
               },
               "rare": false,
@@ -7378,6 +7705,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Kob.r.p.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/GlovesofNinkilimtheEnvoy.png"
                 }
               },
               "rare": false,
@@ -7445,6 +7783,15 @@
                     "Armor Penetration": 18
                   },
                   "image": "images/Kob.r.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 166,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Armor Penetration": 22
+                  },
+                  "image": "images/CheeseCoveredShoulderpads.png"
                 }
               },
               "rare": false,
@@ -7503,12 +7850,32 @@
               "experimentalScope": "faction",
               "levelData": {
                 "20": {
-                  "statValues": {},
+                  "statValues": {
+                    "Armor": 117,
+                    "Vitality": 4,
+                    "Dexterity": 6,
+                    "Armor Penetration": 18
+                  },
                   "image": "images/Kob.r.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 141,
+                    "Vitality": 6,
+                    "Dexterity": 8,
+                    "Armor Penetration": 22
+                  },
+                  "image": "images/RelicoftheFourHundred.png"
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.belt20.png"
+              "image": "images/Kob.r.belt20.png",
+              "statValues": {
+                "Armor": 117,
+                "Vitality": 4,
+                "Dexterity": 6,
+                "Armor Penetration": 18
+              }
             },
             {
               "name": {
@@ -7785,6 +8152,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 181,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/GarmentoftheAurockMaster.png"
                 }
               },
               "rare": false,
@@ -8799,6 +9177,17 @@
                     "Fervor": 7
                   },
                   "image": "images/Ladybee.r.p.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 57,
+                    "Vitality": 6,
+                    "Dexterity": 4,
+                    "Faith": 3,
+                    "Magic Penetration": 8,
+                    "Fervor": 8
+                  },
+                  "image": "images/FlightoftheRumblebee.png"
                 }
               },
               "rare": false,
@@ -9799,6 +10188,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Ladybee.r.p.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/PropolisHeartofApix.png"
                 }
               },
               "rare": false,
@@ -10205,6 +10605,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Ladybee.r.p.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/PropolisHeartofApix.png"
                 }
               },
               "rare": false,
@@ -10220,7 +10631,7 @@
             },
             {
               "name": {
-                "en": "Ipheion, Star Blossom",
+                "en": "Ipheion, Star Blossom ",
                 "fr": "Ipheion, Fleur D'Étoile",
                 "es": "Ipheion, Flor De Estrella"
               },
@@ -10228,8 +10639,8 @@
                 "Thrown"
               ],
               "classes": [
-                "rogue",
-                "mage"
+                "mage",
+                "rogue"
               ],
               "stats": [
                 "Vitality",
@@ -10267,10 +10678,11 @@
               "levelData": {
                 "20": {
                   "statValues": {},
-                  "image": ""
+                  "image": "images/IpheionStar20.png"
                 }
               },
               "rare": false,
+              "image": "images/IpheionStar20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -10295,6 +10707,17 @@
                         "Fervor": 57
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 29,
+                        "Dexterity": 15,
+                        "Intelligence": 15,
+                        "Fervor": 69
+                      },
+                      "image": "images/IpheionStarBlossomB.png"
                     }
                   }
                 },
@@ -10321,6 +10744,17 @@
                         "Fervor": 62
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 33,
+                        "Dexterity": 17,
+                        "Intelligence": 17,
+                        "Fervor": 75
+                      },
+                      "image": "images/IpheionStarBlossomP.png"
                     }
                   }
                 },
@@ -10346,6 +10780,12 @@
                         "Intelligence": 14,
                         "Fervor": 66
                       },
+                      "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -10585,11 +11025,11 @@
                 "priest"
               ],
               "stats": [
-                "Magic Penetration",
                 "Armor",
                 "Vitality",
                 "Dexterity",
                 "Faith",
+                "Magic Penetration",
                 "Fervor"
               ],
               "skill1": {
@@ -10630,6 +11070,17 @@
                     "Fervor": 7
                   },
                   "image": "images/Ladybee.r.p.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 57,
+                    "Vitality": 6,
+                    "Dexterity": 4,
+                    "Faith": 3,
+                    "Magic Penetration": 8,
+                    "Fervor": 8
+                  },
+                  "image": "images/FlightoftheRumblebee.png"
                 }
               },
               "rare": false,
@@ -12454,6 +12905,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Kob.r.p.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 136,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/SpelunkingShoesofEmmenTunnel.png"
                 }
               },
               "rare": false,
@@ -12924,6 +13386,15 @@
                     "Armor Penetration": 18
                   },
                   "image": "images/Kob.r.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 166,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Armor Penetration": 22
+                  },
+                  "image": "images/CheeseCoveredShoulderpads.png"
                 }
               },
               "rare": false,
@@ -12994,6 +13465,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.chest20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 204,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/SpiritoftheSpelunker.png"
                 }
               },
               "rare": false,
@@ -13126,6 +13608,15 @@
                     "Armor Penetration": 18
                   },
                   "image": "images/Kob.r.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 141,
+                    "Vitality": 6,
+                    "Dexterity": 8,
+                    "Armor Penetration": 22
+                  },
+                  "image": "images/RelicoftheFourHundred.png"
                 }
               },
               "rare": false,
@@ -13290,7 +13781,7 @@
             },
             {
               "name": {
-                "en": "Vision of the Cheeseslicer",
+                "en": "Vision of the Cheeseslicer ",
                 "fr": "Vision Du Coupe-Fromage",
                 "es": "Visión Del Rebanador De Queso"
               },
@@ -13306,8 +13797,8 @@
                 "Vitality",
                 "Dexterity",
                 "Intelligence",
-                "Magic Penetration",
-                "Armor Penetration"
+                "Armor Penetration",
+                "Magic Penetration"
               ],
               "skill1": {
                 "en": "",
@@ -13347,6 +13838,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/VisionoftheCheeseslicer.png"
                 }
               },
               "rare": false,
@@ -13553,6 +14055,15 @@
                     "Armor Penetration": 13
                   },
                   "image": "images/Kob.r.back20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 64,
+                    "Vitality": 5,
+                    "Dexterity": 7,
+                    "Armor Penetration": 16
+                  },
+                  "image": "images/ReversibleBiboftheCheeseTaster.png"
                 }
               },
               "rare": false,
@@ -13688,6 +14199,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Kob.r.p.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/GlovesofNinkilimtheEnvoy.png"
                 }
               },
               "rare": false,
@@ -14061,6 +14583,17 @@
                     "Armor Penetration": 12
                   },
                   "image": "images/Crabg.w.r.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 257,
+                    "Vitality": 10,
+                    "Strength": 5,
+                    "Dexterity": 6,
+                    "Critical": 15,
+                    "Armor Penetration": 15
+                  },
+                  "image": "images/VestureoftheMusselHunter.png"
                 }
               },
               "rare": false,
@@ -14350,8 +14883,8 @@
                 "Armor",
                 "Vitality",
                 "Dexterity",
-                "Critical",
                 "Faith",
+                "Critical",
                 "Fervor"
               ],
               "skill1": {
@@ -14388,10 +14921,21 @@
                     "Vitality": 7,
                     "Dexterity": 4,
                     "Faith": 3,
-                    "Fervor": 12,
-                    "Critical": 12
+                    "Critical": 12,
+                    "Fervor": 12
                   },
                   "image": "images/Crabg.r.p.chest20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 204,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Critical": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/JacketoftheLastPirate.png"
                 }
               },
               "rare": false,
@@ -14401,8 +14945,8 @@
                 "Vitality": 7,
                 "Dexterity": 4,
                 "Faith": 3,
-                "Fervor": 12,
-                "Critical": 12
+                "Critical": 12,
+                "Fervor": 12
               }
             },
             {
@@ -14459,6 +15003,15 @@
                     "Critical": 18
                   },
                   "image": "images/Nep.r.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 141,
+                    "Vitality": 6,
+                    "Dexterity": 8,
+                    "Critical": 22
+                  },
+                  "image": "images/BurdenoftheAbyss.png"
                 }
               },
               "rare": false,
@@ -14796,6 +15349,15 @@
                     "Critical": 24
                   },
                   "image": "images/Nep.r.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 9,
+                    "Dexterity": 12,
+                    "Critical": 30
+                  },
+                  "image": "images/SubmarineTorpedoHelmet.png"
                 }
               },
               "rare": false,
@@ -14866,6 +15428,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Nepsid.w.r.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 209,
+                    "Vitality": 8,
+                    "Strength": 4,
+                    "Dexterity": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/AbyssalShoulderplates.png"
                 }
               },
               "rare": false,
@@ -15291,6 +15864,17 @@
                     "Magic Penetration": 7
                   },
                   "image": "images/Crab.r.m.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 57,
+                    "Vitality": 6,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Critical": 8,
+                    "Magic Penetration": 8
+                  },
+                  "image": "images/CloakoftheThirdWaveApostle.png"
                 }
               },
               "rare": false,
@@ -15644,6 +16228,17 @@
                     "Fervor": 12
                   },
                   "image": "images/H-Crabg.r.p.legs.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 181,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Critical": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/NepicursVacationShorts.png"
                 }
               },
               "rare": false,
@@ -15913,6 +16508,15 @@
                     "Critical": 18
                   },
                   "image": "images/Nep.r.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 154,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Critical": 22
+                  },
+                  "image": "images/BleakShellsKneePads.png"
                 }
               },
               "rare": false,
@@ -16547,6 +17151,17 @@
                         "Fervor": 57
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 29,
+                        "Dexterity": 15,
+                        "Intelligence": 15,
+                        "Fervor": 69
+                      },
+                      "image": "images/IpheionStarBlossomB.png"
                     }
                   }
                 },
@@ -16573,6 +17188,17 @@
                         "Fervor": 62
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 33,
+                        "Dexterity": 17,
+                        "Intelligence": 17,
+                        "Fervor": 75
+                      },
+                      "image": "images/IpheionStarBlossomP.png"
                     }
                   }
                 },
@@ -16598,6 +17224,12 @@
                         "Intelligence": 14,
                         "Fervor": 66
                       },
+                      "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -17392,6 +18024,17 @@
                     "Fervor": 7
                   },
                   "image": "images/Ladybee.r.p.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 57,
+                    "Vitality": 6,
+                    "Dexterity": 4,
+                    "Faith": 3,
+                    "Magic Penetration": 8,
+                    "Fervor": 8
+                  },
+                  "image": "images/FlightoftheRumblebee.png"
                 }
               },
               "rare": false,
@@ -17728,6 +18371,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Ladybee.r.p.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/PropolisHeartofApix.png"
                 }
               },
               "rare": false,
@@ -18424,7 +19078,7 @@
             },
             {
               "name": {
-                "en": "Vision of the Cheeseslicer",
+                "en": "Vision of the Cheeseslicer ",
                 "fr": "Vision Du Coupe-Fromage",
                 "es": "Visión Del Rebanador De Queso"
               },
@@ -18440,8 +19094,8 @@
                 "Vitality",
                 "Dexterity",
                 "Intelligence",
-                "Magic Penetration",
-                "Armor Penetration"
+                "Armor Penetration",
+                "Magic Penetration"
               ],
               "skill1": {
                 "en": "",
@@ -18481,6 +19135,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/VisionoftheCheeseslicer.png"
                 }
               },
               "rare": false,
@@ -19000,6 +19665,15 @@
                     "Armor Penetration": 18
                   },
                   "image": "images/Kob.r.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 166,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Armor Penetration": 22
+                  },
+                  "image": "images/CheeseCoveredShoulderpads.png"
                 }
               },
               "rare": false,
@@ -19148,6 +19822,15 @@
                     "Armor Penetration": 13
                   },
                   "image": "images/Kob.r.back20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 64,
+                    "Vitality": 5,
+                    "Dexterity": 7,
+                    "Armor Penetration": 16
+                  },
+                  "image": "images/ReversibleBiboftheCheeseTaster.png"
                 }
               },
               "rare": false,
@@ -19355,6 +20038,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Kob.r.p.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/GlovesofNinkilimtheEnvoy.png"
                 }
               },
               "rare": false,
@@ -19577,12 +20271,32 @@
               "experimentalScope": "faction",
               "levelData": {
                 "20": {
-                  "statValues": {},
+                  "statValues": {
+                    "Armor": 117,
+                    "Vitality": 4,
+                    "Dexterity": 6,
+                    "Armor Penetration": 18
+                  },
                   "image": "images/Kob.r.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 141,
+                    "Vitality": 6,
+                    "Dexterity": 8,
+                    "Armor Penetration": 22
+                  },
+                  "image": "images/RelicoftheFourHundred.png"
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.belt20.png"
+              "image": "images/Kob.r.belt20.png",
+              "statValues": {
+                "Armor": 117,
+                "Vitality": 4,
+                "Dexterity": 6,
+                "Armor Penetration": 18
+              }
             },
             {
               "name": {
@@ -19708,6 +20422,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 181,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/GarmentoftheAurockMaster.png"
                 }
               },
               "rare": false,
@@ -19991,6 +20716,17 @@
                     "Armor Penetration": 9
                   },
                   "image": "images/Kob.r.p.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 136,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Critical": 11,
+                    "Armor Penetration": 11
+                  },
+                  "image": "images/SpelunkingShoesofEmmenTunnel.png"
                 }
               },
               "rare": false,
@@ -20196,9 +20932,9 @@
                 "Armor",
                 "Vitality",
                 "Dexterity",
-                "Intelligence",
+                "Magic Penetration",
                 "Armor Penetration",
-                "Magic Penetration"
+                "Intelligence"
               ],
               "skill1": {
                 "en": "",
@@ -20238,6 +20974,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Kob.r.m.chest20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 204,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/SpiritoftheSpelunker.png"
                 }
               },
               "rare": false,
@@ -21535,6 +22282,83 @@
                 }
               },
               "rare": false
+            },
+            {
+              "name": {
+                "en": "Nibsham's Liberators",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Daggers"
+              ],
+              "classes": [
+                "rogue",
+                "mage"
+              ],
+              "stats": [
+                "Vitality",
+                "Dexterity",
+                "Intelligence",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "purple",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 33,
+                        "Dexterity": 17,
+                        "Intelligence": 17,
+                        "Fervor": 75
+                      },
+                      "image": "images/NibshamsLiberatorsP.png"
+                    }
+                  }
+                }
+              ]
             }
           ]
         }
