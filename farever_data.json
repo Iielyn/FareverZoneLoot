@@ -2503,6 +2503,16 @@
                         "Critical": 57
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 32,
+                        "Faith": 25,
+                        "Critical": 69
+                      },
+                      "image": "images/FlameofArgolB.png"
                     }
                   }
                 },
@@ -4357,6 +4367,14 @@
                         "Armor": 436
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Armor": 517
+                      },
+                      "image": "images/CrabgantuasKneecapP.png"
                     }
                   }
                 },
@@ -20670,6 +20688,28 @@
                       "image": "images/CenserofWoolHollowP.png"
                     }
                   }
+                },
+                {
+                  "rarity": "blue",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 32,
+                        "Faith": 12,
+                        "Intelligence": 15,
+                        "Critical": 35,
+                        "Fervor": 35
+                      },
+                      "image": "images/CenserofWoolHollowB.png"
+                    }
+                  }
                 }
               ]
             },
@@ -20916,6 +20956,124 @@
                     "Fervor": 11
                   },
                   "image": "images/NobleMantle.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Lost Relic Found",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Trinket"
+              ],
+              "classes": [
+                "warrior",
+                "rogue",
+                "mage",
+                "priest"
+              ],
+              "stats": [
+                "Critical"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "Participating in killing an enemy\nincreases your Movement speed by 30%\nfor 3s.",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Critical": 32
+                  },
+                  "image": "images/LostRelicFound.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Ram Faceshield",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Head"
+              ],
+              "classes": [
+                "warrior",
+                "rogue"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Dexterity",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 225,
+                    "Vitality": 10,
+                    "Strength": 5,
+                    "Dexterity": 6,
+                    "Critical": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/RamFaceshield.png"
                 }
               },
               "rare": false
@@ -21194,6 +21352,186 @@
                     "Fervor": 22
                   },
                   "image": "images/DemonicCrushers.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Horns of Nightking",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Head"
+              ],
+              "classes": [
+                "mage",
+                "warrior"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Intelligence",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 201,
+                    "Vitality": 11,
+                    "Strength": 5,
+                    "Intelligence": 6,
+                    "Fervor": 30
+                  },
+                  "image": "images/HornsofNightking.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Gaping Mouths Pauldrons",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Shoulders"
+              ],
+              "classes": [
+                "warrior"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 259,
+                    "Vitality": 9,
+                    "Strength": 7,
+                    "Fervor": 22
+                  },
+                  "image": "images/GapingMouthsPauldrons.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Leggins of Infused Chaos",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Legs"
+              ],
+              "classes": [
+                "warrior",
+                "rogue"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Dexterity",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 257,
+                    "Vitality": 10,
+                    "Strength": 5,
+                    "Dexterity": 6,
+                    "Fervor": 30
+                  },
+                  "image": "images/LegginsofInfusedChaos.png"
                 }
               },
               "rare": false

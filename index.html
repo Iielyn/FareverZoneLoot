@@ -973,8 +973,12 @@
                     <span class="social-tooltip" id="discord-help-tooltip">Add me on Discord if you'd like to help provide items or screenshots!</span>
                 </span>
                 <a href="https://www.twitch.tv/liamh" target="_blank" rel="noopener noreferrer" class="social-link twitch">
-                    <span class="social-icon">📺</span> Thanks to LiamH!
+                    <span class="social-icon">📺</span> <span id="liam-label">Special thanks to LiamH!</span>
                     <span class="social-tooltip" id="liam-thanks-tooltip">Thanks so much to Liam for all the help, providing items, pictures, and shoutouts! He's a great guy, check him out!</span>
+                </a>
+                <a href="https://www.twitch.tv/awfulyoguys" target="_blank" rel="noopener noreferrer" class="social-link twitch">
+                    <span class="social-icon">📺</span> <span id="second-twitch-label">Special thanks to awfulyoguys!</span>
+                    <span class="social-tooltip" id="second-twitch-thanks-tooltip">Thank you so much for all the help with screenshots! Much love!</span>
                 </a>
             </div>
         </div>
@@ -1210,7 +1214,7 @@
     const WEAPON_TYPES = ['Sword', 'Dual Sword', 'Axe', 'Dual Axes', 'Daggers', 'Mace', 'Dual Maces', 'Spear',
         'Fists', 'Two-Handed Sword', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Staff', 'Scepter', 'Crescent', 'Halos', 'Spellbook', 'Shield'];
     const ARMOR_TYPES = ['Head', 'Shoulders', 'Chest', 'Back', 'Hands', 'Waist', 'Legs', 'Feet'];
-    const TRINKET_TYPES = ['Trinket', 'Ring', 'Necklace', 'Sigil'];
+    const TRINKET_TYPES = ['Trinket'];
     const MOUNT_GLIDER_TYPES = ['Mount', 'Glider'];
     const TYPE_OPTIONS = [...WEAPON_TYPES, ...ARMOR_TYPES, ...TRINKET_TYPES, ...MOUNT_GLIDER_TYPES];
 
@@ -1273,7 +1277,10 @@
             empty_no_favorites_match:'No favorites match your current filters. Try clearing them.', share_prompt:'Copy this link to share your build:',
             image_alt:'Item image', image_unavailable:'🖼️ Image not available',
             social_discord_help:'Add me on Discord if you would like to help provide items or screenshots!',
-            social_liam_thanks:'Thanks so much to Liam for all the help, items, pictures, and shoutouts! He is a great guy — check him out!',
+            social_liam_label:'Special thanks to LiamH!',
+            social_liam_thanks:'Thanks so much to Liam for all the help, providing items, pictures, and shoutouts! He\'s a great guy, check him out!',
+            social_second_twitch_label:'Special thanks to awfulyoguys!',
+            social_second_twitch_thanks:'Thank you so much for all the help with screenshots! Much love!',
         },
         fr: {
             filter_label:'Filtres', class_label:'Classe', stats_label:'Statistiques', category_label:'Catégorie', type_label:'Type',
@@ -1331,7 +1338,10 @@
             empty_no_favorites_match:'Aucun favori ne correspond à vos filtres actuels. Essayez de les effacer.', share_prompt:'Copiez ce lien pour partager votre configuration :',
             image_alt:'Image de l’objet', image_unavailable:'🖼️ Image non disponible',
             social_discord_help:'Ajoutez-moi sur Discord si vous souhaitez aider avec des objets ou des captures d’écran !',
-            social_liam_thanks:'Un immense merci à Liam pour son aide, ses objets, ses images et ses partages ! C’est un super gars, allez le voir !',
+            social_liam_label:'Un grand merci à LiamH !',
+            social_liam_thanks:'Merci beaucoup à Liam pour toute son aide, les objets, les images et les partages ! C’est un super gars, allez le voir !',
+            social_second_twitch_label:'Un grand merci à awfulyoguys !',
+            social_second_twitch_thanks:'Merci beaucoup pour toute l’aide avec les captures d’écran ! Plein d’amour !',
         },
         es: {
             filter_label:'Filtros', class_label:'Clase', stats_label:'Estadísticas', category_label:'Categoría', type_label:'Tipo',
@@ -1389,7 +1399,10 @@
             empty_no_favorites_match:'Ningún favorito coincide con tus filtros actuales. Intenta limpiarlos.', share_prompt:'Copia este enlace para compartir tu equipo:',
             image_alt:'Imagen del objeto', image_unavailable:'🖼️ Imagen no disponible',
             social_discord_help:'¡Agrégame en Discord si quieres ayudar aportando objetos o capturas!',
-            social_liam_thanks:'¡Muchas gracias a Liam por toda la ayuda, objetos, imágenes y menciones! Es un gran tipo, ¡échale un vistazo!',
+            social_liam_label:'¡Un agradecimiento especial a LiamH!',
+            social_liam_thanks:'¡Muchas gracias a Liam por toda la ayuda, por aportar objetos, imágenes y menciones! Es un gran tipo, ¡échale un vistazo!',
+            social_second_twitch_label:'¡Un agradecimiento especial a awfulyoguys!',
+            social_second_twitch_thanks:'¡Muchas gracias por toda la ayuda con las capturas de pantalla! ¡Mucho cariño!',
         }
     };
 
@@ -2256,8 +2269,14 @@
         if(buildDescription)buildDescription.textContent=t('build_name_description');
         const discordTooltip=document.getElementById('discord-help-tooltip');
         if(discordTooltip)discordTooltip.textContent=t('social_discord_help');
+        const liamLabel=document.getElementById('liam-label');
+        if(liamLabel)liamLabel.textContent=t('social_liam_label');
         const liamTooltip=document.getElementById('liam-thanks-tooltip');
         if(liamTooltip)liamTooltip.textContent=t('social_liam_thanks');
+        const secondTwitchLabel=document.getElementById('second-twitch-label');
+        if(secondTwitchLabel)secondTwitchLabel.textContent=t('social_second_twitch_label');
+        const secondTwitchTooltip=document.getElementById('second-twitch-thanks-tooltip');
+        if(secondTwitchTooltip)secondTwitchTooltip.textContent=t('social_second_twitch_thanks');
         const imageTooltipImg=document.getElementById('image-tooltip-img');
         if(imageTooltipImg)imageTooltipImg.alt=t('image_alt');
         const imageUnavailable=document.getElementById('image-unavailable-text');
