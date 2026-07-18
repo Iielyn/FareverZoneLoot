@@ -8450,6 +8450,26 @@
                       "image": "images/MartyrofEnripitP.png"
                     }
                   }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 42,
+                        "Strength": 33,
+                        "Critical": 81
+                      },
+                      "image": "images/MartyrofEnripitL.png"
+                    }
+                  }
                 }
               ]
             }
@@ -10266,6 +10286,15 @@
                     "Fervor": 24
                   },
                   "image": "images/Bee.r.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 205,
+                    "Vitality": 9,
+                    "Dexterity": 12,
+                    "Fervor": 30
+                  },
+                  "image": "images/SilhouetteofApix.png"
                 }
               },
               "rare": false,
@@ -10978,6 +11007,18 @@
                         "Magic Penetration": 31
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Strength": 14,
+                        "Faith": 14,
+                        "Armor Penetration": 37,
+                        "Magic Penetration": 37
+                      },
+                      "image": "images/BeefuryP.png"
                     }
                   }
                 },
@@ -11514,6 +11555,15 @@
                     "Fervor": 24
                   },
                   "image": "images/Bee.r.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 205,
+                    "Vitality": 9,
+                    "Dexterity": 12,
+                    "Fervor": 30
+                  },
+                  "image": "images/SilhouetteofApix.png"
                 }
               },
               "rare": false,
@@ -18521,6 +18571,15 @@
                     "Fervor": 24
                   },
                   "image": "images/Bee.r.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 205,
+                    "Vitality": 9,
+                    "Dexterity": 12,
+                    "Fervor": 30
+                  },
+                  "image": "images/SilhouetteofApix.png"
                 }
               },
               "rare": false,
@@ -22040,6 +22099,28 @@
                         "Fervor": 37
                       },
                       "image": "images/MirrorsoftheNightgoddessesP.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 42,
+                        "Faith": 16,
+                        "Intelligence": 20,
+                        "Magic Penetration": 40,
+                        "Fervor": 40
+                      },
+                      "image": "images/MirrorsoftheNightgoddessesL.png"
                     }
                   }
                 }
