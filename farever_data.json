@@ -20370,6 +20370,562 @@
     },
     {
       "name": {
+        "en": "Crimson Citadel",
+        "fr": "Citadelle cramoisie",
+        "es": "Ciudadela carmesí"
+      },
+      "dungeons": [
+        {
+          "name": {
+            "en": "Crimson Barracks · Lv22 · Full Dungeon",
+            "fr": "Caserne Pourpre · Lv22 · Donjon Complet",
+            "es": "Cuartel Carmesí · Lv22 · Mazmorra completa"
+          },
+          "loot": [
+            {
+              "name": {
+                "en": "Forbidden Insignia of Silence",
+                "fr": "Insigne interdit du silence",
+                "es": "Insignia prohibida del silencio"
+              },
+              "types": [
+                "Waist"
+              ],
+              "classes": [
+                "warrior",
+                "rogue"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Dexterity",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 177,
+                    "Vitality": 7,
+                    "Strength": 4,
+                    "Dexterity": 4,
+                    "Critical": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/ForbiddenInsigniaofSilence.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Horns of the Wind",
+                "fr": "Cornes du vent",
+                "es": "Cuernos del viento"
+              },
+              "types": [
+                "Bow"
+              ],
+              "classes": [
+                "rogue",
+                "mage"
+              ],
+              "stats": [
+                "Vitality",
+                "Dexterity",
+                "Intelligence",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "Shoots an arrow dealing 59% Dexterity + 59% Intellect Physical to an enemy plus an additional 25% Dexterity + 25% Intellect + 32.5% Intellect + 32.5% Vitality Magic if the enemy is under 35% Health.",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "Throws a net in the targeted direction dealing 100% Dexterity + 100% Intellect Physical to the first enemy hit and slowing them by -30% for 4s.\nIf an enemy is hit, you gain Big Game Hunter.",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "Drops a spark trap on the targeted area. If an enemy steps on it, they are dealt 100% Dexterity Physical, are immobilized for 4s and you gain Big Game Hunter.",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "Your Weapon Skills' damage mark the enemies for 10s. Your next Attack against them consumes the mark and deal 50% increased damage.",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "blue",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 29,
+                        "Dexterity": 15,
+                        "Intelligence": 15,
+                        "Critical": 69
+                      },
+                      "image": "images/HornsoftheWindB.png"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "en": "Crimson Pants",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Legs"
+              ],
+              "classes": [
+                "warrior",
+                "mage"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Intelligence",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 230,
+                    "Vitality": 11,
+                    "Strength": 5,
+                    "Intelligence": 6,
+                    "Critical": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/CrimsonPants.png"
+                }
+              },
+              "rare": false
+            }
+          ]
+        },
+        {
+          "name": {
+            "en": "Chakram's Chapel · Lv25 · Boss Only",
+            "fr": "Chapelle de Chakram · Lv25 · Boss uniquement",
+            "es": "Capilla de Chakram · Lv25 · Solo jefe"
+          },
+          "loot": [
+            {
+              "name": {
+                "en": "Censer of Wool Hollow",
+                "fr": "Encensoir de laine creuse",
+                "es": "Incensario de Lana Hueco"
+              },
+              "types": [
+                "Staff"
+              ],
+              "classes": [
+                "mage",
+                "priest"
+              ],
+              "stats": [
+                "Vitality",
+                "Faith",
+                "Intelligence",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "Casts four light bolts, each dealing 25% Intellect + 25% Faith Light to an enemy and 25% of this damage to nearby enemies.",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "Throws a bolt of energy in the targeted direction, dealing 120% Intellect + 120% Faith Light to enemies, stunning them for 1.5s and applying a [Staff_Censer_Mark].",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "Spawns an light orb in the targeted area, creating an area slowing enemies by -50% to -70%. The orb explodes after 3s, dealing 180% Intellect + 180% Faith + 225% Intellect + 225% Faith Light to all enemies in the area and applying a [Staff_Censer_Mark].",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "A dark cloud spawns around every 3s in combat, lasting 6s. When you go into the cloud, the censer absorbs the cloud, increasing your movement speed by 30% for 3s.\nOnce you have absorbed 10 clouds, you can release a hidden power.\n\nHidden Power\nReleases a massive chaos beam in the targeted direction, dealing 300% Faith + 300% Intellect Magic to all enemies and healing all allies for 500% Faith.\n\n",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "purple",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Faith": 14,
+                        "Intelligence": 17,
+                        "Critical": 37,
+                        "Fervor": 37
+                      },
+                      "image": "images/CenserofWoolHollowP.png"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "en": "Spaulders of Intangible Faith",
+                "fr": "Spallières de foi intangible",
+                "es": "Bufas de fe intangible"
+              },
+              "types": [
+                "Shoulders"
+              ],
+              "classes": [
+                "warrior",
+                "mage"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Intelligence",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 187,
+                    "Vitality": 9,
+                    "Strength": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/SpauldersofIntangibleFaith.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Crimson Wings",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Back"
+              ],
+              "classes": [
+                "warrior"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 100,
+                    "Vitality": 6,
+                    "Strength": 6,
+                    "Fervor": 16
+                  },
+                  "image": "images/CrimsonWings.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "High-Ranking Official's Hat",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Head"
+              ],
+              "classes": [
+                "rogue",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Faith",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Critical": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/HighRankingOfficialsHat.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Shoulders"
+              ],
+              "classes": [
+                "rogue",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Faith",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 147,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Critical": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/NobleMantle.png"
+                }
+              },
+              "rare": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
         "en": "Rift Encounter",
         "fr": "Rencontre de Faille",
         "es": "Encuentro de la Grieta"
@@ -20583,44 +21139,23 @@
                   }
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": {
-        "en": "Crimson Citadel",
-        "fr": "Citadelle cramoisie",
-        "es": "Ciudadela carmesí"
-      },
-      "dungeons": [
-        {
-          "name": {
-            "en": "Crimson Barracks · Lv22 · Full Dungeon",
-            "fr": "Caserne Pourpre · Lv22 · Donjon Complet",
-            "es": "Cuartel Carmesí · Lv22 · Mazmorra completa"
-          },
-          "loot": [
+            },
             {
               "name": {
-                "en": "Forbidden Insignia of Silence",
-                "fr": "Insigne interdit du silence",
-                "es": "Insignia prohibida del silencio"
+                "en": "Demonic Crushers",
+                "fr": "",
+                "es": ""
               },
               "types": [
-                "Waist"
+                "Feet"
               ],
               "classes": [
-                "warrior",
-                "rogue"
+                "warrior"
               ],
               "stats": [
                 "Armor",
                 "Vitality",
                 "Strength",
-                "Dexterity",
-                "Critical",
                 "Fervor"
               ],
               "skill1": {
@@ -20653,242 +21188,12 @@
               "levelData": {
                 "25": {
                   "statValues": {
-                    "Armor": 177,
-                    "Vitality": 7,
-                    "Strength": 4,
-                    "Dexterity": 4,
-                    "Critical": 11,
-                    "Fervor": 11
-                  },
-                  "image": "images/ForbiddenInsigniaofSilence.png"
-                }
-              },
-              "rare": false
-            },
-            {
-              "name": {
-                "en": "Horns of the Wind",
-                "fr": "Cornes du vent",
-                "es": "Cuernos del viento"
-              },
-              "types": [
-                "Bow"
-              ],
-              "classes": [
-                "rogue",
-                "mage"
-              ],
-              "stats": [
-                "Vitality",
-                "Dexterity",
-                "Intelligence",
-                "Critical"
-              ],
-              "skill1": {
-                "en": "Shoots an arrow dealing 59% Dexterity + 59% Intellect Physical to an enemy plus an additional 25% Dexterity + 25% Intellect + 32.5% Intellect + 32.5% Vitality Magic if the enemy is under 35% Health.",
-                "fr": "",
-                "es": ""
-              },
-              "skill2": {
-                "en": "Throws a net in the targeted direction dealing 100% Dexterity + 100% Intellect Physical to the first enemy hit and slowing them by -30% for 4s.\nIf an enemy is hit, you gain Big Game Hunter.",
-                "fr": "",
-                "es": ""
-              },
-              "skill3": {
-                "en": "Drops a spark trap on the targeted area. If an enemy steps on it, they are dealt 100% Dexterity Physical, are immobilized for 4s and you gain Big Game Hunter.",
-                "fr": "",
-                "es": ""
-              },
-              "passive": {
-                "en": "Your Weapon Skills' damage mark the enemies for 10s. Your next Attack against them consumes the mark and deal 50% increased damage.",
-                "fr": "",
-                "es": ""
-              },
-              "trinketPassive": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "level": 25,
-              "experimentalScope": "unknown",
-              "levelData": {
-                "25": {
-                  "statValues": {},
-                  "image": ""
-                }
-              },
-              "rare": false,
-              "variants": [
-                {
-                  "rarity": "blue",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 29,
-                        "Dexterity": 15,
-                        "Intelligence": 15,
-                        "Critical": 69
-                      },
-                      "image": "images/HornsoftheWindB.png"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": {
-            "en": "Chakram's Chapel · Lv25 · Boss Only",
-            "fr": "Chapelle de Chakram · Lv25 · Boss uniquement",
-            "es": "Capilla de Chakram · Lv25 · Solo jefe"
-          },
-          "loot": [
-            {
-              "name": {
-                "en": "Censer of Wool Hollow",
-                "fr": "Encensoir de laine creuse",
-                "es": "Incensario de Lana Hueco"
-              },
-              "types": [
-                "Staff"
-              ],
-              "classes": [
-                "mage",
-                "priest"
-              ],
-              "stats": [
-                "Vitality",
-                "Faith",
-                "Intelligence",
-                "Critical",
-                "Fervor"
-              ],
-              "skill1": {
-                "en": "Casts four light bolts, each dealing 25% Intellect + 25% Faith Light to an enemy and 25% of this damage to nearby enemies.",
-                "fr": "",
-                "es": ""
-              },
-              "skill2": {
-                "en": "Throws a bolt of energy in the targeted direction, dealing 120% Intellect + 120% Faith Light to enemies, stunning them for 1.5s and applying a [Staff_Censer_Mark].",
-                "fr": "",
-                "es": ""
-              },
-              "skill3": {
-                "en": "Spawns an light orb in the targeted area, creating an area slowing enemies by -50% to -70%. The orb explodes after 3s, dealing 180% Intellect + 180% Faith + 225% Intellect + 225% Faith Light to all enemies in the area and applying a [Staff_Censer_Mark].",
-                "fr": "",
-                "es": ""
-              },
-              "passive": {
-                "en": "A dark cloud spawns around every 3s in combat, lasting 6s. When you go into the cloud, the censer absorbs the cloud, increasing your movement speed by 30% for 3s.\nOnce you have absorbed 10 clouds, you can release a hidden power.\n\nHidden Power\nReleases a massive chaos beam in the targeted direction, dealing 300% Faith + 300% Intellect Magic to all enemies and healing all allies for 500% Faith.\n\n",
-                "fr": "",
-                "es": ""
-              },
-              "trinketPassive": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "level": 25,
-              "experimentalScope": "unknown",
-              "levelData": {
-                "25": {
-                  "statValues": {},
-                  "image": ""
-                }
-              },
-              "rare": false,
-              "variants": [
-                {
-                  "rarity": "purple",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 37,
-                        "Faith": 14,
-                        "Intelligence": 17,
-                        "Critical": 37,
-                        "Fervor": 37
-                      },
-                      "image": "images/CenserofWoolHollowP.png"
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "name": {
-                "en": "Spaulders of Intangible Faith",
-                "fr": "Spallières de foi intangible",
-                "es": "Bufas de fe intangible"
-              },
-              "types": [
-                "Shoulders"
-              ],
-              "classes": [
-                "warrior",
-                "mage"
-              ],
-              "stats": [
-                "Armor",
-                "Vitality",
-                "Strength",
-                "Intelligence",
-                "Critical",
-                "Fervor"
-              ],
-              "skill1": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "skill2": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "skill3": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "passive": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "trinketPassive": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "level": 25,
-              "experimentalScope": "unknown",
-              "levelData": {
-                "25": {
-                  "statValues": {
-                    "Armor": 187,
+                    "Armor": 239,
                     "Vitality": 9,
-                    "Strength": 4,
-                    "Intelligence": 4,
-                    "Critical": 11,
-                    "Fervor": 11
+                    "Strength": 7,
+                    "Fervor": 22
                   },
-                  "image": "images/SpauldersofIntangibleFaith.png"
+                  "image": "images/DemonicCrushers.png"
                 }
               },
               "rare": false
