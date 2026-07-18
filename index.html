@@ -1092,16 +1092,96 @@
     </div>
 </div>
 
+
+
 <div class="modal-overlay" id="build-name-modal">
-    <div class="modal-content" style="max-width:340px;">
+    <div class="modal-content" style="max-width:400px;">
         <div class="modal-header">
             <h2 id="build-name-modal-title">💾 Save Build</h2>
             <button class="modal-close" id="close-build-name-modal">&times;</button>
         </div>
         <div class="modal-form">
             <p id="build-name-description" style="color:var(--text-dim);font-size:.75rem;line-height:1.5;margin-bottom:10px;">This saves your current Favorites as a separate loadout. Your Favorites will not be changed.</p>
+            
+            <label style="font-size:0.75rem;color:var(--text-dim);display:block;margin-bottom:4px;font-weight:600;">Loadout Name</label>
             <input type="text" id="build-name-input" maxlength="30" placeholder="Loadout name (max 30 characters)" autocomplete="off">
-            <div style="display:flex;gap:9px;margin-top:10px;">
+            
+            <!-- Optional Custom Items Section -->
+            <div style="margin-top:14px; padding-top:12px; border-top:1px solid var(--border); margin-bottom:10px;">
+                <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:0.8rem; font-weight:600; color:var(--gold);">
+                    <input type="checkbox" id="add-custom-item-checkbox" style="width:auto; margin:0;"> 🛠️ Add Crafted/Custom Items (Optional)
+                </label>
+                
+                <div id="custom-item-fields" style="display:none; margin-top:10px; background:rgba(0,0,0,0.15); padding:10px; border-radius:var(--radius-xs); border:1px solid var(--border);">
+                    <div id="session-custom-items-list" style="margin-bottom:12px; max-height: 120px; overflow-y: auto; display:flex; flex-direction:column; gap:5px;"></div>
+                    
+                    <div style="border-top: 1px dashed var(--border); padding-top:10px; margin-top:5px;">
+                        <label style="font-size:0.7rem;color:var(--text-bright);display:block;margin-bottom:4px;font-weight:600;">New Custom Item Name</label>
+                        <input type="text" id="custom-item-name" placeholder="e.g. Crafted Item" autocomplete="off" style="margin-bottom:8px;">
+                        
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-bottom:8px;">
+                            <div>
+                                <label style="font-size:0.7rem;color:var(--text-dim);display:block;margin-bottom:4px;">Slot / Type</label>
+                                <select id="custom-item-type" style="background:var(--surface3);color:var(--text);border:1px solid var(--border);padding:6px;border-radius:var(--radius-xs);width:100%;outline:none;font-family:var(--font);font-size:0.78rem;">
+                                    <option value="Head">Helmet</option>
+                                    <option value="Shoulders">Shoulders</option>
+                                    <option value="Chest">Chest</option>
+                                    <option value="Back">Back (Cape)</option>
+                                    <option value="Hands">Hands</option>
+                                    <option value="Waist">Waist</option>
+                                    <option value="Legs">Legs</option>
+                                    <option value="Feet">Feet</option>
+                                    <option value="Trinket">Trinket</option>
+                                    <option value="Ring">Ring</option>
+                                    <option value="Necklace">Necklace</option>
+                                    <option value="Sword">Sword</option>
+                                    <option value="Two-Handed Sword">Two-Handed Sword</option>
+                                    <option value="Axe">Axe</option>
+                                    <option value="Two-Handed Axe">Two-Handed Axe</option>
+                                    <option value="Daggers">Daggers</option>
+                                    <option value="Mace">Mace</option>
+                                    <option value="Two-Handed Mace">Two-Handed Mace</option>
+                                    <option value="Bow">Bow</option>
+                                    <option value="Staff">Staff</option>
+                                    <option value="Shield">Shield</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="font-size:0.7rem;color:var(--text-dim);display:block;margin-bottom:4px;">Rarity</label>
+                                <select id="custom-item-rarity" style="background:var(--surface3);color:var(--text);border:1px solid var(--border);padding:6px;border-radius:var(--radius-xs);width:100%;outline:none;font-family:var(--font);font-size:0.78rem;">
+                                    <option value="blue">Rare (Blue)</option>
+                                    <option value="purple">Epic (Purple)</option>
+                                    <option value="legendary">Legendary (Yellow)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div id="helmet-subtype-container" style="display:block; margin-bottom:8px; background:rgba(0,0,0,0.1); padding:6px 10px; border-radius:var(--radius-xs); border:1px solid var(--border);">
+                            <label style="font-size:0.7rem;color:var(--text-dim);display:block;margin-bottom:4px;font-weight:600;">Helmet Subtype</label>
+                            <div style="display:flex; gap:15px; font-size:0.75rem; margin-bottom:6px;">
+                                <label style="display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="radio" name="helmet-subtype" value="Helmet" checked style="width:auto; margin:0;"> Helmet (No Sigil)</label>
+                                <label style="display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="radio" name="helmet-subtype" value="Sigil" style="width:auto; margin:0;"> Helmet + Sigil Addon</label>
+                            </div>
+                            <div id="sigil-name-input-container" style="display:none; border-top: 1px dashed rgba(255,255,255,0.1); padding-top:6px; margin-top:4px;">
+                                <label style="font-size:0.7rem;color:var(--text-dim);display:block;margin-bottom:4px;">Sigil Name</label>
+                                <input type="text" id="custom-sigil-name" placeholder="" autocomplete="off" style="margin-bottom:0; font-size:0.75rem; padding:4px 6px;">
+                            </div>
+                        </div>
+                        
+                        <label style="font-size:0.7rem;color:var(--text-dim);display:block;margin-bottom:4px;">Usable Classes</label>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;background:rgba(0,0,0,0.1);padding:6px 10px;border-radius:var(--radius-xs);border:1px solid var(--border);margin-bottom:8px;">
+                            <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.72rem;"><input type="checkbox" id="class-warrior" checked style="width:auto;margin:0;"> Warrior</label>
+                            <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.72rem;"><input type="checkbox" id="class-rogue" checked style="width:auto;margin:0;"> Rogue</label>
+                            <label style="display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.72rem;"><input type="checkbox" id="class-mage" checked style="width:auto;margin:0;"> Mage</label>
+                            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:0.72rem;"><input type="checkbox" id="class-priest" checked style="width:auto;margin:0;"> Priest</label>
+                        </div>
+                        
+                        <button type="button" class="btn suggest-btn" id="modal-add-custom-item-btn" style="width:100%; justify-content:center; padding:6px 10px; background:rgba(74,222,128,0.12); border-color:rgba(74,222,128,0.4); color:var(--item-green); font-size:0.78rem; font-weight:700;">＋ Add Custom Item to List</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display:flex;gap:9px;margin-top:14px;">
                 <button class="submit-btn" id="confirm-build-name-btn">Save</button>
                 <button class="cancel-btn" id="cancel-build-name-btn">Cancel</button>
             </div>
@@ -1130,7 +1210,7 @@
     const WEAPON_TYPES = ['Sword', 'Dual Sword', 'Axe', 'Dual Axes', 'Daggers', 'Mace', 'Dual Maces', 'Spear',
         'Fists', 'Two-Handed Sword', 'Two-Handed Axe', 'Two-Handed Mace', 'Bow', 'Thrown', 'Staff', 'Scepter', 'Crescent', 'Halos', 'Spellbook', 'Shield'];
     const ARMOR_TYPES = ['Head', 'Shoulders', 'Chest', 'Back', 'Hands', 'Waist', 'Legs', 'Feet'];
-    const TRINKET_TYPES = ['Trinket'];
+    const TRINKET_TYPES = ['Trinket', 'Ring', 'Necklace', 'Sigil'];
     const MOUNT_GLIDER_TYPES = ['Mount', 'Glider'];
     const TYPE_OPTIONS = [...WEAPON_TYPES, ...ARMOR_TYPES, ...TRINKET_TYPES, ...MOUNT_GLIDER_TYPES];
 
@@ -1169,7 +1249,7 @@
             type_Halos:'Halos', type_Spellbook:'Spellbook', type_Shield:'Shield',
             type_Head:'Head', type_Shoulders:'Shoulders', type_Chest:'Chest', type_Back:'Back',
             type_Hands:'Hands', type_Waist:'Waist', type_Legs:'Legs', type_Feet:'Feet',
-            type_Trinket:'Trinket', type_Mount:'Mount', type_Glider:'Glider',
+            type_Trinket:'Trinket', type_Ring:'Ring', type_Necklace:'Necklace', type_Sigil:'Sigil', type_Mount:'Mount', type_Glider:'Glider',
             whats_new_button:'What\'s new', support_button:'Support',
             exit_build_view:'❌ Exit Build View',
             build_view_title:'Viewing build: {name}',
@@ -1228,7 +1308,7 @@
             type_Halos:'Auréoles', type_Spellbook:'Grimoire', type_Shield:'Bouclier',
             type_Head:'Tête', type_Shoulders:'Épaules', type_Chest:'Torse', type_Back:'Dos',
             type_Hands:'Mains', type_Waist:'Ceinture', type_Legs:'Jambes', type_Feet:'Pieds',
-            type_Trinket:'Bijou', type_Mount:'Monture', type_Glider:'Planeur',
+            type_Trinket:'Bijou', type_Ring:'Bague', type_Necklace:'Collier', type_Sigil:'Sigile', type_Mount:'Monture', type_Glider:'Planeur',
             whats_new_button:'Quoi de neuf', support_button:'Soutenir',
             exit_build_view:'❌ Quitter la vue build', build_view_title:'Build affiché : {name}',
             toast_generating_link:'Génération du lien de partage...',
@@ -1286,7 +1366,7 @@
             type_Halos:'Halos', type_Spellbook:'Libro de hechizos', type_Shield:'Escudo',
             type_Head:'Cabeza', type_Shoulders:'Hombros', type_Chest:'Pecho', type_Back:'Espalda',
             type_Hands:'Manos', type_Waist:'Cintura', type_Legs:'Piernas', type_Feet:'Pies',
-            type_Trinket:'Abalorio', type_Mount:'Montura', type_Glider:'Planeador',
+            type_Trinket:'Abalorio', type_Ring:'Anillo', type_Necklace:'Collar', type_Sigil:'Sigilo', type_Mount:'Montura', type_Glider:'Planeador',
             whats_new_button:'Novedades', support_button:'Apoyar',
             exit_build_view:'❌ Salir de la vista build', build_view_title:'Viendo build: {name}',
             toast_generating_link:'Generando enlace para compartir...',
@@ -1314,6 +1394,7 @@
     };
 
     let appData = { zones: [] };
+    let registeredCustomItems = [];
     let appUpdateLog = null;
     const STAT_LEVEL_KEY = 'farever_stat_comparison_level';
     let currentStatLevel = localStorage.getItem(STAT_LEVEL_KEY) || '20';
@@ -1325,7 +1406,13 @@
     let showFavoritesOnly = false;
     let classExclusive = false;
     let currentLang = localStorage.getItem('farever_lang') || 'en';
-    let favoriteIds = new Set(JSON.parse(localStorage.getItem('farever_favorites_v1') || '[]'));
+    function readJsonStorage(key, fallback) {
+        try {
+            const parsed = JSON.parse(localStorage.getItem(key) || '');
+            return parsed === null || parsed === undefined ? fallback : parsed;
+        } catch (e) { return fallback; }
+    }
+    let favoriteIds = new Set(readJsonStorage('farever_favorites_v1', []).filter(value => typeof value === 'string' && !value.startsWith('custom-')));
     let itemLocationMap = new Map();
     let sharedBuild = null;
     const allItemsMap = new Map();
@@ -1352,7 +1439,13 @@
     const getTypeColorClass = type => type?'type-color-'+toSlug(type):'';
     const t = (key, fallback) => (translations[currentLang]&&translations[currentLang][key])||fallback||key;
     function getLocalizedText(value, lang) { if(typeof value==='object'&&value!==null)return value[lang]||value['en']||Object.values(value).find(v=>v)||''; return value||''; }
-    function getItemName(item) { return getLocalizedText(item.name, currentLang); }
+    function getItemName(item) { 
+        let name = getLocalizedText(item.name, currentLang); 
+        if (item.isCustom && item.isSigil && item.sigilName) {
+            name += " (" + item.sigilName + ")";
+        }
+        return name;
+    }
     function getZoneName(zone) { return getLocalizedText(zone.name, currentLang); }
     function getDungeonName(dungeon) { return getLocalizedText(dungeon.name, currentLang); }
     function getSkillText(skill) { return getLocalizedText(skill, currentLang); }
@@ -1374,10 +1467,16 @@
     }
 
     const itemPassesFilter = item => {
+        if (item.isCustom) {
+            
+            if (!sharedBuild || !sharedBuild.ids.includes(item.nameId)) return false;
+            if(searchQuery){const q=searchQuery.toLowerCase();const name=getItemName(item).toLowerCase();const noSpaceName=name.replace(/\s+/g,'');const noSpaceQ=q.replace(/\s+/g,'');if(!name.includes(q)&&!noSpaceName.includes(noSpaceQ))return false;}
+            return true;
+        }
         if(!itemHasCurrentLevelData(item))return false;
         if(filterCategories.length>0){
             const passesWeapons=filterCategories.includes('weapons')&&item.types.some(t=>WEAPON_TYPES.includes(t));
-            const passesArmor=filterCategories.includes('armor')&&item.types.some(t=>ARMOR_TYPES.includes(t)||t==='Trinket');
+            const passesArmor=filterCategories.includes('armor')&&item.types.some(t=>ARMOR_TYPES.includes(t)||TRINKET_TYPES.includes(t));
             const passesMount=filterCategories.includes('mount')&&item.types.includes('Mount');
             const passesGlider=filterCategories.includes('glider')&&item.types.includes('Glider');
             if(!passesWeapons&&!passesArmor&&!passesMount&&!passesGlider)return false;
@@ -1392,9 +1491,10 @@
     };
 
     const passesNonClassFilters = item => {
+        if (item.isCustom) return false;
         if(filterCategories.length>0){
             const passesWeapons=filterCategories.includes('weapons')&&item.types.some(t=>WEAPON_TYPES.includes(t));
-            const passesArmor=filterCategories.includes('armor')&&item.types.some(t=>ARMOR_TYPES.includes(t)||t==='Trinket');
+            const passesArmor=filterCategories.includes('armor')&&item.types.some(t=>ARMOR_TYPES.includes(t)||TRINKET_TYPES.includes(t));
             const passesMount=filterCategories.includes('mount')&&item.types.includes('Mount');
             const passesGlider=filterCategories.includes('glider')&&item.types.includes('Glider');
             if(!passesWeapons&&!passesArmor&&!passesMount&&!passesGlider)return false;
@@ -1586,6 +1686,16 @@
         return Number.isFinite(level)&&level>0?level:20;
     }
     function buildStatTagsHtml(item, variantIndex=null) {
+        
+        if (item.isCustom) {
+            const sortedStats=sortByOrder(item.stats,STAT_OPTIONS);
+            const statTags=sortedStats.map(s=>{
+                const displayStat=t('stat_'+s.replace(/ /g,'_'),s);
+                return '<span class="tag stat-tag stat-'+toSlug(s)+'">'+escapeHtml(displayStat)+'</span>';
+            }).join('');
+            return statTags;
+        }
+
         let snapshot=null;
         if(item.variants&&item.variants.length>1){
             const selIdx=variantIndex!==null?variantIndex:(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0);
@@ -1655,12 +1765,16 @@
 
     function buildRaritySwitcherHtml(item) {
         if(!item.variants||item.variants.length===0)return'';
+        
+        
+        const showWarning = !item.isCustom;
+        
         const sortedVariants=[...item.variants].sort((a,b)=>{const order={blue:0,purple:1,legendary:2};return(order[a.rarity]||0)-(order[b.rarity]||0);});
         const defaultRarity=sortedVariants.find(v=>v.rarity==='blue')||sortedVariants[0];
         const defaultIndex=sortedVariants.indexOf(defaultRarity);
-        const warningText=snapshotHasLevelData(getVariantLevelSnapshot(defaultRarity))?'':t('pending_variant_warning').replace('{level}',currentStatLevel);
+        const warningText=showWarning && !snapshotHasLevelData(getVariantLevelSnapshot(defaultRarity)) ? t('pending_variant_warning').replace('{level}',currentStatLevel) : '';
         const buttons=sortedVariants.map((v,idx)=>{
-            const available=snapshotHasLevelData(getVariantLevelSnapshot(v));
+            const available=!showWarning || snapshotHasLevelData(getVariantLevelSnapshot(v));
             const label=t(v.rarity)+(available?'':' ⚠');
             const activeClass=idx===defaultIndex?' active':'';
             return'<button class="rarity-btn'+activeClass+'" data-rarity="'+v.rarity+'" data-rarity-index="'+idx+'" data-variant-level="'+currentStatLevel+'">'+label+'</button>';
@@ -1672,7 +1786,11 @@
         const primaryType=getPrimaryType(item);
         const typeColorClass=getTypeColorClass(primaryType);
         const sortedTypes=sortByOrder(item.types,TYPE_OPTIONS);
-        const typeTags=sortedTypes.map(tn=>'<span class="tag type-tag type-'+toSlug(tn)+'">'+escapeHtml(t('type_'+tn.replace(/[ -]/g,'_'),tn))+'</span>').join('');
+        const typeTags=sortedTypes.map(tn=>{
+            let displayType = tn;
+            if (tn === 'Head' && item.isSigil) displayType = 'Sigil';
+            return '<span class="tag type-tag type-'+toSlug(displayType)+'">'+escapeHtml(t('type_'+displayType.replace(/[ -]/g,'_'),displayType))+'</span>';
+        }).join('');
         const classTags=buildClassTagsHtml(item);
         const switcherHtml=buildRaritySwitcherHtml(item);
         const defaultIndex=item.variants&&item.variants.length>1?(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0):0;
@@ -1809,7 +1927,53 @@
                     if(!nameShortIdMap.has(canonicalName)){const shortName=generateShortId(canonicalName);nameShortIdMap.set(canonicalName,shortName);reverseNameShortIdMap.set(shortName,canonicalName);}
                 });
             });
-    });
+        });
+
+        registeredCustomItems.forEach(data => {
+            const nameId = "custom-" + toSlug(data.name);
+            const customItem = {
+                id: "custom_" + toSlug(data.name),
+                name: { en: data.name, fr: data.name, es: data.name },
+                types: [data.type],
+                classes: data.classes || ["warrior", "rogue", "mage", "priest"],
+                stats: ["Armor", "Vitality", "Strength", "Dexterity", "Faith", "Intelligence", "Critical", "Armor Penetration", "Magic Penetration", "Fervor"],
+                statValues: {},
+                variants: [
+                    {
+                        rarity: data.rarity || "blue",
+                        damageMin: 0, damageMax: 0, statValues: {}, level: 20, image: "",
+                        levelData: {
+                            "20": { damageMin: 0, damageMax: 0, statValues: {}, image: "" },
+                            "25": { damageMin: 0, damageMax: 0, statValues: {}, image: "" }
+                        }
+                    }
+                ],
+                level: 20,
+                levelData: {
+                    "20": { statValues: {}, image: "" },
+                    "25": { statValues: {}, image: "" }
+                },
+                nameId: nameId,
+                rare: false,
+                image: "",
+                isCustom: true,
+                isSigil: data.isSigil || false,
+                sigilName: data.sigilName || ""
+            };
+
+            allItemsMap.set(customItem.id, customItem);
+            itemLocationMap.set(customItem.id, { zoneName: { en: "Custom" }, dungeonName: { en: "Crafted / Custom" } });
+            if (!shortIdMap.has(customItem.id)) {
+                const short = generateShortId(customItem.id);
+                shortIdMap.set(customItem.id, short);
+                reverseShortIdMap.set(short, customItem.id);
+            }
+            if (!nameShortIdMap.has(customItem.nameId)) {
+                const shortName = generateShortId(customItem.nameId);
+                nameShortIdMap.set(customItem.nameId, shortName);
+                reverseNameShortIdMap.set(shortName, customItem.nameId);
+            }
+        });
     }
 
     function renderAll() {
@@ -1922,7 +2086,11 @@
         const rows=filteredItems.map(({item,locations})=>{
             const primaryType=getPrimaryType(item), typeColorClass=getTypeColorClass(primaryType);
             const sortedTypes=sortByOrder(item.types,TYPE_OPTIONS);
-            const typeTags=sortedTypes.map(tn=>'<span class="tag type-tag type-'+toSlug(tn)+'">'+escapeHtml(t('type_'+tn.replace(/[ -]/g,'_'),tn))+'</span>').join('');
+            const typeTags=sortedTypes.map(tn=>{
+                let displayType = tn;
+                if (tn === 'Head' && item.isSigil) displayType = 'Sigil';
+                return '<span class="tag type-tag type-'+toSlug(displayType)+'">'+escapeHtml(t('type_'+displayType.replace(/[ -]/g,'_'),displayType))+'</span>';
+            }).join('');
             const classTags=buildClassTagsHtml(item);
             const switcherHtml=buildRaritySwitcherHtml(item);
             const defaultIndex=item.variants&&item.variants.length>1?(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0):0;
@@ -2107,6 +2275,11 @@
         ['class-wrapper','stat-wrapper','type-wrapper','category-wrapper'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display=hide?'none':'';});
         const exclBtn=document.getElementById('class-exclusive-btn');
         if(exclBtn)exclBtn.style.display=hide?'none':'inline-flex';
+
+        const addCustomBtn = document.getElementById('add-custom-item-btn');
+        if (addCustomBtn) {
+            addCustomBtn.style.display = (showFavoritesOnly && !sharedBuild) ? 'inline-flex' : 'none';
+        }
     }
 
     function updateAllFilterButtonLabels() {
@@ -2116,8 +2289,24 @@
     }
 
     const BUILDS_STORAGE_KEY='farever_builds_v1';
-    function loadBuilds() { const raw=localStorage.getItem(BUILDS_STORAGE_KEY); return raw?JSON.parse(raw):{}; }
+    const BUILDS_CUSTOM_KEY='farever_build_custom_v1';
+    function loadBuilds() {
+        const builds = readJsonStorage(BUILDS_STORAGE_KEY, {});
+        if (!builds || typeof builds !== 'object' || Array.isArray(builds)) return {};
+        return Object.fromEntries(Object.entries(builds).filter(([name, ids]) => typeof name === 'string' && Array.isArray(ids)));
+    }
     function saveBuilds(builds) { localStorage.setItem(BUILDS_STORAGE_KEY,JSON.stringify(builds)); }
+    
+    function loadBuildCustomItems() {
+        try {
+            return JSON.parse(localStorage.getItem(BUILDS_CUSTOM_KEY) || '{}');
+        } catch(e) {
+            return {};
+        }
+    }
+    function saveBuildCustomItems(data) {
+        localStorage.setItem(BUILDS_CUSTOM_KEY, JSON.stringify(data));
+    }
 
     function renderBuildsDropdown() {
         const builds=loadBuilds();
@@ -2140,6 +2329,27 @@
         if(favoriteIds.size===0){showToast(t('toast_no_favorites_save'),'red');return;}
         const input=document.getElementById('build-name-input');
         input.value=(sharedBuild&&sharedBuild.name)?sharedBuild.name:'';
+        
+        const checkbox = document.getElementById('add-custom-item-checkbox');
+        const fields = document.getElementById('custom-item-fields');
+        if (checkbox) checkbox.checked = false;
+        if (fields) fields.style.display = 'none';
+        
+        const nameInput = document.getElementById('custom-item-name');
+        if (nameInput) nameInput.value = '';
+
+        const typeSelect = document.getElementById('custom-item-type');
+        if (typeSelect) typeSelect.value = 'Head';
+
+        const subtypeContainer = document.getElementById('helmet-subtype-container');
+        if (subtypeContainer) subtypeContainer.style.display = 'block';
+
+        const defaultRadio = document.querySelector('input[name="helmet-subtype"][value="Helmet"]');
+        if (defaultRadio) defaultRadio.checked = true;
+
+        sessionCustomItems = [];
+        renderSessionCustomItemsList();
+
         document.getElementById('build-name-modal').classList.add('active');
         input.focus();input.select();
     }
@@ -2148,22 +2358,54 @@
         const input=document.getElementById('build-name-input');
         const name=input.value.trim();
         if(!name)return;
+
+        const addCustomCheckbox = document.getElementById('add-custom-item-checkbox');
+        const customItemsToSave = (addCustomCheckbox && addCustomCheckbox.checked) ? [...sessionCustomItems] : [];
+        const customIds = customItemsToSave.map(itemData => registerCustomItem(itemData)).filter(Boolean);
+
         const builds=loadBuilds();
         if(builds[name]){if(!confirm(t('build_overwrite_confirm').replace('{name}',name)))return;}
-        builds[name]=[...favoriteIds];
+
+        builds[name]=[...new Set([...favoriteIds, ...customIds])];
+        const buildCustoms = loadBuildCustomItems();
+        if (customItemsToSave.length > 0) buildCustoms[name] = customItemsToSave;
+        else delete buildCustoms[name];
+        saveBuildCustomItems(buildCustoms);
         saveBuilds(builds); renderBuildsDropdown();
+        
+        sharedBuild = { ids: builds[name], name };
+        showFavoritesOnly = true;
+
+        
+        buildShortIdMaps();
+        
         showToast(t('toast_build_saved')); closeBuildNameModal();
+        renderAll();
     }
 
-    function closeBuildNameModal() { document.getElementById('build-name-modal').classList.remove('active'); }
+    function closeBuildNameModal() { 
+        document.getElementById('build-name-modal').classList.remove('active'); 
+    }
 
     function loadBuild(name) {
         const builds=loadBuilds();
         if(!builds[name])return;
+        
+        
+        registeredCustomItems = [];
+        
         favoriteIds=new Set(builds[name]);
         sharedBuild={ids:builds[name],name};
         showFavoritesOnly=true; filterClasses=[]; filterTypes=[]; filterStats=[]; filterCategories=[]; searchQuery=''; classExclusive=false;
         document.getElementById('search-input').value='';
+        
+        
+        const buildCustoms = loadBuildCustomItems();
+        const customItems = buildCustoms[name] || [];
+        customItems.forEach(itemData => {
+            registerCustomItem(itemData);
+        });
+        
         updateFilterGroupVisibility();
         renderAll();
         showToast(t('toast_build_loaded').replace('{name}',name));
@@ -2172,6 +2414,12 @@
     function deleteBuild(name) {
         if(!confirm(t('build_delete_confirm').replace('{name}',name)))return;
         const builds=loadBuilds(); delete builds[name]; saveBuilds(builds);
+        
+        
+        const buildCustoms = loadBuildCustomItems();
+        delete buildCustoms[name];
+        saveBuildCustomItems(buildCustoms);
+        
         renderBuildsDropdown();
         showToast(t('toast_build_deleted').replace('{name}',name));
         document.getElementById('builds-wrapper').classList.remove('open');
@@ -2202,13 +2450,56 @@
         
         showToast(t('toast_generating_link') || 'Generating short link...', 'yellow');
 
-        const shortIds=[...ids].map(id=>nameShortIdMap.get(id)||id).filter(Boolean);
+        const standardIds = [];
+        const customItemsData = [];
+        
+        
+        const buildCustoms = loadBuildCustomItems();
+        const buildCustomItems = buildCustoms[name] || [];
+        
+        ids.forEach(id => {
+            const item = [...allItemsMap.values()].find(candidate => candidate.nameId === id);
+            if (item && item.isCustom) {
+                customItemsData.push({
+                    name: item.name.en,
+                    type: item.types[0],
+                    rarity: item.variants[0]?.rarity || "blue",
+                    classes: item.classes,
+                    isSigil: item.isSigil || false,
+                    sigilName: item.sigilName || ""
+                });
+            } else {
+                standardIds.push(id);
+            }
+        });
+        
+        
+        buildCustomItems.forEach(customItem => {
+            if (!customItemsData.some(c => c.name === customItem.name)) {
+                customItemsData.push({
+                    name: customItem.name,
+                    type: customItem.type,
+                    rarity: customItem.rarity || "blue",
+                    classes: customItem.classes,
+                    isSigil: customItem.isSigil || false,
+                    sigilName: customItem.sigilName || ""
+                });
+            }
+        });
+
+        const shortIds=standardIds.map(id=>nameShortIdMap.get(id)||id).filter(Boolean);
         const packed=packShortIds(shortIds,name||'');
         const url=new URL(window.location.href);
         url.searchParams.delete('p');
         url.searchParams.delete('b');
+        url.searchParams.delete('c');
 
-       
+        if (customItemsData.length > 0) {
+            const jsonStr = JSON.stringify(customItemsData);
+            const base64 = btoa(unescape(encodeURIComponent(jsonStr))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+            url.searchParams.set('c', base64);
+        }
+
         const slug = await getShortenedSlug(packed, name);
         if (slug) {
             url.searchParams.set('b', slug); 
@@ -2328,7 +2619,14 @@
         const item=allItemsMap.get(itemId);
         if(!item)return;
         const nameId=item.nameId;
-        if(favoriteIds.has(nameId))favoriteIds.delete(nameId);
+        if(favoriteIds.has(nameId)) {
+            favoriteIds.delete(nameId);
+            if (item.isCustom) {
+                const localCustoms = loadCustomItems();
+                const filtered = localCustoms.filter(c => "custom-" + toSlug(c.name) !== nameId);
+                saveCustomItems(filtered);
+            }
+        }
         else favoriteIds.add(nameId);
         localStorage.setItem('farever_favorites_v1',JSON.stringify([...favoriteIds]));
         renderAll();
@@ -2345,6 +2643,24 @@
 
     async function getBuildFromUrl() {
         const params=new URLSearchParams(window.location.search);
+        const customIds = [];
+        
+        const customParam = params.get('c');
+        if (customParam) {
+            try {
+                const decoded = atob(customParam.replace(/-/g,'+').replace(/_/g,'/'));
+                const customItems = JSON.parse(decoded);
+                if (Array.isArray(customItems)) {
+                    customItems.forEach(item => {
+                        const nameId = registerCustomItem(item);
+                        if (nameId) customIds.push(nameId);
+                    });
+                }
+            } catch(e) {
+                console.error("Failed to parse custom items from URL", e);
+            }
+        }
+
         const slug=params.get('b');
         if(slug){
             try {
@@ -2355,7 +2671,7 @@
                     const packed = data.p;
                     if (packed) {
                         const { shortIds, name } = unpackShortIds(packed);
-                        const ids = shortIds.map(s => reverseNameShortIdMap.get(s) || s);
+                        const ids = shortIds.map(s => reverseNameShortIdMap.get(s) || s).concat(customIds);
                         return { ids, name };
                     }
                 }
@@ -2364,9 +2680,13 @@
             }
         }
         const packed=params.get('p');
-        if(packed){try{const {shortIds,name}=unpackShortIds(packed);const ids=shortIds.map(s=>reverseNameShortIdMap.get(s)||s);return{ids,name};}catch(e){}}
+        if(packed){try{const {shortIds,name}=unpackShortIds(packed);const ids=shortIds.map(s=>reverseNameShortIdMap.get(s)||s).concat(customIds);return{ids,name};}catch(e){}}
         const favParam=params.get('fav');
-        if(favParam){const pieces=favParam.split(',').map(s=>s.trim()).filter(Boolean);const ids=pieces.map(p=>reverseNameShortIdMap.get(p)||p);return{ids,name:params.get('build')||''};}
+        if(favParam){const pieces=favParam.split(',').map(s=>s.trim()).filter(Boolean);const ids=pieces.map(p=>reverseNameShortIdMap.get(p)||p).concat(customIds);return{ids,name:params.get('build')||''};}
+        
+        if (customIds.length > 0) {
+            return { ids: customIds, name: params.get('build') || '' };
+        }
         return null;
     }
 
@@ -2393,6 +2713,105 @@
             setTimeout(()=>{document.body.removeChild(formEl);document.body.removeChild(iframe);},1000);
             showToast(t('toast_suggestion_sent'));closeModal();
         });
+    }
+
+    let sessionCustomItems = [];
+
+    function renderSessionCustomItemsList() {
+        const listEl = document.getElementById('session-custom-items-list');
+        if (!listEl) return;
+        if (sessionCustomItems.length === 0) {
+            listEl.innerHTML = '<p style="color:var(--text-dim);font-size:0.7rem;text-align:center;margin:6px 0;">No custom items added yet.</p>';
+            return;
+        }
+        
+        listEl.innerHTML = sessionCustomItems.map((item, idx) => {
+            const classList = item.classes.map(c => c.charAt(0).toUpperCase() + c.slice(1)).join('/');
+            const rarityColor = item.rarity === 'legendary' ? '#fbbf24' : item.rarity === 'purple' ? '#c084fc' : '#60a5fa';
+            const displayType = (item.type === 'Head' && item.isSigil) ? 'Sigil' : item.type;
+            return '<div style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.03); padding:4px 8px; border:1px solid var(--border); border-radius:var(--radius-xs); font-size:0.75rem;">' +
+                '<span><strong style="color:' + rarityColor + ';">[' + displayType + ']</strong> ' + escapeHtml(item.name) + ' <span style="font-size:0.65rem; color:var(--text-dim);">(' + classList + ')</span></span>' +
+                '<button type="button" class="delete-build-btn" style="border:none; background:none; color:var(--danger); cursor:pointer; font-weight:bold; padding:0 4px;" onclick="removeSessionCustomItem(' + idx + ')">✕</button>' +
+                '</div>';
+        }).join('');
+    }
+
+    window.removeSessionCustomItem = function(idx) {
+        sessionCustomItems.splice(idx, 1);
+        renderSessionCustomItemsList();
+    };
+
+    function setupBuildNameModalCustomItemToggle() {
+        const checkbox = document.getElementById('add-custom-item-checkbox');
+        const fields = document.getElementById('custom-item-fields');
+        const addBtn = document.getElementById('modal-add-custom-item-btn');
+        const typeSelect = document.getElementById('custom-item-type');
+        const subtypeContainer = document.getElementById('helmet-subtype-container');
+        
+        if (checkbox && fields) {
+            checkbox.addEventListener('change', () => {
+                fields.style.display = checkbox.checked ? 'block' : 'none';
+                if (checkbox.checked) {
+                    sessionCustomItems = [];
+                    renderSessionCustomItemsList();
+                }
+            });
+        }
+
+        if (typeSelect && subtypeContainer) {
+            typeSelect.addEventListener('change', () => {
+                subtypeContainer.style.display = typeSelect.value === 'Head' ? 'block' : 'none';
+            });
+        }
+
+        const helmetRadios = document.querySelectorAll('input[name="helmet-subtype"]');
+        const sigilInputContainer = document.getElementById('sigil-name-input-container');
+        if (helmetRadios && sigilInputContainer) {
+            helmetRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    sigilInputContainer.style.display = document.querySelector('input[name="helmet-subtype"]:checked')?.value === 'Sigil' ? 'block' : 'none';
+                });
+            });
+        }
+
+        if (addBtn) {
+            addBtn.addEventListener('click', () => {
+                const nameInput = document.getElementById('custom-item-name');
+                const name = nameInput.value.trim();
+                const type = document.getElementById('custom-item-type').value;
+                const rarity = document.getElementById('custom-item-rarity').value;
+                
+                const classes = [];
+                if (document.getElementById('class-warrior').checked) classes.push('warrior');
+                if (document.getElementById('class-rogue').checked) classes.push('rogue');
+                if (document.getElementById('class-mage').checked) classes.push('mage');
+                if (document.getElementById('class-priest').checked) classes.push('priest');
+
+                if (!name) {
+                    showToast("Please enter an item name.", "red");
+                    nameInput.focus();
+                    return;
+                }
+
+                let isSigil = false;
+                let sigilName = '';
+                if (type === 'Head') {
+                    const selectedSubtype = document.querySelector('input[name="helmet-subtype"]:checked')?.value;
+                    if (selectedSubtype === 'Sigil') {
+                        isSigil = true;
+                        sigilName = document.getElementById('custom-sigil-name').value.trim();
+                    }
+                }
+
+                sessionCustomItems.push({ name, type, rarity, classes, isSigil, sigilName });
+                renderSessionCustomItemsList();
+                
+                nameInput.value = '';
+                const sigilInput = document.getElementById('custom-sigil-name');
+                if (sigilInput) sigilInput.value = '';
+                nameInput.focus();
+            });
+        }
     }
 
     function buildFilterButtons() {
@@ -2529,7 +2948,7 @@
         document.getElementById('exit-build-btn').addEventListener('click',()=>{
             window.history.replaceState({},document.title,window.location.pathname);
             sharedBuild=null;showFavoritesOnly=false;
-            favoriteIds=new Set(JSON.parse(localStorage.getItem('farever_favorites_v1')||'[]'));
+            favoriteIds=new Set(readJsonStorage('farever_favorites_v1', []).filter(value => typeof value === 'string'));
             renderAll();
         });
     }
@@ -2596,6 +3015,93 @@
         setActiveButton(currentLang);
     }
 
+    function loadCustomItems() {
+        try {
+            return JSON.parse(localStorage.getItem('farever_custom_items') || '[]');
+        } catch(e) {
+            return [];
+        }
+    }
+    function saveCustomItems(items) {
+        localStorage.setItem('farever_custom_items', JSON.stringify(items));
+    }
+    
+    function pruneCustomItems() {
+        const builds = loadBuilds();
+        const activeFavorites = new Set(readJsonStorage('farever_favorites_v1', []));
+        
+       
+        const referencedNameIds = new Set(activeFavorites);
+        Object.values(builds).forEach(buildItems => {
+            buildItems.forEach(id => referencedNameIds.add(id));
+        });
+
+        const localCustoms = loadCustomItems();
+
+        const pruned = localCustoms.filter(item => {
+            const nameId = "custom-" + toSlug(item.name);
+            return referencedNameIds.has(nameId);
+        });
+
+        saveCustomItems(pruned);
+        
+        registeredCustomItems = [];
+    }
+    function registerCustomItem(data) {
+        if (!data || !data.name) return '';
+        const nameId = "custom-" + toSlug(data.name);
+        
+        if (!registeredCustomItems.some(item => "custom-" + toSlug(item.name) === nameId)) {
+            registeredCustomItems.push(data);
+        }
+
+        if (allItemsMap.has(nameId)) return nameId;
+
+        const customItem = {
+            id: "custom_" + toSlug(data.name),
+            name: { en: data.name, fr: data.name, es: data.name },
+            types: [data.type],
+            classes: data.classes || ["warrior", "rogue", "mage", "priest"],
+            stats: ["Armor", "Vitality", "Strength", "Dexterity", "Faith", "Intelligence", "Critical", "Armor Penetration", "Magic Penetration", "Fervor"],
+            statValues: {},
+            variants: [
+                {
+                    rarity: data.rarity || "blue",
+                    damageMin: 0, damageMax: 0, statValues: {}, level: 20, image: "",
+                    levelData: {
+                        "20": { damageMin: 0, damageMax: 0, statValues: {}, image: "" },
+                        "25": { damageMin: 0, damageMax: 0, statValues: {}, image: "" }
+                    }
+                }
+            ],
+            level: 20,
+            levelData: {
+                "20": { statValues: {}, image: "" },
+                "25": { statValues: {}, image: "" }
+            },
+            nameId: nameId,
+            rare: false,
+            image: "",
+            isCustom: true,
+            isSigil: data.isSigil || false,
+            sigilName: data.sigilName || ""
+        };
+
+        allItemsMap.set(customItem.id, customItem);
+        itemLocationMap.set(customItem.id, { zoneName: { en: "Custom" }, dungeonName: { en: "Crafted / Custom" } });
+        if (!shortIdMap.has(customItem.id)) {
+            const short = generateShortId(customItem.id);
+            shortIdMap.set(customItem.id, short);
+            reverseShortIdMap.set(short, customItem.id);
+        }
+        if (!nameShortIdMap.has(customItem.nameId)) {
+            const shortName = generateShortId(customItem.nameId);
+            nameShortIdMap.set(customItem.nameId, shortName);
+            reverseNameShortIdMap.set(shortName, customItem.nameId);
+        }
+        return customItem.nameId;
+    }
+
     async function loadAndRender() {
         const previousView = {
             favoritesOnly: showFavoritesOnly,
@@ -2607,10 +3113,36 @@
         localStorage.setItem(VERSION_KEY,loaded.version||'0');
         saveState();
         filterTypes=filterTypes.filter(t=>t!=='Mount'&&t!=='Glider');
+
+        
+        pruneCustomItems();
+        
+        
+        const builds = loadBuilds();
+        const activeFavorites = new Set(readJsonStorage('farever_favorites_v1', []));
+        const referencedNameIds = new Set(activeFavorites);
+        Object.values(builds).forEach(buildItems => {
+            buildItems.forEach(id => referencedNameIds.add(id));
+        });
+        
+        const localCustoms = loadCustomItems();
+        localCustoms.forEach(item => {
+            const nameId = "custom-" + toSlug(item.name);
+            if (referencedNameIds.has(nameId)) registerCustomItem(item);
+        });
+        
+        const buildCustoms = loadBuildCustomItems();
+        Object.values(buildCustoms).flat().forEach(item => {
+            const nameId = "custom-" + toSlug(item.name);
+            if (referencedNameIds.has(nameId)) registerCustomItem(item);
+        });
+
         updateStaticUITexts();updateAllFilterButtonLabels();
         renderUpdateLog(loaded.updateLog||'');
         buildShortIdMaps();
-        const rawFavs=JSON.parse(localStorage.getItem('farever_favorites_v1')||'[]');
+        const rawFavs=readJsonStorage('farever_favorites_v1', []).filter(value => typeof value === 'string' && !value.startsWith('custom-'));
+       
+        localStorage.setItem('farever_favorites_v1', JSON.stringify(rawFavs));
         if(rawFavs.length&&typeof rawFavs[0]==='string'&&rawFavs[0].includes('_')){
             const migrated=new Set();
             rawFavs.forEach(oldId=>{const item=allItemsMap.get(oldId);if(item)migrated.add(item.nameId);});
@@ -2629,7 +3161,7 @@
         } else {
             sharedBuild=null;
             showFavoritesOnly=previousView.favoritesOnly;
-            favoriteIds=new Set(JSON.parse(localStorage.getItem('farever_favorites_v1')||'[]'));
+            favoriteIds=new Set(readJsonStorage('farever_favorites_v1', []).filter(value => typeof value === 'string'));
         }
         renderAll();
     }
@@ -2642,6 +3174,7 @@
         setupItemDetailToggle();
         setupRaritySwitcher();
         setupSuggestionModal();
+        setupBuildNameModalCustomItemToggle();
         setupImageTooltip();
         setupLanguageSwitcher();
         await loadAndRender();
