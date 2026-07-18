@@ -1688,6 +1688,9 @@
     function buildStatTagsHtml(item, variantIndex=null) {
         
         if (item.isCustom) {
+            if (!item.stats || item.stats.length === 0) {
+                return '<span class="tag stat-tag" style="opacity: 0.5; border-color: var(--border-light); background: rgba(255,255,255,0.03); color: var(--text-dim);">—</span>';
+            }
             const sortedStats=sortByOrder(item.stats,STAT_OPTIONS);
             const statTags=sortedStats.map(s=>{
                 const displayStat=t('stat_'+s.replace(/ /g,'_'),s);
@@ -1936,7 +1939,7 @@
                 name: { en: data.name, fr: data.name, es: data.name },
                 types: [data.type],
                 classes: data.classes || ["warrior", "rogue", "mage", "priest"],
-                stats: ["Armor", "Vitality", "Strength", "Dexterity", "Faith", "Intelligence", "Critical", "Armor Penetration", "Magic Penetration", "Fervor"],
+                stats: data.stats || [],
                 statValues: {},
                 variants: [
                     {
@@ -2425,13 +2428,17 @@
         document.getElementById('builds-wrapper').classList.remove('open');
     }
 
-    async function getShortenedSlug(packed, buildName) {
+    async function getShortenedSlug(packed, buildName, customItemsData) {
         try {
             const cleanUrl = CF_WORKER_URL.replace(/\/+$/, '');
+            let pPayload = packed;
+            if (customItemsData && customItemsData.length > 0) {
+                pPayload = JSON.stringify({ p: packed, c: customItemsData });
+            }
             const response = await fetch(`${cleanUrl}/shorten`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ p: packed, name: buildName })
+                body: JSON.stringify({ p: pPayload, name: buildName })
             });
             if (response.ok) {
                 const data = await response.json();
@@ -2453,7 +2460,6 @@
         const standardIds = [];
         const customItemsData = [];
         
-        
         const buildCustoms = loadBuildCustomItems();
         const buildCustomItems = buildCustoms[name] || [];
         
@@ -2465,6 +2471,7 @@
                     type: item.types[0],
                     rarity: item.variants[0]?.rarity || "blue",
                     classes: item.classes,
+                    stats: item.stats || [],
                     isSigil: item.isSigil || false,
                     sigilName: item.sigilName || ""
                 });
@@ -2473,7 +2480,6 @@
             }
         });
         
-        
         buildCustomItems.forEach(customItem => {
             if (!customItemsData.some(c => c.name === customItem.name)) {
                 customItemsData.push({
@@ -2481,6 +2487,7 @@
                     type: customItem.type,
                     rarity: customItem.rarity || "blue",
                     classes: customItem.classes,
+                    stats: customItem.stats || [],
                     isSigil: customItem.isSigil || false,
                     sigilName: customItem.sigilName || ""
                 });
@@ -2494,17 +2501,16 @@
         url.searchParams.delete('b');
         url.searchParams.delete('c');
 
-        if (customItemsData.length > 0) {
-            const jsonStr = JSON.stringify(customItemsData);
-            const base64 = btoa(unescape(encodeURIComponent(jsonStr))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
-            url.searchParams.set('c', base64);
-        }
-
-        const slug = await getShortenedSlug(packed, name);
+        const slug = await getShortenedSlug(packed, name, customItemsData);
         if (slug) {
             url.searchParams.set('b', slug); 
         } else {
             url.searchParams.set('p', packed); 
+            if (customItemsData.length > 0) {
+                const jsonStr = JSON.stringify(customItemsData);
+                const base64 = btoa(unescape(encodeURIComponent(jsonStr))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+                url.searchParams.set('c', base64);
+            }
         }
 
         const urlStr = url.toString();
@@ -2653,7 +2659,7 @@
                 if (Array.isArray(customItems)) {
                     customItems.forEach(item => {
                         const nameId = registerCustomItem(item);
-                        if (nameId) customIds.push(nameId);
+                        if (nameId && !customIds.includes(nameId)) customIds.push(nameId);
                     });
                 }
             } catch(e) {
@@ -2668,9 +2674,35 @@
                 const response = await fetch(`${cleanUrl}/b/${slug}`);
                 if (response.ok) {
                     const data = await response.json();
-                    const packed = data.p;
+                    let packed = data.p;
                     if (packed) {
-                        const { shortIds, name } = unpackShortIds(packed);
+                        let shortIds = [];
+                        let name = '';
+                        if (typeof packed === 'string' && packed.trim().startsWith('{')) {
+                            try {
+                                const parsed = JSON.parse(packed);
+                                packed = parsed.p;
+                                if (parsed.c && Array.isArray(parsed.c)) {
+                                    parsed.c.forEach(item => {
+                                        const nameId = registerCustomItem(item);
+                                        if (nameId && !customIds.includes(nameId)) customIds.push(nameId);
+                                    });
+                                }
+                            } catch (e) {}
+                        } else if (typeof packed === 'object' && packed !== null) {
+                            if (packed.c && Array.isArray(packed.c)) {
+                                packed.c.forEach(item => {
+                                    const nameId = registerCustomItem(item);
+                                    if (nameId && !customIds.includes(nameId)) customIds.push(nameId);
+                                });
+                            }
+                            packed = packed.p;
+                        }
+                        if (packed && typeof packed === 'string') {
+                            const unpacked = unpackShortIds(packed);
+                            shortIds = unpacked.shortIds;
+                            name = unpacked.name;
+                        }
                         const ids = shortIds.map(s => reverseNameShortIdMap.get(s) || s).concat(customIds);
                         return { ids, name };
                     }
@@ -2679,8 +2711,32 @@
                 console.error("Failed to load shortened build from database:", e);
             }
         }
-        const packed=params.get('p');
-        if(packed){try{const {shortIds,name}=unpackShortIds(packed);const ids=shortIds.map(s=>reverseNameShortIdMap.get(s)||s).concat(customIds);return{ids,name};}catch(e){}}
+        let packed=params.get('p');
+        if(packed){
+            try{
+                let shortIds = [];
+                let name = '';
+                if (typeof packed === 'string' && packed.trim().startsWith('{')) {
+                    try {
+                        const parsed = JSON.parse(packed);
+                        packed = parsed.p;
+                        if (parsed.c && Array.isArray(parsed.c)) {
+                            parsed.c.forEach(item => {
+                                const nameId = registerCustomItem(item);
+                                if (nameId && !customIds.includes(nameId)) customIds.push(nameId);
+                            });
+                        }
+                    } catch (e) {}
+                }
+                if (packed && typeof packed === 'string') {
+                    const unpacked = unpackShortIds(packed);
+                    shortIds = unpacked.shortIds;
+                    name = unpacked.name;
+                }
+                const ids=shortIds.map(s=>reverseNameShortIdMap.get(s)||s).concat(customIds);
+                return{ids,name};
+            }catch(e){}
+        }
         const favParam=params.get('fav');
         if(favParam){const pieces=favParam.split(',').map(s=>s.trim()).filter(Boolean);const ids=pieces.map(p=>reverseNameShortIdMap.get(p)||p).concat(customIds);return{ids,name:params.get('build')||''};}
         
@@ -2803,7 +2859,7 @@
                     }
                 }
 
-                sessionCustomItems.push({ name, type, rarity, classes, isSigil, sigilName });
+                sessionCustomItems.push({ name, type, rarity, classes, stats: [], isSigil, sigilName });
                 renderSessionCustomItemsList();
                 
                 nameInput.value = '';
@@ -3062,7 +3118,7 @@
             name: { en: data.name, fr: data.name, es: data.name },
             types: [data.type],
             classes: data.classes || ["warrior", "rogue", "mage", "priest"],
-            stats: ["Armor", "Vitality", "Strength", "Dexterity", "Faith", "Intelligence", "Critical", "Armor Penetration", "Magic Penetration", "Fervor"],
+            stats: data.stats || [],
             statValues: {},
             variants: [
                 {
