@@ -3114,6 +3114,16 @@
                     "Critical": 24
                   },
                   "image": "images/Kobold.w.p.head.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 201,
+                    "Vitality": 11,
+                    "Strength": 5,
+                    "Faith": 5,
+                    "Critical": 30
+                  },
+                  "image": "images/ArmoredDockerCap.png"
                 }
               },
               "rare": false,
@@ -7539,6 +7549,16 @@
                     "Critical": 24
                   },
                   "image": "images/Kobold.w.p.head.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 201,
+                    "Vitality": 11,
+                    "Strength": 5,
+                    "Faith": 5,
+                    "Critical": 30
+                  },
+                  "image": "images/ArmoredDockerCap.png"
                 }
               },
               "rare": false,
@@ -13156,6 +13176,16 @@
                     "Critical": 24
                   },
                   "image": "images/Kobold.w.p.head.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 201,
+                    "Vitality": 11,
+                    "Strength": 5,
+                    "Faith": 5,
+                    "Critical": 30
+                  },
+                  "image": "images/ArmoredDockerCap.png"
                 }
               },
               "rare": false,
@@ -18352,6 +18382,16 @@
                     "Critical": 24
                   },
                   "image": "images/Kobold.w.p.head.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 201,
+                    "Vitality": 11,
+                    "Strength": 5,
+                    "Faith": 5,
+                    "Critical": 30
+                  },
+                  "image": "images/ArmoredDockerCap.png"
                 }
               },
               "rare": false,
@@ -18642,6 +18682,10 @@
                 "20": {
                   "statValues": {},
                   "image": "images/TwinPillars20.png"
+                },
+                "25": {
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -18672,6 +18716,18 @@
                         "Fervor": 28
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 29,
+                        "Strength": 12,
+                        "Dexterity": 15,
+                        "Critical": 35,
+                        "Fervor": 35
+                      },
+                      "image": "images/TwinPillarsofJustice.png"
                     }
                   }
                 },
