@@ -486,6 +486,13 @@
             cursor: pointer; font-size: 0.83rem;
         }
         .level-data-pending { color: #fde68a; border-color: rgba(251,191,36,.48)!important; background: rgba(251,191,36,.11)!important; text-transform: none!important; font-size: .62rem!important; }
+        .level-data-pending-error { color: #fca5a5; border-color: rgba(239,68,68,.55)!important; background: rgba(239,68,68,.13)!important; text-transform: none!important; font-size: .62rem!important; font-weight: 700; animation: pulse-missing 2.2s ease-in-out infinite; }
+        .item-missing-lv-data { border-left: 3px solid rgba(239,68,68,.55) !important; background: rgba(239,68,68,.045) !important; }
+        .item-missing-lv-data:hover { background: rgba(239,68,68,.08) !important; }
+        .item-missing-lv-data .item-name { opacity: 0.85; }
+        .stat-value-missing { opacity: 0.55; border-style: dashed !important; }
+        .stat-missing-val { font-size: 0.68rem; color: #fca5a5; margin-left: 3px; font-weight: 800; animation: pulse-missing 2.2s ease-in-out infinite; }
+        @keyframes pulse-missing { 0%,100% { opacity: 0.55; } 50% { opacity: 1; } }
         .detail-indicator {
             display: inline-block; transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 0.55em; margin-left: 4px; color: var(--text-dim);
@@ -1489,7 +1496,7 @@
             if(searchQuery){const q=searchQuery.toLowerCase();const name=getItemName(item).toLowerCase();const noSpaceName=name.replace(/\s+/g,'');const noSpaceQ=q.replace(/\s+/g,'');if(!name.includes(q)&&!noSpaceName.includes(noSpaceQ))return false;}
             return true;
         }
-        if(!itemHasCurrentLevelData(item))return false;
+        if(currentStatLevel==='20'&&!itemHasCurrentLevelData(item))return false;
         if(filterCategories.length>0){
             const passesWeapons=filterCategories.includes('weapons')&&item.types.some(t=>WEAPON_TYPES.includes(t));
             const passesArmor=filterCategories.includes('armor')&&item.types.some(t=>ARMOR_TYPES.includes(t)||TRINKET_TYPES.includes(t));
@@ -1742,13 +1749,18 @@
         } else if(item.variants&&item.variants.length===1) {
             snapshot=getVariantLevelSnapshot(item.variants[0]);
         } else snapshot=getBaseLevelSnapshot(item);
-        if(!snapshot||!snapshotHasLevelData(snapshot))return '<span class="tag level-data-pending">⚠ '+escapeHtml(levelPendingText())+'</span>';
+        if(!snapshot||!snapshotHasLevelData(snapshot)){
+            if(currentStatLevel==='25') return '<span class="tag level-data-pending-error">⚠ Lv25 stats missing — data needed</span>';
+            return '<span class="tag level-data-pending">⚠ '+escapeHtml(levelPendingText())+'</span>';
+        }
         const statValues=snapshot.statValues||{};
         const sortedStats=sortByOrder(item.stats,STAT_OPTIONS);
         const statTags=sortedStats.map(s=>{
             const displayStat=t('stat_'+s.replace(/ /g,'_'),s);
-            const val=statValues[s]!==undefined&&statValues[s]!==''?'<span class="stat-value">'+statValues[s]+'</span>':'';
-            return '<span class="tag stat-tag stat-'+toSlug(s)+'">'+escapeHtml(displayStat)+val+'</span>';
+            const hasValue=statValues[s]!==undefined&&statValues[s]!=='';
+            const val=hasValue?'<span class="stat-value">'+statValues[s]+'</span>':'<span class="stat-missing-val">?</span>';
+            const missingCls=hasValue?'':' stat-value-missing';
+            return '<span class="tag stat-tag stat-'+toSlug(s)+missingCls+'">'+escapeHtml(displayStat)+val+'</span>';
         }).join('');
         return statTags;
     }
@@ -1784,10 +1796,8 @@
         const getCurrentItemImage = (it) => {
             if (!it) return '';
             const snap = getBaseLevelSnapshot(it);
-            
             if (!snap) return '';
             if (snap.image) return snap.image;
-            
             return '';
         };
 
@@ -1859,10 +1869,12 @@
             detailHtml='<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.trinketPassive))+'</div>';
         }
         const rowClass=detailHtml?' item-row-has-details':'';
+        const hasNoLevelData=!item.isCustom&&!isMountOrGlider(item)&&!itemHasCurrentLevelData(item);
+        const missingCls=hasNoLevelData?' item-missing-lv-data':'';
         const clickHandler=detailHtml?' data-action="toggle-item-detail" data-item-id="'+item.id+'"':'';
         const favClass=isFavorited(item.nameId)?' favorited':'';
         const starHtml='<span class="fav-star'+favClass+'" data-item-id="'+item.id+'" data-action="toggle-favorite">★</span>';
-        return '<tr class="item-main-row'+rowClass+'" data-item-id="'+item.id+'"'+clickHandler+'>'+
+        return '<tr class="item-main-row'+rowClass+missingCls+'" data-item-id="'+item.id+'"'+clickHandler+'>'+
             '<td data-label="'+t('item_name')+'"><span class="item-name '+typeColorClass+'"'+imageUrlAttr+'>'+starHtml+escapeHtml(getItemName(item))+(detailHtml?' <span class="detail-indicator">▶</span>':'')+'</span>'+switcherHtml+'</td>'+
             '<td data-label="'+t('item_type')+'"><div class="tag-container">'+typeTags+'</div></td>'+
             '<td data-label="'+t('classes')+'"><div class="tag-container">'+classTags+'</div></td>'+
@@ -2153,10 +2165,12 @@
                 abils.push('<div><strong class="'+typeColorClass+'">'+t('passive')+'</strong> '+escapeHtml(getSkillText(item.trinketPassive))+'</div>');
             }
             const detailHtml=abils.join(''), detailId='viewer-'+item.nameId;
+            const hasNoLevelData=!item.isCustom&&!isMountOrGlider(item)&&!itemHasCurrentLevelData(item);
+            const missingCls=hasNoLevelData?' item-missing-lv-data':'';
             const favClass=isFavorited(item.nameId)?' favorited':'';
             const starHtml='<span class="fav-star'+favClass+'" data-item-id="'+item.id+'" data-action="toggle-favorite">★</span>';
             const locationHtml='<div class="source-list">'+locations.map(loc=>'<div class="source-entry"><span class="source-bullet">◆</span><span><span class="location-zone">'+escapeHtml(getZoneName({name:loc.zoneName}))+'</span> › <span class="location-dungeon">'+renderDungeonName(loc.dungeonName)+'</span></span></div>').join('')+'</div>';
-            return'<tr class="item-main-row'+(detailHtml?' item-row-has-details':'')+'" data-item-id="'+detailId+'"'+(detailHtml?' data-action="toggle-item-detail"':'')+'>'+
+            return'<tr class="item-main-row'+(detailHtml?' item-row-has-details':'')+missingCls+'" data-item-id="'+detailId+'"'+(detailHtml?' data-action="toggle-item-detail"':'')+'>'+
                 '<td data-label="'+t('item_name')+'"><span class="item-name '+typeColorClass+'"'+imageUrlAttr+'>'+starHtml+escapeHtml(getItemName(item))+(detailHtml?' <span class="detail-indicator">▶</span>':'')+'</span>'+switcherHtml+'</td>'+
                 '<td data-label="'+t('item_type')+'"><div class="tag-container">'+typeTags+'</div></td><td data-label="'+t('classes')+'"><div class="tag-container">'+classTags+'</div></td>'+
                 '<td data-label="'+t('stats_header')+'"><div class="tag-container stat-tags-container">'+statTagsHtml+'</div></td><td data-label="'+viewerLocationLabel+'" class="location-cell">'+locationHtml+'</td></tr>'+

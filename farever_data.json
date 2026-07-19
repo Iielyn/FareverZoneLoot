@@ -610,6 +610,12 @@
                     "Fervor": 26
                   },
                   "image": "images/Nepsid.trinket20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Fervor": 32
+                  },
+                  "image": "images/Poetrident.png"
                 }
               },
               "rare": false,
@@ -1285,6 +1291,17 @@
                     "Magic Penetration": 9
                   },
                   "image": "images/Crab.r.m.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 147,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/FinsoftheFirstFish.png"
                 }
               },
               "rare": false,
@@ -5245,10 +5262,10 @@
                 "Trinket"
               ],
               "classes": [
-                "warrior",
-                "rogue",
+                "priest",
                 "mage",
-                "priest"
+                "rogue",
+                "warrior"
               ],
               "stats": [
                 "Fervor"
@@ -5286,6 +5303,12 @@
                     "Fervor": 26
                   },
                   "image": "images/Nepsid.trinket20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Fervor": 32
+                  },
+                  "image": "images/Poetrident.png"
                 }
               },
               "rare": false,
@@ -5818,8 +5841,8 @@
                 "Shoulders"
               ],
               "classes": [
-                "mage",
-                "rogue"
+                "rogue",
+                "mage"
               ],
               "stats": [
                 "Armor",
@@ -5867,6 +5890,17 @@
                     "Magic Penetration": 9
                   },
                   "image": "images/Crab.r.m.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 147,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/FinsoftheFirstFish.png"
                 }
               },
               "rare": false,
@@ -14889,6 +14923,12 @@
               "types": [
                 "Trinket"
               ],
+              "classes": [
+                "priest",
+                "mage",
+                "rogue",
+                "warrior"
+              ],
               "stats": [
                 "Fervor"
               ],
@@ -14925,6 +14965,12 @@
                     "Fervor": 26
                   },
                   "image": "images/Nepsid.trinket20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Fervor": 32
+                  },
+                  "image": "images/Poetrident.png"
                 }
               },
               "rare": false,
@@ -15721,6 +15767,17 @@
                     "Magic Penetration": 9
                   },
                   "image": "images/Crab.r.m.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 147,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/FinsoftheFirstFish.png"
                 }
               },
               "rare": false,
@@ -22217,6 +22274,304 @@
                   }
                 }
               ]
+            },
+            {
+              "name": {
+                "en": "Gambeson of the Flying Ram",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Chest"
+              ],
+              "classes": [
+                "rogue"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 230,
+                    "Vitality": 9,
+                    "Dexterity": 12,
+                    "Critical": 30
+                  },
+                  "image": "images/GambesonoftheFlyingRam.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Touch of Menas the Thaumaturge",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Hands"
+              ],
+              "classes": [
+                "rogue"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 141,
+                    "Vitality": 6,
+                    "Dexterity": 8,
+                    "Critical": 22
+                  },
+                  "image": "images/TouchofMenastheThaumaturge.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Ubu's Galligaskins",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Legs"
+              ],
+              "classes": [
+                "rogue",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Faith",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 181,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Critical": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/UbusGalligaskins.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Galoshes of Fortune",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Feet"
+              ],
+              "classes": [
+                "rogue"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 154,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Critical": 22
+                  },
+                  "image": "images/GaloshesofFortune.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Relic of Cernoros The Lost King",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Waist"
+              ],
+              "classes": [
+                "rogue",
+                "mage"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Intelligence",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Critical": 22
+                  },
+                  "image": "images/RelicofCernorostheLostKing.png"
+                }
+              },
+              "rare": false
             }
           ]
         }
@@ -22718,22 +23073,22 @@
                 "Fervor"
               ],
               "skill1": {
-                "en": "",
+                "en": "Strikes with both weapons, dealing 42.5% Dexterity Physical, 42.5% Intellect Magic to an enemy and marking them with Chaos Mark for 6s.",
                 "fr": "",
                 "es": ""
               },
               "skill2": {
-                "en": "",
+                "en": "Jumps behind a target, dealing 60% Dexterity + 60% Intellect Physical. If the target is afflicted by Chaos Mark, consumes it to reset the cooldown.",
                 "fr": "",
                 "es": ""
               },
               "skill3": {
-                "en": "",
+                "en": "Spawns 2 void fangs that follow you. Recast the skill to throw a fang and deal 25% Dexterity + 25% Intellect Chaos to a target, applying Chaos Mark for 6s.",
                 "fr": "",
                 "es": ""
               },
               "passive": {
-                "en": "",
+                "en": "Your Weapon Skills burn enemies for 20% of the damage dealt over 6s.",
                 "fr": "",
                 "es": ""
               },
@@ -22791,6 +23146,120 @@
                         "Fervor": 81
                       },
                       "image": "images/NibshamsLiberatorsL.png"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "en": "Silhouette of Almaz",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Staff"
+              ],
+              "classes": [
+                "mage"
+              ],
+              "stats": [
+                "Vitality",
+                "Intelligence",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "Casts four chaos bolts, each dealing 33.5% Intellect Magic to an enemy and having a 15% chance to reset the cooldown of Summon: Vile Imps.",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "Channels to discharge all Demonic Charge charged, each dealing 20% Intellect Chaos.\n\nDuring combat, generates a stack of Demonic Charge each time one of your summons deals damage, stacking up to 20.",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "Summon 2 Imps dealing 20% Intellect Chaos every 1.5s. Lasts 12s.",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "Your next Weapon Skill has no cooldown but costs you 50% of your remaining Health (30s cooldown).",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "blue",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 32,
+                        "Intelligence": 30,
+                        "Critical": 69
+                      },
+                      "image": "images/SilhouetteofAlmazB.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "purple",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Intelligence": 34,
+                        "Critical": 75
+                      },
+                      "image": "images/SilhouetteofAlmazP.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 42,
+                        "Intelligence": 39,
+                        "Critical": 81
+                      },
+                      "image": "images/SilhouetteofAlmazL.png"
                     }
                   }
                 }
