@@ -1572,7 +1572,7 @@
         return Number(snapshot.damageMin) > 0 || Number(snapshot.damageMax) > 0;
     }
     function itemHasCurrentLevelData(item) {
-
+        if (isMountOrGlider(item)) return true;
         if (item.variants && item.variants.length > 1) {
             return item.variants.some(variant => snapshotHasLevelData(getVariantLevelSnapshot(variant)));
         }
@@ -1712,6 +1712,10 @@
             return statTags;
         }
 
+        if (isMountOrGlider(item)) {
+            return '<span class=\"tag drop-rate-unconfirmed\">'+escapeHtml(t('drop_rate_unconfirmed'))+'</span>';
+        }
+
         let snapshot=null;
         if(item.variants&&item.variants.length>1){
             const selIdx=variantIndex!==null?variantIndex:(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0);
@@ -1727,7 +1731,7 @@
             const val=statValues[s]!==undefined&&statValues[s]!==''?'<span class="stat-value">'+statValues[s]+'</span>':'';
             return '<span class="tag stat-tag stat-'+toSlug(s)+'">'+escapeHtml(displayStat)+val+'</span>';
         }).join('');
-        return statTags+(isMountOrGlider(item)?'<span class="tag drop-rate-unconfirmed">'+escapeHtml(t('drop_rate_unconfirmed'))+'</span>':'');
+        return statTags;
     }
 
 
