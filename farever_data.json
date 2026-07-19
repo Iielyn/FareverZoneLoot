@@ -1,8 +1,8 @@
 {
   "updateLog": {
-    "en": "[7/16] \n• Database has been separated into Lv20 and Lv25 gear, once I get all Lv25 gear the entire database will only consist of that, but for now the Lv20 is here to stay so you can still compare stats fairly if need be.\n• Added Two-Handed Sword as a weapon type.\n• Added Staff as a weapon type.\n• Added Rift as a zone\n• Do note, new items will only be lv25 (I will not be updating lv20 items anymore at this point in time, mounts and gliders are null from this rule since they are not level specific)\n• Moved Judgment from Ratsar's Lair to Cheese Station. If this is wrong please let me know!\n• I'm still missing Nescentine Leggybug, Rinuhrian Skunk, and some dungeon boss glider pictures. If anyone would like to contribute the pictures either through the suggestion box or by adding me on discord, I would appreciate it!\n• Added a different way to view the table/loot and a toggle incase you prefer the other way still.\n\n[7/18]\n• Moved Amon Ram, the Creator from Cheese Station to Chakram's Chapel. If this is wrong please let me know!",
-    "fr": "[7/16]\n• La base de données a été divisée entre les équipements de niveau 20 et ceux de niveau 25. Une fois que j’aurai obtenu tous les équipements de niveau 25, la base de données ne contiendra plus que ceux-ci. Pour l’instant, les équipements de niveau 20 resteront disponibles afin que vous puissiez toujours comparer les statistiques équitablement si nécessaire.\n• Ajout de l’épée à deux mains comme type d’arme.\n• Ajout du bâton comme type d’arme.\n• Ajout de Rift comme zone.\n• Veuillez noter que les nouveaux objets seront uniquement de niveau 25. Pour le moment, je ne mettrai plus à jour les objets de niveau 20. Les montures et les planeurs ne sont pas concernés par cette règle, puisqu’ils ne sont pas liés à un niveau précis.\n• Judgment a été déplacé de Ratsar's Lair vers Cheese Station. Si cela est incorrect, merci de me le signaler !\n• Il me manque encore des images de Nescentine Leggybug, de Rinuhrian Skunk et de certains planeurs obtenus auprès des boss de donjon. Si quelqu’un souhaite fournir des images via la boîte à suggestions ou en m’ajoutant sur Discord, je lui en serais reconnaissant !\n• Ajout d’une nouvelle façon d’afficher le tableau/le butin, ainsi que d’une option permettant de basculer entre les deux modes d’affichage si vous préférez toujours l’ancien.\n\n[7/18]\n• Amon Ram, the Creator a été déplacé de Cheese Station vers Chakram's Chapel. Si cela est incorrect, merci de me le signaler !",
-    "es": "[7/16]\n• La base de datos se ha dividido entre equipo de nivel 20 y equipo de nivel 25. Cuando consiga todo el equipo de nivel 25, la base de datos incluirá únicamente ese nivel. Por ahora, el equipo de nivel 20 seguirá disponible para que todavía puedas comparar las estadísticas de forma justa si lo necesitas.\n• Se añadió Espada a dos manos como tipo de arma.\n• Se añadió Bastón como tipo de arma.\n• Se añadió Rift como zona.\n• Ten en cuenta que los nuevos objetos solo serán de nivel 25. Por el momento, ya no actualizaré los objetos de nivel 20. Las monturas y los planeadores están exentos de esta regla, ya que no tienen un nivel específico.\n• Se trasladó Judgment de Ratsar's Lair a Cheese Station. Si esto es incorrecto, ¡háganmelo saber!\n• Todavía me faltan imágenes de Nescentine Leggybug, Rinuhrian Skunk y algunos planeadores de jefes de mazmorra. Si alguien desea aportar imágenes mediante el buzón de sugerencias o agregándome en Discord, ¡se lo agradecería!\n• Se añadió una forma diferente de ver la tabla/el botín, además de una opción para alternar entre ambas vistas por si todavía prefieres la anterior.\n\n[7/18]\n• Se trasladó Amon Ram, the Creator de Cheese Station a Chakram's Chapel. Si esto es incorrecto, ¡háganmelo saber!"
+    "en": "[7/16] \n• Database has been separated into Lv20 and Lv25 gear, once I get all Lv25 gear the entire database will only consist of that, but for now the Lv20 is here to stay so you can still compare stats fairly if need be.\n• Added Two-Handed Sword as a weapon type.\n• Added Staff as a weapon type.\n• Added Rift as a zone\n• Do note, new items will only be lv25 (I will not be updating lv20 items anymore at this point in time, mounts and gliders are null from this rule since they are not level specific)\n• Moved Judgment from Ratsar's Lair to Cheese Station. If this is wrong please let me know!\n• I'm still missing Nescentine Leggybug, Rinuhrian Skunk, and some dungeon boss glider pictures. If anyone would like to contribute the pictures either through the suggestion box or by adding me on discord, I would appreciate it!\n• Added a different way to view the table/loot and a toggle incase you prefer the other way still.\n\n[7/18]\n• Moved Amon Ram, the Creator from Cheese Station to Chakram's Chapel. If this is wrong please let me know!\n\n[7/19]\n• Restored mounts/gliders after all the editing they became missing, they should now appear again in the right spots.\n• Added Ramulus & Ramus to Crimson Barracks.\n• Fixed Ponogian Leggybugs picture where it was misplaced on Nescentine leggybug.",
+    "fr": "[16/07]\nLa base de données a été séparée en équipement de niveau 20 et 25. Une fois que j'aurai tout l'équipement de niveau 25, la base de données ne contiendra que celui-ci, mais pour l'instant le niveau 20 reste présent afin que vous puissiez toujours comparer les statistiques équitablement si nécessaire.\nÉpée à deux mains ajoutée comme type d'arme.\nBâton ajouté comme type d'arme.\nFaille ajoutée comme zone.\nNotez que les nouveaux objets ne seront que de niveau 25 (je ne mettrai plus à jour les objets de niveau 20 à partir de maintenant, les montures et planeurs sont exclus de cette règle car ils ne sont pas spécifiques à un niveau).\nJugement déplacé du Repaire de Ratsar vers la Station du Fromage. Si c'est incorrect, faites-le moi savoir !\nIl me manque toujours Nescentine Leggybug, Rinuhrian Skunk, et certaines images de planeurs de boss de donjon. Si quelqu'un souhaite contribuer avec des images, soit via la boîte de suggestions, soit en m'ajoutant sur Discord, je l'apprécierais !\nAjout d'une façon différente de voir le tableau/loot avec un bouton pour basculer au cas où vous préféreriez l'autre méthode.\n\n[18/07]\nAmon Ram, le Créateur déplacé de la Station du Fromage vers la Chapelle de Chakram. Si c'est incorrect, faites-le moi savoir !\n\n[19/07]\nMontures/planeurs restaurés après toutes les modifications, ils étaient devenus manquants, ils devraient maintenant apparaître à nouveau aux bons endroits.\nAjout de Ramulus & Ramus au Barricade Pourpre.\nCorrection de l'image de Ponogian Leggybug qui était mal placée sur Nescentine Leggybug.",
+    "es": "[16/07]\nLa base de datos se ha separado en equipo de nivel 20 y 25. Una vez que tenga todo el equipo de nivel 25, toda la base de datos solo consistirá en ese, pero por ahora el nivel 20 sigue aquí para que aún puedas comparar estadísticas de manera justa si es necesario.\nSe agregó Espada de Dos Manos como tipo de arma.\nSe agregó Bastón como tipo de arma.\nSe agregó Grieta como zona.\nTenga en cuenta que los nuevos objetos solo serán de nivel 25 (ya no actualizaré los objetos de nivel 20 en este momento, monturas y planeadores están exentos de esta regla ya que no son específicos de nivel).\nJuicio movido de Guarida de Ratsar a Estación del Queso. ¡Si esto es incorrecto, por favor hágamelo saber!\nTodavía me faltan Nescentine Leggybug, Rinuhrian Skunk, y algunas imágenes de planeadores de jefes de mazmorra. ¡Si alguien desea contribuir con las imágenes, ya sea a través del buzón de sugerencias o agregándome en Discord, lo agradecería!\nSe agregó una forma diferente de ver la tabla/loot y un interruptor en caso de que prefieras la otra forma.\n\n[18/07]\nAmon Ram, el Creador movido de la Estación del Queso a la Capilla de Chakram. ¡Si esto es incorrecto, por favor hágamelo saber!\n\n[19/07]\nSe restauraron monturas/planeadores después de todas las ediciones en las que se habían perdido, ahora deberían aparecer de nuevo en los lugares correctos.\nSe agregó Ramulus y Ramus a la Barricada Carmesí.\nSe corrigió la imagen del Leggybug de Ponogian que estaba mal colocada en el Leggybug de Nescentine."
   },
   "zones": [
     {
@@ -672,6 +672,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Crab.m.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Intelligence": 8,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/CeremonialSirenGloves.png"
                 }
               },
               "rare": false,
@@ -737,6 +746,15 @@
                     "Magic Penetration": 24
                   },
                   "image": "images/Crab.m.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Intelligence": 12,
+                    "Magic Penetration": 30
+                  },
+                  "image": "images/TidesHood.png"
                 }
               },
               "rare": false,
@@ -1988,6 +2006,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Crabg.m.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 119,
+                    "Vitality": 9,
+                    "Intelligence": 8,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/SpareSandalsofYoungNephisto.png"
                 }
               },
               "rare": false,
@@ -2112,6 +2139,10 @@
               "experimentalScope": "dungeon",
               "levelData": {
                 "20": {
+                  "statValues": {},
+                  "image": ""
+                },
+                "25": {
                   "statValues": {},
                   "image": ""
                 }
@@ -2631,6 +2662,16 @@
                         "Critical": 62
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Faith": 29,
+                        "Critical": 75
+                      },
+                      "image": "images/FlameofArgolP.png"
                     }
                   }
                 },
@@ -4297,6 +4338,10 @@
                 "20": {
                   "statValues": {},
                   "image": ""
+                },
+                "25": {
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false
@@ -4582,6 +4627,14 @@
                         "Armor": 468
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Armor": 549
+                      },
+                      "image": "images/CrabgantuasKneecapL.png"
                     }
                   }
                 }
@@ -5243,7 +5296,7 @@
             },
             {
               "name": {
-                "en": "Spare Sandals of Young Nephisto",
+                "en": "Spare Sandals of Young Nephisto ",
                 "fr": "Sandales De Rechange Du Jeune Nephisto",
                 "es": "Sandalias De Repuesto Del Joven Nephisto"
               },
@@ -5295,6 +5348,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Crabg.m.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 119,
+                    "Vitality": 9,
+                    "Intelligence": 8,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/SpareSandalsofYoungNephisto.png"
                 }
               },
               "rare": false,
@@ -6038,6 +6100,15 @@
                     "Magic Penetration": 24
                   },
                   "image": "images/Crab.m.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Intelligence": 12,
+                    "Magic Penetration": 30
+                  },
+                  "image": "images/TidesHood.png"
                 }
               },
               "rare": false,
@@ -6210,8 +6281,8 @@
               "stats": [
                 "Armor",
                 "Vitality",
-                "Intelligence",
-                "Magic Penetration"
+                "Magic Penetration",
+                "Intelligence"
               ],
               "skill1": {
                 "en": "",
@@ -6249,6 +6320,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Crab.m.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Intelligence": 8,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/CeremonialSirenGloves.png"
                 }
               },
               "rare": false,
@@ -6371,6 +6451,10 @@
               "experimentalScope": "dungeon",
               "levelData": {
                 "20": {
+                  "statValues": {},
+                  "image": "images/Meropsian Crab.png"
+                },
+                "25": {
                   "statValues": {},
                   "image": "images/Meropsian Crab.png"
                 }
@@ -8375,11 +8459,15 @@
               "levelData": {
                 "20": {
                   "statValues": {},
-                  "image": "images/Krisomalese.png"
+                  "image": "images/KrisomaleseBat.png"
+                },
+                "25": {
+                  "statValues": {},
+                  "image": "images/KrisomaleseBat.png"
                 }
               },
               "rare": false,
-              "image": "images/Krisomalese.png"
+              "image": "images/KrisomaleseBat.png"
             },
             {
               "name": {
@@ -8400,23 +8488,23 @@
               ],
               "skill1": {
                 "en": "Smashes the ground and deals 143% Strength Physical to enemies, knocking them back and increasing your Cooldown Reduction by 2% for 12s, stacking up to 3 times.\n\n",
-                "fr": "",
-                "es": ""
+                "fr": "Écrase le sol et inflige 143 % de force physique aux ennemis, les repoussant et augmentant votre réduction de temps de recharge de 2 % pendant 12 s, cumulable jusqu'à 3 fois.",
+                "es": "Rompe el suelo e inflige 143 % de fuerza física a los enemigos, derribándolos y aumentando tu reducción de tiempo de reutilización en un 2 % durante 12 s, acumulándose hasta 3 veces."
               },
               "skill2": {
                 "en": "Spins around for 3s, dealing 35% Strength + 40.25% Strength Physical every 0.25s. The last hit knocks enemies back.\nYou can move freely during the channeling.",
-                "fr": "",
-                "es": ""
+                "fr": "Tourne pendant 3 secondes, infligeant 35 % de force + 40,25 % de force physique toutes les 0,25 secondes. Le dernier coup repousse les ennemis.\nVous pouvez vous déplacer librement pendant la canalisation.",
+                "es": "Gira durante 3 s, lo que genera 35 % de fuerza + 40,25 % de fuerza física cada 0,25 s. El último golpe derriba a los enemigos.\nPuedes moverte libremente durante la canalización."
               },
               "skill3": {
                 "en": "Grants 6% to 10% Movement speed and 6% to 10% Physical Mastery to allies within 40 for 6s.",
-                "fr": "",
-                "es": ""
+                "fr": "Accorde 6 à 10 % de vitesse de déplacement et 6 à 10 % de maîtrise physique aux alliés dans un rayon de 40 pendant 6 secondes.",
+                "es": "Otorga de 6% a 10% de velocidad de movimiento y de 6% a 10% de dominio físico a los aliados dentro de 40 durante 6 s."
               },
               "passive": {
                 "en": "Each time you deal non-periodic Physical damage to an enemy, you gain a stack of Hysteria.\nAt 150 stacks, you can release your anger.\n\nAnger Release\nSmashes the ground and releases a massive nova dealing — to all enemies and knocking them back.",
-                "fr": "",
-                "es": ""
+                "fr": "Chaque fois que vous infligez des dégâts physiques non périodiques à un ennemi, vous gagnez une charge d'Hystérie.\nÀ 150 cumuls, vous pouvez libérer votre colère.\n\nLibération de la colère\nÉcrase le sol et libère une énorme nova qui s'attaque à tous les ennemis et les repousse.",
+                "es": "Cada vez que infliges daño físico no periódico a un enemigo, obtienes una acumulación de Histeria.\nCon 150 pilas, puedes liberar tu ira.\n\nLiberación de ira\nRompe el suelo y libera una enorme nova que ataca a todos los enemigos y los derriba."
               },
               "trinketPassive": {
                 "en": "",
@@ -9149,6 +9237,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Ladybee.p.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 119,
+                    "Vitality": 9,
+                    "Faith": 7,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/CleosEtherealBlossoms.png"
                 }
               },
               "rare": false,
@@ -10584,6 +10681,10 @@
                 "20": {
                   "statValues": {},
                   "image": ""
+                },
+                "25": {
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false
@@ -11069,6 +11170,18 @@
                         "Magic Penetration": 33
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 42,
+                        "Strength": 16,
+                        "Faith": 16,
+                        "Armor Penetration": 40,
+                        "Magic Penetration": 40
+                      },
+                      "image": "images/BeefuryL.png"
                     }
                   }
                 }
@@ -12568,6 +12681,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Ladybee.p.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 119,
+                    "Vitality": 9,
+                    "Faith": 7,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/CleosEtherealBlossoms.png"
                 }
               },
               "rare": false,
@@ -12693,11 +12815,14 @@
               "levelData": {
                 "20": {
                   "statValues": {},
-                  "image": "images/Ponogian Leggybug.png"
+                  "image": ""
+                },
+                "25": {
+                  "statValues": {},
+                  "image": ""
                 }
               },
-              "rare": false,
-              "image": "images/Ponogian Leggybug.png"
+              "rare": false
             }
           ]
         }
@@ -14574,6 +14699,10 @@
                 "20": {
                   "statValues": {},
                   "image": ""
+                },
+                "25": {
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false
@@ -14825,23 +14954,23 @@
               ],
               "skill1": {
                 "en": "Shoots an arrow dealing 59% Dexterity + 59% Intellect Physical to an enemy plus an additional 25% Dexterity + 25% Intellect + 32.5% Intellect + 32.5% Vitality Magic if the enemy is under 35% Health.",
-                "fr": "",
-                "es": ""
+                "fr": "Tire une flèche infligeant 59 % de Dextérité + 59 % d'Intelligence Physique à un ennemi plus 25 % de Dextérité + 25 % d'Intelligence + 32,5 % d'Intelligence + 32,5 % de Magie de Vitalité si l'ennemi a moins de 35 % de Santé.",
+                "es": "Dispara una flecha que inflige 59 % de destreza + 59 % de intelecto físico a un enemigo más un 25 % adicional de destreza + 25 % de intelecto + 32,5 % de intelecto + 32,5 % de vitalidad mágica si el enemigo tiene menos del 35 % de salud."
               },
               "skill2": {
                 "en": "Throws a net in the targeted direction dealing 100% Dexterity + 100% Intellect Physical to the first enemy hit and slowing them by -30% for 4s.\nIf an enemy is hit, you gain Big Game Hunter.",
-                "fr": "",
-                "es": ""
+                "fr": "Lance un filet dans la direction ciblée, infligeant 100 % de Dextérité + 100 % d'Intelligence Physique au premier ennemi touché et le ralentissant de -30 % pendant 4 s.\nSi un ennemi est touché, vous gagnez Big Game Hunter.",
+                "es": "Lanza una red en la dirección objetivo, lo que inflige 100 % de destreza + 100 % de intelecto físico al primer enemigo golpeado y lo ralentiza un -30 % durante 4 s.\nSi un enemigo es golpeado, obtienes Big Game Hunter."
               },
               "skill3": {
                 "en": "Drops a spark trap on the targeted area. If an enemy steps on it, they are dealt 100% Dexterity Physical, are immobilized for 4s and you gain Big Game Hunter.",
-                "fr": "",
-                "es": ""
+                "fr": "Lâche un piège à étincelles sur la zone ciblée. Si un ennemi marche dessus, il reçoit 100 % de Dextérité Physique, est immobilisé pendant 4 secondes et vous gagnez Big Game Hunter.",
+                "es": "Deja caer una trampa de chispas en el área objetivo. Si un enemigo lo pisa, recibe 100% de destreza física, queda inmovilizado durante 4 segundos y obtienes Caza mayor."
               },
               "passive": {
                 "en": "Your Weapon Skills' damage mark the enemies for 10s. Your next Attack against them consumes the mark and deal 50% increased damage.",
-                "fr": "",
-                "es": ""
+                "fr": "Les dégâts de vos compétences d'armes marquent les ennemis pendant 10 secondes. Votre prochaine attaque contre eux consomme la marque et inflige 50 % de dégâts supplémentaires.",
+                "es": "El daño de tus habilidades con armas marca a los enemigos durante 10 segundos. Tu próximo ataque contra ellos consume la marca y causa un 50% más de daño."
               },
               "trinketPassive": {
                 "en": "",
@@ -15356,6 +15485,15 @@
                     "Magic Penetration": 24
                   },
                   "image": "images/Crab.m.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Intelligence": 12,
+                    "Magic Penetration": 30
+                  },
+                  "image": "images/TidesHood.png"
                 }
               },
               "rare": false,
@@ -16086,6 +16224,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Crab.m.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Intelligence": 8,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/CeremonialSirenGloves.png"
                 }
               },
               "rare": false,
@@ -16515,6 +16662,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Crabg.m.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 119,
+                    "Vitality": 9,
+                    "Intelligence": 8,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/SpareSandalsofYoungNephisto.png"
                 }
               },
               "rare": false,
@@ -16639,6 +16795,10 @@
               "experimentalScope": "dungeon",
               "levelData": {
                 "20": {
+                  "statValues": {},
+                  "image": ""
+                },
+                "25": {
                   "statValues": {},
                   "image": ""
                 }
@@ -18667,6 +18827,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Ladybee.p.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 119,
+                    "Vitality": 9,
+                    "Faith": 7,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/CleosEtherealBlossoms.png"
                 }
               },
               "rare": false,
@@ -18920,10 +19089,15 @@
               "levelData": {
                 "20": {
                   "statValues": {},
-                  "image": ""
+                  "image": "images/PonogianLeggybug.png"
+                },
+                "25": {
+                  "statValues": {},
+                  "image": "images/PonogianLeggybug.png"
                 }
               },
-              "rare": false
+              "rare": false,
+              "image": "images/PonogianLeggybug.png"
             }
           ]
         }
@@ -20792,6 +20966,10 @@
                 "20": {
                   "statValues": {},
                   "image": ""
+                },
+                "25": {
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false
@@ -21177,23 +21355,23 @@
               ],
               "skill1": {
                 "en": "Shoots an arrow dealing 59% Dexterity + 59% Intellect Physical to an enemy plus an additional 25% Dexterity + 25% Intellect + 32.5% Intellect + 32.5% Vitality Magic if the enemy is under 35% Health.",
-                "fr": "",
-                "es": ""
+                "fr": "Tire une flèche infligeant 59 % de Dextérité + 59 % d'Intelligence Physique à un ennemi plus 25 % de Dextérité + 25 % d'Intelligence + 32,5 % d'Intelligence + 32,5 % de Magie de Vitalité si l'ennemi a moins de 35 % de Santé.",
+                "es": "Dispara una flecha que inflige 59 % de destreza + 59 % de intelecto físico a un enemigo más un 25 % adicional de destreza + 25 % de intelecto + 32,5 % de intelecto + 32,5 % de vitalidad mágica si el enemigo tiene menos del 35 % de salud."
               },
               "skill2": {
                 "en": "Throws a net in the targeted direction dealing 100% Dexterity + 100% Intellect Physical to the first enemy hit and slowing them by -30% for 4s.\nIf an enemy is hit, you gain Big Game Hunter.",
-                "fr": "",
-                "es": ""
+                "fr": "Lance un filet dans la direction ciblée, infligeant 100 % de Dextérité + 100 % d'Intelligence Physique au premier ennemi touché et le ralentissant de -30 % pendant 4 s.\nSi un ennemi est touché, vous gagnez Big Game Hunter.",
+                "es": "Lanza una red en la dirección objetivo, lo que inflige 100 % de destreza + 100 % de intelecto físico al primer enemigo golpeado y lo ralentiza un -30 % durante 4 s.\nSi un enemigo es golpeado, obtienes Big Game Hunter."
               },
               "skill3": {
                 "en": "Drops a spark trap on the targeted area. If an enemy steps on it, they are dealt 100% Dexterity Physical, are immobilized for 4s and you gain Big Game Hunter.",
-                "fr": "",
-                "es": ""
+                "fr": "Lâche un piège à étincelles sur la zone ciblée. Si un ennemi marche dessus, il reçoit 100 % de Dextérité Physique, est immobilisé pendant 4 secondes et vous gagnez Big Game Hunter.",
+                "es": "Deja caer una trampa de chispas en el área objetivo. Si un enemigo lo pisa, recibe 100% de destreza física, queda inmovilizado durante 4 segundos y obtienes Caza mayor."
               },
               "passive": {
                 "en": "Your Weapon Skills' damage mark the enemies for 10s. Your next Attack against them consumes the mark and deal 50% increased damage.",
-                "fr": "",
-                "es": ""
+                "fr": "Les dégâts de vos compétences d'armes marquent les ennemis pendant 10 secondes. Votre prochaine attaque contre eux consomme la marque et inflige 50 % de dégâts supplémentaires.",
+                "es": "El daño de tus habilidades con armas marca a los enemigos durante 10 segundos. Tu próximo ataque contra ellos consume la marca y causa un 50% más de daño."
               },
               "trinketPassive": {
                 "en": "",
@@ -21236,8 +21414,8 @@
             {
               "name": {
                 "en": "Crimson Pants",
-                "fr": "",
-                "es": ""
+                "fr": "Pantalon cramoisi",
+                "es": "Pantalones carmesí"
               },
               "types": [
                 "Legs"
@@ -21295,6 +21473,85 @@
                 }
               },
               "rare": false
+            },
+            {
+              "name": {
+                "en": "Ramulus & Ramus",
+                "fr": "Ramulus et Ramus",
+                "es": "Ramulus y Ramus"
+              },
+              "types": [
+                "Fists"
+              ],
+              "classes": [
+                "rogue",
+                "priest"
+              ],
+              "stats": [
+                "Vitality",
+                "Dexterity",
+                "Faith",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "Fires a light wave at an enemy, dealing 40% Dexterity + 40% Faith Light to the first enemy hit and marking them for 4s.\n\nIf an enemy is marked, you can recast to dash to them and deal 120% Dexterity + 120% Faith Light.",
+                "fr": "Tire une onde lumineuse sur un ennemi, infligeant 40 % de dextérité + 40 % de lumière de foi au premier ennemi touché et le marquant pendant 4 secondes.\n\nSi un ennemi est marqué, vous pouvez relancer pour vous précipiter sur lui et lui infliger 120 % de dextérité + 120 % de Foi Lumière.",
+                "es": "Dispara una onda de luz a un enemigo, lo que inflige 40 % de destreza + 40 % de luz de fe al primer enemigo golpeado y lo marca durante 4 segundos.\n\nSi un enemigo está marcado, puedes volver a lanzarlo para correr hacia él y darle 120 % de destreza + 120 % de luz de fe."
+              },
+              "skill2": {
+                "en": "Punches an enemy with an ancestral power, dealing 100% Dexterity + 130% Dexterity Light and knocking them back a long distance. Enemies in the path are knocked up and dealt 75% of the initial damage.",
+                "fr": "Frappe un ennemi avec un pouvoir ancestral, lui infligeant 100 % de Dextérité + 130 % de Dextérité Lumière et le repoussant sur une longue distance. Les ennemis sur le chemin sont projetés et subissent 75 % des dégâts initiaux.",
+                "es": "Golpea a un enemigo con un poder ancestral, lo que le inflige 100% de Destreza + 130% de Destreza de Luz y lo empuja hacia atrás a una gran distancia. Los enemigos en el camino son derribados y reciben el 75% del daño inicial."
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "Your Weapon Skills grant you a Shield absorbing 25% Faith + 31.25% Faith for 8s.",
+                "fr": "Vos compétences d'armes vous confèrent un bouclier absorbant 25 % de foi + 31,25 % de foi pendant 8 secondes.",
+                "es": "Tus habilidades con armas te otorgan un escudo que absorbe 25 % de fe + 31,25 % de fe durante 8 s."
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 38,
+                        "Dexterity": 20,
+                        "Faith": 16,
+                        "Critical": 40,
+                        "Fervor": 40
+                      },
+                      "image": "images/RamulusRamus.png"
+                    }
+                  }
+                }
+              ]
             }
           ]
         },
@@ -21327,23 +21584,23 @@
               ],
               "skill1": {
                 "en": "Casts four light bolts, each dealing 25% Intellect + 25% Faith Light to an enemy and 25% of this damage to nearby enemies.",
-                "fr": "",
-                "es": ""
+                "fr": "Lance quatre éclairs lumineux, chacun infligeant 25 % d'Intelligence + 25 % de Foi Lumière à un ennemi et 25 % de ces dégâts aux ennemis proches.",
+                "es": "Lanza cuatro rayos de luz, cada uno de los cuales inflige 25 % de intelecto + 25 % de luz de fe a un enemigo y 25 % de este daño a los enemigos cercanos."
               },
               "skill2": {
                 "en": "Throws a bolt of energy in the targeted direction, dealing 120% Intellect + 120% Faith Light to enemies, stunning them for 1.5s and applying a [Staff_Censer_Mark].",
-                "fr": "",
-                "es": ""
+                "fr": "Lance un éclair d'énergie dans la direction ciblée, infligeant 120 % d'Intelligence + 120 % de Lumière de Foi aux ennemis, les étourdissant pendant 1,5 seconde et appliquant un [Staff_Censer_Mark].",
+                "es": "Lanza un rayo de energía en la dirección objetivo, lo que inflige 120 % de intelecto + 120 % de luz de fe a los enemigos, los aturde durante 1,5 s y les aplica una [Staff_Censer_Mark]."
               },
               "skill3": {
                 "en": "Spawns an light orb in the targeted area, creating an area slowing enemies by -50% to -70%. The orb explodes after 3s, dealing 180% Intellect + 180% Faith + 225% Intellect + 225% Faith Light to all enemies in the area and applying a [Staff_Censer_Mark].",
-                "fr": "",
-                "es": ""
+                "fr": "Fait apparaître un orbe lumineux dans la zone ciblée, créant une zone ralentissant les ennemis de -50 % à -70 %. L'orbe explose après 3 secondes, infligeant 180 % d'Intelligence + 180 % de Foi + 225 % d'Intelligence + 225 % de Lumière de Foi à tous les ennemis dans la zone et appliquant un [Staff_Censer_Mark].",
+                "es": "Genera un orbe de luz en el área objetivo, creando un área que ralentiza a los enemigos entre un -50 % y un -70 %. El orbe explota después de 3 s, lo que inflige 180 % de intelecto + 180 % de fe + 225 % de intelecto + 225 % de luz de fe a todos los enemigos en el área y aplica una [Staff_Censer_Mark]."
               },
               "passive": {
                 "en": "A dark cloud spawns around every 3s in combat, lasting 6s. When you go into the cloud, the censer absorbs the cloud, increasing your movement speed by 30% for 3s.\nOnce you have absorbed 10 clouds, you can release a hidden power.\n\nHidden Power\nReleases a massive chaos beam in the targeted direction, dealing 300% Faith + 300% Intellect Magic to all enemies and healing all allies for 500% Faith.\n\n",
-                "fr": "",
-                "es": ""
+                "fr": "Un nuage sombre apparaît toutes les 3 secondes en combat et dure 6 secondes. Lorsque vous entrez dans le nuage, l'encensoir absorbe le nuage, augmentant votre vitesse de déplacement de 30 % pendant 3 secondes.\nUne fois que vous avez absorbé 10 nuages, vous pouvez libérer un pouvoir caché.\n\nPouvoir caché\nLibère un énorme rayon de chaos dans la direction ciblée, infligeant 300 % de Foi + 300 % de Magie d'Intelligence à tous les ennemis et soignant tous les alliés de 500 % de Foi.",
+                "es": "Una nube oscura aparece cada 3 segundos en combate y dura 6 segundos. Cuando entras en la nube, el incensario absorbe la nube, aumentando tu velocidad de movimiento en un 30% durante 3 segundos.\nUna vez que hayas absorbido 10 nubes, podrás liberar un poder oculto.\n\nPoder oculto\nLibera un enorme rayo de caos en la dirección objetivo, lo que inflige 300 % de fe + 300 % de magia de intelecto a todos los enemigos y cura a todos los aliados con un 500 % de fe."
               },
               "trinketPassive": {
                 "en": "",
@@ -21401,6 +21658,28 @@
                         "Fervor": 35
                       },
                       "image": "images/CenserofWoolHollowB.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 42,
+                        "Faith": 16,
+                        "Intelligence": 20,
+                        "Critical": 40,
+                        "Fervor": 40
+                      },
+                      "image": "images/CenserofWoolHollowL.png"
                     }
                   }
                 }
@@ -21472,8 +21751,8 @@
             {
               "name": {
                 "en": "Crimson Wings",
-                "fr": "",
-                "es": ""
+                "fr": "Ailes pourpres",
+                "es": "Alas carmesí"
               },
               "types": [
                 "Back"
@@ -21530,8 +21809,8 @@
             {
               "name": {
                 "en": "High-Ranking Official's Hat",
-                "fr": "",
-                "es": ""
+                "fr": "Chapeau de fonctionnaire de haut rang",
+                "es": "Sombrero de funcionario de alto rango"
               },
               "types": [
                 "Head"
@@ -21593,8 +21872,8 @@
             {
               "name": {
                 "en": "Noble Mantle",
-                "fr": "",
-                "es": ""
+                "fr": "Manteau noble",
+                "es": "Manto Noble"
               },
               "types": [
                 "Shoulders"
@@ -21656,8 +21935,8 @@
             {
               "name": {
                 "en": "Lost Relic Found",
-                "fr": "",
-                "es": ""
+                "fr": "Relique perdue retrouvée",
+                "es": "Reliquia perdida encontrada"
               },
               "types": [
                 "Trinket"
@@ -21693,8 +21972,8 @@
               },
               "trinketPassive": {
                 "en": "Participating in killing an enemy\nincreases your Movement speed by 30%\nfor 3s.",
-                "fr": "",
-                "es": ""
+                "fr": "Participer à tuer un ennemi\naugmente votre vitesse de déplacement de 30%\npendant 3s.",
+                "es": "Participar en matar a un enemigo.\naumenta tu velocidad de movimiento en un 30%\ndurante 3 segundos."
               },
               "level": 25,
               "experimentalScope": "unknown",
@@ -21711,8 +21990,8 @@
             {
               "name": {
                 "en": "Ram Faceshield",
-                "fr": "",
-                "es": ""
+                "fr": "Écran facial Ram",
+                "es": "Escudo facial Ram"
               },
               "types": [
                 "Head"
@@ -21923,6 +22202,17 @@
                         "Fervor": 66
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 42,
+                        "Strength": 16,
+                        "Faith": 16,
+                        "Fervor": 81
+                      },
+                      "image": "images/AmonRamtheCreatorL.png"
                     }
                   }
                 }
@@ -21968,23 +22258,23 @@
               ],
               "skill1": {
                 "en": "Smashes the ground and deals 84.5% Strength + 84.5% Faith Physical to enemies, knocking them back and granting you a stack of Burning Appetite, stacking up to 3 times.",
-                "fr": "",
-                "es": ""
+                "fr": "Écrase le sol et inflige 84,5 % de force + 84,5 % de foi physique aux ennemis, les repoussant et vous accordant une pile d'Appétit brûlant, cumulable jusqu'à 3 fois.",
+                "es": "Rompe el suelo y otorga 84,5 % de fuerza + 84,5 % de fe física a los enemigos, derribándolos y otorgándote una acumulación de Apetito ardiente, que se acumula hasta 3 veces."
               },
               "skill2": {
                 "en": "A huge slash in a cone dealing 150% Strength + 150% Faith Physical and reducing enemies Armor and Magic Resistance by -25% for 15s.",
-                "fr": "",
-                "es": ""
+                "fr": "Une énorme entaille dans un cône infligeant 150 % de force + 150 % de foi physique et réduisant l'armure et la résistance magique des ennemis de -25 % pendant 15 secondes.",
+                "es": "Un gran corte en un cono que inflige 150 % de fuerza + 150 % de fe física y reduce la armadura y la resistencia mágica de los enemigos en un -25 % durante 15 s."
               },
               "skill3": {
                 "en": "Enter a dark state during 10s, increasing your Critical Chance, Magic Mastery, Physical Mastery and Cooldown Reduction by 10% to 15% but you are loosing 15% of your Maximum Health every 2s.",
-                "fr": "",
-                "es": ""
+                "fr": "Entrez dans un état sombre pendant 10 secondes, augmentant vos chances de coup critique, votre maîtrise de la magie, votre maîtrise physique et votre réduction du temps de recharge de 10 % à 15 %, mais vous perdez 15 % de votre santé maximale toutes les 2 s.",
+                "es": "Entra en un estado oscuro durante 10 segundos, lo que aumenta tu probabilidad crítica, dominio mágico, dominio físico y reducción de tiempo de reutilización entre un 10 % y un 15 % pero estás perdiendo el 15 % de tu salud máxima cada 2 segundos."
               },
               "passive": {
                 "en": "Your next Final Combo Attack deals 30% increased damage and heal yourself for 50% of the damage dealt (30s cooldown).",
-                "fr": "",
-                "es": ""
+                "fr": "Votre prochaine attaque combinée finale inflige 30 % de dégâts supplémentaires et vous soigne de 50 % des dégâts infligés (temps de recharge de 30 secondes).",
+                "es": "Tu próximo ataque combinado final inflige un 30 % más de daño y te cura un 50 % del daño infligido (reutilización de 30 s)."
               },
               "trinketPassive": {
                 "en": "",
@@ -22069,23 +22359,23 @@
               ],
               "skill1": {
                 "en": "Releases two chaos bolts, each dealing 38.5% Intellect + 38.5% Faith Magic to an enemy and applying a stack of Void Bomblet, stacking up to 4 times.\n\nYour Magic Weapon Skills detonate Void Bomblet, dealing 50% Intellect + 62.5% Intellect Chaos per stack.",
-                "fr": "",
-                "es": ""
+                "fr": "Libère deux éclairs de chaos, chacun infligeant 38,5 % d'Intelligence + 38,5 % de Magie de Foi à un ennemi et appliquant une pile de Bomblette du Vide, cumulable jusqu'à 4 fois.\n\nVos compétences d'armes magiques font exploser Void Bomblet, infligeant 50 % d'Intelligence + 62,5 % de Chaos Intellect par pile.",
+                "es": "Libera dos rayos de caos, cada uno de los cuales inflige 38,5% de intelecto + 38,5% de magia de fe a un enemigo y aplica una acumulación de Void Bomblet, acumulándose hasta 4 veces.\n\nTus habilidades con armas mágicas detonan Bomba del Vacío, lo que provoca 50 % de intelecto + 62,5 % de caos de intelecto por acumulación."
               },
               "skill2": {
                 "en": "Teleports to the targeted area, dealing 150% Intellect Magic upon arrival to nearby enemies. Recast within 3s to teleport back to the initial position.",
-                "fr": "",
-                "es": ""
+                "fr": "Se téléporte dans la zone ciblée, infligeant 150 % de magie intellectuelle à son arrivée aux ennemis proches. Relancez dans les 3 secondes pour vous téléporter à la position initiale.",
+                "es": "Se teletransporta al área objetivo e inflige 150 % de magia intelectual al llegar a los enemigos cercanos. Vuelve a lanzarlo en 3 segundos para teletransportarte de regreso a la posición inicial."
               },
               "skill3": {
                 "en": "Drops an area at your position, lasting 6s. If an enemy leaves the area, it gets stunned for 3s and take 80% Intellect + 80% Faith Magic.",
-                "fr": "",
-                "es": ""
+                "fr": "Dépose une zone à votre position, d'une durée de 6 secondes. Si un ennemi quitte la zone, il est étourdi pendant 3 secondes et perd 80 % d'Intelligence + 80 % de Magie de Foi.",
+                "es": "Deja caer un área en tu posición, que dura 6 segundos. Si un enemigo abandona el área, queda aturdido durante 3 segundos y recibe 80% de intelecto + 80% de magia de fe."
               },
               "passive": {
                 "en": "As long as all Skills of this weapon are on cooldown, you are permanently protected by a Shield absorbing 70% Intellect + 87.5% Intellect damage.",
-                "fr": "",
-                "es": ""
+                "fr": "Tant que toutes les Compétences de cette arme sont en temps de recharge, vous êtes protégé en permanence par un Bouclier absorbant 70% d'Intelligence + 87,5% de dégâts d'Intelligence.",
+                "es": "Mientras todas las habilidades de esta arma estén en tiempo de reutilización, estarás protegido permanentemente por un escudo que absorbe 70 % de intelecto + 87,5 % de daño de intelecto."
               },
               "trinketPassive": {
                 "en": "",
@@ -22173,8 +22463,8 @@
             {
               "name": {
                 "en": "Demonic Crushers",
-                "fr": "",
-                "es": ""
+                "fr": "Broyeurs démoniaques",
+                "es": "Trituradoras demoniacas"
               },
               "types": [
                 "Feet"
@@ -22231,8 +22521,8 @@
             {
               "name": {
                 "en": "Horns of Nightking",
-                "fr": "",
-                "es": ""
+                "fr": "Cornes du Roi de la Nuit",
+                "es": "Cuernos de Nightking"
               },
               "types": [
                 "Head"
@@ -22292,8 +22582,8 @@
             {
               "name": {
                 "en": "Gaping Mouths Pauldrons",
-                "fr": "",
-                "es": ""
+                "fr": "Espauliers à bouche béante",
+                "es": "Espaldares con bocas abiertas"
               },
               "types": [
                 "Shoulders"
@@ -22350,8 +22640,8 @@
             {
               "name": {
                 "en": "Leggins of Infused Chaos",
-                "fr": "",
-                "es": ""
+                "fr": "Leggins du chaos imprégné",
+                "es": "Leggins del Caos Infundido"
               },
               "types": [
                 "Legs"
@@ -22411,8 +22701,8 @@
             {
               "name": {
                 "en": "Nibsham's Liberators",
-                "fr": "",
-                "es": ""
+                "fr": "Les libérateurs de Nibsham",
+                "es": "Los libertadores de Nibsham"
               },
               "types": [
                 "Daggers"
@@ -22480,6 +22770,27 @@
                         "Fervor": 75
                       },
                       "image": "images/NibshamsLiberatorsP.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 38,
+                        "Dexterity": 20,
+                        "Intelligence": 20,
+                        "Fervor": 81
+                      },
+                      "image": "images/NibshamsLiberatorsL.png"
                     }
                   }
                 }

@@ -1446,8 +1446,11 @@
     const hasTrinketPassive = item => item.trinketPassive&&(typeof item.trinketPassive==='string'?item.trinketPassive.trim()!=='':item.trinketPassive.en&&item.trinketPassive.en.trim()!=='');
     const isMountOrGlider = item => Array.isArray(item.types)&&item.types.some(type=>MOUNT_GLIDER_TYPES.includes(type));
     function buildClassTagsHtml(item) {
+        if (isMountOrGlider(item)) {
+            return '<span class="tag boss-kill-only">'+escapeHtml(t('boss_kill_only'))+'</span>';
+        }
         const classTags=sortByOrder(item.classes,CLASS_OPTIONS).map(cls=>'<span class="tag class-'+cls+'">'+escapeHtml(t(cls))+'</span>').join('');
-        return classTags+(isMountOrGlider(item)?'<span class="tag boss-kill-only">'+escapeHtml(t('boss_kill_only'))+'</span>':'');
+        return classTags;
     }
     const getTypeColorClass = type => type?'type-color-'+toSlug(type):'';
     const t = (key, fallback) => (translations[currentLang]&&translations[currentLang][key])||fallback||key;
@@ -1494,8 +1497,8 @@
             const passesGlider=filterCategories.includes('glider')&&item.types.includes('Glider');
             if(!passesWeapons&&!passesArmor&&!passesMount&&!passesGlider)return false;
         }
-        if(filterClasses.length&&!filterClasses.some(cls=>item.classes.includes(cls)))return false;
-        if(classExclusive&&item.classes.length!==1)return false;
+        if(filterClasses.length && !isMountOrGlider(item) && !filterClasses.some(cls=>item.classes.includes(cls)))return false;
+        if(classExclusive && !isMountOrGlider(item) && item.classes.length!==1)return false;
         if(filterTypes.length&&!filterTypes.some(t=>item.types.includes(t)))return false;
         if(filterStats.length&&!filterStats.every(s=>item.stats.includes(s)))return false;
         if(searchQuery){const q=searchQuery.toLowerCase();const name=getItemName(item).toLowerCase();const noSpaceName=name.replace(/\s+/g,'');const noSpaceQ=q.replace(/\s+/g,'');if(!name.includes(q)&&!noSpaceName.includes(noSpaceQ))return false;}
@@ -1617,6 +1620,22 @@
                         variant.levelData = normalizeVariantLevelData(rawVariants[index] || {}, variant);
                         return variant;
                     });
+
+                    
+                    if (isMountOrGlider(normalizedItem)) {
+                        if (!normalizedItem.levelData || typeof normalizedItem.levelData !== 'object') normalizedItem.levelData = {};
+                        if (!normalizedItem.levelData["20"]) normalizedItem.levelData["20"] = { statValues: {}, image: normalizedItem.image || '' };
+                        if (!normalizedItem.levelData["25"]) normalizedItem.levelData["25"] = { statValues: {}, image: normalizedItem.image || '' };
+                        
+                        let sharedImg = normalizedItem.levelData["20"].image;
+                        if (sharedImg === undefined || sharedImg === null) sharedImg = normalizedItem.levelData["25"].image;
+                        if (sharedImg === undefined || sharedImg === null) sharedImg = normalizedItem.image || '';
+                        normalizedItem.levelData["20"].image = sharedImg;
+                        normalizedItem.levelData["25"].image = sharedImg;
+                        normalizedItem.image = sharedImg;
+                        normalizedItem.classes = [];
+                    }
+
                     return normalizedItem;
                 });
                 return dungeon;
@@ -1742,7 +1761,7 @@
     function getItemImage(item, variant=null) {
         if (!item) return '';
 
-
+        
         if (isMountOrGlider(item)) {
             if (variant) {
                 return variant.image || item.image || '';
@@ -1754,16 +1773,11 @@
             return item.image || '';
         }
 
-        const currentLevelKey = String(currentStatLevel);
-        const declaredLevelMatches = value => normalizeLevelKey(value !== undefined ? value : 20) === currentLevelKey;
-
         const getCurrentVariantImage = (v) => {
             if (!v) return '';
             const snap = getVariantLevelSnapshot(v);
             if (!snap || !snapshotHasLevelData(snap)) return '';
             if (snap.image) return snap.image;
-           
-            if (declaredLevelMatches(v.level) && v.image) return v.image;
             return '';
         };
 
@@ -1774,7 +1788,6 @@
             if (!snap) return '';
             if (snap.image) return snap.image;
             
-            if (declaredLevelMatches(it.level) && it.image) return it.image;
             return '';
         };
 
@@ -2173,7 +2186,7 @@
         CLASS_OPTIONS.forEach(cls=>counts.class[cls]=0);
         allItems.forEach(item=>{
             if(!passesNonClassFilters(item))return;
-            if(classExclusive&&item.classes.length!==1)return;
+            if(classExclusive && !isMountOrGlider(item) && item.classes.length!==1)return;
             item.classes.forEach(cls=>{if(counts.class[cls]!==undefined)counts.class[cls]++;});
         });
         document.querySelectorAll('#class-dropdown .class-btn').forEach(btn=>{const cls=btn.dataset.class;const span=btn.querySelector('.item-count');if(span)span.textContent='('+(counts.class[cls]||0)+')';});
@@ -3206,6 +3219,23 @@
         appData.zones=addDefaultsAndIds({zones:appData.zones}).zones;
         localStorage.setItem(VERSION_KEY,loaded.version||'0');
         saveState();
+
+        
+        appData.zones.forEach(z => z.dungeons.forEach(d => d.loot.forEach(item => {
+            if (isMountOrGlider(item)) {
+                if (!item.levelData || typeof item.levelData !== 'object') item.levelData = {};
+                if (!item.levelData["20"]) item.levelData["20"] = { statValues: {}, image: item.image || '' };
+                if (!item.levelData["25"]) item.levelData["25"] = { statValues: {}, image: item.image || '' };
+                
+                let shared = item.levelData["20"].image;
+                if (shared === undefined || shared === null) shared = item.levelData["25"].image;
+                if (shared === undefined || shared === null) shared = item.image || '';
+                item.levelData["20"].image = shared;
+                item.levelData["25"].image = shared;
+                item.image = shared;
+                item.classes = [];
+            }
+        })));
         filterTypes=filterTypes.filter(t=>t!=='Mount'&&t!=='Glider');
 
         
