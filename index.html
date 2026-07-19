@@ -1742,7 +1742,18 @@
     function getItemImage(item, variant=null) {
         if (!item) return '';
 
-      
+
+        if (isMountOrGlider(item)) {
+            if (variant) {
+                return variant.image || item.image || '';
+            }
+            const def = getDefaultVariant(item);
+            if (def) {
+                return def.image || item.image || '';
+            }
+            return item.image || '';
+        }
+
         const currentLevelKey = String(currentStatLevel);
         const declaredLevelMatches = value => normalizeLevelKey(value !== undefined ? value : 20) === currentLevelKey;
 
