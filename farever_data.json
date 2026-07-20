@@ -4372,14 +4372,15 @@
               "levelData": {
                 "20": {
                   "statValues": {},
-                  "image": ""
+                  "image": "images/NavelianBat.png"
                 },
                 "25": {
                   "statValues": {},
-                  "image": ""
+                  "image": "images/NavelianBat.png"
                 }
               },
-              "rare": false
+              "rare": false,
+              "image": "images/NavelianBat.png"
             }
           ]
         },
@@ -8993,6 +8994,18 @@
                         "Fervor": 31
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 33,
+                        "Dexterity": 17,
+                        "Faith": 14,
+                        "Magic Penetration": 37,
+                        "Fervor": 37
+                      },
+                      "image": "images/ThornlaceP.png"
                     }
                   }
                 },
@@ -11027,8 +11040,13 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 38,
+                        "Dexterity": 20,
+                        "Intelligence": 20,
+                        "Fervor": 81
+                      },
+                      "image": "images/IpheionStarBlossomL.png"
                     }
                   }
                 }
@@ -17202,25 +17220,18 @@
                       "damageMax": 0,
                       "statValues": {},
                       "image": ""
-                    }
-                  }
-                },
-                {
-                  "rarity": "green",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
+                    },
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
                       "statValues": {
-                        "Strength": 12,
-                        "Faith": 12
+                        "Vitality": 42,
+                        "Strength": 16,
+                        "Faith": 16,
+                        "Armor Penetration": 40,
+                        "Magic Penetration": 40
                       },
-                      "image": "images/PocketHiveG.png"
+                      "image": "images/PocketHiveL.png"
                     }
                   }
                 }
@@ -17375,6 +17386,18 @@
                         "Fervor": 33
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 42,
+                        "Strength": 16,
+                        "Intelligence": 20,
+                        "Armor Penetration": 40,
+                        "Fervor": 40
+                      },
+                      "image": "images/WingsabersL.png"
                     }
                   }
                 }
@@ -21171,14 +21194,15 @@
               "levelData": {
                 "20": {
                   "statValues": {},
-                  "image": ""
+                  "image": "images/RinuhrianSkunk.png"
                 },
                 "25": {
                   "statValues": {},
-                  "image": ""
+                  "image": "images/RinuhrianSkunk.png"
                 }
               },
-              "rare": false
+              "rare": false,
+              "image": "images/RinuhrianSkunk.png"
             },
             {
               "name": {
@@ -21624,6 +21648,27 @@
                       "image": "images/HornsoftheWindB.png"
                     }
                   }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 38,
+                        "Dexterity": 20,
+                        "Intelligence": 20,
+                        "Critical": 81
+                      },
+                      "image": "images/HornsoftheWindL.png"
+                    }
+                  }
                 }
               ]
             },
@@ -21763,7 +21808,29 @@
                         "Critical": 40,
                         "Fervor": 40
                       },
-                      "image": "images/RamulusRamus.png"
+                      "image": "images/RamulusRamusL.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "purple",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 33,
+                        "Dexterity": 17,
+                        "Faith": 14,
+                        "Critical": 37,
+                        "Fervor": 37
+                      },
+                      "image": "images/RamulusRamusP.png"
                     }
                   }
                 }
