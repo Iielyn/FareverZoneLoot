@@ -548,6 +548,15 @@
                     "Fervor": 24
                   },
                   "image": "images/H-Crabg.p.chest.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Fervor": 30
+                  },
+                  "image": "images/CharmoftheFisherKing.png"
                 }
               },
               "rare": false,
@@ -3621,6 +3630,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Rats.m.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Intelligence": 8,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/TreasureHuntersStraps.png"
                 }
               },
               "rare": false,
@@ -4742,10 +4760,10 @@
                 "priest"
               ],
               "stats": [
+                "Armor",
                 "Vitality",
                 "Faith",
-                "Fervor",
-                "Armor"
+                "Fervor"
               ],
               "skill1": {
                 "en": "",
@@ -4783,6 +4801,15 @@
                     "Fervor": 24
                   },
                   "image": "images/H-Crabg.p.chest.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Fervor": 30
+                  },
+                  "image": "images/CharmoftheFisherKing.png"
                 }
               },
               "rare": false,
@@ -7546,6 +7573,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Rats.m.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Intelligence": 8,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/TreasureHuntersStraps.png"
                 }
               },
               "rare": false,
@@ -8803,6 +8839,18 @@
                         "Fervor": 31
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Strength": 14,
+                        "Intelligence": 17,
+                        "Armor Penetration": 37,
+                        "Fervor": 37
+                      },
+                      "image": "images/LadyBeeCeremonialStingerP.png"
                     }
                   }
                 },
@@ -8831,25 +8879,6 @@
                         "Fervor": 33
                       },
                       "image": ""
-                    }
-                  }
-                },
-                {
-                  "rarity": "green",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Strength": 12,
-                        "Intelligence": 14
-                      },
-                      "image": "images/LadyBeesCeremonialStingerG.png"
                     }
                   }
                 }
@@ -9206,6 +9235,15 @@
                     "Fervor": 18
                   },
                   "image": "images/Ladybee.m.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Intelligence": 8,
+                    "Fervor": 22
+                  },
+                  "image": "images/DancingHivetreeBelt.png"
                 }
               },
               "rare": false,
@@ -10143,6 +10181,15 @@
                     "Fervor": 13
                   },
                   "image": "images/Ladybee.m.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Intelligence": 7,
+                    "Fervor": 16
+                  },
+                  "image": "images/BackRBeeWiz.png"
                 }
               },
               "rare": false,
@@ -10208,6 +10255,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Ladybee.p.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 7,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/Palmaryllis.png"
                 }
               },
               "rare": false,
@@ -12296,6 +12352,15 @@
                     "Fervor": 13
                   },
                   "image": "images/Ladybee.m.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Intelligence": 7,
+                    "Fervor": 16
+                  },
+                  "image": "images/BackRBeeWiz.png"
                 }
               },
               "rare": false,
@@ -12430,6 +12495,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Ladybee.p.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 7,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/Palmaryllis.png"
                 }
               },
               "rare": false,
@@ -12495,6 +12569,15 @@
                     "Fervor": 18
                   },
                   "image": "images/Ladybee.m.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Intelligence": 8,
+                    "Fervor": 22
+                  },
+                  "image": "images/DancingHivetreeBelt.png"
                 }
               },
               "rare": false,
@@ -13358,8 +13441,8 @@
               "stats": [
                 "Armor",
                 "Vitality",
-                "Magic Penetration",
-                "Intelligence"
+                "Intelligence",
+                "Magic Penetration"
               ],
               "skill1": {
                 "en": "",
@@ -13397,6 +13480,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Rats.m.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Intelligence": 8,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/TreasureHuntersStraps.png"
                 }
               },
               "rare": false,
@@ -15917,6 +16009,15 @@
                     "Fervor": 24
                   },
                   "image": "images/H-Crabg.p.chest.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Fervor": 30
+                  },
+                  "image": "images/CharmoftheFisherKing.png"
                 }
               },
               "rare": false,
@@ -18391,6 +18492,15 @@
                     "Fervor": 13
                   },
                   "image": "images/Ladybee.m.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Intelligence": 7,
+                    "Fervor": 16
+                  },
+                  "image": "images/BackRBeeWiz.png"
                 }
               },
               "rare": false,
@@ -18456,6 +18566,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Ladybee.p.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 7,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/Palmaryllis.png"
                 }
               },
               "rare": false,
@@ -18590,6 +18709,15 @@
                     "Fervor": 18
                   },
                   "image": "images/Ladybee.m.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Intelligence": 8,
+                    "Fervor": 22
+                  },
+                  "image": "images/DancingHivetreeBelt.png"
                 }
               },
               "rare": false,
@@ -19587,7 +19715,7 @@
                         "Critical": 35,
                         "Fervor": 35
                       },
-                      "image": "images/TwinPillarsofJustice.png"
+                      "image": "images/TwinPillarsofJusticeB.png"
                     }
                   }
                 },
@@ -19644,6 +19772,18 @@
                         "Fervor": 33
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 38,
+                        "Strength": 16,
+                        "Dexterity": 20,
+                        "Critical": 40,
+                        "Fervor": 40
+                      },
+                      "image": "images/TwinPillarsofJusticeL.png"
                     }
                   }
                 }
@@ -19738,8 +19878,8 @@
               "stats": [
                 "Armor",
                 "Vitality",
-                "Magic Penetration",
-                "Intelligence"
+                "Intelligence",
+                "Magic Penetration"
               ],
               "skill1": {
                 "en": "",
@@ -19777,6 +19917,15 @@
                     "Magic Penetration": 18
                   },
                   "image": "images/Rats.m.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Intelligence": 8,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/TreasureHuntersStraps.png"
                 }
               },
               "rare": false,
@@ -21305,6 +21454,16 @@
                         "Armor Penetration": 66
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 42,
+                        "Strength": 33,
+                        "Armor Penetration": 81
+                      },
+                      "image": "images/JudgementL.png"
                     }
                   }
                 }
@@ -22687,6 +22846,28 @@
                         "Fervor": 37
                       },
                       "image": "images/WorldsplitterP.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 42,
+                        "Strength": 16,
+                        "Faith": 16,
+                        "Magic Penetration": 40,
+                        "Fervor": 40
+                      },
+                      "image": "images/WorldsplitterL.png"
                     }
                   }
                 }
