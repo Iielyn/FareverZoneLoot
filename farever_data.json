@@ -21430,6 +21430,16 @@
                         "Armor Penetration": 57
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 32,
+                        "Strength": 25,
+                        "Armor Penetration": 69
+                      },
+                      "image": "images/JudgementB.png"
                     }
                   }
                 },
@@ -21454,6 +21464,16 @@
                         "Armor Penetration": 62
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Strength": 29,
+                        "Armor Penetration": 75
+                      },
+                      "image": "images/JudgementP.png"
                     }
                   }
                 },
@@ -22798,6 +22818,185 @@
                 }
               },
               "rare": false
+            },
+            {
+              "name": {
+                "en": "Judgment Spaulders",
+                "fr": "Spallières du jugement",
+                "es": "Espaldares del juicio"
+              },
+              "types": [
+                "Shoulders"
+              ],
+              "classes": [
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Faith",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Faith": 7,
+                    "Fervor": 22
+                  },
+                  "image": "images/JudgmentSpaulders.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Sacrificial Cape",
+                "fr": "Cape sacrificielle",
+                "es": "Capa sacrificial"
+              },
+              "types": [
+                "Back"
+              ],
+              "classes": [
+                "mage",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Faith",
+                "Intelligence",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Faith": 3,
+                    "Intelligence": 4,
+                    "Critical": 8,
+                    "Fervor": 8
+                  },
+                  "image": "images/SacrificialCape.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Entommeure's Spiritual Breeches",
+                "fr": "Braies spirituelles d'Entommeure",
+                "es": "Calzones espirituales de Entommeure"
+              },
+              "types": [
+                "Legs"
+              ],
+              "classes": [
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Faith",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Fervor": 30
+                  },
+                  "image": "images/EntommeuresSpiritualBreeches.png"
+                }
+              },
+              "rare": false
             }
           ]
         }
@@ -23274,14 +23473,64 @@
                   }
                 }
               ]
+            },
+            {
+              "name": {
+                "en": "Irritable Nightdog",
+                "fr": "Chien nocturne irritable",
+                "es": "Perro nocturno irritable"
+              },
+              "types": [
+                "Mount"
+              ],
+              "stats": [],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "20": {
+                  "statValues": {},
+                  "image": "images/IrritableNightdog.png"
+                },
+                "25": {
+                  "statValues": {},
+                  "image": "images/IrritableNightdog.png"
+                }
+              },
+              "rare": false,
+              "image": "images/IrritableNightdog.png"
             }
           ]
         },
         {
           "name": {
             "en": "Gift Caches",
-            "fr": "Caches cadeaux",
-            "es": "Cachés de regalo"
+            "fr": "Caches de cadeaux",
+            "es": "Alijos de regalos"
           },
           "loot": [
             {
@@ -23768,8 +24017,8 @@
             {
               "name": {
                 "en": "Grasp of the Prime Chaos",
-                "fr": "Emprise du Chaos Primaire",
-                "es": "Agarre del caos principal"
+                "fr": "Poigne du chaos primordial",
+                "es": "Agarre del caos primordial"
               },
               "types": [
                 "Hands"
@@ -23829,8 +24078,8 @@
             {
               "name": {
                 "en": "Void Jerkin",
-                "fr": "Pourpoint du Vide",
-                "es": "Chaleco vacío"
+                "fr": "Pourpoint du vide",
+                "es": "Jubón del vacío"
               },
               "classes": [
                 "rogue"
