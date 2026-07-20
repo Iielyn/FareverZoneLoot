@@ -23065,6 +23065,227 @@
             },
             {
               "name": {
+                "en": "Nibsham's Liberators",
+                "fr": "Les libérateurs de Nibsham",
+                "es": "Los libertadores de Nibsham"
+              },
+              "types": [
+                "Daggers"
+              ],
+              "classes": [
+                "rogue",
+                "mage"
+              ],
+              "stats": [
+                "Vitality",
+                "Dexterity",
+                "Intelligence",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "Strikes with both weapons, dealing 42.5% Dexterity Physical, 42.5% Intellect Magic to an enemy and marking them with Chaos Mark for 6s.",
+                "fr": "Frappe avec les deux armes, infligeant 42,5 % de Dextérité Physique et 42,5 % de Magie d'Intelligence à un ennemi et lui appliquant Marque du Chaos pendant 6 s.",
+                "es": "Golpea con ambas armas, infligiendo 42,5 % de destreza física y 42,5 % de magia de intelecto a un enemigo y aplicándole Marca del Caos durante 6 s."
+              },
+              "skill2": {
+                "en": "Jumps behind a target, dealing 60% Dexterity + 60% Intellect Physical. If the target is afflicted by Chaos Mark, consumes it to reset the cooldown.",
+                "fr": "Bondit derrière une cible, infligeant 60 % de Dextérité + 60 % d'Intelligence Physique. Si la cible est affectée par Marque du Chaos, celle-ci est consommée pour réinitialiser le temps de recharge.",
+                "es": "Salta detrás de un objetivo e inflige 60 % de destreza + 60 % de intelecto físico. Si el objetivo está afectado por Marca del Caos, la consume para restablecer el tiempo de reutilización."
+              },
+              "skill3": {
+                "en": "Spawns 2 void fangs that follow you. Recast the skill to throw a fang and deal 25% Dexterity + 25% Intellect Chaos to a target, applying Chaos Mark for 6s.",
+                "fr": "Fait apparaître 2 crocs du vide qui vous suivent. Relancez la compétence pour lancer un croc et infliger 25 % de Dextérité + 25 % de Chaos d'Intelligence à une cible, en appliquant Marque du Chaos pendant 6 s.",
+                "es": "Invoca 2 colmillos del vacío que te siguen. Vuelve a lanzar la habilidad para arrojar un colmillo e infligir 25 % de destreza + 25 % de caos de intelecto a un objetivo, aplicando Marca del Caos durante 6 s."
+              },
+              "passive": {
+                "en": "Your Weapon Skills burn enemies for 20% of the damage dealt over 6s.",
+                "fr": "Vos compétences d'armes brûlent les ennemis pour 20 % des dégâts infligés sur 6 s.",
+                "es": "Tus habilidades con armas queman a los enemigos por un 20 % del daño infligido durante 6 s."
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "purple",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 33,
+                        "Dexterity": 17,
+                        "Intelligence": 17,
+                        "Fervor": 75
+                      },
+                      "image": "images/NibshamsLiberatorsP.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 38,
+                        "Dexterity": 20,
+                        "Intelligence": 20,
+                        "Fervor": 81
+                      },
+                      "image": "images/NibshamsLiberatorsL.png"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": {
+                "en": "Silhouette of Almaz",
+                "fr": "Silhouette D'Almaz",
+                "es": "Silueta De Almaz"
+              },
+              "types": [
+                "Staff"
+              ],
+              "classes": [
+                "mage"
+              ],
+              "stats": [
+                "Vitality",
+                "Intelligence",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "Casts four chaos bolts, each dealing 33.5% Intellect Magic to an enemy and having a 15% chance to reset the cooldown of Summon: Vile Imps.",
+                "fr": "Lance quatre éclairs de chaos, chacun infligeant 33,5 % de Magie d'Intelligence à un ennemi et ayant 15 % de chances de réinitialiser le temps de recharge d'Invocation : Diablotins Vils.",
+                "es": "Lanza cuatro rayos de caos, cada uno inflige 33,5 % de magia de intelecto a un enemigo y tiene un 15 % de probabilidad de restablecer el tiempo de reutilización de Invocar: Diablillos Viles."
+              },
+              "skill2": {
+                "en": "Channels to discharge all Demonic Charge charged, each dealing 20% Intellect Chaos.\n\nDuring combat, generates a stack of Demonic Charge each time one of your summons deals damage, stacking up to 20.",
+                "fr": "Canalise pour décharger toutes les charges de Charge démoniaque accumulées, chacune infligeant 20 % de Chaos d'Intelligence.\n\nEn combat, génère une charge de Charge démoniaque chaque fois que l'une de vos invocations inflige des dégâts, cumulable jusqu'à 20.",
+                "es": "Canaliza para descargar todas las acumulaciones de Carga demoníaca, cada una inflige 20 % de caos de intelecto.\n\nDurante el combate, genera una acumulación de Carga demoníaca cada vez que una de tus invocaciones inflige daño, acumulándose hasta 20."
+              },
+              "skill3": {
+                "en": "Summon 2 Imps dealing 20% Intellect Chaos every 1.5s. Lasts 12s.",
+                "fr": "Invoque 2 diablotins infligeant 20 % de Chaos d'Intelligence toutes les 1,5 s. Dure 12 s.",
+                "es": "Invoca 2 diablillos que infligen 20 % de caos de intelecto cada 1,5 s. Dura 12 s."
+              },
+              "passive": {
+                "en": "Your next Weapon Skill has no cooldown but costs you 50% of your remaining Health (30s cooldown).",
+                "fr": "Votre prochaine compétence d'arme n'a pas de temps de recharge, mais vous coûte 50 % de votre santé restante (30 s de temps de recharge).",
+                "es": "Tu próxima habilidad con arma no tiene tiempo de reutilización, pero te cuesta el 50 % de tu salud restante (30 s de reutilización)."
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "blue",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 32,
+                        "Intelligence": 30,
+                        "Critical": 69
+                      },
+                      "image": "images/SilhouetteofAlmazB.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "purple",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 37,
+                        "Intelligence": 34,
+                        "Critical": 75
+                      },
+                      "image": "images/SilhouetteofAlmazP.png"
+                    }
+                  }
+                },
+                {
+                  "rarity": "legendary",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 42,
+                        "Intelligence": 39,
+                        "Critical": 81
+                      },
+                      "image": "images/SilhouetteofAlmazL.png"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": {
+            "en": "Gift Caches",
+            "fr": "Caches cadeaux",
+            "es": "Cachés de regalo"
+          },
+          "loot": [
+            {
+              "name": {
                 "en": "Demonic Crushers",
                 "fr": "Broyeurs démoniaques",
                 "es": "Trituradoras demoniacas"
@@ -23303,42 +23524,103 @@
             },
             {
               "name": {
-                "en": "Nibsham's Liberators",
-                "fr": "Les libérateurs de Nibsham",
-                "es": "Los libertadores de Nibsham"
+                "en": "Mask of Endless Cruelty",
+                "fr": "Masque de cruauté sans fin",
+                "es": "Máscara de crueldad sin fin"
               },
               "types": [
-                "Daggers"
+                "Head"
               ],
+              "classes": [
+                "rogue",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Faith",
+                "Magic Penetration",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/MaskofEndlessCruelty.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Demonic Mantle",
+                "fr": "Manteau démoniaque",
+                "es": "Manto demoníaco"
+              },
               "classes": [
                 "rogue",
                 "mage"
               ],
               "stats": [
+                "Armor",
                 "Vitality",
                 "Dexterity",
                 "Intelligence",
                 "Fervor"
               ],
               "skill1": {
-                "en": "Strikes with both weapons, dealing 42.5% Dexterity Physical, 42.5% Intellect Magic to an enemy and marking them with Chaos Mark for 6s.",
-                "fr": "Frappe avec les deux armes, infligeant 42,5 % de Dextérité Physique et 42,5 % de Magie d'Intelligence à un ennemi et lui appliquant Marque du Chaos pendant 6 s.",
-                "es": "Golpea con ambas armas, infligiendo 42,5 % de destreza física y 42,5 % de magia de intelecto a un enemigo y aplicándole Marca del Caos durante 6 s."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "skill2": {
-                "en": "Jumps behind a target, dealing 60% Dexterity + 60% Intellect Physical. If the target is afflicted by Chaos Mark, consumes it to reset the cooldown.",
-                "fr": "Bondit derrière une cible, infligeant 60 % de Dextérité + 60 % d'Intelligence Physique. Si la cible est affectée par Marque du Chaos, celle-ci est consommée pour réinitialiser le temps de recharge.",
-                "es": "Salta detrás de un objetivo e inflige 60 % de destreza + 60 % de intelecto físico. Si el objetivo está afectado por Marca del Caos, la consume para restablecer el tiempo de reutilización."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "skill3": {
-                "en": "Spawns 2 void fangs that follow you. Recast the skill to throw a fang and deal 25% Dexterity + 25% Intellect Chaos to a target, applying Chaos Mark for 6s.",
-                "fr": "Fait apparaître 2 crocs du vide qui vous suivent. Relancez la compétence pour lancer un croc et infliger 25 % de Dextérité + 25 % de Chaos d'Intelligence à une cible, en appliquant Marque du Chaos pendant 6 s.",
-                "es": "Invoca 2 colmillos del vacío que te siguen. Vuelve a lanzar la habilidad para arrojar un colmillo e infligir 25 % de destreza + 25 % de caos de intelecto a un objetivo, aplicando Marca del Caos durante 6 s."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "passive": {
-                "en": "Your Weapon Skills burn enemies for 20% of the damage dealt over 6s.",
-                "fr": "Vos compétences d'armes brûlent les ennemis pour 20 % des dégâts infligés sur 6 s.",
-                "es": "Tus habilidades con armas queman a los enemigos por un 20 % del daño infligido durante 6 s."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "trinketPassive": {
                 "en": "",
@@ -23349,92 +23631,57 @@
               "experimentalScope": "unknown",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 147,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Fervor": 22
+                  },
+                  "image": "images/DemonicMantle.png"
                 }
               },
-              "rare": false,
-              "variants": [
-                {
-                  "rarity": "purple",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 33,
-                        "Dexterity": 17,
-                        "Intelligence": 17,
-                        "Fervor": 75
-                      },
-                      "image": "images/NibshamsLiberatorsP.png"
-                    }
-                  }
-                },
-                {
-                  "rarity": "legendary",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 38,
-                        "Dexterity": 20,
-                        "Intelligence": 20,
-                        "Fervor": 81
-                      },
-                      "image": "images/NibshamsLiberatorsL.png"
-                    }
-                  }
-                }
-              ]
+              "rare": false
             },
             {
               "name": {
-                "en": "Silhouette of Almaz",
-                "fr": "Silhouette D'Almaz",
-                "es": "Silueta De Almaz"
+                "en": "Dark Stalker's Strap",
+                "fr": "Sangle du traqueur sombre",
+                "es": "Correa del acechador oscuro"
               },
               "types": [
-                "Staff"
+                "Waist"
               ],
               "classes": [
+                "rogue",
                 "mage"
               ],
               "stats": [
+                "Armor",
                 "Vitality",
+                "Dexterity",
                 "Intelligence",
-                "Critical"
+                "Fervor"
               ],
               "skill1": {
-                "en": "Casts four chaos bolts, each dealing 33.5% Intellect Magic to an enemy and having a 15% chance to reset the cooldown of Summon: Vile Imps.",
-                "fr": "Lance quatre éclairs de chaos, chacun infligeant 33,5 % de Magie d'Intelligence à un ennemi et ayant 15 % de chances de réinitialiser le temps de recharge d'Invocation : Diablotins Vils.",
-                "es": "Lanza cuatro rayos de caos, cada uno inflige 33,5 % de magia de intelecto a un enemigo y tiene un 15 % de probabilidad de restablecer el tiempo de reutilización de Invocar: Diablillos Viles."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "skill2": {
-                "en": "Channels to discharge all Demonic Charge charged, each dealing 20% Intellect Chaos.\n\nDuring combat, generates a stack of Demonic Charge each time one of your summons deals damage, stacking up to 20.",
-                "fr": "Canalise pour décharger toutes les charges de Charge démoniaque accumulées, chacune infligeant 20 % de Chaos d'Intelligence.\n\nEn combat, génère une charge de Charge démoniaque chaque fois que l'une de vos invocations inflige des dégâts, cumulable jusqu'à 20.",
-                "es": "Canaliza para descargar todas las acumulaciones de Carga demoníaca, cada una inflige 20 % de caos de intelecto.\n\nDurante el combate, genera una acumulación de Carga demoníaca cada vez que una de tus invocaciones inflige daño, acumulándose hasta 20."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "skill3": {
-                "en": "Summon 2 Imps dealing 20% Intellect Chaos every 1.5s. Lasts 12s.",
-                "fr": "Invoque 2 diablotins infligeant 20 % de Chaos d'Intelligence toutes les 1,5 s. Dure 12 s.",
-                "es": "Invoca 2 diablillos que infligen 20 % de caos de intelecto cada 1,5 s. Dura 12 s."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "passive": {
-                "en": "Your next Weapon Skill has no cooldown but costs you 50% of your remaining Health (30s cooldown).",
-                "fr": "Votre prochaine compétence d'arme n'a pas de temps de recharge, mais vous coûte 50 % de votre santé restante (30 s de temps de recharge).",
-                "es": "Tu próxima habilidad con arma no tiene tiempo de reutilización, pero te cuesta el 50 % de tu salud restante (30 s de reutilización)."
+                "en": "",
+                "fr": "",
+                "es": ""
               },
               "trinketPassive": {
                 "en": "",
@@ -23445,73 +23692,194 @@
               "experimentalScope": "unknown",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Fervor": 22
+                  },
+                  "image": "images/DarkStalkersStrap.png"
                 }
               },
-              "rare": false,
-              "variants": [
-                {
-                  "rarity": "blue",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 32,
-                        "Intelligence": 30,
-                        "Critical": 69
-                      },
-                      "image": "images/SilhouetteofAlmazB.png"
-                    }
-                  }
-                },
-                {
-                  "rarity": "purple",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 37,
-                        "Intelligence": 34,
-                        "Critical": 75
-                      },
-                      "image": "images/SilhouetteofAlmazP.png"
-                    }
-                  }
-                },
-                {
-                  "rarity": "legendary",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 42,
-                        "Intelligence": 39,
-                        "Critical": 81
-                      },
-                      "image": "images/SilhouetteofAlmazL.png"
-                    }
-                  }
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Corrupted Claws",
+                "fr": "Griffes corrompues",
+                "es": "Garras corruptas"
+              },
+              "types": [
+                "Hands"
+              ],
+              "classes": [
+                "rogue",
+                "mage"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Intelligence",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Fervor": 22
+                  },
+                  "image": "images/CorruptedClaws.png"
                 }
-              ]
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Grasp of the Prime Chaos",
+                "fr": "Emprise du Chaos Primaire",
+                "es": "Agarre del caos principal"
+              },
+              "types": [
+                "Hands"
+              ],
+              "classes": [
+                "warrior",
+                "rogue"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Dexterity",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 177,
+                    "Vitality": 7,
+                    "Strength": 4,
+                    "Dexterity": 4,
+                    "Fervor": 22
+                  },
+                  "image": "images/GraspofthePrimeChaos.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Void Jerkin",
+                "fr": "Pourpoint du Vide",
+                "es": "Chaleco vacío"
+              },
+              "classes": [
+                "rogue"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 230,
+                    "Vitality": 9,
+                    "Dexterity": 12,
+                    "Fervor": 30
+                  },
+                  "image": "images/VoidJerkin.png"
+                }
+              },
+              "rare": false
             }
           ]
         }
