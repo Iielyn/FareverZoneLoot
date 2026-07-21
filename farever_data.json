@@ -10118,6 +10118,17 @@
                     "Magic Penetration": 9
                   },
                   "image": "images/Bee_HM.w.p.shoulders.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 187,
+                    "Vitality": 9,
+                    "Strength": 4,
+                    "Faith": 4,
+                    "Armor Penetration": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/QueenSpikes.png"
                 }
               },
               "rare": false,
@@ -12401,6 +12412,17 @@
                     "Magic Penetration": 9
                   },
                   "image": "images/Bee_HM.w.p.shoulders.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 187,
+                    "Vitality": 9,
+                    "Strength": 4,
+                    "Faith": 4,
+                    "Armor Penetration": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/QueenSpikes.png"
                 }
               },
               "rare": false,
@@ -17375,6 +17397,17 @@
                     "Magic Penetration": 9
                   },
                   "image": "images/Bee_HM.w.p.shoulders.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 187,
+                    "Vitality": 9,
+                    "Strength": 4,
+                    "Faith": 4,
+                    "Armor Penetration": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/QueenSpikes.png"
                 }
               },
               "rare": false,
