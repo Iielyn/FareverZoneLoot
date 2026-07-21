@@ -24468,6 +24468,9 @@
                 "fr": "Manteau démoniaque",
                 "es": "Manto demoníaco"
               },
+              "types": [
+                "Shoulders"
+              ],
               "classes": [
                 "rogue",
                 "mage"
@@ -24709,6 +24712,9 @@
                 "fr": "Pourpoint du vide",
                 "es": "Jubón del vacío"
               },
+              "types": [
+                "Chest"
+              ],
               "classes": [
                 "rogue"
               ],
