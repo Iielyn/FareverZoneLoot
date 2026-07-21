@@ -4418,6 +4418,15 @@
                     "Magic Penetration": 24
                   },
                   "image": "images/Rats.m.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Intelligence": 12,
+                    "Magic Penetration": 30
+                  },
+                  "image": "images/RatVacholsPatchedUpPants.png"
                 }
               },
               "rare": false,
@@ -4723,6 +4732,14 @@
                         "Armor": 403
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Armor": 484
+                      },
+                      "image": "images/CrabgantuasKneecapB.png"
                     }
                   }
                 },
@@ -8577,6 +8594,15 @@
                     "Magic Penetration": 24
                   },
                   "image": "images/Rats.m.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Intelligence": 12,
+                    "Magic Penetration": 30
+                  },
+                  "image": "images/RatVacholsPatchedUpPants.png"
                 }
               },
               "rare": false,
@@ -8893,6 +8919,12 @@
                     "Magic Penetration": 26
                   },
                   "image": "images/Bee_HM.trinket.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Magic Penetration": 32
+                  },
+                  "image": "images/EternalFlowerHeart.png"
                 }
               },
               "rare": false,
@@ -10007,6 +10039,15 @@
                     "Intelligence": 6
                   },
                   "image": "images/Ladybee.m.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Intelligence": 8,
+                    "Fervor": 22
+                  },
+                  "image": "images/HiveSprouts.png"
                 }
               },
               "rare": false,
@@ -11576,8 +11617,8 @@
                 "Trinket"
               ],
               "classes": [
-                "warrior",
                 "priest",
+                "warrior",
                 "rogue",
                 "mage"
               ],
@@ -11617,6 +11658,12 @@
                     "Magic Penetration": 26
                   },
                   "image": "images/Bee_HM.trinket.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Magic Penetration": 32
+                  },
+                  "image": "images/EternalFlowerHeart.png"
                 }
               },
               "rare": false,
@@ -12421,6 +12468,15 @@
                     "Intelligence": 6
                   },
                   "image": "images/Ladybee.m.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Intelligence": 8,
+                    "Fervor": 22
+                  },
+                  "image": "images/HiveSprouts.png"
                 }
               },
               "rare": false,
@@ -17964,6 +18020,15 @@
                     "Intelligence": 6
                   },
                   "image": "images/Ladybee.m.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Intelligence": 8,
+                    "Fervor": 22
+                  },
+                  "image": "images/HiveSprouts.png"
                 }
               },
               "rare": false,
@@ -19519,6 +19584,12 @@
                     "Magic Penetration": 26
                   },
                   "image": "images/Bee_HM.trinket.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Magic Penetration": 32
+                  },
+                  "image": "images/EternalFlowerHeart.png"
                 }
               },
               "rare": false,
@@ -21140,6 +21211,15 @@
                     "Magic Penetration": 24
                   },
                   "image": "images/Rats.m.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Intelligence": 12,
+                    "Magic Penetration": 30
+                  },
+                  "image": "images/RatVacholsPatchedUpPants.png"
                 }
               },
               "rare": false,
@@ -23292,8 +23372,8 @@
             {
               "name": {
                 "en": "Night Servant's Girdle",
-                "fr": "Ceinturon du serviteur de nuit",
-                "es": "Faja de sirviente nocturno"
+                "fr": "",
+                "es": ""
               },
               "types": [
                 "Waist"
@@ -23355,8 +23435,8 @@
             {
               "name": {
                 "en": "Curse of the Immortal",
-                "fr": "Malédiction de l'Immortel",
-                "es": "Maldición del inmortal"
+                "fr": "",
+                "es": ""
               },
               "types": [
                 "Waist"
@@ -23418,8 +23498,8 @@
             {
               "name": {
                 "en": "Breastplate of Recklessness",
-                "fr": "Cuirasse de l'insouciance",
-                "es": "Coraza de imprudencia"
+                "fr": "",
+                "es": ""
               },
               "types": [
                 "Chest"
