@@ -17635,6 +17635,18 @@
                         "Fervor": 28
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 32,
+                        "Strength": 12,
+                        "Intelligence": 15,
+                        "Armor Penetration": 35,
+                        "Fervor": 35
+                      },
+                      "image": "images/WingsabersB.png"
                     }
                   }
                 },
@@ -22226,6 +22238,64 @@
                   }
                 }
               ]
+            },
+            {
+              "name": {
+                "en": "Krisomal's Golden Fleece",
+                "fr": "Toison d'or de Krisomal",
+                "es": "El Vellocino de Oro de Krisomal"
+              },
+              "types": [
+                "Chest"
+              ],
+              "classes": [
+                "mage"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Intelligence",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Intelligence": 12,
+                    "Critical": 30
+                  },
+                  "image": "images/KrisomalsGoldenFleece.png"
+                }
+              },
+              "rare": false
             }
           ]
         },
@@ -23372,8 +23442,8 @@
             {
               "name": {
                 "en": "Night Servant's Girdle",
-                "fr": "",
-                "es": ""
+                "fr": "Ceinturon du serviteur de nuit",
+                "es": "Faja de sirviente nocturno"
               },
               "types": [
                 "Waist"
@@ -23435,8 +23505,8 @@
             {
               "name": {
                 "en": "Curse of the Immortal",
-                "fr": "",
-                "es": ""
+                "fr": "Malédiction de l'Immortel",
+                "es": "Maldición del inmortal"
               },
               "types": [
                 "Waist"
@@ -23498,8 +23568,8 @@
             {
               "name": {
                 "en": "Breastplate of Recklessness",
-                "fr": "",
-                "es": ""
+                "fr": "Cuirasse de l'insouciance",
+                "es": "Coraza de imprudencia"
               },
               "types": [
                 "Chest"
@@ -24086,7 +24156,7 @@
         },
         {
           "name": {
-            "en": "Gift Caches",
+            "en": "Gear Caches",
             "fr": "Caches de cadeaux",
             "es": "Alijos de regalos"
           },
@@ -24684,6 +24754,127 @@
                     "Fervor": 30
                   },
                   "image": "images/VoidJerkin.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Sparkeater Pants",
+                "fr": "Pantalon Crache-étincelles",
+                "es": "Pantalones comechispas"
+              },
+              "types": [
+                "Legs"
+              ],
+              "classes": [
+                "mage"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Intelligence",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Intelligence": 12,
+                    "Fervor": 30
+                  },
+                  "image": "images/SparkeaterPants.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Cultist's Ceremonial Garment",
+                "fr": "Vêtement de cérémonie du cultiste",
+                "es": "Prenda ceremonial de cultista"
+              },
+              "types": [
+                "Chest"
+              ],
+              "classes": [
+                "mage",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Faith",
+                "Intelligence",
+                "Magic Penetration",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/CultistsCeremonialGarment.png"
                 }
               },
               "rare": false
