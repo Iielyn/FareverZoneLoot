@@ -100,6 +100,18 @@
                         "Armor Penetration": 28
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 29,
+                        "Strength": 12,
+                        "Dexterity": 15,
+                        "Critical": 35,
+                        "Armor Penetration": 35
+                      },
+                      "image": "images/IronFinsoftheLeviathanB.png"
                     }
                   }
                 },
@@ -168,6 +180,18 @@
                         "Dexterity": 14
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 38,
+                        "Strength": 16,
+                        "Dexterity": 20,
+                        "Critical": 40,
+                        "Armor Penetration": 40
+                      },
+                      "image": "images/IronFinsoftheLeviathanL.png"
                     }
                   }
                 }
@@ -923,6 +947,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Nepsid.w.m.cheast20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 259,
+                    "Vitality": 11,
+                    "Strength": 5,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/FinArmor.png"
                 }
               },
               "rare": false,
@@ -1230,6 +1265,15 @@
                     "Armor Penetration": 24
                   },
                   "image": "images/Nepsid.w.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 279,
+                    "Strength": 10,
+                    "Vitality": 11,
+                    "Armor Penetration": 30
+                  },
+                  "image": "images/CrownoftheSea.png"
                 }
               },
               "rare": false,
@@ -1383,6 +1427,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Crab.m.p.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/DelicateMarineAiglets.png"
                 }
               },
               "rare": false,
@@ -1455,6 +1510,17 @@
                     "Fervor": 7
                   },
                   "image": "images/Nepsid.w.p.back20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 72,
+                    "Vitality": 6,
+                    "Strength": 3,
+                    "Faith": 3,
+                    "Armor Penetration": 8,
+                    "Fervor": 8
+                  },
+                  "image": "images/JennyHanibalsArmoredCape.png"
                 }
               },
               "rare": false,
@@ -1527,6 +1593,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Nepsid.w.p.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 158,
+                    "Vitality": 8,
+                    "Strength": 4,
+                    "Faith": 4,
+                    "Armor Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/PalmoftheLagoon.png"
                 }
               },
               "rare": false,
@@ -1965,6 +2042,17 @@
                     "Magic Penetration": 9
                   },
                   "image": "images/Nepsid.w.m.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 172,
+                    "Vitality": 9,
+                    "Strength": 4,
+                    "Intelligence": 4,
+                    "Armor Penetration": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/BootsofAbyssalEssence.png"
                 }
               },
               "rare": false,
@@ -2938,6 +3026,15 @@
                     "Critical": 18
                   },
                   "image": "images/Rats.p.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 7,
+                    "Critical": 22
+                  },
+                  "image": "images/KnotrEdam.png"
                 }
               },
               "rare": false,
@@ -4488,12 +4585,12 @@
                 "priest"
               ],
               "stats": [
+                "Armor",
                 "Vitality",
                 "Strength",
                 "Faith",
                 "Armor Penetration",
-                "Fervor",
-                "Armor"
+                "Fervor"
               ],
               "skill1": {
                 "en": "",
@@ -4533,6 +4630,17 @@
                     "Fervor": 7
                   },
                   "image": "images/Nepsid.w.p.back20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 72,
+                    "Vitality": 6,
+                    "Strength": 3,
+                    "Faith": 3,
+                    "Armor Penetration": 8,
+                    "Fervor": 8
+                  },
+                  "image": "images/JennyHanibalsArmoredCape.png"
                 }
               },
               "rare": false,
@@ -4735,6 +4843,17 @@
                     "Magic Penetration": 9
                   },
                   "image": "images/Nepsid.w.m.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 172,
+                    "Vitality": 9,
+                    "Strength": 4,
+                    "Intelligence": 4,
+                    "Armor Penetration": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/BootsofAbyssalEssence.png"
                 }
               },
               "rare": false,
@@ -5184,6 +5303,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Nepsid.w.m.cheast20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 259,
+                    "Vitality": 11,
+                    "Strength": 5,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/FinArmor.png"
                 }
               },
               "rare": false,
@@ -5478,6 +5608,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Nepsid.w.p.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 158,
+                    "Vitality": 8,
+                    "Strength": 4,
+                    "Faith": 4,
+                    "Armor Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/PalmoftheLagoon.png"
                 }
               },
               "rare": false,
@@ -5506,8 +5647,8 @@
               "stats": [
                 "Armor",
                 "Vitality",
-                "Armor Penetration",
-                "Strength"
+                "Strength",
+                "Armor Penetration"
               ],
               "skill1": {
                 "en": "",
@@ -5545,6 +5686,15 @@
                     "Armor Penetration": 24
                   },
                   "image": "images/Nepsid.w.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 279,
+                    "Strength": 10,
+                    "Vitality": 11,
+                    "Armor Penetration": 30
+                  },
+                  "image": "images/CrownoftheSea.png"
                 }
               },
               "rare": false,
@@ -6315,6 +6465,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Crab.m.p.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/DelicateMarineAiglets.png"
                 }
               },
               "rare": false,
@@ -7269,6 +7430,15 @@
                     "Critical": 18
                   },
                   "image": "images/Rats.p.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 7,
+                    "Critical": 22
+                  },
+                  "image": "images/KnotrEdam.png"
                 }
               },
               "rare": false,
@@ -10046,6 +10216,15 @@
                     "Armor Penetration": 24
                   },
                   "image": "images/Bee_HM.w.chest.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 358,
+                    "Vitality": 11,
+                    "Strength": 10,
+                    "Armor Penetration": 30
+                  },
+                  "image": "images/WhirringGemofApix.png"
                 }
               },
               "rare": false,
@@ -11106,6 +11285,15 @@
                     "Armor Penetration": 24
                   },
                   "image": "images/Bee_HM.w.chest.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 358,
+                    "Vitality": 11,
+                    "Strength": 10,
+                    "Armor Penetration": 30
+                  },
+                  "image": "images/WhirringGemofApix.png"
                 }
               },
               "rare": false,
@@ -13311,10 +13499,19 @@
                   "statValues": {
                     "Armor": 91,
                     "Vitality": 6,
-                    "Critical": 18,
-                    "Faith": 5
+                    "Faith": 5,
+                    "Critical": 18
                   },
                   "image": "images/Rats.p.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 7,
+                    "Critical": 22
+                  },
+                  "image": "images/KnotrEdam.png"
                 }
               },
               "rare": false,
@@ -13322,8 +13519,8 @@
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
-                "Critical": 18,
-                "Faith": 5
+                "Faith": 5,
+                "Critical": 18
               }
             },
             {
@@ -15576,6 +15773,15 @@
                     "Armor Penetration": 24
                   },
                   "image": "images/Nepsid.w.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 279,
+                    "Strength": 10,
+                    "Vitality": 11,
+                    "Armor Penetration": 30
+                  },
+                  "image": "images/CrownoftheSea.png"
                 }
               },
               "rare": false,
@@ -15960,6 +16166,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Crab.m.p.shoulders20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 129,
+                    "Vitality": 9,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/DelicateMarineAiglets.png"
                 }
               },
               "rare": false,
@@ -16106,6 +16323,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/Nepsid.w.m.cheast20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 259,
+                    "Vitality": 11,
+                    "Strength": 5,
+                    "Intelligence": 6,
+                    "Armor Penetration": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/FinArmor.png"
                 }
               },
               "rare": false,
@@ -16178,6 +16406,17 @@
                     "Fervor": 7
                   },
                   "image": "images/Nepsid.w.p.back20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 72,
+                    "Vitality": 6,
+                    "Strength": 3,
+                    "Faith": 3,
+                    "Armor Penetration": 8,
+                    "Fervor": 8
+                  },
+                  "image": "images/JennyHanibalsArmoredCape.png"
                 }
               },
               "rare": false,
@@ -16333,6 +16572,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Nepsid.w.p.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 158,
+                    "Vitality": 8,
+                    "Strength": 4,
+                    "Faith": 4,
+                    "Armor Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/PalmoftheLagoon.png"
                 }
               },
               "rare": false,
@@ -16771,6 +17021,17 @@
                     "Magic Penetration": 9
                   },
                   "image": "images/Nepsid.w.m.feet20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 172,
+                    "Vitality": 9,
+                    "Strength": 4,
+                    "Intelligence": 4,
+                    "Armor Penetration": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/BootsofAbyssalEssence.png"
                 }
               },
               "rare": false,
@@ -17978,8 +18239,8 @@
               "stats": [
                 "Armor",
                 "Vitality",
-                "Armor Penetration",
-                "Strength"
+                "Strength",
+                "Armor Penetration"
               ],
               "skill1": {
                 "en": "",
@@ -18017,6 +18278,15 @@
                     "Armor Penetration": 24
                   },
                   "image": "images/Bee_HM.w.chest.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 358,
+                    "Vitality": 11,
+                    "Strength": 10,
+                    "Armor Penetration": 30
+                  },
+                  "image": "images/WhirringGemofApix.png"
                 }
               },
               "rare": false,
@@ -19767,6 +20037,18 @@
                         "Fervor": 31
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 33,
+                        "Strength": 14,
+                        "Dexterity": 17,
+                        "Critical": 37,
+                        "Fervor": 37
+                      },
+                      "image": "images/TwinPillarsofJusticeP.png"
                     }
                   }
                 },
@@ -20697,10 +20979,19 @@
                   "statValues": {
                     "Armor": 91,
                     "Vitality": 6,
-                    "Critical": 18,
-                    "Faith": 5
+                    "Faith": 5,
+                    "Critical": 18
                   },
                   "image": "images/Rats.p.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 7,
+                    "Critical": 22
+                  },
+                  "image": "images/KnotrEdam.png"
                 }
               },
               "rare": false,
@@ -20708,8 +20999,8 @@
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
-                "Critical": 18,
-                "Faith": 5
+                "Faith": 5,
+                "Critical": 18
               }
             },
             {
@@ -22994,6 +23285,193 @@
                     "Fervor": 30
                   },
                   "image": "images/EntommeuresSpiritualBreeches.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Night Servant's Girdle",
+                "fr": "Ceinturon du serviteur de nuit",
+                "es": "Faja de sirviente nocturno"
+              },
+              "types": [
+                "Waist"
+              ],
+              "classes": [
+                "warrior",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Faith",
+                "Magic Penetration",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 158,
+                    "Vitality": 8,
+                    "Strength": 4,
+                    "Faith": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/NightServantsGirdle.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Curse of the Immortal",
+                "fr": "Malédiction de l'Immortel",
+                "es": "Maldición del inmortal"
+              },
+              "types": [
+                "Waist"
+              ],
+              "classes": [
+                "mage",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Faith",
+                "Intelligence",
+                "Critical",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/CurseoftheImmortal.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Breastplate of Recklessness",
+                "fr": "Cuirasse de l'insouciance",
+                "es": "Coraza de imprudencia"
+              },
+              "types": [
+                "Chest"
+              ],
+              "classes": [
+                "warrior",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Faith",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 259,
+                    "Vitality": 11,
+                    "Strength": 5,
+                    "Faith": 5,
+                    "Fervor": 30
+                  },
+                  "image": "images/BreastplateofRecklessness.png"
                 }
               },
               "rare": false
