@@ -1822,6 +1822,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Crabg.m.p.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/CeremonialNepsidBelt.png"
                 }
               },
               "rare": false,
@@ -1972,6 +1983,15 @@
                     "Fervor": 24
                   },
                   "image": "images/H-Nepside.p.legs.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Fervor": 30
+                  },
+                  "image": "images/HighSpeedClamdiggers.png"
                 }
               },
               "rare": false,
@@ -3503,6 +3523,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/H-Gorgon.m.p.head.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Critical": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/DustScarf.png"
                 }
               },
               "rare": false,
@@ -5039,6 +5070,18 @@
                         "Magic Penetration": 28
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 29,
+                        "Dexterity": 15,
+                        "Intelligence": 15,
+                        "Critical": 35,
+                        "Magic Penetration": 35
+                      },
+                      "image": "images/ClawdiusB.png"
                     }
                   }
                 },
@@ -5250,6 +5293,15 @@
                     "Fervor": 24
                   },
                   "image": "images/H-Nepside.p.legs.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Fervor": 30
+                  },
+                  "image": "images/HighSpeedClamdiggers.png"
                 }
               },
               "rare": false,
@@ -6639,6 +6691,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Crabg.m.p.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/CeremonialNepsidBelt.png"
                 }
               },
               "rare": false,
@@ -8379,6 +8442,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/H-Gorgon.m.p.head.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Critical": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/DustScarf.png"
                 }
               },
               "rare": false,
@@ -14382,6 +14456,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/H-Gorgon.m.p.head.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Critical": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/DustScarf.png"
                 }
               },
               "rare": false,
@@ -16807,6 +16892,17 @@
                     "Fervor": 9
                   },
                   "image": "images/Crabg.m.p.belt20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/CeremonialNepsidBelt.png"
                 }
               },
               "rare": false,
@@ -17029,6 +17125,15 @@
                     "Fervor": 24
                   },
                   "image": "images/H-Nepside.p.legs.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Fervor": 30
+                  },
+                  "image": "images/HighSpeedClamdiggers.png"
                 }
               },
               "rare": false,
@@ -19932,6 +20037,17 @@
                     "Magic Penetration": 12
                   },
                   "image": "images/H-Gorgon.m.p.head.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Critical": 15,
+                    "Magic Penetration": 15
+                  },
+                  "image": "images/DustScarf.png"
                 }
               },
               "rare": false,
@@ -24914,6 +25030,64 @@
                     "Fervor": 15
                   },
                   "image": "images/CultistsCeremonialGarment.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Belt of Sacrifice",
+                "fr": "Ceinture de sacrifice",
+                "es": "Cinturón de sacrificio"
+              },
+              "types": [
+                "Waist"
+              ],
+              "classes": [
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Faith",
+                "Magic Penetration"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 7,
+                    "Magic Penetration": 22
+                  },
+                  "image": "images/BeltofSacrifice.png"
                 }
               },
               "rare": false
