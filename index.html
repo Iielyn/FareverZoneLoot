@@ -1797,15 +1797,14 @@
             const snap = getVariantLevelSnapshot(v);
             if (!snap || !snapshotHasLevelData(snap)) return '';
             if (snap.image) return snap.image;
-            return '';
+            return v.image || '';
         };
 
         const getCurrentItemImage = (it) => {
             if (!it) return '';
             const snap = getBaseLevelSnapshot(it);
-            if (!snap) return '';
-            if (snap.image) return snap.image;
-            return '';
+            if (snap && snap.image) return snap.image;
+            return it.image || '';
         };
 
         if (variant) {
@@ -1819,7 +1818,7 @@
         }
 
         if (item.variants && item.variants.length > 0) {
-            return getCurrentVariantImage(getDefaultVariant(item));
+            return getCurrentVariantImage(getDefaultVariant(item)) || getCurrentItemImage(item);
         }
 
         return getCurrentItemImage(item);
