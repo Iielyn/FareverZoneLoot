@@ -200,23 +200,23 @@
             {
               "name": {
                 "en": "Wings of the Prophet",
-                "fr": "Ailes du Prophète",
-                "es": "Alas del profeta"
+                "fr": "Ailes Du Phophet",
+                "es": "Alas Del Phophet"
               },
               "types": [
                 "Back"
               ],
               "classes": [
-                "priest",
-                "mage"
+                "mage",
+                "priest"
               ],
               "stats": [
                 "Armor",
                 "Vitality",
                 "Faith",
+                "Intelligence",
                 "Magic Penetration",
-                "Fervor",
-                "Intelligence"
+                "Fervor"
               ],
               "skill1": {
                 "en": "",
@@ -251,11 +251,22 @@
                     "Armor": 41,
                     "Vitality": 4,
                     "Faith": 2,
+                    "Intelligence": 3,
                     "Magic Penetration": 7,
-                    "Fervor": 7,
-                    "Intelligence": 3
+                    "Fervor": 7
                   },
                   "image": "images/Crab.m.p.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Faith": 3,
+                    "Intelligence": 4,
+                    "Magic Penetration": 8,
+                    "Fervor": 8
+                  },
+                  "image": "images/WingsoftheProphet.png"
                 }
               },
               "rare": false,
@@ -264,9 +275,9 @@
                 "Armor": 41,
                 "Vitality": 4,
                 "Faith": 2,
+                "Intelligence": 3,
                 "Magic Penetration": 7,
-                "Fervor": 7,
-                "Intelligence": 3
+                "Fervor": 7
               }
             },
             {
@@ -5226,6 +5237,17 @@
                     "Fervor": 7
                   },
                   "image": "images/Crab.m.p.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Faith": 3,
+                    "Intelligence": 4,
+                    "Magic Penetration": 8,
+                    "Fervor": 8
+                  },
+                  "image": "images/WingsoftheProphet.png"
                 }
               },
               "rare": false,
@@ -9457,6 +9479,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Ladybee.m.p.chest20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/CasualClothesofthePollincess.png"
                 }
               },
               "rare": false,
@@ -12643,6 +12676,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Ladybee.m.p.chest20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/CasualClothesofthePollincess.png"
                 }
               },
               "rare": false,
@@ -15314,9 +15358,9 @@
             },
             {
               "name": {
-                "en": "Wings of the Prophet ",
-                "fr": "Ailes Du Prophète",
-                "es": "Alas Del Profeta"
+                "en": "Wings of the Prophet",
+                "fr": "Ailes Du Phophet",
+                "es": "Alas Del Phophet"
               },
               "types": [
                 "Back"
@@ -15371,6 +15415,17 @@
                     "Fervor": 7
                   },
                   "image": "images/Crab.m.p.cape20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Faith": 3,
+                    "Intelligence": 4,
+                    "Magic Penetration": 8,
+                    "Fervor": 8
+                  },
+                  "image": "images/WingsoftheProphet.png"
                 }
               },
               "rare": false,
@@ -18850,6 +18905,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Ladybee.m.p.chest20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/CasualClothesofthePollincess.png"
                 }
               },
               "rare": false,
@@ -25037,8 +25103,8 @@
             {
               "name": {
                 "en": "Belt of Sacrifice",
-                "fr": "Ceinture de sacrifice",
-                "es": "Cinturón de sacrificio"
+                "fr": "",
+                "es": ""
               },
               "types": [
                 "Waist"
