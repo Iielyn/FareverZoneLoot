@@ -704,6 +704,13 @@
         }
 
         .filter-group-wrapper.open #type-dropdown { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; max-height: none; overflow-y: visible; min-width: 330px; }
+        #type-dropdown .type-group-label {
+            grid-column: 1 / -1; padding: 7px 2px 2px; margin-top: 5px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            font-size: 0.56rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em;
+            color: var(--gold); pointer-events: none;
+        }
+        #type-dropdown .type-group-label:first-child { margin-top: 0; padding-top: 0; border-top: none; }
         #class-dropdown { min-width: 280px; flex-wrap: nowrap; }
         .class-exclusive-btn {
             background: transparent; border: 1px solid var(--border); color: var(--text-dim);
@@ -1231,7 +1238,7 @@
             clear_filters:'✕ Clear Filters', clear_favorites:'🗑️ Clear Favorites', favorites_button:'⭐ Favorites',
             view_label:'View', view_loot:'Loot', view_dungeons:'Dungeons',
             warrior:'Warrior', rogue:'Rogue', mage:'Mage', priest:'Priest',
-            weapons:'Weapons', armor:'Armor', mount:'Mount', glider:'Glider',
+            weapons:'Weapons', armor:'Armor', mount:'Mount', glider:'Glider', type_group_other:'Other',
             item_name:'Item Name', item_type:'Item Type', classes:'Classes', stats_header:'Stats', lv:'Lv',
             full_dungeon:'Full Dungeon', boss_only:'Boss Only', rarity_label:'Rarity:',
             blue:'Blue', purple:'Purple', legendary:'Legendary',
@@ -1294,7 +1301,7 @@
             clear_filters:'✕ Effacer les filtres', clear_favorites:'🗑️ Effacer les favoris', favorites_button:'⭐ Favoris',
             view_label:'Vue', view_loot:'Butin', view_dungeons:'Donjons',
             warrior:'Guerrier', rogue:'Voleur', mage:'Mage', priest:'Prêtre',
-            weapons:'Armes', armor:'Armure', mount:'Monture', glider:'Planeur',
+            weapons:'Armes', armor:'Armure', mount:'Monture', glider:'Planeur', type_group_other:'Autre',
             item_name:'Nom', item_type:'Type', classes:'Classes', stats_header:'Statistiques', lv:'Nv',
             full_dungeon:'Donjon complet', boss_only:'Boss seul', rarity_label:'Rareté:',
             blue:'Bleu', purple:'Violet', legendary:'Légendaire',
@@ -1355,7 +1362,7 @@
             clear_filters:'✕ Limpiar filtros', clear_favorites:'🗑️ Limpiar favoritos', favorites_button:'⭐ Favoritos',
             view_label:'Vista', view_loot:'Botín', view_dungeons:'Mazmorras',
             warrior:'Guerrero', rogue:'Pícaro', mage:'Mago', priest:'Sacerdote',
-            weapons:'Armas', armor:'Armadura', mount:'Montura', glider:'Planeador',
+            weapons:'Armas', armor:'Armadura', mount:'Montura', glider:'Planeador', type_group_other:'Otros',
             item_name:'Nombre', item_type:'Tipo', classes:'Clases', stats_header:'Estadísticas', lv:'Nv',
             full_dungeon:'Mazmorra completa', boss_only:'Solo jefe', rarity_label:'Rareza:',
             blue:'Azul', purple:'Púrpura', legendary:'Legendario',
@@ -2353,7 +2360,7 @@
     function updateAllFilterButtonLabels() {
         document.querySelectorAll('#class-dropdown .class-btn').forEach(btn=>{const cls=btn.dataset.class;const label=t(cls);const ftn=btn.childNodes[0];if(ftn&&ftn.nodeType===Node.TEXT_NODE)ftn.textContent=label;});
         document.querySelectorAll('#stat-dropdown .stat-btn').forEach(btn=>{const stat=btn.dataset.stat;const label=t('stat_'+stat.replace(/ /g,'_'),stat);const ftn=btn.childNodes[0];if(ftn&&ftn.nodeType===Node.TEXT_NODE)ftn.textContent=label;});
-        document.querySelectorAll('#type-dropdown .type-btn').forEach(btn=>{const type=btn.dataset.type;const displayType=t('type_'+type.replace(/[ -]/g,'_'),type);const countSpan=btn.querySelector('.item-count');if(countSpan)btn.innerHTML=displayType+' <span class="item-count">'+countSpan.textContent+'</span>';else btn.textContent=displayType;});
+        buildTypeDropdownButtons();
     }
 
     const BUILDS_STORAGE_KEY='farever_builds_v1';
@@ -2935,6 +2942,33 @@
         }
     }
 
+    function buildTypeDropdownButtons() {
+        const typeContainer=document.getElementById('type-dropdown');
+        if(!typeContainer)return;
+        typeContainer.innerHTML='';
+        const getTypeLabel=typeName=>t('type_'+typeName.replace(/[ -]/g,'_'),typeName);
+        const groups=[
+            {labelKey:'weapons',fallback:'Weapons',types:WEAPON_TYPES},
+            {labelKey:'armor',fallback:'Armor',types:ARMOR_TYPES},
+            {labelKey:'type_group_other',fallback:'Other',types:TRINKET_TYPES}
+        ];
+        groups.forEach(group=>{
+            if(group.types.length===0)return;
+            const sortedTypes=[...group.types].sort((a,b)=>getTypeLabel(a).localeCompare(getTypeLabel(b),currentLang,{sensitivity:'base'}));
+            const header=document.createElement('div');
+            header.className='type-group-label';
+            header.textContent=t(group.labelKey,group.fallback);
+            typeContainer.appendChild(header);
+            sortedTypes.forEach(typeName=>{
+                const btn=document.createElement('button');
+                btn.className='filter-btn type-btn';btn.dataset.type=typeName;
+                btn.innerHTML=escapeHtml(getTypeLabel(typeName))+' <span class="item-count">(0)</span>';
+                btn.addEventListener('click',()=>toggleFilter('type',typeName));
+                typeContainer.appendChild(btn);
+            });
+        });
+    }
+
     function buildFilterButtons() {
         const classContainer=document.getElementById('class-dropdown');
         CLASS_OPTIONS.forEach(cls=>{
@@ -2944,14 +2978,7 @@
             btn.addEventListener('click',()=>toggleFilter('class',cls));
             classContainer.appendChild(btn);
         });
-        const typeContainer=document.getElementById('type-dropdown');
-        TYPE_OPTIONS.filter(t=>t!=='Mount'&&t!=='Glider').forEach(typeName=>{
-            const btn=document.createElement('button');btn.className='filter-btn type-btn';btn.dataset.type=typeName;
-            const displayType=t('type_'+typeName.replace(/[ -]/g,'_'),typeName);
-            btn.innerHTML=displayType+' <span class="item-count">(0)</span>';
-            btn.addEventListener('click',()=>toggleFilter('type',typeName));
-            typeContainer.appendChild(btn);
-        });
+        buildTypeDropdownButtons();
         const statContainer=document.getElementById('stat-dropdown');
         STAT_OPTIONS.forEach(stat=>{
             const btn=document.createElement('button');btn.className='filter-btn stat-btn';btn.dataset.stat=stat;btn.textContent=t('stat_'+stat.replace(/ /g,'_'),stat);
