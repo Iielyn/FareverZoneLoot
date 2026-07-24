@@ -9791,6 +9791,16 @@
                     "Fervor": 18
                   },
                   "image": "images/Ladybee.r.m.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Fervor": 22
+                  },
+                  "image": "images/VambracesoftheSwarm.png"
                 }
               },
               "rare": false,
@@ -10014,6 +10024,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Ladybee.m.p.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/VisionoftheBeekeeper.png"
                 }
               },
               "rare": false,
@@ -10925,6 +10946,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Ladybee.m.p.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/ZenobeesBreeches.png"
                 }
               },
               "rare": false,
@@ -12378,6 +12410,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Ladybee.m.p.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/VisionoftheBeekeeper.png"
                 }
               },
               "rare": false,
@@ -12831,6 +12874,16 @@
                     "Fervor": 18
                   },
                   "image": "images/Ladybee.r.m.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Fervor": 22
+                  },
+                  "image": "images/VambracesoftheSwarm.png"
                 }
               },
               "rare": false,
@@ -13133,6 +13186,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Ladybee.m.p.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/ZenobeesBreeches.png"
                 }
               },
               "rare": false,
@@ -18761,6 +18825,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Ladybee.m.p.head20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/VisionoftheBeekeeper.png"
                 }
               },
               "rare": false,
@@ -19217,6 +19292,16 @@
                     "Fervor": 18
                   },
                   "image": "images/Ladybee.r.m.hands20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Fervor": 22
+                  },
+                  "image": "images/VambracesoftheSwarm.png"
                 }
               },
               "rare": false,
@@ -19445,6 +19530,17 @@
                     "Fervor": 12
                   },
                   "image": "images/Ladybee.m.p.legs20.png"
+                },
+                "25": {
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 11,
+                    "Faith": 5,
+                    "Intelligence": 6,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/ZenobeesBreeches.png"
                 }
               },
               "rare": false,
