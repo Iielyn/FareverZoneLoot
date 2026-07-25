@@ -25199,8 +25199,8 @@
             {
               "name": {
                 "en": "Belt of Sacrifice",
-                "fr": "",
-                "es": ""
+                "fr": "Ceinture de sacrifice",
+                "es": "Cinturón de sacrificio"
               },
               "types": [
                 "Waist"
@@ -25250,6 +25250,64 @@
                     "Magic Penetration": 22
                   },
                   "image": "images/BeltofSacrifice.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Impious Veil",
+                "fr": "Voile Impie",
+                "es": "Velo impío"
+              },
+              "types": [
+                "Head"
+              ],
+              "classes": [
+                "mage"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Intelligence",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Intelligence": 12,
+                    "Fervor": 30
+                  },
+                  "image": "images/ImpiousVeil.png"
                 }
               },
               "rare": false
