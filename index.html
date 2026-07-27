@@ -197,11 +197,21 @@
         }
         .suggest-btn {
             background: rgba(212,167,69,0.08); border: 1px solid rgba(212,167,69,0.3);
-            color: var(--gold); text-decoration: none;
+            color: var(--gold); text-decoration: none; position: relative;
         }
         .suggest-btn:hover {
             background: rgba(212,167,69,0.18); color: var(--gold-bright);
             border-color: var(--gold); box-shadow: 0 0 14px var(--gold-glow); transform: translateY(-1px);
+        }
+        .suggest-btn:hover .social-tooltip,
+        .suggest-btn:focus-visible .social-tooltip {
+            opacity: 1; visibility: visible;
+        }
+        .suggest-btn .social-tooltip {
+            left: auto; right: 0;
+        }
+        .suggest-btn .social-tooltip::before {
+            left: auto; right: 18px;
         }
         .donate-btn {
             color: #fde68a; border-color: var(--gold);
@@ -241,7 +251,7 @@
             border-radius: var(--radius-sm); padding: 8px 12px;
             font-size: 0.72rem; font-weight: 500; line-height: 1.45;
             color: var(--text); text-align: left;
-            width: max-content; max-width: 280px;
+            width: max-content; max-width: 280px; white-space: normal;
             box-shadow: var(--shadow-lg);
             opacity: 0; visibility: hidden;
             pointer-events: none;
@@ -983,7 +993,7 @@
             </div>
             <div class="social-links">
                 <span class="social-text discord" tabindex="0">
-                    <span class="social-icon">💬</span> @snowglow
+                    <span class="social-icon">💬</span> Discord: @snowglow
                     <span class="social-tooltip" id="discord-help-tooltip">Add me on Discord if you'd like to help provide items or screenshots!</span>
                 </span>
                 <a href="https://www.twitch.tv/liamh" target="_blank" rel="noopener noreferrer" class="social-link twitch">
@@ -1012,7 +1022,7 @@
                 <span class="search-icon">🔍</span>
                 <input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off">
             </div>
-            <button class="btn suggest-btn" id="open-suggestion-btn">💡 <span class="suggest-text">Suggest</span></button>
+            <a href="https://github.com/Iielyn/FareverZoneLoot/issues/new" target="_blank" rel="noopener noreferrer" class="btn suggest-btn" id="open-suggestion-btn">💡 <span class="suggest-text">Suggest</span><span class="social-tooltip" id="suggest-tooltip">Spotted a gap in the loot table? Submit your suggestion on GitHub!</span></a>
             <button class="btn suggest-btn" id="update-log-toggle-btn" style="display:none;">📝 <span>What's new</span></button>
             <a href="https://ko-fi.com/iielyn" target="_blank" rel="noopener noreferrer" class="btn suggest-btn donate-btn" id="support-link">
                 <span class="support-cup">☕</span><span id="support-link-text"></span>
@@ -1093,22 +1103,7 @@
     Game assets are property of the game's creators.
 </footer>
 
-<div class="modal-overlay" id="suggestion-modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2 id="modal-title">💬 Send a Suggestion</h2>
-            <button class="modal-close" id="close-suggestion-modal">&times;</button>
-        </div>
-        <form class="modal-form" id="suggestion-form">
-            <textarea name="message" id="suggestion-textarea" placeholder="Type your suggestion, feedback, or missing item details..." required rows="5"></textarea>
-            <div style="display:flex;gap:9px;margin-top:10px;">
-                <button type="submit" class="submit-btn" id="modal-submit-btn" style="flex:1;">Send Suggestion</button>
-                <button type="button" class="cancel-btn" id="modal-cancel-btn" style="flex:1;">Cancel</button>
-            </div>
-        </form>
-        <p class="modal-footer-text" id="modal-footer-text">Your suggestion is sent privately to the creator.</p>
-    </div>
-</div>
+
 
 
 
@@ -1218,8 +1213,6 @@
     const STORAGE_KEY = 'farever_data_v11';
     const VERSION_KEY = 'farever_data_version_v2';
     const DATA_URL = './farever_data.json';
-    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScAUAFWgtKAOMNfr4hipZMp9l8JMeeISnT3PBmS7sLgF-EfYg/formResponse';
-    const ENTRY_ID = 'entry.1596480602';
     const CF_WORKER_URL = 'https://snowy-voice-b4ca.manytears812.workers.dev'; 
 
     const CLASS_OPTIONS = ['warrior', 'rogue', 'mage', 'priest'];
@@ -1246,9 +1239,6 @@
             level_data_pending:'Lv{level} data pending', pending_variant_warning:'Lv{level} data for this rarity is not yet verified.',
             skill_final_combo:'Final Combo Attack:', skill1:'Skill 1:', skill2:'Skill 2:', passive:'Passive:',
             search_placeholder:'Search items...', suggest_button:'💡 Suggest',
-            modal_title:'💬 Send a Suggestion', modal_placeholder:'Type your suggestion, feedback, or missing item details...',
-            modal_cancel:'Cancel', modal_submit:'Send Suggestion', modal_footer:'Your suggestion is sent privately to the creator.',
-            toast_suggestion_sent:'✅ Suggestion sent! Thank you.',
             toast_filters_cleared:'All filters cleared', toast_favorites_cleared:'Favorites cleared',
             scroll_top_title:'Back to top',
             footer_text:'© 2026 Farever — Created by {creator}. All rights reserved. Images and certain data sourced from the {wiki_link}, licensed under {license_link}. Game assets are property of the game\'s creators.',
@@ -1295,6 +1285,7 @@
             social_liam_thanks:'Thanks so much to Liam for all the help, providing items, pictures, and shoutouts! He\'s a great guy, check him out!',
             social_second_twitch_label:'Special thanks to awfulyoguys!',
             social_second_twitch_thanks:'Thank you so much for all the help with screenshots! Much love!',
+            suggest_tooltip:'Spotted a missing item or have an idea? Open a GitHub issue, or reach out on Discord!',
         },
         fr: {
             filter_label:'Filtres', class_label:'Classe', stats_label:'Statistiques', category_label:'Catégorie', type_label:'Type',
@@ -1308,9 +1299,6 @@
             comparison_level:'Comparer au', level_20_status:'Nv20 · Stable', level_25_status:'Nv25 · En cours', level_data_pending:'Données Nv{level} en attente', pending_variant_warning:'Les données Nv{level} pour cette rareté ne sont pas encore vérifiées.',
             skill_final_combo:'Attaque combo finale:', skill1:'Compétence 1:', skill2:'Compétence 2:', passive:'Passif:',
             search_placeholder:'Rechercher...', suggest_button:'💡 Suggérer',
-            modal_title:'💬 Envoyer une suggestion', modal_placeholder:'Tapez votre suggestion, commentaire ou détail manquant...',
-            modal_cancel:'Annuler', modal_submit:'Envoyer', modal_footer:'Votre suggestion est envoyée en privé au créateur.',
-            toast_suggestion_sent:'✅ Suggestion envoyée ! Merci.',
             toast_filters_cleared:'Tous les filtres effacés', toast_favorites_cleared:'Favoris effacés',
             scroll_top_title:'Retour en haut',
             footer_text:'© 2026 Farever — Créé par {creator}. Tous droits réservés. Images et données provenant du {wiki_link}, sous licence {license_link}. Les assets du jeu sont la propriété de leurs créateurs.',
@@ -1356,6 +1344,7 @@
             social_liam_thanks:'Merci beaucoup à Liam pour toute son aide, les objets, les images et les partages ! C’est un super gars, allez le voir !',
             social_second_twitch_label:'Un grand merci à awfulyoguys !',
             social_second_twitch_thanks:'Merci beaucoup pour toute l’aide avec les captures d’écran ! Plein d’amour !',
+            suggest_tooltip:'Un objet manquant ou une idée ? Ouvre une issue GitHub, ou passe sur Discord !',
         },
         es: {
             filter_label:'Filtros', class_label:'Clase', stats_label:'Estadísticas', category_label:'Categoría', type_label:'Tipo',
@@ -1369,9 +1358,6 @@
             comparison_level:'Comparar en', level_20_status:'Nv20 · Estable', level_25_status:'Nv25 · En progreso', level_data_pending:'Datos de Nv{level} pendientes', pending_variant_warning:'Los datos de Nv{level} de esta rareza aún no se verificaron.',
             skill_final_combo:'Ataque combo final:', skill1:'Habilidad 1:', skill2:'Habilidad 2:', passive:'Pasiva:',
             search_placeholder:'Buscar...', suggest_button:'💡 Sugerir',
-            modal_title:'💬 Enviar sugerencia', modal_placeholder:'Escribe tu sugerencia, comentario o detalle faltante...',
-            modal_cancel:'Cancelar', modal_submit:'Enviar', modal_footer:'Tu sugerencia se envía en privado al creador.',
-            toast_suggestion_sent:'✅ Sugerencia enviada. ¡Gracias!',
             toast_filters_cleared:'Todos los filtros limpiados', toast_favorites_cleared:'Favoritos eliminados',
             scroll_top_title:'Volver arriba',
             footer_text:'© 2026 Farever — Creado por {creator}. Todos los derechos reservados. Imágenes y datos del {wiki_link}, bajo licencia {license_link}. Los activos del juego son propiedad de sus creadores.',
@@ -1417,6 +1403,7 @@
             social_liam_thanks:'¡Muchas gracias a Liam por toda la ayuda, por aportar objetos, imágenes y menciones! Es un gran tipo, ¡échale un vistazo!',
             social_second_twitch_label:'¡Un agradecimiento especial a awfulyoguys!',
             social_second_twitch_thanks:'¡Muchas gracias por toda la ayuda con las capturas de pantalla! ¡Mucho cariño!',
+            suggest_tooltip:'¿Falta un objeto? ¿Tienes una idea? ¡Abre un issue en GitHub o escríbeme en Discord!',
         }
     };
 
@@ -2288,12 +2275,9 @@
         if(viewModeLabel) viewModeLabel.textContent = t('view_label');
         document.getElementById('stat-level-control').setAttribute('aria-label',t('comparison_level'));
         document.getElementById('search-input').placeholder=t('search_placeholder');
-        document.getElementById('open-suggestion-btn').innerHTML=t('suggest_button');
-        document.getElementById('modal-title').textContent=t('modal_title');
-        document.getElementById('suggestion-textarea').placeholder=t('modal_placeholder');
-        document.getElementById('modal-submit-btn').textContent=t('modal_submit');
-        document.getElementById('modal-cancel-btn').textContent=t('modal_cancel');
-        document.getElementById('modal-footer-text').textContent=t('modal_footer');
+        document.getElementById('open-suggestion-btn').querySelector('.suggest-text').textContent=t('suggest_button').replace('💡 ','');
+        const suggestTooltip=document.getElementById('suggest-tooltip');
+        if(suggestTooltip)suggestTooltip.textContent=t('suggest_tooltip');
         document.getElementById('scroll-to-top-btn').title=t('scroll_top_title');
         document.getElementById('favorites-toggle-btn').textContent=t('favorites_button');
         document.getElementById('clear-fav-btn').textContent=t('clear_favorites');
@@ -2817,30 +2801,7 @@
         return null;
     }
 
-    function setupSuggestionModal() {
-        const modal=document.getElementById('suggestion-modal');
-        const openBtn=document.getElementById('open-suggestion-btn');
-        const closeBtn=document.getElementById('close-suggestion-modal');
-        const cancelBtn=document.getElementById('modal-cancel-btn');
-        const form=document.getElementById('suggestion-form');
-        function openModal(){modal.classList.add('active');}
-        function closeModal(){modal.classList.remove('active');form.reset();}
-        openBtn.addEventListener('click',openModal);
-        closeBtn.addEventListener('click',closeModal);
-        cancelBtn.addEventListener('click',closeModal);
-        modal.addEventListener('click',(e)=>{if(e.target===modal)closeModal();});
-        form.addEventListener('submit',(e)=>{
-            e.preventDefault();
-            const message=form.querySelector('textarea[name="message"]').value.trim();
-            if(!message)return;
-            const iframe=document.createElement('iframe');iframe.name='hidden-suggestion-iframe';iframe.style.display='none';document.body.appendChild(iframe);
-            const formEl=document.createElement('form');formEl.method='POST';formEl.action=FORM_URL;formEl.target='hidden-suggestion-iframe';formEl.style.display='none';
-            formEl.innerHTML='<input type="text" name="'+ENTRY_ID+'" value="'+escapeHtml(message)+'">';
-            document.body.appendChild(formEl);formEl.submit();
-            setTimeout(()=>{document.body.removeChild(formEl);document.body.removeChild(iframe);},1000);
-            showToast(t('toast_suggestion_sent'));closeModal();
-        });
-    }
+
 
     let sessionCustomItems = [];
 
@@ -3337,7 +3298,6 @@
         setupGlobalListeners();
         setupItemDetailToggle();
         setupRaritySwitcher();
-        setupSuggestionModal();
         setupBuildNameModalCustomItemToggle();
         setupImageTooltip();
         setupLanguageSwitcher();

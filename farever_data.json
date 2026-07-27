@@ -22607,6 +22607,122 @@
                 }
               },
               "rare": false
+            },
+            {
+              "name": {
+                "en": "Unholy Crimson Gloves",
+                "fr": "Gants cramoisi impies",
+                "es": "Guantes carmesí impíos"
+              },
+              "types": [
+                "Hands"
+              ],
+              "classes": [
+                "warrior"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Strength",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 219,
+                    "Vitality": 8,
+                    "Strength": 7,
+                    "Fervor": 22
+                  },
+                  "image": "images/UnholyCrimsonGloves.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Clerical Veil",
+                "fr": "Voile de bureau",
+                "es": "Velo clerical"
+              },
+              "types": [
+                "Head"
+              ],
+              "classes": [
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Faith",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 139,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Fervor": 30
+                  },
+                  "image": "images/ClericalVeil.png"
+                }
+              },
+              "rare": false
             }
           ]
         },
