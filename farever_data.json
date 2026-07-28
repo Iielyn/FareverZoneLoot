@@ -9110,6 +9110,18 @@
                         "Fervor": 28
                       },
                       "image": ""
+                    },
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 32,
+                        "Strength": 12,
+                        "Intelligence": 15,
+                        "Armor Penetration": 35,
+                        "Fervor": 35
+                      },
+                      "image": "images/LadyBeeCeremonialStingerB.png"
                     }
                   }
                 },
@@ -24578,6 +24590,56 @@
               },
               "rare": false,
               "image": "images/IrritableNightdog.png"
+            },
+            {
+              "name": {
+                "en": "Niflelian Dragoon",
+                "fr": "Dragon Niflélien",
+                "es": "Dragón nifleliano"
+              },
+              "types": [
+                "Glider"
+              ],
+              "stats": [],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "20": {
+                  "statValues": {},
+                  "image": "images/NiflelianDragoon.png"
+                },
+                "25": {
+                  "statValues": {},
+                  "image": "images/NiflelianDragoon.png"
+                }
+              },
+              "rare": false,
+              "image": "images/NiflelianDragoon.png"
             }
           ]
         },
