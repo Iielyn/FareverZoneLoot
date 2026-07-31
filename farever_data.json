@@ -25605,6 +25605,195 @@
                 }
               },
               "rare": false
+            },
+            {
+              "name": {
+                "en": "Mittens of Lady Zaster",
+                "fr": "Mitaines de Dame Zaster",
+                "es": "Mitones de Lady Zaster"
+              },
+              "types": [
+                "Hands"
+              ],
+              "classes": [
+                "mage",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Faith",
+                "Intelligence",
+                "Magic Penetration",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/MittensofLadyZaster.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Legwraps of the Fallen God",
+                "fr": "Jambières du dieu déchu",
+                "es": "Ataduras del dios caído"
+              },
+              "types": [
+                "Legs"
+              ],
+              "classes": [
+                "rogue",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Faith",
+                "Magic Penetration",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 181,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/LegwrapsoftheFallenGod.png"
+                }
+              },
+              "rare": false
+            },
+            {
+              "name": {
+                "en": "Worldsrunner Boots",
+                "fr": "Bottes de coureur du monde",
+                "es": "Botas de corredor del mundo"
+              },
+              "types": [
+                "Feet"
+              ],
+              "classes": [
+                "rogue",
+                "priest"
+              ],
+              "stats": [
+                "Armor",
+                "Vitality",
+                "Dexterity",
+                "Faith",
+                "Magic Penetration",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {
+                    "Armor": 136,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Faith": 4,
+                    "Magic Penetration": 11,
+                    "Fervor": 11
+                  },
+                  "image": "images/WorldsrunnerBoots.png"
+                }
+              },
+              "rare": false
             }
           ]
         }
