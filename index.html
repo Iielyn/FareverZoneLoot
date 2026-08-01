@@ -3222,8 +3222,17 @@
         }
 
         document.addEventListener('visibilitychange', () => {
-            if (!document.hidden) {
-                if (!ws || ws.readyState !== 1) connectWS();
+            if (document.hidden) {
+                if (ws) {
+                    try { ws.close(); } catch {}
+                    ws = null;
+                }
+                try {
+                    const blob = new Blob([JSON.stringify({ id: sessionId, leave: true })], { type: 'application/json' });
+                    navigator.sendBeacon(POLL_URL, blob);
+                } catch {}
+            } else {
+                connectWS();
             }
         });
 
