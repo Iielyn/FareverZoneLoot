@@ -1044,7 +1044,7 @@
     </div>
     <div class="header-right">
         <div style="display:flex; gap:8px; align-items:center; justify-content:flex-end; flex-wrap:wrap;">
-            <div class="live-viewers-badge" id="live-viewers-badge" title="Anonymous live count — no personal data, just active tabs right now">
+            <div class="live-viewers-badge" id="live-viewers-badge">
                 <span class="live-dot" aria-hidden="true"></span>
                 <span class="live-count-num" id="live-viewers-count">—</span>
                 <span class="live-label" id="live-viewers-label">online</span>
@@ -3163,8 +3163,6 @@
             if (typeof count !== 'number' || isNaN(count)) return;
             lastCount = count;
             countEl.textContent = count;
-            const mode = source === 'ws' ? 'live WebSocket' : 'polling fallback';
-            badgeEl.title = `${count} anonymous viewer${count===1?'':'s'} online now via ${mode} — no IP / personal data stored. Shows ALL tabs.`;
             if (labelEl) labelEl.textContent = 'online';
         }
 
@@ -3194,7 +3192,6 @@
 
                 ws.onopen = () => {
                     reconnectAttempts = 0;
-                    stopPolling();
                 };
 
                 ws.onmessage = (ev) => {
@@ -3207,10 +3204,8 @@
                 ws.onclose = () => {
                     ws = null;
                     reconnectAttempts++;
-                    if (reconnectAttempts < 3) {
+                    if (reconnectAttempts < 5) {
                         setTimeout(connectWS, 1500 * reconnectAttempts);
-                    } else {
-                        startPollingFallback();
                     }
                 };
 
@@ -3219,23 +3214,21 @@
                 };
 
             } catch (e) {
-                startPollingFallback();
+                console.log('WS failed, using polling');
             }
         }
 
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-            } else {
+            if (!document.hidden) {
                 if (!ws || ws.readyState !== 1) connectWS();
             }
         });
-
         connectWS();
+        startPollingFallback();
 
         setTimeout(() => {
             if (lastCount === null) {
                 renderCount(1, 'local');
-                badgeEl.title = 'Worker not yet updated — showing you only. Deploy worker-uncapped-websocket.js to enable uncapped live count for ALL viewers.';
                 badgeEl.style.opacity = '0.85';
                 startPollingFallback();
             }
