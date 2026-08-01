@@ -920,6 +920,37 @@
         .favorites-options-menu .clear-fav-btn:hover { background:rgba(232,96,96,.12); }
         .donate-btn { background:linear-gradient(135deg,rgba(212,167,69,.22),rgba(212,167,69,.09)); box-shadow:inset 0 1px rgba(255,255,255,.06); }
         .support-cup { filter:saturate(.8); }
+        .live-viewers-badge {
+            display:inline-flex; align-items:center; gap:6px;
+            padding:5px 12px; border-radius:var(--radius-pill);
+            background: rgba(74,222,128,0.08);
+            border:1px solid rgba(74,222,128,0.22);
+            color:#86efac; font-size:0.68rem; font-weight:700;
+            letter-spacing:0.03em; white-space:nowrap;
+            box-shadow: 0 0 10px rgba(74,222,128,0.08);
+            transition: all var(--transition);
+            user-select:none;
+        }
+        .live-viewers-badge:hover {
+            background: rgba(74,222,128,0.14);
+            border-color: #4ade80;
+            box-shadow: 0 0 14px rgba(74,222,128,0.18);
+            transform: translateY(-1px);
+        }
+        .live-dot {
+            width:7px; height:7px; border-radius:50%;
+            background:#4ade80;
+            box-shadow:0 0 0 0 rgba(74,222,128,0.7);
+            animation: pulse-live 2.2s infinite;
+            flex-shrink:0;
+        }
+        @keyframes pulse-live {
+            0% { box-shadow:0 0 0 0 rgba(74,222,128,0.7); }
+            70% { box-shadow:0 0 0 6px rgba(74,222,128,0); }
+            100% { box-shadow:0 0 0 0 rgba(74,222,128,0); }
+        }
+        .live-count-num { color:#dcfce7; font-weight:800; min-width:12px; text-align:center; }
+        .live-label { color:#86efac; opacity:0.95; }
         .build-item { gap:6px; }
         .build-item > span { min-width:120px; flex:1; }
         .build-item button { border-radius:6px; padding:5px 8px; }
@@ -1012,10 +1043,17 @@
         <button id="exit-build-btn" class="exit-btn-header">❌ Exit Shared Build</button>
     </div>
     <div class="header-right">
-        <div class="lang-switcher" id="lang-switcher">
+        <div style="display:flex; gap:8px; align-items:center; justify-content:flex-end; flex-wrap:wrap;">
+            <div class="live-viewers-badge" id="live-viewers-badge" title="Anonymous live count — no personal data, just active tabs right now">
+                <span class="live-dot" aria-hidden="true"></span>
+                <span class="live-count-num" id="live-viewers-count">—</span>
+                <span class="live-label" id="live-viewers-label">online</span>
+            </div>
+            <div class="lang-switcher" id="lang-switcher">
             <button class="lang-btn" data-lang="en">English</button>
             <button class="lang-btn" data-lang="es">Español</button>
             <button class="lang-btn" data-lang="fr">Français</button>
+            </div>
         </div>
         <div class="header-actions">
             <div class="search-wrapper">
@@ -3099,6 +3137,119 @@
         });
     }
 
+    function initLiveViewers() {
+        const countEl = document.getElementById('live-viewers-count');
+        const badgeEl = document.getElementById('live-viewers-badge');
+        const labelEl = document.getElementById('live-viewers-label');
+        if (!countEl || !badgeEl) return;
+
+        const STORAGE_ID = 'farever_anon_id';
+        let sessionId = sessionStorage.getItem(STORAGE_ID);
+        if (!sessionId) {
+            sessionId = 'anon_' + Math.random().toString(36).slice(2,10) + '_' + Date.now().toString(36);
+            sessionStorage.setItem(STORAGE_ID, sessionId);
+        }
+
+        const BASE_URL = CF_WORKER_URL.replace(/\/+$/,'');
+        const WS_URL = BASE_URL.replace('https://', 'wss://').replace('http://', 'ws://') + '/presence-ws?id=' + encodeURIComponent(sessionId);
+        const POLL_URL = BASE_URL + '/presence';
+
+        let lastCount = null;
+        let ws = null;
+        let pollTimer = null;
+        let reconnectAttempts = 0;
+
+        function renderCount(count, source) {
+            if (typeof count !== 'number' || isNaN(count)) return;
+            lastCount = count;
+            countEl.textContent = count;
+            const mode = source === 'ws' ? 'live WebSocket' : 'polling fallback';
+            badgeEl.title = `${count} anonymous viewer${count===1?'':'s'} online now via ${mode} — no IP / personal data stored. Shows ALL tabs.`;
+            if (labelEl) labelEl.textContent = 'online';
+        }
+
+        function startPollingFallback() {
+            if (pollTimer) return;
+            async function poll() {
+                try {
+                    const res = await fetch(POLL_URL, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({id: sessionId}) });
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (typeof data.count === 'number') renderCount(data.count, 'poll');
+                    }
+                } catch {}
+            }
+            poll();
+            pollTimer = setInterval(poll, 8000);
+        }
+
+        function stopPolling() {
+            if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+        }
+
+        function connectWS() {
+            if (ws && ws.readyState === 1) return;
+            try {
+                ws = new WebSocket(WS_URL);
+
+                ws.onopen = () => {
+                    reconnectAttempts = 0;
+                    stopPolling();
+                };
+
+                ws.onmessage = (ev) => {
+                    try {
+                        const data = JSON.parse(ev.data);
+                        if (typeof data.count === 'number') renderCount(data.count, 'ws');
+                    } catch {}
+                };
+
+                ws.onclose = () => {
+                    ws = null;
+                    reconnectAttempts++;
+                    if (reconnectAttempts < 3) {
+                        setTimeout(connectWS, 1500 * reconnectAttempts);
+                    } else {
+                        startPollingFallback();
+                    }
+                };
+
+                ws.onerror = () => {
+                    try { ws.close(); } catch {}
+                };
+
+            } catch (e) {
+                startPollingFallback();
+            }
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+            } else {
+                if (!ws || ws.readyState !== 1) connectWS();
+            }
+        });
+
+        connectWS();
+
+        setTimeout(() => {
+            if (lastCount === null) {
+                renderCount(1, 'local');
+                badgeEl.title = 'Worker not yet updated — showing you only. Deploy worker-uncapped-websocket.js to enable uncapped live count for ALL viewers.';
+                badgeEl.style.opacity = '0.85';
+                startPollingFallback();
+            }
+        }, 3500);
+
+        window.addEventListener('beforeunload', () => {
+            try { if (ws && ws.readyState === 1) ws.close(); } catch {}
+            try {
+                const blob = new Blob([JSON.stringify({ id: sessionId, leave: true })], { type: 'application/json' });
+                navigator.sendBeacon(POLL_URL, blob);
+            } catch {}
+        });
+    }
+
     function setupLanguageSwitcher() {
         const buttons=document.querySelectorAll('#lang-switcher .lang-btn');
         function setActiveButton(lang){buttons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));}
@@ -3284,6 +3435,7 @@
         setupBuildNameModalCustomItemToggle();
         setupImageTooltip();
         setupLanguageSwitcher();
+        initLiveViewers();
         await loadAndRender();
 
         const toggleBtn=document.getElementById('update-log-toggle-btn');
