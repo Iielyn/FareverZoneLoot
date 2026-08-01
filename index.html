@@ -3192,6 +3192,7 @@
 
                 ws.onopen = () => {
                     reconnectAttempts = 0;
+                    stopPolling();
                 };
 
                 ws.onmessage = (ev) => {
@@ -3206,6 +3207,8 @@
                     reconnectAttempts++;
                     if (reconnectAttempts < 5) {
                         setTimeout(connectWS, 1500 * reconnectAttempts);
+                    } else {
+                        startPollingFallback();
                     }
                 };
 
@@ -3214,7 +3217,7 @@
                 };
 
             } catch (e) {
-                console.log('WS failed, using polling');
+                startPollingFallback();
             }
         }
 
@@ -3223,8 +3226,8 @@
                 if (!ws || ws.readyState !== 1) connectWS();
             }
         });
+
         connectWS();
-        startPollingFallback();
 
         setTimeout(() => {
             if (lastCount === null) {
