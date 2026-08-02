@@ -1251,6 +1251,7 @@
 
     const STORAGE_KEY = 'farever_data_v11';
     const VERSION_KEY = 'farever_data_version_v2';
+    const DATA_HASH_KEY = 'farever_data_hash_v1';
     const DATA_URL = './farever_data.json';
     const CF_WORKER_URL = 'https://snowy-voice-b4ca.manytears812.workers.dev'; 
 
@@ -1680,17 +1681,22 @@
         return { zones };
     }
 
-    async function fetchData(url) { const resp=await fetch(url,{cache:'no-cache'}); if(!resp.ok)throw new Error('Fetch failed'); return await resp.json(); }
+    async function fetchDataText(url) {
+        const resp = await fetch(url, { cache: 'no-cache' });
+        if (!resp.ok) throw new Error('Fetch failed');
+        const text = await resp.text();
+        return { text: text, data: JSON.parse(text) };
+    }
 
     async function loadData() {
-        let serverData=null, serverVersion='0', updateLog='';
-        try { serverData=await fetchData(DATA_URL); serverVersion=serverData.version||'0'; updateLog=serverData.updateLog||''; } catch(e){}
+        let serverData=null, serverVersion='0', updateLog='', textHash='';
+        try { const fetched=await fetchDataText(DATA_URL); serverData=fetched.data; textHash=simpleHash(fetched.text); serverVersion=serverData.version||'0'; updateLog=serverData.updateLog||''; } catch(e){}
         if(!serverData){
             try { const raw=localStorage.getItem(STORAGE_KEY); if(raw){ const parsed=JSON.parse(raw); serverData={zones:parsed.zones,updateLog:parsed.updateLog||''}; updateLog=serverData.updateLog; } } catch(e){}
-            if(!serverData||!Array.isArray(serverData.zones))return{zones:[],version:'0',updateLog:''};
-            return{zones:serverData.zones,version:'0',updateLog};
+            if(!serverData||!Array.isArray(serverData.zones))return{zones:[],version:'0',updateLog:'',textHash:''};
+            return{zones:serverData.zones,version:'0',updateLog,textHash:''};
         }
-        return{zones:serverData.zones,version:serverVersion,updateLog};
+        return{zones:serverData.zones,version:serverVersion,updateLog,textHash};
     }
 
     function saveState() {
@@ -1713,28 +1719,42 @@
         localStorage.setItem(STORAGE_KEY, JSON.stringify(clean));
     }
 
-    async function checkForUpdate() {
+    async function checkForUpdate(fromProbe) {
         try {
-            const serverData=await fetchData(DATA_URL);
-            const serverVer=serverData.version||'0', serverUpdateLog=serverData.updateLog||'';
-            const localVer=localStorage.getItem(VERSION_KEY)||'0';
-            if(serverVer>localVer&&Array.isArray(serverData.zones)){
-                const newData=addDefaultsAndIds(serverData);
-                const oldZoneMap=new Map(appData.zones.map(z=>[z.id,z._open]));
-                const oldDungeonMap=new Map();
-                appData.zones.forEach(z=>z.dungeons.forEach(d=>oldDungeonMap.set(d.id,d._open)));
-                newData.zones.forEach(zone=>{
-                    if(oldZoneMap.has(zone.id))zone._open=oldZoneMap.get(zone.id);
-                    zone.dungeons.forEach(d=>{if(oldDungeonMap.has(d.id))d._open=oldDungeonMap.get(d.id);});
+            const fetched = await fetchDataText(DATA_URL);
+            const serverData = fetched.data;
+            const serverVer = serverData.version || '0', serverUpdateLog = serverData.updateLog || '';
+            const serverHash = simpleHash(fetched.text);
+            let hasUpdate;
+            if (fromProbe) {
+                hasUpdate = lastDataHash !== null && lastDataHash !== serverHash;
+                lastDataHash = serverHash;
+            } else {
+                const localVer = localStorage.getItem(VERSION_KEY) || '0';
+                const localHash = localStorage.getItem(DATA_HASH_KEY) || '';
+                hasUpdate = (serverVer > localVer) || (localHash && serverHash && serverHash !== localHash);
+            }
+            if (hasUpdate && Array.isArray(serverData.zones)) {
+                const newData = addDefaultsAndIds(serverData);
+                const oldZoneMap = new Map(appData.zones.map(z => [z.id, z._open]));
+                const oldDungeonMap = new Map();
+                appData.zones.forEach(z => z.dungeons.forEach(d => oldDungeonMap.set(d.id, d._open)));
+                newData.zones.forEach(zone => {
+                    if (oldZoneMap.has(zone.id)) zone._open = oldZoneMap.get(zone.id);
+                    zone.dungeons.forEach(d => { if (oldDungeonMap.has(d.id)) d._open = oldDungeonMap.get(d.id); });
                 });
-                appData.zones=newData.zones;
-                localStorage.setItem(VERSION_KEY,serverVer);
+                appData.zones = newData.zones;
+                localStorage.setItem(VERSION_KEY, serverVer);
+                localStorage.setItem(DATA_HASH_KEY, serverHash);
                 saveState();
                 renderUpdateLog(serverUpdateLog);
                 renderAll();
-                showToast(t('toast_data_updated')+serverVer);
+                if (fromProbe) {
+                    showToast(t('toast_data_updated') + serverVer);
+                    showUpdateBanner();
+                }
             }
-        } catch(e){}
+        } catch (e) {}
     }
 
     function renderDungeonName(name) {
@@ -3093,19 +3113,113 @@
         });
     }
 
-    async function checkIndexHtmlUpdate() {
-    try {
-        const resp = await fetch('index.html', { cache: 'no-store' });
-        const text = await resp.text();
-        const hash = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(text));
-        const hex = Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 8);
-        const last = localStorage.getItem('farever_index_hash');
-        if (last && last !== hex) {
-            document.getElementById('update-banner').classList.remove('hidden');
+    function simpleHash(str) {
+        let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+        for (let i = 0; i < str.length; i++) {
+            const ch = str.charCodeAt(i);
+            h1 = Math.imul(h1 ^ ch, 2654435761);
+            h2 = Math.imul(h2 ^ ch, 1597334677);
         }
-        localStorage.setItem('farever_index_hash', hex);
-    } catch (e) {}
-}
+        h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+        h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+        return (h2 >>> 0).toString(16) + (h1 >>> 0).toString(16);
+    }
+
+    function showUpdateBanner() {
+        const banner = document.getElementById('update-banner');
+        if (banner) banner.classList.remove('hidden');
+        console.log('[farever-update] Banner shown — refresh to get the new version');
+    }
+
+    async function checkIndexHtmlUpdate(fromProbe) {
+        try {
+            const path = window.location.pathname || 'index.html';
+            const sep = path.includes('?') ? '&' : '?';
+            const resp = await fetch(path + sep + 'cb=' + Date.now(), { cache: 'no-store' });
+            if (!resp.ok) return;
+            const hex = simpleHash(await resp.text());
+            if (fromProbe) {
+                if (lastIndexHash !== null && lastIndexHash !== hex) showUpdateBanner();
+                lastIndexHash = hex;
+            } else {
+                const last = localStorage.getItem('farever_index_hash_v2');
+                if (last && last !== hex) {
+                    const nav = window.performance && performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+                    const servedFromCache = nav ? nav.transferSize === 0 : false;
+                    if (servedFromCache) showUpdateBanner();
+                }
+                localStorage.setItem('farever_index_hash_v2', hex);
+            }
+        } catch (e) {
+            console.warn('[farever-update] index check failed:', e);
+        }
+    }
+
+    const PROBE_INTERVAL_MS = 5000;
+    let probeSeq = 0;
+    let indexTickCount = 0;
+    let dataTickCount = 0;
+    let indexNoValidatorTicks = 0;
+    let dataNoValidatorTicks = 0;
+    let lastIndexValidator = null;
+    let lastDataValidator = null;
+    let lastIndexHash = null;
+    let lastDataHash = null;
+
+    function getValidator(url) {
+        return fetch(url, { method: 'HEAD', cache: 'no-store' })
+            .then(resp => {
+                if (!resp.ok) return null;
+                const etag = resp.headers.get('etag');
+                const lm = resp.headers.get('last-modified');
+                if (!etag && !lm) return null;
+                return (etag || '') + '||' + (lm || '');
+            })
+            .catch(() => null);
+    }
+
+    async function probeIndexHtmlUpdate() {
+        if (document.hidden) return;
+        indexTickCount++;
+        if (indexTickCount % 60 === 0) { await checkIndexHtmlUpdate(true); return; }
+        const path = window.location.pathname || 'index.html';
+        const sep = path.includes('?') ? '&' : '?';
+        const validator = await getValidator(path + sep + 'cb=' + (++probeSeq));
+        if (validator) {
+            if (lastIndexValidator !== null && lastIndexValidator !== validator) {
+                console.log('[farever-update] index.html changed on the server — verifying…');
+                await checkIndexHtmlUpdate(true);
+            }
+            lastIndexValidator = validator;
+            indexNoValidatorTicks = 0;
+        } else {
+            indexNoValidatorTicks++;
+            if (indexNoValidatorTicks % 6 === 1) await checkIndexHtmlUpdate(true);
+        }
+    }
+
+    async function probeDataUpdate() {
+        if (document.hidden) return;
+        dataTickCount++;
+        if (dataTickCount % 60 === 0) { await checkForUpdate(true); return; }
+        const sep = DATA_URL.includes('?') ? '&' : '?';
+        const validator = await getValidator(DATA_URL + sep + 'cb=' + (++probeSeq));
+        if (validator) {
+            if (lastDataValidator !== null && lastDataValidator !== validator) {
+                console.log('[farever-update] farever_data.json changed on the server — verifying…');
+                await checkForUpdate(true);
+            }
+            lastDataValidator = validator;
+            dataNoValidatorTicks = 0;
+        } else {
+            dataNoValidatorTicks++;
+            if (dataNoValidatorTicks % 6 === 1) await checkForUpdate(true);
+        }
+    }
+
+    async function probeCheck() {
+        await Promise.all([probeIndexHtmlUpdate(), probeDataUpdate()]);
+    }
 
 function setupImageTooltip() {
         const tooltipEl=document.getElementById('image-tooltip');
@@ -3381,6 +3495,7 @@ function setupImageTooltip() {
         appData={zones:loaded.zones};
         appData.zones=addDefaultsAndIds({zones:appData.zones}).zones;
         localStorage.setItem(VERSION_KEY,loaded.version||'0');
+        if (loaded.textHash) localStorage.setItem(DATA_HASH_KEY, loaded.textHash);
         saveState();
 
         
@@ -3482,9 +3597,16 @@ function setupImageTooltip() {
         window.addEventListener('resize',()=>{if(popover.style.display==='block')positionPopover();});
         window.addEventListener('scroll',()=>{if(popover.style.display==='block')positionPopover();});
 
-        setInterval(checkForUpdate,5*60*1000);
         checkForUpdate();
         checkIndexHtmlUpdate();
+        lastIndexHash = localStorage.getItem('farever_index_hash_v2');
+        lastDataHash = localStorage.getItem(DATA_HASH_KEY) || null;
+        setInterval(probeCheck, PROBE_INTERVAL_MS);
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) probeCheck();
+        });
+        window.__fareverCheckNow = probeCheck;
+        console.log('[farever-update] active — watching index.html & farever_data.json (banner appears without refreshing)');
     }
 
     init();
