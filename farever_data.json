@@ -432,15 +432,9 @@
                   "image": "",
                   "levelData": {
                     "25": {
-                      "damageMin": 10,
-                      "damageMax": 14,
-                      "statValues": {
-                        "Vitality": 30,
-                        "Faith": 12,
-                        "Intelligence": 14,
-                        "Magic Penetration": 33,
-                        "Fervor": 33
-                      },
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -1522,14 +1516,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 104,
-                    "Vitality": 5,
-                    "Dexterity": 3,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
+                  "statValues": {},
                   "image": "images/Nep.r.m.belt20.png"
                 }
               },
@@ -2146,14 +2133,8 @@
                   "levelData": {
                     "25": {
                       "damageMin": 9,
-                      "damageMax": 12,
-                      "statValues": {
-                        "Vitality": 27,
-                        "Strength": 12,
-                        "Dexterity": 14,
-                        "Critical": 33,
-                        "Armor Penetration": 33
-                      },
+                      "damageMax": 0,
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -2288,15 +2269,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 99,
-                    "Vitality": 6,
-                    "Faith": 2,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
-                  "image": "images/Rats.m.p.feet20.png"
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -2357,12 +2331,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 149,
-                    "Vitality": 8,
-                    "Faith": 7,
-                    "Critical": 24
-                  },
+                  "statValues": {},
                   "image": "images/Rats.p.chest20.png"
                 }
               },
@@ -2489,13 +2458,9 @@
                   "image": "",
                   "levelData": {
                     "25": {
-                      "damageMin": 8,
-                      "damageMax": 10,
-                      "statValues": {
-                        "Vitality": 30,
-                        "Faith": 23,
-                        "Critical": 66
-                      },
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -3509,12 +3474,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 41,
-                    "Vitality": 4,
-                    "Faith": 4,
-                    "Critical": 13
-                  },
+                  "statValues": {},
                   "image": "images/Rats.p.cape20.png"
                 }
               },
@@ -3649,14 +3609,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 91,
-                    "Vitality": 6,
-                    "Faith": 2,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
+                  "statValues": {},
                   "image": "images/Rats.m.p.hands20.png"
                 }
               },
@@ -5169,8 +5122,8 @@
                 "Vitality",
                 "Dexterity",
                 "Intelligence",
-                "Magic Penetration",
-                "Critical"
+                "Critical",
+                "Magic Penetration"
               ],
               "skill1": {
                 "en": "",
@@ -5201,14 +5154,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 104,
-                    "Vitality": 5,
-                    "Dexterity": 3,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
+                  "statValues": {},
                   "image": "images/Nep.r.m.belt20.png"
                 }
               },
@@ -6443,8 +6389,8 @@
               "stats": [
                 "Armor",
                 "Vitality",
-                "Critical",
-                "Faith"
+                "Faith",
+                "Critical"
               ],
               "skill1": {
                 "en": "",
@@ -6475,12 +6421,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 149,
-                    "Vitality": 8,
-                    "Faith": 7,
-                    "Critical": 24
-                  },
+                  "statValues": {},
                   "image": "images/Rats.p.chest20.png"
                 }
               },
@@ -7026,14 +6967,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 91,
-                    "Vitality": 6,
-                    "Faith": 2,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
+                  "statValues": {},
                   "image": "images/Rats.m.p.hands20.png"
                 }
               },
@@ -7503,12 +7437,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 41,
-                    "Vitality": 4,
-                    "Faith": 4,
-                    "Critical": 13
-                  },
+                  "statValues": {},
                   "image": "images/Rats.p.cape20.png"
                 }
               },
@@ -7708,15 +7637,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 99,
-                    "Vitality": 6,
-                    "Faith": 2,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
-                  "image": "images/Rats.m.p.feet20.png"
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -8096,13 +8018,7 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 30,
-                        "Strength": 12,
-                        "Intelligence": 14,
-                        "Armor Penetration": 33,
-                        "Fervor": 33
-                      },
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -8180,15 +8096,9 @@
                   "image": "",
                   "levelData": {
                     "25": {
-                      "damageMin": 10,
-                      "damageMax": 14,
-                      "statValues": {
-                        "Vitality": 20,
-                        "Dexterity": 10,
-                        "Faith": 9,
-                        "Magic Penetration": 28,
-                        "Fervor": 28
-                      },
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -8236,15 +8146,9 @@
                   "image": "",
                   "levelData": {
                     "25": {
-                      "damageMin": 10,
-                      "damageMax": 14,
-                      "statValues": {
-                        "Vitality": 27,
-                        "Dexterity": 14,
-                        "Faith": 12,
-                        "Magic Penetration": 33,
-                        "Fervor": 33
-                      },
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -8787,13 +8691,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 132,
-                    "Vitality": 7,
-                    "Dexterity": 4,
-                    "Intelligence": 4,
-                    "Fervor": 24
-                  },
+                  "statValues": {},
                   "image": "images/Ladybee.r.m.head20.png"
                 }
               },
@@ -8926,12 +8824,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 138,
-                    "Vitality": 5,
-                    "Dexterity": 6,
-                    "Fervor": 18
-                  },
+                  "statValues": {},
                   "image": "images/Bee.r.shoulders20.png"
                 }
               },
@@ -9131,14 +9024,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 170,
-                    "Vitality": 7,
-                    "Dexterity": 4,
-                    "Faith": 3,
-                    "Magic Penetration": 12,
-                    "Fervor": 12
-                  },
+                  "statValues": {},
                   "image": "images/Ladybee.r.p.chest20.png"
                 }
               },
@@ -9750,13 +9636,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 113,
-                    "Vitality": 5,
-                    "Dexterity": 3,
-                    "Intelligence": 3,
-                    "Fervor": 18
-                  },
+                  "statValues": {},
                   "image": "images/Ladybee.r.m.feet20.png"
                 }
               },
@@ -10484,14 +10364,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 170,
-                    "Vitality": 7,
-                    "Dexterity": 4,
-                    "Faith": 3,
-                    "Magic Penetration": 12,
-                    "Fervor": 12
-                  },
+                  "statValues": {},
                   "image": "images/Ladybee.r.p.chest20.png"
                 }
               },
@@ -10555,13 +10428,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 113,
-                    "Vitality": 5,
-                    "Dexterity": 3,
-                    "Intelligence": 3,
-                    "Fervor": 18
-                  },
+                  "statValues": {},
                   "image": "images/Ladybee.r.m.feet20.png"
                 }
               },
@@ -10831,12 +10698,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 138,
-                    "Vitality": 5,
-                    "Dexterity": 6,
-                    "Fervor": 18
-                  },
+                  "statValues": {},
                   "image": "images/Bee.r.shoulders20.png"
                 }
               },
@@ -11042,13 +10904,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 132,
-                    "Vitality": 7,
-                    "Dexterity": 4,
-                    "Intelligence": 4,
-                    "Fervor": 24
-                  },
+                  "statValues": {},
                   "image": "images/Ladybee.r.m.head20.png"
                 }
               },
@@ -11957,9 +11813,7 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {
-                        "Armor": 436
-                      },
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -11977,9 +11831,7 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {
-                        "Armor": 468
-                      },
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -12265,13 +12117,7 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 20,
-                        "Dexterity": 10,
-                        "Faith": 9,
-                        "Critical": 28,
-                        "Armor Penetration": 28
-                      },
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -12393,8 +12239,8 @@
                 "Vitality",
                 "Faith",
                 "Intelligence",
-                "Magic Penetration",
-                "Critical"
+                "Critical",
+                "Magic Penetration"
               ],
               "skill1": {
                 "en": "",
@@ -12425,15 +12271,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 99,
-                    "Vitality": 6,
-                    "Faith": 2,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
-                  "image": "images/Rats.m.p.feet20.png"
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -13073,8 +12912,8 @@
               "stats": [
                 "Armor",
                 "Vitality",
-                "Critical",
-                "Faith"
+                "Faith",
+                "Critical"
               ],
               "skill1": {
                 "en": "",
@@ -13105,12 +12944,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 149,
-                    "Vitality": 8,
-                    "Faith": 7,
-                    "Critical": 24
-                  },
+                  "statValues": {},
                   "image": "images/Rats.p.chest20.png"
                 }
               },
@@ -13235,12 +13069,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 41,
-                    "Vitality": 4,
-                    "Faith": 4,
-                    "Critical": 13
-                  },
+                  "statValues": {},
                   "image": "images/Rats.p.cape20.png"
                 }
               },
@@ -13375,14 +13204,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 91,
-                    "Vitality": 6,
-                    "Faith": 2,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
+                  "statValues": {},
                   "image": "images/Rats.m.p.hands20.png"
                 }
               },
@@ -13893,12 +13715,7 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 23,
-                        "Dexterity": 12,
-                        "Intelligence": 12,
-                        "Critical": 62
-                      },
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -13914,12 +13731,7 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 27,
-                        "Dexterity": 14,
-                        "Intelligence": 14,
-                        "Critical": 66
-                      },
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -14136,13 +13948,7 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 22,
-                        "Faith": 9,
-                        "Intelligence": 10,
-                        "Magic Penetration": 28,
-                        "Fervor": 28
-                      },
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -14164,13 +13970,7 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 26,
-                        "Faith": 10,
-                        "Intelligence": 12,
-                        "Magic Penetration": 31,
-                        "Fervor": 31
-                      },
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -14192,13 +13992,7 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 30,
-                        "Faith": 12,
-                        "Intelligence": 14,
-                        "Magic Penetration": 33,
-                        "Fervor": 33
-                      },
+                      "statValues": {},
                       "image": ""
                     }
                   }
@@ -15156,14 +14950,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 104,
-                    "Vitality": 5,
-                    "Dexterity": 3,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
+                  "statValues": {},
                   "image": "images/Nep.r.m.belt20.png"
                 }
               },
@@ -16525,12 +16312,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 138,
-                    "Vitality": 5,
-                    "Dexterity": 6,
-                    "Fervor": 18
-                  },
+                  "statValues": {},
                   "image": "images/Bee.r.shoulders20.png"
                 }
               },
@@ -16592,13 +16374,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 132,
-                    "Vitality": 7,
-                    "Dexterity": 4,
-                    "Intelligence": 4,
-                    "Fervor": 24
-                  },
+                  "statValues": {},
                   "image": "images/Ladybee.r.m.head20.png"
                 }
               },
@@ -16734,14 +16510,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 170,
-                    "Vitality": 7,
-                    "Dexterity": 4,
-                    "Faith": 3,
-                    "Magic Penetration": 12,
-                    "Fervor": 12
-                  },
+                  "statValues": {},
                   "image": "images/Ladybee.r.p.chest20.png"
                 }
               },
@@ -17487,13 +17256,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 113,
-                    "Vitality": 5,
-                    "Dexterity": 3,
-                    "Intelligence": 3,
-                    "Fervor": 18
-                  },
+                  "statValues": {},
                   "image": "images/Ladybee.r.m.feet20.png"
                 }
               },
@@ -18501,12 +18264,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 41,
-                    "Vitality": 4,
-                    "Faith": 4,
-                    "Critical": 13
-                  },
+                  "statValues": {},
                   "image": "images/Rats.p.cape20.png"
                 }
               },
@@ -18569,14 +18327,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 91,
-                    "Vitality": 6,
-                    "Faith": 2,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
+                  "statValues": {},
                   "image": "images/Rats.m.p.hands20.png"
                 }
               },
@@ -19186,15 +18937,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 99,
-                    "Vitality": 6,
-                    "Faith": 2,
-                    "Intelligence": 3,
-                    "Critical": 9,
-                    "Magic Penetration": 9
-                  },
-                  "image": "images/Rats.m.p.feet20.png"
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -19432,12 +19176,7 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {
-                    "Armor": 149,
-                    "Vitality": 8,
-                    "Faith": 7,
-                    "Critical": 24
-                  },
+                  "statValues": {},
                   "image": "images/Rats.p.chest20.png"
                 }
               },
@@ -19775,7 +19514,7 @@
                 "es": ""
               },
               "level": 25,
-              "experimentalScope": "unknown",
+              "experimentalScope": "faction",
               "levelData": {
                 "25": {
                   "statValues": {},
@@ -19806,6 +19545,22 @@
                   }
                 },
                 {
+                  "rarity": "purple",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {},
+                      "image": ""
+                    }
+                  }
+                },
+                {
                   "rarity": "legendary",
                   "damageMin": 0,
                   "damageMax": 0,
@@ -19816,13 +19571,8 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 38,
-                        "Dexterity": 20,
-                        "Intelligence": 20,
-                        "Critical": 81
-                      },
-                      "image": "images/HornsoftheWindL.png"
+                      "statValues": {},
+                      "image": ""
                     }
                   }
                 }
