@@ -13731,8 +13731,13 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 38,
+                        "Dexterity": 20,
+                        "Intelligence": 20,
+                        "Critical": 81
+                      },
+                      "image": "images/HornsoftheWindL.png"
                     }
                   }
                 }
@@ -16313,7 +16318,7 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Bee.r.shoulders20.png"
+                  "image": ""
                 }
               },
               "rare": false,
@@ -19571,8 +19576,13 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 38,
+                        "Dexterity": 20,
+                        "Intelligence": 20,
+                        "Critical": 81
+                      },
+                      "image": "images/HornsoftheWindL.png"
                     }
                   }
                 }
@@ -21779,6 +21789,52 @@
               },
               "rare": false,
               "image": "images/NiflelianDragoon.png"
+            },
+            {
+              "name": {
+                "en": "Irascible Nightdog",
+                "fr": "Chien de nuit irascible",
+                "es": "Perro nocturno irascible"
+              },
+              "types": [
+                "Mount"
+              ],
+              "stats": [],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": "images/IrascibleNightdog.png"
+                }
+              },
+              "rare": false,
+              "image": "images/IrascibleNightdog.png"
             }
           ]
         },
