@@ -1682,7 +1682,7 @@
     }
 
     async function fetchDataText(url) {
-        const resp = await fetch(url, { cache: 'no-cache' });
+        const resp = await fetch(url, { cache: 'no-cache', headers: { 'Cache-Control': 'no-cache' } });
         if (!resp.ok) throw new Error('Fetch failed');
         const text = await resp.text();
         return { text: text, data: JSON.parse(text) };
@@ -1733,6 +1733,7 @@
                 const localVer = localStorage.getItem(VERSION_KEY) || '0';
                 const localHash = localStorage.getItem(DATA_HASH_KEY) || '';
                 hasUpdate = (serverVer > localVer) || (localHash && serverHash && serverHash !== localHash);
+                lastDataHash = serverHash;
             }
             if (hasUpdate && Array.isArray(serverData.zones)) {
                 const newData = addDefaultsAndIds(serverData);
@@ -3135,7 +3136,7 @@
         try {
             const path = window.location.pathname || 'index.html';
             const sep = path.includes('?') ? '&' : '?';
-            const resp = await fetch(path + sep + 'cb=' + Date.now(), { cache: 'no-store' });
+            const resp = await fetch(path + sep + 'cb=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } });
             if (!resp.ok) return;
             const hex = simpleHash(await resp.text());
             if (fromProbe) {
@@ -3149,6 +3150,7 @@
                     if (servedFromCache) showUpdateBanner();
                 }
                 localStorage.setItem('farever_index_hash_v2', hex);
+                lastIndexHash = hex;
             }
         } catch (e) {
             console.warn('[farever-update] index check failed:', e);
@@ -3167,7 +3169,7 @@
     let lastDataHash = null;
 
     function getValidator(url) {
-        return fetch(url, { method: 'HEAD', cache: 'no-store' })
+        return fetch(url, { method: 'HEAD', cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
             .then(resp => {
                 if (!resp.ok) return null;
                 const etag = resp.headers.get('etag');
@@ -3178,8 +3180,118 @@
             .catch(() => null);
     }
 
+
+    const IS_GITHUB_PAGES = /\.github\.io$/i.test(window.location.hostname);
+    let rawBase = null;
+    let rawResolvePromise = null;
+    let lastRawIndexValidator = null;
+    let lastRawDataValidator = null;
+    let pendingIndexHash = null;   
+    let pendingDataHash = null;   
+    let lastPagesIndexValidator = null;  
+    let lastPagesDataValidator = null;
+
+
+    function ensureRawBase() {
+        if (rawBase) return Promise.resolve(rawBase);
+        if (!rawResolvePromise) {
+            rawResolvePromise = (async () => {
+                const user = window.location.hostname.split('.')[0];
+                const repo = (window.location.pathname.split('/')[1] || '');
+                for (const branch of ['main', 'master']) {
+                    try {
+                        const resp = await fetch('https://raw.githubusercontent.com/' + user + '/' + repo + '/' + branch + '/index.html', { method: 'HEAD', cache: 'no-store' });
+                        if (resp.ok) { rawBase = 'https://raw.githubusercontent.com/' + user + '/' + repo + '/' + branch; return; }
+                    } catch (e) {}
+                }
+                rawBase = null;
+            })();
+        }
+        return rawResolvePromise.then(() => rawBase);
+    }
+
+    async function verifyRaw(kind) {
+        const file = kind === 'index' ? 'index.html' : 'farever_data.json';
+        const url = rawBase + '/' + file;
+        const resp = await fetch(url, { cache: 'no-store' });
+        if (!resp.ok) return;
+        const hex = simpleHash(await resp.text());
+        if (kind === 'index') {
+            if (lastIndexHash !== null && hex !== lastIndexHash && hex !== pendingIndexHash) {
+                pendingIndexHash = hex;
+                console.log('[farever-update] New index.html detected on raw — holding the banner until the GitHub Pages CDN actually serves it (so Refresh really gets the update).');
+            }
+        } else {
+            if (lastDataHash !== null && hex !== lastDataHash && hex !== pendingDataHash) {
+                pendingDataHash = hex;
+                console.log('[farever-update] New farever_data.json detected on raw — holding until the CDN serves it.');
+            }
+        }
+    }
+
+    async function checkCdnReady(kind) {
+        if (document.hidden) return;
+        const pending = kind === 'index' ? pendingIndexHash : pendingDataHash;
+        if (!pending) return;
+        const url = kind === 'index' ? (window.location.pathname || 'index.html') : DATA_URL;
+        const validator = await getValidator(url);
+        if (!validator) return;
+        const last = kind === 'index' ? lastPagesIndexValidator : lastPagesDataValidator;
+        if (last === null) {
+            if (kind === 'index') lastPagesIndexValidator = validator; else lastPagesDataValidator = validator;
+            return;
+        }
+        if (validator === last) return; 
+        if (kind === 'index') lastPagesIndexValidator = validator; else lastPagesDataValidator = validator;
+        const resp = await fetch(url, { cache: 'no-store' });
+        if (!resp.ok) return;
+        const hex = simpleHash(await resp.text());
+        if (hex !== pending) {
+            if (kind === 'index') pendingIndexHash = hex; else pendingDataHash = hex;
+            console.log('[farever-update] CDN now serves an even newer version — waiting for it to settle…');
+            return;
+        }
+        if (kind === 'index') {
+            showUpdateBanner();
+            lastIndexHash = hex;
+            pendingIndexHash = null;
+            localStorage.setItem('farever_index_hash_v2', hex);
+            console.log('[farever-update] CDN now serves the new index.html — banner shown.');
+        } else {
+            await checkForUpdate(true);
+            pendingDataHash = null;
+        }
+    }
+
+    async function probeGithubRaw(kind) {
+        if (document.hidden) return;
+        const file = kind === 'index' ? 'index.html' : 'farever_data.json';
+        const url = rawBase + '/' + file;
+        if (kind === 'index') indexTickCount++; else dataTickCount++;
+        const needFull = kind === 'index' ? (indexTickCount % 60 === 0) : (dataTickCount % 60 === 0);
+        const validator = await getValidator(url + '?cb=' + (++probeSeq));
+        if (validator) {
+            const last = kind === 'index' ? lastRawIndexValidator : lastRawDataValidator;
+            if (last !== null && last !== validator) {
+                console.log('[farever-update] ' + file + ' changed on the server — verifying…');
+                await verifyRaw(kind);
+            } else if (needFull) {
+                await verifyRaw(kind);
+            }
+            if (kind === 'index') lastRawIndexValidator = validator; else lastRawDataValidator = validator;
+        } else {
+            const ticks = kind === 'index' ? indexNoValidatorTicks++ : dataNoValidatorTicks++;
+            if (needFull || ticks % 6 === 1) await verifyRaw(kind);
+        }
+        await checkCdnReady(kind);
+    }
+
     async function probeIndexHtmlUpdate() {
         if (document.hidden) return;
+        if (IS_GITHUB_PAGES) {
+            const base = await ensureRawBase();
+            if (base) { await probeGithubRaw('index'); return; }
+        }
         indexTickCount++;
         if (indexTickCount % 60 === 0) { await checkIndexHtmlUpdate(true); return; }
         const path = window.location.pathname || 'index.html';
@@ -3200,6 +3312,10 @@
 
     async function probeDataUpdate() {
         if (document.hidden) return;
+        if (IS_GITHUB_PAGES) {
+            const base = await ensureRawBase();
+            if (base) { await probeGithubRaw('data'); return; }
+        }
         dataTickCount++;
         if (dataTickCount % 60 === 0) { await checkForUpdate(true); return; }
         const sep = DATA_URL.includes('?') ? '&' : '?';
@@ -3597,10 +3713,8 @@ function setupImageTooltip() {
         window.addEventListener('resize',()=>{if(popover.style.display==='block')positionPopover();});
         window.addEventListener('scroll',()=>{if(popover.style.display==='block')positionPopover();});
 
-        checkForUpdate();
-        checkIndexHtmlUpdate();
-        lastIndexHash = localStorage.getItem('farever_index_hash_v2');
-        lastDataHash = localStorage.getItem(DATA_HASH_KEY) || null;
+        await checkForUpdate();
+        await checkIndexHtmlUpdate();
         setInterval(probeCheck, PROBE_INTERVAL_MS);
         document.addEventListener('visibilitychange', () => {
             if (!document.hidden) probeCheck();
