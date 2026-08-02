@@ -1286,7 +1286,7 @@
             empty_no_match_title:'No zones or dungeons match your filters.', empty_no_match_desc:'Try adjusting the search or clearing some filters.',
             badge_item_singular:'item', badge_item_plural:'items', badge_dungeon_singular:'dungeon', badge_dungeon_plural:'dungeons',
             header_subtitle:'dungeon drop database', cap_badge_text:'All stats at Lv{level}',
-            image_unavailable:'🖼️ Image not available', toast_data_updated:'🔄 Data updated to version ',
+            image_unavailable:'🖼️ Image not available', online:'online', toast_data_updated:'🔄 Data updated to version ',
             stat_Armor:'Armor', stat_Vitality:'Vitality', stat_Strength:'Strength', stat_Dexterity:'Dexterity',
             stat_Faith:'Faith', stat_Intelligence:'Intelligence', stat_Critical:'Critical',
             stat_Armor_Penetration:'Armor Penetration', stat_Magic_Penetration:'Magic Penetration', stat_Fervor:'Fervor',
@@ -1346,7 +1346,7 @@
             empty_no_match_title:'Aucune zone ou donjon ne correspond à vos filtres.', empty_no_match_desc:'Essayez d\'ajuster la recherche ou de supprimer des filtres.',
             badge_item_singular:'objet', badge_item_plural:'objets', badge_dungeon_singular:'donjon', badge_dungeon_plural:'donjons',
             header_subtitle:'Base de données personnelle de drops de donjons', cap_badge_text:'Toutes les stats au Nv{level}',
-            image_unavailable:'Image indisponible', toast_data_updated:'🔄 Données mises à jour version ',
+            image_unavailable:'Image indisponible', online:'en ligne', toast_data_updated:'🔄 Données mises à jour version ',
             stat_Armor:'Armure', stat_Vitality:'Vitalité', stat_Strength:'Force', stat_Dexterity:'Dextérité',
             stat_Faith:'Foi', stat_Intelligence:'Intelligence', stat_Critical:'Critique',
             stat_Armor_Penetration:'Pénétration d\'armure', stat_Magic_Penetration:'Pénétration magique', stat_Fervor:'Ferveur',
@@ -1405,7 +1405,7 @@
             empty_no_match_title:'Ninguna zona o mazmorra coincide con los filtros.', empty_no_match_desc:'Intenta ajustar la búsqueda o limpiar filtros.',
             badge_item_singular:'objeto', badge_item_plural:'objetos', badge_dungeon_singular:'mazmorra', badge_dungeon_plural:'mazmorras',
             header_subtitle:'Base de datos personal de drops de mazmorras', cap_badge_text:'Todas las stats en Nv{level}',
-            image_unavailable:'Imagen no disponible', toast_data_updated:'🔄 Datos actualizados a versión ',
+            image_unavailable:'Imagen no disponible', online:'en línea', toast_data_updated:'🔄 Datos actualizados a versión ',
             stat_Armor:'Armadura', stat_Vitality:'Vitalidad', stat_Strength:'Fuerza', stat_Dexterity:'Destreza',
             stat_Faith:'Fe', stat_Intelligence:'Inteligencia', stat_Critical:'Crítico',
             stat_Armor_Penetration:'Penetración de armadura', stat_Magic_Penetration:'Penetración mágica', stat_Fervor:'Fervor',
@@ -2318,6 +2318,7 @@
     }
 
     function updateStaticUITexts() {
+        document.getElementById('live-viewers-label').textContent=t('online');
         document.getElementById('filter-label').textContent=t('filter_label');
         document.getElementById('class-label').textContent=t('class_label');
         document.getElementById('stats-label').textContent=t('stats_label');
@@ -3412,7 +3413,7 @@ function setupImageTooltip() {
             if (typeof count !== 'number' || isNaN(count)) return;
             lastCount = count;
             countEl.textContent = count;
-            if (labelEl) labelEl.textContent = 'online';
+            if (labelEl) labelEl.textContent = t('online');
         }
 
         function startPollingFallback() {
