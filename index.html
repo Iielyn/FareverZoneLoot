@@ -3093,7 +3093,21 @@
         });
     }
 
-    function setupImageTooltip() {
+    async function checkIndexHtmlUpdate() {
+    try {
+        const resp = await fetch('index.html', { cache: 'no-store' });
+        const text = await resp.text();
+        const hash = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(text));
+        const hex = Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 8);
+        const last = localStorage.getItem('farever_index_hash');
+        if (last && last !== hex) {
+            document.getElementById('update-banner').classList.remove('hidden');
+        }
+        localStorage.setItem('farever_index_hash', hex);
+    } catch (e) {}
+}
+
+function setupImageTooltip() {
         const tooltipEl=document.getElementById('image-tooltip');
         const imgEl=tooltipEl.querySelector('img');
         const placeholderEl=tooltipEl.querySelector('.broken-placeholder');
@@ -3470,6 +3484,7 @@
 
         setInterval(checkForUpdate,5*60*1000);
         checkForUpdate();
+        checkIndexHtmlUpdate();
     }
 
     init();
