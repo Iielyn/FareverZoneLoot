@@ -1516,8 +1516,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/EmblemoftheThirdWave.png"
                 }
               },
               "rare": false,
@@ -2460,8 +2467,12 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 42,
+                        "Faith": 33,
+                        "Critical": 81
+                      },
+                      "image": "images/FlameofArgolL.png"
                     }
                   }
                 }
@@ -5154,8 +5165,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Nep.r.m.belt20.png"
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/EmblemoftheThirdWave.png"
                 }
               },
               "rare": false,
@@ -8691,8 +8709,14 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Ladybee.r.m.head20.png"
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Fervor": 30
+                  },
+                  "image": "images/ScoutAntennae.png"
                 }
               },
               "rare": false,
@@ -10904,8 +10928,14 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Ladybee.r.m.head20.png"
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Fervor": 30
+                  },
+                  "image": "images/ScoutAntennae.png"
                 }
               },
               "rare": false,
@@ -11813,8 +11843,10 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Armor": 517
+                      },
+                      "image": "images/MagmaMiaP.png"
                     }
                   }
                 },
@@ -14955,8 +14987,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Nep.r.m.belt20.png"
+                  "statValues": {
+                    "Armor": 125,
+                    "Vitality": 7,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/EmblemoftheThirdWave.png"
                 }
               },
               "rare": false,
@@ -16379,8 +16418,14 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Ladybee.r.m.head20.png"
+                  "statValues": {
+                    "Armor": 159,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Intelligence": 6,
+                    "Fervor": 30
+                  },
+                  "image": "images/ScoutAntennae.png"
                 }
               },
               "rare": false,
@@ -19560,8 +19605,13 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 33,
+                        "Dexterity": 17,
+                        "Intelligence": 17,
+                        "Critical": 75
+                      },
+                      "image": "images/HornsoftheWindP.png"
                     }
                   }
                 },
