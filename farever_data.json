@@ -2038,7 +2038,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -2311,8 +2312,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Critical": 30
+                  },
+                  "image": "images/GoldilocksThriceLatchedJacket.png"
                 }
               },
               "rare": false,
@@ -2369,7 +2375,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -4355,7 +4362,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -6360,8 +6368,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Critical": 30
+                  },
+                  "image": "images/GoldilocksThriceLatchedJacket.png"
                 }
               },
               "rare": false,
@@ -7995,7 +8008,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -8742,7 +8756,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -9796,7 +9811,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -9995,7 +10011,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -10597,7 +10614,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -11666,7 +11684,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -12824,8 +12843,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Critical": 30
+                  },
+                  "image": "images/GoldilocksThriceLatchedJacket.png"
                 }
               },
               "rare": false,
@@ -13797,7 +13821,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -15350,7 +15375,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -15484,7 +15510,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -15695,7 +15722,8 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {}
+                  "statValues": {},
+                  "image": ""
                 }
               },
               "rare": false,
@@ -19001,8 +19029,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 179,
+                    "Vitality": 11,
+                    "Faith": 10,
+                    "Critical": 30
+                  },
+                  "image": "images/GoldilocksThriceLatchedJacket.png"
                 }
               },
               "rare": false,
