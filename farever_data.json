@@ -69,11 +69,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/IronFins20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/IronFins20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -223,7 +222,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -355,11 +353,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/GhostClams20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/GhostClams20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -560,7 +557,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.trinket20.png",
               "statValues": {
                 "Fervor": 26
               }
@@ -622,7 +618,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -687,7 +682,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -757,7 +751,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -829,7 +822,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.m.cheast20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 8,
@@ -901,7 +893,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.r.shoulders20.png",
               "statValues": {
                 "Armor": 174,
                 "Vitality": 5,
@@ -973,7 +964,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.r.m.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -1040,7 +1030,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.head20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 6,
@@ -1105,7 +1094,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.head20.png",
               "statValues": {
                 "Armor": 232,
                 "Vitality": 8,
@@ -1175,7 +1163,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.r.m.shoulders20.png",
               "statValues": {
                 "Armor": 123,
                 "Vitality": 5,
@@ -1247,7 +1234,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.p.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -1319,7 +1305,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.p.back20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -1391,7 +1376,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.p.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -1458,7 +1442,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.hands20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -1528,7 +1511,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.m.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -1600,7 +1582,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.m.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -1672,7 +1653,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.w.r.legs20.png",
               "statValues": {
                 "Armor": 214,
                 "Vitality": 7,
@@ -1809,7 +1789,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.m.feet20.png",
               "statValues": {
                 "Armor": 144,
                 "Vitality": 6,
@@ -1876,7 +1855,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.m.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -1941,7 +1919,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.feet20.png",
               "statValues": {
                 "Armor": 128,
                 "Vitality": 5,
@@ -2061,12 +2038,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/CheeseMoon20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/CheeseMoon20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -2221,7 +2196,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.trinket20.png",
               "statValues": {
                 "Armor Penetration": 26
               }
@@ -2281,7 +2255,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -2339,11 +2312,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.p.chest20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -2397,12 +2369,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/FlameOfArgol20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/FlameOfArgol20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -2540,7 +2510,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -2607,7 +2576,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.back20.png",
               "statValues": {
                 "Armor": 53,
                 "Vitality": 3,
@@ -2672,7 +2640,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -2740,7 +2707,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.p.waist20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -2806,7 +2772,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.belt20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -2876,7 +2841,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.p.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -2948,7 +2912,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.r.feet20.png",
               "statValues": {
                 "Armor": 161,
                 "Vitality": 5,
@@ -3161,7 +3124,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -3228,7 +3190,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.shoulders20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 6,
@@ -3293,7 +3254,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -3358,7 +3318,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -3428,7 +3387,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.m.cape20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -3486,11 +3444,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.p.cape20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -3560,7 +3517,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.m.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -3621,11 +3577,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.m.p.hands20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -3697,7 +3652,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.p.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -3769,7 +3723,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.legs20.png",
               "statValues": {
                 "Armor": 151,
                 "Vitality": 7,
@@ -3836,7 +3789,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.legs20.png",
               "statValues": {
                 "Armor": 265,
                 "Vitality": 8,
@@ -3901,7 +3853,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -4026,7 +3977,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.w.r.legs20.png",
               "statValues": {
                 "Armor": 214,
                 "Vitality": 7,
@@ -4098,7 +4048,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.p.back20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -4154,11 +4103,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/CrabKneecap20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/CrabKneecap20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -4284,7 +4232,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.m.feet20.png",
               "statValues": {
                 "Armor": 144,
                 "Vitality": 6,
@@ -4408,12 +4355,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Clawdius20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/Clawdius20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -4563,7 +4508,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -4700,7 +4644,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.m.cheast20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 8,
@@ -4772,7 +4715,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -4836,7 +4778,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.trinket20.png",
               "statValues": {
                 "Fervor": 26
               }
@@ -4898,7 +4839,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.m.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -4968,7 +4908,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.p.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -5035,7 +4974,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.head20.png",
               "statValues": {
                 "Armor": 232,
                 "Vitality": 8,
@@ -5105,7 +5043,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.r.m.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -5177,7 +5114,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.m.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -5244,7 +5180,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.hands20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -5309,7 +5244,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.feet20.png",
               "statValues": {
                 "Armor": 128,
                 "Vitality": 5,
@@ -5379,7 +5313,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.r.m.shoulders20.png",
               "statValues": {
                 "Armor": 123,
                 "Vitality": 5,
@@ -5451,7 +5384,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.r.shoulders20.png",
               "statValues": {
                 "Armor": 174,
                 "Vitality": 5,
@@ -5590,7 +5522,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -5655,7 +5586,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.head20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 6,
@@ -5725,7 +5655,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.p.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -5792,7 +5721,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -5862,7 +5790,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.m.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -5990,7 +5917,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.trinket20.png",
               "statValues": {
                 "Armor Penetration": 26
               }
@@ -6055,7 +5981,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.p.waist20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -6121,7 +6046,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.legs20.png",
               "statValues": {
                 "Armor": 265,
                 "Vitality": 8,
@@ -6176,11 +6100,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/TwinFangs20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/TwinFangs20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -6310,7 +6233,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.m.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -6382,7 +6304,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.m.cape20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -6440,11 +6361,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.p.chest20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -6514,7 +6434,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.p.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -6581,7 +6500,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -6646,7 +6564,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.shoulders20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 6,
@@ -6716,7 +6633,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.r.feet20.png",
               "statValues": {
                 "Armor": 161,
                 "Vitality": 5,
@@ -6788,7 +6704,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -6855,7 +6770,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -6925,7 +6839,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -6986,11 +6899,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.m.p.hands20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -7057,7 +6969,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.back20.png",
               "statValues": {
                 "Armor": 53,
                 "Vitality": 3,
@@ -7127,7 +7038,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.p.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -7194,7 +7104,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -7259,7 +7168,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.belt20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -7456,11 +7364,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.p.cape20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -7530,7 +7437,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.legs20.png",
               "statValues": {
                 "Armor": 151,
                 "Vitality": 7,
@@ -7597,7 +7503,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -7660,7 +7565,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -7957,11 +7861,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/CeremonialStinger20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/CeremonialStinger20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -8092,12 +7995,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Thornlace20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/Thornlace20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -8307,7 +8208,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -8374,7 +8274,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -8439,7 +8338,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -8509,7 +8407,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.p.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -8579,7 +8476,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.m.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -8720,7 +8616,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -8791,7 +8686,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.p.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -8848,12 +8742,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Bee.r.shoulders20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/Bee.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -8918,7 +8810,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -9049,11 +8940,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Ladybee.r.p.chest20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -9257,7 +9147,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -9322,7 +9211,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -9464,7 +9352,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.p.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -9531,7 +9418,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Bee.r.legs20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 6,
@@ -9601,7 +9487,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.p.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -9661,11 +9546,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Ladybee.r.m.feet20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.m.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -9855,7 +9739,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.p.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -9913,12 +9796,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/IpheionStar20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/IpheionStar20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -10114,12 +9995,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Beefury20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/Beefury20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -10269,7 +10148,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.p.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -10389,11 +10267,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Ladybee.r.p.chest20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -10453,11 +10330,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Ladybee.r.m.feet20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.m.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -10667,7 +10543,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Bee.r.legs20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 6,
@@ -10722,12 +10597,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Bee.r.shoulders20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/Bee.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -10869,7 +10742,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.p.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -10939,7 +10811,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -11077,7 +10948,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -11147,7 +11017,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -11214,7 +11083,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -11282,7 +11150,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.m.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -11348,7 +11215,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -11413,7 +11279,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -11555,7 +11420,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.p.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -11622,7 +11486,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -11803,12 +11666,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/MagmaMia20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/MagmaMia20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -11930,7 +11791,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.p.waist20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -12001,7 +11861,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.p.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -12068,7 +11927,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -12126,11 +11984,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/GorgonToothpick20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/GorgonToothpick20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -12245,7 +12102,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -12308,7 +12164,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -12380,7 +12235,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.m.cape20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -12447,7 +12301,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -12517,7 +12370,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -12581,7 +12433,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.trinket20.png",
               "statValues": {
                 "Armor Penetration": 26
               }
@@ -12643,7 +12494,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.belt20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -12854,7 +12704,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -12921,7 +12770,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.shoulders20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 6,
@@ -12977,11 +12825,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.p.chest20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -13046,7 +12893,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.back20.png",
               "statValues": {
                 "Armor": 53,
                 "Vitality": 3,
@@ -13102,11 +12948,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.p.cape20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -13176,7 +13021,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.p.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -13237,11 +13081,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.m.p.hands20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -13313,7 +13156,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.m.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -13385,7 +13227,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.r.feet20.png",
               "statValues": {
                 "Armor": 161,
                 "Vitality": 5,
@@ -13520,7 +13361,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.w.r.legs20.png",
               "statValues": {
                 "Armor": 214,
                 "Vitality": 7,
@@ -13592,7 +13432,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -13656,7 +13495,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.trinket20.png",
               "statValues": {
                 "Fervor": 26
               }
@@ -13837,7 +13675,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -13904,7 +13741,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.hands20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -13961,12 +13797,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/BookMiMizan20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/BookMiMizan20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -14093,7 +13927,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.head20.png",
               "statValues": {
                 "Armor": 232,
                 "Vitality": 8,
@@ -14158,7 +13991,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -14223,7 +14055,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.head20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 6,
@@ -14293,7 +14124,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.r.shoulders20.png",
               "statValues": {
                 "Armor": 174,
                 "Vitality": 5,
@@ -14365,7 +14195,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.r.m.shoulders20.png",
               "statValues": {
                 "Armor": 123,
                 "Vitality": 5,
@@ -14437,7 +14266,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.p.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -14574,7 +14402,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.m.cheast20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 8,
@@ -14646,7 +14473,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.p.back20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -14718,7 +14544,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.r.m.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -14790,7 +14615,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.p.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -14857,7 +14681,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crab.m.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -14927,7 +14750,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.m.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -14999,7 +14821,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.m.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -15208,7 +15029,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nepsid.w.m.feet20.png",
               "statValues": {
                 "Armor": 144,
                 "Vitality": 6,
@@ -15275,7 +15095,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Crabg.m.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -15340,7 +15159,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Nep.r.feet20.png",
               "statValues": {
                 "Armor": 128,
                 "Vitality": 5,
@@ -15532,12 +15350,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/PocketHive20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/PocketHive20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -15668,12 +15484,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/Honeyzabeth.w.m.Wingsabers20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/Honeyzabeth.w.m.Wingsabers20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -15881,12 +15695,10 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": "images/IpheionStar20.png"
+                  "statValues": {}
                 }
               },
               "rare": false,
-              "image": "images/IpheionStar20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -16020,7 +15832,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -16361,7 +16172,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Bee.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -16429,7 +16239,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -16500,7 +16309,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.p.head20.png",
               "statValues": {
                 "Armor": 116,
                 "Vitality": 8,
@@ -16561,11 +16369,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Ladybee.r.p.chest20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.p.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -16637,7 +16444,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -16709,7 +16515,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.p.cape20.png",
               "statValues": {
                 "Armor": 47,
                 "Vitality": 4,
@@ -16776,7 +16581,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -16841,7 +16645,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -16909,7 +16712,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.m.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -16975,7 +16777,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -17045,7 +16846,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.p.belt20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -17117,7 +16917,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.m.p.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -17184,7 +16983,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Bee.r.legs20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 6,
@@ -17249,7 +17047,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -17307,11 +17104,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Ladybee.r.m.feet20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Ladybee.r.m.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -17639,7 +17435,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.head20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 7,
@@ -17783,7 +17578,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.r.feet20.png",
               "statValues": {
                 "Armor": 161,
                 "Vitality": 5,
@@ -17847,7 +17641,6 @@
                 }
               },
               "rare": false,
-              "image": "images/TwinPillars20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -17992,7 +17785,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.shoulders20.png",
               "statValues": {
                 "Armor": 215,
                 "Vitality": 6,
@@ -18057,7 +17849,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.shoulders20.png",
               "statValues": {
                 "Armor": 108,
                 "Vitality": 6,
@@ -18122,7 +17913,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.shoulders20.png",
               "statValues": {
                 "Armor": 138,
                 "Vitality": 5,
@@ -18192,7 +17982,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.m.cape20.png",
               "statValues": {
                 "Armor": 60,
                 "Vitality": 4,
@@ -18259,7 +18048,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.back20.png",
               "statValues": {
                 "Armor": 53,
                 "Vitality": 3,
@@ -18315,11 +18103,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.p.cape20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.cape20.png",
               "statValues": {
                 "Armor": 41,
                 "Vitality": 4,
@@ -18378,11 +18165,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.m.p.hands20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.p.hands20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -18454,7 +18240,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.p.hands20.png",
               "statValues": {
                 "Armor": 104,
                 "Vitality": 5,
@@ -18526,7 +18311,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.m.hands20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -18596,7 +18380,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.p.waist20.png",
               "statValues": {
                 "Armor": 132,
                 "Vitality": 6,
@@ -18662,7 +18445,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.belt20.png",
               "statValues": {
                 "Armor": 117,
                 "Vitality": 4,
@@ -18727,7 +18509,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.belt20.png",
               "statValues": {
                 "Armor": 91,
                 "Vitality": 6,
@@ -18797,7 +18578,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.legs20.png",
               "statValues": {
                 "Armor": 151,
                 "Vitality": 7,
@@ -18864,7 +18644,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.legs20.png",
               "statValues": {
                 "Armor": 133,
                 "Vitality": 8,
@@ -18929,7 +18708,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.w.legs20.png",
               "statValues": {
                 "Armor": 265,
                 "Vitality": 8,
@@ -18992,7 +18770,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.m.p.feet20.png",
               "statValues": {
                 "Armor": 99,
                 "Vitality": 6,
@@ -19064,7 +18841,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.p.feet20.png",
               "statValues": {
                 "Armor": 113,
                 "Vitality": 5,
@@ -19128,7 +18904,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Rats.trinket20.png",
               "statValues": {
                 "Armor Penetration": 26
               }
@@ -19227,11 +19002,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Rats.p.chest20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Rats.p.chest20.png",
               "statValues": {
                 "Armor": 149,
                 "Vitality": 8,
@@ -19301,7 +19075,6 @@
                 }
               },
               "rare": false,
-              "image": "images/Kob.r.m.chest20.png",
               "statValues": {
                 "Armor": 170,
                 "Vitality": 7,
@@ -19358,11 +19131,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Judgement20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/Judgement20.png",
               "variants": [
                 {
                   "rarity": "blue",
@@ -20522,11 +20294,10 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/AmonRam20.png"
+                  "image": ""
                 }
               },
               "rare": false,
-              "image": "images/AmonRam20.png",
               "variants": [
                 {
                   "rarity": "blue",
