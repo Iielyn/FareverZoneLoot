@@ -876,7 +876,7 @@
 
 <div class="main-content"><main class="container" id="zones-container"></main></div>
 
-<footer class="site-footer" id="site-footer">&copy; 2026 Farever &mdash; Created by <span class="creator-name">Iielyn</span>. All rights reserved. Images and certain data sourced from the <a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>, licensed under <a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. Game assets are property of the game's creators.</footer>
+<footer class="site-footer" id="site-footer">&copy; 2026 Farever &mdash; Created by <span class="creator-name">Iielyn</span>. All rights reserved. Game assets are property of the game's creators.</footer>
 
 <div class="modal-overlay" id="build-name-modal">
     <div class="modal-content" style="max-width:420px;">
@@ -953,7 +953,7 @@
             search_placeholder:'Search items...', suggest_button:'💡 Suggest',
             toast_filters_cleared:'All filters cleared', toast_favorites_cleared:'Favorites cleared',
             scroll_top_title:'Back to top',
-            footer_text:'© 2026 Farever — Created by {creator}. Images and data from {wiki_link}, licensed {license_link}.',
+            footer_text:'© 2026 Farever — Created by {creator}. Game assets are property of the game\'s creators.',
             empty_no_zones_title:'No zones available.', empty_no_zones_desc:'Load your JSON data to begin.',
             empty_no_match_title:'No zones or dungeons match your filters.', empty_no_match_desc:'Try adjusting the search or clearing some filters.',
             badge_item_singular:'item', badge_item_plural:'items', badge_dungeon_singular:'dungeon', badge_dungeon_plural:'dungeons',
@@ -1015,7 +1015,7 @@
             search_placeholder:'Rechercher...', suggest_button:'💡 Suggérer',
             toast_filters_cleared:'Tous les filtres effacés', toast_favorites_cleared:'Favoris effacés',
             scroll_top_title:'Retour en haut',
-            footer_text:'© 2026 Farever — Créé par {creator}. Images et données de {wiki_link}, sous licence {license_link}.',
+            footer_text:'© 2026 Farever — Créé par {creator}. Les actifs du jeu appartiennent à ses créateurs.',
             empty_no_zones_title:'Aucune zone disponible.', empty_no_zones_desc:'Chargez vos données JSON pour commencer.',
             empty_no_match_title:'Aucune zone ou donjon ne correspond à vos filtres.', empty_no_match_desc:'Essayez d\'ajuster la recherche ou de supprimer des filtres.',
             badge_item_singular:'objet', badge_item_plural:'objets', badge_dungeon_singular:'donjon', badge_dungeon_plural:'donjons',
@@ -1076,7 +1076,7 @@
             search_placeholder:'Buscar...', suggest_button:'💡 Sugerir',
             toast_filters_cleared:'Todos los filtros limpiados', toast_favorites_cleared:'Favoritos eliminados',
             scroll_top_title:'Volver arriba',
-            footer_text:'© 2026 Farever — Creado por {creator}. Imágenes y datos de {wiki_link}, con licencia {license_link}.',
+            footer_text:'© 2026 Farever — Creado por {creator}. Los activos del juego son propiedad de sus creadores.',
             empty_no_zones_title:'No hay zonas disponibles.', empty_no_zones_desc:'Carga tus datos JSON para empezar.',
             empty_no_match_title:'Ninguna zona o mazmorra coincide con los filtros.', empty_no_match_desc:'Intenta ajustar la búsqueda o limpiar filtros.',
             badge_item_singular:'objeto', badge_item_plural:'objetos', badge_dungeon_singular:'mazmorra', badge_dungeon_plural:'mazmorras',
@@ -2046,9 +2046,7 @@
         document.querySelector('#builds-header .label').textContent=t('builds_header');
         const footerText=t('footer_text');
         const creatorName='<span class="creator-name">Iielyn</span>';
-        const wikiLink='<a href="https://farever.wiki" target="_blank" rel="noopener noreferrer">Farever Wiki</a>';
-        const licenseLink='<a href="https://creativecommons.org" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>';
-        const footerHtml=footerText.replace('{creator}',creatorName).replace('{wiki_link}',wikiLink).replace('{license_link}',licenseLink);
+        const footerHtml=footerText.replace('{creator}',creatorName);
         document.getElementById('support-link-text').textContent=t('support_button');
         document.getElementById('site-footer').innerHTML=footerHtml;
         document.getElementById('build-name-modal-title').textContent=t('save_build_modal_title');
