@@ -2009,13 +2009,13 @@
           "name": {
             "en": "Mine Estrone · Lv7 · Full Dungeon",
             "fr": "Mine Estrone · Lv7 · Donjon Complet",
-            "es": "Mina Estrona · Lv7 · Mazmorra Completa"
+            "es": "Mina Estrone · Lv7 · Mazmorra Completa"
           },
           "loot": [
             {
               "name": {
                 "en": "Cheese Moon",
-                "fr": "Lune Au Fromage",
+                "fr": "Lune Fromagère",
                 "es": "Luna De Queso"
               },
               "types": [
@@ -3961,7 +3961,7 @@
           "name": {
             "en": "Crabgantua's Gorge · Lv8 · Boss Only",
             "fr": "Gorge De Crabgantua · Lv8 · Boss Uniquement",
-            "es": "Garganta De Crabgantua · Lv8 · Solo Jefe"
+            "es": "Desfiladero De Cangrantúa · Lv8 · Solo Jefe"
           },
           "loot": [
             {
@@ -4112,7 +4112,7 @@
               "name": {
                 "en": "Crabgantua's Kneecap",
                 "fr": "Rotule De Crabgantua",
-                "es": "Rótula De Crabgantua"
+                "es": "Rótula De Cangrantúa"
               },
               "types": [
                 "Shield"
@@ -5932,8 +5932,8 @@
         {
           "name": {
             "en": "Ratsar's Lair · Lv10 · Boss Only",
-            "fr": "Repaire De Ratsar · Lv10 · Boss Uniquement",
-            "es": "Guarida De Ratsar · Lv10 · Sólo Jefe"
+            "fr": "Nid De Ratsar · Lv10 · Boss Uniquement",
+            "es": "Guarida De Ratzar · Lv10 · Sólo Jefe"
           },
           "loot": [
             {
@@ -6132,8 +6132,8 @@
             {
               "name": {
                 "en": "Twin Fangs of Ratsar",
-                "fr": "Crocs Jumeaux De Ratsar",
-                "es": "Colmillos Gemelos De Ratsar"
+                "fr": "Canines Jumelles De Ratsar",
+                "es": "Colmillos Dobles De Ratzar"
               },
               "types": [
                 "Daggers"
@@ -7909,9 +7909,9 @@
             },
             {
               "name": {
-                "en": "Lady Bee's Ceremonial Stinger",
-                "fr": "Dard De Cérémonie De Lady Bee",
-                "es": "Aguijón Ceremonial De Lady Bee"
+                "en": "Lady Bee’s Ceremonial Stinger",
+                "fr": "Aiguillon De Cérémonie De Dame Abeille",
+                "es": "Aguijón Ceremonial De La Dama Abeja"
               },
               "types": [
                 "Spear"
@@ -9789,8 +9789,8 @@
         {
           "name": {
             "en": "Lady Bee's Palace · Lv13 · Boss Only",
-            "fr": "Palais De Lady Bee · Lv13 · Boss Uniquement",
-            "es": "Palacio De Lady Bee · Lv13 · Solo Jefe"
+            "fr": "Palais De Dame Beille · Lv13 · Boss Uniquement",
+            "es": "Palacio De Lady Abi · Lv13 · Solo Jefe"
           },
           "loot": [
             {
@@ -10068,8 +10068,8 @@
             {
               "name": {
                 "en": "Beefury, Blessed Blade of the Farseeker",
-                "fr": "Beefury, Lame Bénie Du Chercheur Lointain",
-                "es": "Beefury, Espada Bendita Del Buscador Lejano"
+                "fr": "Furabeille, La Sainte Lame Du Découvreur",
+                "es": "Abefuria, Espada Bendita Del Buscador Lejano"
               },
               "types": [
                 "Sword"
@@ -11754,8 +11754,8 @@
         {
           "name": {
             "en": "Ruins of Gorgon's Hollow · Lv15 · Full Dungeon",
-            "fr": "Ruines De Gorgon'S Hollow · Lv15 · Donjon Complet",
-            "es": "Ruinas Del Valle De Gorgona · Lv15 · Mazmorra Completa"
+            "fr": "Ruines Du Creux De Gorgone · Lv15 · Donjon Complet",
+            "es": "Ruinas De La Hondonada De Gorgona · Lv15 · Mazmorra Completa"
           },
           "loot": [
             {
@@ -12078,9 +12078,9 @@
             },
             {
               "name": {
-                "en": "Gorgon Ratsay's Toothpick",
-                "fr": "Cure-Dents De Gorgon Ratsay",
-                "es": "Palillo De Dientes De Gorgona Ratsay"
+                "en": "Gorgon Ratsay’s Toothpick",
+                "fr": "Cure-Dent De Gorgone Ratsay",
+                "es": "Palillo De Dientes De Gorgón Ratsay"
               },
               "types": [
                 "Spear"
@@ -13454,8 +13454,8 @@
         {
           "name": {
             "en": "Abyss of New Atlaan · Lv16 · Full Dungeon",
-            "fr": "Abysse De Nouvel Atlaan · Lv16 · Donjon Complet",
-            "es": "Abismo De Nuevo Atlaan · Lv16 · Mazmorra Completa"
+            "fr": "Abysses De La Nouvelle Atlaan · Lv16 · Donjon Complet",
+            "es": "Abismo De Nueva Atlántida · Lv16 · Mazmorra Completa"
           },
           "loot": [
             {
@@ -13664,8 +13664,8 @@
             {
               "name": {
                 "en": "Horns of the Wind",
-                "fr": "Cornes du vent",
-                "es": "Cuernos del viento"
+                "fr": "Cornes Des Vents",
+                "es": "Cuernos Del Viento"
               },
               "types": [
                 "Bow"
@@ -15406,9 +15406,9 @@
       "dungeons": [
         {
           "name": {
-            "en": "Honeyzabeth's Hivetrunk · Lv19 · Boss Only",
-            "fr": "Hivetrunk De Honeyzabeth · Lv19 · Boss Uniquement",
-            "es": "Hivetrunk De Honeyzabeth · Lv19 · Solo Jefe"
+            "en": "Honeyzabeth’s Hivetrunk · Lv19 · Boss Only",
+            "fr": "Tronc-Ruche D'Élizabeille · Lv19 · Boss Uniquement",
+            "es": "Tronco De La Colmena De Mielizabeth · Lv19 · Solo Jefe"
           },
           "loot": [
             {
@@ -17504,7 +17504,7 @@
         {
           "name": {
             "en": "Cheese Station · Lv19 · Full Dungeon",
-            "fr": "Station De Fromage · Lv19 · Donjon Complet",
+            "fr": "Station Fromagère · Lv19 · Donjon Complet",
             "es": "Estación De Queso · Lv19 · Mazmorra Completa"
           },
           "loot": [
@@ -19452,7 +19452,7 @@
         {
           "name": {
             "en": "Crimson Barracks · Lv22 · Full Dungeon",
-            "fr": "Caserne Pourpre · Lv22 · Donjon Complet",
+            "fr": "Caserne Écarlate · Lv22 · Donjon Complet",
             "es": "Cuartel Carmesí · Lv22 · Mazmorra completa"
           },
           "loot": [
@@ -19522,8 +19522,8 @@
             {
               "name": {
                 "en": "Horns of the Wind",
-                "fr": "Cornes du vent",
-                "es": "Cuernos del viento"
+                "fr": "Cornes Des Vents",
+                "es": "Cuernos Del Viento"
               },
               "types": [
                 "Bow"
@@ -19981,8 +19981,8 @@
         {
           "name": {
             "en": "Chakram's Chapel · Lv25 · Boss Only",
-            "fr": "Chapelle de Chakram · Lv25 · Boss uniquement",
-            "es": "Capilla de Chakram · Lv25 · Solo jefe"
+            "fr": "Chapelle De Chakragnel · Lv25 · Boss uniquement",
+            "es": "Capilla De Carnerán · Lv25 · Solo jefe"
           },
           "loot": [
             {
@@ -20476,8 +20476,8 @@
             {
               "name": {
                 "en": "Amon Ram, the Creator",
-                "fr": "Amon Ram, Le Créateur",
-                "es": "Amon Ram, El Creador"
+                "fr": "Amon Arès, Le Créateur",
+                "es": "Amón El Carnero, El Creador"
               },
               "types": [
                 "Mace"
@@ -21539,8 +21539,8 @@
             {
               "name": {
                 "en": "Nibsham's Liberators",
-                "fr": "Les libérateurs de Nibsham",
-                "es": "Los libertadores de Nibsham"
+                "fr": "Libératrices De Nibsham",
+                "es": "Liberadores De Nibsham"
               },
               "types": [
                 "Daggers"
