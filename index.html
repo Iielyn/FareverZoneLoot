@@ -2905,7 +2905,7 @@
         }
     }
 
-    const PROBE_INTERVAL_MS = 5000;
+    const PROBE_INTERVAL_MS = 60 * 1000;
     let probeSeq = 0;
     let indexTickCount = 0;
     let dataTickCount = 0;
@@ -3150,7 +3150,7 @@ function setupImageTooltip() {
         const BASE_URL = CF_WORKER_URL.replace(/\/+$/,'');
         const WS_URL = BASE_URL.replace('https://', 'wss://').replace('http://', 'ws://') + '/presence-ws?id=' + encodeURIComponent(sessionId);
         const POLL_URL = BASE_URL + '/presence';
-        const PRESENCE_INTERVAL_MS = 5000;
+        const PRESENCE_INTERVAL_MS = 60 * 1000;
 
         let lastCount = null;
         let ws = null;
@@ -3172,9 +3172,10 @@ function setupImageTooltip() {
             try {
                 const socketOpen = ws && ws.readyState === 1;
                 const socketConnecting = ws && ws.readyState === 0;
-                const useHttpFallback = !socketOpen && !socketConnecting;
+                if (socketOpen || socketConnecting) return;
+                const useHttpFallback = true;
                 const request = {
-                    method: useHttpFallback ? 'POST' : 'GET',
+                    method: 'POST',
                     cache: 'no-store'
                 };
                 if (useHttpFallback) {
