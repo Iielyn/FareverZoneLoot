@@ -2251,8 +2251,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 119,
+                    "Vitality": 9,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/GoldPouches.png"
                 }
               },
               "rare": false,
@@ -3450,8 +3457,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Faith": 6,
+                    "Critical": 16
+                  },
+                  "image": "images/MysticalPlacematoftheGourmet.png"
                 }
               },
               "rare": false,
@@ -3583,8 +3595,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/VowsofProsperity.png"
                 }
               },
               "rare": false,
@@ -6911,8 +6930,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/VowsofProsperity.png"
                 }
               },
               "rare": false,
@@ -7376,8 +7402,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Faith": 6,
+                    "Critical": 16
+                  },
+                  "image": "images/MysticalPlacematoftheGourmet.png"
                 }
               },
               "rare": false,
@@ -7573,8 +7604,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 119,
+                    "Vitality": 9,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/GoldPouches.png"
                 }
               },
               "rare": false,
@@ -8954,8 +8992,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 204,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/EmblemofRadiantNectar.png"
                 }
               },
               "rare": false,
@@ -10283,8 +10328,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 204,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/EmblemofRadiantNectar.png"
                 }
               },
               "rare": false,
@@ -12178,8 +12230,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 119,
+                    "Vitality": 9,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/GoldPouches.png"
                 }
               },
               "rare": false,
@@ -12971,8 +13030,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Faith": 6,
+                    "Critical": 16
+                  },
+                  "image": "images/MysticalPlacematoftheGourmet.png"
                 }
               },
               "rare": false,
@@ -13104,8 +13168,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/VowsofProsperity.png"
                 }
               },
               "rare": false,
@@ -16396,8 +16467,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 204,
+                    "Vitality": 10,
+                    "Dexterity": 6,
+                    "Faith": 5,
+                    "Magic Penetration": 15,
+                    "Fervor": 15
+                  },
+                  "image": "images/EmblemofRadiantNectar.png"
                 }
               },
               "rare": false,
@@ -18130,8 +18208,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 50,
+                    "Vitality": 6,
+                    "Faith": 6,
+                    "Critical": 16
+                  },
+                  "image": "images/MysticalPlacematoftheGourmet.png"
                 }
               },
               "rare": false,
@@ -18192,8 +18275,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 109,
+                    "Vitality": 8,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/VowsofProsperity.png"
                 }
               },
               "rare": false,
@@ -18793,8 +18883,15 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 119,
+                    "Vitality": 9,
+                    "Faith": 4,
+                    "Intelligence": 4,
+                    "Critical": 11,
+                    "Magic Penetration": 11
+                  },
+                  "image": "images/GoldPouches.png"
                 }
               },
               "rare": false,
