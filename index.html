@@ -2905,7 +2905,7 @@
         }
     }
 
-    const PROBE_INTERVAL_MS = 60 * 1000;
+    const PROBE_INTERVAL_MS = 15 * 60 * 1000;
     let probeSeq = 0;
     let indexTickCount = 0;
     let dataTickCount = 0;
@@ -3138,9 +3138,12 @@ function setupImageTooltip() {
         const countEl = document.getElementById('live-viewers-count');
         const badgeEl = document.getElementById('live-viewers-badge');
         const labelEl = document.getElementById('live-viewers-label');
-        if (!countEl || !badgeEl) return;
+        if (!countEl || !badgeEl || !('WebSocket' in window)) return;
 
         const STORAGE_ID = 'farever_anon_id';
+        const WS_BACKOFF_KEY = 'farever_presence_ws_backoff_until';
+        const MAX_FAST_RECONNECTS = 2;
+        const BACKOFF_MS = 30 * 60 * 1000;
         let sessionId = sessionStorage.getItem(STORAGE_ID);
         if (!sessionId) {
             sessionId = 'anon_' + Math.random().toString(36).slice(2,10) + '_' + Date.now().toString(36);
@@ -3149,87 +3152,37 @@ function setupImageTooltip() {
 
         const BASE_URL = CF_WORKER_URL.replace(/\/+$/,'');
         const WS_URL = BASE_URL.replace('https://', 'wss://').replace('http://', 'ws://') + '/presence-ws?id=' + encodeURIComponent(sessionId);
-        const POLL_URL = BASE_URL + '/presence';
-        const PRESENCE_INTERVAL_MS = 60 * 1000;
 
         let lastCount = null;
         let ws = null;
-        let presenceTimer = null;
         let reconnectTimer = null;
         let reconnectAttempts = 0;
         let pageIsActive = !document.hidden;
-        let leaveSent = false;
 
-        function renderCount(count, source) {
+        function setApproximateState(text) {
+            if (lastCount === null) countEl.textContent = text || '—';
+            if (labelEl) labelEl.textContent = lastCount === null ? 'Live count connecting…' : t('online');
+            badgeEl.style.opacity = lastCount === null ? '0.78' : '';
+        }
+
+        function renderCount(count) {
             if (typeof count !== 'number' || isNaN(count)) return;
             lastCount = count;
             countEl.textContent = count;
             if (labelEl) labelEl.textContent = t('online');
+            badgeEl.style.opacity = '';
         }
 
-        async function sendPresence() {
-            if (!pageIsActive || leaveSent) return;
-            try {
-                const socketOpen = ws && ws.readyState === 1;
-                const socketConnecting = ws && ws.readyState === 0;
-                if (socketOpen || socketConnecting) return;
-                const useHttpFallback = true;
-                const request = {
-                    method: 'POST',
-                    cache: 'no-store'
-                };
-                if (useHttpFallback) {
-                    request.headers = {'Content-Type':'application/json'};
-                    request.body = JSON.stringify({id: sessionId});
-                }
-                const presenceUrl = useHttpFallback ? POLL_URL : POLL_URL + '?cb=' + Date.now();
-                const res = await fetch(presenceUrl, request);
-                if (res.ok) {
-                    const data = await res.json();
-                    if (pageIsActive && !leaveSent && typeof data.count === 'number') {
-                        renderCount(data.count, 'poll');
-                    }
-                }
-            } catch {}
+        function getBackoffUntil() {
+            return Number(localStorage.getItem(WS_BACKOFF_KEY) || '0') || 0;
         }
 
-        function startPresenceHeartbeat() {
-            if (presenceTimer) return;
-            sendPresence();
-            presenceTimer = setInterval(sendPresence, PRESENCE_INTERVAL_MS);
+        function setBackoff() {
+            localStorage.setItem(WS_BACKOFF_KEY, String(Date.now() + BACKOFF_MS));
+            setApproximateState('—');
         }
 
-        function stopPresenceHeartbeat() {
-            if (presenceTimer) {
-                clearInterval(presenceTimer);
-                presenceTimer = null;
-            }
-        }
-
-        function sendLeave() {
-            if (leaveSent) return;
-            leaveSent = true;
-            const payload = JSON.stringify({id: sessionId, leave: true});
-            let queued = false;
-            try {
-                if (navigator.sendBeacon) {
-                    const blob = new Blob([payload], {type: 'application/json'});
-                    queued = navigator.sendBeacon(POLL_URL, blob);
-                }
-            } catch {}
-            if (!queued) {
-                try {
-                    fetch(POLL_URL, {
-                        method: 'POST',
-                        keepalive: true,
-                        headers: {'Content-Type':'application/json'},
-                        body: payload
-                    }).catch(() => {});
-                } catch {}
-            }
-        }
-
-        function closeSocket() {
+        function closeSocket(reason) {
             if (reconnectTimer) {
                 clearTimeout(reconnectTimer);
                 reconnectTimer = null;
@@ -3237,14 +3190,18 @@ function setupImageTooltip() {
             if (ws) {
                 const socket = ws;
                 ws = null;
-                try { socket.close(1000, 'page hidden'); } catch {}
+                try { socket.close(1000, reason || 'closed'); } catch {}
             }
         }
 
         function scheduleReconnect() {
             if (!pageIsActive || reconnectTimer || (ws && ws.readyState === WebSocket.OPEN)) return;
             reconnectAttempts++;
-            const delay = Math.min(30000, 1500 * reconnectAttempts);
+            if (reconnectAttempts > MAX_FAST_RECONNECTS) {
+                setBackoff();
+                return;
+            }
+            const delay = 5000 * reconnectAttempts;
             reconnectTimer = setTimeout(() => {
                 reconnectTimer = null;
                 connectWS();
@@ -3253,29 +3210,37 @@ function setupImageTooltip() {
 
         function connectWS() {
             if (!pageIsActive || (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING))) return;
+            const backoffUntil = getBackoffUntil();
+            if (Date.now() < backoffUntil) {
+                setApproximateState('—');
+                reconnectTimer = setTimeout(() => {
+                    reconnectTimer = null;
+                    if (pageIsActive) connectWS();
+                }, Math.min(backoffUntil - Date.now(), BACKOFF_MS));
+                return;
+            }
             try {
+                setApproximateState('—');
                 const socket = new WebSocket(WS_URL);
                 ws = socket;
 
                 socket.onopen = () => {
                     if (ws !== socket) return;
                     reconnectAttempts = 0;
-                    sendPresence();
+                    localStorage.removeItem(WS_BACKOFF_KEY);
                 };
 
                 socket.onmessage = (ev) => {
                     try {
                         const data = JSON.parse(ev.data);
-                        if (typeof data.count === 'number') renderCount(data.count, 'ws');
+                        if (typeof data.count === 'number') renderCount(data.count);
+                        if (data.pause === true || data.quota === 'limited') setBackoff();
                     } catch {}
                 };
 
                 socket.onclose = () => {
                     if (ws === socket) ws = null;
-                    if (pageIsActive) {
-                        sendPresence();
-                        scheduleReconnect();
-                    }
+                    if (pageIsActive) scheduleReconnect();
                 };
 
                 socket.onerror = () => {
@@ -3288,16 +3253,12 @@ function setupImageTooltip() {
 
         function resumePresence() {
             pageIsActive = true;
-            leaveSent = false;
             connectWS();
-            startPresenceHeartbeat();
         }
 
         function pausePresence() {
             pageIsActive = false;
-            stopPresenceHeartbeat();
-            closeSocket();
-            sendLeave();
+            closeSocket('page hidden');
         }
 
         document.addEventListener('visibilitychange', () => {
@@ -3312,10 +3273,6 @@ function setupImageTooltip() {
         window.addEventListener('beforeunload', pausePresence);
 
         if (pageIsActive) resumePresence();
-
-        setTimeout(() => {
-            if (lastCount === null) badgeEl.style.opacity = '0.85';
-        }, 3500);
     }
 
     function setupLanguageSwitcher() {
@@ -3529,7 +3486,10 @@ function setupImageTooltip() {
 
         await checkForUpdate();
         await checkIndexHtmlUpdate();
-        setInterval(probeCheck, PROBE_INTERVAL_MS);
+        setTimeout(() => {
+            probeCheck();
+            setInterval(probeCheck, PROBE_INTERVAL_MS);
+        }, Math.floor(Math.random() * PROBE_INTERVAL_MS));
         document.addEventListener('visibilitychange', () => {
             if (!document.hidden) probeCheck();
         });
