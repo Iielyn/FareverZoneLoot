@@ -158,6 +158,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -436,6 +441,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -2142,6 +2152,12 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary",
+                "green"
               ]
             },
             {
@@ -2461,6 +2477,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -4195,6 +4216,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -4472,6 +4498,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -6197,6 +6228,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -7784,6 +7820,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             }
           ]
@@ -7996,6 +8037,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -8125,6 +8171,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -9941,6 +9992,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -10147,6 +10203,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -11801,6 +11862,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -12115,6 +12181,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -13707,6 +13778,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -13965,6 +14041,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -15531,6 +15612,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -15672,6 +15758,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -15873,6 +15964,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -17833,6 +17929,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -19339,6 +19440,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             }
           ]
@@ -19539,6 +19645,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -19703,6 +19814,10 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "legendary",
+                "purple"
               ]
             },
             {
@@ -20009,6 +20124,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "purple",
+                "blue",
+                "legendary"
               ]
             },
             {
@@ -20508,6 +20628,11 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "blue",
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -21248,28 +21373,6 @@
               "rare": false,
               "variants": [
                 {
-                  "rarity": "blue",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 32,
-                        "Strength": 12,
-                        "Faith": 12,
-                        "Magic Penetration": 35,
-                        "Fervor": 35
-                      },
-                      "image": "images/WorldsplitterB.png"
-                    }
-                  }
-                },
-                {
                   "rarity": "purple",
                   "damageMin": 0,
                   "damageMax": 0,
@@ -21313,6 +21416,10 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -21371,28 +21478,6 @@
               "rare": false,
               "variants": [
                 {
-                  "rarity": "blue",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 32,
-                        "Faith": 12,
-                        "Intelligence": 15,
-                        "Magic Penetration": 35,
-                        "Fervor": 35
-                      },
-                      "image": "images/MirrorsoftheNightgoddessesB.png"
-                    }
-                  }
-                },
-                {
                   "rarity": "purple",
                   "damageMin": 0,
                   "damageMax": 0,
@@ -21436,6 +21521,10 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -21534,6 +21623,10 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -21589,26 +21682,6 @@
               "rare": false,
               "variants": [
                 {
-                  "rarity": "blue",
-                  "damageMin": 0,
-                  "damageMax": 0,
-                  "statValues": {},
-                  "level": 25,
-                  "image": "",
-                  "levelData": {
-                    "25": {
-                      "damageMin": 0,
-                      "damageMax": 0,
-                      "statValues": {
-                        "Vitality": 32,
-                        "Intelligence": 30,
-                        "Critical": 69
-                      },
-                      "image": "images/SilhouetteofAlmazB.png"
-                    }
-                  }
-                },
-                {
                   "rarity": "purple",
                   "damageMin": 0,
                   "damageMax": 0,
@@ -21648,6 +21721,10 @@
                     }
                   }
                 }
+              ],
+              "dropRarities": [
+                "purple",
+                "legendary"
               ]
             },
             {
@@ -22987,6 +23064,327 @@
                 }
               },
               "rare": false
+            },
+            {
+              "name": {
+                "en": "Worldsplitter",
+                "fr": "Fendeur de mondes",
+                "es": "Partemundos"
+              },
+              "types": [
+                "Two-Handed Axe"
+              ],
+              "classes": [
+                "warrior",
+                "priest"
+              ],
+              "stats": [
+                "Vitality",
+                "Strength",
+                "Faith",
+                "Magic Penetration",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "Smashes the ground and deals 84.5% Strength + 84.5% Faith Physical to enemies, knocking them back and granting you a stack of Burning Appetite, stacking up to 3 times.",
+                "fr": "Écrase le sol et inflige 84,5 % de force + 84,5 % de foi physique aux ennemis, les repoussant et vous accordant une pile d'Appétit brûlant, cumulable jusqu'à 3 fois.",
+                "es": "Rompe el suelo y otorga 84,5 % de fuerza + 84,5 % de fe física a los enemigos, derribándolos y otorgándote una acumulación de Apetito ardiente, que se acumula hasta 3 veces."
+              },
+              "skill2": {
+                "en": "A huge slash in a cone dealing 150% Strength + 150% Faith Physical and reducing enemies Armor and Magic Resistance by -25% for 15s.",
+                "fr": "Une énorme entaille dans un cône infligeant 150 % de force + 150 % de foi physique et réduisant l'armure et la résistance magique des ennemis de -25 % pendant 15 secondes.",
+                "es": "Un gran corte en un cono que inflige 150 % de fuerza + 150 % de fe física y reduce la armadura y la resistencia mágica de los enemigos en un -25 % durante 15 s."
+              },
+              "skill3": {
+                "en": "Enter a dark state during 10s, increasing your Critical Chance, Magic Mastery, Physical Mastery and Cooldown Reduction by 10% to 15% but you are loosing 15% of your Maximum Health every 2s.",
+                "fr": "Entrez dans un état sombre pendant 10 secondes, augmentant vos chances de coup critique, votre maîtrise de la magie, votre maîtrise physique et votre réduction du temps de recharge de 10 % à 15 %, mais vous perdez 15 % de votre santé maximale toutes les 2 s.",
+                "es": "Entra en un estado oscuro durante 10 segundos, lo que aumenta tu probabilidad crítica, dominio mágico, dominio físico y reducción de tiempo de reutilización entre un 10 % y un 15 % pero estás perdiendo el 15 % de tu salud máxima cada 2 segundos."
+              },
+              "passive": {
+                "en": "Your next Final Combo Attack deals 30% increased damage and heal yourself for 50% of the damage dealt (30s cooldown).",
+                "fr": "Votre prochaine attaque combinée finale inflige 30 % de dégâts supplémentaires et vous soigne de 50 % des dégâts infligés (temps de recharge de 30 secondes).",
+                "es": "Tu próximo ataque combinado final inflige un 30 % más de daño y te cura un 50 % del daño infligido (reutilización de 30 s)."
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "dungeon",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "blue",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Strength": 12,
+                        "Faith": 12,
+                        "Magic Penetration": 35,
+                        "Fervor": 35,
+                        "Vitality": 32
+                      },
+                      "image": "images/WorldsplitterB.png"
+                    }
+                  }
+                }
+              ],
+              "dropRarities": [
+                "blue"
+              ]
+            },
+            {
+              "name": {
+                "en": "Mirrors of the Nightgoddesses",
+                "fr": "Miroirs des Déesses de la nuit",
+                "es": "Espejos de las Diosas de la Noche"
+              },
+              "types": [
+                "Halos"
+              ],
+              "classes": [
+                "priest",
+                "mage"
+              ],
+              "stats": [
+                "Vitality",
+                "Faith",
+                "Intelligence",
+                "Magic Penetration",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "Releases two chaos bolts, each dealing 38.5% Intellect + 38.5% Faith Magic to an enemy and applying a stack of Void Bomblet, stacking up to 4 times.\n\nYour Magic Weapon Skills detonate Void Bomblet, dealing 50% Intellect + 62.5% Intellect Chaos per stack.",
+                "fr": "Libère deux éclairs de chaos, chacun infligeant 38,5 % d'Intelligence + 38,5 % de Magie de Foi à un ennemi et appliquant une pile de Bomblette du Vide, cumulable jusqu'à 4 fois.\n\nVos compétences d'armes magiques font exploser Void Bomblet, infligeant 50 % d'Intelligence + 62,5 % de Chaos Intellect par pile.",
+                "es": "Libera dos rayos de caos, cada uno de los cuales inflige 38,5% de intelecto + 38,5% de magia de fe a un enemigo y aplica una acumulación de Void Bomblet, acumulándose hasta 4 veces.\n\nTus habilidades con armas mágicas detonan Bomba del Vacío, lo que provoca 50 % de intelecto + 62,5 % de caos de intelecto por acumulación."
+              },
+              "skill2": {
+                "en": "Teleports to the targeted area, dealing 150% Intellect Magic upon arrival to nearby enemies. Recast within 3s to teleport back to the initial position.",
+                "fr": "Se téléporte dans la zone ciblée, infligeant 150 % de magie intellectuelle à son arrivée aux ennemis proches. Relancez dans les 3 secondes pour vous téléporter à la position initiale.",
+                "es": "Se teletransporta al área objetivo e inflige 150 % de magia intelectual al llegar a los enemigos cercanos. Vuelve a lanzarlo en 3 segundos para teletransportarte de regreso a la posición inicial."
+              },
+              "skill3": {
+                "en": "Drops an area at your position, lasting 6s. If an enemy leaves the area, it gets stunned for 3s and take 80% Intellect + 80% Faith Magic.",
+                "fr": "Dépose une zone à votre position, d'une durée de 6 secondes. Si un ennemi quitte la zone, il est étourdi pendant 3 secondes et perd 80 % d'Intelligence + 80 % de Magie de Foi.",
+                "es": "Deja caer un área en tu posición, que dura 6 segundos. Si un enemigo abandona el área, queda aturdido durante 3 segundos y recibe 80% de intelecto + 80% de magia de fe."
+              },
+              "passive": {
+                "en": "As long as all Skills of this weapon are on cooldown, you are permanently protected by a Shield absorbing 70% Intellect + 87.5% Intellect damage.",
+                "fr": "Tant que toutes les Compétences de cette arme sont en temps de recharge, vous êtes protégé en permanence par un Bouclier absorbant 70% d'Intelligence + 87,5% de dégâts d'Intelligence.",
+                "es": "Mientras todas las habilidades de esta arma estén en tiempo de reutilización, estarás protegido permanentemente por un escudo que absorbe 70 % de intelecto + 87,5 % de daño de intelecto."
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "dungeon",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "blue",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 32,
+                        "Faith": 12,
+                        "Intelligence": 15,
+                        "Magic Penetration": 35,
+                        "Fervor": 36
+                      },
+                      "image": "images/MirrorsoftheNightgoddessesB.png"
+                    }
+                  }
+                }
+              ],
+              "dropRarities": [
+                "blue"
+              ]
+            },
+            {
+              "name": {
+                "en": "Nibsham's Liberators",
+                "fr": "Libératrices De Nibsham",
+                "es": "Liberadores De Nibsham"
+              },
+              "types": [
+                "Daggers"
+              ],
+              "classes": [
+                "rogue",
+                "mage"
+              ],
+              "stats": [
+                "Vitality",
+                "Dexterity",
+                "Intelligence",
+                "Fervor"
+              ],
+              "skill1": {
+                "en": "Strikes with both weapons, dealing 42.5% Dexterity Physical, 42.5% Intellect Magic to an enemy and marking them with Chaos Mark for 6s.",
+                "fr": "Frappe avec les deux armes, infligeant 42,5 % de Dextérité Physique et 42,5 % de Magie d'Intelligence à un ennemi et lui appliquant Marque du Chaos pendant 6 s.",
+                "es": "Golpea con ambas armas, infligiendo 42,5 % de destreza física y 42,5 % de magia de intelecto a un enemigo y aplicándole Marca del Caos durante 6 s."
+              },
+              "skill2": {
+                "en": "Jumps behind a target, dealing 60% Dexterity + 60% Intellect Physical. If the target is afflicted by Chaos Mark, consumes it to reset the cooldown.",
+                "fr": "Bondit derrière une cible, infligeant 60 % de Dextérité + 60 % d'Intelligence Physique. Si la cible est affectée par Marque du Chaos, celle-ci est consommée pour réinitialiser le temps de recharge.",
+                "es": "Salta detrás de un objetivo e inflige 60 % de destreza + 60 % de intelecto físico. Si el objetivo está afectado por Marca del Caos, la consume para restablecer el tiempo de reutilización."
+              },
+              "skill3": {
+                "en": "Spawns 2 void fangs that follow you. Recast the skill to throw a fang and deal 25% Dexterity + 25% Intellect Chaos to a target, applying Chaos Mark for 6s.",
+                "fr": "Fait apparaître 2 crocs du vide qui vous suivent. Relancez la compétence pour lancer un croc et infliger 25 % de Dextérité + 25 % de Chaos d'Intelligence à une cible, en appliquant Marque du Chaos pendant 6 s.",
+                "es": "Invoca 2 colmillos del vacío que te siguen. Vuelve a lanzar la habilidad para arrojar un colmillo e infligir 25 % de destreza + 25 % de caos de intelecto a un objetivo, aplicando Marca del Caos durante 6 s."
+              },
+              "passive": {
+                "en": "Your Weapon Skills burn enemies for 20% of the damage dealt over 6s.",
+                "fr": "Vos compétences d'armes brûlent les ennemis pour 20 % des dégâts infligés sur 6 s.",
+                "es": "Tus habilidades con armas queman a los enemigos por un 20 % del daño infligido durante 6 s."
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "blue",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 29,
+                        "Dexterity": 15,
+                        "Intelligence": 15,
+                        "Fervor": 69
+                      },
+                      "image": "images/NibshamsLiberatorsB.png"
+                    }
+                  }
+                }
+              ],
+              "dropRarities": [
+                "blue"
+              ]
+            },
+            {
+              "name": {
+                "en": "Silhouette of Almaz",
+                "fr": "Silhouette D'Almaz",
+                "es": "Silueta De Almaz"
+              },
+              "types": [
+                "Staff"
+              ],
+              "classes": [
+                "mage"
+              ],
+              "stats": [
+                "Vitality",
+                "Intelligence",
+                "Critical"
+              ],
+              "skill1": {
+                "en": "Casts four chaos bolts, each dealing 33.5% Intellect Magic to an enemy and having a 15% chance to reset the cooldown of Summon: Vile Imps.",
+                "fr": "Lance quatre éclairs de chaos, chacun infligeant 33,5 % de Magie d'Intelligence à un ennemi et ayant 15 % de chances de réinitialiser le temps de recharge d'Invocation : Diablotins Vils.",
+                "es": "Lanza cuatro rayos de caos, cada uno inflige 33,5 % de magia de intelecto a un enemigo y tiene un 15 % de probabilidad de restablecer el tiempo de reutilización de Invocar: Diablillos Viles."
+              },
+              "skill2": {
+                "en": "Channels to discharge all Demonic Charge charged, each dealing 20% Intellect Chaos.\n\nDuring combat, generates a stack of Demonic Charge each time one of your summons deals damage, stacking up to 20.",
+                "fr": "Canalise pour décharger toutes les charges de Charge démoniaque accumulées, chacune infligeant 20 % de Chaos d'Intelligence.\n\nEn combat, génère une charge de Charge démoniaque chaque fois que l'une de vos invocations inflige des dégâts, cumulable jusqu'à 20.",
+                "es": "Canaliza para descargar todas las acumulaciones de Carga demoníaca, cada una inflige 20 % de caos de intelecto.\n\nDurante el combate, genera una acumulación de Carga demoníaca cada vez que una de tus invocaciones inflige daño, acumulándose hasta 20."
+              },
+              "skill3": {
+                "en": "Summon 2 Imps dealing 20% Intellect Chaos every 1.5s. Lasts 12s.",
+                "fr": "Invoque 2 diablotins infligeant 20 % de Chaos d'Intelligence toutes les 1,5 s. Dure 12 s.",
+                "es": "Invoca 2 diablillos que infligen 20 % de caos de intelecto cada 1,5 s. Dura 12 s."
+              },
+              "passive": {
+                "en": "Your next Weapon Skill has no cooldown but costs you 50% of your remaining Health (30s cooldown).",
+                "fr": "Votre prochaine compétence d'arme n'a pas de temps de recharge, mais vous coûte 50 % de votre santé restante (30 s de temps de recharge).",
+                "es": "Tu próxima habilidad con arma no tiene tiempo de reutilización, pero te cuesta el 50 % de tu salud restante (30 s de reutilización)."
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": ""
+                }
+              },
+              "rare": false,
+              "variants": [
+                {
+                  "rarity": "blue",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {
+                        "Vitality": 32,
+                        "Intelligence": 30,
+                        "Critical": 69
+                      },
+                      "image": "images/SilhouetteofAlmazB.png"
+                    }
+                  }
+                }
+              ],
+              "dropRarities": [
+                "blue"
+              ]
             }
           ]
         }

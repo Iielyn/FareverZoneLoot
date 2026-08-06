@@ -375,6 +375,9 @@
             border: 1px solid rgba(99,102,241,0.15);
             box-shadow: 0 2px 8px rgba(99,102,241,0.08);
         }
+        .zone-icon svg, .dungeon-icon svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+        .zone-icon { color:#a5b4fc; }
+        .dungeon-icon { color:#f0c96b; }
         .zone-info { flex: 1; min-width: 0; }
         .zone-name-display {
             color: var(--text-bright); font-size: 1.15rem;
@@ -612,6 +615,8 @@
         .rarity-btn[data-rarity="purple"].active { background: rgba(168,85,247,0.15); border-color: #a855f7; color: #d8b4fe; }
         .rarity-btn[data-rarity="legendary"] { border-color: rgba(245,158,11,0.25); color: #fbbf24; }
         .rarity-btn[data-rarity="legendary"].active { background: rgba(245,158,11,0.15); border-color: #f59e0b; color: #fde68a; }
+        .rarity-split-note { display:block; margin:2px 0 6px 31px; color:#fcd34d; font-size:.61rem; font-weight:600; line-height:1.35; }
+        .rarity-split-note::before { content:'ⓘ'; margin-right:4px; color:#fbbf24; }
         .variant-level-warning { display: flex; align-items: center; gap: 5px; margin: 4px 0 0 31px; color: #fde68a; font-size: .65rem; font-weight: 500; line-height: 1.35; }
         .variant-level-warning[hidden] { display: none; }
         .variant-level-warning::before { content: '\26A0'; color: #fbbf24; font-size: .72rem; }
@@ -761,6 +766,12 @@
         .source-entry { display: flex; gap: 8px; align-items: flex-start; line-height: 1.4; padding: 6px 10px; border-radius: 8px; background: var(--surface2); border: 1px solid transparent; transition: all var(--transition); }
         .source-entry:first-child { background: rgba(99,102,241,0.06); border-color: rgba(99,102,241,0.10); }
         .source-entry:hover { border-color: var(--border-light); }
+        .source-entry[hidden] { display: none; }
+        .source-rarities { display:flex; gap:4px; flex-wrap:wrap; margin-top:4px; }
+        .source-rarity { font-size:.57rem; font-weight:700; padding:1px 5px; border-radius:999px; border:1px solid var(--border); color:var(--text-dim); }
+        .source-rarity.rarity-blue { color:#93c5fd; border-color:rgba(59,130,246,.4); }
+        .source-rarity.rarity-purple { color:#d8b4fe; border-color:rgba(168,85,247,.4); }
+        .source-rarity.rarity-legendary { color:#fde68a; border-color:rgba(245,158,11,.4); }
         .source-bullet { color: var(--accent); font-size: 0.5rem; padding-top: 4px; }
         #save-build-btn:disabled { opacity: 0.4; cursor: not-allowed; }
         #builds-wrapper #builds-dropdown { left: auto; right: 0; width: min(430px,calc(100vw - 24px)); min-width: 0; flex-direction: column; flex-wrap: nowrap; }
@@ -945,7 +956,7 @@
             warrior:'Warrior', rogue:'Rogue', mage:'Mage', priest:'Priest',
             weapons:'Weapons', armor:'Armor', mount:'Mount', glider:'Glider', type_group_other:'Other',
             item_name:'Item Name', item_type:'Item Type', classes:'Classes', stats_header:'Stats', lv:'Lv',
-            full_dungeon:'Full Dungeon', boss_only:'Boss Only', rarity_label:'Rarity:',
+            full_dungeon:'Full Dungeon', boss_only:'Boss Only', rarity_label:'Rarity:', rarity_split_notice:'Other rarities drop elsewhere.',
             blue:'Blue', purple:'Purple', legendary:'Legendary',
             comparison_level:'Compare at', level_25_status:'Lv25 · WIP',
             level_data_pending:'Lv{level} data pending', pending_variant_warning:'Lv{level} data for this rarity is not yet verified.',
@@ -1008,7 +1019,7 @@
             warrior:'Guerrier', rogue:'Voleur', mage:'Mage', priest:'Prêtre',
             weapons:'Armes', armor:'Armure', mount:'Monture', glider:'Planeur', type_group_other:'Autre',
             item_name:'Nom', item_type:'Type', classes:'Classes', stats_header:'Statistiques', lv:'Nv',
-            full_dungeon:'Donjon complet', boss_only:'Boss seul', rarity_label:'Rareté:',
+            full_dungeon:'Donjon complet', boss_only:'Boss seul', rarity_label:'Rareté:', rarity_split_notice:'Les autres raretés tombent ailleurs.',
             blue:'Bleu', purple:'Violet', legendary:'Légendaire',
             comparison_level:'Comparer au', level_25_status:'Nv25 · En cours', level_data_pending:'Données Nv{level} en attente', pending_variant_warning:'Les données Nv{level} pour cette rareté ne sont pas encore vérifiées.',
             skill_final_combo:'Attaque combo finale:', skill1:'Compétence 1:', skill2:'Compétence 2:', passive:'Passif:',
@@ -1069,7 +1080,7 @@
             warrior:'Guerrero', rogue:'Pícaro', mage:'Mago', priest:'Sacerdote',
             weapons:'Armas', armor:'Armadura', mount:'Montura', glider:'Planeador', type_group_other:'Otros',
             item_name:'Nombre', item_type:'Tipo', classes:'Clases', stats_header:'Estadísticas', lv:'Nv',
-            full_dungeon:'Mazmorra completa', boss_only:'Solo jefe', rarity_label:'Rareza:',
+            full_dungeon:'Mazmorra completa', boss_only:'Solo jefe', rarity_label:'Rareza:', rarity_split_notice:'Las demás rarezas caen en otro lugar.',
             blue:'Azul', purple:'Púrpura', legendary:'Legendario',
             comparison_level:'Comparar en', level_25_status:'Nv25 · En progreso', level_data_pending:'Datos de Nv{level} pendientes', pending_variant_warning:'Los datos de Nv{level} de esta rareza aún no se verificaron.',
             skill_final_combo:'Ataque combo final:', skill1:'Habilidad 1:', skill2:'Habilidad 2:', passive:'Pasiva:',
@@ -1327,6 +1338,9 @@
                             level:v.level!==undefined?v.level:25,
                             levelData:null
                         })),
+                        dropRarities: Array.isArray(item.dropRarities)
+                            ? item.dropRarities.filter(rarity => ['blue','purple','legendary'].includes(rarity))
+                            : rawVariants.map(variant => variant.rarity || 'blue'),
                         skill1:item.skill1||'', skill2:item.skill2||'', skill3:item.skill3||'',
                         passive:item.passive||'', trinketPassive:item.trinketPassive||'',
                         level:item.level!==undefined?item.level:25,
@@ -1386,6 +1400,7 @@
                     loot:d.loot.map(l=>({
                         id:l.id, name:l.name, types:[...l.types], classes:[...l.classes],
                         stats:[...l.stats], statValues:{...l.statValues},
+                        dropRarities:Array.isArray(l.dropRarities)?[...l.dropRarities]:l.variants.map(v=>v.rarity),
                         variants:l.variants.map(v=>({rarity:v.rarity,damageMin:v.damageMin,damageMax:v.damageMax,statValues:{...v.statValues},image:v.image||'',level:v.level!==undefined?v.level:25,levelData:cloneLevelData(v.levelData)})),
                         skill1:l.skill1, skill2:l.skill2, skill3:l.skill3,
                         passive:l.passive, trinketPassive:l.trinketPassive,
@@ -1471,8 +1486,9 @@
 
         let snapshot=null;
         if(item.variants&&item.variants.length>1){
-            const selIdx=variantIndex!==null?variantIndex:(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0);
-            snapshot=getVariantLevelSnapshot(item.variants[selIdx]);
+            const defaultVariant=getDefaultVariant(item);
+            const selIdx=variantIndex!==null?variantIndex:item.variants.indexOf(defaultVariant);
+            snapshot=selIdx >= 0 ? getVariantLevelSnapshot(item.variants[selIdx]) : null;
         } else if(item.variants&&item.variants.length===1) {
             snapshot=getVariantLevelSnapshot(item.variants[0]);
         } else snapshot=getBaseLevelSnapshot(item);
@@ -1493,9 +1509,15 @@
     }
 
 
+    function getAvailableVariants(item) {
+        if (!item || !Array.isArray(item.variants)) return [];
+        if (!Array.isArray(item.dropRarities)) return item.variants;
+        return item.variants.filter(variant => item.dropRarities.includes(variant.rarity));
+    }
     function getDefaultVariant(item) {
-        if (!item.variants || item.variants.length === 0) return null;
-        return item.variants.find(variant => variant.rarity === 'blue') || item.variants[0];
+        const available = getAvailableVariants(item);
+        if (available.length === 0) return null;
+        return available.find(variant => variant.rarity === 'blue') || available[0];
     }
     function getItemImage(item, variant=null) {
         if (!item) return '';
@@ -1547,23 +1569,45 @@
         return getItemImage(item, getDefaultVariant(item));
     }
 
+    function getRarityLocationLabels(item, rarity) {
+        const labels=[];
+        allItemsMap.forEach((copy, id) => {
+            if (copy.nameId !== item.nameId || !getAvailableVariants(copy).some(variant => variant.rarity === rarity)) return;
+            const location=itemLocationMap.get(id);
+            if (!location) return;
+            const label=getZoneName({name:location.zoneName})+' › '+getDungeonName({name:location.dungeonName});
+            if (!labels.includes(label)) labels.push(label);
+        });
+        return labels;
+    }
+    function rarityDropsElsewhere(item, rarity, referenceRarity) {
+        if (rarity === referenceRarity) return false;
+        const locations=getRarityLocationLabels(item, rarity);
+        const reference=getRarityLocationLabels(item, referenceRarity);
+        return locations.length > 0 && (locations.length !== reference.length || locations.some(location => !reference.includes(location)));
+    }
+
     function buildRaritySwitcherHtml(item) {
         if(!item.variants||item.variants.length===0)return'';
         
         
         const showWarning = !item.isCustom;
         
-        const sortedVariants=[...item.variants].sort((a,b)=>{const order={blue:0,purple:1,legendary:2};return(order[a.rarity]||0)-(order[b.rarity]||0);});
+        const sortedVariants=[...getAvailableVariants(item)].sort((a,b)=>{const order={blue:0,purple:1,legendary:2};return(order[a.rarity]||0)-(order[b.rarity]||0);});
+        if (!sortedVariants.length) return '';
         const defaultRarity=sortedVariants.find(v=>v.rarity==='blue')||sortedVariants[0];
-        const defaultIndex=sortedVariants.indexOf(defaultRarity);
+        const defaultIndex=item.variants.indexOf(defaultRarity);
         const warningText=showWarning && !snapshotHasLevelData(getVariantLevelSnapshot(defaultRarity)) ? t('pending_variant_warning').replace('{level}',currentStatLevel) : '';
-        const buttons=sortedVariants.map((v,idx)=>{
+        const buttons=sortedVariants.map(v=>{
             const available=!showWarning || snapshotHasLevelData(getVariantLevelSnapshot(v));
             const label=t(v.rarity)+(available?'':' ⚠');
-            const activeClass=idx===defaultIndex?' active':'';
-            return'<button class="rarity-btn'+activeClass+'" data-rarity="'+v.rarity+'" data-rarity-index="'+idx+'" data-variant-level="'+currentStatLevel+'">'+label+'</button>';
+            const actualIndex=item.variants.indexOf(v);
+            const activeClass=actualIndex===defaultIndex?' active':'';
+            return'<button class="rarity-btn'+activeClass+'" data-rarity="'+v.rarity+'" data-rarity-index="'+actualIndex+'" data-variant-level="'+currentStatLevel+'">'+label+'</button>';
         }).join('');
-        return'<div class="rarity-control"><div class="rarity-switcher" aria-label="'+t('rarity_label')+'" data-default-index="'+defaultIndex+'">'+buttons+'</div><div class="variant-level-warning" aria-live="polite"'+(warningText?'':' hidden')+'>'+escapeHtml(warningText)+'</div></div>';
+        const hasSplitSources=sortedVariants.some(variant => rarityDropsElsewhere(item, variant.rarity, defaultRarity.rarity));
+        const splitNotice=hasSplitSources ? '<span class="rarity-split-note">'+escapeHtml(t('rarity_split_notice'))+'</span>' : '';
+        return'<div class="rarity-control"><div class="rarity-switcher" aria-label="'+t('rarity_label')+'" data-default-index="'+defaultIndex+'">'+buttons+'</div>'+splitNotice+'<div class="variant-level-warning" aria-live="polite"'+(warningText?'':' hidden')+'>'+escapeHtml(warningText)+'</div></div>';
     }
 
     function renderItemRow(item, index) {
@@ -1577,7 +1621,8 @@
         }).join('');
         const classTags=buildClassTagsHtml(item);
         const switcherHtml=buildRaritySwitcherHtml(item);
-        const defaultIndex=item.variants&&item.variants.length>1?(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0):0;
+        const defaultVariant=getDefaultVariant(item);
+        const defaultIndex=defaultVariant ? item.variants.indexOf(defaultVariant) : 0;
         const statTagsHtml=buildStatTagsHtml(item,defaultIndex);
         const defaultImage=getDefaultItemImage(item);
         const imageUrlAttr=defaultImage?' data-image-url="'+escapeHtml(defaultImage)+'"':'';
@@ -1630,7 +1675,7 @@
             const itemText=filtered.length===1?t('badge_item_singular'):t('badge_item_plural');
             return'<div class="dungeon-card'+openClass+'" data-dungeon-id="'+dungeon.id+'">'+
                 '<div class="dungeon-header" data-action="toggle-dungeon" data-zone-id="'+zone.id+'" data-dungeon-id="'+dungeon.id+'">'+
-                '<span class="dungeon-chevron">▶</span><span class="dungeon-icon">🏰</span>'+
+                '<span class="dungeon-chevron">▶</span><span class="dungeon-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V8l3 2V6l3 2 2-4 2 4 3-2v4l3-2v12Z"/><path d="M9 20v-5h6v5M4 20h16"/></svg></span>'+
                 '<div class="dungeon-info"><div class="dungeon-name-display">'+renderDungeonName(dungeon.name)+'</div><span class="badge badge-item">'+filtered.length+' '+itemText+'</span></div>'+
                 '</div><div class="dungeon-body">'+renderLootTable(sortedLoot)+'</div></div>';
         }).join('');
@@ -1796,7 +1841,7 @@
             const itemText=total===1?t('badge_item_singular'):t('badge_item_plural');
             return'<div class="zone-card'+openClass+'" data-zone-id="'+zone.id+'">'+
                 '<div class="zone-header" data-action="toggle-zone" data-zone-id="'+zone.id+'">'+
-                '<span class="zone-chevron">▶</span><span class="zone-icon">🏞️</span>'+
+                '<span class="zone-chevron">▶</span><span class="zone-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6.5 8.5 4l7 2.5L21 4v13.5L15.5 20l-7-2.5L3 20Z"/><path d="M8.5 4v13.5M15.5 6.5V20"/></svg></span>'+
                 '<div class="zone-info"><div class="zone-name-display">'+escapeHtml(getZoneName(zone))+'</div>'+
                 '<div class="zone-meta"><span class="badge badge-dungeon">'+dungeonCount+' '+dungText+'</span><span class="badge badge-item">'+total+' '+itemText+'</span></div></div></div>'+
                 '<div class="zone-body">'+renderDungeons(zone)+'</div></div>';
@@ -1834,12 +1879,28 @@
             if(!itemPassesFilter(item))return;
             const location=itemLocationMap.get(id);
             if(!location)return;
-            if(!grouped.has(item.nameId))grouped.set(item.nameId,{item,locations:[]});
+            if(!grouped.has(item.nameId))grouped.set(item.nameId,{item,items:[item],locations:[]});
             const group=grouped.get(item.nameId);
+            if (group.items[0] !== item) group.items.push(item);
             const locationKey=getStableId(location.zoneName)+'|'+getStableId(location.dungeonName);
-            if(!group.locations.some(loc=>loc.key===locationKey))group.locations.push({...location,key:locationKey});
+            if(!group.locations.some(loc=>loc.key===locationKey)) {
+                const assigned = Array.isArray(item.dropRarities) ? item.dropRarities : (item.variants || []).map(variant => variant.rarity);
+                group.locations.push({...location,key:locationKey,rarities:assigned});
+            }
         });
-        const filteredItems=[...grouped.values()];
+        const filteredItems=[...grouped.values()].map(group => {
+            if (group.items.length > 1) {
+                const combined=structuredClone(group.item);
+                const byRarity=new Map();
+                group.items.forEach(copy => (copy.variants || []).forEach(variant => {
+                    if (!byRarity.has(variant.rarity)) byRarity.set(variant.rarity, structuredClone(variant));
+                }));
+                combined.variants=[...byRarity.values()];
+                combined.dropRarities=combined.variants.map(variant => variant.rarity);
+                group.item=combined;
+            }
+            return group;
+        });
         if(filteredItems.length===0){
             let emptyMsg='';
             if(showFavoritesOnly || sharedBuild) {
@@ -1877,7 +1938,8 @@
             }).join('');
             const classTags=buildClassTagsHtml(item);
             const switcherHtml=buildRaritySwitcherHtml(item);
-            const defaultIndex=item.variants&&item.variants.length>1?(item.variants.findIndex(v=>v.rarity==='blue')!==-1?item.variants.findIndex(v=>v.rarity==='blue'):0):0;
+            const defaultVariant=getDefaultVariant(item);
+            const defaultIndex=defaultVariant ? item.variants.indexOf(defaultVariant) : 0;
             const statTagsHtml=buildStatTagsHtml(item,defaultIndex), defaultImage=getDefaultItemImage(item), imageUrlAttr=defaultImage?' data-image-url="'+escapeHtml(defaultImage)+'"':'';
             const abils=[];
             if((isWeapon(item)||item.types.includes('Shield'))&&hasAbilities(item)){
@@ -1893,7 +1955,11 @@
             const missingCls=hasNoLevelData?' item-missing-lv-data':'';
             const favClass=isFavorited(item.nameId)?' favorited':'';
             const starHtml='<span class="fav-star'+favClass+'" data-item-id="'+item.id+'" data-action="toggle-favorite">★</span>';
-            const locationHtml='<div class="source-list">'+locations.map(loc=>'<div class="source-entry"><span class="source-bullet">◆</span><span><span class="location-zone">'+escapeHtml(getZoneName({name:loc.zoneName}))+'</span> › <span class="location-dungeon">'+renderDungeonName(loc.dungeonName)+'</span></span></div>').join('')+'</div>';
+            const initialRarity=(getDefaultVariant(item)||{}).rarity || '';
+            const locationHtml='<div class="source-list">'+locations.map(loc=>{
+                const visible=!initialRarity || (loc.rarities||[]).includes(initialRarity);
+                return '<div class="source-entry rarity-source" data-source-rarities="'+escapeHtml((loc.rarities||[]).join(','))+'"'+(visible?'':' hidden')+'><span class="source-bullet">◆</span><span><span class="location-zone">'+escapeHtml(getZoneName({name:loc.zoneName}))+'</span> › <span class="location-dungeon">'+renderDungeonName(loc.dungeonName)+'</span></span></div>';
+            }).join('')+'</div>';
             return'<tr class="item-main-row'+(detailHtml?' item-row-has-details':'')+missingCls+'" data-item-id="'+detailId+'"'+(detailHtml?' data-action="toggle-item-detail"':'')+'>'+
                 '<td data-label="'+t('item_name')+'"><span class="item-name '+typeColorClass+'"'+imageUrlAttr+'>'+starHtml+escapeHtml(getItemName(item))+(detailHtml?' <span class="detail-indicator">▶</span>':'')+'</span>'+switcherHtml+'</td>'+
                 '<td data-label="'+t('item_type')+'"><div class="tag-container">'+typeTags+'</div></td><td data-label="'+t('classes')+'"><div class="tag-container">'+classTags+'</div></td>'+
@@ -2403,9 +2469,9 @@
             const row=switcher.closest('tr.item-main-row');
             const itemId=row.dataset.itemId;
             let item=allItemsMap.get(itemId);
-            if(!item&&itemId&&itemId.startsWith('viewer-'))item=[...allItemsMap.values()].find(candidate=>candidate.nameId===itemId.slice(7));
-            if(!item||!item.variants)return;
             const rarity=btn.dataset.rarity;
+            if(!item&&itemId&&itemId.startsWith('viewer-'))item=[...allItemsMap.values()].find(candidate=>candidate.nameId===itemId.slice(7) && (candidate.variants || []).some(variant => variant.rarity===rarity));
+            if(!item||!item.variants)return;
             const variantIndex=item.variants.findIndex(v=>v.rarity===rarity);
             if(variantIndex===-1)return;
             switcher.querySelectorAll('.rarity-btn').forEach(b=>b.classList.remove('active'));
@@ -2416,6 +2482,10 @@
             const variant=item.variants[variantIndex];
             const warningText=snapshotHasLevelData(getVariantLevelSnapshot(variant))?'':t('pending_variant_warning').replace('{level}',currentStatLevel);
             if(levelWarning){levelWarning.textContent=warningText;levelWarning.hidden=!warningText;}
+            row.querySelectorAll('.rarity-source').forEach(source => {
+                const rarities=(source.dataset.sourceRarities||'').split(',').filter(Boolean);
+                source.hidden=rarities.length>0 && !rarities.includes(rarity);
+            });
             const nameEl=row.querySelector('.item-name');
             if(nameEl){
                 const img=getItemImage(item, variant);
