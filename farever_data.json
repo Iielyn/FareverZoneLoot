@@ -9780,10 +9780,11 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": ""
+                  "image": "images/SemeruianMoth.png"
                 }
               },
-              "rare": false
+              "rare": false,
+              "image": "images/SemeruianMoth.png"
             }
           ]
         },
@@ -11740,10 +11741,11 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": ""
+                  "image": "images/NescentineLeggybug.png"
                 }
               },
-              "rare": false
+              "rare": false,
+              "image": "images/NescentineLeggybug.png"
             }
           ]
         }
@@ -13453,10 +13455,11 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": ""
+                  "image": "images/EbralDragoon.png"
                 }
               },
-              "rare": false
+              "rare": false,
+              "image": "images/EbralDragoon.png"
             }
           ]
         }
@@ -15394,10 +15397,11 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": ""
+                  "image": "images/AcidicWingfish.png"
                 }
               },
-              "rare": false
+              "rare": false,
+              "image": "images/AcidicWingfish.png"
             }
           ]
         }
