@@ -8172,8 +8172,14 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 38,
+                        "Dexterity": 20,
+                        "Faith": 16,
+                        "Magic Penetration": 40,
+                        "Fervor": 40
+                      },
+                      "image": "images/ThornlaceL.png"
                     }
                   }
                 }
@@ -19855,11 +19861,28 @@
                       "image": "images/RamulusRamusP.png"
                     }
                   }
+                },
+                {
+                  "rarity": "blue",
+                  "damageMin": 0,
+                  "damageMax": 0,
+                  "statValues": {},
+                  "level": 25,
+                  "image": "",
+                  "levelData": {
+                    "25": {
+                      "damageMin": 0,
+                      "damageMax": 0,
+                      "statValues": {},
+                      "image": ""
+                    }
+                  }
                 }
               ],
               "dropRarities": [
                 "legendary",
-                "purple"
+                "purple",
+                "blue"
               ]
             },
             {
