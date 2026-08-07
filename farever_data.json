@@ -436,8 +436,14 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 42,
+                        "Faith": 16,
+                        "Intelligence": 20,
+                        "Magic Penetration": 40,
+                        "Fervor": 40
+                      },
+                      "image": "images/GhostClamsoftheLowTideL.png"
                     }
                   }
                 }
@@ -12156,8 +12162,14 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 29,
+                        "Dexterity": 15,
+                        "Faith": 12,
+                        "Critical": 35,
+                        "Armor Penetration": 35
+                      },
+                      "image": "images/GorgonRatsaysToothpickB.png"
                     }
                   }
                 },
@@ -13765,8 +13777,13 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 33,
+                        "Dexterity": 17,
+                        "Intelligence": 17,
+                        "Critical": 75
+                      },
+                      "image": "images/HornsoftheWindP.png"
                     }
                   }
                 },
@@ -14012,7 +14029,7 @@
                         "Magic Penetration": 35,
                         "Fervor": 35
                       },
-                      "image": "images/BookofMiMizan.png"
+                      "image": "images/BookofMiMizanB.png"
                     }
                   }
                 },
