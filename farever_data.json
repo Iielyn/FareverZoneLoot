@@ -14005,8 +14005,14 @@
                     "25": {
                       "damageMin": 0,
                       "damageMax": 0,
-                      "statValues": {},
-                      "image": ""
+                      "statValues": {
+                        "Vitality": 32,
+                        "Faith": 12,
+                        "Intelligence": 15,
+                        "Magic Penetration": 35,
+                        "Fervor": 35
+                      },
+                      "image": "images/BookofMiMizan.png"
                     }
                   }
                 },
