@@ -8846,8 +8846,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 166,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Fervor": 22
+                  },
+                  "image": "images/Beewings.png"
                 }
               },
               "rare": false,
@@ -10728,8 +10733,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 166,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Fervor": 22
+                  },
+                  "image": "images/Beewings.png"
                 }
               },
               "rare": false,
@@ -16363,8 +16373,13 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 166,
+                    "Vitality": 7,
+                    "Dexterity": 8,
+                    "Fervor": 22
+                  },
+                  "image": "images/Beewings.png"
                 }
               },
               "rare": false,
