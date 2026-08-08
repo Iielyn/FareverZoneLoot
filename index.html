@@ -948,31 +948,40 @@
 
 
 #builder-root .narrow-strip {
-    background: var(--bg-alt); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 12px 16px; margin-bottom: 14px;
+    background: rgba(200, 162, 78, 0.04);
+    border: 1px solid rgba(200, 162, 78, 0.25);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 #builder-root .narrow-intro {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    margin-bottom: 10px;
+    font-size: 0.78rem;
+    color: var(--text-bright);
+    margin-bottom: 12px;
     line-height: 1.5;
+    font-weight: 600;
 }
 #builder-root .narrow-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-#builder-root .narrow-row + .narrow-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+#builder-root .narrow-row + .narrow-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(200, 162, 78, 0.15); }
 #builder-root .narrow-label {
-    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.07em; color: var(--text-muted); margin-right: 2px;
+    font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--gold-bright); margin-right: 6px;
     white-space: nowrap;
 }
 #builder-root .chip-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
 
 #builder-root .chip {
-    padding: 6px 12px; font-size: 0.7rem; font-weight: 500;
-    border-radius: var(--radius-pill); border: 1px solid var(--border);
-    background: var(--tag-bg); color: var(--tag-text); cursor: pointer;
+    padding: 6px 12px; font-size: 0.72rem; font-weight: 600;
+    border-radius: var(--radius-pill); border: 1px solid rgba(255, 255, 255, 0.12);
+    background: var(--surface2); color: var(--text-dim); cursor: pointer;
     transition: all var(--transition); font-family: var(--font); white-space: nowrap;
 }
-#builder-root .chip:hover { background: var(--surface2); color: var(--text); border-color: var(--border-light); }
+#builder-root .chip:hover {
+    background: var(--surface3); color: var(--text-bright); border-color: var(--gold);
+    box-shadow: 0 0 8px rgba(200, 162, 78, 0.35);
+}
 #builder-root .chip.active { background: var(--surface2); border-color: var(--border-light); color: var(--text-bright); }
 #builder-root .chip[data-type="__all"].active { background: rgba(99,102,241,0.12); border-color: var(--accent); color: var(--accent-hover); }
 #builder-root .chip[data-type="Sword"].active { background: rgba(125,211,252,0.10); border-color: #7dd3fc; color: #bae6fd; }
