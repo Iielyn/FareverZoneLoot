@@ -5904,11 +5904,11 @@
               "levelData": {
                 "25": {
                   "statValues": {},
-                  "image": "images/Meropsian Crab.png"
+                  "image": "images/MeropsianCrab.png"
                 }
               },
               "rare": false,
-              "image": "images/Meropsian Crab.png"
+              "image": "images/MeropsianCrab.png"
             }
           ]
         }
@@ -20058,6 +20058,52 @@
                 }
               },
               "rare": false
+            },
+            {
+              "name": {
+                "en": "Original Paramglider",
+                "fr": "",
+                "es": ""
+              },
+              "types": [
+                "Glider"
+              ],
+              "stats": [],
+              "skill1": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill2": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "skill3": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "passive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "trinketPassive": {
+                "en": "",
+                "fr": "",
+                "es": ""
+              },
+              "level": 25,
+              "experimentalScope": "unknown",
+              "levelData": {
+                "25": {
+                  "statValues": {},
+                  "image": "images/OriginalParamglider.png"
+                }
+              },
+              "rare": false,
+              "image": "images/OriginalParamglider.png"
             }
           ]
         },
