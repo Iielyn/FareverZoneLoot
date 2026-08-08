@@ -857,7 +857,7 @@
     <div class="header-right">
         <div style="display:flex; gap:10px; align-items:center; justify-content:flex-end; flex-wrap:wrap;">
             <div class="live-viewers-badge" id="live-viewers-badge"><span class="live-dot" aria-hidden="true"></span><span class="live-count-num" id="live-viewers-count">&mdash;</span><span class="live-label" id="live-viewers-label">Currently viewing the page</span></div>
-            <div class="lang-switcher" id="lang-switcher"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="es">ES</button><button class="lang-btn" data-lang="fr">FR</button></div>
+            <div class="lang-switcher" id="lang-switcher"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="de">DE</button><button class="lang-btn" data-lang="es">ES</button><button class="lang-btn" data-lang="fr">FR</button></div>
         </div>
         <div class="header-actions">
             <div class="search-wrapper"><span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span><input type="text" class="search-input" id="search-input" placeholder="Search items..." autocomplete="off"></div>
@@ -1133,6 +1133,67 @@
             suggest_tooltip:'¿Falta un objeto? ¿Tienes una idea? ¡Abre un issue en GitHub o escríbeme en Discord!',
             count_tooltip_sep:': ', count_items_one:'1 objeto', count_items_many:'{items} objetos', count_drops:'{drops} drops de mazmorra',
             copy_hint:'Copiar', copy_hint_done:'¡Copiado!', toast_discord_copied:'¡{handle} copiado al portapapeles!', discord_copy_aria:'Copiar el usuario de Discord {handle}',
+        },
+        de: {
+            filter_label:'Filter', class_label:'Klasse', stats_label:'Werte', category_label:'Kategorie', type_label:'Typ',
+            clear_filters:'✕ Filter löschen', clear_favorites:'🗑️ Favoriten löschen', favorites_button:'⭐ Favoriten',
+            view_label:'Ansicht', view_loot:'Beute', view_dungeons:'Dungeons',
+            warrior:'Krieger', rogue:'Schurke', mage:'Magier', priest:'Priester',
+            weapons:'Waffen', armor:'Rüstung', mount:'Reittier', glider:'Gleiter', type_group_other:'Sonstiges',
+            item_name:'Gegenstand', item_type:'Typ', classes:'Klassen', stats_header:'Werte', lv:'St',
+            full_dungeon:'Gesamter Dungeon', boss_only:'Nur Boss', rarity_label:'Seltenheit:', rarity_split_notice:'Andere Seltenheiten fallen anderswo.',
+            blue:'Blau', purple:'Lila', legendary:'Legendär',
+            comparison_level:'Vergleichen bei', level_25_status:'St25 · in Arbeit', level_data_pending:'Daten für St{level} ausstehend', pending_variant_warning:'Die Daten für St{level} dieser Seltenheit sind noch nicht verifiziert.',
+            skill_final_combo:'Finale Kombo-Attacke:', skill1:'Fertigkeit 1:', skill2:'Fertigkeit 2:', passive:'Passiv:',
+            search_placeholder:'Gegenstände suchen...', suggest_button:'💡 Vorschlagen',
+            toast_filters_cleared:'Alle Filter zurückgesetzt', toast_favorites_cleared:'Favoriten gelöscht',
+            scroll_top_title:'Nach oben',
+            footer_text:'© 2026 Farever — Erstellt von {creator}. Alle Rechte vorbehalten. Spielinhalte gehören den jeweiligen Entwicklern.',
+            empty_no_zones_title:'Keine Zonen verfügbar.', empty_no_zones_desc:'Lade deine JSON-Daten, um zu beginnen.',
+            empty_no_match_title:'Keine Zonen oder Dungeons passen zu deinen Filtern.', empty_no_match_desc:'Passe die Suche an oder setze Filter zurück.',
+            badge_item_singular:'Gegenstand', badge_item_plural:'Gegenstände', badge_dungeon_singular:'Dungeon', badge_dungeon_plural:'Dungeons',
+            header_subtitle:'Dungeon-Drop-Datenbank', cap_badge_text:'Alle Werte auf St{level}',
+            online:'Sehen sich die Seite gerade an', toast_data_updated:'🔄 Daten aktualisiert auf Version ',
+            stat_Armor:'Rüstung', stat_Vitality:'Vitalität', stat_Strength:'Stärke', stat_Dexterity:'Geschicklichkeit',
+            stat_Faith:'Glaube', stat_Intelligence:'Intelligenz', stat_Critical:'Kritisch',
+            stat_Armor_Penetration:'Rüstungsdurchdringung', stat_Magic_Penetration:'Magiedurchdringung', stat_Fervor:'Inbrunst',
+            type_Sword:'Schwert', type_Dual_Sword:'Doppelschwert', type_Two_Handed_Sword:'Zweihandschwert', type_Axe:'Axt', type_Dual_Axes:'Doppelaxt',
+            type_Daggers:'Dolche', type_Mace:'Streitkolben', type_Dual_Maces:'Doppelkolben', type_Spear:'Speer',
+            type_Fists:'Fäuste', type_Two_Handed_Axe:'Zweihandaxt', type_Two_Handed_Mace:'Zweihandstreitkolben',
+            type_Bow:'Bogen', type_Thrown:'Wurfwaffen', type_Staff:'Stab', type_Scepter:'Zepter', type_Crescent:'Sichel',
+            type_Halos:'Heiligenscheine', type_Spellbook:'Zauberbuch', type_Shield:'Schild',
+            type_Head:'Kopf', type_Shoulders:'Schultern', type_Chest:'Brust', type_Back:'Rücken',
+            type_Hands:'Hände', type_Waist:'Taille', type_Legs:'Beine', type_Feet:'Füße',
+            type_Trinket:'Schmuckstück', type_Ring:'Ring', type_Necklace:'Halskette', type_Sigil:'Siegel', type_Mount:'Reittier', type_Glider:'Gleiter',
+            whats_new_button:'Neuigkeiten', support_button:'Unterstützen',
+            exit_build_view:'❌ Build-Ansicht verlassen', build_view_title:'Build wird angezeigt: {name}',
+            toast_generating_link:'Teilbarer Link wird generiert...',
+            toast_link_copied:'Teilbarer Link in die Zwischenablage kopiert!',
+            toast_cannot_modify_build:'Favoriten können während der Ansicht eines geteilten Builds nicht geändert werden.',
+            save_build_button:'＋ Loadout aus Favoriten erstellen', builds_header:'📁 Gespeicherte Loadouts',
+            toast_build_saved:'Build gespeichert!', toast_build_loaded:'„{name}“ geladen', toast_build_deleted:'„{name}“ gelöscht',
+            toast_no_favorites_save:'Füge mindestens einen Gegenstand zu den Favoriten hinzu, bevor du ein Loadout erstellst.',
+            build_overwrite_confirm:'Ein Build namens „{name}“ existiert bereits. Überschreiben?',
+            build_delete_confirm:'Build „{name}“ löschen?', toast_build_no_items:'Der Build enthält keine Gegenstände.',
+            save_build_modal_title:'Favoriten als Loadout speichern', build_name_placeholder:'Loadout-Name (max. 30 Zeichen)',
+            save_button:'Speichern', cancel_button:'Abbrechen', load_button:'Laden', location:'Fundort',
+            class_exclusive:'Klassenexklusiv',
+            save_build_disabled_title:'Füge zuerst Gegenstände zu den Favoriten hinzu, um sie als Loadout zu speichern.', save_build_ready_title:'Speichere deine {count} Favoriten als benanntes Loadout.',
+            boss_kill_only:'Nur nach Boss-Kill', rift_gate_milestone:'Schließe 15 Tore in einem einzigen Riss', milestone_reward:'Riss-Meilenstein-Belohnung', drop_rate_unconfirmed:'Geschätzte Drop-Chance: 0,1 %–1 % (unbestätigt)',
+            search_filter_label:'Suche: {query}', active_filters_label:'Aktiv', clear_active_filters:'Alle löschen', remove_filter:'{label} entfernen', favorites_options:'Favoriten-Optionen',
+            build_name_description:'Dies speichert deine aktuellen Favoriten als separates Loadout. Deine Favoriten werden nicht verändert.',
+            share_button:'Teilen', delete_button:'Löschen', load_build_title:'Loadout öffnen', share_build_title:'Teilbaren Link kopieren', delete_build_title:'Loadout löschen',
+            viewer_empty:'Dieses Loadout enthält keine Gegenstände.', viewer_empty_search:'Keine Gegenstände in diesem Loadout passen zu „{query}“.',
+            empty_no_favorites_match:'Keine Favoriten passen zu den aktuellen Filtern. Versuche, sie zurückzusetzen.', share_prompt:'Kopiere diesen Link, um deinen Build zu teilen:',
+            image_alt:'Gegenstandsbild', image_unavailable:'🖼️ Bild nicht verfügbar',
+            social_discord_help:'Füge mich auf Discord hinzu, wenn du helfen möchtest, Gegenstände oder Screenshots beizusteuern!',
+            social_liam_label:'Besonderer Dank an LiamH!',
+            social_liam_thanks:'Vielen Dank an Liam für die ganze Hilfe, Gegenstände, Bilder und Shoutouts! Er ist ein toller Typ, schau bei ihm vorbei!',
+            social_second_twitch_label:'Besonderer Dank an awfulyoguys!',
+            social_second_twitch_thanks:'Vielen Dank für die ganze Hilfe mit den Screenshots! Alles Gute!',
+            suggest_tooltip:'Fehlt ein Gegenstand oder hast du eine Idee? Eröffne ein GitHub-Issue oder schreibe mir auf Discord!',
+            count_tooltip_sep:': ', count_items_one:'1 Gegenstand', count_items_many:'{items} Gegenstände', count_drops:'{drops} Dungeon-Drops',
+            copy_hint:'Kopieren', copy_hint_done:'Kopiert', toast_discord_copied:'{handle} in die Zwischenablage kopiert!', discord_copy_aria:'Discord-Namen {handle} kopieren',
         }
     };
 
@@ -1769,7 +1830,7 @@
             const nameId = "custom-" + toSlug(data.name);
             const customItem = {
                 id: "custom_" + toSlug(data.name),
-                name: { en: data.name, fr: data.name, es: data.name },
+                name: { en: data.name, de: data.name, fr: data.name, es: data.name },
                 types: [data.type],
                 classes: data.classes || ["warrior", "rogue", "mage", "priest"],
                 stats: data.stats || [],
@@ -3407,7 +3468,7 @@ function setupImageTooltip() {
 
         const customItem = {
             id: "custom_" + toSlug(data.name),
-            name: { en: data.name, fr: data.name, es: data.name },
+            name: { en: data.name, de: data.name, fr: data.name, es: data.name },
             types: [data.type],
             classes: data.classes || ["warrior", "rogue", "mage", "priest"],
             stats: data.stats || [],
