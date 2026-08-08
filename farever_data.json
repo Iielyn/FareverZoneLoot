@@ -22113,52 +22113,6 @@
               },
               "rare": false,
               "image": "images/IrritableOculurk.png"
-            },
-            {
-              "name": {
-                "en": "Irascible Oculurk",
-                "fr": "",
-                "es": ""
-              },
-              "types": [
-                "Glider"
-              ],
-              "stats": [],
-              "skill1": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "skill2": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "skill3": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "passive": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "trinketPassive": {
-                "en": "",
-                "fr": "",
-                "es": ""
-              },
-              "level": 25,
-              "experimentalScope": "unknown",
-              "levelData": {
-                "25": {
-                  "statValues": {},
-                  "image": "images/IrascibleOculurk.png"
-                }
-              },
-              "rare": false,
-              "image": "images/IrascibleOculurk.png"
             }
           ]
         },

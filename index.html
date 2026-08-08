@@ -996,7 +996,7 @@
             save_button:'Save', cancel_button:'Cancel', load_button:'Load', location:'Location',
             class_exclusive:'Class Exclusive',
             save_build_disabled_title:'Favorite items first, then save them as a loadout.', save_build_ready_title:'Save your {count} favorites as a named loadout.',
-            boss_kill_only:'Boss kill only', drop_rate_unconfirmed:'Estimated drop chance: 0.1%–1% (unconfirmed)',
+            boss_kill_only:'Boss kill only', rift_gate_milestone:'Close 15 gates in one Rift', milestone_reward:'Rift milestone reward', drop_rate_unconfirmed:'Estimated drop chance: 0.1%–1% (unconfirmed)',
             search_filter_label:'Search: {query}', active_filters_label:'Active', clear_active_filters:'Clear all', remove_filter:'Remove {label}', favorites_options:'Favorite options',
             build_name_description:'This saves your current Favorites as a separate loadout. Your Favorites will not be changed.',
             share_button:'Share', delete_button:'Delete', load_build_title:'Open loadout', share_build_title:'Copy share link', delete_build_title:'Delete loadout',
@@ -1057,7 +1057,7 @@
             save_button:'Enregistrer', cancel_button:'Annuler', load_button:'Charger', location:'Emplacement',
             class_exclusive:'Classe exclusive',
             save_build_disabled_title:'Ajoutez d’abord des favoris, puis enregistrez-les comme configuration.', save_build_ready_title:'Enregistrer vos {count} favoris comme configuration.',
-            boss_kill_only:'Boss uniquement', drop_rate_unconfirmed:'Chance de drop estimée : 0,1 %–1 % (non confirmée)',
+            boss_kill_only:'Boss uniquement', rift_gate_milestone:'Fermer 15 portes en une Faille', milestone_reward:'Récompense de palier de Faille', drop_rate_unconfirmed:'Chance de drop estimée : 0,1 %–1 % (non confirmée)',
             search_filter_label:'Recherche : {query}', active_filters_label:'Actifs', clear_active_filters:'Tout effacer', remove_filter:'Retirer {label}', favorites_options:'Options des favoris',
             build_name_description:'Cela enregistre vos favoris actuels comme une configuration séparée. Vos favoris ne seront pas modifiés.',
             share_button:'Partager', delete_button:'Supprimer', load_build_title:'Ouvrir la configuration', share_build_title:'Copier le lien de partage', delete_build_title:'Supprimer la configuration',
@@ -1118,7 +1118,7 @@
             save_button:'Guardar', cancel_button:'Cancelar', load_button:'Cargar', location:'Ubicación',
             class_exclusive:'Clase exclusiva',
             save_build_disabled_title:'Primero agrega favoritos y luego guárdalos como equipo.', save_build_ready_title:'Guardar tus {count} favoritos como equipo.',
-            boss_kill_only:'Solo jefe', drop_rate_unconfirmed:'Probabilidad estimada de drop: 0,1 %–1 % (sin confirmar)',
+            boss_kill_only:'Solo jefe', rift_gate_milestone:'Cierra 15 portales en una Fisura', milestone_reward:'Recompensa de hito de Fisura', drop_rate_unconfirmed:'Probabilidad estimada de drop: 0,1 %–1 % (sin confirmar)',
             search_filter_label:'Buscar: {query}', active_filters_label:'Activos', clear_active_filters:'Limpiar todo', remove_filter:'Quitar {label}', favorites_options:'Opciones de favoritos',
             build_name_description:'Esto guarda tus favoritos actuales como un equipo separado. Tus favoritos no cambiarán.',
             share_button:'Compartir', delete_button:'Eliminar', load_build_title:'Abrir equipo', share_build_title:'Copiar enlace para compartir', delete_build_title:'Eliminar equipo',
@@ -1175,9 +1175,13 @@
     const hasAbilities = item => item.skill1||item.skill2||item.skill3||item.passive;
     const hasTrinketPassive = item => item.trinketPassive&&(typeof item.trinketPassive==='string'?item.trinketPassive.trim()!=='':item.trinketPassive.en&&item.trinketPassive.en.trim()!=='');
     const isMountOrGlider = item => Array.isArray(item.types)&&item.types.some(type=>MOUNT_GLIDER_TYPES.includes(type));
+    function isNiflelianDragoon(item) {
+        return getLocalizedText(item && item.name, 'en').trim().toLocaleLowerCase() === 'niflelian dragoon';
+    }
     function buildClassTagsHtml(item) {
         if (isMountOrGlider(item)) {
-            return '<span class="tag boss-kill-only">'+escapeHtml(t('boss_kill_only'))+'</span>';
+            const acquisitionKey=isNiflelianDragoon(item)?'rift_gate_milestone':'boss_kill_only';
+            return '<span class="tag boss-kill-only">'+escapeHtml(t(acquisitionKey))+'</span>';
         }
         const classTags=sortByOrder(item.classes,CLASS_OPTIONS).map(cls=>'<span class="tag class-'+cls+'">'+escapeHtml(t(cls))+'</span>').join('');
         return classTags;
@@ -1481,7 +1485,8 @@
         }
 
         if (isMountOrGlider(item)) {
-            return '<span class=\"tag drop-rate-unconfirmed\">'+escapeHtml(t('drop_rate_unconfirmed'))+'</span>';
+            const rateKey=isNiflelianDragoon(item)?'milestone_reward':'drop_rate_unconfirmed';
+            return '<span class=\"tag drop-rate-unconfirmed\">'+escapeHtml(t(rateKey))+'</span>';
         }
 
         let snapshot=null;
