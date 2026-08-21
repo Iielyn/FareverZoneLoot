@@ -6744,8 +6744,14 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 136,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Fervor": 22
+                  },
+                  "image": "images/WarSabatonsofApix.png"
                 }
               },
               "rare": false,
@@ -7357,8 +7363,14 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 136,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Fervor": 22
+                  },
+                  "image": "images/WarSabatonsofApix.png"
                 }
               },
               "rare": false,
@@ -12127,8 +12139,14 @@
               "experimentalScope": "faction",
               "levelData": {
                 "25": {
-                  "statValues": {},
-                  "image": ""
+                  "statValues": {
+                    "Armor": 136,
+                    "Vitality": 8,
+                    "Dexterity": 4,
+                    "Intelligence": 4,
+                    "Fervor": 22
+                  },
+                  "image": "images/WarSabatonsofApix.png"
                 }
               },
               "rare": false,
